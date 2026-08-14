@@ -345,7 +345,26 @@ A --> B
 強制してはならない（引き伸ばし・縮小・左寄せの三分裂を招く）。
 不変条件の詳細は `.claude/rules/mermaid-diagram-layout.md` を参照。
 
-`MermaidDiagram.vue` は **2層構造 + svg 後処理**でレイアウトを自己完結させる契約:
+サイト全体の Mermaid 設定は、クライアントプラグインでアプリ起動時に一度だけ初期化する。
+図のマウントごとに `mermaid.initialize` を呼ぶと、同時描画する別の図の設定を上書きするため禁止する。
+
+```ts
+// plugins/mermaid.client.ts
+import mermaid from "mermaid";
+
+export default defineNuxtPlugin(() => {
+  mermaid.initialize({
+    startOnLoad: false,
+    // 自然サイズを起点に縮小するため flowchart/sequence/mindmap とも false
+    flowchart: { useMaxWidth: false, htmlLabels: true },
+    sequence: { useMaxWidth: false },
+    mindmap: { useMaxWidth: false },
+  });
+});
+```
+
+`MermaidDiagram.vue` は **図ごとの frontmatter config + 2層構造 + svg 後処理**で
+設定とレイアウトを自己完結させる契約:
 
 ```vue
 <script setup lang="ts">
@@ -356,19 +375,20 @@ const props = defineProps<{
   maxHeight?: string;
 }>();
 const el = ref<HTMLElement | null>(null);
+const diagramId = `m-${useId()}`;
+
+function chartWithConfig(): string {
+  const config = {
+    theme: props.theme ?? "base",
+    themeVariables: { fontSize: "16px", ...props.themeVariables },
+  };
+  // JSON の object literal は YAML flow mapping として有効。
+  return `---\nconfig: ${JSON.stringify(config)}\n---\n${props.chart}`;
+}
 
 onMounted(async () => {
   const mermaid = (await import("mermaid")).default;
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: props.theme ?? "base",
-    themeVariables: props.themeVariables,
-    // 自然サイズを起点に縮小するため flowchart/sequence/mindmap とも false
-    flowchart: { useMaxWidth: false, htmlLabels: true },
-    sequence: { useMaxWidth: false },
-    mindmap: { useMaxWidth: false },
-  });
-  const { svg } = await mermaid.render(`m-${useId()}`, props.chart);
+  const { svg } = await mermaid.render(diagramId, chartWithConfig());
   if (!el.value) return;
   el.value.innerHTML = svg;
   // 列幅より広い図は列幅まで縮小して中央に収める（切れ・左寄りを防ぐ）
@@ -421,7 +441,7 @@ Mermaid は DOM を必要とするため SSR できない。ページ側では `
 | `maxHeight` | `string` | 巨大化する図（少ノードの `stateDiagram-v2` 等）**だけ**に個別指定 |
 
 > `themeVariables` は**モジュールレベル定数**として定義する。テンプレート内でオブジェクトリテラルを
-> 直接書くと毎レンダー新しい参照になり、再初期化とチラつきの原因になる。
+> 直接書かず、図ごとの frontmatter config を予測可能に保つ。
 
 ```vue
 <script setup lang="ts">
@@ -432,7 +452,7 @@ const LIGHT_THEME_VARS = { fontSize: "16px", primaryColor: "#EEF1F8" };
 <template>
   <!-- ✅ -->
   <MermaidDiagram :chart="DIAGRAM_WBS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
-  <!-- ❌ 毎レンダー新しいオブジェクト → 再初期化とチラつき -->
+  <!-- ❌ 毎レンダー新しいオブジェクトになり、設定値の追跡が不安定 -->
   <MermaidDiagram :chart="DIAGRAM_WBS" theme="base" :theme-variables="{ fontSize: '16px' }" />
 </template>
 ```
@@ -625,7 +645,58 @@ C-6c の `MERMAID_DIAGRAM_DECLARATION` は、監査スクリプトと同じ
 > ビルドもテストも通るのに**ブラウザでだけ図が全滅する**という、最も発見が遅れる壊れ方をする。
 > 静的に弾けるので必ずテストに入れる。
 
-### 6-3: 図解の総数を原本から数えるコマンド
+### 6-3: 図ごとの themeVariables を同時描画しても分離する
+
+`MermaidDiagram.vue` のテストでは `mermaid.render` をモックし、異なる設定の図を同じ親へ
+同時にマウントする。各呼び出しの Mermaid ソースに固有の frontmatter config が入り、
+コンポーネントから `initialize` を呼ばないことを固定する。
+
+```ts
+// tests/components/MermaidDiagram.test.ts
+import { flushPromises, mount } from "@vue/test-utils";
+import { defineComponent } from "vue";
+import { describe, expect, it, vi } from "vitest";
+import MermaidDiagram from "~/components/MermaidDiagram.vue";
+
+const { render } = vi.hoisted(() => ({
+  render: vi.fn(async (_id: string, _source: string) => ({ svg: "<svg></svg>" })),
+}));
+
+// initialize を持たせない。コンポーネントが再初期化すればテストは失敗する。
+vi.mock("mermaid", () => ({ default: { render } }));
+
+describe("MermaidDiagram", () => {
+  it("図ごとの themeVariables を同時マウント間で分離する", async () => {
+    const Host = defineComponent({
+      components: { MermaidDiagram },
+      template: `
+        <div>
+          <MermaidDiagram chart="flowchart LR\nA --&gt; B" theme="base"
+            :theme-variables="{ primaryColor: '#ffeeee' }" />
+          <MermaidDiagram chart="flowchart LR\nC --&gt; D" theme="base"
+            :theme-variables="{ primaryColor: '#eeeeff' }" />
+        </div>
+      `,
+    });
+
+    mount(Host);
+    await flushPromises();
+
+    expect(render).toHaveBeenCalledTimes(2);
+    const sources = render.mock.calls.map(([, source]) => source);
+    expect(sources[0]).toContain(
+      'config: {"theme":"base","themeVariables":{"fontSize":"16px","primaryColor":"#ffeeee"}}',
+    );
+    expect(sources[0]).toContain("flowchart LR\nA --> B");
+    expect(sources[1]).toContain(
+      'config: {"theme":"base","themeVariables":{"fontSize":"16px","primaryColor":"#eeeeff"}}',
+    );
+    expect(sources[1]).toContain("flowchart LR\nC --> D");
+  });
+});
+```
+
+### 6-4: 図解の総数を原本から数えるコマンド
 
 ```bash
 # HTML 原本 — このリポジトリの DIAGRAMS オブジェクト方式
@@ -645,7 +716,7 @@ grep -c '<MermaidDiagram' pages/<slug>.vue
 （`.claude/skills/nuxt-page-migration/references/source-parity-audit.md`）と
 併せて解消してから Green コミットする。
 
-### 6-4: ユニットテストで検証できないこと（目視確認が必要）
+### 6-5: ユニットテストで検証できないこと（目視確認が必要）
 
 以下はブラウザでの目視確認が必須。
 
