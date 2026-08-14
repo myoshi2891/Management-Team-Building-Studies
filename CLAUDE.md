@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Updated 2026-08-14
+Updated 2026-08-15
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -18,37 +18,70 @@ Updated 2026-08-14
 
 ```text
 Certified-Associate-in-Project-Management.md     CAPM ガイド（61KB / 見出し74 / リスト114 / 表144行）
-Certified-Associate-in-Project-Management.html   同上の公開用 HTML（107KB / Mermaid図9）
+Certified-Associate-in-Project-Management.html   同上の公開用 HTML（107KB / Mermaid図9）— 移行の原本
+Engineering-management-career-path.md / .html    EM キャリアパスガイド（Nuxt 未移行）
+Capm-domain1-pm.md                               CAPM ドメイン1 の補助ガイド
+app/                                             Nuxt 4 のソース（既定 srcDir）
+tests/ e2e/                                      Vitest 契約テスト / Playwright スモーク
+docs/PROGRESS.md                                 Nuxt 移行の進捗と「正当な差分の記録」
 .markdownlint.json                               Markdown lint 設定
 .claude/                                         エージェント用のスキルとルール
-.claude/skills/md-to-html/                       MD → HTML 変換スキル（雛形・変換規則・監査2本）
 ```
 
-ビルド工程・パッケージマネージャ・テストランナーは**まだ存在しない**。
-HTML はブラウザで直接開いて確認する。
+`app/` 配下の構成（Nuxt 4 の既定 `srcDir` は `app/`。テストだけリポジトリ直下）:
 
-ただし `md-to-html` スキルの監査スクリプトは依存パッケージ無しで動く。
+```text
+app/app.vue                        <NuxtPage /> のみ
+app/assets/css/main.css            :root トークン + 基底要素（全ページ共有）
+app/pages/capm.vue                 CAPM ガイド（移行済み）
+app/pages/index.vue                ガイド一覧
+app/components/MermaidDiagram.vue  図解レイアウトの SSoT + svg 後処理
+app/composables/useActiveHeading.ts  TOC のスクロール連動
+app/plugins/mermaid.client.ts      mermaid.initialize を一度だけ実行
+app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
+```
+
+## 開発コマンド
+
+パッケージマネージャは **bun**。使えない環境では `npm run <script>` で読み替える
+（同じ `package.json` の scripts を実行するため結果は同じ）。
+
+```bash
+bun run dev          # 開発サーバー
+bun run test         # Vitest 契約テスト（bun test は不可。設定を読まないため）
+bun run test:e2e     # generate + Playwright スモーク（ポート 4173）
+bunx nuxi typecheck  # 型検査
+bun run lint         # ESLint
+bun run build        # 本番ビルド
+bun run audit:capm   # 原本照合監査（CAPM。exit 0 が Green の前提条件）
+```
+
+スキル同梱の監査スクリプトは依存パッケージ無しで動く。
 
 ```bash
 node --test .claude/skills/md-to-html/scripts/audit_content_parity.test.mjs
 node --test .claude/skills/md-to-html/scripts/audit_design_parity.test.mjs
+node --test .claude/skills/nuxt-page-migration/scripts/audit_source_parity.test.mjs
 ```
 
-## 将来計画: Nuxt.js（Vue）への移行
+## Nuxt.js（Vue）への移行
 
-HTML を **Nuxt.js（Vue 3）の `pages/*.vue` へ手書きで移行**する予定。**未着手**。
+HTML を **Nuxt 4（Vue 3）の `app/pages/*.vue` へ手書きで移行**する。CAPM は移行済み、
+`Engineering-management-career-path.html` は未移行。
 
-- `.md` は移行後も**原本として維持**する（削除しない）
+- `.md` / `.html` は移行後も**原本として維持**する（削除しない）
 - 移行の標準手順は `.claude/skills/nuxt-page-migration/SKILL.md`
 - 移行の最大のリスクは**転写漏れ**。原本照合監査（`audit_source_parity.mjs`）の
   exit 0 を Green の前提条件とする
-
-> [!IMPORTANT]
-> Nuxt が未導入である以上、`package.json` / `bun run test` / `pages/` は**まだ存在しない**。
-> スキルやルールにこれらのパスが登場するのは「移行後の契約」を書いているためであり、
-> **現時点で存在するかのように報告してはならない。**
+- **監査のゲート原本は `.html`**。CAPM では `.md` と `.html` の構造が乖離しており
+  （h2 の個数・番号の有無・ステップの再構造化）、`.md` 監査は情報提供として扱う。
+  詳細は `docs/PROGRESS.md`「正当な差分の記録」
 
 ## 静的 HTML の現状と既知のリスク
+
+以下は**原本の静的 HTML に残る課題**であり、Nuxt 版（`app/pages/capm.vue`）には
+該当しない。Nuxt 版はフォント・Mermaid・アイコンをすべて npm 依存として同梱するため、
+CDN 直読みも SRI 欠落も発生しない。
 
 `Certified-Associate-in-Project-Management.html` は CDN（jsDelivr）から直接読み込む。
 
@@ -66,25 +99,29 @@ HTML を **Nuxt.js（Vue 3）の `pages/*.vue` へ手書きで移行**する予�
 > `audit_design_parity.mjs` を既存の CAPM.html に実行すると `cdn` カテゴリだけが NG になるが、
 > これは上表の未適用課題そのものであり、スキルの不具合ではない。
 
-**Mermaid の実装方式に注意**: このHTMLは `<div class="mermaid">` 方式ではなく、
+**Mermaid の実装方式に注意**: 静的 HTML は `<div class="mermaid">` 方式ではなく、
 JS の `DIAGRAMS` オブジェクト（テンプレートリテラル）+ `mermaid.render()` 手動呼び出し方式。
-図の追加・修正は `DIAGRAMS` を直接編集する。詳細は `.claude/skills/fix-mermaid/SKILL.md`。
+図の追加・修正は `DIAGRAMS` を直接編集する。
+Nuxt 版は `app/components/MermaidDiagram.vue` に `:chart` を渡す方式で、
+テーマは Mermaid ソース先頭の frontmatter として図ごとに埋め込む
+（`mermaid.initialize` をマウントごとに呼ぶと同時描画中の別の図を壊すため）。
+詳細は `.claude/skills/fix-mermaid/SKILL.md`。
 
 ## ルール（`.claude/rules/`）
 
 | ファイル | 内容 | 発効状況 |
 |---|---|---|
 | `no-absolute-paths.md` | コミット対象への絶対パス記載禁止 + コミット前検査 | **常時有効** |
-| `mermaid-diagram-layout.md` | 図解の中央寄せ・縮小フィットの不変条件 | Nuxt 移行後に発効 |
-| `tdd-mandatory-cycle.md` | TDD サイクルとコミット分割の強制 | `pages/` 等の作成後に発効 |
-| `migration-progress-sync.md` | `docs/PROGRESS.md` 同期のゲート条件 | Nuxt 移行着手後に発効 |
+| `mermaid-diagram-layout.md` | 図解の中央寄せ・縮小フィットの不変条件 | **発効中** |
+| `tdd-mandatory-cycle.md` | TDD サイクルとコミット分割の強制 | **発効中** |
+| `migration-progress-sync.md` | `docs/PROGRESS.md` 同期のゲート条件 | **発効中** |
 
 ## スキル（`.claude/skills/`）
 
 | スキル | 用途 |
 |---|---|
 | `md-to-html` | 資格ガイドの MD → 単一ファイル HTML 変換（雛形・変換規則・原本照合/デザイン照合監査を同梱） |
-| `nuxt-page-migration` | HTML/MD → Nuxt `pages/*.vue` の移行と保守（原本照合監査を同梱） |
+| `nuxt-page-migration` | HTML/MD → Nuxt `app/pages/*.vue` の移行と保守（原本照合監査を同梱） |
 | `fix-mermaid` | Mermaid の構文エラー・配色・サイズ・中央寄せの修正 |
 | `cdn-sri-mermaid-fix` | CDN のバージョン固定と SRI 付与、Mermaid 描画 API の互換性 |
 | `markdown-formatter` | `.markdownlint.json` 準拠の書式修正 |
@@ -111,6 +148,10 @@ Markdown を編集した場合はあわせて lint を通す。
 ```bash
 npx --yes markdownlint-cli2@0.18.1 "**/*.md" "#node_modules"
 ```
+
+`app/` 配下を編集した場合は、あわせて `bun run test` / `bunx nuxi typecheck` /
+`bun run lint` を通す。ページを移行・改修した場合は原本照合監査（`bun run audit:capm` 等）の
+exit 0 と `bun run test:e2e` も確認する。
 
 総合チェックは `pre-commit-check` スキルを使う。
 
