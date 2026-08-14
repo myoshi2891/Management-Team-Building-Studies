@@ -816,10 +816,17 @@ function compare(source, page) {
   // リスト項目は平坦化テキストへの包含で判定する（ページ側が <li> でなくカードでもよい）。
   //  - 8 文字未満の項目は偶然一致しやすいため照合対象から外す。
   //  - 長大な <li> でも後半の欠落を見逃さないよう、正規化した項目全体を照合する。
+  let remainingPageText = page.flatText;
   const missingListItems = source.listTexts.filter((text) => {
     const key = matchKey(text);
     if (key.length < 8) return false;
-    return !page.flatText.includes(key);
+    const pageIndex = remainingPageText.indexOf(key);
+    if (pageIndex === -1) return true;
+    remainingPageText =
+      remainingPageText.slice(0, pageIndex) +
+      "\0".repeat(key.length) +
+      remainingPageText.slice(pageIndex + key.length);
+    return false;
   });
   const missingCodeBlocks = missingOccurrences(source.codeBlockTexts, page.codeBlockTexts, matchKey);
   const missingTableRows = missingOccurrences(source.tableRowTexts, page.tableRowTexts, matchKey);

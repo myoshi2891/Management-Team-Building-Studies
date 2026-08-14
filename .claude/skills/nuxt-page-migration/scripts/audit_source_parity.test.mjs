@@ -231,6 +231,17 @@ test("detects list-item omissions after a shared 40-character prefix", () => {
 	assert.deepEqual(result.json.missingListItems, [`${prefix} required suffix`]);
 });
 
+test("requires duplicate source list items to have matching destination occurrences", () => {
+	const item = "Repeated migration requirement";
+	const result = audit(
+		`<ul><li>${item}</li><li>${item}</li></ul>`,
+		`<ul><li>${item}</li></ul>`,
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, [item]);
+});
+
 test("recognizes every allowed Mermaid diagram declaration including pie", () => {
 	const charts = [
 		"graph TD\nA --> B",
