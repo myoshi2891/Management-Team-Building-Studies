@@ -1,0 +1,99 @@
+# Nuxt 移行 進捗
+
+(最終更新日: 2026-08-14)
+
+静的 HTML の資格学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
+更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
+
+## 現在地
+
+| フィールド | 値 |
+|---|---|
+| 最新 HEAD | `f319bf8` — chore(nuxt): scaffold nuxt 4 project with bun, vitest, eslint and playwright |
+| 次の作業 | サイクル 1: `app/components/MermaidDiagram.vue` と `app/plugins/mermaid.client.ts` の Red コミット |
+| ビルド状態 | `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
+| テスト数 | 0（テスト未作成。Vitest は `include: tests/**/*.test.ts` で待機中） |
+| 原本照合監査 | ✘ exit 1（本文未移行のため当然。サイクル 3 で exit 0 にする） |
+
+## ページ移行状況
+
+| 原本 | 移行先 | 状態 |
+|---|---|---|
+| `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | 🚧 骨組みのみ（本文未移行） |
+| `Engineering-management-career-path.html` | 未定 | ⏳ 未着手 |
+
+## 技術スタック（2026-08-14 時点の npm 実測値）
+
+| レイヤー | パッケージ | 版 |
+|---|---|---|
+| Runtime / PM | bun | 1.3.12 |
+| Framework | nuxt | 4.5.2 |
+| Core | vue | 3.5.41 |
+| Language | typescript / vue-tsc | 5.9.3 / 3.3.9 |
+| Diagram | mermaid | 11.16.1 |
+| Icons | @nuxt/icon + @iconify-json/tabler | 2.5.0 / 1.2.38 |
+| Utilities | @vueuse/nuxt | 14.4.0 |
+| SEO | @nuxtjs/seo | 5.3.12 |
+| Fonts | @fontsource/source-serif-4 | 5.3.0 |
+| Unit test | vitest / @nuxt/test-utils / @vue/test-utils | 4.1.10 / 4.1.0 / 2.4.11 |
+| E2E | @playwright/test | 1.62.1 |
+| Lint | eslint / @nuxt/eslint | 10.8.1 / 1.17.0 |
+
+**非採用**: tailwindcss・@nuxt/ui（原本の手書き CSS を忠実移植するため）、
+@nuxt/content・@pinia/nuxt・@nuxt/image・zod（単一静的ページには不要）。
+vite / nitropack は nuxt の推移依存として入るため直接固定しない。
+
+## 正当な差分の記録
+
+原本照合監査（`audit_source_parity.mjs`）の結果のうち、「移行漏れではない」と
+判断した項目と、その理由を残す。判断を再現できるようにするための記録であり、
+無言で見逃してはならない（`tdd-mandatory-cycle.md` ステップ 2 の要求）。
+
+### 1. 監査のゲート原本は `.html`（`.md` ではない）
+
+`.md` と `.html` は同一内容の 2 形態とされているが、実測すると構造が乖離している。
+
+| 観点 | `.md` | `.html` |
+|---|---|---|
+| h2 の個数 | 16（`目次` を含む） | 15 |
+| h2 の書式 | 番号付き（`1. CAPM認定資格とは何か`） | 番号なし（`CAPMとは何か`） |
+| `ステップ1`〜`ステップ5` | h3 見出し | `<ol class="step-list">` に再構造化 |
+| `X.3 ドメインNのベストプラクティス` | h3 見出し ×4 | `.callout.practice` に再構造化 |
+| Mermaid ソース | 字下げあり・ダーク配色（`#1f2937`） | 字下げなし・ライト配色（`#EEF1F8`） |
+
+監査の `matchKey()` は区切り記号付きの先頭番号しか除去しないため、`1.1 …` 形式は
+`.html` 側の見出しと一致しない。**移行先はデザインの正である `.html` の忠実移植**
+であるから、ゲートは `.html` に対して実行する。`.md` 監査は情報提供として扱い、
+exit 1 は上表の既存乖離が原因であって移行漏れではない。
+
+この `.md` / `.html` 乖離自体の解消は本移行のスコープ外（別タスク）。
+
+### 2. 原本 HTML への事前修正 2 件（ユーザー承認済み）
+
+| コミット | 内容 | 理由 |
+|---|---|---|
+| `1a277f1` | `DIAGRAMS` のキー順を DOM 順へ | 監査は Mermaid を順序込み完全一致で照合する。描画は `Object.keys` → `getElementById` のため順序は意味的に無害 |
+| `33d24b0` | 参考文献の見出し h4 → h3（CSS セレクタも追随） | h2 → h4 のレベル飛びは実在の a11y 不具合であり、必須品質契約 Q-3 に抵触する |
+
+## 次回セッションでの再開プロンプト
+
+```text
+Management-Team-Building-Studies リポジトリで CAPM ガイドの Nuxt 移行を継続する。
+
+最新 HEAD: f319bf8（chore(nuxt): scaffold nuxt 4 project with bun, vitest, eslint and playwright）
+次の作業: サイクル 1 — app/components/MermaidDiagram.vue と app/plugins/mermaid.client.ts
+          の失敗する契約テスト（tests/components/MermaidDiagram.test.ts）を書き、
+          Red を実行して目視確認してから test(...) コミットする。
+
+未移行: app/pages/capm.vue は骨組みのみ。原本 15 セクション / Mermaid 9 図 /
+        表 22 / callout 22 / 用語 15 / 参考リンク 19 がすべて未転写。
+
+必読: .claude/skills/nuxt-page-migration/SKILL.md
+      .claude/rules/tdd-mandatory-cycle.md
+      .claude/rules/mermaid-diagram-layout.md
+      .claude/skills/fix-mermaid/SKILL.md（Part 4 / Part 6）
+      docs/PROGRESS.md（本ファイルの「正当な差分の記録」）
+
+ゲート: bun run audit:capm が exit 0 になるまで feat コミット禁止。
+        bun test は使わない（必ず bun run test）。
+```
