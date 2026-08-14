@@ -198,6 +198,18 @@ test("メディアクエリが欠落していれば検出する", () => {
   ]);
 });
 
+test("CSS 文字列リテラル内の波括弧はルール階層を変えない", () => {
+  const reference = BASELINE.replace(
+    "  body { background: var(--color-paper); }",
+    '  body { content: "{ \\\"quoted\\\""; background: var(--color-paper); }'
+  );
+  const pageHtml = reference.replace('{ \\\"quoted\\\"', '[ \\\"quoted\\\"');
+  const result = audit(pageHtml, reference);
+
+  assert.equal(result.status, 0);
+  assert.deepEqual(result.json.findings, []);
+});
+
 test("バージョン未固定の CDN 参照を検出する", () => {
   const result = audit(BASELINE.replace("@tabler/icons-webfont@3.46.0", "@tabler/icons-webfont@latest"));
 
@@ -254,6 +266,32 @@ test("flowchart.useMaxWidth が false でなければ検出する", () => {
 
 test("themeVariables が原本と異なれば検出する", () => {
   const result = audit(BASELINE.replace('primaryColor: "#EEF1F8"', 'primaryColor: "#FFFFFF"'));
+
+  assert.equal(result.status, 1);
+  assert.deepEqual(category(result.json, "mermaid-theme"), [
+    'themeVariables が原本と異なります: primaryColor — 原本 "#EEF1F8" / ページ "#FFFFFF"',
+  ]);
+});
+
+test("原本から themeVariables を抽出できなければ検出する", () => {
+  const reference = BASELINE.replace("themeVariables:", "themeConfig:");
+  const result = audit(BASELINE, reference);
+
+  assert.equal(result.status, 1);
+  assert.ok(
+    category(result.json, "mermaid-theme").includes(
+      "原本 HTML から themeVariables を抽出できません"
+    )
+  );
+});
+
+test("閉じ波括弧の前に改行がない themeVariables も抽出する", () => {
+  const reference = BASELINE.replace(
+    '        primaryColor: "#EEF1F8",\n        lineColor: "#2E3F72"\n      },',
+    '        primaryColor: "#EEF1F8", lineColor: "#2E3F72"},'
+  );
+  const pageHtml = reference.replace('primaryColor: "#EEF1F8"', 'primaryColor: "#FFFFFF"');
+  const result = audit(pageHtml, reference);
 
   assert.equal(result.status, 1);
   assert.deepEqual(category(result.json, "mermaid-theme"), [
@@ -354,6 +392,16 @@ test("引数が足りなければ終了コード 2 を返す", () => {
 
   assert.equal(result.status, 2);
   assert.match(result.stderr, /usage:/);
+});
+
+test("--reference の値がなければ終了コード 2 を返す", () => {
+  const result = spawnSync(process.execPath, [auditScript.pathname, "page.html", "--reference"], {
+    encoding: "utf8",
+  });
+
+  assert.equal(result.status, 2);
+  assert.match(result.stderr, /usage:/);
+  assert.doesNotMatch(result.stderr, /読み込み失敗/);
 });
 
 test("ファイルが存在しなければ終了コード 2 を返す", () => {

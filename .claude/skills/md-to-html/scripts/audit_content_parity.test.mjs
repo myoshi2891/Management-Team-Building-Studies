@@ -20,12 +20,23 @@ function audit(markdown, html) {
   writeFileSync(markdownPath, markdown);
   writeFileSync(htmlPath, html);
 
-  const result = spawnSync(process.execPath, [auditScript.pathname, markdownPath, htmlPath, "--json"], {
-    encoding: "utf8",
-  });
-  rmSync(fixtureDir, { recursive: true, force: true });
-
-  return { status: result.status, json: JSON.parse(result.stdout) };
+  try {
+    const result = spawnSync(process.execPath, [auditScript.pathname, markdownPath, htmlPath, "--json"], {
+      encoding: "utf8",
+    });
+    const stdout = result.stdout.trim();
+    try {
+      return { status: result.status, json: JSON.parse(stdout) };
+    } catch (error) {
+      throw new Error(
+        `監査結果を解析できません（終了コード: ${result.status ?? "null"}）\n` +
+          `stderr: ${result.stderr.trim() || "(空)"}\nstdout: ${stdout || "(空)"}`,
+        { cause: error }
+      );
+    }
+  } finally {
+    rmSync(fixtureDir, { recursive: true, force: true });
+  }
 }
 
 /**
@@ -104,6 +115,18 @@ test("段落が丸ごと落ちていれば検出する", () => {
   ]);
 });
 
+test("共通する先頭40文字より後の段落欠落を検出する", () => {
+  const prefix = "abcdefghijklmnopqrstuvwxyz0123456789共通部分テキスト";
+  const markdown = `# タイトル\n\n## セクション\n\n${prefix}後半固有情報\n`;
+  const html = page(`<h1>タイトル</h1><section><h2>セクション</h2><p>${prefix}</p></section>`);
+  const result = audit(markdown, html);
+
+  assert.equal(result.status, 1);
+  assert.deepEqual(result.json.missingParagraphs, [
+    `${prefix}後半固有情報`,
+  ]);
+});
+
 test("リスト項目が落ちていれば検出する", () => {
   const result = audit(
     BASELINE_MD,
@@ -132,6 +155,24 @@ test("外部リンクが落ちていれば検出する", () => {
 
   assert.equal(result.status, 1);
   assert.deepEqual(result.json.missingLinks, ["https://example.com/official"]);
+});
+
+test("外部リンクのパス大小文字・query・fragment の差を検出する", () => {
+  const cases = [
+    ["https://example.com/CasePath", "https://example.com/casepath"],
+    ["https://example.com/path?mode=full", "https://example.com/path?mode=brief"],
+    ["https://example.com/path#details", "https://example.com/path#summary"],
+  ];
+
+  for (const [sourceUrl, pageUrl] of cases) {
+    const markdown = `# タイトル\n\n## リンク\n\n詳細は [公式](${sourceUrl}) を参照してください。\n`;
+    const html = page(
+      `<h1>タイトル</h1><section><h2>リンク</h2><p>詳細は <a href="${pageUrl}">公式</a> を参照してください。</p></section>`
+    );
+    const result = audit(markdown, html);
+    assert.equal(result.status, 1, `${sourceUrl} と ${pageUrl} は区別される`);
+    assert.deepEqual(result.json.missingLinks, [sourceUrl]);
+  }
 });
 
 test("h2 セクション見出しの消失は blocking として検出する", () => {
