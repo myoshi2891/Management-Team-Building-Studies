@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `f319bf8` — chore(nuxt): scaffold nuxt 4 project with bun, vitest, eslint and playwright |
-| 次の作業 | サイクル 1: `app/components/MermaidDiagram.vue` と `app/plugins/mermaid.client.ts` の Red コミット |
+| 最新 HEAD | `03aba53` — refactor(mermaid): move diagram-error styling into the component |
+| 次の作業 | サイクル 2: `app/composables/useActiveHeading.ts` の Red コミット（TOC スクロール連動・契約 Q-1） |
 | ビルド状態 | `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
-| テスト数 | 0（テスト未作成。Vitest は `include: tests/**/*.test.ts` で待機中） |
+| テスト数 | **11**（`tests/components/MermaidDiagram.test.ts`）— これがベースライン |
 | 原本照合監査 | ✘ exit 1（本文未移行のため当然。サイクル 3 で exit 0 にする） |
 
 ## ページ移行状況
@@ -21,6 +21,15 @@
 |---|---|---|
 | `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | 🚧 骨組みのみ（本文未移行） |
 | `Engineering-management-career-path.html` | 未定 | ⏳ 未着手 |
+
+## 共有部品の実装状況
+
+| 部品 | 状態 | 契約テスト |
+|---|---|---|
+| `app/components/MermaidDiagram.vue` | ✅ 完了 | `tests/components/MermaidDiagram.test.ts`（11 件） |
+| `app/plugins/mermaid.client.ts` | ✅ 完了 | 同上（コンポーネントからの再 initialize を禁止） |
+| `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
+| `app/composables/useActiveHeading.ts` | ⏳ 未着手 | 契約 Q-1 |
 
 ## 技術スタック（2026-08-14 時点の npm 実測値）
 
@@ -75,15 +84,38 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | `1a277f1` | `DIAGRAMS` のキー順を DOM 順へ | 監査は Mermaid を順序込み完全一致で照合する。描画は `Object.keys` → `getElementById` のため順序は意味的に無害 |
 | `33d24b0` | 参考文献の見出し h4 → h3（CSS セレクタも追随） | h2 → h4 のレベル飛びは実在の a11y 不具合であり、必須品質契約 Q-3 に抵触する |
 
+### 3. 移行中に判明した実装上の落とし穴
+
+後続ページの移行でも再発しうるため記録する。
+
+| 症状 | 原因 | 対処 |
+|---|---|---|
+| 図が 1 枚目しか描画されず 2 枚目以降がエラー表示になる | `<script setup>` は `setup()` へコンパイルされ**インスタンスごとに実行される**。そこに置いた「モジュール singleton」は実際にはインスタンス変数で、図の数だけ `import("mermaid")` が走る | singleton を独立モジュール `app/utils/mermaid-loader.ts` へ切り出す |
+| テストの `wrapper.element` が実要素を指さない | `<template>` の root の兄弟に置いた HTML コメントも VNode として数えられ、コンポーネントが多重ルートになる | 説明コメントは `<script>` 側の JSDoc に置く |
+| コンポーネント内部要素の配色が原本と違う | `.diagram-error` 等はコンポーネント内で描画されるためページ側 `<style scoped>` が到達しない | そのスタイルはコンポーネントの `<style scoped>` が持つ |
+
+### 4. スキル記述と実環境の食い違い
+
+| スキルの記述 | 実際 |
+|---|---|
+| `@nuxt/test-utils ^3.17.x` | **4.1.0**（v4 系が最新） |
+| `// @vitest-environment jsdom` + 素の `mount` | オートインポート（`useSeoMeta` 等）を使うページでは動かない。`defineVitestConfig({ test: { environment: "nuxt" } })` が必要 |
+| `pages/` / `components/` 直下 | Nuxt 4 の既定 `srcDir` は `app/` のため `app/pages/` / `app/components/`。テストの `~/pages/capm.vue` は `srcDir` 解決でそのまま通る |
+
+これらはサイクル 4 でスキル・ルール本体に反映する。
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリで CAPM ガイドの Nuxt 移行を継続する。
 
-最新 HEAD: f319bf8（chore(nuxt): scaffold nuxt 4 project with bun, vitest, eslint and playwright）
-次の作業: サイクル 1 — app/components/MermaidDiagram.vue と app/plugins/mermaid.client.ts
-          の失敗する契約テスト（tests/components/MermaidDiagram.test.ts）を書き、
+最新 HEAD: 03aba53（refactor(mermaid): move diagram-error styling into the component）
+次の作業: サイクル 2 — app/composables/useActiveHeading.ts の失敗する契約テスト
+          （tests/composables/useActiveHeading.test.ts、契約 Q-1）を書き、
           Red を実行して目視確認してから test(...) コミットする。
+
+完了済み: MermaidDiagram.vue / mermaid.client.ts / mermaid-loader.ts（契約 11 件）
+テスト数ベースライン: 11（これを下回ったら何かを壊している）
 
 未移行: app/pages/capm.vue は骨組みのみ。原本 15 セクション / Mermaid 9 図 /
         表 22 / callout 22 / 用語 15 / 参考リンク 19 がすべて未転写。
