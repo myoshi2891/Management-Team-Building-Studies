@@ -26,9 +26,6 @@
 import { readFileSync } from "node:fs";
 import { MERMAID_DIAGRAM_DECLARATION } from "../../fix-mermaid/scripts/mermaid-diagram-types.mjs";
 
-/** リスト項目の照合に使う先頭文字数。長大な項目の全文一致を求めないための上限。 */
-const LIST_ITEM_PROBE = 40;
-
 // --------------------------------------------------------------------------
 // テキスト正規化
 // --------------------------------------------------------------------------
@@ -348,7 +345,7 @@ function collectHtmlMermaidSources(src) {
     div = divRe.exec(src);
   }
 
-  const diagramEntryRe = /["'][^"']+["']\s*:\s*`([\s\S]*?)`/g;
+  const diagramEntryRe = /(?:["'][^"']+["']|[A-Za-z_$][\w$]*)\s*:\s*`([\s\S]*?)`/g;
   let entry = diagramEntryRe.exec(src);
   while (entry !== null) {
     sources.push({ index: entry.index, source: normalizeMermaidSource(entry[1]) });
@@ -818,12 +815,11 @@ function compare(source, page) {
 
   // リスト項目は平坦化テキストへの包含で判定する（ページ側が <li> でなくカードでもよい）。
   //  - 8 文字未満の項目は偶然一致しやすいため照合対象から外す。
-  //  - 長大な <li>（コード例や複数段落を含む項目）は全文一致を求めると必ず外れるため、
-  //    先頭 LIST_ITEM_PROBE 文字だけを照合する。項目の存在確認にはこれで十分に特異である。
+  //  - 長大な <li> でも後半の欠落を見逃さないよう、正規化した項目全体を照合する。
   const missingListItems = source.listTexts.filter((text) => {
     const key = matchKey(text);
     if (key.length < 8) return false;
-    return !page.flatText.includes(key.slice(0, LIST_ITEM_PROBE));
+    return !page.flatText.includes(key);
   });
   const missingCodeBlocks = missingOccurrences(source.codeBlockTexts, page.codeBlockTexts, matchKey);
   const missingTableRows = missingOccurrences(source.tableRowTexts, page.tableRowTexts, matchKey);
@@ -879,6 +875,7 @@ function compare(source, page) {
 // エントリポイント
 // --------------------------------------------------------------------------
 
+function main() {
 const args = process.argv.slice(2);
 const flags = new Set(args.filter((a) => a.startsWith("--")));
 const positional = args.filter((a) => !a.startsWith("--"));
@@ -887,10 +884,11 @@ if (positional.length < 2) {
   console.error(
     "usage: audit_source_parity.mjs <source.(md|html)> <page.(vue|tsx)> [--json] [--emit-headings]"
   );
-  process.exit(2);
+  return 2;
 }
 
 const [sourcePath, pagePath] = positional;
+const pageLabel = pagePath;
 
 let sourceText;
 let pageText;
@@ -899,7 +897,7 @@ try {
   pageText = readFileSync(pagePath, "utf8");
 } catch (error) {
   console.error(`読み込み失敗: ${error instanceof Error ? error.message : String(error)}`);
-  process.exit(2);
+  return 2;
 }
 
 const sourceInventory = /\.(?:md|markdown)$/i.test(sourcePath)
@@ -917,7 +915,7 @@ if (flags.has("--emit-headings")) {
     for (const text of headings) console.log(`  ${JSON.stringify(text)},`);
     console.log(`] as const;${level < 6 ? "\n" : ""}`);
   }
-  process.exit(0);
+  return 0;
 }
 
 if (flags.has("--json")) {
@@ -934,12 +932,12 @@ if (flags.has("--json")) {
       2
     )
   );
-  process.exit(result.blocking ? 1 : 0);
+  return result.blocking ? 1 : 0;
 }
 
 console.log(`source: ${sourcePath}`);
 console.log(`page  : ${pagePath}\n`);
-console.log("要素              原本    page.tsx  （参考値。判定は下の照合結果で行う）");
+console.log(`要素              原本    ${pageLabel}  （参考値。判定は下の照合結果で行う）`);
 for (const [key, value] of Object.entries(result.counts)) {
   console.log(
     `${key.padEnd(16)}  ${String(value.source).padStart(5)}  ${String(value.page).padStart(8)}`
@@ -947,35 +945,35 @@ for (const [key, value] of Object.entries(result.counts)) {
 }
 
 if (result.missingHeadings.length > 0) {
-  console.log(`\n❌ page.tsx に存在しない原本の見出し (${result.missingHeadings.length} 件):`);
+  console.log(`\n❌ ${pageLabel} に存在しない原本の見出し (${result.missingHeadings.length} 件):`);
   for (const h of result.missingHeadings) console.log(`  h${h.level}: ${h.text}`);
 }
 if (result.missingLinks.length > 0) {
-  console.log(`\n❌ page.tsx に存在しない原本の外部リンク (${result.missingLinks.length} 件):`);
+  console.log(`\n❌ ${pageLabel} に存在しない原本の外部リンク (${result.missingLinks.length} 件):`);
   for (const u of result.missingLinks) console.log(`  ${u}`);
 }
 if (result.missingListItems.length > 0) {
-  console.log(`\n❌ page.tsx 本文に見当たらない原本のリスト項目 (${result.missingListItems.length} 件):`);
+  console.log(`\n❌ ${pageLabel} 本文に見当たらない原本のリスト項目 (${result.missingListItems.length} 件):`);
   for (const t of result.missingListItems) console.log(`  - ${t}`);
 }
 if (result.missingCodeBlocks.length > 0) {
-  console.log(`\n❌ page.tsx に存在しない原本のコードブロック (${result.missingCodeBlocks.length} 件):`);
+  console.log(`\n❌ ${pageLabel} に存在しない原本のコードブロック (${result.missingCodeBlocks.length} 件):`);
   for (const text of result.missingCodeBlocks) console.log(`  ${JSON.stringify(text)}`);
 }
 if (result.missingTableRows.length > 0) {
-  console.log(`\n❌ page.tsx に存在しない原本の表行 (${result.missingTableRows.length} 件):`);
+  console.log(`\n❌ ${pageLabel} に存在しない原本の表行 (${result.missingTableRows.length} 件):`);
   for (const text of result.missingTableRows) console.log(`  ${JSON.stringify(text)}`);
 }
 if (result.missingParagraphs.length > 0) {
-  console.log(`\n❌ page.tsx に存在しない原本の段落 (${result.missingParagraphs.length} 件):`);
+  console.log(`\n❌ ${pageLabel} に存在しない原本の段落 (${result.missingParagraphs.length} 件):`);
   for (const text of result.missingParagraphs) console.log(`  ${JSON.stringify(text)}`);
 }
 if (result.missingSvgElements.length > 0) {
-  console.log(`\n❌ page.tsx に存在しないか改変された原本の SVG (${result.missingSvgElements.length} 件)`);
+  console.log(`\n❌ ${pageLabel} に存在しないか改変された原本の SVG (${result.missingSvgElements.length} 件)`);
 }
 if (result.missingCalloutElements.length > 0) {
   console.log(
-    `\n❌ page.tsx に存在しないか改変された原本の callout/alert (${result.missingCalloutElements.length} 件)`
+    `\n❌ ${pageLabel} に存在しないか改変された原本の callout/alert (${result.missingCalloutElements.length} 件)`
   );
 }
 if (!result.mermaidSourcesMatch) {
@@ -984,7 +982,7 @@ if (!result.mermaidSourcesMatch) {
   console.log(`  page: ${JSON.stringify(result.pageMermaidSources)}`);
 }
 if (result.extraHeadings.length > 0) {
-  console.log(`\n⚠️ 原本に存在しない page.tsx の見出し (${result.extraHeadings.length} 件、要確認):`);
+  console.log(`\n⚠️ 原本に存在しない ${pageLabel} の見出し (${result.extraHeadings.length} 件、要確認):`);
   for (const h of result.extraHeadings) console.log(`  h${h.level}: ${h.text}`);
 }
 
@@ -993,4 +991,7 @@ console.log(
     ? "\n判定: ❌ 移行漏れあり — Green コミット禁止。漏れを転写してから再実行すること。"
     : "\n判定: ✅ 漏れなし — Green 判定に進んでよい。"
 );
-process.exit(result.blocking ? 1 : 0);
+return result.blocking ? 1 : 0;
+}
+
+process.exitCode = main();

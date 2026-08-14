@@ -45,10 +45,10 @@ tests/
 
 ```bash
 # 移植漏れの検査（ページで参照している変数が main.css に定義済みか）
-grep -ohE 'var\(--[a-z0-9-]+\)' pages/*.vue components/*.vue \
-  | sort -u | sed -E 's/var\((--[a-z0-9-]+)\)/\1/' \
+grep -ohE 'var\(--[a-z0-9-]+([[:space:]]*,[^)]*)?\)' pages/*.vue components/*.vue \
+  | sed -E 's/^var\((--[a-z0-9-]+).*/\1/' | sort -u \
   | while read -r v; do
-      grep -q -- "$v:" assets/css/main.css || echo "未定義の変数: $v"
+      grep -qE "^[[:space:]]*$v[[:space:]]*:" assets/css/main.css || echo "未定義の変数: $v"
     done
 ```
 

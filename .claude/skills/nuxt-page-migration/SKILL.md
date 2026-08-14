@@ -105,7 +105,7 @@ bun run test tests/pages/capm     # 単一ファイル（開発中の高速ル�
 # 見出し・リスト・表・コードブロック・図解の実数を機械的に把握する
 grep -c '^## ' Certified-Associate-in-Project-Management.md
 grep -cE '^\s*([-*+]|[0-9]+\.)\s' Certified-Associate-in-Project-Management.md
-grep -c '^```' Certified-Associate-in-Project-Management.md
+grep -c '^```' Certified-Associate-in-Project-Management.md | awk '{ print $1 / 2 }'
 grep -c '^```mermaid' Certified-Associate-in-Project-Management.md
 
 # 契約テストに貼り付ける期待見出し配列を生成する
@@ -113,8 +113,8 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
   Certified-Associate-in-Project-Management.md pages/<slug>.vue --emit-headings
 ```
 
-`--emit-headings` は `page.vue` が未作成でも原本側の解析結果を出力する
-（存在しないファイルを指定するとエラーになるため、空の `.vue` を先に置く）。
+`--emit-headings` の実行前に空の `.vue` を作成する。原本と移植先の両方が読み取り可能でなければ
+見出し配列の出力前にエラーになる。
 
 ### Step 1: [Red] 契約テストの作成
 
@@ -141,7 +141,7 @@ C-6 と D-1〜D-4 は適用条件に該当する場合のみ追加する。
 | C-1 | `h1` のテキストが完全一致する |
 | C-2 | クイックナビ（TOC リンク）の件数と `href="#..."` 形式 |
 | C-3 | サイドバー TOC の初期アクティブ状態を示すクラスが存在する |
-| C-4 | 外部リンク全件に `target="_blank"` **かつ** `rel="noopener noreferrer"` |
+| C-4 | 外部リンク全件に `target="_blank"` **かつ** `rel="noopener"`。`noreferrer` は原本に存在するリンクだけ引き継ぐ |
 | C-5 | 内部リンクに `.html` 拡張子が含まれない |
 | C-6 | **原本に Mermaid 図解がある場合のみ必須**。全図解が専用ラッパーに包まれ、原本から抽出した正規化済み Mermaid ソースと `MermaidDiagram` の全 `chart` 値が**順序・内容・出現回数込みで完全一致**する |
 

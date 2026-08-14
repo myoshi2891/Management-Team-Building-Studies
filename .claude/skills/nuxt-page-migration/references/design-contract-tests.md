@@ -73,6 +73,10 @@ jsdom は `<style scoped>` の実 CSS 値を適用しないため、
 
 ```ts
 // tests/pages/<slug>.test.ts — デザイン契約テスト追加例
+import { readFileSync } from "node:fs";
+
+const sourceHtml = readFileSync("<原本HTMLのパス>", "utf8");
+const sourceDocument = new DOMParser().parseFromString(sourceHtml, "text/html");
 
 const mountPage = () =>
   mount(Page, {
@@ -90,11 +94,15 @@ it("D-2: callout.warn が data-variant='warn' を持ち danger セマンティ�
 });
 
 it("D-3: stepTag が各セクションに存在し data-testid='step-tag' を持つ", () => {
-  const stepTags = mountPage().findAll("[data-testid='step-tag']");
-  // 件数は原本の step 数と一致させる（原本に無い step を作らない）
-  expect(stepTags.length).toBe(15);
-  const texts = stepTags.map((el) => el.text());
-  expect(texts).toContain("Step 01");
+  const expectedStepTagTexts = Array.from(
+    sourceDocument.querySelectorAll(".step-tag"),
+    (el) => el.textContent?.trim() ?? ""
+  );
+  const actualStepTagTexts = mountPage()
+    .findAll("[data-testid='step-tag']")
+    .map((el) => el.text());
+
+  expect(actualStepTagTexts).toEqual(expectedStepTagTexts);
 });
 
 it("D-4: blockquote.voice が data-testid='voice' を持ち voice-who 子要素がある", () => {
@@ -159,7 +167,7 @@ bun test tests/pages/capm.test.ts
 **理由**: `bun test` は Bun のビルトインランナーで動作し、
 `vitest.config.ts` の `environment: "jsdom"` 設定も Nuxt のエイリアス解決も一切適用されない。
 `document is not defined` エラーが全テストで発生する。
-**必ず `bun run test`（= `vitest run`）を使うこと。**
+**必ず `bun run test`（= `vitest`）を使うこと。**
 
 ---
 
