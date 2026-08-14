@@ -135,7 +135,7 @@ AI エージェントは Markdown ファイルを新規作成・修正した際�
 
 ```bash
 # 全ファイル
-npx --yes markdownlint-cli2@0.18.1 "**/*.md" "#node_modules"
+npx --yes markdownlint-cli2@0.18.1 "**/*.md" ".claude/**/*.md" "#node_modules"
 
 # 単一ファイル
 npx --yes markdownlint-cli2@0.18.1 <file_path>

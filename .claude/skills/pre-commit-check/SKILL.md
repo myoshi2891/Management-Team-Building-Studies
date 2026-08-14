@@ -43,7 +43,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 `markdown-formatter` スキルを参照。
 
 ```bash
-npx --yes markdownlint-cli2@0.18.1 "**/*.md" "#node_modules"
+npx --yes markdownlint-cli2@0.18.1 "**/*.md" ".claude/**/*.md" "#node_modules"
 ```
 
 主にチェックされるのは **MD031（コードブロック前後の空行）/ MD012（連続空行）/
