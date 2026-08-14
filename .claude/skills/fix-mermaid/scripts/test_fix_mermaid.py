@@ -28,7 +28,7 @@ def test_sequence_rejoin():
 
 
 def test_mindmap_indent_preserved():
-    """mindmap のインデントが保持され、不正な結合が起きない."""
+    """mindmap の共通インデントだけが除去され、相対インデントは保持される."""
     html = (
         '<div class="mermaid">\n'
         "    mindmap\n"
@@ -40,16 +40,17 @@ def test_mindmap_indent_preserved():
     )
     fixed, report = fix_mermaid_blocks(html)
 
-    # インデントが元のまま保持されている
-    assert "      root((Title))" in fixed
-    assert "        Child1" in fixed
-    assert "          Grandchild1" in fixed
-    assert "        Child2" in fixed
+    # mindmap 宣言はカラム 0、子孫の相対インデントは元のまま
+    assert "\nmindmap\n" in fixed
+    assert "  root((Title))" in fixed
+    assert "    Child1" in fixed
+    assert "      Grandchild1" in fixed
+    assert "    Child2" in fixed
     # 子ノードが親に結合されていない
     assert "root((Title))Child1" not in fixed
     assert "Child1Grandchild1" not in fixed
-    # mindmap は変更なし → report が空
-    assert report == []
+    assert len(report) == 1
+    assert "mindmap" in report[0]
 
 
 def test_div_class_matching():

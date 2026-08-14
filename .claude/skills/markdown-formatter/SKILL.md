@@ -102,7 +102,7 @@ This skill provides rules and best practices to ensure all Markdown documents (`
 ファイルの最後は必ず1行の空行（改行で終わる状態）にしてください。
 
 ```markdown
-...最後の行 of the text
+...最後の行の文章
 [EOF]
 ```
 
@@ -112,7 +112,7 @@ This skill provides rules and best practices to ensure all Markdown documents (`
 
 **問題**: Markdown 内に許可されていない HTML タグが直接書かれている。
 
-* **許可されている HTML 要素**: `h1`, `h2`, `p`, `i`, `footer`, `br`, `div`, `sub`, `sup`, `kbd`, `details`, `summary`
+* **許可されている HTML 要素**: `a`, `h1`, `h2`, `p`, `i`, `footer`, `br`, `div`, `sub`, `sup`, `kbd`, `details`, `summary`
 * **代替案**: 可能な限り標準の Markdown 記法を使用してください。
 
 ---

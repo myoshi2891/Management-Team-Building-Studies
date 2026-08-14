@@ -72,7 +72,26 @@ def fix_mermaid_blocks(html: str) -> tuple[str, list[str]]:
         fixed: list[str] = []
         fixed_count = 0
 
+        if is_mindmap:
+            non_empty_indents = [
+                len(line) - len(line.lstrip())
+                for line in raw_lines
+                if line.strip()
+            ]
+            common_indent = min(non_empty_indents, default=0)
+            if common_indent > 0:
+                raw_lines = [
+                    line[common_indent:] if line.strip() else line
+                    for line in raw_lines
+                ]
+                fixed_count = len(non_empty_indents)
+
         for ln in raw_lines:
+            if is_mindmap:
+                # HTML 側の共通インデントだけを除去し、構文上の相対差は保持する
+                fixed.append(ln)
+                continue
+
             stripped = ln.lstrip()
             leading = len(ln) - len(stripped)
             if leading > 0 and stripped:
@@ -93,9 +112,6 @@ def fix_mermaid_blocks(html: str) -> tuple[str, list[str]]:
                 if is_cont and fixed:
                     fixed[-1] = prev + ' ' + stripped
                     changed = True
-                elif is_mindmap:
-                    # mindmap: インデントは Mermaid 構文なので保持
-                    fixed.append(ln)
                 else:
                     fixed.append(stripped)
                     changed = True

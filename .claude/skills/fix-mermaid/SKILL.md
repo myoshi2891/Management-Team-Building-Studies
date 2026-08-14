@@ -349,7 +349,12 @@ A --> B
 
 ```vue
 <script setup lang="ts">
-const props = defineProps<{ chart: string; theme?: string; maxHeight?: string }>();
+const props = defineProps<{
+  chart: string;
+  theme?: string;
+  themeVariables?: Record<string, string>;
+  maxHeight?: string;
+}>();
 const el = ref<HTMLElement | null>(null);
 
 onMounted(async () => {
@@ -357,6 +362,7 @@ onMounted(async () => {
   mermaid.initialize({
     startOnLoad: false,
     theme: props.theme ?? "base",
+    themeVariables: props.themeVariables,
     // 自然サイズを起点に縮小するため flowchart/sequence/mindmap とも false
     flowchart: { useMaxWidth: false, htmlLabels: true },
     sequence: { useMaxWidth: false },
@@ -370,6 +376,7 @@ onMounted(async () => {
   if (svgEl instanceof SVGElement) {
     svgEl.style.maxWidth = "100%"; // mermaid が付ける inline max-width を上書き
     svgEl.style.height = "auto";   // アスペクト比を保って縮小
+    svgEl.style.maxHeight = props.maxHeight ?? "";
   }
 });
 </script>
