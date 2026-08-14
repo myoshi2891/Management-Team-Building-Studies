@@ -23,6 +23,7 @@ export default defineNuxtConfig({
   site: {
     url: "https://example.com",
     name: "Management / Team Building Studies",
+    debug: false,
   },
 
   // 静的サイトのため OG 画像のランタイム生成は無効化する（generate を通すため）。
