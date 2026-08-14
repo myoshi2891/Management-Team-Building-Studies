@@ -242,6 +242,16 @@ test("requires duplicate source list items to have matching destination occurren
 	assert.deepEqual(result.json.missingListItems, [item]);
 });
 
+test("reports a missing short list item without matching it inside another word", () => {
+	const result = audit(
+		"<ul><li>Go</li></ul>",
+		"<p>Google migration guide</p>",
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});
+
 test("recognizes every allowed Mermaid diagram declaration including pie", () => {
 	const charts = [
 		"graph TD\nA --> B",
