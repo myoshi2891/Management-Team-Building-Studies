@@ -88,17 +88,18 @@ const DIAGRAM_PENDULUM = `flowchart LR
 </script>
 
 <template>
-  <button
-    id="sidebarToggle"
-    ref="sidebarToggle"
-    class="sidebar-toggle"
-    aria-label="目次を開閉する"
-    aria-controls="sidebar"
-    :aria-expanded="sidebarOpen"
-    @click="sidebarOpen = !sidebarOpen"
-  >
-    <Icon class="ti" name="tabler:menu-2" />
-  </button>
+  <div class="page-shell">
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon class="ti" name="tabler:menu-2" />
+    </button>
 
   <div class="layout">
     <!-- ===================== Sidebar ===================== -->
@@ -156,7 +157,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 1. Introduction ===================== -->
       <section id="introduction">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:rocket" />SECTION 01</div>
-        <h2>はじめに</h2>
+        <h2 id="introduction">はじめに</h2>
 
         <p>「そろそろマネージャーにならないか」——多くのソフトウェアエンジニアは、キャリアのどこかでこの問いに向き合うことになります。しかし、エンジニアリング組織におけるマネジメントは、営業やマーケティングのマネジメントとは性質が異なります。エンジニアリング・マネージャー(EM)は技術的な意思決定にも一定の責任を持ちながら、同時に「人」というプログラミング言語のドキュメントが存在しない対象をマネジメントしなければなりません。</p>
 
@@ -178,7 +179,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 2. Career Path Overview ===================== -->
       <section id="career-path-overview">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:git-branch" />SECTION 02</div>
-        <h2>マネジメントキャリアの全体像(デュアルキャリアラダー)</h2>
+        <h2 id="career-path-overview">マネジメントキャリアの全体像(デュアルキャリアラダー)</h2>
 
         <p>現代の多くのテック企業では、キャリアパスが「個人貢献者(Individual Contributor, IC)トラック」と「マネジメントトラック」の2本立てで設計されています。これを<strong>デュアルキャリアラダー(dual career ladder)</strong>と呼びます。</p>
 
@@ -228,7 +229,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 3. Role Descriptions ===================== -->
       <section id="role-descriptions">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:users" />SECTION 03</div>
-        <h2>各役職の詳細解説</h2>
+        <h2 id="role-descriptions">各役職の詳細解説</h2>
 
         <h3 id="subheading-3-1">3.1 テックリード(Tech Lead)</h3>
 
@@ -285,7 +286,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 4. Self Assessment ===================== -->
       <section id="self-assessment">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:list-check" />SECTION 04</div>
-        <h2>自分はマネジメントに向いているか(判断チェックリスト)</h2>
+        <h2 id="self-assessment">自分はマネジメントに向いているか(判断チェックリスト)</h2>
 
         <p>マネジメントは「優秀なエンジニアへのご褒美」ではありません。Gergely Orosz(The Pragmatic Engineer、元Uber / Microsoft / Skype)は、マネージャーへの転身直後について、最初は輪の外に置かれたような<strong>孤独感</strong>を伴う経験になりやすいと述べています。前日まで同僚だったチームメンバーとの間に見えない壁ができ、気軽に本音を話せる「本当のチーム」を新たに見つけ直す必要が生じる、という変化です。</p>
 
@@ -305,7 +306,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 5. Tech Lead Preparation ===================== -->
       <section id="tech-lead-preparation">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:stairs" />SECTION 05</div>
-        <h2>マネージャーになる前の準備: テックリードという助走路</h2>
+        <h2 id="tech-lead-preparation">マネージャーになる前の準備: テックリードという助走路</h2>
 
         <p>いきなりEMになるのではなく、テックリードやプロジェクトの技術的な取りまとめ役を経験することで、マネジメントの一部を疑似体験できます。準備段階として取り組みやすいのは次のようなアクションです。</p>
 
@@ -323,7 +324,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 6. First 90 Days ===================== -->
       <section id="first-90-days">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:calendar-event" />SECTION 06</div>
-        <h2>新任マネージャーの最初の90日</h2>
+        <h2 id="first-90-days">新任マネージャーの最初の90日</h2>
 
         <p>Julie Zhuo は著書の中で、新任マネージャーの最初の3か月を重要な適応期間として詳しく扱っています。以下は、その考え方と一般的なベストプラクティスを踏まえた、90日間のロードマップです。</p>
 
@@ -383,7 +384,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 7. Core Practices ===================== -->
       <section id="core-practices">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:tools" />SECTION 07</div>
-        <h2>マネージャーのコアプラクティス</h2>
+        <h2 id="core-practices">マネージャーのコアプラクティス</h2>
 
         <h3 id="subheading-7-1">7.1 1on1ミーティング</h3>
 
@@ -403,7 +404,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th></th><th>頻度が低い</th><th>頻度が高い</th></tr>
+              <tr><th /><th>頻度が低い</th><th>頻度が高い</th></tr>
             </thead>
             <tbody>
               <tr><td><strong>複雑さが低い</strong></td><td>自分でやる(都度対応で十分)</td><td>部下に委任する(ルーティン化して育成につなげる)</td></tr>
@@ -437,7 +438,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 8. Project Oxygen ===================== -->
       <section id="project-oxygen">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:star" />SECTION 08</div>
-        <h2>優れたマネージャーの共通点(Google Project Oxygen)</h2>
+        <h2 id="project-oxygen">優れたマネージャーの共通点(Google Project Oxygen)</h2>
 
         <p>Google の人事研究プロジェクト「Project Oxygen」は、社内の大量の人事データ・従業員調査・インタビューを分析し、優れたマネージャーに共通する行動特性を特定した、業界でも広く参照される研究です。Google re:Work が公開している最新版では、当初8項目だったリストが拡張され、現在は次のような行動が重視されています。</p>
 
@@ -467,7 +468,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 9. Common Pitfalls ===================== -->
       <section id="common-pitfalls">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:alert-triangle" />SECTION 09</div>
-        <h2>よくある失敗と対処法</h2>
+        <h2 id="common-pitfalls">よくある失敗と対処法</h2>
 
         <p>新任マネージャーが陥りやすい失敗パターンと、その対処法を整理します。</p>
 
@@ -491,7 +492,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 10. Engineer/Manager Pendulum ===================== -->
       <section id="engineer-manager-pendulum">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:arrows-shuffle" />SECTION 10</div>
-        <h2>ICとマネジメントを行き来する「振り子」というキャリア戦略</h2>
+        <h2 id="engineer-manager-pendulum">ICとマネジメントを行き来する「振り子」というキャリア戦略</h2>
 
         <p>マネジメントは「一度就いたら戻れない一方通行の道」ではありません。Charity Majors は、有名なブログ記事「The Engineer/Manager Pendulum」の中で、優れたエンジニアリングリーダーの多くが、ICとマネジメントの間を<strong>意図的に行き来する</strong>キャリアを歩んでいると論じています。</p>
 
@@ -524,7 +525,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 11. Skill Roadmap ===================== -->
       <section id="skill-roadmap">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:map-2" />SECTION 11</div>
-        <h2>スキルロードマップまとめ表</h2>
+        <h2 id="skill-roadmap">スキルロードマップまとめ表</h2>
 
         <p>最後に、マネジメントトラックの各段階で重視されるスキルを一覧化します。初学者は、まず「テックリード」と「EM」の行の内容を意識することから始めてください。</p>
 
@@ -547,7 +548,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
       <!-- ===================== 12. References ===================== -->
       <section id="references">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon class="ti" name="tabler:link" />SECTION 12</div>
-        <h2>参考文献・情報源</h2>
+        <h2 id="references">参考文献・情報源</h2>
 
         <p>本ガイドの作成にあたり、以下の情報源を参照しました(2026年8月14日時点でアクセス可能なものを確認しています)。いずれも国際的に広く読まれているエンジニアリングリーダーシップの著者・実務家による発信です。本ガイドは上記情報源の内容を要約・再構成したものであり、各書籍・記事からの逐語的な引用は最小限に留めています。より詳しい内容を知りたい場合は、必ず一次情報源(原著書籍・原文記事)を直接ご参照ください。</p>
 
@@ -594,10 +595,10 @@ const DIAGRAM_PENDULUM = `flowchart LR
       </footer>
     </main>
   </div>
+</div>
 </template>
 
 <style scoped>
-.layout {
   display: block;
 }
 
