@@ -76,12 +76,14 @@ def fix_mermaid_blocks(html: str) -> tuple[str, list[str]]:
             non_empty_indents = [
                 len(line) - len(line.lstrip())
                 for line in raw_lines
-                if line.strip()
+                if line.strip() and not line.strip().startswith("%%")
             ]
             common_indent = min(non_empty_indents, default=0)
             if common_indent > 0:
                 raw_lines = [
-                    line[common_indent:] if line.strip() else line
+                    line[common_indent:]
+                    if len(line) - len(line.lstrip()) >= common_indent
+                    else line
                     for line in raw_lines
                 ]
                 fixed_count = len(non_empty_indents)

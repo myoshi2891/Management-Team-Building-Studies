@@ -53,6 +53,31 @@ def test_mindmap_indent_preserved():
     assert "mindmap" in report[0]
 
 
+def test_mindmap_indent_ignores_column_zero_directive():
+    """カラム0の directive は mindmap の共通インデント算出と除去から外れる."""
+    html = (
+        '<div class="mermaid">\n'
+        '%%{init: {"theme": "base"}}%%\n'
+        "    mindmap\n"
+        "      root((Title))\n"
+        "        Child\n"
+        "</div>"
+    )
+
+    fixed, report = fix_mermaid_blocks(html)
+
+    assert fixed == (
+        '<div class="mermaid">\n'
+        '%%{init: {"theme": "base"}}%%\n'
+        "mindmap\n"
+        "  root((Title))\n"
+        "    Child\n"
+        "</div>"
+    )
+    assert len(report) == 1
+    assert "mindmap" in report[0]
+
+
 def test_div_class_matching():
     """class 属性に追加トークンがあってもブロックが検出・処理される."""
     html = (
