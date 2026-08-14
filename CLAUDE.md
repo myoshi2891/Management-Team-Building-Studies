@@ -21,10 +21,18 @@ Certified-Associate-in-Project-Management.md     CAPM ガイド（61KB / 見出�
 Certified-Associate-in-Project-Management.html   同上の公開用 HTML（107KB / Mermaid図9）
 .markdownlint.json                               Markdown lint 設定
 .claude/                                         エージェント用のスキルとルール
+.claude/skills/md-to-html/                       MD → HTML 変換スキル（雛形・変換規則・監査2本）
 ```
 
 ビルド工程・パッケージマネージャ・テストランナーは**まだ存在しない**。
 HTML はブラウザで直接開いて確認する。
+
+ただし `md-to-html` スキルの監査スクリプトは依存パッケージ無しで動く。
+
+```bash
+node --test .claude/skills/md-to-html/scripts/audit_content_parity.test.mjs
+node --test .claude/skills/md-to-html/scripts/audit_design_parity.test.mjs
+```
 
 ## 将来計画: Nuxt.js（Vue）への移行
 
@@ -52,6 +60,12 @@ HTML を **Nuxt.js（Vue 3）の `pages/*.vue` へ手書きで移行**する予�
 
 対処手順と検証済み SRI ハッシュは `.claude/skills/cdn-sri-mermaid-fix/SKILL.md` にある（未適用）。
 
+> [!NOTE]
+> `md-to-html` スキルで**新規に生成するページは固定バージョン + SRI で出力される**。
+> したがって新旧のページで `<head>` の CDN タグだけが食い違う。
+> `audit_design_parity.mjs` を既存の CAPM.html に実行すると `cdn` カテゴリだけが NG になるが、
+> これは上表の未適用課題そのものであり、スキルの不具合ではない。
+
 **Mermaid の実装方式に注意**: このHTMLは `<div class="mermaid">` 方式ではなく、
 JS の `DIAGRAMS` オブジェクト（テンプレートリテラル）+ `mermaid.render()` 手動呼び出し方式。
 図の追加・修正は `DIAGRAMS` を直接編集する。詳細は `.claude/skills/fix-mermaid/SKILL.md`。
@@ -69,6 +83,7 @@ JS の `DIAGRAMS` オブジェクト（テンプレートリテラル）+ `merma
 
 | スキル | 用途 |
 |---|---|
+| `md-to-html` | 資格ガイドの MD → 単一ファイル HTML 変換（雛形・変換規則・原本照合/デザイン照合監査を同梱） |
 | `nuxt-page-migration` | HTML/MD → Nuxt `pages/*.vue` の移行と保守（原本照合監査を同梱） |
 | `fix-mermaid` | Mermaid の構文エラー・配色・サイズ・中央寄せの修正 |
 | `cdn-sri-mermaid-fix` | CDN のバージョン固定と SRI 付与、Mermaid 描画 API の互換性 |
