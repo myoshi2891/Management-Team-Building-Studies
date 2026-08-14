@@ -230,7 +230,7 @@ flowchart TB
 - 試験ではシナリオ形式で「あなたならどう行動するか」を問う設問が頻出する。判断の基準は「個人的な利害」ではなく「4つの価値観、特に公正・誠実」に照らして最も倫理的な行動を選ぶこと。
 - 利益相反(Conflict of Interest)が疑われる場合は、まず開示(disclose)することが原則。
 
-出典: PMI Code of Ethics and Professional Conduct(公式PDF)[3]、PMI Ethics Guidelines [4]
+出典: PMI Code of Ethics and Professional Conduct(公式PDF) [3]、PMI Ethics Guidelines [4]
 
 ### 1.7 プロジェクトが変化の手段であること
 
