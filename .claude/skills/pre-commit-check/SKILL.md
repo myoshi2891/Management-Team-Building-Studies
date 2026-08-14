@@ -16,7 +16,7 @@ allowed-tools:
 
 # コミット前チェックスキル
 
-最終更新: 2026-08-14
+最終更新: 2026-08-15
 
 ## 概要
 
@@ -67,16 +67,17 @@ grep -c 'integrity=' *.html
 
 詳細は `cdn-sri-mermaid-fix` および `fix-mermaid` スキルを参照。
 
-## Step 4: Nuxt の検証（`package.json` が存在する場合のみ）
+## Step 4: Nuxt の検証
 
-> [!NOTE]
-> **Nuxt プロジェクトは未導入。** `package.json` が存在しない間、本ステップは
-> スキップしてよい。「テストが無いので通った」と報告せず、**未導入である旨を明示**すること。
+Nuxt 4 は導入済み。`app/` 配下・`tests/`・`e2e/` に変更がある場合は必ず実行する。
+`bun` が使えない環境では `npm run <script>` で読み替える。
 
 ```bash
 bun run test         # Vitest 契約テスト
+bun run lint         # ESLint
 bunx nuxi typecheck  # 型エラー
 bun run build        # 本番ビルド
+bun run test:e2e     # generate + Playwright スモーク（ページ改修時）
 ```
 
 いずれかが失敗した場合はコミットしない。TDD サイクルとコミット分割の規約は
@@ -86,7 +87,7 @@ bun run build        # 本番ビルド
 
 ```bash
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  <原本>.{html|md} pages/<slug>.vue
+  <原本>.html app/pages/<slug>.vue
 echo "exit=$?"   # 0 以外なら転写漏れあり
 ```
 
@@ -104,7 +105,7 @@ echo "exit=$?"   # 0 以外なら転写漏れあり
 | Step 1 PII 検査 | 通過 / 検出（検出時は該当行） |
 | Step 2 markdownlint | 通過 / エラー件数 |
 | Step 3 静的 HTML | 実行した確認と結果 / 対象なし |
-| Step 4 Nuxt | 実行結果 / **未導入のためスキップ** |
+| Step 4 Nuxt | 実行結果 / 対象変更なしのためスキップ |
 | 総合判定 | コミット可 / 不可（理由） |
 
 **失敗や未実行を黙って省略しない。** スキップした項目は理由とともに明示する。
