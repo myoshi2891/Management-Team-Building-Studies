@@ -1,11 +1,18 @@
 # デザイン契約テスト — 実装パターン
 
-(最終更新日: 2026-08-14)
+(最終更新日: 2026-08-15)
 
-**用途**: SKILL.md §5 Step 1 の D-1〜D-4（デザイン契約）を
+**用途**: SKILL.md §5 Step 1 の D-1〜D-5（デザイン契約）を
 自動検知するテストパターンを詳述する。`<style scoped>` は DOM に
 `data-v-xxxxxxx` 属性を付けるだけでクラス名の意味は担保しないため、
 **`data-testid` / `data-variant` 属性でデザイン意図を DOM に明示**してテストする。
+
+> [!IMPORTANT]
+> 本ファイルの `data-variant` 値や CSS 変数名は**汎用の例**であり、
+> このリポジトリの実際の値ではない。**variant 値は原本のクラス名をそのまま使う**
+> （CAPM は `practice` / `source` / `note`）。実際のパレットは
+> `app/assets/css/main.css` を、実装例は `app/pages/capm.vue` と
+> `tests/pages/capm.test.ts` を正とする。
 
 ---
 
@@ -28,7 +35,7 @@ jsdom は `<style scoped>` の実 CSS 値を適用しないため、
 | 要素 | data-testid | data-variant | 補足 |
 |---|---|---|---|
 | セクションタグ（stepTag相当） | `step-tag` | — | 全セクション分必須 |
-| callout/alert ボックス | `callout` | `info` / `warn` / `good` | variant で色区別 |
+| callout/alert ボックス | `callout` | **原本のクラス名**（CAPM は `practice` / `source` / `note`） | variant で色区別 |
 | callout 内ラベル | `callout-label` | — | uppercase monoラベル |
 | 引用ブロック（voice/blockquote） | `voice` | — | |
 | 引用者名 | `voice-who` | — | |
@@ -36,7 +43,7 @@ jsdom は `<style scoped>` の実 CSS 値を適用しないため、
 
 ---
 
-## 正しい `pages/<slug>.vue` の書き方
+## 正しい `app/pages/<slug>.vue` の書き方
 
 ```vue
 <template>
@@ -128,9 +135,13 @@ it("D-1: callout の variant が原本にあるものをすべて含む", () => 
 
 ## CSS — 原本 HTML を 100% 転写する原則
 
-原本 HTML の `<style>` ブロックをそのまま `pages/<slug>.vue` の `<style scoped>` に転写する。
-`:root` の CSS 変数は `assets/css/main.css` へ移す（ページ間で共有するため）。
-以下は **よくある移行バグ（デザイン差異の典型例）**:
+原本 HTML の `<style>` ブロックをそのまま `app/pages/<slug>.vue` の `<style scoped>` に転写する。
+`:root` の CSS 変数は `app/assets/css/main.css` へ移す（ページ間で共有するため）。
+
+以下は **よくある移行バグ（デザイン差異の典型例）**。
+変数名は別プロジェクト由来の**例示**であり、このリポジトリの実際の変数名ではない
+（実際のパレットは `app/assets/css/main.css` を参照）。読むべきは「どの要素で
+配色を取り違えやすいか」であって、変数名そのものではない。
 
 | 要素 | 原本 HTML（正） | よくある誤り |
 |---|---|---|
@@ -157,26 +168,27 @@ it("D-1: callout の variant が原本にあるものをすべて含む", () => 
 ## テスト実行コマンド（重要: `bun run test` を使う）
 
 ```bash
-# ✅ 正しいコマンド（vitest 経由 — jsdom 環境が適用される）
+# ✅ 正しいコマンド（vitest 経由 — nuxt テスト環境が適用される）
 bun run test
 
-# ❌ 誤ったコマンド（Bun のネイティブランナー — jsdom なしで全テスト失敗する）
+# ❌ 誤ったコマンド（Bun のネイティブランナー — DOM 環境なしで全テスト失敗する）
 bun test tests/pages/capm.test.ts
 ```
 
 **理由**: `bun test` は Bun のビルトインランナーで動作し、
-`vitest.config.ts` の `environment: "jsdom"` 設定も Nuxt のエイリアス解決も一切適用されない。
+`vitest.config.ts` の環境設定も Nuxt のエイリアス解決も一切適用されない。
 `document is not defined` エラーが全テストで発生する。
 **必ず `bun run test`（= `vitest`）を使うこと。**
+`bun` が使えない環境では `npm run test` で読み替える（同じ scripts を実行する）。
+
+環境は `defineVitestConfig({ test: { environment: "nuxt" } })`。素の `jsdom` +
+`mount` では `useSeoMeta` などのオートインポートが解決されず落ちる。
 
 ---
 
-## 参考実装
+## 参考実装（実在するファイル）
 
-> [!NOTE]
-> **Nuxt プロジェクトは未作成のため、参考にできる実装ファイルはまだ存在しない。**
-> 最初のページを移行した時点で、以下を実例として本節に追記すること。
->
-> - `tests/pages/<slug>.test.ts` — デザイン契約テストの実装
-> - `pages/<slug>.vue` — `data-testid` / `data-variant` 付与例
-> - `assets/css/main.css` — 原本 HTML の `:root` パレット転写
+- `tests/pages/capm.test.ts` — S / C / D / Q 契約テストの実装
+- `app/pages/capm.vue` — `data-testid` / `data-variant` 付与例
+- `app/assets/css/main.css` — 原本 HTML の `:root` パレット転写
+- `tests/components/MermaidDiagram.test.ts` — 共有コンポーネントの契約テスト

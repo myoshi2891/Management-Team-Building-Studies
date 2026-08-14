@@ -1,35 +1,44 @@
 # Nuxt ページ移行 — 実装リファレンス（骨子）
 
-(最終更新日: 2026-08-14)
+(最終更新日: 2026-08-15)
 
 > [!IMPORTANT]
-> **本ファイルは意図的に骨子のみである。**
-> Nuxt プロジェクトが未作成のため、実装断片を書けば推測になる。
-> 最初のページを移行した時点で、**実コードから書き起こして**各節を埋めること。
-> 推測で書いた実装例は、読み手が「実在する」と誤解するため有害である。
+> 本ファイルは **CAPM ページ移行後の実態**を記録したものである。
+> 未実装の項目は「未実装」と明記してある。**推測で実装例を書き足さないこと**
+> （読み手が「実在する」と誤解するため有害）。
 
 ---
 
-## 1. ディレクトリ構成（移行時に確定させる）
+## 1. ディレクトリ構成（実測）
 
-想定する構成。実際に `nuxt.config.ts` を作った時点で実態に置き換える。
+Nuxt 4 の既定 `srcDir` は `app/`。テストだけはリポジトリ直下に置く。
 
 ```text
-assets/css/main.css        原本 HTML の :root パレットを転写（全ページ共有）
-components/
-  MermaidDiagram.vue       図解レイアウトの SSoT（rules/mermaid-diagram-layout.md）
-  TheHeader.vue            共通ヘッダー
-  DocToc.vue               サイドバー目次
-composables/
-  useActiveHeading.ts      TOC のスクロール連動（契約 Q-1 の対象）
-pages/
-  index.vue                資格ガイドの一覧
-  capm.vue                 CAPM ガイド（最初の移行対象）
+app/
+  app.vue                    <NuxtPage /> のみ
+  assets/css/main.css        原本 HTML の :root パレットを転写（全ページ共有）
+  components/
+    MermaidDiagram.vue       図解レイアウトの SSoT（rules/mermaid-diagram-layout.md）
+  composables/
+    useActiveHeading.ts      TOC のスクロール連動（契約 Q-1 の対象）
+  plugins/
+    mermaid.client.ts        mermaid.initialize を一度だけ実行
+  utils/
+    mermaid-loader.ts        import("mermaid") の singleton 化
+  pages/
+    index.vue                資格ガイドの一覧
+    capm.vue                 CAPM ガイド（移行済み）
 tests/
-  pages/capm.test.ts       契約テスト
+  pages/capm.test.ts         契約テスト
+  components/MermaidDiagram.test.ts
+  composables/useActiveHeading.test.ts
+e2e/
+  capm.spec.ts               静的生成成果物へのスモーク（Playwright）
 ```
 
-**TODO（移行着手時）**: 実際に作成したパス・コンポーネント名で上表を置き換える。
+共通ヘッダー・サイドバー目次のコンポーネント分割は**していない**。
+原本照合監査は 1 ファイルのインベントリを数えるため、ページを分割すると
+分割先の要素が「欠落」として検出される。抽出してよいのは `MermaidDiagram` のみ。
 
 ---
 
@@ -40,28 +49,42 @@ tests/
 `--color-forest` / `--color-plum` と各 tint、`--font-display` / `--font-sans` /
 `--font-mono`、`--sidebar-width`）。
 
-これを `assets/css/main.css` に**そのまま転写**する。
+これを `app/assets/css/main.css` に**そのまま転写**する。
 ページ側 `<style scoped>` から `var()` で参照する変数は、**必ず転写済みのものに限る**。
+
+転写済みの変数（`app/assets/css/main.css` の `:root`）:
+
+| 分類 | 変数 |
+|---|---|
+| 地色 | `--color-paper` / `--color-paper-raised` / `--color-paper-sunken` |
+| 文字 | `--color-ink` / `--color-ink-soft` / `--color-ink-faint` |
+| 罫線 | `--color-border` / `--color-border-strong` |
+| ドメイン色 | `--color-indigo` / `--color-indigo-dark` / `--color-indigo-tint` / `--color-gold` / `--color-gold-tint` / `--color-forest` / `--color-forest-tint` / `--color-plum` / `--color-plum-tint` |
+| 状態色 | `--color-info-bg` / `--color-info-border` / `--color-info-text` / `--color-success-bg` / `--color-success-border` / `--color-success-text` |
+| 書体・寸法 | `--font-display` / `--font-sans` / `--font-mono` / `--sidebar-width` |
 
 ```bash
 # 移植漏れの検査（ページで参照している変数が main.css に定義済みか）
-grep -ohE 'var\(--[a-z0-9-]+([[:space:]]*,[^)]*)?\)' pages/*.vue components/*.vue \
-  | sed -E 's/^var\((--[a-z0-9-]+).*/\1/' | sort -u \
-  | while read -r v; do
-      grep -qE "^[[:space:]]*$v[[:space:]]*:" assets/css/main.css || echo "未定義の変数: $v"
+grep -ohE 'var\(--[a-z0-9-]+' app/pages/*.vue app/components/*.vue \
+  | sed -E 's/^var\(//' | sort -u \
+  | while IFS= read -r v; do
+      grep -qE "^[[:space:]]*${v}[[:space:]]*:" app/assets/css/main.css \
+        || printf 'UNDEFINED %s\n' "$v"
     done
 ```
 
 未定義変数を `var()` 参照すると**ビルドは通るが実行時に透明・崩壊**する。
 これは最も発見が遅れるデザインバグなので、Refactor フェーズで必ず上記を回す。
 
-**TODO（移行着手時）**: 転写した変数名の一覧を本節に記録する。
+ただしページ内で定義したローカルなカスタムプロパティは偽陽性になる。
+`app/pages/capm.vue` の `--d-color`（`.domain-card.d1` 等でドメイン色を切り替える）が該当し、
+これは `main.css` に無くて正しい。
 
 ---
 
 ## 3. Mermaid の組み込み
 
-`components/MermaidDiagram.vue` がレイアウトの唯一の真実の源。
+`app/components/MermaidDiagram.vue` がレイアウトの唯一の真実の源。
 実装契約は `.claude/skills/fix-mermaid/SKILL.md` Part 4、
 不変条件は `.claude/rules/mermaid-diagram-layout.md` を参照（重複記述しない）。
 
@@ -71,18 +94,29 @@ grep -ohE 'var\(--[a-z0-9-]+([[:space:]]*,[^)]*)?\)' pages/*.vue components/*.vu
 - 図のソースは `<script setup>` のモジュール定数に置き、`:chart="NAME"` で渡す
 - ページ側 `<style scoped>` で幅・配置を書かない
 
-**TODO（移行着手時）**: 実装した `MermaidDiagram.vue` の props 一覧を確定させ、
-`fix-mermaid` SKILL.md Part 4 の props 表を実物に合わせて更新する。
+props（実装済み）:
+
+| props | 型 | 意味 |
+|---|---|---|
+| `chart` | `string`（必須） | Mermaid ソース。先頭にインデントがあると構文エラーになるため左端揃え |
+| `theme` | `string?` | 既定 `"base"`（原本 HTML がライトテーマ前提） |
+| `themeVariables` | `Record<string, string>?` | `theme="base"` のときだけ意味を持つ。**参照が安定するようモジュール定数を渡す** |
+| `maxHeight` | `string?` | ノード数が少なく viewBox が肥大する図だけに使う逃がし弁 |
+
+見た目の分離方式に注意する。`mermaid.initialize` をマウントごとに呼ぶと
+**同時描画中の別の図を壊す**ため、`theme` / `themeVariables` はグローバル設定ではなく
+Mermaid ソース先頭の frontmatter（`---\nconfig: {...}\n---`）として埋め込んでいる。
+グローバルな描画挙動（`useMaxWidth: false` 等）だけが `app/plugins/mermaid.client.ts` の責務。
 
 ---
 
-## 4. コードブロックの構文ハイライト
+## 4. コードブロックの構文ハイライト（未実装）
 
-原本 HTML はコードブロックを色分けして表示している。移植時は原本の配色を維持する。
+CAPM 原本 HTML には `<pre>` が **0 件**（inline `<code>` のみ）だったため、
+構文ハイライトは実装していない。**先回りして実装しない。**
 
-**TODO（移行着手時）**: 原本 HTML の該当 CSS クラスを調べ、
-Vue 側でどう表現するか（`v-html` + span トークン / ハイライトライブラリ）を決めて記録する。
-決めるまでは実装しない。
+`<pre>` を含む原本を移行する際に、Vue 側でどう表現するか
+（`v-html` + span トークン / ハイライトライブラリ）を決めて本節に記録する。
 
 > `v-html` を使う場合、原本の HTML エンティティ（`&lt;` `&gt;` `&amp;`）の
 > 二重エスケープに注意する。監査スクリプトは正規化して照合するため
@@ -93,9 +127,10 @@ Vue 側でどう表現するか（`v-html` + span トークン / ハイライト
 ## 5. ローカル検証
 
 ```bash
-bun run dev     # http://localhost:3000
+bun run dev        # http://localhost:3000
 bun run build
 bunx nuxi typecheck
+bun run test:e2e   # generate + Playwright スモーク（ポート 4173）
 ```
 
 原本 HTML はビルド不要でブラウザから直接開けるため、

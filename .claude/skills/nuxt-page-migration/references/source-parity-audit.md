@@ -1,6 +1,6 @@
 # 原本照合監査（Source Parity Audit）— 転写漏れの機械検知
 
-(最終更新日: 2026-08-14)
+(最終更新日: 2026-08-15)
 
 **目的**: ガイドページ移植で最も多い不具合である**転写漏れ（セクション・リスト項目・
 参考リンクの脱落）を、目視ではなくスクリプトとテストで検知する**。
@@ -38,7 +38,7 @@ ls *.md     # Markdown 原本（章立て・本文の正）
 # リポジトリルートから実行する
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
   Certified-Associate-in-Project-Management.html \
-  pages/capm.vue
+  app/pages/capm.vue
 ```
 
 出力例（合格）:
@@ -117,7 +117,7 @@ mermaidSources       11        11
 ```bash
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
   Certified-Associate-in-Project-Management.html \
-  pages/capm.vue \
+  app/pages/capm.vue \
   --emit-headings
 ```
 
@@ -146,8 +146,11 @@ const EXPECTED_H3 = [
 
 ## 3. `tests/pages/<slug>.test.ts` に書く原本照合契約（S-1〜S-4）
 
+テスト環境は `vitest.config.ts` の `defineVitestConfig({ test: { environment: "nuxt" } })`
+で全体に適用済み。ファイル先頭に `// @vitest-environment jsdom` を書いてはならない
+（`useSeoMeta` などのオートインポートが解決されず `is not defined` で落ちる）。
+
 ```ts
-// @vitest-environment jsdom
 import { mount } from "@vue/test-utils";
 import { beforeAll, describe, expect, it, vi } from "vitest";
 import Page from "~/pages/capm.vue";
@@ -247,7 +250,7 @@ expect(wrapper.findAll("pre, code").length).toBeGreaterThan(0);
 # 変更したページだけを監査する
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
   <原本>.html \
-  pages/<slug>.vue
+  app/pages/<slug>.vue
 ```
 
 原本そのものを更新した場合（月次更新で新情報を追記した等）は、
@@ -267,7 +270,7 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 ```bash
 # 機械可読出力（漏れ一覧を JSON で得る）
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  <原本>.html pages/<slug>.vue --json
+  <原本>.html app/pages/<slug>.vue --json
 ```
 
 ---

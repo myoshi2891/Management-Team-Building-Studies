@@ -2,7 +2,7 @@
 name: nuxt-page-migration
 description: >
   Migrate the static HTML/Markdown certification guides in this repository to Nuxt.js
-  (Vue 3) pages/*.vue using TDD, and maintain already-migrated pages. Enforces a
+  (Vue 3) app/pages/*.vue using TDD, and maintain already-migrated pages. Enforces a
   mechanical source-parity audit that blocks content omission (the defect this workflow
   exists to prevent).
   TRIGGER when the user says any of the following (Japanese or English):
@@ -27,13 +27,25 @@ allowed-tools:
 
 # Nuxt ガイドページ移行・保守スキル
 
-最終更新: 2026-08-14
+最終更新: 2026-08-15
 
 > [!IMPORTANT]
-> **Nuxt プロジェクトはまだ存在しない。**
-> 本スキルは移行の設計契約であり、`nuxt.config.ts` / `package.json` 作成後に
-> 実パス・実コンポーネント名で肉付けする。**未確認の実装詳細を「実装済み」として書かない。**
-> 現時点で確実に動作するのは §5 Step 3 の原本照合監査スクリプトのみ（`node` 単体で実行可）。
+> **Nuxt 4 は導入済み。既定の `srcDir` は `app/`** なので実パスは `app/pages/*.vue` /
+> `app/components/*.vue` / `app/composables/*.ts` になる（テストの `~/pages/capm.vue` という
+> import は `srcDir` 解決でそのまま通る）。テストだけはリポジトリ直下の `tests/` に置く。
+> CAPM ページ（`app/pages/capm.vue`）が移行済みで、以降のページはこれを参照実装とする。
+
+## 参照実装（実在するファイル）
+
+| ファイル | 役割 |
+|---|---|
+| `app/pages/capm.vue` | 移行済みページの実例（`<script setup>` → `<template>` → `<style scoped>`） |
+| `app/components/MermaidDiagram.vue` | 図解レイアウトの SSoT + svg 後処理 |
+| `app/utils/mermaid-loader.ts` | `import("mermaid")` の singleton 化（後述の落とし穴 1 の対処） |
+| `app/plugins/mermaid.client.ts` | `mermaid.initialize` を一度だけ実行 |
+| `app/composables/useActiveHeading.ts` | TOC のスクロール連動 |
+| `tests/pages/capm.test.ts` | 契約テストの実例（S / C / D / Q） |
+| `e2e/capm.spec.ts` | 静的生成成果物へのスモークテスト |
 
 ## 0. このスキルが解決する問題
 
@@ -56,16 +68,19 @@ allowed-tools:
 |---|---|
 | **原本（Markdown）** | `Certified-Associate-in-Project-Management.md` — 章立ての正 |
 | **原本（HTML）** | `Certified-Associate-in-Project-Management.html` — デザイン・図解の正 |
-| **移行先** | `pages/<slug>.vue`（Nuxt のファイルベースルーティング） |
+| **移行先** | `app/pages/<slug>.vue`（Nuxt のファイルベースルーティング） |
 
-Markdown と HTML は**同じ内容の2形態**。章構成・本文は `.md`、
-配色・レイアウト・Mermaid のソースは `.html` を参照する。
+Markdown と HTML は**同じ内容の2形態**とされているが、CAPM では実測すると乖離していた
+（`.md` の h2 は 16 個で番号付き、`.html` は 15 個で番号なし。ステップやベストプラクティスは
+`.html` 側で別要素に再構造化されている）。**移行はデザインの正である `.html` の忠実移植**であり、
+§5 Step 3 の監査ゲートも `.html` に対して実行する。`.md` 監査は情報提供として扱う。
+乖離の実例と判断は `docs/PROGRESS.md`「正当な差分の記録」を参照。
 
 ### Next.js からの読み替え表（他プロジェクトの資産を流用する場合）
 
 | Next.js | Nuxt |
 |---|---|
-| `app/**/page.tsx` | `pages/**/*.vue` |
+| `app/**/page.tsx` | `app/pages/**/*.vue` |
 | `className` | `class` |
 | CSS Modules `page.module.css` | `<style scoped>` |
 | `dangerouslySetInnerHTML` | `v-html` |
@@ -79,12 +94,20 @@ Markdown と HTML は**同じ内容の2形態**。章構成・本文は `.md`、
 ```bash
 bun run test                      # 全件（Vitest + @nuxt/test-utils）
 bun run test tests/pages/capm     # 単一ファイル（開発中の高速ループ）
+bun run test:e2e                  # 静的生成成果物へのスモーク（Playwright）
 ```
 
 > [!WARNING]
 > **`bun test` を直接使わない。** Bun ネイティブランナーは Vitest の設定
-> （jsdom 環境・Nuxt のエイリアス解決）を読まないため、`document is not defined` で全滅する。
+> （テスト環境・Nuxt のエイリアス解決）を読まないため、`document is not defined` で全滅する。
 > 必ず `bun run test`（= `vitest`）を経由する。
+
+`bun` が使えない環境（サンドボックス等）では `npm run <script>` で読み替える。
+どちらも `package.json` の同じ scripts を実行するため結果は同じ。
+
+**テスト環境は `nuxt`**（`jsdom` + 素の `mount` ではない）。`useSeoMeta` などの
+オートインポートを使うページは `defineVitestConfig({ test: { environment: "nuxt" } })`
+が無いと `is not defined` で落ちる。設定は `vitest.config.ts` にある。
 
 ## 4. TDD 必須サイクル
 
@@ -108,9 +131,9 @@ grep -cE '^\s*([-*+]|[0-9]+\.)\s' Certified-Associate-in-Project-Management.md
 grep -c '^```' Certified-Associate-in-Project-Management.md | awk '{ print $1 / 2 }'
 grep -c '^```mermaid' Certified-Associate-in-Project-Management.md
 
-# 契約テストに貼り付ける期待見出し配列を生成する
+# 契約テストに貼り付ける期待見出し配列を生成する（原本は .html。§2 の乖離の理由を参照）
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  Certified-Associate-in-Project-Management.md pages/<slug>.vue --emit-headings
+  Certified-Associate-in-Project-Management.html app/pages/<slug>.vue --emit-headings
 ```
 
 `--emit-headings` の実行前に空の `.vue` を作成する。原本と移植先の両方が読み取り可能でなければ
@@ -120,7 +143,7 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 
 `tests/pages/<slug>.test.ts` を作成する。原本の要素種別に依存しない
 **最低 12 契約**（S-1〜S-4 / C-1〜C-5 / Q-1〜Q-3）を書く。
-C-6 と D-1〜D-4 は適用条件に該当する場合のみ追加する。
+C-6 と D-1〜D-5 は適用条件に該当する場合のみ追加する。
 **件数だけを見る弱いテストは契約として認めない。**
 
 #### S. 原本照合契約（4 件・必須）
@@ -152,13 +175,20 @@ C-6 の実装は `.claude/skills/fix-mermaid/SKILL.md` Part 6 を参照。
 
 | ID | 適用条件 | 内容 |
 |---|---|---|
-| D-1 | 原本に callout / alert がある | `data-variant="info"/"warn"/"good"` で区別され、原本にある variant がすべて存在する |
-| D-2 | 原本に warn callout がある | `[data-variant="warn"]` がラベル子要素を持つ |
+| D-1 | 原本に callout / alert がある | `data-variant` で区別され、原本にある variant が**種類ごとの件数込み**ですべて存在する |
+| D-2 | 原本の callout にラベルがある | 全 callout が `[data-testid="callout-label"]` を持ち、ラベル文言が原本と一致する |
 | D-3 | 原本に step / stepTag がある | `data-testid="step-tag"` を持ち、件数が**原本の step 数**と一致する |
 | D-4 | 原本に voice / blockquote がある | `data-testid="voice"` と話者要素を持つ |
+| D-5 | 原本に eyebrow / タグ類がある | `.section-eyebrow` や `.domain-tag` が**順序込み**で一致する |
+
+> [!IMPORTANT]
+> **`data-variant` の値は原本のクラス名をそのまま使う。** CAPM では
+> `practice` / `source` / `note` であって、`info` / `warn` / `good` ではない。
+> 汎用の名前に置き換えると監査のキーが変わり、照合が落ちる。
 
 原本に存在しない要素の契約を要求しない。
 **不在要素を作成して契約数を満たすことは faithful 移植ではない。**
+CAPM では `<blockquote>` と `<pre>` が 0 件だったため、D-4 とコードブロック契約は書いていない。
 
 > 実装例: `references/design-contract-tests.md`
 
@@ -192,7 +222,7 @@ expect(wrapper.findAll("h2").map((el) => el.text())).toEqual([...EXPECTED_H2]);
 **テストが失敗することを目で確認してからコミットする**。
 「まだ `.vue` が無いので import エラー」も正当な Red である。
 
-### Step 2: [Green] `pages/<slug>.vue` の実装
+### Step 2: [Green] `app/pages/<slug>.vue` の実装
 
 > [!CAUTION]
 > **100% 完全移植ルール（絶対ルール）**
@@ -246,10 +276,13 @@ useSeoMeta({
 
 ```bash
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  Certified-Associate-in-Project-Management.md \
-  pages/<slug>.vue
+  Certified-Associate-in-Project-Management.html \
+  app/pages/<slug>.vue
 echo "exit=$?"   # 0 以外なら転写漏れあり → Green コミット禁止
 ```
+
+CAPM は `package.json` の `audit:capm` スクリプトに登録済み（`bun run audit:capm`）。
+新しいページを追加したら同様のスクリプトを足しておくと、`pre-commit-check` から呼びやすい。
 
 検出項目: 見出し（レベル・順序・出現回数）/ 外部リンク / リスト項目 / コードブロック /
 表行 / 段落 / SVG / callout / Mermaid ソース（順序込み完全一致）。
@@ -272,9 +305,21 @@ echo "exit=$?"   # 0 以外なら転写漏れあり → Green コミット禁止
 ```bash
 bun run test
 bunx nuxi typecheck
+bun run lint
 bun run build
-bun run dev     # ブラウザで目視確認（図解・配色・レイアウト）
+bun run test:e2e   # generate + スモーク（Mermaid 実描画・アイコン同梱の検証）
+bun run dev        # ブラウザで目視確認（図解・配色・レイアウト）
+
+# CSS 変数の未定義参照チェック（配色崩壊の典型原因）
+grep -ohE 'var\(--[a-z0-9-]+' app/pages/*.vue app/components/*.vue | sed -E 's/^var\(//' | sort -u \
+  | while IFS= read -r v; do
+      grep -qE "^[[:space:]]*${v}[[:space:]]*:" app/assets/css/main.css || printf 'UNDEFINED %s\n' "$v"
+    done
 ```
+
+上記の CSS 変数チェックは、ページ内で定義したローカルなカスタムプロパティ
+（例: `.domain-card.d1 { --d-color: … }`）も「未定義」と報告する。
+`app/pages/*.vue` 内に定義があるかを確認したうえで判断する。
 
 ### Step 6: [Docs] 同期とコミット前チェック
 
@@ -293,10 +338,21 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 2. **契約テストを先に更新**（期待値を実装に合わせて書き換えない。正しいのは常に原本）
 3. 実装を修正
 4. **原本照合監査を再実行**（保守でも exit 0 を維持する）
-5. `bun run test` / `bunx nuxi typecheck` / `bun run build`
+5. `bun run test` / `bunx nuxi typecheck` / `bun run build` / `bun run test:e2e`
 
 デザイン不一致（配色・テーブルヘッダー・callout 等）の相談は、
 **原本 HTML の該当箇所を読んでから**直す。推測で色を決めない。
+
+### CAPM 移行で踏んだ落とし穴（再発しやすい）
+
+| 症状 | 原因 | 対処 |
+|---|---|---|
+| 図が 1 枚目しか描画されず 2 枚目以降がエラー表示になる | `<script setup>` は `setup()` にコンパイルされ**インスタンスごとに実行される**。そこに置いた「モジュール singleton」は実際にはインスタンス変数 | singleton を独立モジュール（`app/utils/mermaid-loader.ts`）へ切り出す |
+| テストの `wrapper.element` が実要素を指さない | `<template>` の root の兄弟に置いた HTML コメントも VNode として数えられ多重ルートになる | 説明コメントは `<script>` 側の JSDoc に置く |
+| コンポーネント内部要素の配色が原本と違う | `.diagram-error` 等はコンポーネント内で描画されるためページ側 `<style scoped>` が到達しない | そのスタイルはコンポーネントの `<style scoped>` が持つ |
+| Mermaid 定数が監査で解決されない | フォーマッタがテンプレートリテラルの末尾セミコロンを落とす | `const NAME = \`…\`;` 形式を厳守。stylistic プリセット（既定 `semi: false`）を有効化しない |
+| E2E が別プロジェクトの 404 ページを検証する | Playwright の `reuseExistingServer` は応答しているサーバーが自分のものかを検証しない | 既定ポートを避け、`reuseExistingServer: false` にする |
+| E2E の TOC スクロールが届かない | Mermaid 描画のたびに文書高さが変わり、スムーススクロールの目標位置が動く | 図の描画完了を待ってからクリックし、長距離スクロールはタイムアウトを延ばす |
 
 ## 7. Constraints（禁止事項）
 
@@ -328,7 +384,8 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | `scripts/audit_source_parity.test.mjs` | 上記のテスト（`node --test` で実行） |
 | `references/source-parity-audit.md` | 監査結果の判断基準と S 契約の実装例 |
 | `references/design-contract-tests.md` | D 契約の実装例 |
-| `references/implementation-reference.md` | 実装リファレンス（Nuxt 作成後に肉付け） |
+| `references/implementation-reference.md` | 実装リファレンス（設定・共有部品の骨子） |
+| `app/pages/capm.vue` / `tests/pages/capm.test.ts` | 移行済みページと契約テストの参照実装 |
 | `.claude/rules/tdd-mandatory-cycle.md` | TDD とコミット分割の強制ルール |
 | `.claude/rules/mermaid-diagram-layout.md` | 図解レイアウトの不変条件 |
 | `.claude/skills/fix-mermaid/SKILL.md` | Mermaid の構文・配色・テスト契約 |

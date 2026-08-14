@@ -4,7 +4,7 @@ description: >
   Use this skill to fix Mermaid diagram syntax errors, rendering issues,
   sizing/centering, and color/dark-mode styling problems — in the static HTML
   guides in this repository (DIAGRAMS-object + mermaid.render pattern) and in the
-  planned Nuxt shared component components/MermaidDiagram.vue.
+  Nuxt shared component app/components/MermaidDiagram.vue.
   Trigger when the user mentions: "mermaid error", "Syntax error in text",
   "mermaid not rendering", "diagram is broken", "all diagrams crashed",
   "文字が読めない", "はみ出している", "図が醜い", "ダークモードで見にくい",
@@ -18,14 +18,14 @@ description: >
 
 # Mermaid 修正・スタイリングスキル
 
-最終更新: 2026-08-14
+最終更新: 2026-08-15
 
 ## 対象
 
 - Mermaid 図の構文エラー（`Syntax error in text` / 図が描画されない）
 - 配色崩れ（マインドマップ・シーケンス図）
 - SVGサイズ・クリッピング・**中央寄せ**問題
-- Nuxt 共有コンポーネント `components/MermaidDiagram.vue` のレイアウト（Part 4）
+- Nuxt 共有コンポーネント `app/components/MermaidDiagram.vue` のレイアウト（Part 4）
 - Nuxt 移行時の図解の転写漏れ検知（Part 6）
 
 ## 現行スタック
@@ -34,7 +34,7 @@ description: >
 |---|---|---|
 | mermaid | **v11**（CDN: `mermaid@11/dist/mermaid.min.js`） | `mermaid.render` は `{ svg }` オブジェクトを返す |
 | 静的 HTML | リポジトリ直下の `*.html`（単一ファイル・CDN 直読み） | ビルド工程なし。ブラウザで直接開いて検証する |
-| 移行先（予定） | Nuxt.js（Vue 3）/ `pages/*.vue` 手書き移行 | 未着手。Part 4 は着手時に実パスで肉付けする |
+| 移行先 | Nuxt 4（Vue 3）/ `app/pages/*.vue` 手書き移行 | CAPM は移行済み。Part 4 は実装済みの `app/components/MermaidDiagram.vue` を正とする |
 
 > [!IMPORTANT]
 > **このリポジトリの HTML は `<div class="mermaid">` 方式を採用していない。**
@@ -335,12 +335,12 @@ A --> B
 ## Part 4: Nuxt (Vue 3) 移植時の注意点
 
 > [!NOTE]
-> **Nuxt プロジェクトは未作成。** 本パートは移行着手時の設計契約であり、
-> 実装後に実パス・実 props で肉付けすること。推測を実装済みとして書かない。
+> **実装済み。** `app/components/MermaidDiagram.vue` / `app/plugins/mermaid.client.ts` /
+> `app/utils/mermaid-loader.ts` が実在する。本パートと食い違う場合は**実コードが正**。
 
 ### レイアウトはコンポーネントが真実の源
 
-中央寄せ・全幅・縮小フィットは **共有コンポーネント `components/MermaidDiagram.vue` が
+中央寄せ・全幅・縮小フィットは **共有コンポーネント `app/components/MermaidDiagram.vue` が
 一元的に担当**する。各ページの `<style scoped>` で `.mermaid` / `svg` の幅・配置を
 強制してはならない（引き伸ばし・縮小・左寄せの三分裂を招く）。
 不変条件の詳細は `.claude/rules/mermaid-diagram-layout.md` を参照。
@@ -349,7 +349,7 @@ A --> B
 図のマウントごとに `mermaid.initialize` を呼ぶと、同時描画する別の図の設定を上書きするため禁止する。
 
 ```ts
-// plugins/mermaid.client.ts
+// app/plugins/mermaid.client.ts
 import mermaid from "mermaid";
 
 export default defineNuxtPlugin(() => {
@@ -432,9 +432,9 @@ Mermaid は DOM を必要とするため SSR できない。ページ側では `
 </ClientOnly>
 ```
 
-`components/` 直下に置けば Nuxt の自動インポートが効くため、`import` 文は不要。
+`app/components/` 直下に置けば Nuxt の自動インポートが効くため、`import` 文は不要。
 
-### props の設計方針（実装後に実物へ合わせて更新すること）
+### props（実装済み。`app/components/MermaidDiagram.vue` が正）
 
 | prop | 型 | 用途 |
 |---|---|---|
@@ -724,7 +724,7 @@ grep -c '<MermaidDiagram' pages/<slug>.vue
 以下はブラウザでの目視確認が必須。
 
 - 現行 HTML: ブラウザで直接ファイルを開く
-- Nuxt 移行後: `bun run dev` で確認する
+- Nuxt 移行後: `bun run dev` で確認する（`bun run test:e2e` は描画の有無までは自動検証する）
 
 確認項目:
 
