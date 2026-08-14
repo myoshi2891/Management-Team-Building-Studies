@@ -599,6 +599,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
 </template>
 
 <style scoped>
+.layout {
   display: block;
 }
 
