@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-14)
+(最終更新日: 2026-08-15)
 
 静的 HTML の資格学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -9,17 +9,17 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `602872b` — refactor(toc): register observer cleanup at setup scope |
-| 次の作業 | サイクル 3: `tests/pages/capm.test.ts` の契約テスト Red コミット（S-1〜S-4 / C-1〜C-6 / D-1〜D-3,D-5 / Q-2,Q-3） |
-| ビルド状態 | `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
-| テスト数 | **20**（MermaidDiagram 11 + useActiveHeading 9）— これがベースライン |
-| 原本照合監査 | ✘ exit 1（本文未移行のため当然。サイクル 3 で exit 0 にする） |
+| 最新 HEAD | `bbd0bcd` — feat(capm): migrate complete guide content |
+| 次の作業 | `Engineering-management-career-path.html` の Nuxt 移行 |
+| ビルド状態 | `npm test` ✔ / `npm exec -- nuxi typecheck` ✔ / `npm exec -- eslint app/pages/capm.vue` ✔ / ビルドはユーザー指示により未実行 |
+| テスト数 | **43**（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23）— これがベースライン |
+| 原本照合監査 | ✔ exit 0（HTML 原本と CAPM page の全監査カテゴリが一致） |
 
 ## ページ移行状況
 
 | 原本 | 移行先 | 状態 |
 |---|---|---|
-| `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | 🚧 骨組みのみ（本文未移行） |
+| `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了 |
 | `Engineering-management-career-path.html` | 未定 | ⏳ 未着手 |
 
 ## 共有部品の実装状況
@@ -107,20 +107,18 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 ## 次回セッションでの再開プロンプト
 
 ```text
-Management-Team-Building-Studies リポジトリで CAPM ガイドの Nuxt 移行を継続する。
+Management-Team-Building-Studies リポジトリで Engineering Management ガイドの Nuxt 移行を開始する。
 
-最新 HEAD: 602872b（refactor(toc): register observer cleanup at setup scope）
-次の作業: サイクル 3 — tests/pages/capm.test.ts の失敗する契約テストを書く。
-          期待見出し配列は次のコマンドで機械生成して貼り付けること（手打ち禁止）:
-            node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-              Certified-Associate-in-Project-Management.html app/pages/capm.vue --emit-headings
+最新 HEAD: bbd0bcd（feat(capm): migrate complete guide content）
+次の作業: Engineering-management-career-path.html の Nuxt 移行。
+          CAPM と同じく、契約テスト Red → 全文移行 → 原本照合 exit 0 の順で進める。
 
 完了済み: MermaidDiagram.vue / mermaid.client.ts / mermaid-loader.ts（契約 11 件）
           useActiveHeading.ts（契約 9 件）
-テスト数ベースライン: 20（これを下回ったら何かを壊している）
+          CAPM page（契約 23 件・原本照合 exit 0）
+テスト数ベースライン: 43（これを下回ったら何かを壊している）
 
-未移行: app/pages/capm.vue は骨組みのみ。原本 15 セクション / Mermaid 9 図 /
-        表 22 / callout 22 / 用語 15 / 参考リンク 19 がすべて未転写。
+未移行: Engineering-management-career-path.html（Nuxt page 未作成）。
 
 必読: .claude/skills/nuxt-page-migration/SKILL.md
       .claude/rules/tdd-mandatory-cycle.md
@@ -128,6 +126,6 @@ Management-Team-Building-Studies リポジトリで CAPM ガイドの Nuxt 移�
       .claude/skills/fix-mermaid/SKILL.md（Part 4 / Part 6）
       docs/PROGRESS.md（本ファイルの「正当な差分の記録」）
 
-ゲート: bun run audit:capm が exit 0 になるまで feat コミット禁止。
-        bun test は使わない（必ず bun run test）。
+ゲート: 原本照合監査が exit 0 になるまで feat コミット禁止。
+        sandbox では npm scripts を使う。
 ```
