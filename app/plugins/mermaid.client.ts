@@ -15,12 +15,12 @@ export default defineNuxtPlugin(() => {
   mermaid.initialize({
     startOnLoad: false,
     securityLevel: "loose",
+    htmlLabels: true,
     // useMaxWidth はいずれも false。自然サイズを起点にし、列幅への収まりは
     // MermaidDiagram.vue の svg 後処理（max-width:100%）が担当する
     // （.claude/rules/mermaid-diagram-layout.md 不変条件 2）。
     flowchart: {
       useMaxWidth: false,
-      htmlLabels: true,
       nodeSpacing: 45,
       rankSpacing: 48,
       curve: "basis",

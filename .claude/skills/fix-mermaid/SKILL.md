@@ -355,8 +355,9 @@ import mermaid from "mermaid";
 export default defineNuxtPlugin(() => {
   mermaid.initialize({
     startOnLoad: false,
+    htmlLabels: true,
     // 自然サイズを起点に縮小するため flowchart/sequence/mindmap とも false
-    flowchart: { useMaxWidth: false, htmlLabels: true },
+    flowchart: { useMaxWidth: false },
     sequence: { useMaxWidth: false },
     mindmap: { useMaxWidth: false },
   });
@@ -368,6 +369,8 @@ export default defineNuxtPlugin(() => {
 
 ```vue
 <script setup lang="ts">
+import { loadMermaid } from "~/utils/mermaid-loader";
+
 const props = defineProps<{
   chart: string;
   theme?: string;
@@ -387,7 +390,7 @@ function chartWithConfig(): string {
 }
 
 onMounted(async () => {
-  const mermaid = (await import("mermaid")).default;
+  const mermaid = await loadMermaid();
   const { svg } = await mermaid.render(diagramId, chartWithConfig());
   if (!el.value) return;
   el.value.innerHTML = svg;
