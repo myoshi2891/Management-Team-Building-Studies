@@ -252,6 +252,18 @@ test("reports a missing short list item without matching it inside another word"
 	assert.deepEqual(result.json.missingListItems, ["Go"]);
 });
 
+test("ignores asset URLs from the HTML head when auditing body links", () => {
+	const result = audit(
+		`<!doctype html><html><head><link rel="stylesheet" href="https://cdn.example/styles.css"></head>
+<body><p>Body content.</p></body></html>`,
+		"<p>Body content.</p>",
+	);
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingLinks, []);
+	assert.deepEqual(result.json.counts.externalLinks, { source: 0, page: 0 });
+});
+
 test("recognizes every allowed Mermaid diagram declaration including pie", () => {
 	const charts = [
 		"graph TD\nA --> B",
