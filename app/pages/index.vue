@@ -12,6 +12,9 @@ useSeoMeta({
       <li>
         <NuxtLink to="/capm">CAPM®（Certified Associate in Project Management）認定資格 完全ガイド</NuxtLink>
       </li>
+      <li>
+        <NuxtLink to="/engineering-management-career-path">エンジニアのためのマネジメントキャリアパス 完全ガイド</NuxtLink>
+      </li>
     </ul>
   </main>
 </template>

@@ -9,18 +9,18 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `8153768` — docs(skills): mark nuxt verification as active in pre-commit-check |
-| 次の作業 | `Engineering-management-career-path.html` の Nuxt 移行 |
-| ビルド状態 | `npm test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run build` ✔ / `npx playwright test` ✔（4/4） |
-| テスト数 | **43** ユニット（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23）+ **4** E2E — これがベースライン |
-| 原本照合監査 | ✔ exit 0（HTML 原本と CAPM page の全監査カテゴリが一致） |
+| 最新 HEAD | `e65fa49` — refactor(em-career-path): pass typecheck, lint, and test suite |
+| 次の作業 | 保守・新規ガイドの追加 |
+| ビルド状態 | `npm test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ （全件パス） |
+| テスト数 | **65** ユニット（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23 + EM career path page 22）+ **4** E2E — これがベースライン |
+| 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
 
 | 原本 | 移行先 | 状態 |
 |---|---|---|
 | `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了・E2E スモーク Green |
-| `Engineering-management-career-path.html` | 未定 | ⏳ 未着手 |
+| `Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 
 ## 共有部品の実装状況
 
@@ -97,42 +97,24 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | E2E が 4 件とも別プロジェクトの Next.js 404 ページを検証していた | Playwright の `reuseExistingServer` は応答しているサーバーが自分のものかを検証しない。既定ポート 3000 を他プロジェクトの dev サーバーが占有していた | 専用ポート 4173 に変更し `reuseExistingServer: false` にする |
 | E2E の TOC スクロールが目標セクションに届かない | Mermaid 描画のたびに文書高さが変わり、進行中のスムーススクロールの目標位置が動く（描画前後で 10,444px → 17,318px） | 図の描画完了を待ってからクリックし、長距離スクロールはタイムアウトを延長する |
 
-### 4. スキル記述と実環境の食い違い
+### 5. EM キャリアパスガイド（`engineering-management-career-path.vue`）での差分
 
-| スキルの記述 | 実際 |
-|---|---|
-| `@nuxt/test-utils ^3.17.x` | **4.1.0**（v4 系が最新） |
-| `// @vitest-environment jsdom` + 素の `mount` | オートインポート（`useSeoMeta` 等）を使うページでは動かない。`defineVitestConfig({ test: { environment: "nuxt" } })` が必要 |
-| `pages/` / `components/` 直下 | Nuxt 4 の既定 `srcDir` は `app/` のため `app/pages/` / `app/components/`。テストの `~/pages/capm.vue` は `srcDir` 解決でそのまま通る |
-
-**反映済み**（`docs(skills)` / `docs(rules)` / `docs(claude)` の各コミット）。
-スキル・ルール・`CLAUDE.md` の記述は実態と一致している。以降、食い違いを見つけたら
-ここに追記したうえで本体も直す（記録だけ残して放置しない）。
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `書籍`, `ブログ・記事`, `企業・調査レポート`, `その他リソース` を `h3` へ変更 | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| `calloutElements` 件数の差 | 原本 5 → Vue 3 | 原本 HTML の `<i class="ti ti-alert-triangle">` が監査スクリプトで `alert` 要素として誤検出されていた。Vue 側では `<Icon>` に変更したため誤検出が消え、実際の callout 3 件に完全一致 |
 
 ## 次回セッションでの再開プロンプト
 
 ```text
-Management-Team-Building-Studies リポジトリで Engineering Management ガイドの Nuxt 移行を開始する。
+Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-最新 HEAD: 8153768（docs(skills): mark nuxt verification as active in pre-commit-check）
-次の作業: Engineering-management-career-path.html の Nuxt 移行。
-          CAPM と同じく、契約テスト Red → 全文移行 → 原本照合 exit 0 の順で進める。
+完了済み:
+  - app/pages/capm.vue（CAPM ガイド）
+  - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
+  - MermaidDiagram.vue / useActiveHeading.ts
+  - ユニットテスト 65 件（MermaidDiagram 11 + useActiveHeading 9 + CAPM 23 + EM career path 22）
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
 
-完了済み: MermaidDiagram.vue / mermaid.client.ts / mermaid-loader.ts（契約 11 件）
-          useActiveHeading.ts（契約 9 件）
-          CAPM page（契約 23 件・原本照合 exit 0）
-          E2E スモーク 4 件（e2e/capm.spec.ts）
-          スキル・ルール・CLAUDE.md の実態同期（app/ srcDir 反映）
-テスト数ベースライン: ユニット 43 + E2E 4（これを下回ったら何かを壊している）
-
-未移行: Engineering-management-career-path.html（Nuxt page 未作成）。
-
-必読: .claude/skills/nuxt-page-migration/SKILL.md
-      .claude/rules/tdd-mandatory-cycle.md
-      .claude/rules/mermaid-diagram-layout.md
-      .claude/skills/fix-mermaid/SKILL.md（Part 4 / Part 6）
-      docs/PROGRESS.md（本ファイルの「正当な差分の記録」）
-
-ゲート: 原本照合監査が exit 0 になるまで feat コミット禁止。
-        sandbox では npm scripts を使う。
+ベースラインテスト数: ユニット 65 + E2E 4
 ```
