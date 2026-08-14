@@ -94,22 +94,97 @@ function stripMarkup(fragment) {
   );
 }
 
-/**
- * Collects normalized text-node values so short list items are matched only at
- * element boundaries instead of as substrings of unrelated words.
- * @param {string} markup - Markup whose visible text nodes should be collected.
- * @returns {string[]} Non-empty normalized text-node comparison keys.
- */
+/** Finds the closing bracket of a markup tag while ignoring attribute expressions. */
+function findMarkupTagEnd(markup, tagStart) {
+  let quote = "";
+  let braceDepth = 0;
+  let escaped = false;
+  for (let index = tagStart + 1; index < markup.length; index += 1) {
+    const character = markup[index];
+    if (quote) {
+      if (escaped) escaped = false;
+      else if (character === "\\") escaped = true;
+      else if (character === quote) quote = "";
+      continue;
+    }
+    if (character === '"' || character === "'" || character === "`") {
+      quote = character;
+    } else if (character === "{") {
+      braceDepth += 1;
+    } else if (character === "}") {
+      braceDepth = Math.max(0, braceDepth - 1);
+    } else if (character === ">" && braceDepth === 0) {
+      return index;
+    }
+  }
+  return -1;
+}
+
+/** Collects normalized rendered text-node keys from a markup fragment. */
 function collectTextNodeKeys(markup) {
   const keys = [];
-  const textNodeRe = />([^<>]+)</g;
-  let match = textNodeRe.exec(markup);
-  while (match !== null) {
-    const key = matchKey(stripMarkup(match[1]));
-    if (key) keys.push(key);
-    match = textNodeRe.exec(markup);
+  const tagRe = /<(?:\/?[A-Za-z][\w.:-]*\b|\/?>)/g;
+  let depth = 0;
+  let tag = tagRe.exec(markup);
+  while (tag !== null) {
+    const tagEnd = findMarkupTagEnd(markup, tag.index);
+    if (tagEnd === -1) break;
+    const tagText = markup.slice(tag.index, tagEnd + 1);
+    const isClosing = tagText.startsWith("</");
+    const isSelfClosing = /\/\s*>$/.test(tagText);
+    if (isClosing) depth = Math.max(0, depth - 1);
+    else if (!isSelfClosing) depth += 1;
+
+    if (depth > 0) {
+      const nextTag = markup.indexOf("<", tagEnd + 1);
+      const textEnd = nextTag === -1 ? markup.length : nextTag;
+      const key = matchKey(stripMarkup(markup.slice(tagEnd + 1, textEnd)));
+      if (key) keys.push(key);
+    }
+
+    tagRe.lastIndex = tagEnd + 1;
+    tag = tagRe.exec(markup);
   }
   return keys;
+}
+
+/**
+ * Extracts JSX roots returned by functions so declarations, comparisons, and
+ * other non-rendered TypeScript cannot contribute text-node matches.
+ * @param {string} src - Complete TSX source.
+ * @returns {string} Returned JSX roots concatenated in source order.
+ */
+function collectTsxReturnMarkup(src) {
+  const roots = [];
+  const returnRe = /\breturn\s*(?:\(\s*)?(?=<)/g;
+  let returned = returnRe.exec(src);
+  while (returned !== null) {
+    const rootStart = returnRe.lastIndex;
+    const tagRe = /<(?:\/?[A-Za-z][\w.:-]*\b|\/?>)/g;
+    tagRe.lastIndex = rootStart;
+    let depth = 0;
+    let started = false;
+    let tag = tagRe.exec(src);
+    while (tag !== null) {
+      const tagEnd = findMarkupTagEnd(src, tag.index);
+      if (tagEnd === -1) break;
+      const tagText = src.slice(tag.index, tagEnd + 1);
+      const isClosing = tagText.startsWith("</");
+      const isSelfClosing = /\/\s*>$/.test(tagText);
+      if (isClosing) depth = Math.max(0, depth - 1);
+      else if (!isSelfClosing) depth += 1;
+      started = true;
+      if (started && depth === 0) {
+        roots.push(src.slice(rootStart, tagEnd + 1));
+        returnRe.lastIndex = tagEnd + 1;
+        break;
+      }
+      tagRe.lastIndex = tagEnd + 1;
+      tag = tagRe.exec(src);
+    }
+    returned = returnRe.exec(src);
+  }
+  return roots.join("\n");
 }
 
 /**
@@ -606,7 +681,7 @@ function inventoryTsx(src) {
     // ページ側は <li> を使わずカード / div で組むことがあるため、
     // 本文全体の平坦化テキストを照合対象にする（マークアップ非依存の漏れ検知）。
     flatText: matchKey(stripMarkup(src)),
-    textNodeKeys: collectTextNodeKeys(src),
+    textNodeKeys: collectTextNodeKeys(collectTsxReturnMarkup(src)),
     listItems: countMatches(src, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
