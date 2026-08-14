@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `03aba53` — refactor(mermaid): move diagram-error styling into the component |
-| 次の作業 | サイクル 2: `app/composables/useActiveHeading.ts` の Red コミット（TOC スクロール連動・契約 Q-1） |
+| 最新 HEAD | `602872b` — refactor(toc): register observer cleanup at setup scope |
+| 次の作業 | サイクル 3: `tests/pages/capm.test.ts` の契約テスト Red コミット（S-1〜S-4 / C-1〜C-6 / D-1〜D-3,D-5 / Q-2,Q-3） |
 | ビルド状態 | `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
-| テスト数 | **11**（`tests/components/MermaidDiagram.test.ts`）— これがベースライン |
+| テスト数 | **20**（MermaidDiagram 11 + useActiveHeading 9）— これがベースライン |
 | 原本照合監査 | ✘ exit 1（本文未移行のため当然。サイクル 3 で exit 0 にする） |
 
 ## ページ移行状況
@@ -29,7 +29,7 @@
 | `app/components/MermaidDiagram.vue` | ✅ 完了 | `tests/components/MermaidDiagram.test.ts`（11 件） |
 | `app/plugins/mermaid.client.ts` | ✅ 完了 | 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
-| `app/composables/useActiveHeading.ts` | ⏳ 未着手 | 契約 Q-1 |
+| `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
 
 ## 技術スタック（2026-08-14 時点の npm 実測値）
 
@@ -109,13 +109,15 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 ```text
 Management-Team-Building-Studies リポジトリで CAPM ガイドの Nuxt 移行を継続する。
 
-最新 HEAD: 03aba53（refactor(mermaid): move diagram-error styling into the component）
-次の作業: サイクル 2 — app/composables/useActiveHeading.ts の失敗する契約テスト
-          （tests/composables/useActiveHeading.test.ts、契約 Q-1）を書き、
-          Red を実行して目視確認してから test(...) コミットする。
+最新 HEAD: 602872b（refactor(toc): register observer cleanup at setup scope）
+次の作業: サイクル 3 — tests/pages/capm.test.ts の失敗する契約テストを書く。
+          期待見出し配列は次のコマンドで機械生成して貼り付けること（手打ち禁止）:
+            node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
+              Certified-Associate-in-Project-Management.html app/pages/capm.vue --emit-headings
 
 完了済み: MermaidDiagram.vue / mermaid.client.ts / mermaid-loader.ts（契約 11 件）
-テスト数ベースライン: 11（これを下回ったら何かを壊している）
+          useActiveHeading.ts（契約 9 件）
+テスト数ベースライン: 20（これを下回ったら何かを壊している）
 
 未移行: app/pages/capm.vue は骨組みのみ。原本 15 セクション / Mermaid 9 図 /
         表 22 / callout 22 / 用語 15 / 参考リンク 19 がすべて未転写。
