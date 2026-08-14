@@ -1,14 +1,14 @@
 ---
 paths:
-  - "pages/**/*.vue"
-  - "components/**/*.vue"
-  - "assets/css/**/*.css"
+  - "app/pages/**/*.vue"
+  - "app/components/**/*.vue"
+  - "app/assets/css/**/*.css"
   - "docs/PROGRESS.md"
 ---
 
 # docs/PROGRESS.md セッション終了前同期ルール
 
-(最終更新日: 2026-08-14)
+(最終更新日: 2026-08-15)
 
 HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが逼迫する前に**必ず以下を実施してセッションを終えること。
 
@@ -27,8 +27,7 @@ HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが�
 `docs/PROGRESS.md` が未コミットの状態で次の HTML を読み始めることは禁止。
 
 > [!NOTE]
-> `docs/PROGRESS.md` は Nuxt 移行の着手時に作成する。移行を開始していない現時点では
-> 本ルールは発効しない（存在しないファイルの更新漏れを報告しないこと）。
+> `docs/PROGRESS.md` は作成済みで、本ルールは発効している。
 
 ### 追加トリガー
 
@@ -44,6 +43,7 @@ HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが�
 bun run test           # 契約テストが Green
 bun run build          # ビルド成功を確認
 bunx nuxi typecheck    # 型エラーなし
+bun run test:e2e       # 静的生成 + Playwright スモーク（ページ改修時）
 git rev-parse --short HEAD
 ```
 
@@ -55,7 +55,7 @@ git rev-parse --short HEAD
 |---|---|
 | `最新 HEAD` | `git rev-parse --short HEAD` の実値 + コミットメッセージ要約 |
 | `次の作業` | 次セッションで **最初に** 取り掛かるページ（例: `Certified-Associate-in-Project-Management.html §6 ドメイン1 の移行`） |
-| `ビルド状態` | `bun run test` / `bun run build` / `bunx nuxi typecheck` の最新状態 |
+| `ビルド状態` | `bun run test` / `bun run build` / `bunx nuxi typecheck` / `bun run test:e2e` の最新状態 |
 | `テスト数` | `bun run test` の実測値（`tdd-mandatory-cycle.md` のベースライン） |
 
 ### 3. `## 次回セッションでの再開プロンプト` を同期

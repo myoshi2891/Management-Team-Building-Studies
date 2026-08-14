@@ -1,22 +1,24 @@
 ---
 paths:
-  - "pages/**/*.vue"
-  - "components/**/*.vue"
-  - "composables/**/*.ts"
-  - "utils/**/*.ts"
+  - "app/pages/**/*.vue"
+  - "app/components/**/*.vue"
+  - "app/composables/**/*.ts"
+  - "app/utils/**/*.ts"
+  - "app/plugins/**/*.ts"
   - "tests/**/*.test.ts"
+  - "e2e/**/*.spec.ts"
   - ".claude/skills/*/scripts/*.mjs"
 ---
 
 # TDD 必須サイクル & コミット分割ルール
 
-(最終更新日: 2026-08-14)
+(最終更新日: 2026-08-15)
 
 プロジェクトの品質とトレーサビリティを担保するため、以下の TDD サイクルおよびコミット分割を**絶対的な強制ルール**として適用する。
 
 > [!NOTE]
-> **適用範囲**: 本ルールは Nuxt プロジェクト（`pages/` / `components/` / `composables/`）に適用される。
-> Nuxt 未導入の現時点では、リポジトリ直下の `*.md` / `*.html` の編集は対象外。
+> **適用範囲**: 本ルールは Nuxt プロジェクト（`app/pages/` / `app/components/` / `app/composables/`）に適用される。
+> リポジトリ直下の `*.md` / `*.html`（移行の原本）の編集は対象外。
 > ただし `.claude/skills/*/scripts/*.mjs` のようにテスト可能なスクリプトを書く場合は本ルールに従う。
 
 ## 核心原則
@@ -45,7 +47,7 @@ paths:
     この場合は**リファクタリング扱い**として既存テストが Green のままであることを確認し、
     Green コミット後に `bun run dev` を実行して行うブラウザ目視確認をもってバグ修正の完了とする。
     よくある CSS 視覚バグとその原因:
-    - ビルドは通るのに全配色が崩壊 → `assets/css/main.css` に存在しない変数を `var()` 参照
+    - ビルドは通るのに全配色が崩壊 → `app/assets/css/main.css` に存在しない変数を `var()` 参照
     - スクロールでサイドバーが流れる → `position: sticky` 未設定
     - ハンバーガーメニューがデスクトップで表示 → `.sidebar-toggle { display: none }` デフォルト未定義
 - **機能改善の場合**: 期待する新しい振る舞いを記述した失敗テストを追加する。
@@ -75,16 +77,16 @@ expect(wrapper.text()).toContain("CAPM");
 expect(wrapper.findAll("h2").map((el) => el.text())).toEqual([...EXPECTED_H2]);
 ```
 
-`pages/**/*.vue` の新規作成・移行では、原本の要素種別に依存しない **最低 12 契約**
+`app/pages/**/*.vue` の新規作成・移行では、原本の要素種別に依存しない **最低 12 契約**
 （原本照合 S-1〜S-4 / コンテンツ C-1〜C-5 / 品質 Q-1〜Q-3）を Red で用意する。
-Mermaid 契約 C-6 とデザイン契約 D-1〜D-4 は原本依存の追加契約であり、対応する要素が
+Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契約であり、対応する要素が
 原本に存在する場合のみ必須とする。原本に存在しない要素の件数や構造を移植先へ要求してはならない。
 各契約の定義と実装例は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 1 および
 `.claude/skills/nuxt-page-migration/references/source-parity-audit.md` を参照。
 
 ### ステップ 2: Green（最小実装と成功）
 
-- テストをパスさせるための最小限のコードを `pages/` または `components/` 等に実装する。
+- テストをパスさせるための最小限のコードを `app/pages/` または `app/components/` 等に実装する。
 - **HTML/Markdown からのガイドページ移行時は、原本とのラインバイライン全件要素照合監査を厳格に実施してから Green コミットを行うこと。** 監査対象は、全セクション、全見出しレベル、全段落、全リスト項目、全コードブロック、全 SVG、全 callout/alert、全 table、全参考文献リンクとする。各対象の要素数と内容を原本と照合し、未エスケープ文字も静的スキャンすること。要約・省略・見出しの言い換えは即時規約違反となる。
 - **この照合は目視ではなく監査スクリプトで機械実行し、終了コード 0 を Green の前提条件とする。**
   目視照合は 1,000 行超の原本では必ず見落としが出るため、実行証跡の残る機械照合を必須とする。
@@ -92,7 +94,7 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-4 は原本依存の追加契�
   ```bash
   node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
     <原本>.{html|md} \
-    pages/<slug>.vue
+    app/pages/<slug>.vue
   echo "exit=$?"   # 0 以外なら転写漏れあり → Green コミット禁止
   ```
 
@@ -107,6 +109,9 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-4 は原本依存の追加契�
 
 - コードの重複削除、読みやすさの向上、ビルド/リンターエラーの修正。
 - **実行**: `bun run build` および `bunx nuxi typecheck` を実行し、問題がないことを確認する。
+  ページを移行・改修した場合は `bun run test:e2e`（静的生成 + Playwright スモーク）も回す。
+  ユニットテストでは Mermaid の実描画とアイコンの静的同梱を検証できないため。
+  `bun` が使えない環境では `npm run <script>` で読み替える（同じ scripts を実行する）。
 - **テスト数の後退を許さない**: テスト合計が直前のベースラインを下回った場合、何かを壊しているか
   削除している。原因を特定するまで先へ進まない。
   **収集失敗（collect error）もブロッキング失敗として扱う。**
@@ -117,7 +122,7 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-4 は原本依存の追加契�
 
 ### ステップ 4: Docs Sync（進捗同期）
 
-**ページ移行タスク**（`pages/**/*.vue` の新規作成、または明確な移行に伴う編集）を行った場合、
+**ページ移行タスク**（`app/pages/**/*.vue` の新規作成、または明確な移行に伴う編集）を行った場合、
 `docs/PROGRESS.md` を更新する。判定基準:
 
 - HTML コンテンツを Vue コンポーネントへ変換

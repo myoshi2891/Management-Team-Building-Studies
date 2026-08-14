@@ -1,8 +1,8 @@
 # Mermaid 図解レイアウトの不変条件（中央寄せ・全幅・横スクロール）
 
-(制定: 2026-07-23 / 最終更新日: 2026-08-14)
+(制定: 2026-07-23 / 最終更新日: 2026-08-15)
 
-サイト全体の Mermaid 図解は **共有コンポーネント `components/MermaidDiagram.vue`
+サイト全体の Mermaid 図解は **共有コンポーネント `app/components/MermaidDiagram.vue`
 がレイアウトの唯一の真実の源（SSoT）** である。全ガイドページが本コンポーネントを共有するため、
 ページ側でレイアウトを再実装すると挙動が分裂する（過去に「引き伸ばし／縮小／左寄せ」の三分裂が発生した）。
 
@@ -26,7 +26,7 @@
 
 - 図解フレームの**装飾のみ**: `border` / `border-radius` / `background` / `padding` / `margin` / キャプション。
 - 保険としての `overflow-x: auto`（コンポーネントと二重でも可。必須ではない）。
-- `assets/css/main.css` の Mermaid **配色補正**（`.mermaid text` の `fill` 等。レイアウトではない）。
+- `app/assets/css/main.css` の Mermaid **配色補正**（`.mermaid text` の `fill` 等。レイアウトではない）。
 
 ## なぜ inline style で足りるか
 
