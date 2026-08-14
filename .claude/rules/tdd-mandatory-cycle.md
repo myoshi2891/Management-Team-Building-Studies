@@ -5,6 +5,7 @@ paths:
   - "composables/**/*.ts"
   - "utils/**/*.ts"
   - "tests/**/*.test.ts"
+  - ".claude/skills/*/scripts/*.mjs"
 ---
 
 # TDD 必須サイクル & コミット分割ルール
