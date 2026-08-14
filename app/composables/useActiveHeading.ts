@@ -13,6 +13,7 @@ export function useActiveHeading(ids: string[]): Readonly<Ref<string>> {
   // 初期値に先頭を入れる。原本の静的 HTML には .active が無く JS が後付けして
   // いたため、これが無いと初回描画で TOC が全て非アクティブになる。
   const activeId = ref(ids[0] ?? "");
+  let observer: IntersectionObserver | null = null;
 
   onMounted(() => {
     if (ids.length === 0) return;
@@ -25,7 +26,7 @@ export function useActiveHeading(ids: string[]): Readonly<Ref<string>> {
     if (targets.length === 0) return;
 
     const known = new Set(ids);
-    const observer = new IntersectionObserver(
+    observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           // 画面外へ出ただけで無選択に戻すと TOC が明滅するため、
@@ -40,7 +41,13 @@ export function useActiveHeading(ids: string[]): Readonly<Ref<string>> {
     );
 
     for (const target of targets) observer.observe(target);
-    onBeforeUnmount(() => observer.disconnect());
+  });
+
+  // 後始末は setup スコープで登録する。onMounted の内側で登録すると、
+  // マウント完了前に破棄された場合に登録自体が行われない。
+  onBeforeUnmount(() => {
+    observer?.disconnect();
+    observer = null;
   });
 
   return readonly(activeId);
