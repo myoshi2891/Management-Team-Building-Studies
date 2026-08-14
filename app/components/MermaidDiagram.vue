@@ -110,3 +110,17 @@ onMounted(async () => {
     />
   </div>
 </template>
+
+<style scoped>
+/*
+ * .diagram-error はこのコンポーネントの内部で描画されるため、
+ * ページ側の <style scoped> からは到達できない。したがってスタイルも
+ * コンポーネントが持つ。配色は原本 HTML の .diagram-error から逐語移植。
+ * レイアウト（幅・配置）は template の inline style が担当しており、
+ * ここには書かない（.claude/rules/mermaid-diagram-layout.md）。
+ */
+.diagram-error {
+  color: var(--color-plum);
+  font-size: 16px;
+}
+</style>
