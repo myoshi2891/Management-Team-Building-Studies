@@ -586,7 +586,7 @@
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する"><i class="ti ti-menu-2"></i></button>
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
 
@@ -761,11 +761,13 @@
     var sidebar = document.getElementById("sidebar");
     if (!toggle || !sidebar) return;
     toggle.addEventListener("click", function () {
-      sidebar.classList.toggle("open");
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
         sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
       });
     });
   }
