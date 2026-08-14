@@ -19,6 +19,9 @@ node_modules/
 .data/
 .nitro/
 .cache/
+# nuxt generate は dist を .output/public へのシンボリックリンクとして作る。
+# シンボリックリンクはディレクトリとして扱われないため dist/ では無視されない。
+dist
 dist/
 
 # テスト成果物
