@@ -12,7 +12,7 @@ Thumbs.db
 .env.*
 !.env.example
 
-# Node / Nuxt（将来の移行先）
+# Node / Nuxt
 node_modules/
 .nuxt/
 .output/
@@ -20,6 +20,13 @@ node_modules/
 .nitro/
 .cache/
 dist/
+
+# テスト成果物
+test-results/
+playwright-report/
+blob-report/
+coverage/
+.playwright/
 
 # Python（スキル同梱スクリプト用）
 __pycache__/

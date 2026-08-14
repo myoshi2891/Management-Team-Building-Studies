@@ -1,0 +1,118 @@
+/*
+ * サイト全体の基底スタイル。
+ * 原本 Certified-Associate-in-Project-Management.html の <style> から
+ * デザイントークンと基底要素スタイルだけを逐語で移植したもの。
+ * コンポーネント固有のクラス（.callout / .diagram-card 等）はページ側の
+ * <style scoped> が持つ。ここに存在しない CSS 変数を var() 参照すると
+ * 全配色が崩壊するため、トークンの追加・削除は慎重に行うこと。
+ */
+
+:root {
+  /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+  --color-paper:        #F6F7F9;
+  --color-paper-raised: #FFFFFF;
+  --color-paper-sunken: #EEF0F4;
+
+  --color-ink:          #161B26;
+  --color-ink-soft:     #4B5566;
+  --color-ink-faint:    #8A93A3;
+
+  --color-border:       #DFE3EA;
+  --color-border-strong:#C7CDD9;
+
+  --color-indigo:       #2E3F72;
+  --color-indigo-dark:  #1F2C57;
+  --color-indigo-tint:  #EEF1F8;
+
+  --color-gold:         #B8802A;
+  --color-gold-tint:    #FAF1DF;
+
+  --color-forest:       #1B6E6A;
+  --color-forest-tint:  #E7F3F2;
+
+  --color-plum:         #8C3A5C;
+  --color-plum-tint:    #F6EAEF;
+
+  --color-success-bg:    #EAF4EC;
+  --color-success-text:  #2F6B3D;
+  --color-success-border:#BFE0C6;
+
+  --color-info-bg:       #EEF1F8;
+  --color-info-text:     #2E3F72;
+  --color-info-border:   #C7D1EA;
+
+  /* ---- Typography ---- */
+  --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --sidebar-width: 288px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--color-indigo); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+img, svg { max-width: 100%; }
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p { margin: 0 0 18px; }
+
+ul, ol { margin: 0 0 18px; padding-left: 24px; }
+li { margin-bottom: 8px; }
+
+strong { font-weight: 600; color: var(--color-ink); }
+
+em { color: var(--color-ink-soft); }
+
+code {
+  font-family: var(--font-mono);
+  background: var(--color-paper-sunken);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
