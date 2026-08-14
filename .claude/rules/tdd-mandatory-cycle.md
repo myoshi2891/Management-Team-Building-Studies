@@ -56,6 +56,9 @@ paths:
 - **実行**: `bun run test` で失敗（またはコンパイルエラー）を確認する（リファクタリングはパスを確認）。
   **「失敗するはず」と推測してコミットしてはならない。実際に実行し、失敗出力を目で確認すること。**
   実装ファイルが未作成で import エラーになる状態も正当な Red である。
+- **`.test.mjs` の Red**: `.claude/skills/*/scripts/*.test.mjs` は Vitest に収集されないため、
+  対象ファイルを `node --test .claude/skills/<skill>/scripts/<name>.test.mjs` で直接実行し、
+  追加したテストの失敗を確認する。既存の TypeScript テストは引き続き `bun run test` を使う。
 - **コミット（新機能・バグ修正・機能改善時）**: `test(<scope>): add failing spec for <feature-or-bug-id>`
 
 #### テスト強度の下限（ガイドページ移行・保守で必須）
@@ -103,6 +106,8 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   無言で見逃すと、次回の監査で同じ判断を再現できない。判断の分類表は
   `.claude/skills/nuxt-page-migration/references/source-parity-audit.md` §1 を参照。
 - **実行**: `bun run test` でパスを確認。
+  `.claude/skills/*/scripts/*.mjs` の変更では、対応する `.test.mjs` を
+  `node --test .claude/skills/<skill>/scripts/<name>.test.mjs` で実行し、Green を確認する。
 - **コミット**: `feat(<scope>): <feature implementation summary>`
 
 ### ステップ 3: Refactor（リファクタリング・最適化）
