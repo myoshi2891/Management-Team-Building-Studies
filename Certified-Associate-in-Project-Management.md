@@ -1,5 +1,6 @@
 # CAPM®（Certified Associate in Project Management）認定資格 完全ガイド
-### 初学者のためのステップバイステップ解説と出題領域別ベストプラクティス
+
+初学者のためのステップバイステップ解説と出題領域別ベストプラクティス
 
 > 本ガイドはPMI（Project Management Institute）公式サイトおよび公式試験内容概要（Exam Content Outline, ECO）に基づき作成しています。試験制度・料金・出題比率は改定される可能性があるため、受験前に必ずPMI公式サイトで最新情報をご確認ください。
 
@@ -14,7 +15,7 @@
 5. [試験内容概要（ECO）とドメイン別出題比率](#5-試験内容概要ecoとドメイン別出題比率)
 6. [ドメイン1: プロジェクトマネジメントの基礎と主要概念（36%）](#6-ドメイン1-プロジェクトマネジメントの基礎と主要概念36)
 7. [ドメイン2: 予測型・計画重視の手法（17%）](#7-ドメイン2-予測型計画重視の手法17)
-8. [ドメイン3: アジャイルフレームワーク・手法（20%）](#8-ドメイン3-アジャイルフレームワークー手法20)
+8. [ドメイン3: アジャイルフレームワーク・手法（20%）](#8-ドメイン3-アジャイルフレームワーク手法20)
 9. [ドメイン4: ビジネス分析フレームワーク（27%）](#9-ドメイン4-ビジネス分析フレームワーク27)
 10. [用語集（初学者向けグロッサリー）](#10-用語集初学者向けグロッサリー)
 11. [試験当日の心得とリテイクポリシー](#11-試験当日の心得とリテイクポリシー)
@@ -80,18 +81,23 @@ flowchart TB
 ```
 
 ### ステップ1: 受験資格の確認と学習準備
+
 高校卒業相当の学歴と、23時間以上のプロジェクトマネジメント教育の受講が必要です（詳細は第3章）。
 
 ### ステップ2: 申請書の作成と提出
+
 PMI.orgのユーザーアカウントを作成し、学歴とプロジェクトマネジメント教育（23時間分）の情報をオンライン申請フォームに入力します。申請はセーブ・アズ・ユー・ゴー方式のため、途中で中断して後から再開することが可能です。
 
 ### ステップ3: 受験料の支払いと試験予約
+
 申請が承認されたら受験料を支払い、Pearson VUEのテストセンター（推奨）またはオンライン監督試験（オンラインプロクタリング）で試験日を予約します。
 
 ### ステップ4: 試験対策の学習
+
 PMIのオンデマンド講座、インストラクター主導コース、模擬試験など、複数の教材で試験範囲全体を学習します。
 
 ### ステップ5: 試験本番
+
 150問・180分（休憩含まず）の試験を受験します。詳細は第4章で解説します。
 
 **ベストプラクティス**
@@ -335,7 +341,8 @@ EQ（Emotional Intelligence）とは、自分自身や他者の感情を認識�
 
 | 組織構造 | 特徴 | 予測型アプローチとの相性 |
 |---|---|---|
-| 機能別組織（Hierarchical） | 部門ごとに縦割りで管理される伝統的構造 | PMの権限が弱く、予測型でも調整コストが高くなりやすい |
+| 機能別組織（Functional） | 専門機能ごとの部門に分かれ、機能部門マネジャーが管理する構造 | PMの権限が弱く、予測型でも部門間の調整コストが高くなりやすい |
+| 階層型組織（Hierarchical） | 指揮命令系統と権限の階層が明確な構造。機能別組織などと併存し得る | 承認経路は明確だが、階層が多い場合は意思決定に時間がかかりやすい |
 | マトリクス組織（Matrix） | 機能部門とプロジェクトの両方に人員が所属 | 弱い・強いマトリクスの度合いによりPMの権限が変動 |
 | プロジェクト型組織 | プロジェクトのために編成された専任チーム | PMの権限が強く、計画重視のアプローチと親和性が高い |
 | バーチャル組織（Virtual） | 地理的に分散したチームがオンラインで協働 | コミュニケーション計画の比重が特に重要になる |
@@ -376,10 +383,10 @@ flowchart TB
 
 （EV: Earned Value＝出来高、PV: Planned Value＝計画価値、AC: Actual Cost＝実コスト）
 
-#### 品質マネジメント計画・統合マネジメント計画
+#### 品質マネジメント計画とプロジェクトマネジメント計画
 
 - **品質マネジメント計画**: プロジェクトおよび成果物が満たすべき品質基準と、それを検証する方法を定義する計画。
-- **統合マネジメント計画（プロジェクトマネジメント計画）**: スコープ・スケジュール・コスト・品質・リスクなど、各領域の計画を1つに統合し、プロジェクト全体を一貫して管理するための計画。
+- **プロジェクトマネジメント計画**: スコープ・スケジュール・コスト・品質・リスクなどの各補助計画を統合する単一の計画であり、これとは別に「統合計画」を作成するものではありません。ECOにある「integration management plan」という表現は、プロジェクトマネジメント計画による統合的な管理を指す補足的な表現として捉えます。
 
 ### 7.3 ドメイン2のベストプラクティス
 
@@ -549,14 +556,14 @@ flowchart LR
 
 #### 要求トレーサビリティマトリクス（RTM: Requirements Traceability Matrix）
 
-要求を出所（ビジネスニーズ）から成果物・テストケースまで一貫して追跡できるようにする表形式のツールです。予測型プロジェクトでよく使われますが、考え方自体はアジャイルのプロダクトバックログにも通じます。
+要求を出所（ビジネスニーズ）から成果物・テストケースまで一貫して追跡できるようにする表形式のツールです。予測型プロジェクトでよく使われます。プロダクトバックログとは、要求や作業項目を優先順位付きで管理する別個の手段であり、要求を可視化して管理するという目的の一部を共有します。
 
 | 要求ID | 要求内容 | ビジネスニーズとの紐付け | 対応する成果物 | テスト状況 | ステータス |
 |---|---|---|---|---|---|
 | REQ-001 | ログイン機能の実装 | セキュリティ強化 | 認証モジュール | テスト完了 | 完了 |
 | REQ-002 | 多言語対応 | 海外展開 | 言語切替UI | テスト未着手 | 進行中 |
 
-適応型アプローチにおいては、RTMに相当する役割をプロダクトバックログ（および各アイテムの受け入れ基準）が担うことがあります。
+適応型アプローチでは、プロダクトバックログと各アイテムの受け入れ基準を要求管理に用います。ただし、プロダクトバックログだけでRTMを自動的に代替できるわけではなく、要求の出所から成果物・テストまでの完全な追跡性が保証されるわけでもありません。必要な追跡性に応じて、リンクや識別子などを別途整備します。
 
 #### プロダクトロードマップとリリース計画
 
@@ -579,7 +586,7 @@ flowchart LR
 
 - **「役割の名前」ではなく「責任範囲」で判断する。** プロダクトマネージャーとプロダクトオーナーのように似た名称の役割は、責任範囲（戦略レベルか、日々のバックログ管理レベルか）で区別する練習をしましょう。
 - **要求収集技法は「なぜその技法が最適か」を状況とセットで覚える。** 単なる技法の定義暗記ではなく、「多数の意見を効率よく集めたいときはアンケート」「合意形成が必要なときはワークショップ」のように、シナリオとペアで整理すると得点しやすくなります。
-- **RTMとプロダクトバックログは「異なる手法」ではなく「同じ目的（要求の追跡・妥当性確認）を異なるアプローチで実現するもの」として理解する。** これはドメイン3・4を横断する頻出の視点です。
+- **RTMとプロダクトバックログは、目的の一部を共有する別個の管理手段として理解する。** RTMは要求の出所から成果物・テストまでの追跡、プロダクトバックログは要求・作業項目の優先順位付けと管理に重点があります。
 - **受け入れ基準の定義は、要求そのものではなく「完了/合格の判定条件」であることを混同しないようにしましょう。**
 
 **ソース**:
@@ -642,8 +649,11 @@ CAPMは取得して終わりではなく、継続的な学習によって維持�
 |---|---|
 | 更新サイクル | 3年ごとに更新が必要 |
 | 必要PDU（Professional Development Unit） | 3年サイクルごとに15PDU |
+| Education PDU | 最低9PDU。そのうちPMI Talent TriangleのWays of Working、Power Skills、Business Acumenの各領域で最低2PDUが必要 |
+| Giving Back PDU | 最大6PDU（任意。15PDUのすべてをEducationで取得することも可能） |
 | PDUとして認められる活動 | 学習（Learning）、他者への指導（Teaching）、プレゼンテーション、読書、ボランティア活動、コンテンツ制作など、1時間の活動につき原則1PDU |
 | PDU記録・報告先 | CCRS（Continuing Certification Requirements System） |
+| 更新手続き | 必要PDUを満たしてCCRSで報告し、更新料を支払う |
 
 CCR（Continuing Certification Requirements）プログラムの目的は、継続的な学習と専門能力開発を促進し、資格保有者が複雑化するビジネス環境の要求に応え続けられるようにすることにあるとPMIは説明しています。
 
@@ -706,6 +716,7 @@ CAPMは実務経験を問わない、プロジェクトマネジメントのキ�
 本ガイドは以下の一次情報源をもとに作成しています。内容は執筆時点のものであり、試験制度・料金・出題比率は変更される可能性があるため、必ず最新情報をPMI公式サイトでご確認ください。
 
 ### PMI公式（CAPM関連）
+
 - PMI - Certified Associate in Project Management (CAPM)® Certification: https://www.pmi.org/certifications/certified-associate-capm
 - PMI - CAPM Examination Content Outline（2023 Exam Update, PDF）: https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf
 - PMI - CAPM Exam Prep Course（オンデマンド）: https://www.pmi.org/dcpdp/sku/el068
@@ -714,6 +725,7 @@ CAPMは実務経験を問わない、プロジェクトマネジメントのキ�
 - PMI - CCRS（PDU報告システム）: https://ccrs.pmi.org/
 
 ### PMI公式標準・実務ガイド
+
 - PMI - Standards & Publications 一覧: https://www.pmi.org/standards
 - PMI - PMBOK® Guide: https://www.pmi.org/standards/pmbok
 - PMI - Agile Practice Guide: https://www.pmi.org/standards/agile
@@ -721,18 +733,17 @@ CAPMは実務経験を問わない、プロジェクトマネジメントのキ�
 - PMI - Business Analysis for Practitioners: A Practice Guide（第2版）: https://www.pmi.org/standards/business-analysis-second-edition
 
 ### PMI倫理綱領
+
 - PMI - Code of Ethics and Professional Conduct（ガイドライン）: https://www.pmi.org/about/ethics/guidelines
 - PMI - Code of Ethics and Professional Conduct（PDF）: https://www.pmi.org/-/media/pmi/documents/public/pdf/ethics/pmi-code-of-ethics.pdf
 
 ### アジャイル関連の公式ソース
+
 - Scrum.org / Scrum Guides - The Scrum Guide（2020年版）: https://scrumguides.org/
 - Kanban University - The Official Guide to the Kanban Method: https://kanban.university/kanban-guide/
 - Scaled Agile, Inc. - Scaled Agile Framework（SAFe）: https://framework.scaledagile.com/
 - Agile Manifesto - Manifesto for Agile Software Development: https://agilemanifesto.org/
 - Agile Manifesto - 12 Principles Behind the Agile Manifesto: https://agilemanifesto.org/principles.html
-
-### その他
-- Forbes Advisor - CAPM Certification Salary（PMI公式サイトが出典として引用）: https://www.forbes.com/advisor/education/certifications/capm-certification-salary/
 
 ---
 
