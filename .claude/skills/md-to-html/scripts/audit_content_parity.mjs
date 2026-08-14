@@ -39,9 +39,6 @@
 
 import { readFileSync } from "node:fs";
 
-/** リスト項目・段落の包含判定に使う先頭文字数。長大な項目の全文一致を求めないための上限。 */
-const PROBE_LENGTH = 40;
-
 /** Mermaid ラベル片の照合下限。これより短い断片は偶然一致しやすく、指摘の精度が落ちる。 */
 const SEGMENT_MIN_LENGTH = 6;
 
@@ -142,14 +139,10 @@ function stripMarkdownInline(raw) {
 /**
  * Normalizes a URL for comparison.
  * @param {string} url - The raw URL string.
- * @returns {string} The URL without its query, fragment, or trailing slashes, lowercased.
+ * @returns {string} The URL with HTML character references decoded and all URL semantics preserved.
  */
 function normalizeUrl(url) {
-  return url
-    .trim()
-    .replace(/[#?].*$/, "")
-    .replace(/\/+$/, "")
-    .toLowerCase();
+  return decodeEntities(url);
 }
 
 /**
@@ -444,7 +437,7 @@ function missingOccurrences(sourceValues, pageValues) {
 function survivesInPage(text, pageText) {
   const key = matchKey(text);
   if (key.length < 8) return true;
-  if (pageText.includes(key.slice(0, PROBE_LENGTH))) return true;
+  if (pageText.includes(key)) return true;
   // 存在判定のフォールバックでは短い片も拾う。表のヘッダー行（`ドメイン | 出題比率`）が
   // `.domain-grid` へ再型付けされる等、短い語の集合として散らばる正当なケースがあるため。
   const segments = splitSegments(text, SURVIVAL_SEGMENT_MIN_LENGTH);

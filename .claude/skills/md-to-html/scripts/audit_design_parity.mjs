@@ -86,8 +86,26 @@ function collectRules(css) {
   const atRules = new Set();
   const stack = [];
   let buffer = "";
+  let quote = null;
+  let escaped = false;
 
   for (const character of css) {
+    if (quote !== null) {
+      buffer += character;
+      if (escaped) {
+        escaped = false;
+      } else if (character === "\\") {
+        escaped = true;
+      } else if (character === quote) {
+        quote = null;
+      }
+      continue;
+    }
+    if (character === '"' || character === "'") {
+      quote = character;
+      buffer += character;
+      continue;
+    }
     if (character === "{") {
       const head = buffer.trim().replace(/\s+/g, " ");
       stack.push(head);
@@ -117,13 +135,42 @@ function collectRules(css) {
 /**
  * Extracts the `themeVariables` declaration of the Mermaid initialisation call.
  * @param {string} src - The complete HTML source.
- * @returns {Map<string, string>} The theme variable names mapped to their values.
+ * @returns {Map<string, string>|null} The theme variables, or null when the block is absent or incomplete.
  */
 function collectThemeVariables(src) {
-  const block = /themeVariables\s*:\s*\{([\s\S]*?)\n\s*\},?\s*\n/.exec(src);
+  const declaration = /themeVariables\s*:\s*\{/.exec(src);
+  if (declaration === null) return null;
+
+  const bodyStart = declaration.index + declaration[0].length;
+  let depth = 1;
+  let quote = null;
+  let escaped = false;
+  let bodyEnd = -1;
+  for (let index = bodyStart; index < src.length; index += 1) {
+    const character = src[index];
+    if (quote !== null) {
+      if (escaped) escaped = false;
+      else if (character === "\\") escaped = true;
+      else if (character === quote) quote = null;
+      continue;
+    }
+    if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === "{") {
+      depth += 1;
+    } else if (character === "}") {
+      depth -= 1;
+      if (depth === 0) {
+        bodyEnd = index;
+        break;
+      }
+    }
+  }
+  if (bodyEnd < 0) return null;
+
   const variables = new Map();
-  if (block === null) return variables;
-  for (const entry of block[1].matchAll(/([\w-]+)\s*:\s*["']([^"']*)["']/g)) {
+  const body = src.slice(bodyStart, bodyEnd);
+  for (const entry of body.matchAll(/([\w-]+)\s*:\s*["']([^"']*)["']/g)) {
     variables.set(entry[1], entry[2]);
   }
   return variables;
@@ -283,12 +330,16 @@ function audit(page, reference, isTemplate) {
   }
   const pageTheme = collectThemeVariables(page);
   const referenceTheme = collectThemeVariables(reference);
-  for (const [name, value] of referenceTheme) {
-    if (pageTheme.get(name) !== value) {
-      add(
-        "mermaid-theme",
-        `themeVariables が原本と異なります: ${name} — 原本 "${value}" / ページ "${pageTheme.get(name) ?? "(未設定)"}"`
-      );
+  if (referenceTheme === null) {
+    add("mermaid-theme", "原本 HTML から themeVariables を抽出できません");
+  } else {
+    for (const [name, value] of referenceTheme) {
+      if (pageTheme?.get(name) !== value) {
+        add(
+          "mermaid-theme",
+          `themeVariables が原本と異なります: ${name} — 原本 "${value}" / ページ "${pageTheme?.get(name) ?? "(未設定)"}"`
+        );
+      }
     }
   }
 
@@ -376,6 +427,12 @@ function main() {
 
   for (let index = 0; index < args.length; index += 1) {
     if (args[index] === "--reference") {
+      if (index + 1 >= args.length || args[index + 1].startsWith("--")) {
+        console.error(
+          "usage: audit_design_parity.mjs <page.html> [--reference <ref.html>] [--template] [--json]"
+        );
+        return 2;
+      }
       referencePath = args[index + 1];
       index += 1;
       continue;
@@ -442,4 +499,4 @@ function main() {
   return result.blocking ? 1 : 0;
 }
 
-process.exit(main());
+process.exitCode = main();
