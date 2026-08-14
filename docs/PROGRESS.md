@@ -9,17 +9,17 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `bbd0bcd` — feat(capm): migrate complete guide content |
+| 最新 HEAD | `8153768` — docs(skills): mark nuxt verification as active in pre-commit-check |
 | 次の作業 | `Engineering-management-career-path.html` の Nuxt 移行 |
-| ビルド状態 | `npm test` ✔ / `npm exec -- nuxi typecheck` ✔ / `npm exec -- eslint app/pages/capm.vue` ✔ / ビルドはユーザー指示により未実行 |
-| テスト数 | **43**（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23）— これがベースライン |
+| ビルド状態 | `npm test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run build` ✔ / `npx playwright test` ✔（4/4） |
+| テスト数 | **43** ユニット（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（HTML 原本と CAPM page の全監査カテゴリが一致） |
 
 ## ページ移行状況
 
 | 原本 | 移行先 | 状態 |
 |---|---|---|
-| `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了 |
+| `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了・E2E スモーク Green |
 | `Engineering-management-career-path.html` | 未定 | ⏳ 未着手 |
 
 ## 共有部品の実装状況
@@ -30,6 +30,7 @@
 | `app/plugins/mermaid.client.ts` | ✅ 完了 | 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
+| `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
 
 ## 技術スタック（2026-08-14 時点の npm 実測値）
 
@@ -93,6 +94,8 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 図が 1 枚目しか描画されず 2 枚目以降がエラー表示になる | `<script setup>` は `setup()` へコンパイルされ**インスタンスごとに実行される**。そこに置いた「モジュール singleton」は実際にはインスタンス変数で、図の数だけ `import("mermaid")` が走る | singleton を独立モジュール `app/utils/mermaid-loader.ts` へ切り出す |
 | テストの `wrapper.element` が実要素を指さない | `<template>` の root の兄弟に置いた HTML コメントも VNode として数えられ、コンポーネントが多重ルートになる | 説明コメントは `<script>` 側の JSDoc に置く |
 | コンポーネント内部要素の配色が原本と違う | `.diagram-error` 等はコンポーネント内で描画されるためページ側 `<style scoped>` が到達しない | そのスタイルはコンポーネントの `<style scoped>` が持つ |
+| E2E が 4 件とも別プロジェクトの Next.js 404 ページを検証していた | Playwright の `reuseExistingServer` は応答しているサーバーが自分のものかを検証しない。既定ポート 3000 を他プロジェクトの dev サーバーが占有していた | 専用ポート 4173 に変更し `reuseExistingServer: false` にする |
+| E2E の TOC スクロールが目標セクションに届かない | Mermaid 描画のたびに文書高さが変わり、進行中のスムーススクロールの目標位置が動く（描画前後で 10,444px → 17,318px） | 図の描画完了を待ってからクリックし、長距離スクロールはタイムアウトを延長する |
 
 ### 4. スキル記述と実環境の食い違い
 
@@ -102,21 +105,25 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | `// @vitest-environment jsdom` + 素の `mount` | オートインポート（`useSeoMeta` 等）を使うページでは動かない。`defineVitestConfig({ test: { environment: "nuxt" } })` が必要 |
 | `pages/` / `components/` 直下 | Nuxt 4 の既定 `srcDir` は `app/` のため `app/pages/` / `app/components/`。テストの `~/pages/capm.vue` は `srcDir` 解決でそのまま通る |
 
-これらはサイクル 4 でスキル・ルール本体に反映する。
+**反映済み**（`docs(skills)` / `docs(rules)` / `docs(claude)` の各コミット）。
+スキル・ルール・`CLAUDE.md` の記述は実態と一致している。以降、食い違いを見つけたら
+ここに追記したうえで本体も直す（記録だけ残して放置しない）。
 
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリで Engineering Management ガイドの Nuxt 移行を開始する。
 
-最新 HEAD: bbd0bcd（feat(capm): migrate complete guide content）
+最新 HEAD: 8153768（docs(skills): mark nuxt verification as active in pre-commit-check）
 次の作業: Engineering-management-career-path.html の Nuxt 移行。
           CAPM と同じく、契約テスト Red → 全文移行 → 原本照合 exit 0 の順で進める。
 
 完了済み: MermaidDiagram.vue / mermaid.client.ts / mermaid-loader.ts（契約 11 件）
           useActiveHeading.ts（契約 9 件）
           CAPM page（契約 23 件・原本照合 exit 0）
-テスト数ベースライン: 43（これを下回ったら何かを壊している）
+          E2E スモーク 4 件（e2e/capm.spec.ts）
+          スキル・ルール・CLAUDE.md の実態同期（app/ srcDir 反映）
+テスト数ベースライン: ユニット 43 + E2E 4（これを下回ったら何かを壊している）
 
 未移行: Engineering-management-career-path.html（Nuxt page 未作成）。
 
