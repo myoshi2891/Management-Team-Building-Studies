@@ -1573,15 +1573,6 @@ D --> E["ステップ5 試験本番"]
 classDef step fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class A,B,C,D,E step;`,
 
-hierarchy: `flowchart TB
-PF["ポートフォリオ 組織戦略に沿って管理される集合"] --> PG["プログラム 関連する複数プロジェクトの調整管理"]
-PF --> PJ3["単独プロジェクトC"]
-PG --> PJ1["プロジェクトA"]
-PG --> PJ2["プロジェクトB"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class PF,PG,PJ1,PJ2,PJ3 box;`,
-
 questionTypes: `flowchart LR
 Q["CAPM試験の出題形式"] --> Q1["多肢選択式"]
 Q --> Q2["ドラッグアンドドロップ"]
@@ -1600,6 +1591,15 @@ title CAPM試験 ドメイン別出題比率
 "ドメイン2 予測型計画重視の手法" : 17
 "ドメイン3 アジャイルフレームワーク手法" : 20
 "ドメイン4 ビジネス分析フレームワーク" : 27`,
+
+hierarchy: `flowchart TB
+PF["ポートフォリオ 組織戦略に沿って管理される集合"] --> PG["プログラム 関連する複数プロジェクトの調整管理"]
+PF --> PJ3["単独プロジェクトC"]
+PG --> PJ1["プロジェクトA"]
+PG --> PJ2["プロジェクトB"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class PF,PG,PJ1,PJ2,PJ3 box;`,
 
 wbs: `flowchart TB
 S["プロジェクトスコープ"] --> D1["デリバラブル1"]
