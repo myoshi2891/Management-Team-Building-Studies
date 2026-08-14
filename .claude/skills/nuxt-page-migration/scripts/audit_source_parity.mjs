@@ -522,7 +522,8 @@ function inventoryMarkdown(src) {
  * @return {Object} The extracted headings, element counts, normalized content, Mermaid sources, SVG elements, callouts, and external links.
  */
 function inventoryHtml(src) {
-  const body = src.replace(/<(script|style)[\s\S]*?<\/\1>/gi, "");
+  const documentBody = /<body\b[^>]*>([\s\S]*?)<\/body>/i.exec(src)?.[1] ?? src;
+  const body = documentBody.replace(/<(script|style)[\s\S]*?<\/\1>/gi, "");
   const headings = [];
   const headingRe = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi;
   let match = headingRe.exec(body);
