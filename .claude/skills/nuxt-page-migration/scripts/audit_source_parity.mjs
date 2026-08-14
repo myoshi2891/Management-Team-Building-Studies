@@ -95,6 +95,24 @@ function stripMarkup(fragment) {
 }
 
 /**
+ * Collects normalized text-node values so short list items are matched only at
+ * element boundaries instead of as substrings of unrelated words.
+ * @param {string} markup - Markup whose visible text nodes should be collected.
+ * @returns {string[]} Non-empty normalized text-node comparison keys.
+ */
+function collectTextNodeKeys(markup) {
+  const keys = [];
+  const textNodeRe = />([^<>]+)</g;
+  let match = textNodeRe.exec(markup);
+  while (match !== null) {
+    const key = matchKey(stripMarkup(match[1]));
+    if (key) keys.push(key);
+    match = textNodeRe.exec(markup);
+  }
+  return keys;
+}
+
+/**
  * Removes Markdown links, images, and HTML tags from an inline fragment.
  * @param {string} raw - The raw Markdown inline fragment.
  * @returns {string} The fragment with links, images, and HTML tags removed.
@@ -587,6 +605,7 @@ function inventoryTsx(src) {
     // ページ側は <li> を使わずカード / div で組むことがあるため、
     // 本文全体の平坦化テキストを照合対象にする（マークアップ非依存の漏れ検知）。
     flatText: matchKey(stripMarkup(src)),
+    textNodeKeys: collectTextNodeKeys(src),
     listItems: countMatches(src, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
@@ -713,6 +732,7 @@ function inventoryVue(src) {
   return {
     headings,
     flatText: matchKey(stripMarkup(template)),
+    textNodeKeys: collectTextNodeKeys(template),
     listItems: countMatches(template, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
@@ -813,13 +833,23 @@ function compare(source, page) {
 
   const missingLinks = [...source.externalLinks].filter((u) => !page.externalLinks.has(u));
 
-  // リスト項目は平坦化テキストへの包含で判定する（ページ側が <li> でなくカードでもよい）。
-  //  - 8 文字未満の項目は偶然一致しやすいため照合対象から外す。
-  //  - 長大な <li> でも後半の欠落を見逃さないよう、正規化した項目全体を照合する。
+  // リスト項目はページ側が <li> でなくカードでも照合できるよう本文と比較する。
+  // 短い項目は別の単語内での偶然一致を避けるため、要素境界で区切られた
+  // テキストノードとの完全一致を使う。長い項目は後半の欠落を見逃さないよう、
+  // 正規化した項目全体を平坦化テキストから occurrence-aware に消費する。
   let remainingPageText = page.flatText;
+  const remainingShortTextNodes = new Map();
+  for (const key of page.textNodeKeys ?? []) {
+    remainingShortTextNodes.set(key, (remainingShortTextNodes.get(key) ?? 0) + 1);
+  }
   const missingListItems = source.listTexts.filter((text) => {
     const key = matchKey(text);
-    if (key.length < 8) return false;
+    if (key.length < 8) {
+      const count = remainingShortTextNodes.get(key) ?? 0;
+      if (count === 0) return true;
+      remainingShortTextNodes.set(key, count - 1);
+      return false;
+    }
     const pageIndex = remainingPageText.indexOf(key);
     if (pageIndex === -1) return true;
     remainingPageText =
