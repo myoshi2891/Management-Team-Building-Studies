@@ -264,6 +264,31 @@ test("ignores asset URLs from the HTML head when auditing body links", () => {
 	assert.deepEqual(result.json.counts.externalLinks, { source: 0, page: 0 });
 });
 
+test("does not treat comparison operands outside JSX as rendered short text", () => {
+	const result = audit(
+		"<ul><li>Go</li></ul>",
+		`export default function Page() {
+  const comparison = lower > "Go" < upper;
+  return <div>Stop</div>;
+}`,
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});
+
+test("does not treat JSX attribute expressions as rendered short text", () => {
+	const result = audit(
+		"<ul><li>Go</li></ul>",
+		`export default function Page() {
+  return <div data-label={"Go"}>Stop</div>;
+}`,
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});
+
 test("recognizes every allowed Mermaid diagram declaration including pie", () => {
 	const charts = [
 		"graph TD\nA --> B",
