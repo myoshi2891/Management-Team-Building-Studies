@@ -1,16 +1,15 @@
 ---
 name: md-to-html
 description: >
-  Convert a certification study-guide Markdown file in this repository into a polished,
-  self-contained single-file HTML page that reproduces the CAPM guide's design system
-  exactly. Enforces two mechanical gates that block content omission and design drift.
-  TRIGGER when the user says any of the following (Japanese or English):
+  このリポジトリの資格学習ガイド Markdown を、CAPM ガイドのデザインシステムを正確に再現した
+  洗練された自己完結型の単一 HTML ファイルへ変換する。内容の欠落とデザインのずれを防ぐ
+  2 つの機械的ゲートを適用する。ユーザーが次の語句を述べた場合に使用する:
   - "HTMLファイルを作成" / "MDからHTMLに変換" / "MD を HTML 化" / "ガイドをHTMLにする"
   - "資格ガイドのHTMLを作る" / "新しい資格ページを作成" / "PMPのHTMLを作成"
   - "convert md to html" / "create guide html" / "new certification page"
-  - or names a guide Markdown file (e.g. "Project-Management-Professional.md").
-  Covers: the skeleton template, the MD→HTML mapping rules, Mermaid re-theming via the
-  DIAGRAMS object, pinned CDN + SRI, phase-split commits, and the two audit scripts.
+  - またはガイドの Markdown ファイル名（例: "Project-Management-Professional.md"）を指定した場合。
+  スケルトンテンプレート、MD→HTML 対応規則、DIAGRAMS オブジェクトによる Mermaid のテーマ変更、
+  固定バージョンの CDN + SRI、フェーズ分割コミット、2 つの監査スクリプトを対象とする。
 allowed-tools:
   - Read
   - Write

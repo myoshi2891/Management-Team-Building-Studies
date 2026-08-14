@@ -109,7 +109,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 Markdown を編集した場合はあわせて lint を通す。
 
 ```bash
-npx markdownlint-cli2 "**/*.md" "#node_modules"
+npx --yes markdownlint-cli2@0.18.1 "**/*.md" "#node_modules"
 ```
 
 総合チェックは `pre-commit-check` スキルを使う。

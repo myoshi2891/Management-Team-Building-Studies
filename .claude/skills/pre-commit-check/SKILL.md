@@ -1,9 +1,8 @@
 ---
 name: pre-commit-check
 description: >
-  Run every verification gate before committing: PII / absolute-path scan on the staged
-  diff, markdownlint, and (once Nuxt exists) tests, typecheck and build.
-  TRIGGER when the user says any of the following (Japanese or English):
+  コミット前に、ステージ済み差分の PII・絶対パス検査、markdownlint、Nuxt 導入後のテスト・
+  型検査・ビルドという全検証ゲートを実行する。ユーザーが次の語句を述べた場合に使用する:
   - "コミット前チェック" / "テスト実行" / "ビルドとテスト" / "CI 確認"
   - "全部テストして" / "コミットしていいか確認" / "push 前に確認"
   - "pre-commit check" / "run tests" / "check before commit" / "verify build"
@@ -30,9 +29,10 @@ allowed-tools:
 ローカル絶対パス（＝OS のユーザー名）が混入していないかを機械的に検証する。
 
 ```bash
-git add -A   # または対象ファイルのみ
 git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' | grep -vE 'johndoe'
 ```
+
+ユーザーが選択してステージ済みの差分だけを検査する。検査処理で追加のファイルをステージしない。
 
 **出力があればコミットを中止**し、該当箇所を相対パスに直してから再実行する。
 出力が空（終了コード 1）であれば通過。
@@ -43,7 +43,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 `markdown-formatter` スキルを参照。
 
 ```bash
-npx markdownlint-cli2 "**/*.md" "#node_modules"
+npx --yes markdownlint-cli2@0.18.1 "**/*.md" "#node_modules"
 ```
 
 主にチェックされるのは **MD031（コードブロック前後の空行）/ MD012（連続空行）/
