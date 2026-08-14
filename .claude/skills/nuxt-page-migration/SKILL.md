@@ -311,7 +311,8 @@ bun run test:e2e   # generate + スモーク（Mermaid 実描画・アイコン�
 bun run dev        # ブラウザで目視確認（図解・配色・レイアウト）
 
 # CSS 変数の未定義参照チェック（配色崩壊の典型原因）
-grep -ohE 'var\(--[a-z0-9-]+' app/pages/*.vue app/components/*.vue | sed -E 's/^var\(//' | sort -u \
+find app/pages app/components -type f -name '*.vue' -exec grep -ohE 'var\(--[a-z0-9-]+' {} + \
+  | sed -E 's/^var\(//' | sort -u \
   | while IFS= read -r v; do
       grep -qE "^[[:space:]]*${v}[[:space:]]*:" app/assets/css/main.css || printf 'UNDEFINED %s\n' "$v"
     done
@@ -319,7 +320,7 @@ grep -ohE 'var\(--[a-z0-9-]+' app/pages/*.vue app/components/*.vue | sed -E 's/^
 
 上記の CSS 変数チェックは、ページ内で定義したローカルなカスタムプロパティ
 （例: `.domain-card.d1 { --d-color: … }`）も「未定義」と報告する。
-`app/pages/*.vue` 内に定義があるかを確認したうえで判断する。
+`app/pages/` または `app/components/` 配下の Vue ファイル内に定義があるかを確認したうえで判断する。
 
 ### Step 6: [Docs] 同期とコミット前チェック
 

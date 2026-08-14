@@ -65,7 +65,7 @@ e2e/
 
 ```bash
 # 移植漏れの検査（ページで参照している変数が main.css に定義済みか）
-grep -ohE 'var\(--[a-z0-9-]+' app/pages/*.vue app/components/*.vue \
+find app/pages app/components -type f -name '*.vue' -exec grep -ohE 'var\(--[a-z0-9-]+' {} + \
   | sed -E 's/^var\(//' | sort -u \
   | while IFS= read -r v; do
       grep -qE "^[[:space:]]*${v}[[:space:]]*:" app/assets/css/main.css \
