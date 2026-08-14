@@ -18,19 +18,27 @@ function audit(source, page, sourceExtension = "html", pageFileName = "page.tsx"
 	writeFileSync(sourcePath, source);
 	writeFileSync(pagePath, page);
 
-	const result = spawnSync(
-		process.execPath,
-		[auditScript.pathname, sourcePath, pagePath, "--json"],
-		{
-			encoding: "utf8",
-		},
-	);
-	rmSync(fixtureDir, { recursive: true, force: true });
-
-	return {
-		status: result.status,
-		json: JSON.parse(result.stdout),
-	};
+	try {
+		const result = spawnSync(
+			process.execPath,
+			[auditScript.pathname, sourcePath, pagePath, "--json"],
+			{
+				encoding: "utf8",
+			},
+		);
+		const stdout = result.stdout.trim();
+		try {
+			return { status: result.status, json: JSON.parse(stdout) };
+		} catch (error) {
+			throw new Error(
+				`監査結果を解析できません（終了コード: ${result.status ?? "null"}）\n` +
+					`stderr: ${result.stderr.trim() || "(空)"}\nstdout: ${stdout || "(空)"}`,
+				{ cause: error },
+			);
+		}
+	} finally {
+		rmSync(fixtureDir, { recursive: true, force: true });
+	}
 }
 
 test("compares heading level and occurrence count while allowing source h2 to become page h1", () => {
@@ -190,6 +198,37 @@ export default function Page() {
 	assert.equal(result.status, 0);
 	assert.deepEqual(result.json.missingCodeBlocks, []);
 	assert.equal(result.json.mermaidSourcesMatch, true);
+});
+
+test("collects DIAGRAMS entries with quoted and unquoted object keys", () => {
+	const source = `<script>var DIAGRAMS = {
+unquoted: \`flowchart TD
+A --> B\`,
+"quoted-key": \`sequenceDiagram
+A->>B: ping\`
+};</script>`;
+	const page = `const FIRST = \`flowchart TD
+A --> B\`;
+const SECOND = \`sequenceDiagram
+A->>B: ping\`;
+export default function Page() {
+  return <><MermaidDiagram chart={FIRST} /><MermaidDiagram chart={SECOND} /></>;
+}`;
+	const result = audit(source, page);
+
+	assert.equal(result.status, 0);
+	assert.equal(result.json.mermaidSourcesMatch, true);
+});
+
+test("detects list-item omissions after a shared 40-character prefix", () => {
+	const prefix = "abcdefghijklmnopqrstuvwxyz0123456789sharedprefix";
+	const result = audit(
+		`<ul><li>${prefix} required suffix</li></ul>`,
+		`<ul><li>${prefix}</li></ul>`,
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, [`${prefix} required suffix`]);
 });
 
 test("recognizes every allowed Mermaid diagram declaration including pie", () => {
@@ -405,4 +444,23 @@ test("treats a Vue SFC without a <template> block as a parity failure input", ()
 
 	assert.equal(result.status, 1);
 	assert.deepEqual(result.json.missingHeadings, [{ level: 2, text: "Overview" }]);
+});
+
+test("human-readable output uses the audited page path instead of page.tsx", () => {
+	const fixtureDir = mkdtempSync(join(tmpdir(), "source-parity-label-"));
+	const sourcePath = join(fixtureDir, "source.html");
+	const pagePath = join(fixtureDir, "guide.vue");
+	writeFileSync(sourcePath, "<h2>Missing heading</h2>");
+	writeFileSync(pagePath, "<template><p>Body</p></template>");
+
+	try {
+		const result = spawnSync(process.execPath, [auditScript.pathname, sourcePath, pagePath], {
+			encoding: "utf8",
+		});
+		assert.equal(result.status, 1);
+		assert.match(result.stdout, new RegExp(`${pagePath} に存在しない原本の見出し`));
+		assert.doesNotMatch(result.stdout, /page\.tsx/);
+	} finally {
+		rmSync(fixtureDir, { recursive: true, force: true });
+	}
 });
