@@ -651,6 +651,7 @@ CAPMは取得して終わりではなく、継続的な学習によって維持�
 | 必要PDU（Professional Development Unit） | 3年サイクルごとに15PDU |
 | Education PDU | 最低9PDU。そのうちPMI Talent TriangleのWays of Working、Power Skills、Business Acumenの各領域で最低2PDUが必要 |
 | Giving Back PDU | 最大6PDU（任意。15PDUのすべてをEducationで取得することも可能） |
+| Working as a Practitioner | CAPM認定に関連する職務で知識・スキルを実務に適用した場合、3年間の認定サイクルにつき最大2PDU。1サイクルにつき1回だけ申請でき、Giving Backの最大6PDUに含まれる。現サイクルだけに算入され、次サイクルへの繰越は不可。監査時は雇用証明（職務記述書）が必要 |
 | PDUとして認められる活動 | 学習（Learning）、他者への指導（Teaching）、プレゼンテーション、読書、ボランティア活動、コンテンツ制作など、1時間の活動につき原則1PDU |
 | PDU記録・報告先 | CCRS（Continuing Certification Requirements System） |
 | 更新手続き | 必要PDUを満たしてCCRSで報告し、更新料を支払う |
@@ -661,7 +662,7 @@ CCR（Continuing Certification Requirements）プログラムの目的は、継�
 - 資格取得直後からPDUの記録習慣をつけておくと、更新期限直前に慌てずに済みます。
 - 業務でのプロジェクト経験や社内勉強会での登壇なども、条件を満たせばPDUとして計上できる場合があるため、CCRSの分類を早めに確認しておくとよいでしょう。
 
-**ソース**: [CAPM Exam Content Outline PDF](https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf)（p.15） / [Maintain & Renew Your Certification](https://www.pmi.org/certifications/certification-resources/maintain) / [CCRS（PDU報告システム）](https://ccrs.pmi.org/)
+**ソース**: [CCR Handbook](https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/ccr-certification-requirements-handbook.pdf) / [Maintain & Renew Your Certification](https://www.pmi.org/certifications/certification-resources/maintain) / [Ways to Earn PDUs](https://www.pmi.org/certifications/certification-resources/maintain/earn-pdus) / [CCRS（PDU報告システム）](https://ccrs.pmi.org/)
 
 ---
 
