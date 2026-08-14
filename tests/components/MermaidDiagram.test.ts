@@ -1,7 +1,22 @@
 import { flushPromises, mount } from "@vue/test-utils";
-import { defineComponent } from "vue";
+import { defineComponent, h } from "vue";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import MermaidDiagram from "~/components/MermaidDiagram.vue";
+
+/**
+ * 複数図の同時マウント用ホスト。
+ *
+ * テンプレート文字列ではなく h() で組む理由: 実行時コンパイルされた
+ * テンプレートの <MermaidDiagram> は resolveComponent 経由で Nuxt が
+ * 自動インポート登録した別モジュール実体に解決されることがある。その実体には
+ * vi.mock("mermaid") が効かず、本物の mermaid が jsdom 上で動いて落ちる。
+ * h() に import 済みのコンポーネントを直接渡せば実体が 1 つに固定される。
+ */
+function hostOf(...propsList: Array<Record<string, unknown>>) {
+  return defineComponent({
+    render: () => h("div", propsList.map((props, i) => h(MermaidDiagram, { key: i, ...props }))),
+  });
+}
 
 // initialize を持たせない。コンポーネントが再初期化を試みればテストは失敗する。
 // 設定の初期化は plugins/mermaid.client.ts の責務であり、図のマウントごとに
@@ -33,19 +48,10 @@ afterEach(() => {
 
 describe("MermaidDiagram", () => {
   it("図ごとの themeVariables を同時マウント間で分離する", async () => {
-    const Host = defineComponent({
-      components: { MermaidDiagram },
-      template: `
-        <div>
-          <MermaidDiagram chart="flowchart LR\nA --&gt; B" theme="base"
-            :theme-variables="{ primaryColor: '#ffeeee' }" />
-          <MermaidDiagram chart="flowchart LR\nC --&gt; D" theme="base"
-            :theme-variables="{ primaryColor: '#eeeeff' }" />
-        </div>
-      `,
-    });
-
-    mount(Host);
+    mount(hostOf(
+      { chart: "flowchart LR\nA --> B", theme: "base", themeVariables: { primaryColor: "#ffeeee" } },
+      { chart: "flowchart LR\nC --> D", theme: "base", themeVariables: { primaryColor: "#eeeeff" } },
+    ));
     await flushPromises();
 
     expect(render).toHaveBeenCalledTimes(2);
@@ -70,17 +76,10 @@ describe("MermaidDiagram", () => {
   });
 
   it("呼び出しごとに一意な描画 ID を渡す", async () => {
-    const Host = defineComponent({
-      components: { MermaidDiagram },
-      template: `
-        <div>
-          <MermaidDiagram chart="flowchart LR\nA --&gt; B" />
-          <MermaidDiagram chart="flowchart LR\nC --&gt; D" />
-        </div>
-      `,
-    });
-
-    mount(Host);
+    mount(hostOf(
+      { chart: "flowchart LR\nA --> B" },
+      { chart: "flowchart LR\nC --> D" },
+    ));
     await flushPromises();
 
     const ids = render.mock.calls.map(([id]) => id);
