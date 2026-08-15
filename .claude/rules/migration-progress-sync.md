@@ -44,9 +44,17 @@ git diff --cached --name-only > "$GIT_DIR_PATH/session-baseline-staged.txt" \
 git diff --cached > "$GIT_DIR_PATH/session-baseline-staged.diff" \
   || { echo "NG: ベースライン(diff)の作成に失敗"; exit 1; }
 
-# 行数は「数値であること」を検証してから比較する（空文字や wc の失敗を 0 と誤読しない）
-BASELINE_LINES="$(wc -l < "$GIT_DIR_PATH/session-baseline-staged.txt" | tr -d '[:space:]')" \
+# 本セッションのベースラインであることを後から検証するための ID を発行して保存する。
+# ID が無い／食い違う場合、別セッションが残した古いベースラインを使い回している。
+SESSION_ID="$(date -u +%Y%m%dT%H%M%SZ)-$$"
+printf '%s\n' "$SESSION_ID" > "$GIT_DIR_PATH/session-baseline-id.txt" \
+  || { echo "NG: セッション ID の保存に失敗"; exit 1; }
+
+# 行数は「数値であること」を検証してから比較する（空文字や wc の失敗を 0 と誤読しない）。
+# wc と tr をパイプで繋ぐと `||` が tr の終了コードしか見ないため、必ず 2 段に分ける。
+BASELINE_LINES="$(wc -l < "$GIT_DIR_PATH/session-baseline-staged.txt")" \
   || { echo "NG: 行数の取得に失敗"; exit 1; }
+BASELINE_LINES="$(printf '%s' "$BASELINE_LINES" | tr -d '[:space:]')"
 case "$BASELINE_LINES" in
   ''|*[!0-9]*) echo "NG: 行数が数値として取得できない: '$BASELINE_LINES'"; exit 1 ;;
 esac
@@ -54,7 +62,11 @@ esac
 [ "$BASELINE_LINES" -eq 0 ] \
   || { echo "NG: 開始時点で $BASELINE_LINES 件が staged 済み"; exit 1; }
 echo "OK: index は空（ベースライン確立）"
+echo "SESSION_ID=$SESSION_ID"   # ← この値を控える。コミット直前の検証で必要になる
 ```
+
+`SESSION_ID` は**シェルの実行単位をまたいで引き継がれない**（1 回の実行ごとに新しいシェルが起動する）。
+出力された値を控え、コミット直前の検証で `SESSION_ID=<控えた値>` として明示的に与えること。
 
 非 0 で終了した場合は、その時点で**作業開始前から staged の変更が存在する**か、
 **判定自体に失敗している**。いずれも先へ進まず、ユーザーへ該当ファイル・エラー内容を報告して指示を仰ぐ。
@@ -64,10 +76,23 @@ echo "OK: index は空（ベースライン確立）"
 こちらも fail-closed。`diff` の終了コードは **1（差分あり）と 2 以上（比較そのものの失敗）を必ず分離**し、
 `grep` の終了コード 2 以上（読み取り失敗）を「混入なし」と読み替えてはならない。
 
+`SESSION_ID` には、開始時の手順が出力した値をそのまま与える。ファイルの存在確認だけでは
+**前のセッションが残したベースラインを流用**しても素通りしてしまうため、必ず ID を照合する。
+
 ```bash
+SESSION_ID="<開始時に控えた値>"
+[ -n "$SESSION_ID" ] || { echo "NG: SESSION_ID が未設定（開始時の手順を飛ばしている）"; exit 1; }
+
 GIT_DIR_PATH="$(git rev-parse --git-dir)" || { echo "NG: git-dir を解決できない"; exit 1; }
 BASELINE="$GIT_DIR_PATH/session-baseline-staged.diff"
 [ -f "$BASELINE" ] || { echo "NG: ベースラインが無い（開始時の手順を飛ばしている）"; exit 1; }
+
+ID_FILE="$GIT_DIR_PATH/session-baseline-id.txt"
+[ -f "$ID_FILE" ] || { echo "NG: ベースライン ID が無い（開始時の手順を飛ばしている）"; exit 1; }
+STORED_ID="$(cat "$ID_FILE")" || { echo "NG: ベースライン ID を読めない"; exit 1; }
+STORED_ID="$(printf '%s' "$STORED_ID" | tr -d '[:space:]')"
+[ "$STORED_ID" = "$SESSION_ID" ] \
+  || { echo "NG: ベースラインが本セッションのものではない（stored=$STORED_ID）"; exit 1; }
 
 git status --short              # 作業ツリー全体の変更
 git diff --cached --name-only   # 実際にコミットされるファイル
@@ -76,12 +101,18 @@ git diff --cached --name-only   # 実際にコミットされるファイル
 CURRENT="$GIT_DIR_PATH/session-current-staged.diff"
 git diff --cached > "$CURRENT" || { echo "NG: 現在の staged 差分を取得できない"; exit 1; }
 
-diff "$BASELINE" "$CURRENT" > "$GIT_DIR_PATH/session-baseline-compare.out"
+# 比較結果ファイルは diff より先に開けることを確認する。
+# リダイレクトに失敗すると diff は実行されないまま終了コード 1 になり、
+# 「差分あり」と区別が付かないうえ、古い比較結果を読んで「混入なし」と誤判定しうる。
+COMPARE="$GIT_DIR_PATH/session-baseline-compare.out"
+: > "$COMPARE" || { echo "NG: 比較結果ファイルを作成できない"; exit 1; }
+
+diff "$BASELINE" "$CURRENT" > "$COMPARE"
 DIFF_STATUS=$?
 case "$DIFF_STATUS" in
   0) echo "OK: ベースラインと同一" ;;
   1)
-    grep -E '^<' "$GIT_DIR_PATH/session-baseline-compare.out"
+    grep -E '^<' "$COMPARE"
     GREP_STATUS=$?
     case "$GREP_STATUS" in
       0) echo "NG: 事前 staged の内容が混入している"; exit 1 ;;

@@ -199,10 +199,16 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   ```
 
   実行前に対象ファイルの実在を確認する（存在しないパスを渡すと、テストが無いのに
-  「収集 0 件で成功」と誤読しかねない）。
+  「収集 0 件で成功」と誤読しかねない）。**確認するのは、いま実行しようとしている種別の変数**
+  （`.mjs` なら `TARGET_TEST_MJS`、`.py` なら `TARGET_TEST_PY`）であり、
+  もう一方や前回の値を参照してはならない。
 
   ```bash
-  [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない"; exit 1; }
+  # .mjs を実行する場合
+  [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_MJS"; exit 1; }
+
+  # .py を実行する場合
+  [ -f "$TARGET_TEST_PY" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_PY"; exit 1; }
   ```
 
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は
