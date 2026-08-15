@@ -13,7 +13,7 @@
     "test:e2e": "playwright test",
     "typecheck": "nuxi typecheck",
     "lint": "eslint .",
-    "audit:capm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Certified-Associate-in-Project-Management.html app/pages/capm.vue"
+    "audit:capm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Certified-Associate-in-Project-Management.html app/pages/capm.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",

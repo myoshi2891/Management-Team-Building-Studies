@@ -17,11 +17,12 @@ Updated 2026-08-15
 ## 現在のリポジトリ構成
 
 ```text
-Certified-Associate-in-Project-Management.md     CAPM ガイド（61KB / 見出し74 / リスト114 / 表144行）
-Certified-Associate-in-Project-Management.html   同上の公開用 HTML（107KB / Mermaid図9）— 移行の原本
-Engineering-management-career-path.md / .html    EM キャリアパスガイド（移行済み）— 移行の原本
-Capm-domain1-pm.md                               CAPM ドメイン1 の補助ガイド
-app/                                             Nuxt 4 のソース（既定 srcDir）
+archive/                                             移行済み原本のアーカイブ
+  Certified-Associate-in-Project-Management/         CAPM ガイド原本（.md / .html）
+  Engineering-management-career-path/                EM キャリアパスガイド原本（.md / .html）
+Certified-associate-in-project-management-domain1.md / .html  CAPM ドメイン1（未移行）
+Capm-domain1-pm.md                                   CAPM ドメイン1 の補助ガイド
+app/                                                 Nuxt 4 のソース（既定 srcDir）
 tests/ e2e/                                      Vitest 契約テスト / Playwright スモーク
 docs/PROGRESS.md                                 Nuxt 移行の進捗と「正当な差分の記録」
 .markdownlint.json                               Markdown lint 設定
