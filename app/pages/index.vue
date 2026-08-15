@@ -20,6 +20,15 @@ const guides = [
     icon: "tabler:route",
     accent: "forest",
   },
+  {
+    to: "/engineering-team-leadership-guide",
+    category: "ENGINEERING LEADERSHIP",
+    title: "エンジニアリングチームのリード術 完全ガイド",
+    description: "効果的なチーム作りの科学的根拠から、1on1、委譲、コードレビュー文化まで、実践できるベストプラクティスを体系的に学びます。",
+    meta: "11セクション",
+    icon: "tabler:users-group",
+    accent: "plum",
+  },
 ] as const;
 
 const learningThemes = [
@@ -119,6 +128,7 @@ useSeoMeta({
         <nav aria-label="フッターナビゲーション">
           <NuxtLink to="/capm">CAPM</NuxtLink>
           <NuxtLink to="/engineering-management-career-path">EM Career</NuxtLink>
+          <NuxtLink to="/engineering-team-leadership-guide">Team Lead</NuxtLink>
         </nav>
         <small>© 2026 Management Studies</small>
       </div>
@@ -175,8 +185,8 @@ useSeoMeta({
 .section-heading > p { margin: 0 0 7px; color: var(--color-ink-soft); font-size: 14px; }
 .guide-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
 .guide-card { min-height: 378px; border: 1px solid var(--color-border); background: var(--color-paper-raised); }
-.guide-card:not(.guide-card-coming) { grid-column: span 5; }
-.guide-card-coming { grid-column: span 2; }
+.guide-card:not(.guide-card-coming) { grid-column: span 4; }
+.guide-card-coming { grid-column: span 12; min-height: 180px; }
 .guide-card > a { position: relative; height: 100%; display: flex; flex-direction: column; padding: 31px 32px 27px; color: var(--color-ink); overflow: hidden; }
 .guide-card > a::after { content: ""; position: absolute; inset: auto 0 0; height: 4px; background: var(--card-accent, var(--color-indigo)); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
 .guide-card > a:hover { text-decoration: none; }
@@ -184,9 +194,11 @@ useSeoMeta({
 .guide-card > a:hover .guide-link svg { transform: translate(3px, -3px); }
 .guide-card-indigo { --card-accent: var(--color-indigo); }
 .guide-card-forest { --card-accent: var(--color-forest); }
+.guide-card-plum { --card-accent: var(--color-plum); }
 .guide-card-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 47px; }
 .guide-icon { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 50%; background: var(--color-indigo-tint); color: var(--color-indigo); }
 .guide-card-forest .guide-icon { background: var(--color-forest-tint); color: var(--color-forest); }
+.guide-card-plum .guide-icon { background: var(--color-plum-tint); color: var(--color-plum); }
 .guide-icon svg { width: 23px; height: 23px; }
 .guide-meta { color: var(--color-ink-faint); font-size: 11px; }
 .guide-category { margin: 0 0 12px; color: var(--card-accent, var(--color-gold)); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; }

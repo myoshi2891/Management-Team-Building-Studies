@@ -7,6 +7,7 @@ const navigation = [
   { label: "ホーム", to: "/", icon: "tabler:home" },
   { label: "CAPM", to: "/capm", icon: "tabler:certificate" },
   { label: "EMキャリア", to: "/engineering-management-career-path", icon: "tabler:route" },
+  { label: "チームリード術", to: "/engineering-team-leadership-guide", icon: "tabler:users-group" },
 ] as const;
 
 function isCurrent(to: string): boolean {
