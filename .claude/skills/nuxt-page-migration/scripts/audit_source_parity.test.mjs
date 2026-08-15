@@ -449,9 +449,10 @@ const PRODUCT = "CAPM";
 
 test("collects short Vue text immediately following an HTML comment", () => {
 	const result = auditVue(
-		"<ul><li>Go</li></ul>",
+		"<ul><li>Hi</li><li>Go</li></ul>",
 		`<template>
-  <p><!-- explanatory comment -->Go</p>
+  <p><!-- explanatory comment -->Hi</p>
+  <p>Go</p>
 </template>`,
 	);
 
