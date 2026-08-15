@@ -144,7 +144,7 @@ function collectTextNodeKeys(markup) {
     }
 
     tagRe.lastIndex = tagEnd + 1;
-    tag = tagRe.exec(markup);
+    tag = tagRe.exec(renderedMarkup);
   }
   return keys;
 }
