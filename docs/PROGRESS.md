@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `66518ba` — refactor(pages): clean up self-closing tag for engineering manager guide（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `5d027d7` — refactor(tests): remove unused constants in CAPM domain 1 contract test（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `npm run test` ✔ / `nuxi typecheck` ✔ / `npm run lint` ✔ |
-| テスト数 | **121** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23）+ **4** E2E — これがベースライン |
+| テスト数 | **144** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
@@ -23,6 +23,7 @@
 | `archive/Engineering-management-career-path/Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `archive/Engineering-management-career-path/Engineering-team-leadership-guide.html` | `app/pages/engineering-team-leadership-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `Engineering-manager-guide.html` | `app/pages/engineering-manager-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `Certified-associate-in-project-management-domain1.html` | `app/pages/certified-associate-in-project-management-domain1.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
