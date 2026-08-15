@@ -14,11 +14,33 @@ description: >
   Covers: syntax fixes, SVG sizing + shrink-to-fit centering, mindmap/sequence
   coloring, foreignObject CSS limitations, font-loading timing, and the
   component-owned layout contract for the Nuxt site.
+  NOTE: this front matter is Claude Code specific. The body section
+  "エージェント互換" carries the same triggers for agents that ignore front matter.
 ---
 
 # Mermaid 修正・スタイリングスキル
 
 最終更新: 2026-08-15
+
+## エージェント互換（Claude Code / Gemini CLI / その他）
+
+冒頭の front matter（`name` / `description`）は **Claude Code 固有のメタデータ**で、
+他のエージェントは解釈しない。本スキルは本文だけで完結するように書く。
+
+- **起動**: 下記トリガー語句が出たら、自動発火しない環境では本ファイルを明示的に開いてから作業する。
+- **参照ファイル**: `references/mermaid-v10-guide.md` は自動で開かれない。v10 系の構文を扱うときは手動で開く。
+- **同梱スクリプト**: 依存パッケージ無しで動く。実行系を明示する
+  （`node .claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs` /
+  `python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py`）。
+  ただし `fix_mermaid.py` は `<div class="mermaid">` 方式専用で、現行 HTML には**1件もマッチしない**（後述）。
+- **コマンド**: `bun run <script>` は `bun` が無ければ `npm run <script>`、`bunx nuxi` は `npx nuxi` に読み替える。
+- **判定**: 出力の目視ではなく終了コードで行う（`echo "exit=$?"`）。
+
+**適用トリガー（本文が正。front matter と食い違ったら本節に合わせる）**:
+「mermaid error」「Syntax error in text」「図が描画されない」「全図が壊れた」
+「文字が読めない」「はみ出している」「図が醜い」「ダークモードで見にくい」
+「シーケンス図が切れている」「マインドマップの色がおかしい」
+「図解が左寄せ」「図が中央寄せにならない」、または Mermaid のバージョン起因エラー。
 
 ## 対象
 

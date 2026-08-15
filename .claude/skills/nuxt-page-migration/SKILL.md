@@ -13,8 +13,12 @@ description: >
     "本文の幅がバランス悪い" / "diagram not centered" / "content column width"
   - design mismatch: "デザイン違う" / "スタイルがおかしい" / "テーブルヘッダーの色が" /
     "callout の色が" / "コードブロックの色" / "図解の色が違う"
+  - site navigation: "ホームにガイドが出ない" / "グローバルナビに追加" / "ヘッダーのリンクが古い"
   Applies: source-parity audit script, contract tests (Vitest + Vue Test Utils),
-  Vue SFC structure, scoped CSS, Mermaid via ClientOnly, and the content-width policy.
+  Vue SFC structure, scoped CSS, Mermaid via ClientOnly, the content-width policy,
+  and registration into app/pages/index.vue (guides) + app/components/SiteHeader.vue (navigation).
+  NOTE: this front matter is Claude Code specific. The body section
+  "エージェント互換" carries the same triggers for agents that ignore front matter.
 invocation: explicit
 allowed-tools:
   - Read
@@ -29,6 +33,31 @@ allowed-tools:
 
 最終更新: 2026-08-15
 
+## エージェント互換（Claude Code / Gemini CLI / その他）
+
+冒頭の front matter（`name` / `description` / `invocation` / `allowed-tools`）は
+**Claude Code 固有のメタデータ**であり、他のエージェントは解釈しない。
+そのため本スキルは、front matter を読まなくても本文だけで完結するように書く。
+
+| 前提 | 自動発火するエージェント | 解釈しないエージェント（Gemini CLI 等） |
+|---|---|---|
+| 起動 | トリガー語句で自動読込 | 下表の語句が出たら、**利用者または担当者が本ファイルを明示的に読む** |
+| 参照ファイル | 必要時に自動で開かれる | §1 と §8 のファイルを**手動で開く**（開かずに推測しない） |
+| ツール | `Read` / `Edit` / `Bash` 等 | 同等の読み書き・シェル実行手段で置き換える。**手順は省略しない** |
+| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`、`bunx nuxi` は `npx nuxi` |
+
+**適用トリガー（本文が正。front matter と食い違ったら本節に合わせて front matter を直す）**:
+
+- 移行・追加: 「ページを Nuxt に移行」「ガイドページを移行」「新規ガイドページを追加」「ページを保守」
+  「移行漏れ」「転写漏れ」/ `migrate guide page` / `nuxt page migration` / `add new guide page`
+- レイアウト: 「図解が左寄せ」「図解を中央寄せ」「コンテンツが左寄り」「本文の幅がバランス悪い」
+- デザイン不一致: 「デザイン違う」「スタイルがおかしい」「テーブルヘッダーの色が」「callout の色が」「図解の色が違う」
+- サイト導線: 「ホームにガイドが出ない」「グローバルナビに追加」「ヘッダーのリンクが古い」
+
+判定はすべて**終了コード**で行う（出力の目視ではなく `echo "exit=$?"` を確認する）。
+エージェント固有機能（スキル自動発火・サブエージェント・進捗トラッカ）が無い場合も、
+同じコマンドを手で順に実行し、同じゲートを満たすこと。
+
 > [!IMPORTANT]
 > **Nuxt 4 は導入済み。既定の `srcDir` は `app/`** なので実パスは `app/pages/*.vue` /
 > `app/components/*.vue` / `app/composables/*.ts` になる（テストの `~/pages/capm.vue` という
@@ -39,12 +68,19 @@ allowed-tools:
 
 | ファイル | 役割 |
 |---|---|
+| `app/app.vue` | アプリシェル。`<SiteHeader />` → `<NuxtPage />` の順で描画する |
+| `app/components/SiteHeader.vue` | **全ページ共通のグローバルヘッダー**。`navigation` 配列が導線の SSoT |
+| `app/pages/index.vue` | **ホーム（学習ライブラリ）**。`guides` 配列が公開中ガイド一覧の SSoT |
 | `app/pages/capm.vue` | 移行済みページの実例（`<script setup>` → `<template>` → `<style scoped>`） |
+| `app/pages/engineering-management-career-path.vue` | 2 ページ目の移行実例 |
 | `app/components/MermaidDiagram.vue` | 図解レイアウトの SSoT + svg 後処理 |
 | `app/utils/mermaid-loader.ts` | `import("mermaid")` の singleton 化（後述の落とし穴 1 の対処） |
 | `app/plugins/mermaid.client.ts` | `mermaid.initialize` を一度だけ実行 |
 | `app/composables/useActiveHeading.ts` | TOC のスクロール連動 |
 | `tests/pages/capm.test.ts` | 契約テストの実例（S / C / D / Q） |
+| `tests/pages/index.test.ts` | ホームの契約テスト（ガイド一覧を順序・遷移先込みで固定） |
+| `tests/components/SiteHeader.test.ts` | グローバルナビの契約テスト（順序・`aria-current`） |
+| `tests/app.test.ts` | シェルの契約テスト（ヘッダーの後にページを描画する） |
 | `e2e/capm.spec.ts` | 静的生成成果物へのスモークテスト |
 
 ## 0. このスキルが解決する問題
@@ -60,7 +96,11 @@ allowed-tools:
 3. `.claude/rules/migration-progress-sync.md` — `docs/PROGRESS.md` 同期のゲート条件
 4. `.claude/rules/mermaid-diagram-layout.md` — 図解レイアウトの不変条件
 5. `.claude/rules/no-absolute-paths.md` — コミット前の PII 検査
-6. 本スキルの `references/source-parity-audit.md`
+6. 本スキルの `references/source-parity-audit.md` — 監査結果の判断基準と S 契約の実装例
+7. `app/pages/index.vue` と `app/components/SiteHeader.vue` — 新規ページの登録先（§5 Step 2.5）
+
+デザイン契約を書く場合は `references/design-contract-tests.md`、共有部品や設定を触る場合は
+`references/implementation-reference.md` も読む。**自動で開かれる前提を置かず、明示的に開くこと。**
 
 ## 2. 移行元と移行先
 
@@ -145,6 +185,8 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 
 `tests/pages/<slug>.test.ts` を作成する。原本の要素種別に依存しない
 **最低 12 契約**（S-1〜S-4 / C-1〜C-5 / Q-1〜Q-3）を書く。
+新規ページの追加では、これに加えて**サイト登録契約 N-1〜N-3**（既存の
+`tests/pages/index.test.ts` / `tests/components/SiteHeader.test.ts` の期待値更新）を Red に含める。
 C-6 と D-1〜D-5 は適用条件に該当する場合のみ追加する。
 **件数だけを見る弱いテストは契約として認めない。**
 
@@ -201,6 +243,20 @@ CAPM では `<blockquote>` と `<pre>` が 0 件だったため、D-4 とコー�
 | Q-1 | TOC のスクロール連動（アクティブ見出しの遷移）を composable 単体で検証 |
 | Q-2 | `useSeoMeta()` の `title` / `description` が空でなく、`title` が h1 と整合する |
 | Q-3 | 見出し階層が飛ばない（`h1 → h3` のようなスキップが無い） |
+
+#### N. サイト登録契約（3 件・**新規ページ追加時のみ必須**）
+
+ページを作っただけでは**どこからも辿り着けない**。導線は原本 HTML に存在しないため、
+§5 Step 3 の原本照合監査では登録漏れを検知できない。よってテストで固定する。
+
+| ID | 対象 | 内容 |
+|---|---|---|
+| N-1 | `tests/pages/index.test.ts` | ホームの公開中ガイド一覧に新ページが**順序・タイトル・`to` 込みの完全一致**で並ぶ |
+| N-2 | `tests/components/SiteHeader.test.ts` | グローバルナビのラベルと遷移先が**順序込みの完全一致**で並ぶ |
+| N-3 | `tests/components/SiteHeader.test.ts` | 新ページのルートを現在地としたとき、そのリンクだけが `aria-current="page"` を持つ |
+
+既存テストは期待値を配列で持っている。**配列に 1 行足すだけの変更でも Red を先に作る**
+（`bun run test tests/pages/index.test.ts tests/components/SiteHeader.test.ts` で失敗を目視確認）。
 
 #### 禁止するテストの書き方（弱い契約）
 
@@ -268,9 +324,44 @@ useSeoMeta({
 </style>
 ```
 
+**グローバルヘッダーは各ページで描画しない。** `app/app.vue` が `<SiteHeader />` を
+全ページ共通で描画済みなので、ページ側に固有のヘッダーを作らない
+（原本 HTML のヘッダー相当部分は、この共通ヘッダーへ置き換わる「正当な差分」として記録する）。
+
+固定ヘッダーの高さは `app/assets/css/main.css` の `--global-nav-height` が SSoT。
+sticky なサイドバー・TOC・見出しアンカーは、必ずこの変数で退避させる
+（既存 2 ページと同じ式を使う。数値のハードコード禁止）:
+
+```css
+.sidebar      { top: var(--global-nav-height); height: calc(100vh - var(--global-nav-height)); }
+.toc-sticky   { top: calc(var(--global-nav-height) + 16px); }
+:is(h2, h3)   { scroll-margin-top: calc(var(--global-nav-height) + 32px); }
+```
+
+これを書かないと、TOC が固定ヘッダーの下へ潜り込み、アンカー遷移で見出しが隠れる。
+
 **監査スクリプトの前提**: 本文のインベントリは `<template>` ブロックのみを対象とする。
 `<script setup>` に書いた文字列は本文として数えられない。逆に、Mermaid の
 `:chart="NAME"` バインドは `<script setup>` の `const NAME = \`…\`` を解決して照合される。
+
+### Step 2.5: [Green] ホームとグローバルナビへ登録する
+
+新規ページは**作っただけでは到達不能**。N-1〜N-3 を Green にするため 2 か所へ登録する。
+
+| 登録先 | 配列 | 追加する内容 |
+|---|---|---|
+| `app/pages/index.vue` | `guides` | `to` / `category` / `title` / `description` / `meta` / `icon` / `accent` |
+| `app/components/SiteHeader.vue` | `navigation` | `label`（短い表示名） / `to` / `icon` |
+
+- `to` は `app/pages/<slug>.vue` から決まるルートと**厳密に一致**させる（`.html` を付けない）。
+- `icon` は `tabler:*` を使う。`@nuxt/icon` の `clientBundle.scan` がビルド時に走査するため、
+  文字列を動的組み立てにすると静的生成で欠落する。**リテラルで書く**。
+- `meta`（例: `"15セクション"`）は原本の実数を書く。推測値を書かない。
+- ナビの `label` は原本のタイトルそのままではなく短縮名でよいが、
+  `tests/components/SiteHeader.test.ts` の期待値と完全一致させる。
+
+登録後に `bun run test tests/pages/index.test.ts tests/components/SiteHeader.test.ts` が
+Green になることを確認する。
 
 ### Step 3: [Green の前提] 原本照合監査を通す
 
@@ -343,7 +434,10 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 2. **契約テストを先に更新**（期待値を実装に合わせて書き換えない。正しいのは常に原本）
 3. 実装を修正
 4. **原本照合監査を再実行**（保守でも exit 0 を維持する）
-5. `bun run test` / `bunx nuxi typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
+5. ページのタイトル・スラッグ・セクション数を変えた場合は、
+   `app/pages/index.vue` の `guides` と `app/components/SiteHeader.vue` の `navigation` を同時に直す
+   （N-1〜N-3 の期待値も更新する。片方だけ直すとリンク切れか表示ズレが残る）
+6. `bun run test` / `bunx nuxi typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
 
 デザイン不一致（配色・テーブルヘッダー・callout 等）の相談は、
 **原本 HTML の該当箇所を読んでから**直す。推測で色を決めない。
@@ -358,6 +452,9 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | Mermaid 定数が監査で解決されない | フォーマッタがテンプレートリテラルの末尾セミコロンを落とす | `const NAME = \`…\`;` 形式を厳守。stylistic プリセット（既定 `semi: false`）を有効化しない |
 | E2E が別プロジェクトの 404 ページを検証する | Playwright の `reuseExistingServer` は応答しているサーバーが自分のものかを検証しない | 既定ポートを避け、`reuseExistingServer: false` にする |
 | E2E の TOC スクロールが届かない | Mermaid 描画のたびに文書高さが変わり、スムーススクロールの目標位置が動く | 図の描画完了を待ってからクリックし、長距離スクロールはタイムアウトを延ばす |
+| サイドバー TOC がグローバルヘッダーの下に潜る / アンカー遷移で見出しが隠れる | sticky の `top` と `scroll-margin-top` が固定ヘッダー分を退避していない | `--global-nav-height` を使う（§5 Step 2 の 3 行）。数値のハードコード禁止 |
+| 新ページが完成しているのにサイト上から到達できない | `index.vue` の `guides` と `SiteHeader.vue` の `navigation` は原本に無いため、原本照合監査では検知されない | N-1〜N-3 契約で固定する（§5 Step 1 / Step 2.5） |
+| ナビ・カードのアイコンが静的生成後だけ消える | `@nuxt/icon` の `clientBundle.scan` はソース中のリテラルしか走査しない | `icon` 名は動的組み立てにせずリテラルで書き、`bun run test:e2e` で確認する |
 
 ## 7. Constraints（禁止事項）
 
@@ -380,6 +477,10 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 - `assets/css/main.css` に存在しない CSS 変数の `var()` 参照
 - 原本 HTML の削除（原本は Git 追跡下に維持する）
 - 監査 exit 0 を確認せずに Green コミットすること
+- ページ側で独自のグローバルヘッダー／サイト内ナビを実装すること（`app/components/SiteHeader.vue` が SSoT）
+- 固定ヘッダー分の退避を `72px` 等の数値で直書きすること（`--global-nav-height` を使う）
+- ホーム（`index.vue` の `guides`）とグローバルナビ（`SiteHeader.vue` の `navigation`）へ
+  登録しないまま、新規ページの移行完了を報告すること
 
 ## 8. 関連ファイル
 
@@ -391,6 +492,9 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | `references/design-contract-tests.md` | D 契約の実装例 |
 | `references/implementation-reference.md` | 実装リファレンス（設定・共有部品の骨子） |
 | `app/pages/capm.vue` / `tests/pages/capm.test.ts` | 移行済みページと契約テストの参照実装 |
+| `app/pages/index.vue` / `tests/pages/index.test.ts` | ホーム（ガイド一覧）の登録先と契約 |
+| `app/components/SiteHeader.vue` / `tests/components/SiteHeader.test.ts` | グローバルナビの登録先と契約 |
+| `app/app.vue` / `tests/app.test.ts` | アプリシェル（ヘッダー + ページ）の描画順契約 |
 | `.claude/rules/tdd-mandatory-cycle.md` | TDD とコミット分割の強制ルール |
 | `.claude/rules/mermaid-diagram-layout.md` | 図解レイアウトの不変条件 |
 | `.claude/skills/fix-mermaid/SKILL.md` | Mermaid の構文・配色・テスト契約 |

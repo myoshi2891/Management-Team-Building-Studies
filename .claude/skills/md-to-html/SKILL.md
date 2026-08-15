@@ -10,6 +10,8 @@ description: >
   - またはガイドの Markdown ファイル名（例: "Project-Management-Professional.md"）を指定した場合。
   スケルトンテンプレート、MD→HTML 対応規則、DIAGRAMS オブジェクトによる Mermaid のテーマ変更、
   固定バージョンの CDN + SRI、フェーズ分割コミット、2 つの監査スクリプトを対象とする。
+  この front matter は Claude Code 固有である。front matter を解釈しないエージェント向けに、
+  同じトリガーを本文「エージェント互換」節へ複製している。
 allowed-tools:
   - Read
   - Write
@@ -21,7 +23,33 @@ allowed-tools:
 
 # 資格ガイド MD → 単一ファイル HTML 変換スキル
 
-最終更新: 2026-08-14
+最終更新: 2026-08-15
+
+## エージェント互換（Claude Code / Gemini CLI / その他）
+
+冒頭の front matter（`name` / `description` / `allowed-tools`）は
+**Claude Code 固有のメタデータ**で、他のエージェントは解釈しない。本スキルは本文だけで完結させる。
+
+- **起動**: 下記トリガー語句が出たら、自動発火しない環境では本ファイルを明示的に開いてから作業する。
+- **参照ファイル・雛形は自動で開かれない**。§1 の 6 ファイルと
+  `templates/skeleton.html.tmpl` を**手動で開く**。開かずに markup を推測しない。
+- **同梱スクリプトは依存パッケージ無しで動く**。実行系は `node` を明示する
+  （`node .claude/skills/md-to-html/scripts/audit_content_parity.mjs …`）。
+- **判定は終了コード**で行う（出力の目視ではなく `echo "exit=$?"`）。
+  ゲートは 2 本とも exit 0 が必須。
+
+**適用トリガー（本文が正。front matter と食い違ったら本節に合わせる）**:
+「HTMLファイルを作成」「MDからHTMLに変換」「MD を HTML 化」「ガイドをHTMLにする」
+「資格ガイドのHTMLを作る」「新しい資格ページを作成」/ `convert md to html` /
+`create guide html` / `new certification page` / ガイドの Markdown ファイル名の指定。
+
+> [!NOTE]
+> **出力はリポジトリ直下の単一 HTML であり、Nuxt サイトのページではない。**
+> 静的 HTML はサイト共通のグローバルヘッダーを持たない（あれは `app/components/SiteHeader.vue` の責務）。
+> 生成した HTML を後で Nuxt へ移行する際に、ホーム（`app/pages/index.vue` の `guides`）と
+> グローバルナビ（`SiteHeader.vue` の `navigation`）への登録が必要になる。
+> 手順は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 2.5 を参照。
+> 本スキルの中でそれらを編集してはならない（責務が分かれている）。
 
 ## 0. このスキルが解決する問題
 

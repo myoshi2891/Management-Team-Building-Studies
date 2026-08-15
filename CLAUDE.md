@@ -19,27 +19,40 @@ Updated 2026-08-15
 ```text
 Certified-Associate-in-Project-Management.md     CAPM ガイド（61KB / 見出し74 / リスト114 / 表144行）
 Certified-Associate-in-Project-Management.html   同上の公開用 HTML（107KB / Mermaid図9）— 移行の原本
-Engineering-management-career-path.md / .html    EM キャリアパスガイド（Nuxt 未移行）
+Engineering-management-career-path.md / .html    EM キャリアパスガイド（移行済み）— 移行の原本
 Capm-domain1-pm.md                               CAPM ドメイン1 の補助ガイド
 app/                                             Nuxt 4 のソース（既定 srcDir）
 tests/ e2e/                                      Vitest 契約テスト / Playwright スモーク
 docs/PROGRESS.md                                 Nuxt 移行の進捗と「正当な差分の記録」
 .markdownlint.json                               Markdown lint 設定
-.claude/                                         エージェント用のスキルとルール
+.claude/                                         エージェント用のスキルとルール（Claude Code）
+.gemini/settings.json                            Gemini CLI に CLAUDE.md を読ませる設定
 ```
 
 `app/` 配下の構成（Nuxt 4 の既定 `srcDir` は `app/`。テストだけリポジトリ直下）:
 
 ```text
-app/app.vue                        <NuxtPage /> のみ
+app/app.vue                        <SiteHeader /> → <NuxtPage /> のアプリシェル
 app/assets/css/main.css            :root トークン + 基底要素（全ページ共有）
+app/pages/index.vue                ホーム（学習ライブラリ）。guides 配列が公開中ガイドの SSoT
 app/pages/capm.vue                 CAPM ガイド（移行済み）
-app/pages/index.vue                ガイド一覧
+app/pages/engineering-management-career-path.vue  EM キャリアパスガイド（移行済み）
+app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。navigation 配列が導線の SSoT
 app/components/MermaidDiagram.vue  図解レイアウトの SSoT + svg 後処理
 app/composables/useActiveHeading.ts  TOC のスクロール連動
 app/plugins/mermaid.client.ts      mermaid.initialize を一度だけ実行
 app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 ```
+
+> [!IMPORTANT]
+> **新規ガイドページは 2 か所への登録が必須。** `app/pages/index.vue` の `guides` と
+> `app/components/SiteHeader.vue` の `navigation` に追加しないと、ページはどこからも到達できない。
+> これらの導線は原本 HTML に存在しないため**原本照合監査では検知できない**。
+> 契約テスト（`tests/pages/index.test.ts` / `tests/components/SiteHeader.test.ts`）で固定する。
+> 手順は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 2.5。
+>
+> 固定ヘッダーの高さは `--global-nav-height`（`app/assets/css/main.css`）が SSoT。
+> sticky なサイドバー・TOC・見出しアンカーは必ずこの変数で退避させる（数値の直書き禁止）。
 
 ## 開発コマンド
 
@@ -66,11 +79,12 @@ node --test .claude/skills/nuxt-page-migration/scripts/audit_source_parity.test.
 
 ## Nuxt.js（Vue）への移行
 
-HTML を **Nuxt 4（Vue 3）の `app/pages/*.vue` へ手書きで移行**する。CAPM は移行済み、
-`Engineering-management-career-path.html` は未移行。
+HTML を **Nuxt 4（Vue 3）の `app/pages/*.vue` へ手書きで移行**する。
+CAPM・EM キャリアパスの 2 本は移行済み（最新状況は `docs/PROGRESS.md` を正とする）。
 
 - `.md` / `.html` は移行後も**原本として維持**する（削除しない）
 - 移行の標準手順は `.claude/skills/nuxt-page-migration/SKILL.md`
+- 新規ページは移行に加えて**ホームとグローバルナビへの登録**が必須（上記 IMPORTANT を参照）
 - 移行の最大のリスクは**転写漏れ**。原本照合監査（`audit_source_parity.mjs`）の
   exit 0 を Green の前提条件とする
 - **監査のゲート原本は `.html`**。CAPM では `.md` と `.html` の構造が乖離しており
@@ -127,6 +141,22 @@ Nuxt 版は `app/components/MermaidDiagram.vue` に `:chart` を渡す方式で�
 | `markdown-formatter` | `.markdownlint.json` 準拠の書式修正 |
 | `docs-sync` | 仕様書と実態の同期、最終更新日の更新 |
 | `pre-commit-check` | コミット前の全検証（PII 検査・lint・テスト） |
+
+## 他エージェント（Gemini CLI 等）での利用
+
+`.claude/skills/*/SKILL.md` と `.claude/rules/*.md` の **front matter は Claude Code 固有**であり、
+他のエージェントは解釈しない。したがって以下が前提になる。
+
+| 項目 | Claude Code | Gemini CLI 等 |
+|---|---|---|
+| 本ファイルの読み込み | 自動 | `.gemini/settings.json` の `contextFileName` に `CLAUDE.md` を指定済み |
+| スキルの発火 | トリガー語句で自動 | **該当する `SKILL.md` を明示的に開いてから作業する** |
+| ルールの適用 | front matter の `paths` で自動 | 各ルールの本文「適用範囲」節を読んで手動で適用する |
+| `references/` の参照 | 必要時に自動 | 各 `SKILL.md` の「作業開始前に必ず読むファイル」を手動で開く |
+
+そのため、トリガー語句・適用パス・必読ファイルは **front matter ではなく本文を正**とする。
+両者が食い違った場合は本文に合わせて front matter を直す。
+手順・ゲート（終了コード 0）はエージェント種別によらず省略しない。
 
 ## コミット規約
 
