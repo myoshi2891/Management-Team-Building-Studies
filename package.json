@@ -1,0 +1,39 @@
+{
+  "name": "management-team-building-studies",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "typecheck": "nuxi typecheck",
+    "lint": "eslint .",
+    "audit:capm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Certified-Associate-in-Project-Management.html app/pages/capm.vue"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "1.17.0",
+    "@nuxt/test-utils": "4.1.0",
+    "@playwright/test": "1.62.1",
+    "@vue/test-utils": "2.4.11",
+    "eslint": "^10.8.1",
+    "jsdom": "^30.0.1",
+    "nuxt": "4.5.2",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10",
+    "vue": "3.5.41",
+    "vue-tsc": "^3.3.9"
+  },
+  "dependencies": {
+    "@fontsource/source-serif-4": "5.3.0",
+    "@iconify-json/tabler": "^1.2.38",
+    "@nuxt/icon": "2.5.0",
+    "@nuxtjs/seo": "5.3.12",
+    "@vueuse/nuxt": "14.4.0",
+    "mermaid": "11.16.1"
+  }
+}

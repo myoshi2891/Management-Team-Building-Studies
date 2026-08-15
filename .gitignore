@@ -1,0 +1,48 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+
+# 環境変数（共有用サンプルだけ追跡する）
+.env
+.env.*
+!.env.example
+
+# Node / Nuxt
+node_modules/
+.nuxt/
+.output/
+.data/
+.nitro/
+.cache/
+# nuxt generate は dist を .output/public へのシンボリックリンクとして作る。
+# シンボリックリンクはディレクトリとして扱われないため dist/ では無視されない。
+dist
+dist/
+
+# テスト成果物
+test-results/
+playwright-report/
+blob-report/
+coverage/
+.playwright/
+
+# Python（スキル同梱スクリプト用）
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# ログ・一時ファイル
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Claude Code の個人設定（共有設定は .claude/settings.json に置く）
+.claude/settings.local.json
+
+/archive/

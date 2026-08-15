@@ -1,0 +1,230 @@
+---
+paths:
+  - "app/pages/**/*.vue"
+  - "app/components/**/*.vue"
+  - "app/composables/**/*.ts"
+  - "app/utils/**/*.ts"
+  - "app/plugins/**/*.ts"
+  - "tests/**/*.test.ts"
+  - "e2e/**/*.spec.ts"
+  - ".claude/skills/*/scripts/*.mjs"
+  - ".claude/skills/*/scripts/*.py"
+---
+
+# TDD 必須サイクル & コミット分割ルール
+
+(最終更新日: 2026-08-15)
+
+プロジェクトの品質とトレーサビリティを担保するため、以下の TDD サイクルおよびコミット分割を**絶対的な強制ルール**として適用する。
+
+## 適用範囲（本文が正）
+
+冒頭の front matter `paths` は Claude Code の自動適用用メタデータであり、
+**それを解釈しないエージェント（Gemini CLI 等）向けに、同じ内容をここへ複製する**。
+両者が食い違った場合は本節を正とし、front matter を本節に合わせて直す。
+
+| 対象 | 適用 |
+|---|---|
+| `app/pages/**/*.vue` / `app/components/**/*.vue` | **適用** |
+| `app/composables/**/*.ts` / `app/utils/**/*.ts` / `app/plugins/**/*.ts` | **適用** |
+| `tests/**/*.test.ts` / `e2e/**/*.spec.ts` | **適用** |
+| `.claude/skills/*/scripts/*.mjs`（テスト可能なスクリプト） | **適用** |
+| `.claude/skills/*/scripts/*.py`（テスト可能なスクリプト。`fix-mermaid` の `fix_mermaid.py` / `test_fix_mermaid.py`） | **適用** |
+| リポジトリ直下の `*.md` / `*.html`（移行の原本） | 対象外 |
+| `docs/**/*.md` / `.claude/**/*.md`（ドキュメント・規約） | 対象外（`docs(...)` 単独コミット） |
+
+上記の「適用」に該当するファイルを編集する前に、本ファイルを最後まで読むこと。
+
+## コマンド表記の読み替え（全エージェント共通）
+
+本ファイル中の `bun run <script>` は、`bun` が使えない環境では `npm run <script>` に読み替える
+（`package.json` の同じ scripts を実行するため結果は同じ）。
+
+`bunx nuxi typecheck` は **`npm run typecheck` に読み替える**（`package.json` の
+`"typecheck": "nuxi typecheck"` がローカル依存の `node_modules/.bin/nuxi` を実行する）。
+**`npx nuxi` は使わない。** バージョン未固定でレジストリから任意の nuxi を取得してしまい、
+ローカルの `nuxt` と異なる版で型検査する事故が起きる。ローカルに nuxi が無い場合は
+`npm run typecheck` が非 0 で停止するので、**その場で停止して依存を入れ直す**
+（`npx` の暗黙ダウンロードで先へ進めない）。
+
+**判定は常に終了コードで行う**（出力の目視ではなく `echo "exit=$?"` を確認する）。
+
+## 核心原則
+
+**AI エージェントへの厳格な指示**（エージェント種別を問わず適用）:
+
+1. **Red（テスト失敗）フェーズを経ないコード実装は「未完了」とみなす。** 実装コードを書く前に、必ず失敗するテストをコミットすること。
+2. **一括コミットの禁止。** 「テスト + 実装 + ドキュメント」を一つのコミットにまとめることは重大な規約違反である。
+3. **違反検知時は即時報告。** サイクルを飛ばしたことに気づいた場合、独断で `git reset` 等を実行せず、直ちにユーザーへ報告し、承認を得たうえでリカバリ手順を実施すること（詳細は「違反時の対応」を参照）。
+4. **テストは「弱い契約」で書いてはならない。** 件数のみ・存在のみ・部分一致のみの検証は
+   転写漏れを素通しするため、契約テストとして認めない（詳細は後述「テスト強度の下限」）。
+5. **期待値を実装に合わせて書き換えてはならない。** テストが落ちたとき、正しいのは常に原本と仕様であり、
+   実装ではない。期待値の変更が必要だと考えた場合は、独断で変更せずユーザーに根拠を提示して確認を取ること。
+6. **本ファイルに書かれた手順を、ツール名の有無で省略しない。** 特定のエージェント専用機能
+   （スキル自動発火・サブエージェント・進捗トラッカ等）が使えない場合も、
+   コマンドは手で順に実行し、同じゲート（終了コード 0）を満たすこと。
+
+## 必須ワークフロー
+
+### ステップ 1: Red（テストの作成と失敗）
+
+作業種別に応じて以下を選択する:
+
+- **新機能の場合**: 実装する機能の仕様を反映したテストファイルを `tests/` 配下に作成する。
+- **バグ修正の場合**: 現在の不具合を再現する失敗テストを追加する。テストがパスしてしまう場合は再現条件を見直す。
+  - **例外: CSS 視覚バグ**（配色崩壊・レイアウト崩壊等）はユニットテストで再現できない。
+    この場合は**リファクタリング扱い**として既存テストが Green のままであることを確認し、
+    Green コミット後に `bun run dev` を実行して行うブラウザ目視確認をもってバグ修正の完了とする。
+    よくある CSS 視覚バグとその原因:
+    - ビルドは通るのに全配色が崩壊 → `app/assets/css/main.css` に存在しない変数を `var()` 参照
+    - スクロールでサイドバーが流れる → `position: sticky` 未設定
+    - ハンバーガーメニューがデスクトップで表示 → `.sidebar-toggle { display: none }` デフォルト未定義
+- **機能改善の場合**: 期待する新しい振る舞いを記述した失敗テストを追加する。
+- **リファクタリングのみの場合**: 既存テストをそのまま実行してすべてパスすることを確認する。新規テストの作成は不要。
+
+- **実行**: `bun run test` で失敗（またはコンパイルエラー）を確認する（リファクタリングはパスを確認）。
+  **「失敗するはず」と推測してコミットしてはならない。実際に実行し、失敗出力を目で確認すること。**
+  実装ファイルが未作成で import エラーになる状態も正当な Red である。
+- **`.test.mjs` の Red**: `.claude/skills/*/scripts/*.test.mjs` は Vitest に収集されないため、
+  対象ファイルを `node --test .claude/skills/<skill>/scripts/<name>.test.mjs` で直接実行し、
+  追加したテストの失敗を確認する。既存の TypeScript テストは引き続き `bun run test` を使う。
+- **`.py` の Red**: `.claude/skills/*/scripts/*.py` も Vitest に収集されない。
+  `test_fix_mermaid.py` はモジュール直下の `test_*` 関数 + 素の `assert` で書かれており
+  **pytest でしか収集できない**（`unittest` では検出されない）。対象ディレクトリを指定して実行する。
+
+  ```bash
+  python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py -q
+  echo "exit=$?"   # Red では非 0、Green では 0
+  ```
+
+  pytest が未導入の環境では `No module named pytest` で落ちる。これは Red ではないので
+  **テストの失敗と混同しない**。`python3 -m pip install pytest` 等で導入してから再実行する。
+- **コミット（新機能・バグ修正・機能改善時）**: `test(<scope>): add failing spec for <feature-or-bug-id>`
+
+#### テスト強度の下限（ガイドページ移行・保守で必須）
+
+転写漏れ（原本のセクション・リスト項目・参考リンクの脱落）を検知できないテストは、
+書いても品質を担保しない。以下を**契約テストとして認めない**。
+
+```ts
+// ❌ 件数のみ — セクションを 1 つ落として別を重複させれば通る
+expect(wrapper.findAll("h2")).toHaveLength(15);
+// ❌ 存在のみ — 1 個でも通る
+expect(wrapper.findAll("pre, code").length).toBeGreaterThan(0);
+// ❌ 部分一致のみ — 本文が半分消えても通る
+expect(wrapper.text()).toContain("CAPM");
+```
+
+```ts
+// ✅ 完全一致（順序込み）— 原本と同じものが同じ順に並ぶことを保証する
+expect(wrapper.findAll("h2").map((el) => el.text())).toEqual([...EXPECTED_H2]);
+```
+
+`app/pages/**/*.vue` の新規作成・移行では、原本の要素種別に依存しない **最低 12 契約**
+（原本照合 S-1〜S-4 / コンテンツ C-1〜C-5 / 品質 Q-1〜Q-3）を Red で用意する。
+Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契約であり、対応する要素が
+原本に存在する場合のみ必須とする。原本に存在しない要素の件数や構造を移植先へ要求してはならない。
+
+**新規ページの追加では、加えてサイト登録契約 N-1〜N-3 を Red に含める。**
+ホーム（`app/pages/index.vue` の `guides`）とグローバルナビ
+（`app/components/SiteHeader.vue` の `navigation`）への登録は原本 HTML に存在しないため、
+原本照合監査では登録漏れを検知できない。既存の `tests/pages/index.test.ts` /
+`tests/components/SiteHeader.test.ts` の期待値配列を先に更新し、失敗を確認してからコミットする。
+各契約の定義と実装例は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 1 および
+`.claude/skills/nuxt-page-migration/references/source-parity-audit.md` を参照。
+
+### ステップ 2: Green（最小実装と成功）
+
+- テストをパスさせるための最小限のコードを `app/pages/` または `app/components/` 等に実装する。
+- **HTML/Markdown からのガイドページ移行時は、原本とのラインバイライン全件要素照合監査を厳格に実施してから Green コミットを行うこと。** 監査対象は、全セクション、全見出しレベル、全段落、全リスト項目、全コードブロック、全 SVG、全 callout/alert、全 table、全参考文献リンクとする。各対象の要素数と内容を原本と照合し、未エスケープ文字も静的スキャンすること。要約・省略・見出しの言い換えは即時規約違反となる。
+- **この照合は目視ではなく監査スクリプトで機械実行し、終了コード 0 を Green の前提条件とする。**
+  目視照合は 1,000 行超の原本では必ず見落としが出るため、実行証跡の残る機械照合を必須とする。
+
+  ```bash
+  SOURCE_FILE=Engineering-management-career-path.html
+  PAGE=app/pages/engineering-management-career-path.vue
+  node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
+    "$SOURCE_FILE" \
+    "$PAGE"
+  echo "exit=$?"   # 0 以外なら転写漏れあり → Green コミット禁止
+  ```
+
+  漏れのうち「正当な差分」（原本の `目次` 見出しがサイドバー TOC に置き換わる等）と判断した項目は、
+  **その理由を Green コミットのメッセージ本文または `docs/PROGRESS.md` に必ず書き残す**こと。
+  無言で見逃すと、次回の監査で同じ判断を再現できない。判断の分類表は
+  `.claude/skills/nuxt-page-migration/references/source-parity-audit.md` §1 を参照。
+- **実行**: `bun run test` でパスを確認。
+  `.claude/skills/*/scripts/*.mjs` の変更では、対応する `.test.mjs` を
+  `node --test .claude/skills/<skill>/scripts/<name>.test.mjs` で実行し、Green を確認する。
+  `.claude/skills/*/scripts/*.py` の変更では、対応するテストを
+  `python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q` で実行し、Green を確認する。
+- **コミット**: `feat(<scope>): <feature implementation summary>`
+
+### ステップ 3: Refactor（リファクタリング・最適化）
+
+- コードの重複削除、読みやすさの向上、ビルド/リンターエラーの修正。
+- **実行**: `bun run test`、`bunx nuxi typecheck`、`bun run lint`、`bun run build` を実行し、
+  問題がないことを確認する。
+  ページを移行・改修した場合は `bun run test:e2e`（静的生成 + Playwright スモーク）も回す。
+  ユニットテストでは Mermaid の実描画とアイコンの静的同梱を検証できないため。
+  `.claude/skills/*/scripts/*.mjs` / `*.py` を変更した場合は、**Vitest に収集されないため
+  `bun run test` では検証されない**。ステップ 2（Green）で使ったスクリプト直接実行を再度回す。
+  **実行するのは変更した種別のみ**（`.mjs` を変更したなら Node、`.py` を変更したなら pytest、
+  両方変更したなら両方）。無関係な側を回すと、未導入の pytest 等で偽の失敗を招く。
+
+  `.mjs` を変更した場合:
+
+  ```bash
+  node --test .claude/skills/<skill>/scripts/<name>.test.mjs
+  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  ```
+
+  `.py` を変更した場合:
+
+  ```bash
+  python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q
+  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  ```
+
+  `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は
+  `npm run typecheck`。`npx nuxi` は使わない — 上記「コマンド表記の読み替え」を参照）。
+- **テスト数の後退を許さない**: テスト合計が直前のベースラインを下回った場合、何かを壊しているか
+  削除している。原因を特定するまで先へ進まない。
+  **収集失敗（collect error）もブロッキング失敗として扱う。**
+
+  > ベースライン値はここにハードコードしない。`bun run test` の直近の実測値を
+  > `docs/PROGRESS.md` に記録し、そちらを正とする（古い数値が残ると誤検知の元になる）。
+- **コミット**: `refactor(<scope>): <clean up or optimization>`
+
+### ステップ 4: Docs Sync（進捗同期）
+
+**ページ移行タスク**（`app/pages/**/*.vue` の新規作成、または明確な移行に伴う編集）を行った場合、
+`docs/PROGRESS.md` を更新する。判定基準:
+
+- HTML コンテンツを Vue コンポーネントへ変換
+- 既存ページのルーティングを Nuxt のファイルベースルーティングに合わせて変更
+- 移行に伴うスタイル調整やアセットパス修正
+
+これに該当する場合:
+
+- **更新対象**: `docs/PROGRESS.md`
+- **コミット**: `chore(docs): update docs/PROGRESS.md — <page/feature name>`
+
+構造変更を伴わないバグ修正・スタイル微調整・独立したユーティリティ変更のみの場合は、
+本ステップを省略してよい。
+
+> 詳細な監査手順は `.claude/skills/docs-sync/SKILL.md` を参照。
+> ページ移行時のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
+
+## 除外事項
+
+- 既存ファイルの誤字修正や、コードロジックに影響しないコメントの微修正のみ。
+- ただし、ロジックに変更が生じた場合は、必ず既存のテストを更新または新しいテストを追加すること。
+
+## 違反時の対応
+
+万が一、このルールに違反（手順のスキップや一括コミットなど）したことに気づいた場合は、以下の手順を徹底すること：
+
+1. **即座に報告**: ユーザーに対して、どの手順をスキップしたか、どのコミットが不適切であったかを直ちに報告する。
+2. **勝手な修復の禁止**: ユーザーの承認を得る前に `git reset` や修正コミットを自律的に実行してはならない。
+3. **リカバリ案の提示**: 正しい状態に戻すための手順（例：直近のコミットの取り消しと再実行）を提案し、承認を得てから実行する。
