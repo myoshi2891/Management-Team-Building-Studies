@@ -47,6 +47,11 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/capm",
       },
       {
+        title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
+        category: "PROJECT MANAGEMENT",
+        href: "/certified-associate-in-project-management-domain1",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
