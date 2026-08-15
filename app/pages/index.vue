@@ -36,19 +36,6 @@ useSeoMeta({
 
 <template>
   <div class="home-page">
-    <header class="site-header">
-      <div class="header-inner">
-        <NuxtLink class="brand" to="/" aria-label="Management Studies ホーム">
-          <span class="brand-mark" aria-hidden="true">M</span>
-          <span class="brand-copy"><strong>Management Studies</strong><small>LEARN · LEAD · GROW</small></span>
-        </NuxtLink>
-        <nav aria-label="メインナビゲーション">
-          <a href="#guides">ガイドを探す</a>
-          <a href="#approach">学び方</a>
-        </nav>
-      </div>
-    </header>
-
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-glow hero-glow-one" aria-hidden="true" />
@@ -141,17 +128,10 @@ useSeoMeta({
 
 <style scoped>
 .home-page { min-height: 100vh; overflow: hidden; background: var(--color-paper); }
-.site-header { position: relative; z-index: 10; border-bottom: 1px solid rgba(223, 227, 234, 0.8); background: rgba(246, 247, 249, 0.9); backdrop-filter: blur(12px); }
-.header-inner, .hero-inner, .guide-section, .approach-section, .closing-message, .footer-inner { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
-.header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: inline-flex; align-items: center; gap: 13px; color: var(--color-ink); }
-.brand:hover { text-decoration: none; }
+.hero-inner, .guide-section, .approach-section, .closing-message, .footer-inner { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
 .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid var(--color-gold); border-radius: 50%; color: var(--color-indigo-dark); font-family: var(--font-display); font-size: 20px; font-weight: 700; line-height: 1; }
-.brand-copy { display: grid; line-height: 1.2; }
-.brand-copy strong { font-family: var(--font-display); font-size: 17px; letter-spacing: 0.01em; }
-.brand-copy small { margin-top: 5px; color: var(--color-ink-faint); font-size: 9px; font-weight: 700; letter-spacing: 0.19em; }
-.site-header nav, .site-footer nav { display: flex; align-items: center; gap: 32px; }
-.site-header nav a, .site-footer nav a { color: var(--color-ink-soft); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+.site-footer nav { display: flex; align-items: center; gap: 32px; }
+.site-footer nav a { color: var(--color-ink-soft); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
 
 .hero { position: relative; min-height: 650px; display: grid; align-items: center; background: linear-gradient(135deg, #f7f8fa 0%, #f2f4f8 52%, #f7f6f2 100%); }
 .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 1px; background: linear-gradient(90deg, transparent, var(--color-border-strong), transparent); }
@@ -260,11 +240,7 @@ useSeoMeta({
 }
 
 @media (max-width: 720px) {
-  .header-inner, .hero-inner, .guide-section, .approach-section, .closing-message, .footer-inner { width: min(100% - 32px, 1180px); }
-  .header-inner { min-height: 70px; }
-  .brand-copy small { display: none; }
-  .site-header nav { gap: 18px; }
-  .site-header nav a { font-size: 11px; }
+  .hero-inner, .guide-section, .approach-section, .closing-message, .footer-inner { width: min(100% - 32px, 1180px); }
   .hero-inner { padding-block: 62px 54px; }
   .hero h1 { font-size: clamp(41px, 12vw, 58px); }
   .hero-lede { font-size: 15px; }
@@ -284,9 +260,7 @@ useSeoMeta({
 }
 
 @media (max-width: 430px) {
-  .brand-copy strong { font-size: 14px; }
   .brand-mark { width: 34px; height: 34px; }
-  .site-header nav a:first-child { display: none; }
   .hero h1 { font-size: 39px; }
   .hero-visual { width: 330px; max-width: 100%; }
   .visual-center strong { font-size: 27px; }

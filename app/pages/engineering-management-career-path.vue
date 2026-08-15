@@ -607,10 +607,10 @@ const DIAGRAM_PENDULUM = `flowchart LR
 /* ===================== Sidebar ===================== */
 .sidebar {
   position: fixed;
-  top: 0;
+  top: var(--global-nav-height);
   left: 0;
   width: var(--sidebar-width);
-  height: 100vh;
+  height: calc(100vh - var(--global-nav-height));
   overflow-y: auto;
   background: var(--color-paper-raised);
   border-right: 1px solid var(--color-border);
@@ -685,7 +685,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
 .sidebar-toggle {
   display: none;
   position: fixed;
-  top: 16px;
+  top: calc(var(--global-nav-height) + 16px);
   left: 16px;
   z-index: 30;
   background: var(--color-paper-raised);
@@ -778,7 +778,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
 
 section {
   margin: 72px 0;
-  scroll-margin-top: 32px;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
 }
 
 section:first-of-type { margin-top: 0; }
