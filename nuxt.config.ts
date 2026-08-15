@@ -37,7 +37,12 @@ export default defineNuxtConfig({
     },
   },
 
-  typescript: { typeCheck: false },
+  typescript: {
+    typeCheck: false,
+    tsConfig: {
+      include: ["../tests/**/*", "../e2e/**/*"],
+    },
+  },
 
   devtools: { enabled: false },
 });

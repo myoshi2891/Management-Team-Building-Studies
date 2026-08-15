@@ -4,7 +4,7 @@
 import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
-import { defineComponent } from "vue";
+import { defineComponent, nextTick } from "vue";
 import { MERMAID_DIAGRAM_DECLARATION } from "../../.claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs";
 import Page from "~/pages/certified-associate-in-project-management-domain1.vue";
 
@@ -186,11 +186,11 @@ const EXPECTED_TOC_ITEMS = [
 
 function normalizeMermaidSource(raw: string): string {
   const lines = raw.replace(/\r\n?/g, "\n").split("\n");
-  while (lines.length > 0 && lines[0].trim() === "") lines.shift();
-  while (lines.length > 0 && lines.at(-1)?.trim() === "") lines.pop();
+  while (lines.length > 0 && (lines[0]?.trim() ?? "") === "") lines.shift();
+  while (lines.length > 0 && (lines[lines.length - 1]?.trim() ?? "") === "") lines.pop();
   const indents = lines
     .filter((line) => line.trim().length > 0)
-    .map((line) => line.match(/^\s*/)?.[0].length ?? 0);
+    .map((line) => line.match(/^\s*/)?.[0]?.length ?? 0);
   const commonIndent = indents.length > 0 ? Math.min(...indents) : 0;
   return lines.map((line) => line.slice(commonIndent).trimEnd()).join("\n");
 }
@@ -281,7 +281,7 @@ describe("pages/certified-associate-in-project-management-domain1.vue — 契約
   it("C-3: サイドバー TOC の初期アクティブ状態を示すクラスが存在する", () => {
     const activeLinks = mountPage().findAll(".sidebar-nav a.active");
     expect(activeLinks.length).toBeGreaterThanOrEqual(1);
-    expect(activeLinks[0].attributes("href")).toBe(EXPECTED_TOC_ITEMS[0].href);
+    expect(activeLinks[0]?.attributes("href")).toBe(EXPECTED_TOC_ITEMS[0]?.href);
   });
 
   it("C-4: 外部リンク全件に target='_blank' かつ rel='noopener' が付与されている", () => {
@@ -420,20 +420,19 @@ describe("pages/certified-associate-in-project-management-domain1.vue — 契約
 
   it("開いていたサイドバーをリンクで閉じた場合だけ toggle にフォーカスを戻す", async () => {
     const wrapper = mountPage();
-    const toggle = wrapper.find("#sidebarToggle");
-    const link = wrapper.find(".sidebar-nav a");
+    const toggle = wrapper.get<HTMLButtonElement>("#sidebarToggle");
+    const link = wrapper.get(".sidebar-nav a");
 
-    const focusSpy = vi.fn();
-    (toggle.element as HTMLButtonElement).focus = focusSpy;
+    const focus = vi.spyOn(toggle.element, "focus");
 
     await link.trigger("click");
     await nextTick();
-    expect(focusSpy).not.toHaveBeenCalled();
+    expect(focus).not.toHaveBeenCalled();
 
     await toggle.trigger("click");
     await link.trigger("click");
     await nextTick();
-    expect(focusSpy).toHaveBeenCalledTimes(1);
+    expect(focus).toHaveBeenCalledTimes(1);
   });
 });
 

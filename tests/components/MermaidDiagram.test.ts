@@ -1,4 +1,5 @@
 import { flushPromises, mount } from "@vue/test-utils";
+import type { Component } from "vue";
 import { defineComponent, h } from "vue";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import MermaidDiagram from "~/components/MermaidDiagram.vue";
@@ -14,7 +15,7 @@ import MermaidDiagram from "~/components/MermaidDiagram.vue";
  */
 function hostOf(...propsList: Array<Record<string, unknown>>) {
   return defineComponent({
-    render: () => h("div", propsList.map((props, i) => h(MermaidDiagram, { key: i, ...props }))),
+    render: () => h("div", propsList.map((props, i) => h(MermaidDiagram as Component, { key: i, ...props }))),
   });
 }
 
