@@ -169,12 +169,21 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   ユニットテストでは Mermaid の実描画とアイコンの静的同梱を検証できないため。
   `.claude/skills/*/scripts/*.mjs` / `*.py` を変更した場合は、**Vitest に収集されないため
   `bun run test` では検証されない**。ステップ 2（Green）で使ったスクリプト直接実行を再度回す。
+  **実行するのは変更した種別のみ**（`.mjs` を変更したなら Node、`.py` を変更したなら pytest、
+  両方変更したなら両方）。無関係な側を回すと、未導入の pytest 等で偽の失敗を招く。
+
+  `.mjs` を変更した場合:
 
   ```bash
   node --test .claude/skills/<skill>/scripts/<name>.test.mjs
   echo "exit=$?"   # 0 以外なら Refactor 未完了
+  ```
+
+  `.py` を変更した場合:
+
+  ```bash
   python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q
-  echo "exit=$?"
+  echo "exit=$?"   # 0 以外なら Refactor 未完了
   ```
 
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は

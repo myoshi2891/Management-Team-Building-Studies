@@ -31,9 +31,13 @@ HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが�
 **セッション開始時（最初の `git add` より前）に必ず実行する。**
 
 ```bash
-git diff --cached --name-only > .git/session-baseline-staged.txt
-wc -l < .git/session-baseline-staged.txt   # 0 が理想（index が空）
-git diff --cached > .git/session-baseline-staged.diff
+# 保存先は必ず git rev-parse --git-dir で解決する。
+# linked worktree ではリポジトリ直下の .git が「ディレクトリ」ではなく
+# gitdir ポインタの「ファイル」になるため、.git/ 直書きはリダイレクトに失敗する。
+GIT_DIR_PATH="$(git rev-parse --git-dir)"
+git diff --cached --name-only > "$GIT_DIR_PATH/session-baseline-staged.txt"
+wc -l < "$GIT_DIR_PATH/session-baseline-staged.txt"   # 0 が理想（index が空）
+git diff --cached > "$GIT_DIR_PATH/session-baseline-staged.diff"
 ```
 
 出力が 0 行でない場合は、その時点で**作業開始前から staged の変更が存在する**。
@@ -42,21 +46,23 @@ git diff --cached > .git/session-baseline-staged.diff
 **`git commit` の直前に実行する。**
 
 ```bash
+GIT_DIR_PATH="$(git rev-parse --git-dir)"   # セッション開始時と同じ解決先を再利用する
 git status --short              # 作業ツリー全体の変更
 git diff --cached --name-only   # 実際にコミットされるファイル
 # 開始時 staged との差分（同一パスの事前変更も検出する）
-git diff --cached | diff .git/session-baseline-staged.diff - | grep -E '^<' || echo "事前 staged の混入なし"
+git diff --cached | diff "$GIT_DIR_PATH/session-baseline-staged.diff" - | grep -E '^<' || echo "事前 staged の混入なし"
 ```
 
 以下のいずれかに該当する場合は、**コミットせずに停止し、ユーザーへ状況を報告して指示を仰ぐ**。
 
-- 開始時のベースラインが空でなかった（`.git/session-baseline-staged.txt` が 1 行以上）
+- 開始時のベースラインが空でなかった（`$GIT_DIR_PATH/session-baseline-staged.txt` が 1 行以上）
 - 上記 `diff` が `^<` 行を出力した（開始時 staged の内容がコミットに含まれている）
 - `git diff --cached --name-only` に、本セッションで自分が編集していないファイルが含まれる
 - `git status --short` に、本作業と無関係な未コミット変更が残っており、
   `git add` の指定次第で巻き込む恐れがある
 
-ベースラインファイルは `.git/` 配下に置くためコミット対象にならない。
+ベースラインファイルは Git ディレクトリ（`git rev-parse --git-dir` の解決先）配下に置くため
+コミット対象にならない。
 
 `git add` は `git add -A` / `git add .` を使わず、**対象ファイルを明示列挙する**こと
 （例: `git add docs/PROGRESS.md`）。無関係な変更を独断で `git checkout` / `git stash` /
