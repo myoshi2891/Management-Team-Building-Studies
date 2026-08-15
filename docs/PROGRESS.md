@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `e65fa49` — refactor(em-career-path): pass typecheck, lint, and test suite |
+| 最新 HEAD | `50894ad` — feat(navigation): add shared global header |
 | 次の作業 | 保守・新規ガイドの追加 |
-| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ （全件パス） |
-| テスト数 | **65** ユニット（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23 + EM career path page 22）+ **4** E2E — これがベースライン |
+| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bun run typecheck` ✔ / `bun run lint` ✔ / `bun run test:e2e` ✔ |
+| テスト数 | **75** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
@@ -21,6 +21,7 @@
 |---|---|---|
 | `Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了・E2E スモーク Green |
 | `Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
 
@@ -30,6 +31,7 @@
 | `app/plugins/mermaid.client.ts` | ✅ 完了 | 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
+| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（3 件）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
 
 ## 技術スタック（2026-08-14 時点の npm 実測値）
@@ -109,12 +111,17 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
+最新 HEAD: 50894ad
+次の作業: 保守・新規ガイドの追加（未移行 HTML 0件）
+
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
   - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
+  - app/pages/index.vue（学習ライブラリ型ホーム）
+  - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 65 件（MermaidDiagram 11 + useActiveHeading 9 + CAPM 23 + EM career path 22）
+  - ユニットテスト 75 件
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
 
-ベースラインテスト数: ユニット 65 + E2E 4
+ベースラインテスト数: ユニット 75 + E2E 4
 ```
