@@ -11,7 +11,7 @@
 |---|---|
 | 最新 HEAD | `e65fa49` — refactor(em-career-path): pass typecheck, lint, and test suite |
 | 次の作業 | 保守・新規ガイドの追加 |
-| ビルド状態 | `npm test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ （全件パス） |
+| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ （全件パス） |
 | テスト数 | **65** ユニット（MermaidDiagram 11 + useActiveHeading 9 + CAPM page 23 + EM career path page 22）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
@@ -97,7 +97,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | E2E が 4 件とも別プロジェクトの Next.js 404 ページを検証していた | Playwright の `reuseExistingServer` は応答しているサーバーが自分のものかを検証しない。既定ポート 3000 を他プロジェクトの dev サーバーが占有していた | 専用ポート 4173 に変更し `reuseExistingServer: false` にする |
 | E2E の TOC スクロールが目標セクションに届かない | Mermaid 描画のたびに文書高さが変わり、進行中のスムーススクロールの目標位置が動く（描画前後で 10,444px → 17,318px） | 図の描画完了を待ってからクリックし、長距離スクロールはタイムアウトを延長する |
 
-### 5. EM キャリアパスガイド（`engineering-management-career-path.vue`）での差分
+### 4. EM キャリアパスガイド（`engineering-management-career-path.vue`）での差分
 
 | 項目 | 内容 | 理由 |
 |---|---|---|
