@@ -289,6 +289,20 @@ test("does not treat JSX attribute expressions as rendered short text", () => {
 	assert.deepEqual(result.json.missingListItems, ["Go"]);
 });
 
+test("does not match long list text from a non-rendered TSX constant", () => {
+	const item = "This long migration requirement must only match rendered JSX content";
+	const result = audit(
+		`<ul><li>${item}</li></ul>`,
+		`const HIDDEN_NOTE = "${item}";
+export default function Page() {
+  return <main><p>Rendered content only.</p></main>;
+}`,
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, [item]);
+});
+
 test("recognizes every allowed Mermaid diagram declaration including pie", () => {
 	const charts = [
 		"graph TD\nA --> B",
@@ -431,6 +445,18 @@ const PRODUCT = "CAPM";
 
 	assert.equal(result.status, 0);
 	assert.deepEqual(result.json.missingParagraphs, []);
+});
+
+test("collects short Vue text immediately following an HTML comment", () => {
+	const result = auditVue(
+		"<ul><li>Go</li></ul>",
+		`<template>
+  <p><!-- explanatory comment -->Go</p>
+</template>`,
+	);
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingListItems, []);
 });
 
 test("collects Mermaid sources from bound and literal chart props in Vue", () => {
