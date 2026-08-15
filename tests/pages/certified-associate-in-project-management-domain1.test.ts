@@ -61,9 +61,6 @@ const EXPECTED_H4 = [
   "プロジェクトマネジメントへの影響",
 ] as const;
 
-const EXPECTED_H5 = [] as const;
-const EXPECTED_H6 = [] as const;
-
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart LR
 A["CAPM試験 135採点問題"] --> B["ドメイン1 PM基礎と主要概念 36%"]
