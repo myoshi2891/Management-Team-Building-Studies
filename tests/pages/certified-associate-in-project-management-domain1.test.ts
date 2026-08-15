@@ -403,4 +403,40 @@ describe("pages/certified-associate-in-project-management-domain1.vue — 契約
       prevLevel = level;
     }
   });
+
+  it("サイドバーの開閉トグルボタンが aria-expanded を更新する", async () => {
+    const wrapper = mountPage();
+    const toggle = wrapper.find("#sidebarToggle");
+    const sidebar = wrapper.find("#sidebar");
+
+    expect(toggle.attributes("aria-expanded")).toBe("false");
+    expect(sidebar.classes()).not.toContain("open");
+
+    await toggle.trigger("click");
+    expect(toggle.attributes("aria-expanded")).toBe("true");
+    expect(sidebar.classes()).toContain("open");
+
+    await toggle.trigger("click");
+    expect(toggle.attributes("aria-expanded")).toBe("false");
+    expect(sidebar.classes()).not.toContain("open");
+  });
+
+  it("開いていたサイドバーをリンクで閉じた場合だけ toggle にフォーカスを戻す", async () => {
+    const wrapper = mountPage();
+    const toggle = wrapper.find("#sidebarToggle");
+    const link = wrapper.find(".sidebar-nav a");
+
+    const focusSpy = vi.fn();
+    (toggle.element as HTMLButtonElement).focus = focusSpy;
+
+    await link.trigger("click");
+    await nextTick();
+    expect(focusSpy).not.toHaveBeenCalled();
+
+    await toggle.trigger("click");
+    await link.trigger("click");
+    await nextTick();
+    expect(focusSpy).toHaveBeenCalledTimes(1);
+  });
 });
+

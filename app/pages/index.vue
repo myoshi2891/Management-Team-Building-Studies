@@ -12,6 +12,15 @@ const guides = [
     accent: "indigo",
   },
   {
+    to: "/certified-associate-in-project-management-domain1",
+    category: "PROJECT MANAGEMENT",
+    title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
+    description: "PMI公式CAPM Exam Content Outlineに基づく、ドメイン1(PM基礎と主要概念・配点36%)の初学者向け解説ガイド。",
+    meta: "9セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     category: "ENGINEERING MANAGEMENT",
     title: "エンジニアのためのマネジメントキャリアパス",
