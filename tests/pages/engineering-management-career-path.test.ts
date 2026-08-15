@@ -209,19 +209,42 @@ describe("pages/engineering-management-career-path.vue — 原本照合契約 (S
     expect(missing).toEqual([]);
   });
 
-  it("S-4: 全 h2/h3 が一意な id を持ち、TOC のアンカーが実在の見出しを指す", () => {
+  it("S-4: 文書内の全 id が一意で、TOC のアンカーが実在の見出しを指す", () => {
     const wrapper = mountPage();
-    const ids = wrapper.findAll("h2, h3").map((el) => el.attributes("id"));
+    const ids = wrapper.findAll("[id]").map((el) => el.attributes("id"));
 
     expect(ids.filter((id) => !id)).toEqual([]);
     expect(new Set(ids).size).toBe(ids.length);
 
-    const headingIds = new Set(ids);
+    const headingIds = new Set(
+      wrapper
+        .findAll("h2, h3")
+        .map((el) => el.attributes("id") || el.element.closest("section")?.id)
+        .filter((id): id is string => Boolean(id)),
+    );
     const unresolved = wrapper
       .findAll("a[href^='#']")
       .map((el) => (el.attributes("href") ?? "").slice(1))
       .filter((id) => !headingIds.has(id));
     expect(unresolved).toEqual([]);
+  });
+});
+
+describe("pages/engineering-management-career-path.vue — サイドバー操作", () => {
+  it("開いていたサイドバーをリンクで閉じた場合だけ toggle にフォーカスを戻す", async () => {
+    const wrapper = mountPage();
+    const toggle = wrapper.get<HTMLButtonElement>("#sidebarToggle");
+    const focus = vi.spyOn(toggle.element, "focus");
+    const firstLink = wrapper.get(".sidebar-nav a");
+
+    await firstLink.trigger("click");
+    await wrapper.vm.$nextTick();
+    expect(focus).not.toHaveBeenCalled();
+
+    await toggle.trigger("click");
+    await firstLink.trigger("click");
+    await wrapper.vm.$nextTick();
+    expect(focus).toHaveBeenCalledTimes(1);
   });
 });
 
