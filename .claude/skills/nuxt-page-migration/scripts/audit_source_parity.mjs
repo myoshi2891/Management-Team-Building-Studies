@@ -123,22 +123,23 @@ function findMarkupTagEnd(markup, tagStart) {
 /** Collects normalized rendered text-node keys from a markup fragment. */
 function collectTextNodeKeys(markup) {
   const keys = [];
+  const renderedMarkup = markup.replace(/<!--[\s\S]*?-->/g, "");
   const tagRe = /<(?:\/?[A-Za-z][\w.:-]*\b|\/?>)/g;
   let depth = 0;
-  let tag = tagRe.exec(markup);
+  let tag = tagRe.exec(renderedMarkup);
   while (tag !== null) {
-    const tagEnd = findMarkupTagEnd(markup, tag.index);
+    const tagEnd = findMarkupTagEnd(renderedMarkup, tag.index);
     if (tagEnd === -1) break;
-    const tagText = markup.slice(tag.index, tagEnd + 1);
+    const tagText = renderedMarkup.slice(tag.index, tagEnd + 1);
     const isClosing = tagText.startsWith("</");
     const isSelfClosing = /\/\s*>$/.test(tagText);
     if (isClosing) depth = Math.max(0, depth - 1);
     else if (!isSelfClosing) depth += 1;
 
     if (depth > 0) {
-      const nextTag = markup.indexOf("<", tagEnd + 1);
-      const textEnd = nextTag === -1 ? markup.length : nextTag;
-      const key = matchKey(stripMarkup(markup.slice(tagEnd + 1, textEnd)));
+      const nextTag = renderedMarkup.indexOf("<", tagEnd + 1);
+      const textEnd = nextTag === -1 ? renderedMarkup.length : nextTag;
+      const key = matchKey(stripMarkup(renderedMarkup.slice(tagEnd + 1, textEnd)));
       if (key) keys.push(key);
     }
 
@@ -658,6 +659,11 @@ function inventoryTsx(src) {
   }
 
   const constants = collectStringConstants(src);
+  const returnedJsx = collectTsxReturnMarkup(src);
+  const returnedMarkup = resolveStringConstants(
+    returnedJsx || (/^\s*</.test(src) ? src : ""),
+    constants
+  );
   const preBlocks = extractTagContents(src, "pre");
   const styledBlocks = extractElementContents(src, (openingTag) =>
     /className=\{\s*styles\.code(?:Block|Wrap|Card)\s*\}/.test(openingTag)
@@ -680,8 +686,8 @@ function inventoryTsx(src) {
     headings,
     // ページ側は <li> を使わずカード / div で組むことがあるため、
     // 本文全体の平坦化テキストを照合対象にする（マークアップ非依存の漏れ検知）。
-    flatText: matchKey(stripMarkup(src)),
-    textNodeKeys: collectTextNodeKeys(collectTsxReturnMarkup(src)),
+    flatText: matchKey(stripMarkup(returnedMarkup)),
+    textNodeKeys: collectTextNodeKeys(returnedMarkup),
     listItems: countMatches(src, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
