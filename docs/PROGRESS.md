@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `4231880` — fix(types): include tests in tsconfig and fix TypeScript errors in tests（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `f7410bd` — fix(types): add env.d.ts and tests/tsconfig.json for IDE TypeScript support（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `npm run test` ✔ / `nuxi typecheck` ✔ / `npm run lint` ✔ |
 | テスト数 | **144** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
