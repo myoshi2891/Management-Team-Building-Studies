@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: "https://example.com",
+    // 本番 URL はデプロイ環境の NUXT_SITE_URL で設定する。
     name: "Management / Team Building Studies",
     debug: false,
   },
