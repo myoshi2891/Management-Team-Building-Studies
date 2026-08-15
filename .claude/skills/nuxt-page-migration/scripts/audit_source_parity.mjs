@@ -75,6 +75,8 @@ function decodeEntities(raw) {
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&nbsp;/g, " ")
+    .replace(/&mdash;/g, "—")
+    .replace(/&rarr;/g, "→")
     .replace(/&amp;/g, "&");
 }
 

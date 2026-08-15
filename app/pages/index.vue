@@ -29,6 +29,15 @@ const guides = [
     icon: "tabler:users-group",
     accent: "plum",
   },
+  {
+    to: "/engineering-manager-guide",
+    category: "ENGINEERING MANAGEMENT",
+    title: "エンジニアリングマネージャー入門完全ガイド",
+    description: "James Stanier著『Become an Effective Software Engineering Manager』を主軸に、新任EMのスタートダッシュから心理的安全性、AI時代の役割まで体系的に学びます。",
+    meta: "14セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
 ] as const;
 
 const learningThemes = [
@@ -129,6 +138,7 @@ useSeoMeta({
           <NuxtLink to="/capm">CAPM</NuxtLink>
           <NuxtLink to="/engineering-management-career-path">EM Career</NuxtLink>
           <NuxtLink to="/engineering-team-leadership-guide">Team Lead</NuxtLink>
+          <NuxtLink to="/engineering-manager-guide">EM Guide</NuxtLink>
         </nav>
         <small>© 2026 Management Studies</small>
       </div>
