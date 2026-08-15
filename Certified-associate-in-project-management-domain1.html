@@ -586,7 +586,7 @@
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
 
@@ -1691,16 +1691,31 @@ class D done;`,
     var toggle = document.getElementById("sidebarToggle");
     var sidebar = document.getElementById("sidebar");
     if (!toggle || !sidebar) return;
+    var mobileQuery = window.matchMedia("(max-width: 980px)");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    function updateLinkTabOrder() {
+      var excludeFromTabOrder = mobileQuery.matches && !sidebar.classList.contains("open");
+      navLinks.forEach(function (link) {
+        if (excludeFromTabOrder) link.setAttribute("tabindex", "-1");
+        else link.removeAttribute("tabindex");
+      });
+    }
     toggle.addEventListener("click", function () {
       var isOpen = sidebar.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
+      updateLinkTabOrder();
     });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+    navLinks.forEach(function (link) {
       link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
+        updateLinkTabOrder();
+        if (wasOpen) toggle.focus();
       });
     });
+    mobileQuery.addEventListener("change", updateLinkTabOrder);
+    updateLinkTabOrder();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
