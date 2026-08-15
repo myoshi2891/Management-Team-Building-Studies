@@ -1,7 +1,8 @@
 # エンジニアリングマネージャー入門完全ガイド
-### ── 初学者のためのステップバイステップ・ベストプラクティス
 
-> 本ガイドは、James Stanier 著『[Become an Effective Software Engineering Manager](https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/)』（Pragmatic Bookshelf）を主要な参照軸としつつ、Camille Fournier、Will Larson、Lara Hogan、Kim Scott、Michael Lopp（Rands）、Gergely Orosz、Google re:Work、LeadDev など、国際的に著名なソフトウェアエンジニアリング/マネジメント分野の実践者・研究者の知見を2026年8月14日時点の情報に基づいて調査し、まとめたものです。各章末および巻末に一次情報のURLを掲載しています。
+*── 初学者のためのステップバイステップ・ベストプラクティス*
+
+> 本ガイドは、James Stanier 著『[Become an Effective Software Engineering Manager](https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/)』（Pragmatic Bookshelf）を主要な参照軸としつつ、Camille Fournier、Will Larson、Lara Hogan、Kim Scott、Michael Lopp（Rands）、Gergely Orosz、Google re:Work、LeadDev など、国際的に著名なソフトウェアエンジニアリング/マネジメント分野の実践者・研究者の知見を2026年8月14日時点の情報に基づいて調査し、まとめたものです。各章末および巻末に一次情報・二次情報のURLを掲載しています。
 
 ---
 
@@ -395,7 +396,7 @@ flowchart TB
 
 ### 11.2 なぜこの変化が起きているのか
 
-AIコーディングエージェントの登場によって、アイデアを動くソフトウェアに変換するまでの障壁が大幅に下がったことが背景にあります。LeadDevの取材に対し、Spotifyのエンジニアリングマネージャー Emma Bostian は、AIがリーダー層にとってもコードへの直接的な貢献をしやすくしていると述べています。同時に、エンジニア側はAIが生成したコードのレビューに費やす時間が、コードを書く時間を上回るようになったという調査結果もあり、エンジニアとマネージャーの役割の境界線が従来よりも曖昧になりつつあります。
+AIコーディングエージェントの登場によって、アイデアを動くソフトウェアに変換するまでの障壁が大幅に下がったことが背景にあります。LeadDevの取材に対し、Spotifyのエンジニアリングマネージャー Emma Bostian は、AIがリーダー層にとってもコードへの直接的な貢献をしやすくしていると述べています。同時に、エンジニア側はAIが生成したコードのレビューに費やす時間が増えているとも指摘されており、エンジニアとマネージャーの役割の境界線が従来よりも曖昧になりつつあります。
 
 ただし、専門家は「マネージャーの目標がもう一人のエンジニアになることではない」という点を強調しています。技術的に手を動かせることと、チームを率いること・優先順位を決めること・メンバーを育てることは、依然として別のスキルセットです。AI時代のEMに求められるのは、**技術的な勘を失わずに保ちながら、あくまでマネジメントの本分（人・優先順位・組織）に軸足を置き続けるバランス感覚**だと言えます。
 
