@@ -2,6 +2,10 @@
 
 > 本ガイドは、PMI(Project Management Institute)が公開する CAPM® Exam Content Outline(ECO)に基づき、CAPM試験のドメイン1(配点36%・4ドメイン中最大)を初学者向けにステップバイステップで解説するものです。各項目には根拠となる出典URLを付記しています。
 
+**位置づけ**: このファイルはドメイン1を掘り下げる補助ガイドです。ドメイン1ガイドの正本は
+`Certified-associate-in-project-management-domain1.md` とし、共通内容の訂正は正本へ先に反映したうえで、
+必要に応じて本ファイルへ同期します。
+
 ---
 
 ## 目次
