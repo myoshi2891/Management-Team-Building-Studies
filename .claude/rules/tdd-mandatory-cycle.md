@@ -95,9 +95,11 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   目視照合は 1,000 行超の原本では必ず見落としが出るため、実行証跡の残る機械照合を必須とする。
 
   ```bash
+  SOURCE_FILE=Engineering-management-career-path.html
+  PAGE=app/pages/engineering-management-career-path.vue
   node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-    <原本>.{html|md} \
-    app/pages/<slug>.vue
+    "$SOURCE_FILE" \
+    "$PAGE"
   echo "exit=$?"   # 0 以外なら転写漏れあり → Green コミット禁止
   ```
 
@@ -113,7 +115,8 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
 ### ステップ 3: Refactor（リファクタリング・最適化）
 
 - コードの重複削除、読みやすさの向上、ビルド/リンターエラーの修正。
-- **実行**: `bun run build` および `bunx nuxi typecheck` を実行し、問題がないことを確認する。
+- **実行**: `bun run test`、`bunx nuxi typecheck`、`bun run lint`、`bun run build` を実行し、
+  問題がないことを確認する。
   ページを移行・改修した場合は `bun run test:e2e`（静的生成 + Playwright スモーク）も回す。
   ユニットテストでは Mermaid の実描画とアイコンの静的同梱を検証できないため。
   `bun` が使えない環境では `npm run <script>` で読み替える（同じ scripts を実行する）。

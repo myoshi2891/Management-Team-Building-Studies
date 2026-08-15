@@ -132,8 +132,10 @@ grep -c '^```' Certified-Associate-in-Project-Management.md | awk '{ print $1 / 
 grep -c '^```mermaid' Certified-Associate-in-Project-Management.md
 
 # 契約テストに貼り付ける期待見出し配列を生成する（原本は .html。§2 の乖離の理由を参照）
+SOURCE_FILE=Engineering-management-career-path.html
+PAGE=app/pages/engineering-management-career-path.vue
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  Certified-Associate-in-Project-Management.html app/pages/<slug>.vue --emit-headings
+  "$SOURCE_FILE" "$PAGE" --emit-headings
 ```
 
 `--emit-headings` の実行前に空の `.vue` を作成する。原本と移植先の両方が読み取り可能でなければ
@@ -275,9 +277,11 @@ useSeoMeta({
 **目視照合は禁止。機械照合の exit 0 が Green の前提条件。**
 
 ```bash
+SOURCE_FILE=Engineering-management-career-path.html
+PAGE=app/pages/engineering-management-career-path.vue
 node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  Certified-Associate-in-Project-Management.html \
-  app/pages/<slug>.vue
+  "$SOURCE_FILE" \
+  "$PAGE"
 echo "exit=$?"   # 0 以外なら転写漏れあり → Green コミット禁止
 ```
 
@@ -339,7 +343,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 2. **契約テストを先に更新**（期待値を実装に合わせて書き換えない。正しいのは常に原本）
 3. 実装を修正
 4. **原本照合監査を再実行**（保守でも exit 0 を維持する）
-5. `bun run test` / `bunx nuxi typecheck` / `bun run build` / `bun run test:e2e`
+5. `bun run test` / `bunx nuxi typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
 
 デザイン不一致（配色・テーブルヘッダー・callout 等）の相談は、
 **原本 HTML の該当箇所を読んでから**直す。推測で色を決めない。
