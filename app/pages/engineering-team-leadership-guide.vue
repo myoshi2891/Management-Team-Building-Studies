@@ -520,7 +520,7 @@ const DIAGRAM_ANTIPATTERN_LEVELS = `flowchart TB
 
       <div class="table-wrap">
         <table>
-          <thead><tr><th></th><th>Challenge Directly する</th><th>Challenge Directly しない</th></tr></thead>
+          <thead><tr><th /><th>Challenge Directly する</th><th>Challenge Directly しない</th></tr></thead>
           <tbody>
             <tr><td><strong>Care Personally する</strong></td><td><strong>Radical Candor</strong><br>思いやりを持ちながら率直に伝える理想形</td><td><strong>Ruinous Empathy</strong>(破滅的共感)<br>優しさ優先で本当の課題を伝えられない</td></tr>
             <tr><td><strong>Care Personally しない</strong></td><td><strong>Obnoxious Aggression</strong>(傲慢な攻撃性)<br>正しいことを言うが配慮がない</td><td><strong>Manipulative Insincerity</strong>(操作的不誠実)<br>どちらも欠如した最悪の状態</td></tr>
