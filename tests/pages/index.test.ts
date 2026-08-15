@@ -51,6 +51,11 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
       },
+      {
+        title: "エンジニアリングチームのリード術 完全ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/engineering-team-leadership-guide",
+      },
     ]);
   });
 

@@ -32,6 +32,7 @@ describe("SiteHeader", () => {
       { label: "ホーム", href: "/" },
       { label: "CAPM", href: "/capm" },
       { label: "EMキャリア", href: "/engineering-management-career-path" },
+      { label: "チームリード術", href: "/engineering-team-leadership-guide" },
     ]);
   });
 
@@ -41,6 +42,7 @@ describe("SiteHeader", () => {
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
     ]);
   });
