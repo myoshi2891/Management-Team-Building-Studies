@@ -172,18 +172,37 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   **実行するのは変更した種別のみ**（`.mjs` を変更したなら Node、`.py` を変更したなら pytest、
   両方変更したなら両方）。無関係な側を回すと、未導入の pytest 等で偽の失敗を招く。
 
-  `.mjs` を変更した場合:
+  さらに、**変更したのが実装スクリプトかテストファイル自身か**で実行対象が変わる。
+  テストファイル（`*.test.mjs` / `test_*.py`）を変更した場合に対応テストを導出しようとすると
+  `audit_content_parity.test.test.mjs` のような**存在しないファイルを新規作成してしまう**。
+  テストファイルを変更したときの実行対象は、**変更したそのテストファイル自身**である。
+
+  | 変更したファイル | 実行するテスト |
+  |---|---|
+  | 実装 `<name>.mjs`（例 `audit_content_parity.mjs`） | 同名の `<name>.test.mjs`（例 `audit_content_parity.test.mjs`） |
+  | テスト `<name>.test.mjs`（例 `audit_content_parity.test.mjs`） | **そのファイル自身**（別名を生成しない） |
+  | 実装 `<name>.py`（例 `fix_mermaid.py`） | 対になる `test_<name>.py`（例 `test_fix_mermaid.py`） |
+  | テスト `test_<name>.py`（例 `test_fix_mermaid.py`） | **そのファイル自身**（別名を生成しない） |
+
+  `.mjs` を変更した場合（`<target>` は上表で決まる `.test.mjs` のパス）:
 
   ```bash
-  node --test .claude/skills/<skill>/scripts/<name>.test.mjs
+  node --test "$TARGET_TEST_MJS"
   echo "exit=$?"   # 0 以外なら Refactor 未完了
   ```
 
-  `.py` を変更した場合:
+  `.py` を変更した場合（`<target>` は上表で決まる `test_*.py` のパス）:
 
   ```bash
-  python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q
+  python3 -m pytest "$TARGET_TEST_PY" -q
   echo "exit=$?"   # 0 以外なら Refactor 未完了
+  ```
+
+  実行前に対象ファイルの実在を確認する（存在しないパスを渡すと、テストが無いのに
+  「収集 0 件で成功」と誤読しかねない）。
+
+  ```bash
+  [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない"; exit 1; }
   ```
 
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は

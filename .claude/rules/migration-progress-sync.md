@@ -30,27 +30,67 @@ HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが�
 
 **セッション開始時（最初の `git add` より前）に必ず実行する。**
 
+本スニペットは **fail-closed**（判定できなければ停止）である。`git` の失敗・行数の取得失敗を
+「問題なし」と読み替えてはならない。非 0 で終了した時点で作業を開始せず、ユーザーへ報告する。
+
 ```bash
 # 保存先は必ず git rev-parse --git-dir で解決する。
 # linked worktree ではリポジトリ直下の .git が「ディレクトリ」ではなく
 # gitdir ポインタの「ファイル」になるため、.git/ 直書きはリダイレクトに失敗する。
-GIT_DIR_PATH="$(git rev-parse --git-dir)"
-git diff --cached --name-only > "$GIT_DIR_PATH/session-baseline-staged.txt"
-wc -l < "$GIT_DIR_PATH/session-baseline-staged.txt"   # 0 が理想（index が空）
-git diff --cached > "$GIT_DIR_PATH/session-baseline-staged.diff"
+GIT_DIR_PATH="$(git rev-parse --git-dir)" || { echo "NG: git-dir を解決できない"; exit 1; }
+
+git diff --cached --name-only > "$GIT_DIR_PATH/session-baseline-staged.txt" \
+  || { echo "NG: ベースライン(name-only)の作成に失敗"; exit 1; }
+git diff --cached > "$GIT_DIR_PATH/session-baseline-staged.diff" \
+  || { echo "NG: ベースライン(diff)の作成に失敗"; exit 1; }
+
+# 行数は「数値であること」を検証してから比較する（空文字や wc の失敗を 0 と誤読しない）
+BASELINE_LINES="$(wc -l < "$GIT_DIR_PATH/session-baseline-staged.txt" | tr -d '[:space:]')" \
+  || { echo "NG: 行数の取得に失敗"; exit 1; }
+case "$BASELINE_LINES" in
+  ''|*[!0-9]*) echo "NG: 行数が数値として取得できない: '$BASELINE_LINES'"; exit 1 ;;
+esac
+
+[ "$BASELINE_LINES" -eq 0 ] \
+  || { echo "NG: 開始時点で $BASELINE_LINES 件が staged 済み"; exit 1; }
+echo "OK: index は空（ベースライン確立）"
 ```
 
-出力が 0 行でない場合は、その時点で**作業開始前から staged の変更が存在する**。
-先へ進まず、ユーザーへ該当ファイルを報告して指示を仰ぐ。
+非 0 で終了した場合は、その時点で**作業開始前から staged の変更が存在する**か、
+**判定自体に失敗している**。いずれも先へ進まず、ユーザーへ該当ファイル・エラー内容を報告して指示を仰ぐ。
 
 **`git commit` の直前に実行する。**
 
+こちらも fail-closed。`diff` の終了コードは **1（差分あり）と 2 以上（比較そのものの失敗）を必ず分離**し、
+`grep` の終了コード 2 以上（読み取り失敗）を「混入なし」と読み替えてはならない。
+
 ```bash
-GIT_DIR_PATH="$(git rev-parse --git-dir)"   # セッション開始時と同じ解決先を再利用する
+GIT_DIR_PATH="$(git rev-parse --git-dir)" || { echo "NG: git-dir を解決できない"; exit 1; }
+BASELINE="$GIT_DIR_PATH/session-baseline-staged.diff"
+[ -f "$BASELINE" ] || { echo "NG: ベースラインが無い（開始時の手順を飛ばしている）"; exit 1; }
+
 git status --short              # 作業ツリー全体の変更
 git diff --cached --name-only   # 実際にコミットされるファイル
+
 # 開始時 staged との差分（同一パスの事前変更も検出する）
-git diff --cached | diff "$GIT_DIR_PATH/session-baseline-staged.diff" - | grep -E '^<' || echo "事前 staged の混入なし"
+CURRENT="$GIT_DIR_PATH/session-current-staged.diff"
+git diff --cached > "$CURRENT" || { echo "NG: 現在の staged 差分を取得できない"; exit 1; }
+
+diff "$BASELINE" "$CURRENT" > "$GIT_DIR_PATH/session-baseline-compare.out"
+DIFF_STATUS=$?
+case "$DIFF_STATUS" in
+  0) echo "OK: ベースラインと同一" ;;
+  1)
+    grep -E '^<' "$GIT_DIR_PATH/session-baseline-compare.out"
+    GREP_STATUS=$?
+    case "$GREP_STATUS" in
+      0) echo "NG: 事前 staged の内容が混入している"; exit 1 ;;
+      1) echo "OK: 事前 staged の混入なし" ;;
+      *) echo "NG: grep が失敗（exit=$GREP_STATUS）。判定不能"; exit 1 ;;
+    esac
+    ;;
+  *) echo "NG: diff が失敗（exit=$DIFF_STATUS）。判定不能"; exit 1 ;;
+esac
 ```
 
 以下のいずれかに該当する場合は、**コミットせずに停止し、ユーザーへ状況を報告して指示を仰ぐ**。
