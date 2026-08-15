@@ -1,6 +1,5 @@
 {
   "context": {
     "fileName": ["GEMINI.md", "CLAUDE.md"]
-  },
-  "contextFileName": ["GEMINI.md", "CLAUDE.md"]
+  }
 }

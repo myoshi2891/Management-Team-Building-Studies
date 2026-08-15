@@ -150,7 +150,7 @@ Nuxt 版は `app/components/MermaidDiagram.vue` に `:chart` を渡す方式で�
 
 | 項目 | Claude Code | Gemini CLI 等 |
 |---|---|---|
-| 本ファイルの読み込み | 自動 | `.gemini/settings.json` の `contextFileName` に `CLAUDE.md` を指定済み |
+| 本ファイルの読み込み | 自動 | `.gemini/settings.json` の `context.fileName` に `CLAUDE.md` を指定済み |
 | スキルの発火 | トリガー語句で自動 | **該当する `SKILL.md` を明示的に開いてから作業する** |
 | ルールの適用 | front matter の `paths` で自動 | 各ルールの本文「適用範囲」節を読んで手動で適用する |
 | `references/` の参照 | 必要時に自動 | 各 `SKILL.md` の「作業開始前に必ず読むファイル」を手動で開く |
