@@ -1,18 +1,18 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-15)
+(最終更新日: 2026-08-16)
 
-静的 HTML の資格学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
+静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
 
 ## 現在地
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `cfbf283` — docs(skills): make agent docs tool-agnostic and cover global navigation（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `bccfefc` — refactor(pages): fix self-closing tags and ensure clean lint check for leadership guide（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
-| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `bun run test:e2e` ✔ |
-| テスト数 | **75** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23）+ **4** E2E — これがベースライン |
+| ビルド状態 | `npm run test` ✔ / `nuxi typecheck` ✔ / `npm run lint` ✔ |
+| テスト数 | **98** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
@@ -21,6 +21,7 @@
 |---|---|---|
 | `archive/Certified-Associate-in-Project-Management/Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了・E2E スモーク Green |
 | `archive/Engineering-management-career-path/Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `archive/Engineering-management-career-path/Engineering-team-leadership-guide.html` | `app/pages/engineering-team-leadership-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -34,11 +35,11 @@
 | `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（3 件）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
 
-## 技術スタック（2026-08-14 時点の npm 実測値）
+## 技術スタック（2026-08-16 時点の npm 実測値）
 
 | レイヤー | パッケージ | 版 |
 |---|---|---|
-| Runtime / PM | bun | 1.3.12 |
+| Runtime / PM | bun / npm | 1.3.12 / 10.x |
 | Framework | nuxt | 4.5.2 |
 | Core | vue | 3.5.41 |
 | Language | typescript / vue-tsc | 5.9.3 / 3.3.9 |
@@ -106,24 +107,32 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 参考文献の見出し `h4` → `h3` 昇格 | `書籍`, `ブログ・記事`, `企業・調査レポート`, `その他リソース` を `h3` へ変更 | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
 | `calloutElements` 件数の差 | 原本 5 → Vue 3 | 原本 HTML の `<i class="ti ti-alert-triangle">` が監査スクリプトで `alert` 要素として誤検出されていた。Vue 側では `<Icon>` に変更したため誤検出が消え、実際の callout 3 件に完全一致 |
 
+### 5. エンジニアリングチームリード術ガイド（`engineering-team-leadership-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `書籍・出版社`, `Google re:Work / Engineering Practices`, `著名なエンジニアリングリーダーの記事・インタビュー` を `h3` へ変更 | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 監査スクリプトの callout 正規表現改善 | `ti-alert-triangle` 等のアイコンクラス誤検出を防止するため、`collectMarkupCalloutElements` 内のクラスマッチを単語境界 `(?<![\\w-])(?:callout\|alert)(?![\\w-])` に改善 | 真の callout 16 件（note: 4, source: 9, practice: 3）と完全一致 |
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: cfbf283
-次の作業: 保守・新規ガイドの追加（未移行 HTML 0件）
+コードコミット HEAD: bccfefc
+次の作業: 保守・新規ガイドの追加
   新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
   navigation への登録が必須（契約 N-1〜N-3）
 
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
   - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
+  - app/pages/engineering-team-leadership-guide.vue（エンジニアリングチームリード術 ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 75 件
+  - ユニットテスト 98 件
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
 
-ベースラインテスト数: ユニット 75 + E2E 4
+ベースラインテスト数: ユニット 98 + E2E 4
 ```
