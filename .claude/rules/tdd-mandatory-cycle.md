@@ -167,6 +167,16 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   問題がないことを確認する。
   ページを移行・改修した場合は `bun run test:e2e`（静的生成 + Playwright スモーク）も回す。
   ユニットテストでは Mermaid の実描画とアイコンの静的同梱を検証できないため。
+  `.claude/skills/*/scripts/*.mjs` / `*.py` を変更した場合は、**Vitest に収集されないため
+  `bun run test` では検証されない**。ステップ 2（Green）で使ったスクリプト直接実行を再度回す。
+
+  ```bash
+  node --test .claude/skills/<skill>/scripts/<name>.test.mjs
+  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q
+  echo "exit=$?"
+  ```
+
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は
   `npm run typecheck`。`npx nuxi` は使わない — 上記「コマンド表記の読み替え」を参照）。
 - **テスト数の後退を許さない**: テスト合計が直前のベースラインを下回った場合、何かを壊しているか

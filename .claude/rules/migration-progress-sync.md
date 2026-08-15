@@ -24,19 +24,39 @@ HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが�
 ### 自律コミット前の対象範囲検証（必須・スキップ禁止）
 
 本プロトコルは**ユーザーの許可を待たずにコミットする**ため、意図しないファイルを巻き込む危険がある。
-`git commit` を実行する前に、必ず次の 2 つを実行して対象範囲を目視ではなく機械的に確認する。
+「編集した覚えがあるか」という記憶に頼った判断は、**同一パスにセッション開始前から staged されていた
+他者・別セッションの変更**を素通しする（自分もそのファイルを触っているため、名前だけでは区別できない）。
+そこで、セッション開始時点の index を基準として機械的に差し引く。
+
+**セッション開始時（最初の `git add` より前）に必ず実行する。**
+
+```bash
+git diff --cached --name-only > .git/session-baseline-staged.txt
+wc -l < .git/session-baseline-staged.txt   # 0 が理想（index が空）
+git diff --cached > .git/session-baseline-staged.diff
+```
+
+出力が 0 行でない場合は、その時点で**作業開始前から staged の変更が存在する**。
+先へ進まず、ユーザーへ該当ファイルを報告して指示を仰ぐ。
+
+**`git commit` の直前に実行する。**
 
 ```bash
 git status --short              # 作業ツリー全体の変更
 git diff --cached --name-only   # 実際にコミットされるファイル
+# 開始時 staged との差分（同一パスの事前変更も検出する）
+git diff --cached | diff .git/session-baseline-staged.diff - | grep -E '^<' || echo "事前 staged の混入なし"
 ```
 
 以下のいずれかに該当する場合は、**コミットせずに停止し、ユーザーへ状況を報告して指示を仰ぐ**。
 
-- `git diff --cached --name-only` に、本セッションで自分が編集した覚えのないファイルが含まれる
-  （作業開始前から staged だった他者・別セッションの変更）
+- 開始時のベースラインが空でなかった（`.git/session-baseline-staged.txt` が 1 行以上）
+- 上記 `diff` が `^<` 行を出力した（開始時 staged の内容がコミットに含まれている）
+- `git diff --cached --name-only` に、本セッションで自分が編集していないファイルが含まれる
 - `git status --short` に、本作業と無関係な未コミット変更が残っており、
   `git add` の指定次第で巻き込む恐れがある
+
+ベースラインファイルは `.git/` 配下に置くためコミット対象にならない。
 
 `git add` は `git add -A` / `git add .` を使わず、**対象ファイルを明示列挙する**こと
 （例: `git add docs/PROGRESS.md`）。無関係な変更を独断で `git checkout` / `git stash` /
@@ -82,7 +102,7 @@ git rev-parse --short HEAD
 
 | フィールド | 更新内容 |
 |---|---|
-| `最新 HEAD` | `git rev-parse --short HEAD` の実値 + コミットメッセージ要約 |
+| `コードコミット HEAD` | `git rev-parse --short HEAD` の実値 + コミットメッセージ要約。**手順 4 の進捗ファイルコミットより前**の、コード側コミットのハッシュを記録する（進捗ファイル自身のコミットハッシュは本フィールドには入らない） |
 | `次の作業` | 次セッションで **最初に** 取り掛かるページ（例: `Certified-Associate-in-Project-Management.html §6 ドメイン1 の移行`） |
 | `ビルド状態` | `bun run test` / `bun run build` / `bunx nuxi typecheck` / `bun run test:e2e` の最新状態 |
 | `テスト数` | `bun run test` の実測値（`tdd-mandatory-cycle.md` のベースライン） |
@@ -91,7 +111,7 @@ git rev-parse --short HEAD
 
 `現在地` の値と一致するように再開プロンプト内の以下を書き換える:
 
-- `最新 HEAD: <hash>` の値
+- `コードコミット HEAD: <hash>` の値（`現在地` テーブルと同一のハッシュ＝コード側コミット）
 - `次の作業:` の説明（ページ粒度で具体的に）
 - 未移行セクション（または未移行 HTML）の残数
 
