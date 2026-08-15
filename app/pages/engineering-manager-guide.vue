@@ -523,7 +523,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
 
           <div class="table-wrap">
             <table>
-              <thead><tr><th></th><th>Challenge Directly(率直に指摘する)</th><th>Challenge Directlyしない</th></tr></thead>
+              <thead><tr><th /><th>Challenge Directly(率直に指摘する)</th><th>Challenge Directlyしない</th></tr></thead>
               <tbody>
                 <tr><td><strong>Care Personally(個人的に配慮する)</strong></td><td><strong>Radical Candor(理想形)</strong>:配慮と率直さが両立</td><td>Ruinous Empathy(破壊的な思いやり):優しさのあまり必要な指摘ができない</td></tr>
                 <tr><td><strong>Care Personallyしない</strong></td><td>Obnoxious Aggression(不快な攻撃性):配慮なく率直さだけをぶつける</td><td>Manipulative Insincerity(操作的な不誠実さ):どちらも欠如した最悪の状態</td></tr>
