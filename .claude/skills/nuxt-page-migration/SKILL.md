@@ -44,7 +44,14 @@ allowed-tools:
 | 起動 | トリガー語句で自動読込 | 下表の語句が出たら、**利用者または担当者が本ファイルを明示的に読む** |
 | 参照ファイル | 必要時に自動で開かれる | §1 と §8 のファイルを**手動で開く**（開かずに推測しない） |
 | ツール | `Read` / `Edit` / `Bash` 等 | 同等の読み書き・シェル実行手段で置き換える。**手順は省略しない** |
-| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`、`bunx nuxi` は `npx nuxi` |
+| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`、`bunx nuxi typecheck` は `npm run typecheck`（下記注） |
+
+> [!IMPORTANT]
+> `npx nuxi` は使わない。バージョン未固定でレジストリから任意の nuxi を取得し、
+> ローカルの `nuxt` と異なる版で型検査する事故が起きる。`package.json` の
+> `"typecheck": "nuxi typecheck"` はローカル依存の `node_modules/.bin/nuxi` を実行するため、
+> `npm run typecheck` を使う。ローカルに nuxi が無ければ非 0 で停止するので、
+> その場で作業を止めて依存を入れ直す（`npx` の暗黙ダウンロードで先へ進めない）。
 
 **適用トリガー（本文が正。front matter と食い違ったら本節に合わせて front matter を直す）**:
 

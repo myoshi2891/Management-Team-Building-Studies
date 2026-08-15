@@ -8,6 +8,7 @@ paths:
   - "tests/**/*.test.ts"
   - "e2e/**/*.spec.ts"
   - ".claude/skills/*/scripts/*.mjs"
+  - ".claude/skills/*/scripts/*.py"
 ---
 
 # TDD 必須サイクル & コミット分割ルール
@@ -28,6 +29,7 @@ paths:
 | `app/composables/**/*.ts` / `app/utils/**/*.ts` / `app/plugins/**/*.ts` | **適用** |
 | `tests/**/*.test.ts` / `e2e/**/*.spec.ts` | **適用** |
 | `.claude/skills/*/scripts/*.mjs`（テスト可能なスクリプト） | **適用** |
+| `.claude/skills/*/scripts/*.py`（テスト可能なスクリプト。`fix-mermaid` の `fix_mermaid.py` / `test_fix_mermaid.py`） | **適用** |
 | リポジトリ直下の `*.md` / `*.html`（移行の原本） | 対象外 |
 | `docs/**/*.md` / `.claude/**/*.md`（ドキュメント・規約） | 対象外（`docs(...)` 単独コミット） |
 
@@ -36,7 +38,15 @@ paths:
 ## コマンド表記の読み替え（全エージェント共通）
 
 本ファイル中の `bun run <script>` は、`bun` が使えない環境では `npm run <script>` に読み替える
-（`package.json` の同じ scripts を実行するため結果は同じ）。`bunx nuxi` は `npx nuxi` に読み替える。
+（`package.json` の同じ scripts を実行するため結果は同じ）。
+
+`bunx nuxi typecheck` は **`npm run typecheck` に読み替える**（`package.json` の
+`"typecheck": "nuxi typecheck"` がローカル依存の `node_modules/.bin/nuxi` を実行する）。
+**`npx nuxi` は使わない。** バージョン未固定でレジストリから任意の nuxi を取得してしまい、
+ローカルの `nuxt` と異なる版で型検査する事故が起きる。ローカルに nuxi が無い場合は
+`npm run typecheck` が非 0 で停止するので、**その場で停止して依存を入れ直す**
+（`npx` の暗黙ダウンロードで先へ進めない）。
+
 **判定は常に終了コードで行う**（出力の目視ではなく `echo "exit=$?"` を確認する）。
 
 ## 核心原則
@@ -78,6 +88,17 @@ paths:
 - **`.test.mjs` の Red**: `.claude/skills/*/scripts/*.test.mjs` は Vitest に収集されないため、
   対象ファイルを `node --test .claude/skills/<skill>/scripts/<name>.test.mjs` で直接実行し、
   追加したテストの失敗を確認する。既存の TypeScript テストは引き続き `bun run test` を使う。
+- **`.py` の Red**: `.claude/skills/*/scripts/*.py` も Vitest に収集されない。
+  `test_fix_mermaid.py` はモジュール直下の `test_*` 関数 + 素の `assert` で書かれており
+  **pytest でしか収集できない**（`unittest` では検出されない）。対象ディレクトリを指定して実行する。
+
+  ```bash
+  python3 -m pytest .claude/skills/fix-mermaid/scripts/test_fix_mermaid.py -q
+  echo "exit=$?"   # Red では非 0、Green では 0
+  ```
+
+  pytest が未導入の環境では `No module named pytest` で落ちる。これは Red ではないので
+  **テストの失敗と混同しない**。`python3 -m pip install pytest` 等で導入してから再実行する。
 - **コミット（新機能・バグ修正・機能改善時）**: `test(<scope>): add failing spec for <feature-or-bug-id>`
 
 #### テスト強度の下限（ガイドページ移行・保守で必須）
@@ -135,6 +156,8 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
 - **実行**: `bun run test` でパスを確認。
   `.claude/skills/*/scripts/*.mjs` の変更では、対応する `.test.mjs` を
   `node --test .claude/skills/<skill>/scripts/<name>.test.mjs` で実行し、Green を確認する。
+  `.claude/skills/*/scripts/*.py` の変更では、対応するテストを
+  `python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q` で実行し、Green を確認する。
 - **コミット**: `feat(<scope>): <feature implementation summary>`
 
 ### ステップ 3: Refactor（リファクタリング・最適化）
@@ -144,7 +167,8 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   問題がないことを確認する。
   ページを移行・改修した場合は `bun run test:e2e`（静的生成 + Playwright スモーク）も回す。
   ユニットテストでは Mermaid の実描画とアイコンの静的同梱を検証できないため。
-  `bun` が使えない環境では `npm run <script>` で読み替える（同じ scripts を実行する）。
+  `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は
+  `npm run typecheck`。`npx nuxi` は使わない — 上記「コマンド表記の読み替え」を参照）。
 - **テスト数の後退を許さない**: テスト合計が直前のベースラインを下回った場合、何かを壊しているか
   削除している。原因を特定するまで先へ進まない。
   **収集失敗（collect error）もブロッキング失敗として扱う。**

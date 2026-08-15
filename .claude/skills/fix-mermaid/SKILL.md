@@ -33,7 +33,10 @@ description: >
   （`node .claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs` /
   `python3 .claude/skills/fix-mermaid/scripts/fix_mermaid.py`）。
   ただし `fix_mermaid.py` は `<div class="mermaid">` 方式専用で、現行 HTML には**1件もマッチしない**（後述）。
-- **コマンド**: `bun run <script>` は `bun` が無ければ `npm run <script>`、`bunx nuxi` は `npx nuxi` に読み替える。
+- **コマンド**: `bun run <script>` は `bun` が無ければ `npm run <script>` に読み替える。
+  `bunx nuxi typecheck` は **`npm run typecheck`**（ローカル依存の `node_modules/.bin/nuxi` を実行）。
+  **`npx nuxi` は使わない** — バージョン未固定でレジストリから任意の版を取得するため。
+  ローカルに nuxi が無ければ `npm run typecheck` が非 0 で止まるので、その場で停止して依存を入れ直す。
 - **判定**: 出力の目視ではなく終了コードで行う（`echo "exit=$?"`）。
 
 **適用トリガー（本文が正。front matter と食い違ったら本節に合わせる）**:
