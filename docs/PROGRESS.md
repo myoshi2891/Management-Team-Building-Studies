@@ -9,8 +9,8 @@
 
 | フィールド | 値 |
 |---|---|
-| 最新 HEAD | `50894ad` — feat(navigation): add shared global header |
-| 次の作業 | 保守・新規ガイドの追加 |
+| 最新 HEAD | `cfbf283` — docs(skills): make agent docs tool-agnostic and cover global navigation |
+| 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bun run typecheck` ✔ / `bun run lint` ✔ / `bun run test:e2e` ✔ |
 | テスト数 | **75** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
@@ -111,8 +111,10 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-最新 HEAD: 50894ad
+最新 HEAD: cfbf283
 次の作業: 保守・新規ガイドの追加（未移行 HTML 0件）
+  新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
+  navigation への登録が必須（契約 N-1〜N-3）
 
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
