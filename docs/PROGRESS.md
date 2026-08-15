@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `bccfefc` — refactor(pages): fix self-closing tags and ensure clean lint check for leadership guide（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `66518ba` — refactor(pages): clean up self-closing tag for engineering manager guide（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `npm run test` ✔ / `nuxi typecheck` ✔ / `npm run lint` ✔ |
-| テスト数 | **98** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23）+ **4** E2E — これがベースライン |
+| テスト数 | **121** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
@@ -22,6 +22,7 @@
 | `archive/Certified-Associate-in-Project-Management/Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了・E2E スモーク Green |
 | `archive/Engineering-management-career-path/Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `archive/Engineering-management-career-path/Engineering-team-leadership-guide.html` | `app/pages/engineering-team-leadership-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `Engineering-manager-guide.html` | `app/pages/engineering-manager-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -114,12 +115,19 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 参考文献の見出し `h4` → `h3` 昇格 | `書籍・出版社`, `Google re:Work / Engineering Practices`, `著名なエンジニアリングリーダーの記事・インタビュー` を `h3` へ変更 | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
 | 監査スクリプトの callout 正規表現改善 | `ti-alert-triangle` 等のアイコンクラス誤検出を防止するため、`collectMarkupCalloutElements` 内のクラスマッチを単語境界 `(?<![\\w-])(?:callout\|alert)(?![\\w-])` に改善 | 真の callout 16 件（note: 4, source: 9, practice: 3）と完全一致 |
 
+### 6. エンジニアリングマネージャー入門完全ガイド（`engineering-manager-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `書籍`, `著名な実践者のブログ・ニュースレター`, `企業・研究機関の一次情報`, `実務ガイド・2026年動向` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 監査スクリプトのエンティティデコード追加 | `audit_source_parity.mjs` の `decodeEntities` に `&mdash;`（`—`）と `&rarr;`（`→`）を追加 | HTML 原本の文字実体参照と Vue 側の Unicode 文字との照合不一致を解消するため |
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: bccfefc
+コードコミット HEAD: 66518ba
 次の作業: 保守・新規ガイドの追加
   新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
   navigation への登録が必須（契約 N-1〜N-3）
@@ -128,11 +136,13 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/capm.vue（CAPM ガイド）
   - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
   - app/pages/engineering-team-leadership-guide.vue（エンジニアリングチームリード術 ガイド）
+  - app/pages/engineering-manager-guide.vue（エンジニアリングマネージャー入門完全ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 98 件
+  - ユニットテスト 121 件
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
 
-ベースラインテスト数: ユニット 98 + E2E 4
+ベースラインテスト数: ユニット 121 + E2E 4
 ```
+
