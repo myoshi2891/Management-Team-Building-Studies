@@ -6,6 +6,11 @@
 `Certified-associate-in-project-management-domain1.md` とし、共通内容の訂正は正本へ先に反映したうえで、
 必要に応じて本ファイルへ同期します。
 
+**同期手順**: 共通内容を訂正する場合は、公開用の正本である
+`Certified-associate-in-project-management-domain1.html` にも同じ訂正が必要かを必ず確認し、
+必要なら更新します。Markdown 2 ファイルと HTML 原本の変更は**同一コミット**で反映し、
+`.md` だけが直って `.html` が古いまま残る状態を作らないこと。
+
 ---
 
 ## 目次
