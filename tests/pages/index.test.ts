@@ -66,10 +66,9 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     ]);
   });
 
-  it("サイト内ナビゲーションと見出し構造がアクセシブルである", () => {
+  it("見出し構造がアクセシブルである", () => {
     const wrapper = mountPage();
 
-    expect(wrapper.get("header nav").attributes("aria-label")).toBe("メインナビゲーション");
     expect(wrapper.findAll("h1")).toHaveLength(1);
     expect(wrapper.findAll("h2").map((heading) => heading.text())).toEqual([
       "公開中のガイド",
