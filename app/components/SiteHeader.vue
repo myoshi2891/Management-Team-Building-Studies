@@ -140,6 +140,17 @@ nav { height: 100%; display: flex; align-items: stretch; }
   .global-nav-link span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 }
 
+/*
+ * 極小画面（320px 等）では、ブランド名を隠してナビ 3 項目を全て残す。
+ * .global-brand は min-width: max-content のため縮まず、
+ * ブランド名 + ナビ 3 項目が global-header-inner の幅を超えてはみ出す。
+ * 到達性（ナビ）を優先し、ブランドは丸マークのみにする
+ * （リンクの aria-label がアクセシブル名を保持するため名前は失われない）。
+ */
+@media (max-width: 400px) {
+  .global-brand-copy { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .global-nav-link::after { transition: none; }
 }
