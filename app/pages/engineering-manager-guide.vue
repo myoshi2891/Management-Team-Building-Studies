@@ -729,7 +729,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
           <h2>チームの生産性を測る(DORA &amp; SPACE)</h2>
 
           <h3>DORAメトリクス</h3>
-          <p>DORA(DevOps Research and Assessment)は、Nicole Forsgren、Jez Humble、Gene Kimによる数年間にわたる調査から生まれたフレームワークで、ソフトウェアデリバリーのパフォーマンスを4つの指標で捉えます。</p>
+          <p>DORA(DevOps Research and Assessment)は、Nicole Forsgren、Jez Humble、Gene Kimによる数年間にわたる調査から生まれたフレームワークです。長らく「Four Keys(4つの指標)」として知られてきましたが、2024年に「デプロイ手戻り率」が加わり、2025年の調査レポートで5つの指標として整理されました。上の3つがスループット、下の2つが不安定性(instability)を表します。</p>
 
           <div class="table-wrap">
             <table>
@@ -737,8 +737,9 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
               <tbody>
                 <tr><td>デプロイ頻度(Deployment Frequency)</td><td>どれくらいの頻度で本番環境にリリースできているか</td></tr>
                 <tr><td>変更のリードタイム(Lead Time for Changes)</td><td>コミットから本番稼働までの所要時間</td></tr>
-                <tr><td>変更失敗率(Change Failure Rate)</td><td>リリースが障害・ロールバックにつながる割合</td></tr>
-                <tr><td>平均修復時間(MTTR: Mean Time to Recovery)</td><td>障害発生から復旧までの平均時間</td></tr>
+                <tr><td>失敗デプロイからの復旧時間(Failed Deployment Recovery Time)</td><td>失敗したデプロイから復旧するまでの所要時間。従来の「平均修復時間(MTTR)」に代わる指標</td></tr>
+                <tr><td>変更失敗率(Change Failure Rate)</td><td>デプロイのうち即座の対応(ロールバック・ホットフィックス)を必要とする割合</td></tr>
+                <tr><td>デプロイ手戻り率(Deployment Rework Rate)</td><td>本番障害の結果として発生した、計画外デプロイの割合</td></tr>
               </tbody>
             </table>
           </div>
