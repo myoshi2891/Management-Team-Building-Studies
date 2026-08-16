@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     // 使用アイコンをビルド時にスキャンしてクライアントバンドルへ同梱する。
     clientBundle: { scan: true, includeCustomCollections: true },
     serverBundle: false,
+    // 既定の css モードはルート要素が <span> になり、原本 HTML 由来の
+    // `… svg { width: … }` 系セレクタが全ページで一致しなくなる。
+    // 原本のアイコン寸法・配色をそのまま活かすため svg モードを既定にする。
+    mode: "svg",
   },
 
   site: {

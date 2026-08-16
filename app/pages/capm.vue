@@ -142,7 +142,7 @@ useSeoMeta({
   <div class="page-shell">
 
 
-<button ref="sidebarToggle" class="sidebar-toggle" aria-label="目次を開閉する" aria-controls="sidebar" :aria-expanded="sidebarOpen" @click="sidebarOpen = !sidebarOpen"><Icon class="ti" name="tabler:menu-2" /></button>
+<button ref="sidebarToggle" type="button" class="sidebar-toggle" aria-label="目次を開閉する" aria-controls="sidebar" :aria-expanded="sidebarOpen" @click="sidebarOpen = !sidebarOpen"><Icon class="ti" name="tabler:menu-2" /></button>
 
 <div class="layout">
 
@@ -273,6 +273,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_ROADMAP5" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">CAPM取得までの5ステップ</div>
@@ -409,6 +412,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_QUESTION_TYPES" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">CAPM試験の5つの出題形式</div>
@@ -466,6 +472,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_DOMAIN_PIE" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">CAPM試験 ドメイン別出題比率(合計100%)</div>
@@ -527,6 +536,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_HIERARCHY" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">ポートフォリオ・プログラム・プロジェクトの階層関係</div>
@@ -649,6 +661,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_WBS" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">WBS(作業分解構成図)の階層イメージ</div>
@@ -773,6 +788,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_SCRUM_CYCLE" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">Scrumのスプリントサイクル</div>
@@ -783,6 +801,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_KANBAN_FLOW" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">Kanbanボードにおける作業の流れ(WIP制限つき)</div>
@@ -843,6 +864,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_BA_PROCESS" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">要求の引き出しから管理・トレーサビリティまでの循環プロセス</div>
@@ -1043,6 +1067,9 @@ useSeoMeta({
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_STUDY_PLAN6WEEK" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
           </ClientOnly>
         </div>
         <div class="diagram-caption">6週間の学習ロードマップ例</div>
@@ -1529,7 +1556,12 @@ useSeoMeta({
     text-align: center;
   }
 
-
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 24px;
+    text-align: center;
+  }
 
   .diagram-error {
     color: var(--color-plum);

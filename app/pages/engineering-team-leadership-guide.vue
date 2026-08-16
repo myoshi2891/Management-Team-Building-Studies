@@ -137,6 +137,7 @@ const DIAGRAM_ANTIPATTERN_LEVELS = `flowchart TB
     <button
       id="sidebarToggle"
       ref="sidebarToggle"
+      type="button"
       class="sidebar-toggle"
       aria-label="目次を開閉する"
       aria-controls="sidebar"
@@ -1257,10 +1258,12 @@ code {
   .sidebar-toggle { display: flex; }
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.2s ease;
+    /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
     box-shadow: none;
   }
-  .sidebar.open { transform: translateX(0); }
+  .sidebar.open { transform: translateX(0); visibility: visible; }
   .main-content { margin-left: 0; padding: 88px 24px 100px; }
   .hero h1 { font-size: 32px; }
   .stat-row { grid-template-columns: repeat(2, 1fr); }

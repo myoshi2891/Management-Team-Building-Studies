@@ -160,6 +160,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
     <button
       id="sidebarToggle"
       ref="sidebarToggle"
+      type="button"
       class="sidebar-toggle"
       aria-label="目次を開閉する"
       aria-controls="sidebar"
@@ -284,7 +285,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
           <div class="stat-row">
             <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">章立てのステップガイド</div></div>
             <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">Mermaid図解</div></div>
-            <div class="stat-card"><div class="stat-number">21</div><div class="stat-label">参照した一次情報URL</div></div>
+            <div class="stat-card"><div class="stat-number">21</div><div class="stat-label">参照した情報源URL</div></div>
             <div class="stat-card"><div class="stat-number">2026.8</div><div class="stat-label">最終調査月</div></div>
           </div>
 

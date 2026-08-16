@@ -44,7 +44,7 @@ const guides = [
     title: "エンジニアリングマネージャー入門完全ガイド",
     description: "James Stanier著『Become an Effective Software Engineering Manager』を主軸に、新任EMのスタートダッシュから心理的安全性、AI時代の役割まで体系的に学びます。",
     meta: "14セクション",
-    icon: "tabler:certificate",
+    icon: "tabler:school",
     accent: "indigo",
   },
 ] as const;
@@ -205,17 +205,20 @@ useSeoMeta({
 .guide-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
 .guide-card { min-height: 378px; border: 1px solid var(--color-border); background: var(--color-paper-raised); }
 .guide-card:not(.guide-card-coming) { grid-column: span 4; }
-.guide-card-coming { grid-column: span 12; min-height: 180px; }
+/* 公開ガイドと同じ 4 カラム幅で流し込み、最終行の余りを埋める */
+.guide-card-coming { grid-column: span 4; min-height: 180px; }
 .guide-card > a { position: relative; height: 100%; display: flex; flex-direction: column; padding: 31px 32px 27px; color: var(--color-ink); overflow: hidden; }
 .guide-card > a::after { content: ""; position: absolute; inset: auto 0 0; height: 4px; background: var(--card-accent, var(--color-indigo)); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
 .guide-card > a:hover { text-decoration: none; }
 .guide-card > a:hover::after { transform: scaleX(1); }
 .guide-card > a:hover .guide-link svg { transform: translate(3px, -3px); }
 .guide-card-indigo { --card-accent: var(--color-indigo); }
+.guide-card-gold { --card-accent: var(--color-gold); }
 .guide-card-forest { --card-accent: var(--color-forest); }
 .guide-card-plum { --card-accent: var(--color-plum); }
 .guide-card-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 47px; }
 .guide-icon { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 50%; background: var(--color-indigo-tint); color: var(--color-indigo); }
+.guide-card-gold .guide-icon { background: var(--color-gold-tint); color: var(--color-gold); }
 .guide-card-forest .guide-icon { background: var(--color-forest-tint); color: var(--color-forest); }
 .guide-card-plum .guide-icon { background: var(--color-plum-tint); color: var(--color-plum); }
 .guide-icon svg { width: 23px; height: 23px; }
@@ -264,7 +267,7 @@ useSeoMeta({
   .hero-copy { max-width: 700px; }
   .hero-visual { width: min(74vw, 440px); justify-self: center; }
   .guide-card:not(.guide-card-coming) { grid-column: span 6; }
-  .guide-card-coming { grid-column: span 12; min-height: 210px; }
+  .guide-card-coming { grid-column: span 6; min-height: 210px; }
   .approach-section { gap: 50px; }
   .footer-inner { grid-template-columns: 1fr auto; }
   .footer-inner > small { grid-column: 1 / -1; margin-top: -35px; }

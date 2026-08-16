@@ -93,6 +93,7 @@ const DIAGRAM_PENDULUM = `flowchart LR
     <button
       id="sidebarToggle"
       ref="sidebarToggle"
+      type="button"
       class="sidebar-toggle"
       aria-label="目次を開閉する"
       aria-controls="sidebar"

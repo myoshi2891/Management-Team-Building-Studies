@@ -284,6 +284,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_DOMAIN_WEIGHT" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">CAPM試験の4ドメイン配点構成</div>
@@ -374,6 +377,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_PPP_HIERARCHY" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">組織戦略からプロジェクトへの階層構造(ポートフォリオ・プログラム・プロジェクト)</div>
@@ -441,6 +447,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_PREDICTIVE_ADAPTIVE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">予測型・ハイブリッド型・適応型アプローチの連続体</div>
@@ -546,6 +555,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_ETHICS_VALUES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">PMI Code of Ethics and Professional Conductの4つの中核的価値観</div>
@@ -721,6 +733,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_RISK_REGISTER_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">リスク登録簿を用いたリスクマネジメントの循環プロセス</div>
@@ -776,6 +791,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_CLOSURE_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">プロジェクト終結から移行までの流れ</div>
@@ -851,6 +869,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_PM_ROLES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">プロジェクトマネージャーが担う6つの役割</div>
@@ -977,6 +998,9 @@ class D done;`;
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_INITIATION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中…</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">プロジェクト立上げからベネフィットプランニングまでの流れ</div>
@@ -1556,6 +1580,13 @@ th strong {
   width: 100%;
 }
 
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
 .diagram-card .diagram-caption {
   font-size: 16px;
   color: var(--color-ink-faint);
@@ -1579,12 +1610,15 @@ footer {
 
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.2s ease;
+    /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
     box-shadow: none;
   }
 
   .sidebar.open {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .main-content {
