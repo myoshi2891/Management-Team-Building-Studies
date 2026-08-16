@@ -137,6 +137,30 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 アーカイブ済み原本（`archive/` 配下）は当時の状態を保存する目的のため `loose` のまま残している。
 `app/plugins/mermaid.client.ts` の JSDoc が、この 1 点だけ原本から逐語移植していない旨を明記している。
 
+### 8. CAPM ドメイン1 リスク登録簿 R-002 の対応戦略を修正（2026-08-17）
+
+コードレビュー指摘への対応。**原本 HTML からの意図的な逸脱**であり、
+原本照合監査が恒常的に 1 件の差分を報告するため記録する。
+
+| 項目 | 内容 |
+|---|---|
+| 対象 | `app/pages/certified-associate-in-project-management-domain1.vue` §2.5 リスク登録簿の表 |
+| 原本 | `R-002 主要開発者の離脱` の対応戦略が `転嫁/軽減(ナレッジ共有の徹底)` |
+| 移行先 | `軽減(ナレッジ共有の徹底)` |
+| 理由 | 括弧内の具体策「ナレッジ共有の徹底」は発生確率・影響度を下げる**軽減**そのものであり、第三者へリスクを移す**転嫁**ではない。同じ表の R-001・R-003 は戦略を 1 つだけ挙げており、R-002 のみ 2 つ併記されているのも不整合 |
+| ユーザー判断 | 「Vue 側だけ直して問題なし」との明示的な承認を得ている。原本 HTML / `.md` は未修正のまま |
+
+そのため下記の監査は **exit 1 かつ差分 1 件**が正常な状態である。
+これ以外の差分が出た場合は本項目とは別の移行漏れなので、通常どおり Green コミット禁止として扱う。
+
+```bash
+node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
+  Certified-associate-in-project-management-domain1.html \
+  app/pages/certified-associate-in-project-management-domain1.vue
+# 期待される唯一の差分:
+#   "R-002主要開発者の離脱人的資源低高中転嫁/軽減(ナレッジ共有の徹底)PM監視中"
+```
+
 ## 次回セッションでの再開プロンプト
 
 ```text

@@ -723,7 +723,7 @@ class D done;`;
               <thead><tr><th>Risk ID</th><th>リスクの説明</th><th>カテゴリ</th><th>発生確率</th><th>影響度</th><th>優先度</th><th>対応戦略</th><th>責任者</th><th>ステータス</th></tr></thead>
               <tbody>
                 <tr><td>R-001</td><td>主要ベンダーの資材納品遅延</td><td>調達</td><td>中</td><td>高</td><td>高</td><td>軽減(代替ベンダーの事前選定)</td><td>調達責任者</td><td>監視中</td></tr>
-                <tr><td>R-002</td><td>主要開発者の離脱</td><td>人的資源</td><td>低</td><td>高</td><td>中</td><td>転嫁/軽減(ナレッジ共有の徹底)</td><td>PM</td><td>監視中</td></tr>
+                <tr><td>R-002</td><td>主要開発者の離脱</td><td>人的資源</td><td>低</td><td>高</td><td>中</td><td>軽減(ナレッジ共有の徹底)</td><td>PM</td><td>監視中</td></tr>
                 <tr><td>R-003</td><td>為替変動によるコスト増</td><td>外部環境</td><td>中</td><td>中</td><td>中</td><td>受容(予備費で対応)</td><td>スポンサー</td><td>オープン</td></tr>
               </tbody>
             </table>
