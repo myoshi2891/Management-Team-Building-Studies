@@ -117,8 +117,15 @@ esac
 [ "$BASELINE_LINES" -eq 0 ] \
   || { echo "NG: 開始時点で $BASELINE_LINES 件が staged 済み。判定不能"; exit 1; }
 
-# (2) 現在 staged なパス集合 ⊆ 許可パス集合 を検証する。
-#     --name-only は追加・変更・削除をすべてパスとして列挙するため、
+# (2) コミット対象を tree オブジェクトとして凍結する。
+#     以降の検証はすべてこの $TREE に対して行い、コミットも $TREE から作る。
+#     index や作業ツリーを再度読まないため、検証とコミットの間に別プロセスが
+#     `git add` / ファイル編集をしても、コミットされる内容は変わらない。
+OLD_HEAD="$(git rev-parse HEAD)" || { echo "NG: HEAD を解決できない"; exit 1; }
+TREE="$(git write-tree)" || { echo "NG: index から tree を作成できない"; exit 1; }
+
+# (3) 凍結した tree が HEAD から変更するパス集合 ⊆ 許可パス集合 を検証する。
+#     diff-tree は追加・変更・削除をすべてパスとして列挙するため、
 #     削除だけの巻き込みもこの判定で捕まる。
 ALLOWED_FILE="$GIT_DIR_PATH/session-allowed-paths.txt"
 : > "$ALLOWED_FILE" || { echo "NG: 許可リストを作成できない"; exit 1; }
@@ -127,21 +134,21 @@ for path in $ALLOWED_PATHS; do
 done
 
 STAGED="$GIT_DIR_PATH/session-staged-now.txt"
-git diff --cached --name-only > "$STAGED" \
-  || { echo "NG: 現在の staged 一覧を取得できない"; exit 1; }
+git diff-tree -r --name-only --no-commit-id "$OLD_HEAD" "$TREE" > "$STAGED" \
+  || { echo "NG: コミット対象の一覧を取得できない"; exit 1; }
 
 UNEXPECTED=0
 while IFS= read -r path; do
   [ -n "$path" ] || continue
   if grep -qxF -- "$path" "$ALLOWED_FILE"; then continue; fi
-  echo "NG: 許可リストに無い staged ファイル: $path"
+  echo "NG: 許可リストに無いコミット対象: $path"
   UNEXPECTED=$((UNEXPECTED + 1))
 done < "$STAGED"
 [ "$UNEXPECTED" -eq 0 ] || { echo "NG: 意図しないファイルを巻き込んでいる"; exit 1; }
 
-# (3) 許可パスに未 staged の差分が残っていないことを確認する。
-#     残っていると次段の pathspec コミットが「検証していない作業ツリーの内容」を
-#     取り込んでしまう（pathspec 付き commit は index ではなく作業ツリーを見る）。
+# (4) 許可パスに未 staged の差分が残っていないことを確認する。
+#     $TREE は index から作られるため、残っていると「作業ツリーにはあるが
+#     コミットされない変更」が生じ、記録内容が中途半端になる。
 if git diff --quiet -- $ALLOWED_PATHS; then
   echo "OK: 許可パスは index と作業ツリーが一致"
 else
@@ -151,23 +158,31 @@ else
     *) echo "NG: git diff が失敗（exit=$DIFF_STATUS）。判定不能"; exit 1 ;;
   esac
 fi
-echo "OK: staged なパスは全て許可リスト内"
+echo "OK: コミット対象は全て許可リスト内"
+
+# (5) 検証済みの $TREE からコミットを作り、HEAD を条件付きで進める。
+#     `git commit` は呼ばない（index も作業ツリーも読み直さない）。
+#     update-ref の第3引数に $OLD_HEAD を渡すことで、検証後に HEAD が
+#     動いていた場合はコミットが失敗し、他者のコミットを踏み潰さない。
+COMMIT_MSG="chore(docs): update docs/PROGRESS.md — <作業内容の1行要約>"
+NEW_COMMIT="$(git commit-tree "$TREE" -p "$OLD_HEAD" -m "$COMMIT_MSG")" \
+  || { echo "NG: コミットオブジェクトを作成できない"; exit 1; }
+git update-ref -m "commit: $COMMIT_MSG" HEAD "$NEW_COMMIT" "$OLD_HEAD" \
+  || { echo "NG: HEAD の条件付き更新に失敗（検証後に HEAD が動いた）。中止する"; exit 1; }
+echo "OK: コミット完了 $(git rev-parse --short HEAD)"
 ```
 
-検証と `git commit` の間に別プロセスが `git add` しても取り込まないよう、**コミットは必ず
-許可パスを pathspec として明示**する（`git add -A` 済みの index を丸ごと信用しない）。
-上記 (3) により許可パスの index と作業ツリーは一致しているので、pathspec コミットの内容は
-検証した状態と同一になる。
-
-```bash
-git commit -m "chore(docs): update docs/PROGRESS.md — <作業内容の1行要約>" -- $ALLOWED_PATHS
-```
+`git commit -- <pathspec>` は **index ではなく作業ツリー**を読むため、検証済みの内容が
+コミットされる保証が無い（検証と `git commit` の間の編集をそのまま取り込む）。
+上記 (5) のように **`git write-tree` で凍結した tree から `git commit-tree` でコミットを作り、
+`git update-ref` の期待値付き更新で HEAD を進める**こと。pathspec 付き `git commit` は使わない。
 
 以下のいずれかに該当する場合は、**コミットせずに停止し、ユーザーへ状況を報告して指示を仰ぐ**。
 
 - 開始時のベースラインが空でなかった（`$GIT_DIR_PATH/session-baseline-staged.txt` が 1 行以上）
-- 上記 (2) が `許可リストに無い staged ファイル` を出力した（意図しない巻き込み）
-- 上記 (3) が未 staged の差分を検出した（コミット内容が検証した状態と一致しない）
+- 上記 (3) が `許可リストに無いコミット対象` を出力した（意図しない巻き込み）
+- 上記 (4) が未 staged の差分を検出した（コミット内容が検証した状態と一致しない）
+- 上記 (5) の `git update-ref` が失敗した（検証後に HEAD が動いた）
 - `git diff --cached --name-only` に、本セッションで自分が編集していないファイルが含まれる
 - `git status --short` に、本作業と無関係な未コミット変更が残っており、
   `git add` の指定次第で巻き込む恐れがある
@@ -236,8 +251,9 @@ git rev-parse --short HEAD
 
 ```bash
 git add docs/PROGRESS.md
-# 「自律コミット前の対象範囲検証」を実行してから、許可パスを pathspec として明示してコミットする
-git commit -m "chore(docs): update docs/PROGRESS.md — <作業内容の1行要約>" -- docs/PROGRESS.md
+# 続けて「自律コミット前の対象範囲検証」の (1)〜(5) をそのまま実行する。
+# コミットは同スニペットの (5)（write-tree → commit-tree → update-ref）で完結する。
+# ここで `git commit` を直接呼んではならない（検証済みの内容が保証されない）。
 ```
 
 ## 禁止
