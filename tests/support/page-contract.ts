@@ -64,6 +64,10 @@ export interface SourceParityContractInput {
 /**
  * 原本照合 (S) / コンテンツ (C) / デザイン (D) / 品質 (Q) の共通契約を定義する。
  * ページ固有の追加契約は、呼び出し側で別途 describe を書いて足す。
+ *
+ * NOTE: 各テストファイル内での本関数の呼び出しは1回のみに制限すること。
+ * 全ての Q-2 ケースが単一の hoisted された `seoMeta` モックを共有するため、
+ * 同一ファイル内で複数回呼び出すと呼び出し回数（call-count）の検証が実行順序依存（order-dependent）になる。
  */
 export function defineSourceParityContract(contract: SourceParityContractInput): void {
   const {
@@ -267,6 +271,8 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
   });
 
   describe(`${suiteName} — 品質契約 (Q)`, () => {
+    // Q-2 ケースはテストファイル全体で単一の hoisted された seoMeta モックを共有しているため、
+    // 各テストファイルで defineSourceParityContract を複数回呼び出すと call-count 検証が順序依存になる。
     it("Q-2: useSeoMeta の title / description が空でなく、title が h1 と整合する", () => {
       seoMeta.mockClear();
       mountPage();
