@@ -81,8 +81,8 @@ COE["PMI Code of Ethics and Professional Conduct"] --> R1["責任 Responsibility
 COE --> R2["尊重 Respect"]
 COE --> R3["公正 Fairness"]
 COE --> R4["誠実 Honesty"]
-R1 --> A1["向上目標基準"]
-R1 --> M1["必須基準"]
+COE --> A1["向上目標基準"]
+COE --> M1["必須基準"]
 
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
@@ -292,7 +292,7 @@ class D done;`;
             <div class="diagram-caption">CAPM試験の4ドメイン配点構成</div>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-variant="source" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><a href="https://www.pmi.org/certifications/certified-associate-capm" target="_blank" rel="noopener">PMI公式 CAPM Certification ページ「Associated exam content」</a></li>
@@ -314,7 +314,7 @@ class D done;`;
             <li><em>Effective Project Management: Traditional, Agile, Extreme, Hybrid</em>(8th Edition)</li>
           </ul>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-variant="source" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf" target="_blank" rel="noopener">CAPM Exam Content Outline p.4</a></li>
