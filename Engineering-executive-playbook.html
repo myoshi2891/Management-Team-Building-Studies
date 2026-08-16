@@ -562,10 +562,12 @@
     .sidebar-toggle { display: flex; }
     .sidebar {
       transform: translateX(-100%);
-      transition: transform 0.2s ease;
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
       box-shadow: none;
     }
-    .sidebar.open { transform: translateX(0); }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
     .main-content { margin-left: 0; padding: 88px 24px 100px; }
     .hero h1 { font-size: 32px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }
@@ -586,7 +588,7 @@
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
 
@@ -635,7 +637,7 @@
         <div class="stat-card"><div class="stat-number">90日</div><div class="stat-label">最初の90日間で信頼を構築する</div></div>
         <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">DORAの主要デリバリー指標</div></div>
         <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">使い分けるリーダーシップスタイル</div></div>
-        <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">参照した一次情報・著名実務家の発信</div></div>
+        <div class="stat-card"><div class="stat-number">15</div><div class="stat-label">参照した一次情報・著名実務家の発信</div></div>
       </div>
 
       <div class="disclaimer-box">
@@ -1114,6 +1116,8 @@
         <ul class="ref-list">
           <li><span class="ref-name">Google, Site Reliability Engineering「Postmortem Culture: Learning from Failure」</span><a class="ref-url" href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener">https://sre.google/sre-book/postmortem-culture/</a></li>
           <li><span class="ref-name">Google, The Site Reliability Workbook「Postmortem Practices for Incident Management」</span><a class="ref-url" href="https://sre.google/workbook/postmortem-culture/" target="_blank" rel="noopener">https://sre.google/workbook/postmortem-culture/</a></li>
+          <li><span class="ref-name">DORA, State of AI-assisted Software Development 2025（2025年 DORA レポート公式ページ）</span><a class="ref-url" href="https://dora.dev/dora-report-2025/" target="_blank" rel="noopener">https://dora.dev/dora-report-2025/</a></li>
+          <li><span class="ref-name">Google Cloud Blog, Announcing the 2025 DORA Report（2025年 DORA レポートの公式解説）</span><a class="ref-url" href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report" target="_blank" rel="noopener">https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report</a></li>
           <li><span class="ref-name">Google re:Work「Understand team effectiveness」(Project Aristotle)</span><a class="ref-url" href="https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness" target="_blank" rel="noopener">https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness</a></li>
           <li><span class="ref-name">DORA 2025年ベンチマーク解説 (Research-Driven Engineering Leadership)</span><a class="ref-url" href="https://rdel.substack.com/p/rdel-115-what-are-the-2025-benchmarks" target="_blank" rel="noopener">https://rdel.substack.com/p/rdel-115-what-are-the-2025-benchmarks</a></li>
           <li><span class="ref-name">Matthew Skelton, Conway's Law: Critical for Efficient Team Design in Tech (IT Revolution／Team Topologies共著者による解説)</span><a class="ref-url" href="https://itrevolution.com/articles/conways-law-critical-for-efficient-team-design-in-tech/" target="_blank" rel="noopener">https://itrevolution.com/articles/conways-law-critical-for-efficient-team-design-in-tech/</a></li>
@@ -1237,7 +1241,7 @@ class S1,S2,S3 box;`
 
     mermaid.initialize({
       startOnLoad: false,
-      securityLevel: "loose",
+      securityLevel: "strict",
       theme: "base",
       themeVariables: {
         background: "transparent",
@@ -1332,6 +1336,9 @@ class S1,S2,S3 box;`
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
+        // visibility:hidden になる前にフォーカスをトグルボタンへ戻す
+        // (非表示要素にフォーカスが残るとキーボード操作の起点が失われるため)
+        if (sidebar.classList.contains("open")) toggle.focus();
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });

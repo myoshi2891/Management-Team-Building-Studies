@@ -1305,6 +1305,9 @@
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
+        // visibility:hidden になる前にフォーカスをトグルボタンへ戻す
+        // (非表示要素にフォーカスが残るとキーボード操作の起点が失われるため)
+        if (sidebar.classList.contains("open")) toggle.focus();
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });

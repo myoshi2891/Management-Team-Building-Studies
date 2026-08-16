@@ -562,10 +562,12 @@
     .sidebar-toggle { display: flex; }
     .sidebar {
       transform: translateX(-100%);
-      transition: transform 0.2s ease;
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
       box-shadow: none;
     }
-    .sidebar.open { transform: translateX(0); }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
     .main-content { margin-left: 0; padding: 88px 24px 100px; }
     .hero h1 { font-size: 32px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }
@@ -586,7 +588,7 @@
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
 
@@ -1093,6 +1095,8 @@
           <li><a href="https://scrumguides.org/" target="_blank" rel="noopener">Scrum Guide(公式)</a></li>
           <li><a href="https://kanban.university/kanban-guide/" target="_blank" rel="noopener">The Kanban Method(Kanban University公式ガイド)</a></li>
           <li><a href="https://djaa.com/the-principles-and-general-practices-of-the-kanban-method/" target="_blank" rel="noopener">Kanbanの原則とプラクティス(David J. Anderson School of Management)</a></li>
+          <!-- extremeprogramming.org は HTTPS 未対応(証明書のホスト名不一致で接続不可)。
+               XP プラクティス一覧の一次ソースはここしかないため HTTP のまま保持する。 -->
           <li><a href="http://www.extremeprogramming.org/rules.html" target="_blank" rel="noopener">Extreme Programmingのルールとプラクティス(公式)</a></li>
           <li><a href="https://framework.scaledagile.com/" target="_blank" rel="noopener">Scaled Agile Framework(公式)</a></li>
         </ul>
@@ -1232,6 +1236,7 @@
           <li><span class="ref-name">Scrum.org, The 2020 Scrum Guide: What You Need to Know — 2017年版から2020年版への変更点の解説</span><a class="ref-url" href="https://www.scrum.org/scrum-guide-2020" target="_blank" rel="noopener">https://www.scrum.org/scrum-guide-2020</a></li>
           <li><span class="ref-name">Kanban University, The Official Guide to The Kanban Method — Kanbanの4原則・6プラクティスの一次ソース</span><a class="ref-url" href="https://kanban.university/kanban-guide/" target="_blank" rel="noopener">https://kanban.university/kanban-guide/</a></li>
           <li><span class="ref-name">David J. Anderson School of Management, The Principles and General Practices of the Kanban Method</span><a class="ref-url" href="https://djaa.com/the-principles-and-general-practices-of-the-kanban-method/" target="_blank" rel="noopener">https://djaa.com/the-principles-and-general-practices-of-the-kanban-method/</a></li>
+          <!-- 上記と同じ理由で HTTP のまま(サイトが HTTPS 未対応) -->
           <li><span class="ref-name">ExtremeProgramming.org, The Rules and Practices of Extreme Programming — XPのプラクティス一覧の一次ソース</span><a class="ref-url" href="http://www.extremeprogramming.org/rules.html" target="_blank" rel="noopener">http://www.extremeprogramming.org/rules.html</a></li>
           <li><span class="ref-name">Scaled Agile, Inc., Scaled Agile Framework(SAFe®)公式サイト — SAFeの階層構造、PIプランニング、WSJFの一次ソース</span><a class="ref-url" href="https://framework.scaledagile.com/" target="_blank" rel="noopener">https://framework.scaledagile.com/</a></li>
           <li><span class="ref-name">Agile Manifesto(アジャイルソフトウェア開発宣言、公式サイト) — アダプティブアプローチ全般の思想的な源流</span><a class="ref-url" href="https://agilemanifesto.org/" target="_blank" rel="noopener">https://agilemanifesto.org/</a></li>
@@ -1405,7 +1410,7 @@
 
     mermaid.initialize({
       startOnLoad: false,
-      securityLevel: "loose",
+      securityLevel: "strict",
       theme: "base",
       themeVariables: {
         background: "transparent",
@@ -1500,6 +1505,9 @@
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
+        // visibility:hidden になる前にフォーカスをトグルボタンへ戻す
+        // (非表示要素にフォーカスが残るとキーボード操作の起点が失われるため)
+        if (sidebar.classList.contains("open")) toggle.focus();
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });

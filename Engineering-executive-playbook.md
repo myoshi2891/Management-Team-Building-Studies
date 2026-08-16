@@ -373,29 +373,31 @@ Larson氏は、一般的に「良い実践」とされているものが行き�
    https://www.oreilly.com/library/view/the-engineering-executives/9781098149475/
 2. Will Larson, ブログ「Irrational Exuberance」
    https://lethain.com/
-3. Will Larson インタビュー「Unexpected Anti-Patterns for Engineering Leaders — Lessons From Stripe, Uber & Carta」（First Round Review）
+3. Will Larson, ブログ「Developing leadership styles」
+   https://lethain.com/developing-leadership-styles/
+4. Will Larson インタビュー「Unexpected Anti-Patterns for Engineering Leaders — Lessons From Stripe, Uber & Carta」（First Round Review）
    https://review.firstround.com/unexpected-anti-patterns-for-engineering-leaders-lessons-from-stripe-uber-carta/
-4. Camille Fournier, *The Manager's Path*（O'Reilly Media）書誌情報・目次
+5. Camille Fournier, *The Manager's Path*（O'Reilly Media）書誌情報・目次
    https://www.oreilly.com/library/view/the-managers-path/9781491973882/
-5. Camille Fournier インタビュー（Lenny's Newsletter）
+6. Camille Fournier インタビュー（Lenny's Newsletter）
    https://www.lennysnewsletter.com/p/engineering-leadership-camille-fournier
-6. Gergely Orosz, The Pragmatic Engineer（ニュースレター）
+7. Gergely Orosz, The Pragmatic Engineer（ニュースレター）
    https://www.pragmaticengineer.com/
-7. Gergely Orosz, *The Software Engineer's Guidebook*
+8. Gergely Orosz, *The Software Engineer's Guidebook*
    https://www.engguidebook.com/
-8. Google, 『Site Reliability Engineering』"Postmortem Culture: Learning from Failure"
+9. Google, 『Site Reliability Engineering』"Postmortem Culture: Learning from Failure"
    https://sre.google/sre-book/postmortem-culture/
-9. Google, 『The Site Reliability Workbook』"Postmortem Practices for Incident Management"
-   https://sre.google/workbook/postmortem-culture/
-10. DORA, "State of AI-assisted Software Development 2025"（2025年 DORA レポート公式ページ）
+10. Google, 『The Site Reliability Workbook』"Postmortem Practices for Incident Management"
+    https://sre.google/workbook/postmortem-culture/
+11. DORA, "State of AI-assisted Software Development 2025"（2025年 DORA レポート公式ページ）
     https://dora.dev/dora-report-2025/
-11. Google Cloud Blog, "Announcing the 2025 DORA Report"（2025年 DORA レポートの公式解説）
+12. Google Cloud Blog, "Announcing the 2025 DORA Report"（2025年 DORA レポートの公式解説）
     https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report
-12. DORA（DevOps Research and Assessment）2025年ベンチマーク解説（Research-Driven Engineering Leadership）
+13. DORA（DevOps Research and Assessment）2025年ベンチマーク解説（Research-Driven Engineering Leadership）
     https://rdel.substack.com/p/rdel-115-what-are-the-2025-benchmarks
-13. Matthew Skelton, "Conway's Law: Critical for Efficient Team Design in Tech"（IT Revolution／Team Topologies共著者による解説）
+14. Matthew Skelton, "Conway's Law: Critical for Efficient Team Design in Tech"（IT Revolution／Team Topologies共著者による解説）
     https://itrevolution.com/articles/conways-law-critical-for-efficient-team-design-in-tech/
-14. Google re:Work, "Understand team effectiveness"（Project Aristotle）
+15. Google re:Work, "Understand team effectiveness"（Project Aristotle）
     https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness
 
 ---
