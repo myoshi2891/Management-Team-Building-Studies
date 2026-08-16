@@ -453,9 +453,12 @@
 
   .diagram-container {
     display: flex;
+    /* safe center 非対応ブラウザ向けに center をフォールバックとして先に置く */
     justify-content: center;
+    justify-content: safe center;
     width: 100%;
     min-height: 60px;
+    overflow-x: auto;
   }
 
   .diagram-loading {
@@ -963,13 +966,13 @@
 
       <h3>4.1 Scrum</h3>
 
-      <p>Scrumは、複雑な問題に対応するためのシンプルな<strong>フレームワーク</strong>(方法論そのものではなく、その上に実践を積み重ねる土台)です。3つのロール、5つのイベント、3つの成果物から構成されます。</p>
+      <p>Scrumは、複雑な問題に対応するためのシンプルな<strong>フレームワーク</strong>(方法論そのものではなく、その上に実践を積み重ねる土台)です。3つのアカウンタビリティ、5つのイベント、3つの成果物から構成されます。</p>
 
       <div class="table-wrap">
         <table>
           <thead><tr><th>構成要素</th><th>内容</th></tr></thead>
           <tbody>
-            <tr><td>ロール(Accountabilities)</td><td>プロダクトオーナー(価値を最大化する責任)、スクラムマスター(Scrumの理解と実践を促進する責任)、開発者(Developers、増分を作成する責任)</td></tr>
+            <tr><td>アカウンタビリティ(Accountabilities)</td><td>プロダクトオーナー(価値を最大化する責任)、スクラムマスター(Scrumの理解と実践を促進する責任)、開発者(Developers、増分を作成する責任)</td></tr>
             <tr><td>イベント(Events)</td><td>スプリント(全体を包む器)、スプリントプランニング、デイリースクラム、スプリントレビュー、スプリントレトロスペクティブ</td></tr>
             <tr><td>成果物(Artifacts)</td><td>プロダクトバックログ(コミットメント: プロダクトゴール)、スプリントバックログ(コミットメント: スプリントゴール)、インクリメント(コミットメント: Definition of Done)</td></tr>
           </tbody>
@@ -1258,17 +1261,18 @@
 
   var DIAGRAMS = {
     taskOverviewFlow: `flowchart TD
-    T1["Task1 アダプティブアプローチが適切な場面を説明する"] --> T2["Task2 プロジェクトイテレーションの計画方法を決定する"]
-    T2 --> T3["Task3 アダプティブプロジェクトのプロジェクトコントロールの文書化方法を決定する"]
-    T3 --> T4["Task4 アダプティブ計画の構成要素を説明する"]
-    T4 --> T5["Task5 タスク管理ステップの準備・実行方法を決定する"]
+    D3["ドメイン3 アダプティブフレームワーク・方法論 5つのタスク"]
+    D3 --> T1["Task1 アダプティブアプローチが適切な場面を説明する"]
+    D3 --> T2["Task2 プロジェクトイテレーションの計画方法を決定する"]
+    D3 --> T3["Task3 アダプティブプロジェクトのプロジェクトコントロールの文書化方法を決定する"]
+    D3 --> T4["Task4 アダプティブ計画の構成要素を説明する"]
+    D3 --> T5["Task5 タスク管理ステップの準備・実行方法を決定する"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class T1 hub;
-    class T2,T3,T4 box;
-    class T5 done;`,
+    class D3 hub;
+    class T1,T2,T3,T4,T5 box;`,
 
     predictiveVsAdaptiveFlow: `flowchart TD
     A["プロジェクトの特性を評価する"] --> B{"要求事項は明確で安定しているか"}
@@ -1292,18 +1296,18 @@
     wbsToBacklogFlow: `flowchart TD
     WBS["WBS 成果物ベースの階層分解"] --> WP["ワークパッケージ"]
     WP --> EPIC["エピック 大きな機能のまとまり"]
-    EPIC --> STORY["ユーザーストーリー"]
-    STORY --> TASK["タスク 見積り可能な作業単位"]
-    TASK --> PBI["プロダクトバックログアイテム PBIとして一覧化"]
-    PBI --> REFINE["優先順位付け バックログリファインメント"]
+    EPIC --> STORY["ユーザーストーリー PBIとして起票"]
+    STORY --> PB["プロダクトバックログ 優先順位付けされたPBIの一覧"]
+    PB --> REFINE["優先順位付け バックログリファインメント"]
     REFINE --> PULL["スプリントバックログへ引き込み Pull"]
+    PULL --> TASK["選択したPBIをタスクへ分解 見積り可能な作業単位"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class WBS hub;
-    class WP,EPIC,STORY,TASK,PBI,REFINE box;
-    class PULL done;`,
+    class WP,EPIC,STORY,PB,REFINE,PULL box;
+    class TASK done;`,
 
     iterationPlanningFlow: `flowchart TD
     VISION["プロダクトビジョン ロードマップ"] --> PO["プロダクトオーナーが優先順位付け"]
@@ -1461,7 +1465,8 @@
         if (svgEl) {
           svgEl.removeAttribute("width");
           svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
+          svgEl.style.maxWidth = "none";
+          svgEl.style.flexShrink = "0";
           svgEl.style.height = "auto";
           svgEl.style.overflow = "visible";
           extendViewBoxHeight(svgEl, 15);
