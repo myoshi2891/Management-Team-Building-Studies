@@ -17,6 +17,10 @@ const sidebarOpen = ref(false);
 const sidebarToggle = ref<HTMLButtonElement | null>(null);
 const activeId = useActiveHeading(TOC_IDS);
 
+// 開いていたときだけフォーカスを退避する。閉じた状態（デスクトップ相当）で
+// 呼ぶと、リンク先へ移動したい利用者からフォーカスを奪ってしまう。
+// 開いていた場合は逆に退避が必須で、モバイルの閉じたサイドバーは
+// visibility: hidden になるためフォーカスが body へ落ちてしまう。
 function closeSidebar(): void {
   const wasOpen = sidebarOpen.value;
   sidebarOpen.value = false;
