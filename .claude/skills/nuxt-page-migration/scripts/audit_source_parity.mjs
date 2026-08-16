@@ -274,7 +274,7 @@ function collectSvgElements(src) {
  */
 function collectMarkupCalloutElements(src) {
   return extractElementContents(src, (openingTag) =>
-    /<(?:Callout|Alert)\b|(?:class|className)\s*=\s*(?:["'][^"']*(?<![\w-])(?:callout|alert)(?![\w-])|\{[^}]*styles\.(?:callout|alert))|data-(?:testid|variant)\s*=\s*["'](?:callout|alert|warn|warning|info|note|good|success|tip)/i.test(
+    /<(?:Callout|Alert)\b|(?:class|className)\s*=\s*(?:["'][^"']*(?<![\w-])(?:callout|alert)(?![\w-])|\{[^}]*styles\.(?:callout|alert)(?![\w-]))|data-(?:testid|variant)\s*=\s*["'](?:callout|alert|warn|warning|info|note|good|success|tip)(?![\w-])/i.test(
       openingTag
     )
   ).map(({ openingTag, content }) => normalizeCalloutElement(openingTag, content));

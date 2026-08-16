@@ -107,13 +107,21 @@ git diff --cached > "$CURRENT" || { echo "NG: 現在の staged 差分を取得�
 COMPARE="$GIT_DIR_PATH/session-baseline-compare.out"
 : > "$COMPARE" || { echo "NG: 比較結果ファイルを作成できない"; exit 1; }
 
-diff "$BASELINE" "$CURRENT" > "$COMPARE"
-DIFF_STATUS=$?
+# `set -e` 下でも終了コードを握れるよう、必ず if 文の条件として実行する
+# （`cmd; STATUS=$?` は差分あり=1 の時点でシェルごと落ちるため使えない）。
+if diff "$BASELINE" "$CURRENT" > "$COMPARE"; then
+  DIFF_STATUS=0
+else
+  DIFF_STATUS=$?
+fi
 case "$DIFF_STATUS" in
   0) echo "OK: ベースラインと同一" ;;
   1)
-    grep -E '^<' "$COMPARE"
-    GREP_STATUS=$?
+    if grep -E '^<' "$COMPARE"; then
+      GREP_STATUS=0
+    else
+      GREP_STATUS=$?
+    fi
     case "$GREP_STATUS" in
       0) echo "NG: 事前 staged の内容が混入している"; exit 1 ;;
       1) echo "OK: 事前 staged の混入なし" ;;

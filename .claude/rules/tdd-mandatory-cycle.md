@@ -184,31 +184,26 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   | 実装 `<name>.py`（例 `fix_mermaid.py`） | 対になる `test_<name>.py`（例 `test_fix_mermaid.py`） |
   | テスト `test_<name>.py`（例 `test_fix_mermaid.py`） | **そのファイル自身**（別名を生成しない） |
 
-  `.mjs` を変更した場合（`<target>` は上表で決まる `.test.mjs` のパス）:
+  実行前に対象ファイルの実在を確認する（存在しないパスを渡すと、テストが無いのに
+  「収集 0 件で成功」と誤読しかねない）。**確認するのは、いま実行しようとしている種別の変数**
+  （`.mjs` なら `TARGET_TEST_MJS`、`.py` なら `TARGET_TEST_PY`）であり、
+  もう一方や前回の値を参照してはならない。したがって存在確認は、対応するテスト実行コマンドの
+  **直前**に、同じブロック内で行う。
+
+  `.mjs` を変更した場合（`$TARGET_TEST_MJS` は上表で決まる `.test.mjs` のパス）:
 
   ```bash
+  [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_MJS"; exit 1; }
   node --test "$TARGET_TEST_MJS"
   echo "exit=$?"   # 0 以外なら Refactor 未完了
   ```
 
-  `.py` を変更した場合（`<target>` は上表で決まる `test_*.py` のパス）:
+  `.py` を変更した場合（`$TARGET_TEST_PY` は上表で決まる `test_*.py` のパス）:
 
   ```bash
+  [ -f "$TARGET_TEST_PY" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_PY"; exit 1; }
   python3 -m pytest "$TARGET_TEST_PY" -q
   echo "exit=$?"   # 0 以外なら Refactor 未完了
-  ```
-
-  実行前に対象ファイルの実在を確認する（存在しないパスを渡すと、テストが無いのに
-  「収集 0 件で成功」と誤読しかねない）。**確認するのは、いま実行しようとしている種別の変数**
-  （`.mjs` なら `TARGET_TEST_MJS`、`.py` なら `TARGET_TEST_PY`）であり、
-  もう一方や前回の値を参照してはならない。
-
-  ```bash
-  # .mjs を実行する場合
-  [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_MJS"; exit 1; }
-
-  # .py を実行する場合
-  [ -f "$TARGET_TEST_PY" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_PY"; exit 1; }
   ```
 
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は
