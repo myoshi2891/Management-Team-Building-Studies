@@ -49,7 +49,7 @@ flowchart LR
     class A,B,C,D,E,F,G step
 ```
 
-CAPM ECOの参考文献リストには、*A Guide to the Project Management Body of Knowledge (PMBOK® Guide) – 第7版*に加え、*The PMI Guide to Business Analysis*（2017年）や*Business Analysis for Practitioners: A Practice Guide – 第2版*（2024年）が明記されています。これはドメイン4がPMBOK単体ではなく、ビジネス分析の専門知識体系（IIBAのBABOK®なども含む業界慣行）を踏まえて出題されることを意味します。
+CAPM ECOの参考文献リストには、*A Guide to the Project Management Body of Knowledge (PMBOK® Guide) – 第7版*に加え、*The PMI Guide to Business Analysis*（2017年）や*Business Analysis for Practitioners: A Practice Guide – 第2版*（2024年）が明記されています。これはドメイン4がPMBOK単体ではなく、ビジネス分析の専門知識体系（業界慣行を含む）を踏まえて出題されることを意味します。
 
 > **補足：** CAPM ECOの巻頭には「これらの書籍を全て読むことは必須ではないが、参考にすると役立つ」と明記されています。CAPM自体はPMBOK第7版に完全準拠したものではなく、独自のJTA（職務タスク分析）に基づいて作成されています。
 
