@@ -6,6 +6,7 @@
 import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
+import { nextTick } from "vue";
 import { MERMAID_DIAGRAM_DECLARATION } from "../../.claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs";
 import Page from "~/pages/capm.vue";
 
@@ -358,6 +359,25 @@ describe("pages/capm.vue — 品質契約 (Q)", () => {
     // h1 が「CAPM® 認定資格 完全ガイド」なので、title もこの資格を指していること。
     expect(meta?.title).toContain("CAPM");
     expect(meta?.title).toContain("認定資格");
+  });
+
+  it("開いていたサイドバーをリンクで閉じた場合だけ toggle にフォーカスを戻す", async () => {
+    const wrapper = mountPage();
+    const toggle = wrapper.get<HTMLButtonElement>(".sidebar-toggle");
+    const link = wrapper.get(".sidebar-nav a");
+
+    const focus = vi.spyOn(toggle.element, "focus");
+
+    // 閉じている状態（デスクトップ相当）ではフォーカスを奪わない。
+    await link.trigger("click");
+    await nextTick();
+    expect(focus).not.toHaveBeenCalled();
+
+    // 開いている状態で閉じたときだけ、非表示になるサイドバーからフォーカスを退避する。
+    await toggle.trigger("click");
+    await link.trigger("click");
+    await nextTick();
+    expect(focus).toHaveBeenCalledTimes(1);
   });
 
   it("Q-3: 見出し階層が飛ばない（h1 → h3 のようなスキップが無い）", () => {
