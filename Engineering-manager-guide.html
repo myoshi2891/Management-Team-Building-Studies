@@ -1267,21 +1267,19 @@
     class L1,L2,L3,L4,L5,L6 box;
     class L7 done;`,
     psychSafety: `flowchart TB
-    PS["心理的安全性 Psychological Safety"] --> D1["相互信頼 Dependability"]
-    PS --> D2["構造と明確さ Structure and Clarity"]
-    PS --> D3["仕事の意味 Meaning"]
-    PS --> D4["インパクト Impact"]
-    D1 --> R["チームの効果性"]
-    D2 --> R
-    D3 --> R
-    D4 --> R
+    subgraph ARISTOTLE["効果的なチームを支える5つの要素 (Project Aristotle)"]
+        direction TB
+        PS["心理的安全性 Psychological Safety (土台となる最重要要素)"]
+        D1["相互信頼 Dependability"]
+        D2["構造と明確さ Structure and Clarity"]
+        D3["仕事の意味 Meaning"]
+        D4["インパクト Impact"]
+    end
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class D1,D2,D3,D4 box;
-    class PS hub;
-    class R done;`,
+    class PS hub;`,
     reviewProcess: `flowchart TB
     A["自己評価の記入"] --> B["マネージャーによる一次評価の作成"]
     B --> C["エビデンス収集 プロジェクト実績 ピアフィードバック"]
