@@ -144,14 +144,21 @@ nav { height: 100%; display: flex; align-items: stretch; }
 }
 
 /*
- * 極小画面（320px 等）では、ブランド名を隠してナビ 3 項目を全て残す。
+ * 極小画面（320px 等）では、ブランド名を隠してナビ 6 項目を全て残す。
  * .global-brand は min-width: max-content のため縮まず、
- * ブランド名 + ナビ 3 項目が global-header-inner の幅を超えてはみ出す。
+ * ブランド名 + ナビ 6 項目が global-header-inner の幅を超えてはみ出す。
  * 到達性（ナビ）を優先し、ブランドは丸マークのみにする
  * （リンクの aria-label がアクセシブル名を保持するため名前は失われない）。
+ *
+ * ブランド名を隠すだけでは 320px に収まらない。内容幅の見積もりは
+ * 丸マーク 34px + inner の gap 10px + ナビ 6 項目 = 44px + 6 × min-width で、
+ * 使える幅は 320px - 24px（inner の左右余白）= 296px。
+ * したがってリンクの min-width は 42px 以下でなければならない（40px を採る）。
  */
 @media (max-width: 400px) {
   .global-brand-copy { display: none; }
+  .global-nav-link { min-width: 40px; padding-inline: 4px; }
+  .global-nav-link::after { right: 4px; left: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
