@@ -1272,7 +1272,9 @@ class S1,S2,S3 box;`
         htmlLabels: true,
         nodeSpacing: 45,
         rankSpacing: 48,
-        curve: "basis"
+        curve: "basis",
+        // subgraph を含む図(teamTopologies)でタイトルが枠内のノードに重なるのを防ぐ。
+        subGraphTitleMargin: { top: 10, bottom: 28 }
       },
       pie: {
         useMaxWidth: false
