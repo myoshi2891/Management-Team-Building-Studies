@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
@@ -36,37 +38,64 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     const wrapper = mountPage();
     const cards = wrapper.findAll("[data-testid='guide-card']");
 
+    // accent は `guide-card-<accent>` クラスとして要素に出る。CSS 側に対応する
+    // `--card-accent` 定義が無い accent（例: gold）を検知するため要素クラスも固定する。
     expect(cards.map((card) => ({
       title: card.get("h3").text(),
       category: card.get(".guide-category").text(),
       href: card.get("a").attributes("href"),
+      accentClass: card.classes().find((name) => name.startsWith("guide-card-")),
     }))).toEqual([
       {
         title: "CAPM® 認定資格 完全ガイド",
         category: "PROJECT MANAGEMENT",
         href: "/capm",
+        accentClass: "guide-card-indigo",
       },
       {
         title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
         category: "PROJECT MANAGEMENT",
         href: "/certified-associate-in-project-management-domain1",
+        accentClass: "guide-card-gold",
       },
       {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
+        accentClass: "guide-card-forest",
       },
       {
         title: "エンジニアリングチームのリード術 完全ガイド",
         category: "ENGINEERING LEADERSHIP",
         href: "/engineering-team-leadership-guide",
+        accentClass: "guide-card-plum",
       },
       {
         title: "エンジニアリングマネージャー入門完全ガイド",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-manager-guide",
+        accentClass: "guide-card-indigo",
       },
     ]);
+  });
+
+  it("使用中のアクセントクラスすべてに --card-accent とアイコン配色を定義している", () => {
+    const source = readFileSync(resolve(process.cwd(), "app/pages/index.vue"), "utf8");
+    const usedAccents = [...new Set(
+      mountPage()
+        .findAll("[data-testid='guide-card']")
+        .map((card) => card.classes().find((name) => name.startsWith("guide-card-")))
+        .filter((name): name is string => name !== undefined),
+    )];
+
+    expect(usedAccents.length).toBeGreaterThan(0);
+    for (const accentClass of usedAccents) {
+      expect(source).toContain(`.${accentClass} { --card-accent:`);
+      // アイコン配色は既定が indigo のため、それ以外は上書き定義が必須。
+      if (accentClass !== "guide-card-indigo") {
+        expect(source).toContain(`.${accentClass} .guide-icon {`);
+      }
+    }
   });
 
   it("ガイド選択を助ける学習テーマを完全一致で表示する", () => {
