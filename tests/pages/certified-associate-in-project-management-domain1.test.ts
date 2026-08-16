@@ -197,7 +197,10 @@ const EXPECTED_CALLOUT_TOTAL = Object.values(EXPECTED_CALLOUT_VARIANTS).reduce(
   0,
 );
 
-const EXPECTED_CALLOUT_LABELS = ["ソース", "ベストプラクティス"] as const;
+const EXPECTED_CALLOUT_LABELS = {
+  source: { "ソース": 25 },
+  practice: { "ベストプラクティス": 21 },
+} as const;
 
 // 原本にステップ表記は存在しないため空。原本に無い要素を移植先へ要求しない。
 const EXPECTED_STEP_TAGS = [] as const;

@@ -234,7 +234,11 @@ const EXPECTED_SECTION_EYEBROWS = [
 /** 原本の `.callout.<variant>` の出現数。variant 名は原本のクラス名をそのまま使う。 */
 const EXPECTED_CALLOUT_VARIANTS = { note: 1, source: 12, practice: 2 } as const;
 
-const EXPECTED_CALLOUT_LABELS = ["補足", "ソース", "ベストプラクティス"] as const;
+const EXPECTED_CALLOUT_LABELS = {
+  note: { "補足": 1 },
+  source: { "ソース": 12 },
+  practice: { "ベストプラクティス": 2 },
+} as const;
 
 const EXPECTED_STEP_TAGS = [
   "1", "2", "3", "4",

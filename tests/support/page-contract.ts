@@ -55,7 +55,12 @@ export interface SourceParityContractInput {
   readonly mermaidSources: readonly string[];
   /** 原本の `.callout.<variant>` の出現数。 */
   readonly calloutVariants: Readonly<Record<string, number>>;
-  readonly calloutLabels: readonly string[];
+  /**
+   * 原本の `.callout.<variant>` ごとの `.callout-title` 文言と出現数。
+   * 許可リスト（どの variant に付いていてもよい文言の集合）にすると、
+   * variant とラベルの取り違えを素通しするため、variant 単位で凍結する。
+   */
+  readonly calloutLabels: Readonly<Record<string, Readonly<Record<string, number>>>>;
   readonly stepTags: readonly string[];
   /** Q-2 で useSeoMeta の title に含まれることを要求する語。 */
   readonly seoTitleFragments: readonly string[];
@@ -247,18 +252,28 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
       expect(actual).toEqual({ ...calloutVariants });
     });
 
-    it("D-2: 全 callout がラベル子要素を持ち、ラベル文言が原本と一致する", () => {
+    it("D-2: 全 callout がラベル子要素を持ち、variant ごとのラベル文言が原本と一致する", () => {
       const wrapper = mountPage();
       const callouts = wrapper.findAll('[data-testid="callout"]');
       // 期待総数は calloutVariants から導出する（callout を持たないページでも成立させる）。
       const expectedTotal = Object.values(calloutVariants).reduce((sum, n) => sum + n, 0);
       expect(callouts).toHaveLength(expectedTotal);
 
+      const actual: Record<string, Record<string, number>> = {};
       for (const callout of callouts) {
         const label = callout.find('[data-testid="callout-label"]');
         expect(label.exists()).toBe(true);
-        expect(calloutLabels).toContain(label.text().trim());
+
+        const variant = callout.attributes("data-variant") ?? "";
+        // 未知の variant を「ラベルが一致しない」ではなく「対応表が無い」として落とす。
+        expect(Object.keys(calloutLabels)).toContain(variant);
+
+        const text = label.text().trim();
+        const byLabel = (actual[variant] ??= {});
+        byLabel[text] = (byLabel[text] ?? 0) + 1;
       }
+      // 過不足・取り違えの双方を 1 回の完全一致で検証する。
+      expect(actual).toEqual(calloutLabels);
     });
 
     it("D-3: step タグが原本と同じ内容・同じ順序で存在する", () => {
