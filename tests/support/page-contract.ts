@@ -5,7 +5,7 @@
 // このモジュールが原本 HTML を読み込むことは禁止する。読み込んだ時点でテストが
 // 原本の写しになり、転写漏れを検知できなくなる。
 import { mount } from "@vue/test-utils";
-import { describe, expect, it, vi } from "vitest";
+import { beforeAll, describe, expect, it, vi } from "vitest";
 import type { Mock } from "vitest";
 import type { Component } from "vue";
 import { MERMAID_DIAGRAM_DECLARATION } from "../../.claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs";
@@ -193,8 +193,15 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
       expect(offenders).toEqual([]);
     });
 
+    // C-6a/c/d/e は同じ chart 文字列列を読むだけなので、マウントは 1 回に集約する。
+    // DOM を書き換える C-6b は個別マウントのまま（状態を共有させない）。
+    let charts: string[] = [];
+    beforeAll(() => {
+      charts = texts(mountPage(), '[data-testid="mermaid"]');
+    });
+
     it("C-6a: 全図解の chart が原本の Mermaid ソースと完全一致する（順序込み）", () => {
-      expect(texts(mountPage(), '[data-testid="mermaid"]')).toEqual([...mermaidSources]);
+      expect(charts).toEqual([...mermaidSources]);
     });
 
     it("C-6b: 全図解が .mermaid-wrap に包まれている", () => {
@@ -205,20 +212,20 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
     });
 
     it("C-6c: 各図解が空でなく、共有定義にある図種別の宣言から始まる", () => {
-      for (const chart of texts(mountPage(), '[data-testid="mermaid"]')) {
+      for (const chart of charts) {
         expect(chart.length).toBeGreaterThan(0);
         expect(chart).toMatch(MERMAID_DIAGRAM_DECLARATION);
       }
     });
 
     it("C-6d: 禁止構文 block-beta を使っていない", () => {
-      for (const chart of texts(mountPage(), '[data-testid="mermaid"]')) {
+      for (const chart of charts) {
         expect(chart).not.toContain("block-beta");
       }
     });
 
     it("C-6e: 図解のソースが左端揃え（先頭行にインデントが無い）", () => {
-      for (const chart of texts(mountPage(), '[data-testid="mermaid"]')) {
+      for (const chart of charts) {
         const firstLine = chart.split("\n").find((l) => l.trim().length > 0) ?? "";
         expect(firstLine).toBe(firstLine.trimStart());
       }
@@ -239,7 +246,9 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
     it("D-2: 全 callout がラベル子要素を持ち、ラベル文言が原本と一致する", () => {
       const wrapper = mountPage();
       const callouts = wrapper.findAll('[data-testid="callout"]');
-      expect(callouts.length).toBeGreaterThan(0);
+      // 期待総数は calloutVariants から導出する（callout を持たないページでも成立させる）。
+      const expectedTotal = Object.values(calloutVariants).reduce((sum, n) => sum + n, 0);
+      expect(callouts).toHaveLength(expectedTotal);
 
       for (const callout of callouts) {
         const label = callout.find('[data-testid="callout-label"]');
