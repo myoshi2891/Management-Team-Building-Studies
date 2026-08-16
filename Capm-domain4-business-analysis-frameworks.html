@@ -453,9 +453,12 @@
 
   .diagram-container {
     display: flex;
+    /* safe center 非対応ブラウザ向けに center をフォールバックとして先に置く */
     justify-content: center;
+    justify-content: safe center;
     width: 100%;
     min-height: 60px;
+    overflow-x: auto;
   }
 
   .diagram-loading {
@@ -586,7 +589,7 @@
 </head>
 <body>
 
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
 
@@ -1394,7 +1397,8 @@
         if (svgEl) {
           svgEl.removeAttribute("width");
           svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
+          svgEl.style.maxWidth = "none";
+          svgEl.style.flexShrink = "0";
           svgEl.style.height = "auto";
           svgEl.style.overflow = "visible";
           extendViewBoxHeight(svgEl, 15);
