@@ -565,10 +565,12 @@
     .sidebar-toggle { display: flex; }
     .sidebar {
       transform: translateX(-100%);
-      transition: transform 0.2s ease;
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
       box-shadow: none;
     }
-    .sidebar.open { transform: translateX(0); }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
     .main-content { margin-left: 0; padding: 88px 24px 100px; }
     .hero h1 { font-size: 32px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }
@@ -1205,6 +1207,9 @@
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
+        // visibility:hidden になる前にフォーカスをトグルボタンへ戻す
+        // (非表示要素にフォーカスが残るとキーボード操作の起点が失われるため)
+        if (sidebar.classList.contains("open")) toggle.focus();
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
       });
