@@ -1,5 +1,6 @@
 # エンジニアリング統括責任者の手引き
-### ― 初学者のためのステップバイステップ・ベストプラクティス ―
+
+*― 初学者のためのステップバイステップ・ベストプラクティス ―*
 
 > 本ガイドは、CTO・VP of Engineering・Head of Engineeringなど「エンジニアリング組織全体に責任を持つ立場（エンジニアリング統括責任者）」に初めて就く方、あるいはその役割を目指す方のために、国際的に著名な実務家・研究の知見をもとにステップバイステップでまとめたものです。特に、Stripe・Uber・Calm・CartaでCTOを務めたWill Larson氏の著書『The Engineering Executive's Primer』（O'Reilly, 2024）を骨格として、Camille Fournier氏（元Rent the Runway CTO）の『The Manager's Path』、Gergely Orosz氏（The Pragmatic Engineer）、GoogleのSREチーム・re:Workチームの研究、Team Topologiesの知見などを統合しています。各セクションの根拠となる一次情報のURLは末尾の「参考文献・引用元」にまとめています。
 
@@ -62,7 +63,7 @@ flowchart LR
 
 ## 3. Phase 1：最初の90日間
 
-多くのエンジニアリング統括責任者が、就任から18か月以内に不本意な形で退任しているという指摘があります。最初の90日間の過ごし方が、その後の成否を大きく左右します。
+Will Larsonは『The Engineering Executive's Primer』の中で、初めてエグゼクティブ職に就いた多くの人が、最初の18か月のうちに不本意な形でその職を離れていると述べています（参考文献1）。最初の90日間の過ごし方が、その後の成否を大きく左右します。
 
 ```mermaid
 flowchart TD
@@ -386,11 +387,15 @@ Larson氏は、一般的に「良い実践」とされているものが行き�
    https://sre.google/sre-book/postmortem-culture/
 9. Google, 『The Site Reliability Workbook』"Postmortem Practices for Incident Management"
    https://sre.google/workbook/postmortem-culture/
-10. DORA（DevOps Research and Assessment）2025年ベンチマーク解説（Research-Driven Engineering Leadership）
+10. DORA, "State of AI-assisted Software Development 2025"（2025年 DORA レポート公式ページ）
+    https://dora.dev/dora-report-2025/
+11. Google Cloud Blog, "Announcing the 2025 DORA Report"（2025年 DORA レポートの公式解説）
+    https://cloud.google.com/blog/products/ai-machine-learning/announcing-the-2025-dora-report
+12. DORA（DevOps Research and Assessment）2025年ベンチマーク解説（Research-Driven Engineering Leadership）
     https://rdel.substack.com/p/rdel-115-what-are-the-2025-benchmarks
-11. Matthew Skelton, "Conway's Law: Critical for Efficient Team Design in Tech"（IT Revolution／Team Topologies共著者による解説）
+13. Matthew Skelton, "Conway's Law: Critical for Efficient Team Design in Tech"（IT Revolution／Team Topologies共著者による解説）
     https://itrevolution.com/articles/conways-law-critical-for-efficient-team-design-in-tech/
-12. Google re:Work, "Understand team effectiveness"（Project Aristotle）
+14. Google re:Work, "Understand team effectiveness"（Project Aristotle）
     https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness
 
 ---

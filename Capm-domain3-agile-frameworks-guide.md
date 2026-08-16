@@ -117,6 +117,8 @@ CAPMでは「組織のプロセス資産(Organizational Process Assets, OPA)」�
 > - 組織構造がアダプティブに不向き(階層型・強いマトリックス)な場合でも、まずは小さなパイロットチームから始めて実績(OPA)を積み上げるアプローチが有効。
 > - EEFの評価では「変化を歓迎する文化があるか」「経営層のスポンサーシップがあるか」を必ず確認する。これが欠けているとアジャイル導入は形骸化しやすい。
 
+<!-- 引用ボックスの区切り (MD028) -->
+
 > **参照ソース**: PMI, *CAPM Exam Content Outline*, p.9(Domain 3 Task 1) / PMI & Agile Alliance, *Agile Practice Guide*(2017年、PMBOK® Guide第6版との同梱版として刊行)の概説は PMIの学習ページを参照。[https://www.pmi.org/learning/agile](https://www.pmi.org/learning/agile)
 
 ---
@@ -206,6 +208,8 @@ flowchart TD
 > - WBSからバックログへの変換では、直近1〜2スプリント分だけを詳細タスクに分解する「ローリングウェーブ計画」の考え方を適用する。
 > - 進捗報告では、予測型の指標(EVM)とアダプティブの指標(ベロシティ)を無理に一致させようとせず、ステークホルダーにはそれぞれの指標が意味することを説明する。
 
+<!-- 引用ボックスの区切り (MD028) -->
+
 > **参照ソース**: PMI, *CAPM Exam Content Outline*, p.9(Domain 3 Task 2) / Scrum Guide(Ken Schwaber & Jeff Sutherland, 2020年11月版, 公式サイト). [https://scrumguides.org/](https://scrumguides.org/)
 
 ---
@@ -234,6 +238,8 @@ ECOが示すイネーブラーは1つです。
 > - アーティファクトは「作ること」自体が目的化しないよう注意する。バーンダウンチャートやカンバンボードは、あくまでチームの会話を促すための道具であり、報告のためだけの飾りにしない。
 > - Definition of Doneはプロジェクト開始時にチーム全員で合意し、途中で安易に緩めない。品質基準の一貫性を保つことが、アダプティブプロジェクトの信頼性を支える。
 > - 複数チームが関わる場合は、チームごとにDefinition of Doneやアーティファクトのフォーマットがばらつかないよう、テンプレートを組織のOPAとして整備する。
+
+<!-- 引用ボックスの区切り (MD028) -->
 
 > **参照ソース**: PMI, *CAPM Exam Content Outline*, p.9(Domain 3 Task 3) / Scrum Guide, 2020. [https://scrumguides.org/](https://scrumguides.org/)
 
@@ -359,6 +365,8 @@ ECOの「etc.」に含まれうる、その他の代表的な軽量アジャイ�
 > - 実務でフレームワークを選ぶ際は「1チームか複数チームか」「変更の頻度は高いか」「技術的負債の解消を重視するか」という軸で使い分ける。
 > - Scrum・XP・Kanbanは互いに排他的ではなく、「Scrumban(Scrum+Kanban)」のようにプラクティスを組み合わせて使う組織も多い。
 
+<!-- 引用ボックスの区切り (MD028) -->
+
 > **参照ソース**:
 > - PMI, *CAPM Exam Content Outline*, p.9(Domain 3 Task 4)
 > - Scrum Guide(公式). [https://scrumguides.org/](https://scrumguides.org/)
@@ -413,6 +421,8 @@ DoDとAcceptance Criteriaを混同しないことが重要です。**DoDはす�
 > - Definition of Ready・Definition of Done・Acceptance Criteriaは、チーム発足時にまとめて文書化し、スプリントごとに見直す。3つを混同すると「完了」の合意が崩れ、手戻りの原因になる。
 > - 優先順位付けは一度決めて終わりにせず、バックログリファインメントのたびに見直す。市場やステークホルダーの状況変化を反映することが、アダプティブアプローチの本質。
 > - WSJFのような定量的手法を使う場合も、最終的な優先順位はプロダクトオーナーの意思決定であることを忘れない。数値は判断材料であって、機械的な自動決定のためのものではない。
+
+<!-- 引用ボックスの区切り (MD028) -->
 
 > **参照ソース**: PMI, *CAPM Exam Content Outline*, p.9(Domain 3 Task 5) / Scrum Guide, 2020. [https://scrumguides.org/](https://scrumguides.org/) / Scaled Agile Framework(WSJFの解説を含む). [https://framework.scaledagile.com/](https://framework.scaledagile.com/)
 
