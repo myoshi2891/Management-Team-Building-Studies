@@ -20,7 +20,8 @@ Mermaid.js による図解、目次連動スクロール、洗練されたタイ
 > 上記は Nuxt サイト（`app/pages/`）に移行済みのガイドのみです
 > （登録先は `app/pages/index.vue` の `guides` と `app/components/SiteHeader.vue` の `navigation`）。
 > リポジトリ直下には、サイト未移行のガイド原本（Markdown / 単一ファイル HTML プレビュー）も置いています
-> （CAPM ドメイン2・ドメイン3、エンジニアリング統括責任者の手引き）。
+> （CAPM ドメイン2・ドメイン3、エンジニアリング統括責任者の手引き、
+> リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド（Markdown のみ））。
 
 ---
 

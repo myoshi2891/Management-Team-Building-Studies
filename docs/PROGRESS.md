@@ -12,7 +12,7 @@
 | コードコミット HEAD | `ff2ca56` — test(pages): add contract test for card accent classes and icon palette（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
-| テスト数 | **145** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 6 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
+| テスト数 | **149** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
@@ -31,7 +31,7 @@
 | 部品 | 状態 | 契約テスト |
 |---|---|---|
 | `app/components/MermaidDiagram.vue` | ✅ 完了 | `tests/components/MermaidDiagram.test.ts`（11 件） |
-| `app/plugins/mermaid.client.ts` | ✅ 完了 | 同上（コンポーネントからの再 initialize を禁止） |
+| `app/plugins/mermaid.client.ts` | ✅ 完了 | `tests/plugins/mermaid.client.test.ts`（3 件・初期化設定の契約）+ 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
 | `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（3 件）+ `tests/app.test.ts`（1 件） |
@@ -123,6 +123,20 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 参考文献の見出し `h4` → `h3` 昇格 | `書籍`, `著名な実践者のブログ・ニュースレター`, `企業・研究機関の一次情報`, `実務ガイド・2026年動向` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
 | 監査スクリプトのエンティティデコード追加 | `audit_source_parity.mjs` の `decodeEntities` に `&mdash;`（`—`）と `&rarr;`（`→`）を追加 | HTML 原本の文字実体参照と Vue 側の Unicode 文字との照合不一致を解消するため |
 
+### 7. Mermaid `securityLevel` を原本の `loose` から `strict` へ変更（2026-08-16）
+
+コードレビュー指摘への対応。**原本 HTML からの意図的な逸脱**であるため記録する。
+
+| 項目 | 内容 |
+|---|---|
+| 対象 | `app/plugins/mermaid.client.ts` と、リポジトリ直下の静的ガイド HTML 5 本、`md-to-html` スキルの雛形 |
+| 理由 | 図のソースはリポジトリ内に固定されており、`loose` が有効にするラベル内スクリプトや `click` 構文を一切使っていない。緩める必要がない |
+| 検証 | 静的 HTML 5 本をヘッドレス描画し 41 図すべてエラー 0、Nuxt 側は E2E で 9 図の描画とコンソールエラー 0 を確認 |
+| 契約 | `tests/plugins/mermaid.client.test.ts` が `strict` を固定する |
+
+アーカイブ済み原本（`archive/` 配下）は当時の状態を保存する目的のため `loose` のまま残している。
+`app/plugins/mermaid.client.ts` の JSDoc が、この 1 点だけ原本から逐語移植していない旨を明記している。
+
 ## 次回セッションでの再開プロンプト
 
 ```text
@@ -142,8 +156,8 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 145 件
+  - ユニットテスト 149 件
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
 
-ベースラインテスト数: ユニット 145 + E2E 4
+ベースラインテスト数: ユニット 149 + E2E 4
 ```
