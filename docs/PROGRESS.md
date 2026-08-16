@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `f7410bd` — fix(types): add env.d.ts and tests/tsconfig.json for IDE TypeScript support（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `ff2ca56` — test(pages): add contract test for card accent classes and icon palette（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
-| ビルド状態 | `npm run test` ✔ / `nuxi typecheck` ✔ / `npm run lint` ✔ |
-| テスト数 | **144** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
+| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
+| テスト数 | **145** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 6 + CAPM page 23 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致） |
 
 ## ページ移行状況
@@ -128,22 +128,22 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 66518ba
+コードコミット HEAD: ff2ca56
 次の作業: 保守・新規ガイドの追加
   新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
   navigation への登録が必須（契約 N-1〜N-3）
 
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
+  - app/pages/certified-associate-in-project-management-domain1.vue（CAPM ドメイン1 ガイド）
   - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
   - app/pages/engineering-team-leadership-guide.vue（エンジニアリングチームリード術 ガイド）
   - app/pages/engineering-manager-guide.vue（エンジニアリングマネージャー入門完全ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 121 件
+  - ユニットテスト 145 件
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
 
-ベースラインテスト数: ユニット 121 + E2E 4
+ベースラインテスト数: ユニット 145 + E2E 4
 ```
-
