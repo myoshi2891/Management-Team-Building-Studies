@@ -1,10 +1,9 @@
 // 期待値は原本 HTML から機械生成した凍結リテラル。
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
-import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { describe, expect, it, vi } from "vitest";
-import { MERMAID_DIAGRAM_DECLARATION } from "../../.claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs";
+import { vi } from "vitest";
+import { defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/engineering-team-leadership-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -184,225 +183,22 @@ const EXPECTED_STEP_TAGS = [
   "1", "2", "3", "4", "5", "6", "7", "8", "9",
 ] as const;
 
-/** 図解ラッパー内の MermaidDiagram を素の <pre> に置換して chart 値を読み取る。 */
-const MermaidStub = {
-  props: { chart: { type: String, required: true } },
-  template: `<pre data-testid="mermaid">{{ chart }}</pre>`,
-};
-
-const mountPage = () =>
-  mount(Page, {
-    global: {
-      stubs: {
-        ClientOnly: { template: "<div><slot /></div>" },
-        MermaidDiagram: MermaidStub,
-      },
-    },
-  });
-
-/** 末尾スラッシュの有無を吸収して URL を比較する。 */
-const normalizeUrl = (url: string) => url.replace(/\/$/, "");
-
-function texts(wrapper: ReturnType<typeof mountPage>, selector: string): string[] {
-  return wrapper.findAll(selector).map((el) => el.text().trim());
-}
-
-describe("pages/engineering-team-leadership-guide.vue — 原本照合契約 (S)", () => {
-  it("S-1: h2 が原本と完全一致する（順序込み）", () => {
-    expect(texts(mountPage(), "h2")).toEqual([...EXPECTED_H2]);
-  });
-
-  it("S-2: h3 が原本と完全一致する（順序込み・h4昇格を含む）", () => {
-    expect(texts(mountPage(), "h3")).toEqual([...EXPECTED_H3]);
-  });
-
-  it("S-2b: h4 を残さない（昇格済み）", () => {
-    expect(texts(mountPage(), "h4")).toEqual([...EXPECTED_H4]);
-  });
-
-  it("S-2c: 原本に無い h5 / h6 を作らない", () => {
-    const wrapper = mountPage();
-    expect(texts(wrapper, "h5")).toEqual([...EXPECTED_H5]);
-    expect(texts(wrapper, "h6")).toEqual([...EXPECTED_H6]);
-  });
-
-  it("S-3: 原本の外部リンク URL が全件存在する", () => {
-    const actual = new Set(
-      mountPage()
-        .findAll("a[href^='http']")
-        .map((el) => normalizeUrl(el.attributes("href") ?? "")),
-    );
-    const missing = EXPECTED_EXTERNAL_URLS.filter((url) => !actual.has(normalizeUrl(url)));
-    expect(missing).toEqual([]);
-  });
-
-  it("S-4: 文書内の全 id が一意で、TOC のアンカーが実在の見出しを指す", () => {
-    const wrapper = mountPage();
-    const ids = wrapper.findAll("[id]").map((el) => el.attributes("id"));
-
-    expect(ids.filter((id) => !id)).toEqual([]);
-    expect(new Set(ids).size).toBe(ids.length);
-
-    const headingIds = new Set(
-      wrapper
-        .findAll("h2, h3")
-        .map((el) => el.attributes("id") || el.element.closest("section")?.id)
-        .filter((id): id is string => Boolean(id)),
-    );
-    const unresolved = wrapper
-      .findAll("a[href^='#']")
-      .map((el) => (el.attributes("href") ?? "").slice(1))
-      .filter((id) => !headingIds.has(id));
-    expect(unresolved).toEqual([]);
-  });
-});
-
-describe("pages/engineering-team-leadership-guide.vue — サイドバー操作", () => {
-  it("開いていたサイドバーをリンクで閉じた場合だけ toggle にフォーカスを戻す", async () => {
-    const wrapper = mountPage();
-    const toggle = wrapper.get<HTMLButtonElement>("#sidebarToggle");
-    const focus = vi.spyOn(toggle.element, "focus");
-    const firstLink = wrapper.get(".sidebar-nav a");
-
-    await firstLink.trigger("click");
-    await wrapper.vm.$nextTick();
-    expect(focus).not.toHaveBeenCalled();
-
-    await toggle.trigger("click");
-    await firstLink.trigger("click");
-    await wrapper.vm.$nextTick();
-    expect(focus).toHaveBeenCalledTimes(1);
-  });
-});
-
-describe("pages/engineering-team-leadership-guide.vue — コンテンツ契約 (C)", () => {
-  it("C-1: h1 のテキストが原本と完全一致する", () => {
-    expect(texts(mountPage(), "h1")).toEqual([...EXPECTED_H1]);
-  });
-
-  it("C-2: サイドバー TOC が原本と同じ順序・同じアンカーを持つ", () => {
-    const hrefs = mountPage()
-      .findAll(".sidebar-nav a")
-      .map((el) => el.attributes("href"));
-    expect(hrefs).toEqual(EXPECTED_TOC_IDS.map((id) => `#${id}`));
-  });
-
-  it("C-3: 初期状態で先頭の TOC 項目がアクティブになっている", () => {
-    const active = mountPage().findAll(".sidebar-nav a.active");
-    expect(active).toHaveLength(1);
-    expect(active[0]?.attributes("href")).toBe(`#${EXPECTED_TOC_IDS[0]}`);
-  });
-
-  it("C-4: 外部リンク全件が target=_blank かつ rel に noopener を含む", () => {
-    const offenders = mountPage()
-      .findAll("a[href^='http']")
-      .filter((el) => {
-        const rel = el.attributes("rel") ?? "";
-        return el.attributes("target") !== "_blank" || !rel.split(/\s+/).includes("noopener");
-      })
-      .map((el) => el.attributes("href"));
-    expect(offenders).toEqual([]);
-  });
-
-  it("C-5: 内部リンクに .html 拡張子が含まれない", () => {
-    const offenders = mountPage()
-      .findAll("a")
-      .map((el) => el.attributes("href") ?? "")
-      .filter((href) => !href.startsWith("http") && href.includes(".html"));
-    expect(offenders).toEqual([]);
-  });
-
-  it("C-6a: 全図解の chart が原本の Mermaid ソースと完全一致する（順序込み）", () => {
-    expect(texts(mountPage(), '[data-testid="mermaid"]')).toEqual([...EXPECTED_MERMAID_SOURCES]);
-  });
-
-  it("C-6b: 全図解が .mermaid-wrap に包まれている", () => {
-    const wrapper = mountPage();
-    const all = wrapper.findAll('[data-testid="mermaid"]').length;
-    expect(all).toBe(EXPECTED_MERMAID_SOURCES.length);
-    expect(wrapper.findAll('.mermaid-wrap [data-testid="mermaid"]')).toHaveLength(all);
-  });
-
-  it("C-6c: 各図解が空でなく、共有定義にある図種別の宣言から始まる", () => {
-    for (const chart of texts(mountPage(), '[data-testid="mermaid"]')) {
-      expect(chart.length).toBeGreaterThan(0);
-      expect(chart).toMatch(MERMAID_DIAGRAM_DECLARATION);
-    }
-  });
-
-  it("C-6d: 禁止構文 block-beta を使っていない", () => {
-    for (const chart of texts(mountPage(), '[data-testid="mermaid"]')) {
-      expect(chart).not.toContain("block-beta");
-    }
-  });
-
-  it("C-6e: 図解のソースが左端揃え（先頭行にインデントが無い）", () => {
-    for (const chart of texts(mountPage(), '[data-testid="mermaid"]')) {
-      const firstLine = chart.split("\n").find((l) => l.trim().length > 0) ?? "";
-      expect(firstLine).toBe(firstLine.trimStart());
-    }
-  });
-});
-
-describe("pages/engineering-team-leadership-guide.vue — デザイン契約 (D)", () => {
-  it("D-1: callout が原本と同じ variant 構成で存在する", () => {
-    const wrapper = mountPage();
-    const actual: Record<string, number> = {};
-    for (const el of wrapper.findAll('[data-testid="callout"]')) {
-      const variant = el.attributes("data-variant") ?? "";
-      actual[variant] = (actual[variant] ?? 0) + 1;
-    }
-    expect(actual).toEqual({ ...EXPECTED_CALLOUT_VARIANTS });
-  });
-
-  it("D-2: 全 callout がラベル子要素を持ち、ラベル文言が原本と一致する", () => {
-    const wrapper = mountPage();
-    const callouts = wrapper.findAll('[data-testid="callout"]');
-    expect(callouts.length).toBeGreaterThan(0);
-
-    for (const callout of callouts) {
-      const label = callout.find('[data-testid="callout-label"]');
-      expect(label.exists()).toBe(true);
-      expect(EXPECTED_CALLOUT_LABELS).toContain(label.text().trim());
-    }
-  });
-
-  it("D-3: step タグが原本と同じ内容・同じ順序で存在する", () => {
-    expect(texts(mountPage(), '[data-testid="step-tag"]')).toEqual([...EXPECTED_STEP_TAGS]);
-  });
-
-  it("D-5a: セクション見出しのキッカーが原本と完全一致する", () => {
-    expect(texts(mountPage(), '[data-testid="section-eyebrow"]')).toEqual([
-      ...EXPECTED_SECTION_EYEBROWS,
-    ]);
-  });
-});
-
-describe("pages/engineering-team-leadership-guide.vue — 品質契約 (Q)", () => {
-  it("Q-2: useSeoMeta の title / description が空でなく、title が h1 と整合する", () => {
-    seoMeta.mockClear();
-    mountPage();
-
-    expect(seoMeta).toHaveBeenCalledTimes(1);
-    const meta = seoMeta.mock.calls[0]?.[0] as { title?: string; description?: string };
-
-    expect(meta?.title ?? "").not.toBe("");
-    expect(meta?.description ?? "").not.toBe("");
-    expect(meta?.title).toContain("エンジニアリングチーム");
-    expect(meta?.title).toContain("リード術");
-  });
-
-  it("Q-3: 見出し階層が飛ばない（h1 → h3 のようなスキップが無い）", () => {
-    const levels = mountPage()
-      .findAll("h1, h2, h3, h4, h5, h6")
-      .map((el) => Number(el.element.tagName.slice(1)));
-
-    let previous = 0;
-    const skips: string[] = [];
-    for (const level of levels) {
-      if (previous && level > previous + 1) skips.push(`h${previous} -> h${level}`);
-      previous = level;
-    }
-    expect(skips).toEqual([]);
-  });
+defineSourceParityContract({
+  suiteName: "pages/engineering-team-leadership-guide.vue",
+  page: Page,
+  seoMeta,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: EXPECTED_STEP_TAGS,
+  seoTitleFragments: ["エンジニアリングチーム", "リード術"],
 });
