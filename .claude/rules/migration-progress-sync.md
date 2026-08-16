@@ -8,7 +8,7 @@ paths:
 
 # docs/PROGRESS.md セッション終了前同期ルール
 
-(最終更新日: 2026-08-15)
+(最終更新日: 2026-08-16)
 
 HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが逼迫する前に**必ず以下を実施してセッションを終えること。
 
@@ -73,7 +73,12 @@ echo "SESSION_ID=$SESSION_ID"   # ← この値を控える。コミット直前
 
 **`git commit` の直前に実行する。**
 
-こちらも fail-closed。`diff` の終了コードは **1（差分あり）と 2 以上（比較そのものの失敗）を必ず分離**し、
+こちらも fail-closed。判定の基準は **「staged なパス集合 ⊆ 本コミットで意図した許可パス集合」**
+であり、開始時ベースライン（＝空であることが保証されている）との行差分ではない。
+空ファイルとの `diff` から `^<` 行を探す判定は**構造的に 1 行も出ない**ため、
+常に「混入なし」を返す空回りになる。同じ形の検査を復活させてはならない。
+
+`git diff` の終了コードは **1（差分あり）と 2 以上（比較そのものの失敗）を必ず分離**し、
 `grep` の終了コード 2 以上（読み取り失敗）を「混入なし」と読み替えてはならない。
 
 `SESSION_ID` には、開始時の手順が出力した値をそのまま与える。ファイルの存在確認だけでは
@@ -97,45 +102,72 @@ STORED_ID="$(printf '%s' "$STORED_ID" | tr -d '[:space:]')"
 git status --short              # 作業ツリー全体の変更
 git diff --cached --name-only   # 実際にコミットされるファイル
 
-# 開始時 staged との差分（同一パスの事前変更も検出する）
-CURRENT="$GIT_DIR_PATH/session-current-staged.diff"
-git diff --cached > "$CURRENT" || { echo "NG: 現在の staged 差分を取得できない"; exit 1; }
+# 本コミットで意図しているパスを明示列挙する（`git add` に渡したものと一字一句同じにする）。
+# ここが判定の基準であり、「空のベースラインとの差分」ではない。
+ALLOWED_PATHS="docs/PROGRESS.md"
 
-# 比較結果ファイルは diff より先に開けることを確認する。
-# リダイレクトに失敗すると diff は実行されないまま終了コード 1 になり、
-# 「差分あり」と区別が付かないうえ、古い比較結果を読んで「混入なし」と誤判定しうる。
-COMPARE="$GIT_DIR_PATH/session-baseline-compare.out"
-: > "$COMPARE" || { echo "NG: 比較結果ファイルを作成できない"; exit 1; }
+# (1) 開始時のベースラインが空だったことを機械的に再確認する。
+#     空でなければ開始手順が破られており、以降の包含判定に意味が無い。
+BASELINE_LINES="$(wc -l < "$GIT_DIR_PATH/session-baseline-staged.txt")" \
+  || { echo "NG: ベースライン行数の取得に失敗"; exit 1; }
+BASELINE_LINES="$(printf '%s' "$BASELINE_LINES" | tr -d '[:space:]')"
+case "$BASELINE_LINES" in
+  ''|*[!0-9]*) echo "NG: ベースライン行数が数値でない: '$BASELINE_LINES'"; exit 1 ;;
+esac
+[ "$BASELINE_LINES" -eq 0 ] \
+  || { echo "NG: 開始時点で $BASELINE_LINES 件が staged 済み。判定不能"; exit 1; }
 
-# `set -e` 下でも終了コードを握れるよう、必ず if 文の条件として実行する
-# （`cmd; STATUS=$?` は差分あり=1 の時点でシェルごと落ちるため使えない）。
-if diff "$BASELINE" "$CURRENT" > "$COMPARE"; then
-  DIFF_STATUS=0
+# (2) 現在 staged なパス集合 ⊆ 許可パス集合 を検証する。
+#     --name-only は追加・変更・削除をすべてパスとして列挙するため、
+#     削除だけの巻き込みもこの判定で捕まる。
+ALLOWED_FILE="$GIT_DIR_PATH/session-allowed-paths.txt"
+: > "$ALLOWED_FILE" || { echo "NG: 許可リストを作成できない"; exit 1; }
+for path in $ALLOWED_PATHS; do
+  printf '%s\n' "$path" >> "$ALLOWED_FILE" || { echo "NG: 許可リストを書けない"; exit 1; }
+done
+
+STAGED="$GIT_DIR_PATH/session-staged-now.txt"
+git diff --cached --name-only > "$STAGED" \
+  || { echo "NG: 現在の staged 一覧を取得できない"; exit 1; }
+
+UNEXPECTED=0
+while IFS= read -r path; do
+  [ -n "$path" ] || continue
+  if grep -qxF -- "$path" "$ALLOWED_FILE"; then continue; fi
+  echo "NG: 許可リストに無い staged ファイル: $path"
+  UNEXPECTED=$((UNEXPECTED + 1))
+done < "$STAGED"
+[ "$UNEXPECTED" -eq 0 ] || { echo "NG: 意図しないファイルを巻き込んでいる"; exit 1; }
+
+# (3) 許可パスに未 staged の差分が残っていないことを確認する。
+#     残っていると次段の pathspec コミットが「検証していない作業ツリーの内容」を
+#     取り込んでしまう（pathspec 付き commit は index ではなく作業ツリーを見る）。
+if git diff --quiet -- $ALLOWED_PATHS; then
+  echo "OK: 許可パスは index と作業ツリーが一致"
 else
   DIFF_STATUS=$?
+  case "$DIFF_STATUS" in
+    1) echo "NG: 許可パスに未 staged の差分がある。git add してから再実行する"; exit 1 ;;
+    *) echo "NG: git diff が失敗（exit=$DIFF_STATUS）。判定不能"; exit 1 ;;
+  esac
 fi
-case "$DIFF_STATUS" in
-  0) echo "OK: ベースラインと同一" ;;
-  1)
-    if grep -E '^<' "$COMPARE"; then
-      GREP_STATUS=0
-    else
-      GREP_STATUS=$?
-    fi
-    case "$GREP_STATUS" in
-      0) echo "NG: 事前 staged の内容が混入している"; exit 1 ;;
-      1) echo "OK: 事前 staged の混入なし" ;;
-      *) echo "NG: grep が失敗（exit=$GREP_STATUS）。判定不能"; exit 1 ;;
-    esac
-    ;;
-  *) echo "NG: diff が失敗（exit=$DIFF_STATUS）。判定不能"; exit 1 ;;
-esac
+echo "OK: staged なパスは全て許可リスト内"
+```
+
+検証と `git commit` の間に別プロセスが `git add` しても取り込まないよう、**コミットは必ず
+許可パスを pathspec として明示**する（`git add -A` 済みの index を丸ごと信用しない）。
+上記 (3) により許可パスの index と作業ツリーは一致しているので、pathspec コミットの内容は
+検証した状態と同一になる。
+
+```bash
+git commit -m "chore(docs): update docs/PROGRESS.md — <作業内容の1行要約>" -- $ALLOWED_PATHS
 ```
 
 以下のいずれかに該当する場合は、**コミットせずに停止し、ユーザーへ状況を報告して指示を仰ぐ**。
 
 - 開始時のベースラインが空でなかった（`$GIT_DIR_PATH/session-baseline-staged.txt` が 1 行以上）
-- 上記 `diff` が `^<` 行を出力した（開始時 staged の内容がコミットに含まれている）
+- 上記 (2) が `許可リストに無い staged ファイル` を出力した（意図しない巻き込み）
+- 上記 (3) が未 staged の差分を検出した（コミット内容が検証した状態と一致しない）
 - `git diff --cached --name-only` に、本セッションで自分が編集していないファイルが含まれる
 - `git status --short` に、本作業と無関係な未コミット変更が残っており、
   `git add` の指定次第で巻き込む恐れがある
@@ -204,7 +236,8 @@ git rev-parse --short HEAD
 
 ```bash
 git add docs/PROGRESS.md
-git commit -m "chore(docs): update docs/PROGRESS.md — <作業内容の1行要約>"
+# 「自律コミット前の対象範囲検証」を実行してから、許可パスを pathspec として明示してコミットする
+git commit -m "chore(docs): update docs/PROGRESS.md — <作業内容の1行要約>" -- docs/PROGRESS.md
 ```
 
 ## 禁止
