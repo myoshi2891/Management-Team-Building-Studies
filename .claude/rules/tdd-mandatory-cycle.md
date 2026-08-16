@@ -195,7 +195,9 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   ```bash
   [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_MJS"; exit 1; }
   node --test "$TARGET_TEST_MJS"
-  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  status=$?
+  echo "exit=$status"   # 0 以外なら Refactor 未完了
+  [ "$status" -eq 0 ] || exit "$status"
   ```
 
   `.py` を変更した場合（`$TARGET_TEST_PY` は上表で決まる `test_*.py` のパス）:
@@ -203,7 +205,9 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   ```bash
   [ -f "$TARGET_TEST_PY" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_PY"; exit 1; }
   python3 -m pytest "$TARGET_TEST_PY" -q
-  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  status=$?
+  echo "exit=$status"   # 0 以外なら Refactor 未完了
+  [ "$status" -eq 0 ] || exit "$status"
   ```
 
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は
