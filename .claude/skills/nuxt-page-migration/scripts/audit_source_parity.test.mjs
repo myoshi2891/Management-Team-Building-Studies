@@ -129,6 +129,29 @@ test("does not treat identifiers that merely start with callout or alert as call
 	assert.deepEqual(result.json.counts.calloutElements, { source: 1, page: 1 });
 });
 
+test("does not treat identifiers that merely end with callout or alert as callouts", () => {
+	const source = '<div class="callout warn"><p>Keep this exact text.</p></div>';
+	const result = audit(
+		source,
+		`<><div className={\`\${styles.callout} \${styles.warn}\`}><p>Keep this exact text.</p></div>
+<div className={themeStyles.callout}><p>Not a callout.</p></div>
+<div className={pageStyles.alert}><p>Not a callout either.</p></div></>`,
+	);
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.counts.calloutElements, { source: 1, page: 1 });
+});
+
+test("does not derive callout markers from identifiers that merely contain a marker name", () => {
+	const result = audit(
+		'<div class="callout warn"><p>Keep this exact text.</p></div>',
+		`<div className={\`\${styles.callout} \${styles.warn}\`} data-role="alertBanner"><p>Keep this exact text.</p></div>`,
+	);
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingCalloutElements, []);
+});
+
 test("extracts Markdown admonitions as callout elements", () => {
 	const result = audit(
 		"> [!WARNING]\n> Keep this exact text.",
