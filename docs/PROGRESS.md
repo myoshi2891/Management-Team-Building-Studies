@@ -13,7 +13,7 @@
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
 | テスト数 | **149** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
-| 原本照合監査 | ✔ exit 0（全要素一致） |
+| 原本照合監査 | ✔ exit 0（全要素一致）。ただし **CAPM ドメイン1 のみ exit 1 かつ差分 1 件が正常**（「正当な差分の記録」§8 の意図的逸脱。それ以外の差分が出たら移行漏れ） |
 
 ## ページ移行状況
 
@@ -23,7 +23,7 @@
 | `archive/Engineering-management-career-path/Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `archive/Engineering-management-career-path/Engineering-team-leadership-guide.html` | `app/pages/engineering-team-leadership-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `Engineering-manager-guide.html` | `app/pages/engineering-manager-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
-| `Certified-associate-in-project-management-domain1.html` | `app/pages/certified-associate-in-project-management-domain1.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `Certified-associate-in-project-management-domain1.html` | `app/pages/certified-associate-in-project-management-domain1.vue` | ✅ 全文移行・契約テスト Green。原本照合監査は **exit 1 / 差分 1 件が正常**（§8 の意図的逸脱） |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -182,6 +182,9 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - MermaidDiagram.vue / useActiveHeading.ts
   - ユニットテスト 149 件
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
+    ただし CAPM ドメイン1 の原本照合監査だけは exit 1 かつ差分 1 件
+    （リスク登録簿 R-002 の意図的逸脱。docs/PROGRESS.md「正当な差分の記録」§8 を参照。
+    差分がこの 1 件以外に増えたら移行漏れとして Green コミット禁止）
 
 ベースラインテスト数: ユニット 149 + E2E 4
 ```
