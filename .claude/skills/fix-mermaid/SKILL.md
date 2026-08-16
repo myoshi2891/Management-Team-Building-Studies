@@ -380,7 +380,7 @@ import mermaid from "mermaid";
 export default defineNuxtPlugin(() => {
   mermaid.initialize({
     startOnLoad: false,
-    securityLevel: "loose",
+    securityLevel: "strict",
     htmlLabels: true,
     // 自然サイズを起点に縮小するため flowchart/sequence/mindmap とも false
     flowchart: { useMaxWidth: false },
