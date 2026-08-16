@@ -53,6 +53,8 @@ Mermaid.js によるダイアグラム図解、目次（TOC）スクロール連
   - エンジニアリング統括責任者の手引き (`Engineering-executive-playbook.md` / `.html`)
   - リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド (`the-art-of-leadership.md` / `Leadership-practices-guide.html`)
   - Team Geek — Googleのギークたちはいかにしてチームを作るのか (`Team-geek-guide.md`)
+- **チームビルディング**:
+  - ダイナミック・リチーミング実践ガイド (`Dynamic-reteaming-guide.md`)
 
 ---
 
