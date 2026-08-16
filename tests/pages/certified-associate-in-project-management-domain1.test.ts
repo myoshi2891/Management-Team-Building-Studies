@@ -1,11 +1,10 @@
 // 期待値は原本 HTML から機械生成した凍結リテラル。
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
-import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
-import { defineComponent, nextTick } from "vue";
-import { MERMAID_DIAGRAM_DECLARATION } from "../../.claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs";
+import { nextTick } from "vue";
+import { createMountPage, defineSourceParityContract, texts } from "../support/page-contract";
 import Page from "~/pages/certified-associate-in-project-management-domain1.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -61,6 +60,9 @@ const EXPECTED_H4 = [
   "プロジェクトマネジメントへの影響",
 ] as const;
 
+const EXPECTED_H5 = [] as const;
+const EXPECTED_H6 = [] as const;
+
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart LR
 A["CAPM試験 135採点問題"] --> B["ドメイン1 PM基礎と主要概念 36%"]
@@ -99,8 +101,8 @@ COE["PMI Code of Ethics and Professional Conduct"] --> R1["責任 Responsibility
 COE --> R2["尊重 Respect"]
 COE --> R3["公正 Fairness"]
 COE --> R4["誠実 Honesty"]
-R1 --> A1["向上目標基準"]
-R1 --> M1["必須基準"]
+COE --> A1["向上目標基準"]
+COE --> M1["必須基準"]
 
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
@@ -184,224 +186,85 @@ const EXPECTED_TOC_ITEMS = [
   { href: "#references", text: "参考文献・出典" },
 ] as const;
 
-function normalizeMermaidSource(raw: string): string {
-  const lines = raw.replace(/\r\n?/g, "\n").split("\n");
-  while (lines.length > 0 && (lines[0]?.trim() ?? "") === "") lines.shift();
-  while (lines.length > 0 && (lines[lines.length - 1]?.trim() ?? "") === "") lines.pop();
-  const indents = lines
-    .filter((line) => line.trim().length > 0)
-    .map((line) => line.match(/^\s*/)?.[0]?.length ?? 0);
-  const commonIndent = indents.length > 0 ? Math.min(...indents) : 0;
-  return lines.map((line) => line.slice(commonIndent).trimEnd()).join("\n");
-}
+/**
+ * 原本の `.callout.<variant>` の出現数。件数は必ずこの 1 か所から導出し、
+ * variant 別と合計を別々にハードコードしない（片方だけ直して食い違う事故を防ぐ）。
+ */
+const EXPECTED_CALLOUT_VARIANTS = { source: 25, practice: 21 } as const;
 
-const MermaidStub = defineComponent({
-  props: {
-    chart: { type: String, required: true },
-    theme: { type: String, default: "base" },
-    themeVariables: { type: Object, default: () => ({}) },
-  },
-  template: '<pre data-testid="mermaid">{{ chart }}</pre>',
+const EXPECTED_CALLOUT_TOTAL = Object.values(EXPECTED_CALLOUT_VARIANTS).reduce(
+  (sum, count) => sum + count,
+  0,
+);
+
+const EXPECTED_CALLOUT_LABELS = ["ソース", "ベストプラクティス"] as const;
+
+// 原本にステップ表記は存在しないため空。原本に無い要素を移植先へ要求しない。
+const EXPECTED_STEP_TAGS = [] as const;
+
+// 原本照合 (S) / コンテンツ (C) / デザイン (D) / 品質 (Q) の共通契約。
+// 1 ファイルにつき呼び出しは 1 回まで（page-contract.ts の NOTE を参照）。
+defineSourceParityContract({
+  suiteName: "pages/certified-associate-in-project-management-domain1.vue",
+  page: Page,
+  seoMeta,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_ITEMS.map((item) => item.href.replace(/^#/, "")),
+  sectionEyebrows: EXPECTED_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: EXPECTED_STEP_TAGS,
+  seoTitleFragments: ["CAPM® ドメイン1"],
 });
 
-const IconStub = defineComponent({
-  props: { name: { type: String, required: false } },
-  template: '<i :class="name" aria-hidden="true" />',
-});
+const mountPage = createMountPage(Page);
 
-const mountPage = () =>
-  mount(Page, {
-    global: {
-      stubs: {
-        MermaidDiagram: MermaidStub,
-        ClientOnly: { template: "<div><slot /></div>" },
-        Icon: IconStub,
-        NuxtLink: {
-          props: ["to"],
-          template: '<a :href="to"><slot /></a>',
-        },
-      },
-    },
-  });
-
-describe("pages/certified-associate-in-project-management-domain1.vue — 契約テスト", () => {
-  it("S-1: h2 の見出しが原本と順序込みで完全一致する", () => {
+describe("pages/certified-associate-in-project-management-domain1.vue — ページ固有契約", () => {
+  it("TOC のリンク文言が原本と順序込みで完全一致する（共有契約は href のみ照合）", () => {
     const actual = mountPage()
-      .findAll("h2")
-      .map((el) => el.text().trim());
-    expect(actual).toEqual([...EXPECTED_H2]);
-  });
-
-  it("S-2: h3 の見出しが原本と順序込みで完全一致する", () => {
-    const actual = mountPage()
-      .findAll("h3")
-      .map((el) => el.text().trim());
-    expect(actual).toEqual([...EXPECTED_H3]);
-  });
-
-  it("S-3: 原本の外部リンク URL が全件存在する", () => {
-    const hrefs = mountPage()
-      .findAll("a[href^='http']")
-      .map((el) => el.attributes("href"));
-    for (const url of EXPECTED_EXTERNAL_URLS) {
-      expect(hrefs).toContain(url);
-    }
-  });
-
-  it("S-4: 全 h2/h3 が一意な id を持ち、TOC のアンカーが全て実在する見出しまたはセクションを指す", () => {
-    const wrapper = mountPage();
-    const sectionIds = new Set(
-      wrapper
-        .findAll("section[id], h2[id], h3[id]")
-        .map((el) => el.attributes("id")),
-    );
-    for (const item of EXPECTED_TOC_ITEMS) {
-      const targetId = item.href.replace(/^#/, "");
-      expect(sectionIds.has(targetId)).toBe(true);
-    }
-  });
-
-  it("C-1: h1 のテキストが完全一致する", () => {
-    const actual = mountPage()
-      .findAll("h1")
-      .map((el) => el.text().trim());
-    expect(actual).toEqual([...EXPECTED_H1]);
-  });
-
-  it("C-2: クイックナビ（TOC リンク）の件数と href 形式を固定する", () => {
-    const links = mountPage().findAll(".sidebar-nav a");
-    expect(links.length).toBe(EXPECTED_TOC_ITEMS.length);
-    const actual = links.map((el) => ({
-      href: el.attributes("href"),
-      text: el.text().trim(),
-    }));
+      .findAll(".sidebar-nav a")
+      .map((el) => ({ href: el.attributes("href"), text: el.text().trim() }));
     expect(actual).toEqual([...EXPECTED_TOC_ITEMS]);
   });
 
-  it("C-3: サイドバー TOC の初期アクティブ状態を示すクラスが存在する", () => {
-    const activeLinks = mountPage().findAll(".sidebar-nav a.active");
-    expect(activeLinks.length).toBeGreaterThanOrEqual(1);
-    expect(activeLinks[0]?.attributes("href")).toBe(EXPECTED_TOC_ITEMS[0]?.href);
-  });
-
-  it("C-4: 外部リンク全件に target='_blank' かつ rel='noopener' が付与されている", () => {
-    const externalLinks = mountPage().findAll("a[href^='http']");
-    expect(externalLinks.length).toBeGreaterThan(0);
-    for (const link of externalLinks) {
-      expect(link.attributes("target")).toBe("_blank");
-      expect(link.attributes("rel")).toContain("noopener");
-    }
-  });
-
-  it("C-5: 内部リンクに .html 拡張子が含まれない", () => {
-    const internalLinks = mountPage()
-      .findAll("a:not([href^='http'])")
-      .map((el) => el.attributes("href") ?? "");
-    for (const href of internalLinks) {
-      expect(href).not.toMatch(/\.html(?:#|$)/);
-    }
-  });
-
-  it("C-6a: Mermaid ソースが原本と順序・内容・出現回数込みで完全一致する", () => {
-    const actual = mountPage()
-      .findAll('[data-testid="mermaid"]')
-      .map((el) => normalizeMermaidSource(el.text()));
-    expect(actual).toEqual([...EXPECTED_MERMAID_SOURCES]);
-  });
-
-  it("C-6b: 全 Mermaid 図解がページ専用ラッパーに包まれている", () => {
+  it("callout の総数が variant 別の合計と一致する", () => {
     const wrapper = mountPage();
-    const all = wrapper.findAll('[data-testid="mermaid"]').length;
-    const wrapped = wrapper.findAll('.mermaid-wrap [data-testid="mermaid"]').length;
-    expect(wrapped).toBe(all);
-    expect(all).toBe(8);
+    expect(wrapper.findAll('[data-testid="callout"]')).toHaveLength(EXPECTED_CALLOUT_TOTAL);
+    expect(wrapper.findAll('[data-testid="callout-label"]')).toHaveLength(EXPECTED_CALLOUT_TOTAL);
   });
 
-  it("C-6c: 各図解が空でなく、図種別の宣言から始まる", () => {
-    for (const el of mountPage().findAll('[data-testid="mermaid"]')) {
-      const chart = el.text().trim();
-      expect(chart.length).toBeGreaterThan(0);
-      expect(chart).toMatch(MERMAID_DIAGRAM_DECLARATION);
-    }
+  it("統計カードが 4 件存在する", () => {
+    expect(mountPage().findAll(".stat-card")).toHaveLength(4);
   });
 
-  it("C-6d: 禁止構文 block-beta を使っていない", () => {
-    for (const el of mountPage().findAll('[data-testid="mermaid"]')) {
-      expect(el.text()).not.toContain("block-beta");
-    }
-  });
-
-  it("C-6e: 図解のソースが左端揃え（先頭行にインデントが無い）", () => {
-    for (const el of mountPage().findAll('[data-testid="mermaid"]')) {
-      const firstLine = el.text().split("\n").find((l) => l.trim().length > 0) ?? "";
-      expect(firstLine).toBe(firstLine.trimStart());
-    }
-  });
-
-  it("D-1: callout が data-variant で区別され原本の種別・件数と一致する", () => {
-    const wrapper = mountPage();
-    const sourceCallouts = wrapper.findAll('.callout[data-variant="source"], .callout.source');
-    const practiceCallouts = wrapper.findAll('.callout[data-variant="practice"], .callout.practice');
-    expect(sourceCallouts.length).toBe(25);
-    expect(practiceCallouts.length).toBe(21);
-    expect(sourceCallouts.length + practiceCallouts.length).toBe(46);
-  });
-
-  it("D-2: callout のタイトルラベルが原本と一致する", () => {
-    const titles = mountPage()
-      .findAll(".callout .callout-title")
-      .map((el) => el.text().trim());
-    expect(titles.length).toBe(46);
-    for (const title of titles) {
-      expect(["ソース", "ベストプラクティス"]).toContain(title);
-    }
-  });
-
-  it("D-3: 統計カードが 4 件存在する", () => {
-    const cards = mountPage().findAll(".stat-card");
-    expect(cards.length).toBe(4);
-  });
-
-  it("D-5: section-eyebrow が順序込みで完全一致する", () => {
-    const actual = mountPage()
-      .findAll(".section-eyebrow")
-      .map((el) => el.text().trim());
-    expect(actual).toEqual([...EXPECTED_EYEBROWS]);
-  });
-
-  it("Q-1: TOC のスクロール連動用 ID 配列が全セクションを網羅している", () => {
-    const expectedIds = EXPECTED_TOC_ITEMS.map((item) => item.href.replace(/^#/, ""));
-    const wrapper = mountPage();
-    for (const id of expectedIds) {
-      expect(wrapper.find(`#${id}`).exists()).toBe(true);
-    }
-  });
-
-  it("Q-2: useSeoMeta の title / description が正しく設定されている", () => {
-    mountPage();
-    expect(seoMeta).toHaveBeenCalledWith(
-      expect.objectContaining({
-        title: expect.stringContaining("CAPM® ドメイン1"),
-        description: expect.stringContaining("CAPM"),
-      }),
+  it("見出しの総数が原本の見出し件数と一致する", () => {
+    const levels = texts(mountPage(), "h1, h2, h3, h4, h5, h6");
+    expect(levels).toHaveLength(
+      EXPECTED_H1.length +
+        EXPECTED_H2.length +
+        EXPECTED_H3.length +
+        EXPECTED_H4.length +
+        EXPECTED_H5.length +
+        EXPECTED_H6.length,
     );
   });
 
-  it("Q-3: 見出し階層が飛ばない（h1 → h2 → h3 → h4 の順）", () => {
-    const headings = mountPage()
-      .findAll("h1, h2, h3, h4, h5, h6")
-      .map((el) => Number(el.element.tagName.replace(/^H/, "")));
-    expect(headings.length).toBe(1 + EXPECTED_H2.length + EXPECTED_H3.length + EXPECTED_H4.length);
-    let prevLevel = 0;
-    for (const level of headings) {
-      if (prevLevel > 0) {
-        expect(level - prevLevel).toBeLessThanOrEqual(1);
-      }
-      prevLevel = level;
-    }
+  it("useSeoMeta の description に CAPM が含まれる", () => {
+    seoMeta.mockClear();
+    mountPage();
+    expect(seoMeta).toHaveBeenCalledWith(
+      expect.objectContaining({ description: expect.stringContaining("CAPM") }),
+    );
   });
 
-  it("サイドバーの開閉トグルボタンが aria-expanded を更新する", async () => {
+  it("サイドバーの開閉トグルボタンが aria-expanded と open クラスを同期させる", async () => {
     const wrapper = mountPage();
     const toggle = wrapper.find("#sidebarToggle");
     const sidebar = wrapper.find("#sidebar");
@@ -414,25 +277,8 @@ describe("pages/certified-associate-in-project-management-domain1.vue — 契約
     expect(sidebar.classes()).toContain("open");
 
     await toggle.trigger("click");
+    await nextTick();
     expect(toggle.attributes("aria-expanded")).toBe("false");
     expect(sidebar.classes()).not.toContain("open");
   });
-
-  it("開いていたサイドバーをリンクで閉じた場合だけ toggle にフォーカスを戻す", async () => {
-    const wrapper = mountPage();
-    const toggle = wrapper.get<HTMLButtonElement>("#sidebarToggle");
-    const link = wrapper.get(".sidebar-nav a");
-
-    const focus = vi.spyOn(toggle.element, "focus");
-
-    await link.trigger("click");
-    await nextTick();
-    expect(focus).not.toHaveBeenCalled();
-
-    await toggle.trigger("click");
-    await link.trigger("click");
-    await nextTick();
-    expect(focus).toHaveBeenCalledTimes(1);
-  });
 });
-

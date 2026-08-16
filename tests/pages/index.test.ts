@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
@@ -80,7 +81,11 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
   });
 
   it("使用中のアクセントクラスすべてに --card-accent とアイコン配色を定義している", () => {
-    const source = readFileSync(resolve(process.cwd(), "app/pages/index.vue"), "utf8");
+    // 実行ディレクトリに依存しないよう、このテストファイルからの相対で解決する。
+    // nuxt 環境ではグローバル URL が jsdom 実装のため、new URL(相対, import.meta.url) は
+    // file: ベースを無視して http://localhost:3000 で解決してしまう。パスに落としてから解決する。
+    const testDir = dirname(fileURLToPath(import.meta.url));
+    const source = readFileSync(resolve(testDir, "../../app/pages/index.vue"), "utf8");
     const usedAccents = [...new Set(
       mountPage()
         .findAll("[data-testid='guide-card']")
@@ -90,10 +95,13 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
 
     expect(usedAccents.length).toBeGreaterThan(0);
     for (const accentClass of usedAccents) {
-      expect(source).toContain(`.${accentClass} { --card-accent:`);
+      // 整形（改行・インデント）で偽陰性にならないよう空白を許容して照合する。
+      expect(source).toMatch(
+        new RegExp(`\\.${accentClass}\\s*\\{[^}]*--card-accent\\s*:`),
+      );
       // アイコン配色は既定が indigo のため、それ以外は上書き定義が必須。
       if (accentClass !== "guide-card-indigo") {
-        expect(source).toContain(`.${accentClass} .guide-icon {`);
+        expect(source).toMatch(new RegExp(`\\.${accentClass}\\s+\\.guide-icon\\s*\\{`));
       }
     }
   });
