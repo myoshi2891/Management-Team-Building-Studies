@@ -377,7 +377,7 @@ Forsgren 自身が説明するように、DORAは「今どういう状態か」�
 
 ### 11.1 「プレイヤーコーチ」モデルへの回帰
 
-2026年、AIコーディングエージェントの普及により、エンジニアリングマネジメントの実態にも明確な変化が起きています。LeadDevの「Engineering Leadership Report 2026」によれば、より多くのエンジニアリングリーダーが技術的な作業に直接関わるようになっており、マネージャー層でハンズオンの技術作業を行う割合は2025年の20%から2026年には35%へ増加しました。Gergely Orosz が2024年に予測した「プレイヤーコーチ」モデル（マネジメントと実務の両方を担うマネージャー像）が、現実のものになりつつあります。
+2026年、AIコーディングエージェントの普及により、エンジニアリングマネジメントの実態にも明確な変化が起きています。LeadDevの「Engineering Leadership Report 2026」によれば、より多くのエンジニアリングリーダーが技術的な作業に直接関わるようになっており、マネージャー層でハンズオンの技術作業を行う割合は2025年の20%から2026年には35%へ増加しました。マネージャー層に限らないエンジニアリングリーダー全体で見ても、37%が前年より多くハンズオンの技術業務に関わっていると回答しています。Gergely Orosz が2024年に予測した「プレイヤーコーチ」モデル（マネジメントと実務の両方を担うマネージャー像）が、現実のものになりつつあります。
 
 ```mermaid
 flowchart TB
@@ -480,6 +480,8 @@ Stanier は著書『Become an Effective Software Engineering Manager』の中で
     https://leaddev.com/management/engineering-managers-are-back-in-the-codebase
 21. Culture Amp, "Performance review calibrations: What you need to know"
     https://www.cultureamp.com/blog/performance-review-calibrations
+22. LeadDev, "The Engineering Leadership Report 2026"（第11章が引用する調査レポートの原典）
+    https://leaddev.com/the-engineering-leadership-report-2026
 
 ---
 

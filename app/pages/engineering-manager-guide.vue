@@ -789,7 +789,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
           <h2>AI時代のエンジニアリングマネジメント(2026年最新動向)</h2>
 
           <h3>「プレイヤーコーチ」モデルへの回帰</h3>
-          <p>2026年、AIコーディングエージェントの普及により、エンジニアリングマネジメントの実態にも明確な変化が起きています。LeadDevの「Engineering Leadership Report 2026」によれば、より多くのエンジニアリングリーダーが技術的な作業に直接関わるようになっており、マネージャー層でハンズオンの技術作業を行う割合は2025年の20%から2026年には35%へ増加しました。Gergely Oroszが2024年に予測した「プレイヤーコーチ」モデル(マネジメントと実務の両方を担うマネージャー像)が、現実のものになりつつあります。</p>
+          <p>2026年、AIコーディングエージェントの普及により、エンジニアリングマネジメントの実態にも明確な変化が起きています。LeadDevの「Engineering Leadership Report 2026」によれば、より多くのエンジニアリングリーダーが技術的な作業に直接関わるようになっており、マネージャー層でハンズオンの技術作業を行う割合は2025年の20%から2026年には35%へ増加しました。マネージャー層に限らないエンジニアリングリーダー全体で見ても、37%が前年より多くハンズオンの技術業務に関わっていると回答しています。Gergely Oroszが2024年に予測した「プレイヤーコーチ」モデル(マネジメントと実務の両方を担うマネージャー像)が、現実のものになりつつあります。</p>
 
           <div class="diagram-card mermaid-wrap">
             <div class="diagram-container">
@@ -818,6 +818,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><a href="https://leaddev.com/management/engineering-managers-are-back-in-the-codebase" target="_blank" rel="noopener">LeadDev, Engineering managers are back in the codebase</a></li>
+              <li><a href="https://leaddev.com/the-engineering-leadership-report-2026" target="_blank" rel="noopener">LeadDev, The Engineering Leadership Report 2026</a></li>
             </ul>
           </div>
         </section>
@@ -921,6 +922,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
               <li><span class="ref-name">Jurgen Appelo, Management 3.0, "Delegation Skills &amp; Empowerment"(委任の7段階)</span><a class="ref-url" href="https://management30.com/empower-teams/delegation-empowerment/" target="_blank" rel="noopener">https://management30.com/empower-teams/delegation-empowerment/</a></li>
               <li><span class="ref-name">Culture Amp, "Performance review calibrations: What you need to know"</span><a class="ref-url" href="https://www.cultureamp.com/blog/performance-review-calibrations" target="_blank" rel="noopener">https://www.cultureamp.com/blog/performance-review-calibrations</a></li>
               <li><span class="ref-name">LeadDev, "Engineering managers are back in the codebase"(2026年AI時代のEM動向)</span><a class="ref-url" href="https://leaddev.com/management/engineering-managers-are-back-in-the-codebase" target="_blank" rel="noopener">https://leaddev.com/management/engineering-managers-are-back-in-the-codebase</a></li>
+              <li><span class="ref-name">LeadDev, "The Engineering Leadership Report 2026"(第11章が引用する調査レポートの原典)</span><a class="ref-url" href="https://leaddev.com/the-engineering-leadership-report-2026" target="_blank" rel="noopener">https://leaddev.com/the-engineering-leadership-report-2026</a></li>
             </ul>
           </div>
         </section>
