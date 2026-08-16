@@ -12,8 +12,11 @@ const sidebarToggle = ref<HTMLButtonElement | null>(null);
 const activeId = useActiveHeading(TOC_IDS);
 
 function closeSidebar(): void {
+  // 開いていたときだけフォーカスを退避する。閉じた状態（デスクトップ相当）で
+  // 呼ぶと、リンク先へ移動したい利用者からフォーカスを奪ってしまう。
+  const wasOpen = sidebarOpen.value;
   sidebarOpen.value = false;
-  nextTick(() => sidebarToggle.value?.focus());
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
 const MERMAID_THEME_VARIABLES = {
@@ -1256,6 +1259,8 @@ useSeoMeta({
     border-left: 2px solid transparent;
   }
 
+  /* <Icon> は svg を描画するため、i と svg の両方を対象にする */
+  .sidebar-nav a :deep(svg),
   .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
 
   .sidebar-nav a:hover {
@@ -1271,6 +1276,7 @@ useSeoMeta({
     border-left: 2px solid var(--color-indigo);
   }
 
+  .sidebar-nav a.active :deep(svg),
   .sidebar-nav a.active i { color: var(--color-indigo); }
 
   .sidebar-toggle {
@@ -1313,6 +1319,7 @@ useSeoMeta({
     margin-bottom: 18px;
   }
 
+  .hero-eyebrow :deep(svg),
   .hero-eyebrow i { font-size: 17px; }
 
   .hero h1 {
@@ -1661,10 +1668,12 @@ useSeoMeta({
     .sidebar-toggle { display: flex; }
     .sidebar {
       transform: translateX(-100%);
-      transition: transform 0.2s ease;
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
       box-shadow: none;
     }
-    .sidebar.open { transform: translateX(0); }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
     .main-content { margin-left: 0; padding: 88px 24px 100px; }
     .hero h1 { font-size: 32px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }

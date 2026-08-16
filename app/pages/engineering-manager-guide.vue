@@ -1481,12 +1481,15 @@ footer {
 
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.2s ease;
+    /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
     box-shadow: none;
   }
 
   .sidebar.open {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .main-content {

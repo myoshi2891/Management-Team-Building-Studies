@@ -9,12 +9,15 @@ import mermaid from "mermaid";
  * 個別に埋め込むので、ここには全図共通の描画挙動だけを置く。
  *
  * 値は原本 Certified-Associate-in-Project-Management.html の
- * mermaid.initialize から逐語で移植した。
+ * mermaid.initialize から移植した。ただし securityLevel だけは原本の "loose" を
+ * 引き継がず "strict" にしている（図のソースはリポジトリ内に固定されており、
+ * loose が有効にするラベル内スクリプトや click 構文を一切使っていないため）。
+ * 契約は tests/plugins/mermaid.client.test.ts で固定する。
  */
 export default defineNuxtPlugin(() => {
   mermaid.initialize({
     startOnLoad: false,
-    securityLevel: "loose",
+    securityLevel: "strict",
     htmlLabels: true,
     // useMaxWidth はいずれも false。自然サイズを起点にし、列幅への収まりは
     // MermaidDiagram.vue の svg 後処理（max-width:100%）が担当する
