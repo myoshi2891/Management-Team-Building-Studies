@@ -8,7 +8,7 @@ paths:
 
 # docs/PROGRESS.md セッション終了前同期ルール
 
-(最終更新日: 2026-08-16)
+(最終更新日: 2026-08-17)
 
 HTML → Nuxt.js（Vue）移行セッションでは、**コンテキストが逼迫する前に**必ず以下を実施してセッションを終えること。
 
@@ -62,6 +62,27 @@ esac
 [ "$BASELINE_LINES" -eq 0 ] \
   || { echo "NG: 開始時点で $BASELINE_LINES 件が staged 済み"; exit 1; }
 echo "OK: index は空（ベースライン確立）"
+
+# index が空でも、本セッションで触る予定のパスに「開始前からの未 staged 変更」が
+# 残っていると、後で `git add <path>` した時点で他者・別セッションの編集を
+# そのまま自分のコミットへ巻き込む。上の検査は staged しか見ないためこの経路を
+# 捕まえられない。よって候補パスごとに作業ツリー側も明示的に確認する。
+# 予定が確定していない段階でも docs/PROGRESS.md は必ず含める（本ルールが必ず触るため）。
+CANDIDATE_PATHS="docs/PROGRESS.md"   # 例: "docs/PROGRESS.md app/pages/<移行対象>.vue"
+
+for path in $CANDIDATE_PATHS; do
+  if git diff --quiet -- "$path"; then
+    continue
+  else
+    DIFF_STATUS=$?
+    case "$DIFF_STATUS" in
+      1) echo "NG: 開始時点で未 staged の変更が残っている: $path"; exit 1 ;;
+      *) echo "NG: git diff が失敗（exit=$DIFF_STATUS, path=$path）。判定不能"; exit 1 ;;
+    esac
+  fi
+done
+echo "OK: 候補パスに開始前からの未 staged 変更なし"
+
 echo "SESSION_ID=$SESSION_ID"   # ← この値を控える。コミット直前の検証で必要になる
 ```
 
@@ -99,8 +120,12 @@ STORED_ID="$(printf '%s' "$STORED_ID" | tr -d '[:space:]')"
 [ "$STORED_ID" = "$SESSION_ID" ] \
   || { echo "NG: ベースラインが本セッションのものではない（stored=$STORED_ID）"; exit 1; }
 
-git status --short              # 作業ツリー全体の変更
-git diff --cached --name-only   # 実際にコミットされるファイル
+# 確認表示の 2 コマンドも fail-closed にする。取得に失敗したまま write-tree /
+# commit へ進むと、「確認したつもり」の空出力を根拠に先へ進んでしまう。
+git status --short \
+  || { echo "NG: git status に失敗。判定不能"; exit 1; }            # 作業ツリー全体の変更
+git diff --cached --name-only \
+  || { echo "NG: git diff --cached に失敗。判定不能"; exit 1; }     # 実際にコミットされるファイル
 
 # 本コミットで意図しているパスを明示列挙する（`git add` に渡したものと一字一句同じにする）。
 # ここが判定の基準であり、「空のベースラインとの差分」ではない。
@@ -180,6 +205,7 @@ echo "OK: コミット完了 $(git rev-parse --short HEAD)"
 以下のいずれかに該当する場合は、**コミットせずに停止し、ユーザーへ状況を報告して指示を仰ぐ**。
 
 - 開始時のベースラインが空でなかった（`$GIT_DIR_PATH/session-baseline-staged.txt` が 1 行以上）
+- 開始時の `CANDIDATE_PATHS` 検査が未 staged の変更を検出した（`git add` で巻き込む恐れがある）
 - 上記 (3) が `許可リストに無いコミット対象` を出力した（意図しない巻き込み）
 - 上記 (4) が未 staged の差分を検出した（コミット内容が検証した状態と一致しない）
 - 上記 (5) の `git update-ref` が失敗した（検証後に HEAD が動いた）
