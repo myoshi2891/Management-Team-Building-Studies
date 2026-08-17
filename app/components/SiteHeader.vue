@@ -14,8 +14,23 @@ const guideGroups = groupGuidesByCategory();
 const openCategoryId = ref<GuideCategoryId | null>(null);
 /** モバイル幅のハンバーガーで開くナビ本体。 */
 const isMenuOpen = ref(false);
-/** hover で開くのはポインタデバイスのみ。タップで「開いてすぐ閉じる」のを防ぐ。 */
+/*
+ * hover で開くのは「ポインタデバイス かつ デスクトップレイアウト」のときだけ。
+ *
+ * ポインタ能力だけで判定すると、デスクトップでウィンドウを狭めた場合に
+ * CSS はアコーディオン（クリック操作前提）へ切り替わっているのに hover が生き残り、
+ * mouseenter で開いた直後の click がトグルして閉じてしまう。
+ * したがって min-width は <style> の 680px ブレークポイントと必ず対で維持する。
+ */
+const DESKTOP_HOVER_QUERY = "(hover: hover) and (pointer: fine) and (min-width: 681px)";
 const canHover = ref(false);
+let hoverMedia: MediaQueryList | null = null;
+
+function syncCanHover(event: MediaQueryListEvent | MediaQueryList): void {
+  canHover.value = event.matches;
+  // モバイルレイアウトへ切り替わった瞬間に開きっぱなしのパネルを残さない。
+  if (!event.matches) closeAllCategories();
+}
 
 const headerRef = ref<HTMLElement | null>(null);
 
@@ -72,12 +87,19 @@ function handlePointerDownOutside(event: Event): void {
 }
 
 onMounted(() => {
-  canHover.value = window.matchMedia?.("(hover: hover) and (pointer: fine)").matches ?? false;
   document.addEventListener("pointerdown", handlePointerDownOutside);
+
+  hoverMedia = window.matchMedia?.(DESKTOP_HOVER_QUERY) ?? null;
+  if (!hoverMedia) return;
+  canHover.value = hoverMedia.matches;
+  // ウィンドウのリサイズでレイアウトが切り替わったら追従する。
+  hoverMedia.addEventListener("change", syncCanHover);
 });
 
 onBeforeUnmount(() => {
   document.removeEventListener("pointerdown", handlePointerDownOutside);
+  hoverMedia?.removeEventListener("change", syncCanHover);
+  hoverMedia = null;
 });
 
 // 遷移したらパネルを閉じる（モバイルでリンクをタップした後に開きっぱなしにしない）。
