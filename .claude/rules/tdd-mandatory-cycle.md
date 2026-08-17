@@ -120,8 +120,10 @@ expect(wrapper.text()).toContain("CAPM");
 expect(wrapper.findAll("h2").map((el) => el.text())).toEqual([...EXPECTED_H2]);
 ```
 
-`app/pages/**/*.vue` の新規作成・移行では、原本の要素種別に依存しない **最低 12 契約**
-（原本照合 S-1〜S-4 / コンテンツ C-1〜C-5 / 品質 Q-1〜Q-3）を Red で用意する。
+`app/pages/**/*.vue` の新規作成・移行では、原本の要素種別に依存しない **最低 11 契約**
+（原本照合 S-1〜S-4 / コンテンツ C-1〜C-5 / 品質 Q-2・Q-3）を Red で用意する。
+番号は `tests/support/page-contract.ts` の `defineSourceParityContract` が実装する契約と対応する
+（Q-1 は欠番。S-2 は S-2b / S-2c を伴うため実ケース数は 11 を上回る）。
 Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契約であり、対応する要素が
 原本に存在する場合のみ必須とする。原本に存在しない要素の件数や構造を移植先へ要求してはならない。
 
@@ -172,18 +174,42 @@ Mermaid 契約 C-6 とデザイン契約 D-1〜D-5 は原本依存の追加契�
   **実行するのは変更した種別のみ**（`.mjs` を変更したなら Node、`.py` を変更したなら pytest、
   両方変更したなら両方）。無関係な側を回すと、未導入の pytest 等で偽の失敗を招く。
 
-  `.mjs` を変更した場合:
+  さらに、**変更したのが実装スクリプトかテストファイル自身か**で実行対象が変わる。
+  テストファイル（`*.test.mjs` / `test_*.py`）を変更した場合に対応テストを導出しようとすると
+  `audit_content_parity.test.test.mjs` のような**存在しないファイルを新規作成してしまう**。
+  テストファイルを変更したときの実行対象は、**変更したそのテストファイル自身**である。
+
+  | 変更したファイル | 実行するテスト |
+  |---|---|
+  | 実装 `<name>.mjs`（例 `audit_content_parity.mjs`） | 同名の `<name>.test.mjs`（例 `audit_content_parity.test.mjs`） |
+  | テスト `<name>.test.mjs`（例 `audit_content_parity.test.mjs`） | **そのファイル自身**（別名を生成しない） |
+  | 実装 `<name>.py`（例 `fix_mermaid.py`） | 対になる `test_<name>.py`（例 `test_fix_mermaid.py`） |
+  | テスト `test_<name>.py`（例 `test_fix_mermaid.py`） | **そのファイル自身**（別名を生成しない） |
+
+  実行前に対象ファイルの実在を確認する（存在しないパスを渡すと、テストが無いのに
+  「収集 0 件で成功」と誤読しかねない）。**確認するのは、いま実行しようとしている種別の変数**
+  （`.mjs` なら `TARGET_TEST_MJS`、`.py` なら `TARGET_TEST_PY`）であり、
+  もう一方や前回の値を参照してはならない。したがって存在確認は、対応するテスト実行コマンドの
+  **直前**に、同じブロック内で行う。
+
+  `.mjs` を変更した場合（`$TARGET_TEST_MJS` は上表で決まる `.test.mjs` のパス）:
 
   ```bash
-  node --test .claude/skills/<skill>/scripts/<name>.test.mjs
-  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  [ -f "$TARGET_TEST_MJS" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_MJS"; exit 1; }
+  node --test "$TARGET_TEST_MJS"
+  status=$?
+  echo "exit=$status"   # 0 以外なら Refactor 未完了
+  [ "$status" -eq 0 ] || exit "$status"
   ```
 
-  `.py` を変更した場合:
+  `.py` を変更した場合（`$TARGET_TEST_PY` は上表で決まる `test_*.py` のパス）:
 
   ```bash
-  python3 -m pytest .claude/skills/<skill>/scripts/test_<name>.py -q
-  echo "exit=$?"   # 0 以外なら Refactor 未完了
+  [ -f "$TARGET_TEST_PY" ] || { echo "NG: テストファイルが存在しない: $TARGET_TEST_PY"; exit 1; }
+  python3 -m pytest "$TARGET_TEST_PY" -q
+  status=$?
+  echo "exit=$status"   # 0 以外なら Refactor 未完了
+  [ "$status" -eq 0 ] || exit "$status"
   ```
 
   `bun` が使えない環境では `npm run <script>` で読み替える（`bunx nuxi typecheck` は

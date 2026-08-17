@@ -12,6 +12,15 @@ const guides = [
     accent: "indigo",
   },
   {
+    to: "/certified-associate-in-project-management-domain1",
+    category: "PROJECT MANAGEMENT",
+    title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
+    description: "PMI公式CAPM Exam Content Outlineに基づく、ドメイン1(PM基礎と主要概念・配点36%)の初学者向け解説ガイド。",
+    meta: "9セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     category: "ENGINEERING MANAGEMENT",
     title: "エンジニアのためのマネジメントキャリアパス",
@@ -19,6 +28,24 @@ const guides = [
     meta: "12セクション",
     icon: "tabler:route",
     accent: "forest",
+  },
+  {
+    to: "/engineering-team-leadership-guide",
+    category: "ENGINEERING LEADERSHIP",
+    title: "エンジニアリングチームのリード術 完全ガイド",
+    description: "効果的なチーム作りの科学的根拠から、1on1、委譲、コードレビュー文化まで、実践できるベストプラクティスを体系的に学びます。",
+    meta: "11セクション",
+    icon: "tabler:users-group",
+    accent: "plum",
+  },
+  {
+    to: "/engineering-manager-guide",
+    category: "ENGINEERING MANAGEMENT",
+    title: "エンジニアリングマネージャー入門完全ガイド",
+    description: "James Stanier著『Become an Effective Software Engineering Manager』を主軸に、新任EMのスタートダッシュから心理的安全性、AI時代の役割まで体系的に学びます。",
+    meta: "14セクション",
+    icon: "tabler:school",
+    accent: "indigo",
   },
 ] as const;
 
@@ -119,6 +146,8 @@ useSeoMeta({
         <nav aria-label="フッターナビゲーション">
           <NuxtLink to="/capm">CAPM</NuxtLink>
           <NuxtLink to="/engineering-management-career-path">EM Career</NuxtLink>
+          <NuxtLink to="/engineering-team-leadership-guide">Team Lead</NuxtLink>
+          <NuxtLink to="/engineering-manager-guide">EM Guide</NuxtLink>
         </nav>
         <small>© 2026 Management Studies</small>
       </div>
@@ -175,18 +204,23 @@ useSeoMeta({
 .section-heading > p { margin: 0 0 7px; color: var(--color-ink-soft); font-size: 14px; }
 .guide-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
 .guide-card { min-height: 378px; border: 1px solid var(--color-border); background: var(--color-paper-raised); }
-.guide-card:not(.guide-card-coming) { grid-column: span 5; }
-.guide-card-coming { grid-column: span 2; }
+.guide-card:not(.guide-card-coming) { grid-column: span 4; }
+/* 公開ガイドと同じ 4 カラム幅で流し込み、最終行の余りを埋める */
+.guide-card-coming { grid-column: span 4; min-height: 180px; }
 .guide-card > a { position: relative; height: 100%; display: flex; flex-direction: column; padding: 31px 32px 27px; color: var(--color-ink); overflow: hidden; }
 .guide-card > a::after { content: ""; position: absolute; inset: auto 0 0; height: 4px; background: var(--card-accent, var(--color-indigo)); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
 .guide-card > a:hover { text-decoration: none; }
 .guide-card > a:hover::after { transform: scaleX(1); }
 .guide-card > a:hover .guide-link svg { transform: translate(3px, -3px); }
 .guide-card-indigo { --card-accent: var(--color-indigo); }
+.guide-card-gold { --card-accent: var(--color-gold); }
 .guide-card-forest { --card-accent: var(--color-forest); }
+.guide-card-plum { --card-accent: var(--color-plum); }
 .guide-card-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 47px; }
 .guide-icon { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 50%; background: var(--color-indigo-tint); color: var(--color-indigo); }
+.guide-card-gold .guide-icon { background: var(--color-gold-tint); color: var(--color-gold); }
 .guide-card-forest .guide-icon { background: var(--color-forest-tint); color: var(--color-forest); }
+.guide-card-plum .guide-icon { background: var(--color-plum-tint); color: var(--color-plum); }
 .guide-icon svg { width: 23px; height: 23px; }
 .guide-meta { color: var(--color-ink-faint); font-size: 11px; }
 .guide-category { margin: 0 0 12px; color: var(--card-accent, var(--color-gold)); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; }
@@ -233,7 +267,7 @@ useSeoMeta({
   .hero-copy { max-width: 700px; }
   .hero-visual { width: min(74vw, 440px); justify-self: center; }
   .guide-card:not(.guide-card-coming) { grid-column: span 6; }
-  .guide-card-coming { grid-column: span 12; min-height: 210px; }
+  .guide-card-coming { grid-column: span 6; min-height: 210px; }
   .approach-section { gap: 50px; }
   .footer-inner { grid-template-columns: 1fr auto; }
   .footer-inner > small { grid-column: 1 / -1; margin-top: -35px; }

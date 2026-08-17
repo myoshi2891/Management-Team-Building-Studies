@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vitest/globals"],
+    "allowJs": true,
+    "baseUrl": "..",
+    "paths": {
+      "~/*": ["app/*"],
+      "@/*": ["app/*"],
+      "#imports": [".nuxt/imports"]
+    },
+    "skipLibCheck": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "include": [
+    "./**/*",
+    "../env.d.ts",
+    "../.nuxt/nuxt.d.ts",
+    "../.claude/**/*.mjs"
+  ]
+}

@@ -75,6 +75,8 @@ function decodeEntities(raw) {
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&nbsp;/g, " ")
+    .replace(/&mdash;/g, "—")
+    .replace(/&rarr;/g, "→")
     .replace(/&amp;/g, "&");
 }
 
@@ -249,7 +251,12 @@ function normalizeSvgElement(raw) {
 function normalizeCalloutElement(openingTag, content) {
   const markers = new Set();
   const markerSource = `${openingTag} ${openingTag.match(/styles\.([\w-]+)/g)?.join(" ") ?? ""}`;
-  for (const marker of markerSource.matchAll(/(?:callout|alert|warning|warn|note|info|tip|success|good)/gi)) {
+  // マーカー名は前後を語境界で挟む。境界を省くと `alertBanner` から `alert` を、
+  // `calloutExtra` から `callout` を拾い、検出側（collectMarkupCalloutElements）の
+  // 境界規則と食い違って原本・移植先で別のマーカー集合になる。
+  for (const marker of markerSource.matchAll(
+    /(?<![\w-])(?:callout|alert|warning|warn|note|info|tip|success|good)(?![\w-])/gi
+  )) {
     const value = marker[0].toLowerCase();
     markers.add(value === "warning" ? "warn" : value === "note" ? "info" : value);
   }
@@ -272,7 +279,7 @@ function collectSvgElements(src) {
  */
 function collectMarkupCalloutElements(src) {
   return extractElementContents(src, (openingTag) =>
-    /<(?:Callout|Alert)\b|(?:class|className)\s*=\s*(?:["'][^"']*(?:callout|alert)|\{[^}]*styles\.(?:callout|alert))|data-(?:testid|variant)\s*=\s*["'](?:callout|alert|warn|warning|info|note|good|success|tip)/i.test(
+    /<(?:Callout|Alert)\b|(?:class|className)\s*=\s*(?:["'][^"']*(?<![\w-])(?:callout|alert)(?![\w-])|\{[^}]*(?<![\w$.])styles\.(?:callout|alert)(?![\w-]))|data-(?:testid|variant)\s*=\s*["'](?:callout|alert|warn|warning|info|note|good|success|tip)(?![\w-])/i.test(
       openingTag
     )
   ).map(({ openingTag, content }) => normalizeCalloutElement(openingTag, content));

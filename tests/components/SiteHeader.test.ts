@@ -4,7 +4,17 @@ import { describe, expect, it, vi } from "vitest";
 import SiteHeader from "~/components/SiteHeader.vue";
 
 const { currentPath } = vi.hoisted(() => ({ currentPath: { value: "/capm" } }));
-mockNuxtImport("useRoute", () => () => ({ path: currentPath.value }));
+mockNuxtImport("useRoute", () => () => ({
+  path: currentPath.value,
+  fullPath: currentPath.value,
+  query: {},
+  params: {},
+  matched: [],
+  name: undefined,
+  hash: "",
+  redirectedFrom: undefined,
+  meta: {},
+}));
 
 const NuxtLinkStub = {
   props: { to: { type: String, required: true } },
@@ -31,7 +41,10 @@ describe("SiteHeader", () => {
     }))).toEqual([
       { label: "ホーム", href: "/" },
       { label: "CAPM", href: "/capm" },
+      { label: "CAPM D1", href: "/certified-associate-in-project-management-domain1" },
       { label: "EMキャリア", href: "/engineering-management-career-path" },
+      { label: "チームリード術", href: "/engineering-team-leadership-guide" },
+      { label: "EM入門", href: "/engineering-manager-guide" },
     ]);
   });
 
@@ -41,6 +54,9 @@ describe("SiteHeader", () => {
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
+      undefined,
+      undefined,
       undefined,
     ]);
   });

@@ -1,19 +1,19 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-15)
+(最終更新日: 2026-08-17)
 
-静的 HTML の資格学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
+静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
 
 ## 現在地
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `cfbf283` — docs(skills): make agent docs tool-agnostic and cover global navigation（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `ff2ca56` — test(pages): add contract test for card accent classes and icon palette（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
-| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `bun run test:e2e` ✔ |
-| テスト数 | **75** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + app 1 + home 5 + CAPM page 23 + EM career path page 23）+ **4** E2E — これがベースライン |
-| 原本照合監査 | ✔ exit 0（全要素一致） |
+| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run test:e2e` ✔（2026-08-17 実測） |
+| テスト数 | **155** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29）+ **4** E2E — これがベースライン |
+| 原本照合監査 | ✔ exit 0（全要素一致）。ただし **CAPM ドメイン1 のみ exit 1 かつ差分 1 件が正常**（「正当な差分の記録」§8 の意図的逸脱。それ以外の差分が出たら移行漏れ） |
 
 ## ページ移行状況
 
@@ -21,6 +21,9 @@
 |---|---|---|
 | `archive/Certified-Associate-in-Project-Management/Certified-Associate-in-Project-Management.html` | `app/pages/capm.vue` | ✅ 全文移行・原本照合完了・E2E スモーク Green |
 | `archive/Engineering-management-career-path/Engineering-management-career-path.html` | `app/pages/engineering-management-career-path.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `archive/Engineering-management-career-path/Engineering-team-leadership-guide.html` | `app/pages/engineering-team-leadership-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `Engineering-manager-guide.html` | `app/pages/engineering-manager-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `Certified-associate-in-project-management-domain1.html` | `app/pages/certified-associate-in-project-management-domain1.vue` | ✅ 全文移行・契約テスト Green。原本照合監査は **exit 1 / 差分 1 件が正常**（§8 の意図的逸脱） |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -28,17 +31,17 @@
 | 部品 | 状態 | 契約テスト |
 |---|---|---|
 | `app/components/MermaidDiagram.vue` | ✅ 完了 | `tests/components/MermaidDiagram.test.ts`（11 件） |
-| `app/plugins/mermaid.client.ts` | ✅ 完了 | 同上（コンポーネントからの再 initialize を禁止） |
+| `app/plugins/mermaid.client.ts` | ✅ 完了 | `tests/plugins/mermaid.client.test.ts`（3 件・初期化設定の契約）+ 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
 | `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（3 件）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
 
-## 技術スタック（2026-08-14 時点の npm 実測値）
+## 技術スタック（2026-08-16 時点の npm 実測値）
 
 | レイヤー | パッケージ | 版 |
 |---|---|---|
-| Runtime / PM | bun | 1.3.12 |
+| Runtime / PM | bun / npm | 1.3.12 / 10.x |
 | Framework | nuxt | 4.5.2 |
 | Core | vue | 3.5.41 |
 | Language | typescript / vue-tsc | 5.9.3 / 3.3.9 |
@@ -106,24 +109,83 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 参考文献の見出し `h4` → `h3` 昇格 | `書籍`, `ブログ・記事`, `企業・調査レポート`, `その他リソース` を `h3` へ変更 | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
 | `calloutElements` 件数の差 | 原本 5 → Vue 3 | 原本 HTML の `<i class="ti ti-alert-triangle">` が監査スクリプトで `alert` 要素として誤検出されていた。Vue 側では `<Icon>` に変更したため誤検出が消え、実際の callout 3 件に完全一致 |
 
+### 5. エンジニアリングチームリード術ガイド（`engineering-team-leadership-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `書籍・出版社`, `Google re:Work / Engineering Practices`, `著名なエンジニアリングリーダーの記事・インタビュー` を `h3` へ変更 | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 監査スクリプトの callout 正規表現改善 | `ti-alert-triangle` 等のアイコンクラス誤検出を防止するため、`collectMarkupCalloutElements` 内のクラスマッチを単語境界 `(?<![\\w-])(?:callout\|alert)(?![\\w-])` に改善 | 真の callout 16 件（note: 4, source: 9, practice: 3）と完全一致 |
+
+### 6. エンジニアリングマネージャー入門完全ガイド（`engineering-manager-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `書籍`, `著名な実践者のブログ・ニュースレター`, `企業・研究機関の一次情報`, `実務ガイド・2026年動向` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 監査スクリプトのエンティティデコード追加 | `audit_source_parity.mjs` の `decodeEntities` に `&mdash;`（`—`）と `&rarr;`（`→`）を追加 | HTML 原本の文字実体参照と Vue 側の Unicode 文字との照合不一致を解消するため |
+
+### 7. Mermaid `securityLevel` を原本の `loose` から `strict` へ変更（2026-08-16）
+
+コードレビュー指摘への対応。**原本 HTML からの意図的な逸脱**であるため記録する。
+
+| 項目 | 内容 |
+|---|---|
+| 対象 | `app/plugins/mermaid.client.ts` と、リポジトリ直下の静的ガイド HTML 5 本、`md-to-html` スキルの雛形 |
+| 理由 | 図のソースはリポジトリ内に固定されており、`loose` が有効にするラベル内スクリプトや `click` 構文を一切使っていない。緩める必要がない |
+| 検証 | 静的 HTML 5 本をヘッドレス描画し 41 図すべてエラー 0、Nuxt 側は E2E で 9 図の描画とコンソールエラー 0 を確認 |
+| 契約 | `tests/plugins/mermaid.client.test.ts` が `strict` を固定する |
+
+アーカイブ済み原本（`archive/` 配下）は当時の状態を保存する目的のため `loose` のまま残している。
+`app/plugins/mermaid.client.ts` の JSDoc が、この 1 点だけ原本から逐語移植していない旨を明記している。
+
+### 8. CAPM ドメイン1 リスク登録簿 R-002 の対応戦略を修正（2026-08-17）
+
+コードレビュー指摘への対応。**原本 HTML からの意図的な逸脱**であり、
+原本照合監査が恒常的に 1 件の差分を報告するため記録する。
+
+| 項目 | 内容 |
+|---|---|
+| 対象 | `app/pages/certified-associate-in-project-management-domain1.vue` §2.5 リスク登録簿の表 |
+| 原本 | `R-002 主要開発者の離脱` の対応戦略が `転嫁/軽減(ナレッジ共有の徹底)` |
+| 移行先 | `軽減(ナレッジ共有の徹底)` |
+| 理由 | 括弧内の具体策「ナレッジ共有の徹底」は発生確率・影響度を下げる**軽減**そのものであり、第三者へリスクを移す**転嫁**ではない。同じ表の R-001・R-003 は戦略を 1 つだけ挙げており、R-002 のみ 2 つ併記されているのも不整合 |
+| ユーザー判断 | 「Vue 側だけ直して問題なし」との明示的な承認を得ている。原本 HTML / `.md` は未修正のまま |
+
+そのため下記の監査は **exit 1 かつ差分 1 件**が正常な状態である。
+これ以外の差分が出た場合は本項目とは別の移行漏れなので、通常どおり Green コミット禁止として扱う。
+
+```bash
+node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
+  Certified-associate-in-project-management-domain1.html \
+  app/pages/certified-associate-in-project-management-domain1.vue
+# 期待される唯一の差分:
+#   "R-002主要開発者の離脱人的資源低高中転嫁/軽減(ナレッジ共有の徹底)PM監視中"
+```
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: cfbf283
-次の作業: 保守・新規ガイドの追加（未移行 HTML 0件）
+コードコミット HEAD: ff2ca56
+次の作業: 保守・新規ガイドの追加
   新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
   navigation への登録が必須（契約 N-1〜N-3）
 
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
+  - app/pages/certified-associate-in-project-management-domain1.vue（CAPM ドメイン1 ガイド）
   - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
+  - app/pages/engineering-team-leadership-guide.vue（エンジニアリングチームリード術 ガイド）
+  - app/pages/engineering-manager-guide.vue（エンジニアリングマネージャー入門完全ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 75 件
+  - ユニットテスト 155 件
+  - test / build / typecheck / test:e2e はいずれも 2026-08-17 時点で ✔（実測）
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
+    ただし CAPM ドメイン1 の原本照合監査だけは exit 1 かつ差分 1 件
+    （リスク登録簿 R-002 の意図的逸脱。docs/PROGRESS.md「正当な差分の記録」§8 を参照。
+    差分がこの 1 件以外に増えたら移行漏れとして Green コミット禁止）
 
-ベースラインテスト数: ユニット 75 + E2E 4
+ベースラインテスト数: ユニット 155 + E2E 4
 ```

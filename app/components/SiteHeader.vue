@@ -6,7 +6,10 @@ const route = useRoute();
 const navigation = [
   { label: "ホーム", to: "/", icon: "tabler:home" },
   { label: "CAPM", to: "/capm", icon: "tabler:certificate" },
+  { label: "CAPM D1", to: "/certified-associate-in-project-management-domain1", icon: "tabler:award" },
   { label: "EMキャリア", to: "/engineering-management-career-path", icon: "tabler:route" },
+  { label: "チームリード術", to: "/engineering-team-leadership-guide", icon: "tabler:users-group" },
+  { label: "EM入門", to: "/engineering-manager-guide", icon: "tabler:school" },
 ] as const;
 
 function isCurrent(to: string): boolean {
@@ -125,14 +128,38 @@ nav { height: 100%; display: flex; align-items: stretch; }
 .global-nav-link svg { width: 17px; height: 17px; color: var(--color-ink-faint); }
 .global-nav-link.current svg { color: var(--color-gold); }
 
-@media (max-width: 720px) {
-  .global-header-inner { width: calc(100% - 24px); gap: 10px; }
-  .global-brand-copy small { display: none; }
+/*
+ * ヘッダーの内容幅は「ブランド幅 + inner の gap + 6 × リンクの min-width」で決まる。
+ * .global-brand は min-width: max-content、ナビ 6 項目は min-width で下限が決まるため、
+ * この合計が global-header-inner の使える幅を超えた時点で横にはみ出す
+ * （ブレークポイントの閾値は Chromium での実測に基づく）。
+ *
+ * 各段の内容幅 ≦ 使える幅（= ビューポート幅 - inner の左右余白）:
+ *   ~881px 以上 : 212 + 32 + 6×94 = 808 ≦ vw - 40  → vw ≧ 848
+ *    721-880px  : 212 + 32 + 6×66 = 640 ≦ vw - 40  → vw ≧ 680
+ *    681-720px  : 212 + 10 + 6×66 = 618 ≦ vw - 24  → vw ≧ 642
+ *    561-680px  : 175 + 10 + 6×48 = 473 ≦ vw - 24  → vw ≧ 497
+ *    401-560px  :  34 + 10 + 6×48 = 332 ≦ vw - 24  → vw ≧ 356
+ *    ~400px 以下:  34 + 10 + 6×40 = 284 ≦ vw - 24  → vw ≧ 308
+ */
+
+/*
+ * 880px 以下ではリンクの min-width の下限だけを下げる。
+ * リンクの自然幅（アイコン + ラベル）は約 113px でこの下限を上回るため、
+ * 余裕のある幅では見た目が変わらず、狭まった時だけ縮小が効く。
+ */
+@media (max-width: 880px) {
   .global-nav-link { min-width: 66px; padding-inline: 10px; }
   .global-nav-link::after { right: 10px; left: 10px; }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 720px) {
+  .global-header-inner { width: calc(100% - 24px); gap: 10px; }
+  .global-brand-copy small { display: none; }
+}
+
+/* 6 項目のラベルを保ったままでは収まらない。ラベルを隠してアイコンのみにする */
+@media (max-width: 680px) {
   .global-brand { gap: 8px; }
   .global-brand-mark { width: 34px; height: 34px; }
   .global-brand-copy strong { font-size: 13px; }
@@ -141,14 +168,19 @@ nav { height: 100%; display: flex; align-items: stretch; }
 }
 
 /*
- * 極小画面（320px 等）では、ブランド名を隠してナビ 3 項目を全て残す。
- * .global-brand は min-width: max-content のため縮まず、
- * ブランド名 + ナビ 3 項目が global-header-inner の幅を超えてはみ出す。
+ * 560px 以下では、ブランド名を隠してナビ 6 項目を全て残す。
  * 到達性（ナビ）を優先し、ブランドは丸マークのみにする
- * （リンクの aria-label がアクセシブル名を保持するため名前は失われない）。
+ * （680px 以下で視覚的に隠したリンクのラベル span は DOM に残るため、
+ *   支援技術にはアクセシブル名として引き続き読み上げられる）。
  */
-@media (max-width: 400px) {
+@media (max-width: 560px) {
   .global-brand-copy { display: none; }
+}
+
+/* 極小画面（320px 等）。ブランド名を隠すだけでは収まらないため、リンクをさらに詰める */
+@media (max-width: 400px) {
+  .global-nav-link { min-width: 40px; padding-inline: 4px; }
+  .global-nav-link::after { right: 4px; left: 4px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
