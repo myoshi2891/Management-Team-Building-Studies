@@ -83,6 +83,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/dynamic-reteaming-guide",
         accentClass: "guide-card-forest",
       },
+      {
+        title: "エンジニアリング統括責任者の手引き",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/engineering-executive-playbook",
+        accentClass: "guide-card-gold",
+      },
     ]);
   });
 
