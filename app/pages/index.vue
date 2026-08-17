@@ -56,6 +56,15 @@ const guides = [
     icon: "tabler:refresh",
     accent: "forest",
   },
+  {
+    to: "/engineering-executive-playbook",
+    category: "ENGINEERING LEADERSHIP",
+    title: "エンジニアリング統括責任者の手引き",
+    description: "Will Larson著『The Engineering Executive's Primer』を骨格に、組織設計・実行システム・DORAメトリクス・障害対応まで体系的に学びます。",
+    meta: "13セクション",
+    icon: "tabler:briefcase",
+    accent: "gold",
+  },
 ] as const;
 
 const learningThemes = [

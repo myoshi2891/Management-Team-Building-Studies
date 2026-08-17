@@ -11,6 +11,7 @@ const navigation = [
   { label: "チームリード術", to: "/engineering-team-leadership-guide", icon: "tabler:users-group" },
   { label: "EM入門", to: "/engineering-manager-guide", icon: "tabler:school" },
   { label: "リチーミング", to: "/dynamic-reteaming-guide", icon: "tabler:refresh" },
+  { label: "統括責任者", to: "/engineering-executive-playbook", icon: "tabler:briefcase" },
 ] as const;
 
 function isCurrent(to: string): boolean {
