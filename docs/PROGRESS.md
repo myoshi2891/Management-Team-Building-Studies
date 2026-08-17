@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-16)
+(最終更新日: 2026-08-17)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
