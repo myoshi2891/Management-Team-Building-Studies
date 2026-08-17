@@ -77,6 +77,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/engineering-manager-guide",
         accentClass: "guide-card-indigo",
       },
+      {
+        title: "ダイナミック・リチーミング実践ガイド",
+        category: "TEAM BUILDING",
+        href: "/dynamic-reteaming-guide",
+        accentClass: "guide-card-forest",
+      },
     ]);
   });
 
