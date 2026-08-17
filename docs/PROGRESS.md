@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `ff2ca56` — test(pages): add contract test for card accent classes and icon palette（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `eb79e1b` — refactor(pages): archive source files, add audit:reteam script, and format attributes（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run test:e2e` ✔（2026-08-17 実測） |
-| テスト数 | **155** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29）+ **4** E2E — これがベースライン |
+| テスト数 | **178** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致）。ただし **CAPM ドメイン1 のみ exit 1 かつ差分 1 件が正常**（「正当な差分の記録」§8 の意図的逸脱。それ以外の差分が出たら移行漏れ） |
 
 ## ページ移行状況
@@ -24,6 +24,7 @@
 | `archive/Engineering-management-career-path/Engineering-team-leadership-guide.html` | `app/pages/engineering-team-leadership-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `Engineering-manager-guide.html` | `app/pages/engineering-manager-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `Certified-associate-in-project-management-domain1.html` | `app/pages/certified-associate-in-project-management-domain1.vue` | ✅ 全文移行・契約テスト Green。原本照合監査は **exit 1 / 差分 1 件が正常**（§8 の意図的逸脱） |
+| `archive/Engineering-management-career-path/Dynamic-reteaming-guide.html` | `app/pages/dynamic-reteaming-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -161,12 +162,19 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 #   "R-002主要開発者の離脱人的資源低高中転嫁/軽減(ナレッジ共有の徹底)PM監視中"
 ```
 
+### 9. ダイナミック・リチーミング実践ガイド（`dynamic-reteaming-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `参照した情報源` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 原本アーカイブ移動 | `Dynamic-reteaming-guide.html` / `.md` を `archive/Engineering-management-career-path/` 配下へ移動 | 移行完了原本の集約管理 |
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: ff2ca56
+コードコミット HEAD: eb79e1b
 次の作業: 保守・新規ガイドの追加
   新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
   navigation への登録が必須（契約 N-1〜N-3）
@@ -177,15 +185,16 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
   - app/pages/engineering-team-leadership-guide.vue（エンジニアリングチームリード術 ガイド）
   - app/pages/engineering-manager-guide.vue（エンジニアリングマネージャー入門完全ガイド）
+  - app/pages/dynamic-reteaming-guide.vue（ダイナミック・リチーミング実践ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 155 件
+  - ユニットテスト 178 件
   - test / build / typecheck / test:e2e はいずれも 2026-08-17 時点で ✔（実測）
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
     ただし CAPM ドメイン1 の原本照合監査だけは exit 1 かつ差分 1 件
     （リスク登録簿 R-002 の意図的逸脱。docs/PROGRESS.md「正当な差分の記録」§8 を参照。
     差分がこの 1 件以外に増えたら移行漏れとして Green コミット禁止）
 
-ベースラインテスト数: ユニット 155 + E2E 4
+ベースラインテスト数: ユニット 178 + E2E 4
 ```
