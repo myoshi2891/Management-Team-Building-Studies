@@ -7,6 +7,7 @@ const navigation = [
   { label: "ホーム", to: "/", icon: "tabler:home" },
   { label: "CAPM", to: "/capm", icon: "tabler:certificate" },
   { label: "CAPM D1", to: "/certified-associate-in-project-management-domain1", icon: "tabler:award" },
+  { label: "CAPM D2", to: "/certified-associate-in-project-management-domain2", icon: "tabler:timeline" },
   { label: "PMP", to: "/pmp-certification-guide", icon: "tabler:certificate" },
   { label: "EMキャリア", to: "/engineering-management-career-path", icon: "tabler:route" },
   { label: "チームリード術", to: "/engineering-team-leadership-guide", icon: "tabler:users-group" },

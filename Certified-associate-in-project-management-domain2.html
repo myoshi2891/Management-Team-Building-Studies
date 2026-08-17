@@ -528,8 +528,13 @@
   }
 
   /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
+  .ref-group {
+    margin-bottom: 28px;
+  }
+  .ref-group h3,
+  .ref-group h4 {
+    margin-top: 0;
+  }
   .ref-list { list-style: none; margin: 0; padding: 0; }
   .ref-list li {
     padding: 12px 0;
@@ -1270,7 +1275,7 @@
       <h2>参考文献・出典</h2>
 
       <div class="ref-group">
-        <h4>CAPM公式情報(PMI一次情報源)</h4>
+        <h3>CAPM公式情報(PMI一次情報源)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">PMI Certified Associate in Project Management (CAPM)(R) Certification 公式ページ</span><a class="ref-url" href="https://www.pmi.org/certifications/certified-associate-capm" target="_blank" rel="noopener">https://www.pmi.org/certifications/certified-associate-capm</a></li>
           <li><span class="ref-name">PMI Certified Associate in Project Management (CAPM)(R) Examination Content Outline(2023 Exam Update, PDF)</span><a class="ref-url" href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf" target="_blank" rel="noopener">https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf</a></li>
@@ -1279,7 +1284,7 @@
       </div>
 
       <div class="ref-group">
-        <h4>組織構造・プロジェクトマネジメント基礎(PMI公式ライブラリ)</h4>
+        <h3>組織構造・プロジェクトマネジメント基礎(PMI公式ライブラリ)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Project Managers Are Gaining Power within Matrix Organizations</span><a class="ref-url" href="https://www.pmi.org/learning/library/pm-matrix-organizations-10000" target="_blank" rel="noopener">https://www.pmi.org/learning/library/pm-matrix-organizations-10000</a></li>
           <li><span class="ref-name">Strategic Alignment of Project Management Organizational Structure</span><a class="ref-url" href="https://www.pmi.org/learning/library/strategic-alignment-project-management-organizational-structure-10956" target="_blank" rel="noopener">https://www.pmi.org/learning/library/strategic-alignment-project-management-organizational-structure-10956</a></li>
@@ -1287,14 +1292,14 @@
       </div>
 
       <div class="ref-group">
-        <h4>WBS・スケジュールマネジメント(PMI公式ライブラリ)</h4>
+        <h3>WBS・スケジュールマネジメント(PMI公式ライブラリ)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Practice Standard for Work Breakdown Structures(第2版)解説</span><a class="ref-url" href="https://www.pmi.org/learning/library/practice-standard-work-breakdown-structures-8063" target="_blank" rel="noopener">https://www.pmi.org/learning/library/practice-standard-work-breakdown-structures-8063</a></li>
         </ul>
       </div>
 
       <div class="ref-group">
-        <h4>品質マネジメント(PMI公式ライブラリ)</h4>
+        <h3>品質マネジメント(PMI公式ライブラリ)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Quality Management(PMI初期タスクフォースレポート)</span><a class="ref-url" href="https://www.pmi.org/learning/library/quality-management-9107" target="_blank" rel="noopener">https://www.pmi.org/learning/library/quality-management-9107</a></li>
           <li><span class="ref-name">Quality in Project Management: A Practical Look at Chapter 8 of the PMBOK(R) Guide</span><a class="ref-url" href="https://www.pmi.org/learning/library/practice-three-project-quality-management-7198" target="_blank" rel="noopener">https://www.pmi.org/learning/library/practice-three-project-quality-management-7198</a></li>
@@ -1302,7 +1307,7 @@
       </div>
 
       <div class="ref-group">
-        <h4>アーンドバリューマネジメント(EVM)・コスト/スケジュール差異(PMI公式ライブラリ)</h4>
+        <h3>アーンドバリューマネジメント(EVM)・コスト/スケジュール差異(PMI公式ライブラリ)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Earned Value Management Systems (EVMS)</span><a class="ref-url" href="https://www.pmi.org/learning/library/earned-value-management-systems-analysis-8026" target="_blank" rel="noopener">https://www.pmi.org/learning/library/earned-value-management-systems-analysis-8026</a></li>
           <li><span class="ref-name">Using EVM and CPM to Evaluate Project Performance</span><a class="ref-url" href="https://www.pmi.org/learning/library/evm-cpm-evaluate-project-performance-6355" target="_blank" rel="noopener">https://www.pmi.org/learning/library/evm-cpm-evaluate-project-performance-6355</a></li>
@@ -1312,7 +1317,7 @@
       </div>
 
       <div class="ref-group">
-        <h4>補足情報源(第三者による解説記事・参考用)</h4>
+        <h3>補足情報源(第三者による解説記事・参考用)</h3>
         <p>以下は理解を補うための第三者解説記事です。一次情報源であるPMI公式資料と齟齬がある場合は、必ずPMI公式資料を優先してください。</p>
         <ul class="ref-list">
           <li><span class="ref-name">Organizational Structures(オープン教育リソース: Strategic Project Management)</span><a class="ref-url" href="https://ecampusontario.pressbooks.pub/hrstrategicprojectmanagement/chapter/2-2-structures/" target="_blank" rel="noopener">https://ecampusontario.pressbooks.pub/hrstrategicprojectmanagement/chapter/2-2-structures/</a></li>
@@ -1346,140 +1351,140 @@
 
   var DIAGRAMS = {
     domainTwoTasks: `flowchart TD
-    D2["ドメイン2: 予測型・計画重視の手法 (17%)"]
-    D2 --> T1["Task 1\\n予測型アプローチが適切な場面を説明する"]
-    D2 --> T2["Task 2\\nプロジェクトマネジメント計画の\\nスケジュールを理解する"]
-    D2 --> T3["Task 3\\n予測型プロジェクトの\\nプロジェクトコントロールを文書化する"]
+D2["ドメイン2: 予測型・計画重視の手法 (17%)"]
+D2 --> T1["Task 1\\n予測型アプローチが適切な場面を説明する"]
+D2 --> T2["Task 2\\nプロジェクトマネジメント計画の\\nスケジュールを理解する"]
+D2 --> T3["Task 3\\n予測型プロジェクトの\\nプロジェクトコントロールを文書化する"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class D2,T1,T2,T3 box;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class D2,T1,T2,T3 box;`,
     orgStructureContinuum: `flowchart LR
-    F["ファンクショナル型\\nFunctional\\nPM権限: なし〜非常に低い"] --> WM["ウィークマトリックス\\nWeak Matrix\\nPM権限: 低い"]
-    WM --> BM["バランスマトリックス\\nBalanced Matrix\\nPM権限: 低〜中程度"]
-    BM --> SM["ストロングマトリックス\\nStrong Matrix\\nPM権限: 中〜高い"]
-    SM --> PZ["プロジェクタイズド型\\nProjectized\\nPM権限: 高い〜ほぼ全権"]
+F["ファンクショナル型\\nFunctional\\nPM権限: なし〜非常に低い"] --> WM["ウィークマトリックス\\nWeak Matrix\\nPM権限: 低い"]
+WM --> BM["バランスマトリックス\\nBalanced Matrix\\nPM権限: 低〜中程度"]
+BM --> SM["ストロングマトリックス\\nStrong Matrix\\nPM権限: 中〜高い"]
+SM --> PZ["プロジェクタイズド型\\nProjectized\\nPM権限: 高い〜ほぼ全権"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class F,WM,BM box;
-    class SM,PZ hub;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class F,WM,BM box;
+class SM,PZ hub;`,
     processGroupsFlow: `flowchart LR
-    I["立ち上げ\\nInitiating"] --> P["計画\\nPlanning"]
-    P --> E["実行\\nExecuting"]
-    E <--> M["監視・コントロール\\nMonitoring & Controlling"]
-    M --> P
-    E --> C["終結\\nClosing"]
-    M --> C
+I["立ち上げ\\nInitiating"] --> P["計画\\nPlanning"]
+P --> E["実行\\nExecuting"]
+E <--> M["監視・コントロール\\nMonitoring & Controlling"]
+M --> P
+E --> C["終結\\nClosing"]
+M --> C
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class I,P,E,M box;
-    class C done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class I,P,E,M box;
+class C done;`,
     projectComponentsTree: `flowchart TD
-    CH["プロジェクト憲章\\nProject Charter"] --> PMP["プロジェクトマネジメント計画\\nProject Management Plan"]
-    PMP --> BL["ベースライン\\nBaselines"]
-    PMP --> DOC["プロジェクト文書\\nProject Documents"]
+CH["プロジェクト憲章\\nProject Charter"] --> PMP["プロジェクトマネジメント計画\\nProject Management Plan"]
+PMP --> BL["ベースライン\\nBaselines"]
+PMP --> DOC["プロジェクト文書\\nProject Documents"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class CH,PMP,BL,DOC box;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class CH,PMP,BL,DOC box;`,
     wbsHierarchyTree: `flowchart TD
-    ROOT["1.0 社内タスク管理ツール導入プロジェクト"]
-    ROOT --> D1["1.1 要件定義"]
-    ROOT --> D2["1.2 設計"]
-    ROOT --> D3["1.3 開発"]
-    ROOT --> D4["1.4 テスト"]
-    ROOT --> D5["1.5 導入・移行"]
+ROOT["1.0 社内タスク管理ツール導入プロジェクト"]
+ROOT --> D1["1.1 要件定義"]
+ROOT --> D2["1.2 設計"]
+ROOT --> D3["1.3 開発"]
+ROOT --> D4["1.4 テスト"]
+ROOT --> D5["1.5 導入・移行"]
 
-    D1 --> W1["1.1.1 業務要件ヒアリング"]
-    D1 --> W2["1.1.2 要件定義書"]
+D1 --> W1["1.1.1 業務要件ヒアリング"]
+D1 --> W2["1.1.2 要件定義書"]
 
-    D2 --> W3["1.2.1 画面設計書"]
-    D2 --> W4["1.2.2 DB設計書"]
-    D2 --> W5["1.2.3 API設計書"]
+D2 --> W3["1.2.1 画面設計書"]
+D2 --> W4["1.2.2 DB設計書"]
+D2 --> W5["1.2.3 API設計書"]
 
-    D3 --> W6["1.3.1 画面開発"]
-    D3 --> W7["1.3.2 DB構築"]
-    D3 --> W8["1.3.3 API開発"]
+D3 --> W6["1.3.1 画面開発"]
+D3 --> W7["1.3.2 DB構築"]
+D3 --> W8["1.3.3 API開発"]
 
-    D4 --> W9["1.4.1 結合テスト"]
-    D4 --> W10["1.4.2 受入テスト"]
+D4 --> W9["1.4.1 結合テスト"]
+D4 --> W10["1.4.2 受入テスト"]
 
-    D5 --> W11["1.5.1 データ移行"]
-    D5 --> W12["1.5.2 本番リリース"]
+D5 --> W11["1.5.1 データ移行"]
+D5 --> W12["1.5.2 本番リリース"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class ROOT,D1,D2,D3,D4,D5 box;
-    class W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12 done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class ROOT,D1,D2,D3,D4,D5 box;
+class W1,W2,W3,W4,W5,W6,W7,W8,W9,W10,W11,W12 done;`,
     cpmNetworkDiagram: `flowchart LR
-    A["A: 要件定義\\n5日"] --> B["B: 設計\\n7日"]
-    B --> C["C: DB構築\\n4日"]
-    B --> D["D: 画面開発\\n10日"]
-    B --> E["E: API開発\\n8日"]
-    C --> F["F: 結合テスト\\n5日"]
-    D --> F
-    E --> F
-    F --> G["G: 受入テスト\\n3日"]
-    G --> H["H: 本番移行\\n2日"]
+A["A: 要件定義\\n5日"] --> B["B: 設計\\n7日"]
+B --> C["C: DB構築\\n4日"]
+B --> D["D: 画面開発\\n10日"]
+B --> E["E: API開発\\n8日"]
+C --> F["F: 結合テスト\\n5日"]
+D --> F
+E --> F
+F --> G["G: 受入テスト\\n3日"]
+G --> H["H: 本番移行\\n2日"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class A,B,D,F,G,H hub;
-    class C,E box;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A,B,D,F,G,H hub;
+class C,E box;`,
     qualityManagementPlan: `flowchart LR
-    QMP["品質管理計画\\nQuality Management Plan"] --> QP["品質計画\\nQuality Planning\\n基準・指標の定義"]
-    QMP --> QA["品質保証\\nQuality Assurance\\nプロセスが正しく守られているかの確認"]
-    QMP --> QC["品質コントロール\\nQuality Control\\n成果物が基準を満たしているかの検査"]
+QMP["品質管理計画\\nQuality Management Plan"] --> QP["品質計画\\nQuality Planning\\n基準・指標の定義"]
+QMP --> QA["品質保証\\nQuality Assurance\\nプロセスが正しく守られているかの確認"]
+QMP --> QC["品質コントロール\\nQuality Control\\n成果物が基準を満たしているかの検査"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class QMP,QP,QA,QC box;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class QMP,QP,QA,QC box;`,
     integrationManagementPlan: `flowchart TD
-    PMP["プロジェクトマネジメント計画\\n(統合された全体計画)"]
-    PMP --> SC["スコープ管理計画"]
-    PMP --> SCH["スケジュール管理計画"]
-    PMP --> CO["コスト管理計画"]
-    PMP --> QM["品質管理計画"]
-    PMP --> RE["リソース管理計画"]
-    PMP --> COM["コミュニケーション管理計画"]
-    PMP --> RI["リスク管理計画"]
-    PMP --> PR["調達管理計画"]
-    PMP --> ST["ステークホルダー管理計画"]
+PMP["プロジェクトマネジメント計画\\n(統合された全体計画)"]
+PMP --> SC["スコープ管理計画"]
+PMP --> SCH["スケジュール管理計画"]
+PMP --> CO["コスト管理計画"]
+PMP --> QM["品質管理計画"]
+PMP --> RE["リソース管理計画"]
+PMP --> COM["コミュニケーション管理計画"]
+PMP --> RI["リスク管理計画"]
+PMP --> PR["調達管理計画"]
+PMP --> ST["ステークホルダー管理計画"]
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class PMP hub;
-    class SC,SCH,CO,QM,RE,COM,RI,PR,ST box;`,
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class PMP hub;
+class SC,SCH,CO,QM,RE,COM,RI,PR,ST box;`,
     evmRelationshipDiagram: `flowchart TD
-    PV["PV: Planned Value\\n計画時点までの予算価値"]
-    EV["EV: Earned Value\\n完了した作業の予算価値(出来高)"]
-    AC["AC: Actual Cost\\n実際に発生したコスト"]
+PV["PV: Planned Value\\n計画時点までの予算価値"]
+EV["EV: Earned Value\\n完了した作業の予算価値(出来高)"]
+AC["AC: Actual Cost\\n実際に発生したコスト"]
 
-    PV --> SV["SV = EV - PV\\nスケジュール差異"]
-    EV --> SV
-    EV --> CV["CV = EV - AC\\nコスト差異"]
-    AC --> CV
-    PV --> SPI["SPI = EV / PV\\nスケジュール効率指数"]
-    EV --> SPI
-    EV --> CPI["CPI = EV / AC\\nコスト効率指数"]
-    AC --> CPI
-    CPI --> EAC["EAC\\n完成時総コスト予測"]
+PV --> SV["SV = EV - PV\\nスケジュール差異"]
+EV --> SV
+EV --> CV["CV = EV - AC\\nコスト差異"]
+AC --> CV
+PV --> SPI["SPI = EV / PV\\nスケジュール効率指数"]
+EV --> SPI
+EV --> CPI["CPI = EV / AC\\nコスト効率指数"]
+AC --> CPI
+CPI --> EAC["EAC\\n完成時総コスト予測"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class PV,EV,AC box;
-    class SV,CV,SPI,CPI,EAC hub;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class PV,EV,AC box;
+class SV,CV,SPI,CPI,EAC hub;`,
     changeControlFlow: `flowchart LR
-    IS["課題・逸脱の発見\\n(Issue Logに登録)"] --> CR["変更要求の起票\\nChange Request"]
-    CR --> CCB["統合変更管理\\n(変更管理委員会 CCBによる審査)"]
-    CCB -->|"承認"| BU["ベースラインの更新\\n(スコープ/スケジュール/コスト)"]
-    CCB -->|"却下"| LG["却下理由をChange Logに記録"]
-    BU --> SR["ステータスレポートへ反映"]
-    LG --> SR
+IS["課題・逸脱の発見\\n(Issue Logに登録)"] --> CR["変更要求の起票\\nChange Request"]
+CR --> CCB["統合変更管理\\n(変更管理委員会 CCBによる審査)"]
+CCB -->|"承認"| BU["ベースラインの更新\\n(スコープ/スケジュール/コスト)"]
+CCB -->|"却下"| LG["却下理由をChange Logに記録"]
+BU --> SR["ステータスレポートへ反映"]
+LG --> SR
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class IS,CR,CCB,LG box;
-    class BU,SR done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class IS,CR,CCB,LG box;
+class BU,SR done;`,
   };
 
   function extendViewBoxHeight(svgEl, extra) {

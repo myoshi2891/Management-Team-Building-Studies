@@ -21,6 +21,15 @@ const guides = [
     accent: "gold",
   },
   {
+    to: "/certified-associate-in-project-management-domain2",
+    category: "PROJECT MANAGEMENT",
+    title: "CAPM® ドメイン2: 予測型・計画重視の手法",
+    description: "組織構造、プロセス群、WBS、クリティカルパス法、EVM、品質・統合管理まで初学者向けに図解付きで解説する学習ガイド。",
+    meta: "8セクション",
+    icon: "tabler:timeline",
+    accent: "gold",
+  },
+  {
     to: "/pmp-certification-guide",
     category: "PROJECT MANAGEMENT",
     title: "PMP® 認定試験 完全攻略ガイド",
