@@ -16,7 +16,17 @@ export default defineNuxtConfig({
   icon: {
     // 静的生成（nuxt generate）ではサーバー API が使えないため、
     // 使用アイコンをビルド時にスキャンしてクライアントバンドルへ同梱する。
-    clientBundle: { scan: true, includeCustomCollections: true },
+    // globInclude の既定は .vue/.jsx/.tsx/.md 等のみで **.ts を含まない**。
+    // ガイドのアイコン名は app/utils/guide-catalog.ts が持つため、.ts を走査対象に加える。
+    // これを外すとヘッダー・ホームのアイコンだけがビルド成果物から欠落する
+    // （dev サーバーでは API 経由で解決されるため気付けない）。
+    clientBundle: {
+      scan: {
+        globInclude: ["**/*.{vue,jsx,tsx,ts,md,mdc,mdx,yml,yaml}"],
+        globExclude: ["node_modules", "dist", "build", "coverage", "tests", "e2e", ".*"],
+      },
+      includeCustomCollections: true,
+    },
     serverBundle: false,
     // 既定の css モードはルート要素が <span> になり、原本 HTML 由来の
     // `… svg { width: … }` 系セレクタが全ページで一致しなくなる。

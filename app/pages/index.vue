@@ -1,89 +1,16 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { GUIDES, categoryCardLabel } from "~/utils/guide-catalog";
 
-const guides = [
-  {
-    to: "/capm",
-    category: "PROJECT MANAGEMENT",
-    title: "CAPM® 認定資格 完全ガイド",
-    description: "PMI公式情報をもとに、受験資格・4つの出題領域・学習計画までを一つの流れで理解できます。",
-    meta: "15セクション",
-    icon: "tabler:certificate",
-    accent: "indigo",
-  },
-  {
-    to: "/certified-associate-in-project-management-domain1",
-    category: "PROJECT MANAGEMENT",
-    title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
-    description: "PMI公式CAPM Exam Content Outlineに基づく、ドメイン1(PM基礎と主要概念・配点36%)の初学者向け解説ガイド。",
-    meta: "9セクション",
-    icon: "tabler:award",
-    accent: "gold",
-  },
-  {
-    to: "/certified-associate-in-project-management-domain2",
-    category: "PROJECT MANAGEMENT",
-    title: "CAPM® ドメイン2: 予測型・計画重視の手法",
-    description: "組織構造、プロセス群、WBS、クリティカルパス法、EVM、品質・統合管理まで初学者向けに図解付きで解説する学習ガイド。",
-    meta: "8セクション",
-    icon: "tabler:timeline",
-    accent: "gold",
-  },
-  {
-    to: "/pmp-certification-guide",
-    category: "PROJECT MANAGEMENT",
-    title: "PMP® 認定試験 完全攻略ガイド",
-    description: "PMI公式Exam Content Outline(2026年7月改定版)に基づき、受験資格・試験形式・3ドメイン26タスクの出題内容とベストプラクティスを体系的に学びます。",
-    meta: "14セクション",
-    icon: "tabler:certificate",
-    accent: "indigo",
-  },
-  {
-    to: "/engineering-management-career-path",
-    category: "ENGINEERING MANAGEMENT",
-    title: "エンジニアのためのマネジメントキャリアパス",
-    description: "テックリードからCTOまで。役割の違いと、マネージャーとしての最初の90日を体系的に学びます。",
-    meta: "12セクション",
-    icon: "tabler:route",
-    accent: "forest",
-  },
-  {
-    to: "/engineering-team-leadership-guide",
-    category: "ENGINEERING LEADERSHIP",
-    title: "エンジニアリングチームのリード術 完全ガイド",
-    description: "効果的なチーム作りの科学的根拠から、1on1、委譲、コードレビュー文化まで、実践できるベストプラクティスを体系的に学びます。",
-    meta: "11セクション",
-    icon: "tabler:users-group",
-    accent: "plum",
-  },
-  {
-    to: "/engineering-manager-guide",
-    category: "ENGINEERING MANAGEMENT",
-    title: "エンジニアリングマネージャー入門完全ガイド",
-    description: "James Stanier著『Become an Effective Software Engineering Manager』を主軸に、新任EMのスタートダッシュから心理的安全性、AI時代の役割まで体系的に学びます。",
-    meta: "14セクション",
-    icon: "tabler:school",
-    accent: "indigo",
-  },
-  {
-    to: "/dynamic-reteaming-guide",
-    category: "TEAM BUILDING",
-    title: "ダイナミック・リチーミング実践ガイド",
-    description: "Heidi Helfand著『Dynamic Reteaming』に基づく、チームのエコサイクル、5つの基本パターン、実践ステップとアンチパターンを体系的に学びます。",
-    meta: "11セクション",
-    icon: "tabler:refresh",
-    accent: "forest",
-  },
-  {
-    to: "/engineering-executive-playbook",
-    category: "ENGINEERING LEADERSHIP",
-    title: "エンジニアリング統括責任者の手引き",
-    description: "Will Larson著『The Engineering Executive's Primer』を骨格に、組織設計・実行システム・DORAメトリクス・障害対応まで体系的に学びます。",
-    meta: "13セクション",
-    icon: "tabler:briefcase",
-    accent: "gold",
-  },
-] as const;
+/*
+ * カードの内容はガイドカタログ（app/utils/guide-catalog.ts）が正。
+ * ここに配列を持たないことで、グローバルナビとの二重管理と登録漏れをなくす。
+ * category はカード表示用の英語表記をカテゴリー定義から引く。
+ */
+const guides = GUIDES.map((guide) => ({
+  ...guide,
+  category: categoryCardLabel(guide.categoryId),
+}));
 
 const learningThemes = [
   { number: "01", title: "体系的に理解する", description: "点在する知識を、全体像から詳細へ進む一貫したストーリーに整理します。", icon: "tabler:books" },
