@@ -144,10 +144,29 @@ esac
 
 # (2) コミット対象を tree オブジェクトとして凍結する。
 #     以降の検証はすべてこの $TREE に対して行い、コミットも $TREE から作る。
-#     index や作業ツリーを再度読まないため、検証とコミットの間に別プロセスが
-#     `git add` / ファイル編集をしても、コミットされる内容は変わらない。
+#     tree を作った後は index も作業ツリーも読まないため、検証とコミットの間に
+#     別プロセスが `git add` / ファイル編集をしても、コミットされる内容は変わらない。
+#
+#     共有 index（.git/index）から `git write-tree` してはならない。共有 index は
+#     別セッションも `git add` する先であり、許可パスと同じファイル（例:
+#     docs/PROGRESS.md）を他セッションが staged していた場合、パス名では
+#     所有者を区別できないため (3) の包含判定を素通りして混入する。
+#     そこで本セッション専用の一時 index を用意し、HEAD を種にして
+#     許可パスだけを作業ツリーから読み込む。tree の内容は
+#     「HEAD + 許可パスの現在の作業ツリー内容」だけで構成され、共有 index の状態から独立する。
 OLD_HEAD="$(git rev-parse HEAD)" || { echo "NG: HEAD を解決できない"; exit 1; }
-TREE="$(git write-tree)" || { echo "NG: index から tree を作成できない"; exit 1; }
+
+# GIT_INDEX_FILE の相対パスは cwd 基準で解決されるため、必ず絶対パスで与える
+# （--absolute-git-dir を使う。リテラルの絶対パスをファイルへ書かないこと）。
+ABS_GIT_DIR="$(git rev-parse --absolute-git-dir)" \
+  || { echo "NG: git-dir を絶対パスで解決できない"; exit 1; }
+export GIT_INDEX_FILE="$ABS_GIT_DIR/session-commit-index"
+rm -f "$GIT_INDEX_FILE" || { echo "NG: 一時 index を初期化できない"; exit 1; }
+
+git read-tree "$OLD_HEAD" || { echo "NG: 一時 index へ HEAD を読み込めない"; exit 1; }
+# ここでの `git add` は一時 index にのみ書き込む（共有 index は変更されない）。
+git add -- $ALLOWED_PATHS || { echo "NG: 許可パスを一時 index へ追加できない"; exit 1; }
+TREE="$(git write-tree)" || { echo "NG: 一時 index から tree を作成できない"; exit 1; }
 
 # (3) 凍結した tree が HEAD から変更するパス集合 ⊆ 許可パス集合 を検証する。
 #     diff-tree は追加・変更・削除をすべてパスとして列挙するため、
@@ -171,18 +190,21 @@ while IFS= read -r path; do
 done < "$STAGED"
 [ "$UNEXPECTED" -eq 0 ] || { echo "NG: 意図しないファイルを巻き込んでいる"; exit 1; }
 
-# (4) 許可パスに未 staged の差分が残っていないことを確認する。
-#     $TREE は index から作られるため、残っていると「作業ツリーにはあるが
-#     コミットされない変更」が生じ、記録内容が中途半端になる。
+# (4) 許可パスの作業ツリー内容が $TREE に取り込まれていることを確認する。
+#     $TREE は (2) で作業ツリーから直接読んだため一致するのが正常だが、
+#     一致しない場合は $TREE の作り方が壊れている（＝検証の前提が崩れている）。
 if git diff --quiet -- $ALLOWED_PATHS; then
-  echo "OK: 許可パスは index と作業ツリーが一致"
+  echo "OK: 許可パスは一時 index と作業ツリーが一致"
 else
   DIFF_STATUS=$?
   case "$DIFF_STATUS" in
-    1) echo "NG: 許可パスに未 staged の差分がある。git add してから再実行する"; exit 1 ;;
+    1) echo "NG: 許可パスが一時 index に反映されていない。(2) からやり直す"; exit 1 ;;
     *) echo "NG: git diff が失敗（exit=$DIFF_STATUS）。判定不能"; exit 1 ;;
   esac
 fi
+
+# 空コミットは記録として無意味なので止める（許可パスに実変更が無い状態）。
+[ -s "$STAGED" ] || { echo "NG: HEAD からの変更が無い。コミットする内容が無い"; exit 1; }
 echo "OK: コミット対象は全て許可リスト内"
 
 # (5) 検証済みの $TREE からコミットを作り、HEAD を条件付きで進める。
@@ -194,8 +216,18 @@ NEW_COMMIT="$(git commit-tree "$TREE" -p "$OLD_HEAD" -m "$COMMIT_MSG")" \
   || { echo "NG: コミットオブジェクトを作成できない"; exit 1; }
 git update-ref -m "commit: $COMMIT_MSG" HEAD "$NEW_COMMIT" "$OLD_HEAD" \
   || { echo "NG: HEAD の条件付き更新に失敗（検証後に HEAD が動いた）。中止する"; exit 1; }
+
+# 一時 index を片付け、以降のコマンドが共有 index を見るように戻す。
+rm -f "$GIT_INDEX_FILE"
+unset GIT_INDEX_FILE
 echo "OK: コミット完了 $(git rev-parse --short HEAD)"
 ```
+
+> [!IMPORTANT]
+> 作業ツリー自体は共有されるため、本手順が保証できる粒度は**ファイル単位**である。
+> 許可パスと同一のファイルを別セッションが同時に編集していた場合、その内容は
+> 作業ツリー経由で $TREE に入る（誰の編集かを Git は区別できない）。
+> 完全な分離が必要な場合は `git worktree add` で専用の作業ツリーを切ってから本手順を実行する。
 
 `git commit -- <pathspec>` は **index ではなく作業ツリー**を読むため、検証済みの内容が
 コミットされる保証が無い（検証と `git commit` の間の編集をそのまま取り込む）。
@@ -207,7 +239,7 @@ echo "OK: コミット完了 $(git rev-parse --short HEAD)"
 - 開始時のベースラインが空でなかった（`$GIT_DIR_PATH/session-baseline-staged.txt` が 1 行以上）
 - 開始時の `CANDIDATE_PATHS` 検査が未 staged の変更を検出した（`git add` で巻き込む恐れがある）
 - 上記 (3) が `許可リストに無いコミット対象` を出力した（意図しない巻き込み）
-- 上記 (4) が未 staged の差分を検出した（コミット内容が検証した状態と一致しない）
+- 上記 (4) が一時 index と作業ツリーの不一致、または「変更が無い」を検出した
 - 上記 (5) の `git update-ref` が失敗した（検証後に HEAD が動いた）
 - `git diff --cached --name-only` に、本セッションで自分が編集していないファイルが含まれる
 - `git status --short` に、本作業と無関係な未コミット変更が残っており、
@@ -276,9 +308,10 @@ git rev-parse --short HEAD
 ### 4. コミット
 
 ```bash
-git add docs/PROGRESS.md
-# 続けて「自律コミット前の対象範囲検証」の (1)〜(5) をそのまま実行する。
-# コミットは同スニペットの (5)（write-tree → commit-tree → update-ref）で完結する。
+# ALLOWED_PATHS="docs/PROGRESS.md" として「自律コミット前の対象範囲検証」の (1)〜(5) を実行する。
+# ステージングは (2) が専用の一時 index に対して行うため、共有 index への
+# `git add` は不要（行ってはならない。他セッションの index を汚す）。
+# コミットは同スニペットの (5)（commit-tree → update-ref）で完結する。
 # ここで `git commit` を直接呼んではならない（検証済みの内容が保証されない）。
 ```
 
