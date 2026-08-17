@@ -42,6 +42,7 @@ describe("SiteHeader", () => {
       { label: "ホーム", href: "/" },
       { label: "CAPM", href: "/capm" },
       { label: "CAPM D1", href: "/certified-associate-in-project-management-domain1" },
+      { label: "CAPM D2", href: "/certified-associate-in-project-management-domain2" },
       { label: "PMP", href: "/pmp-certification-guide" },
       { label: "EMキャリア", href: "/engineering-management-career-path" },
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
@@ -57,6 +58,7 @@ describe("SiteHeader", () => {
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

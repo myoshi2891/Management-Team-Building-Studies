@@ -60,6 +60,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CAPM® ドメイン2: 予測型・計画重視の手法",
+        category: "PROJECT MANAGEMENT",
+        href: "/certified-associate-in-project-management-domain2",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "PMP® 認定試験 完全攻略ガイド",
         category: "PROJECT MANAGEMENT",
         href: "/pmp-certification-guide",
