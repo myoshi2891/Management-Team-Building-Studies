@@ -1,641 +1,203 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PMP®(Project Management Professional)認定試験 完全ガイド | 初学者向けステップバイステップ解説</title>
-<meta name="description" content="PMI公式のPMP Examination Content Outline(2026年7月改定版)に基づき、受験資格・試験形式・3ドメイン26タスクの出題内容とベストプラクティスを初学者向けに解説する完全ガイド。">
-
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
-
-<style>
-  :root {
-    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
-    --color-paper:        #F6F7F9;
-    --color-paper-raised: #FFFFFF;
-    --color-paper-sunken: #EEF0F4;
-
-    --color-ink:          #161B26;
-    --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
-
-    --color-border:       #DFE3EA;
-    --color-border-strong:#C7CDD9;
-
-    --color-indigo:       #2E3F72;
-    --color-indigo-dark:  #1F2C57;
-    --color-indigo-tint:  #EEF1F8;
-
-    --color-gold:         #B8802A;
-    --color-gold-tint:    #FAF1DF;
-
-    --color-forest:       #1B6E6A;
-    --color-forest-tint:  #E7F3F2;
-
-    --color-plum:         #8C3A5C;
-    --color-plum-tint:    #F6EAEF;
-
-    --color-success-bg:    #EAF4EC;
-    --color-success-text:  #2F6B3D;
-    --color-success-border:#BFE0C6;
-
-    --color-info-bg:       #EEF1F8;
-    --color-info-text:     #2E3F72;
-    --color-info-border:   #C7D1EA;
-
-    /* ---- Typography ---- */
-    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-    --sidebar-width: 288px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--color-indigo); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
-
-  img, svg { max-width: 100%; }
-
-  .layout {
-    display: block;
-  }
-
-  /* ===================== Sidebar ===================== */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--color-paper-raised);
-    border-right: 1px solid var(--color-border);
-    padding: 32px 24px 40px;
-    z-index: 20;
-  }
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .seal {
-    flex: none;
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-text .brand-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--color-ink);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-text .brand-subtitle {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 2px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar-nav .nav-group-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.06em;
-    margin: 22px 0 8px;
-    padding-left: 12px;
-  }
-
-  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
-
-  .sidebar-nav li { margin: 2px 0; }
-
-  .sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--color-ink-soft);
-    font-size: 16px;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-  }
-
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
-
-  .sidebar-nav a:hover {
-    background: var(--color-indigo-tint);
-    text-decoration: none;
-    color: var(--color-indigo);
-  }
-
-  .sidebar-nav a.active {
-    background: var(--color-indigo-tint);
-    color: var(--color-indigo);
-    font-weight: 600;
-    border-left: 2px solid var(--color-indigo);
-  }
-
-  .sidebar-nav a.active i { color: var(--color-indigo); }
-
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 30;
-    background: var(--color-paper-raised);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  /* ===================== Main content ===================== */
-  .main-content {
-    margin-left: var(--sidebar-width);
-    padding: 56px 72px 120px;
-  }
-
-  .hero {
-    margin-bottom: 56px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  .hero-eyebrow i { font-size: 17px; }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.28;
-    margin: 0 0 16px;
-    color: var(--color-ink);
-  }
-
-  .hero .hero-lede {
-    font-size: 18px;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .stat-card .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--color-indigo);
-    line-height: 1.1;
-  }
-
-  .stat-card .stat-label {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .disclaimer-box {
-    border: 1px solid var(--color-info-border);
-    background: var(--color-info-bg);
-    color: var(--color-info-text);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-size: 16px;
-    margin-top: 28px;
-  }
-
-  section {
-    margin: 72px 0;
-    scroll-margin-top: 32px;
-  }
-
-  section:first-of-type { margin-top: 0; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 29px;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--color-ink);
-    margin: 40px 0 16px;
-  }
-
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-ink);
-    margin: 28px 0 12px;
-  }
-
-  p { margin: 0 0 18px; }
-
-  ul, ol { margin: 0 0 18px; padding-left: 24px; }
-  li { margin-bottom: 8px; }
-
-  strong { font-weight: 600; color: var(--color-ink); }
-
-  em { color: var(--color-ink-soft); }
-
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
-  /* ===================== Tables ===================== */
-  .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  thead th {
-    background: var(--color-paper-sunken);
-    text-align: left;
-    font-weight: 600;
-    color: var(--color-ink);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border-strong);
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-ink-soft);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--color-paper); }
-
-  td strong, th strong { color: var(--color-ink); }
-
-  /* ===================== Callouts ===================== */
-  .callout {
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-indigo);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 28px 0;
-  }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--color-indigo);
-    margin-bottom: 10px;
-  }
-
-  .callout ul { margin-bottom: 0; padding-left: 20px; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .callout.practice { border-left-color: var(--color-gold); }
-  .callout.practice .callout-title { color: var(--color-gold); }
-
-  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
-  .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source a { color: var(--color-forest); font-weight: 500; }
-  .callout.source ul { list-style: none; padding-left: 0; }
-  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
-
-  .callout.note { border-left-color: var(--color-plum); }
-  .callout.note .callout-title { color: var(--color-plum); }
-
-  /* ===================== Diagram containers ===================== */
-  .diagram-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 12px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-
-  .diagram-card .diagram-caption {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 14px;
-    text-align: center;
-  }
-
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
-
-  /* ===================== Glossary ===================== */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-
-  .glossary-item .g-term {
-    font-weight: 600;
-    color: var(--color-indigo);
-    margin-bottom: 4px;
-  }
-
-  .glossary-item .g-def {
-    color: var(--color-ink-soft);
-    font-size: 16px;
-  }
-
-  /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
-  .ref-list { list-style: none; margin: 0; padding: 0; }
-  .ref-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 16px;
-  }
-  .ref-list li:last-child { border-bottom: none; }
-  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
-  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
-
-  footer {
-    margin-top: 96px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-ink-faint);
-    font-size: 16px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
-  /* ===================== Responsive ===================== */
-  @media (max-width: 980px) {
-    .sidebar-toggle { display: flex; }
-    .sidebar {
-      transform: translateX(-100%);
-      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
-      visibility: hidden;
-      transition: transform 0.2s ease, visibility 0.2s ease;
-      box-shadow: none;
-    }
-    .sidebar.open { transform: translateX(0); visibility: visible; }
-    .main-content { margin-left: 0; padding: 88px 24px 100px; }
-    .hero h1 { font-size: 32px; }
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
-    .glossary-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .sidebar { transition: none; }
-  }
-</style>
-</head>
-<body>
-
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
-
-<div class="layout">
-
-  <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
-    <div class="sidebar-brand">
-      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
-        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
-        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="brand-text">
-        <div class="brand-title">PMP®完全ガイド</div>
-        <div class="brand-subtitle">Project Management Professional</div>
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "about-this-guide",
+  "what-is-pmp",
+  "roadmap",
+  "eligibility",
+  "exam-format",
+  "domain-people",
+  "domain-process",
+  "domain-business",
+  "talent-triangle",
+  "study-roadmap",
+  "pitfalls",
+  "eco-changes",
+  "glossary",
+  "references",
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+  pie1: "#C7D1EA",
+  pie2: "#AEDBD6",
+  pie3: "#F0D9A6",
+  pie4: "#E7C0D0",
+  pieOpacity: "1",
+  pieStrokeColor: "#FFFFFF",
+  pieStrokeWidth: "2px",
+  pieOuterStrokeWidth: "1px",
+  pieOuterStrokeColor: "#DFE3EA",
+  pieSectionTextColor: "#161B26",
+  pieLegendTextColor: "#161B26",
+  pieTitleTextColor: "#161B26",
+};
+
+const DIAGRAM_ROADMAP5 = `flowchart LR
+    A["Prepare<br/>受験資格の確認"] --> B["Apply<br/>PMIへ申請"]
+    B --> C["Study<br/>ECOに沿った学習"]
+    C --> D["Earn<br/>受験して合格する"]
+    D --> E["Maintain<br/>PDU取得で資格を維持"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E box;`;
+
+const DIAGRAM_DOMAIN_PIE = `pie showData title 出題領域別 配点比率
+    "People" : 33
+    "Process" : 41
+    "Business Environment" : 26`;
+
+const DIAGRAM_APPROACH_PIE = `pie showData title 開発アプローチ別 出題比率
+    "予測型" : 40
+    "アジャイル・ハイブリッド" : 60`;
+
+const DIAGRAM_STAKEHOLDER_CYCLE = `flowchart LR
+    A["Identify<br/>ステークホルダーの特定"] --> B["Analyze<br/>関心度と影響力の分析"]
+    B --> C["Plan<br/>エンゲージメント計画の策定"]
+    C --> D["Engage<br/>計画の実行とコミュニケーション"]
+    D --> E["Monitor<br/>満足度と関与度のモニタリング"]
+    E -.->|"変化を検知したら再分析"| B
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E hub;`;
+
+const DIAGRAM_PROCUREMENT_CYCLE = `flowchart LR
+    A["調達計画<br/>Plan Procurement"] --> B["ソリシテーション<br/>Solicit and Select Sellers"]
+    B --> C["交渉と契約締結<br/>Negotiate and Award"]
+    C --> D["調達の実行と統制<br/>Administer and Control"]
+    D --> E["調達クロージャー<br/>Close Procurement"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E box;`;
+
+const DIAGRAM_CLOSURE_FLOW = `flowchart TB
+    A["成果物の受け入れ確認"] --> B["移行準備状況の検証<br/>運用チームまたは次フェーズへ"]
+    B --> C["最終レッスンズラーンドと<br/>レトロスペクティブ実施"]
+    C --> D["調達・財務・資源のクローズ"]
+    D --> E["ステークホルダーからの<br/>正式な受け入れサインオフ"]
+    E --> F["文書とOPAとしてアーカイブ"]
+
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E,F done;`;
+
+const DIAGRAM_CHANGE_CONTROL = `flowchart LR
+    A["変更要求の提出<br/>Change Request"] --> B["影響分析<br/>スコープ・コスト・スケジュール・リスクへの影響評価"]
+    B --> C{"CCB変更管理委員会<br/>による審査"}
+    C -->|"承認"| D["ベースラインの更新<br/>関連文書の改訂"]
+    C -->|"却下"| E["却下理由の文書化"]
+    D --> F["ステークホルダーへの<br/>変更内容の周知"]
+    E --> F
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class A,B,D,E,F box;
+    class C hub;`;
+
+const DIAGRAM_RISK_LIFECYCLE = `flowchart LR
+    A["リスクの識別<br/>Identify Risks"] --> B["定性的リスク分析<br/>発生確率と影響度"]
+    B --> C["定量的リスク分析<br/>必要な場合のみ"]
+    C --> D["リスク対応計画<br/>回避・転嫁・軽減・受容・活用・共有・強化"]
+    D --> E["リスク対応の実行"]
+    E --> F["リスクの監視と再評価"]
+    F -.->|"新たなリスクを検知"| A
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E,F box;`;
+
+const DIAGRAM_STUDY_STEPS = `flowchart TB
+    A["Step 1<br/>ECO全体をざっと読み<br/>3ドメイン26タスクの全体像を掴む"] --> B["Step 2<br/>配点が最大のProcessドメインから基礎を学習"]
+    B --> C["Step 3<br/>Peopleドメインを学習<br/>ステークホルダーとコミュニケーション"]
+    C --> D["Step 4<br/>Business Environmentドメインを学習<br/>ガバナンスとリスク管理"]
+    D --> E["Step 5<br/>予測型・アジャイル・ハイブリッドの<br/>横断的な比較整理"]
+    E --> F["Step 6<br/>公式サンプル問題と模試で<br/>シナリオ形式に慣れる"]
+    F --> G["Step 7<br/>弱点ドメインを重点復習し受験申込へ"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E,F,G box;`;
+
+useSeoMeta({
+  title: "PMP®(Project Management Professional)認定試験 完全ガイド | 初学者向けステップバイステップ解説",
+  description: "PMI公式のPMP Examination Content Outline(2026年7月改定版)に基づき、受験資格・試験形式・3ドメイン26タスクの出題内容とベストプラクティスを初学者向けに解説する完全ガイド。",
+});
+</script>
+
+<template>
+  <div class="pmp-page">
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      id="sidebarToggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" />
+    </button>
+
+    <div class="layout">
+      <nav class="sidebar" id="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
+      <div class="sidebar-brand">
+        <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+          <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+          <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <div class="brand-title">PMP®完全ガイド</div>
+          <div class="brand-subtitle">Project Management Professional</div>
+        </div>
       </div>
-    </div>
 
-    <ul class="sidebar-nav">
-      <li class="nav-group-label">試験の基礎知識</li>
-      <li><a href="#about-this-guide"><i class="ti ti-file-description"></i>このガイドについて</a></li>
-      <li><a href="#what-is-pmp"><i class="ti ti-certificate"></i>PMP資格とは</a></li>
-      <li><a href="#roadmap"><i class="ti ti-route"></i>取得ロードマップ</a></li>
-      <li><a href="#eligibility"><i class="ti ti-clipboard-check"></i>受験資格要件</a></li>
-      <li><a href="#exam-format"><i class="ti ti-list-check"></i>試験の全体像</a></li>
+      <ul class="sidebar-nav">
+        <li class="nav-group-label">試験の基礎知識</li>
+        <li><a :class="{ active: activeId === 'about-this-guide' }" href="#about-this-guide" @click="closeSidebar"><Icon name="tabler:file-description" />このガイドについて</a></li>
+        <li><a :class="{ active: activeId === 'what-is-pmp' }" href="#what-is-pmp" @click="closeSidebar"><Icon name="tabler:certificate" />PMP資格とは</a></li>
+        <li><a :class="{ active: activeId === 'roadmap' }" href="#roadmap" @click="closeSidebar"><Icon name="tabler:route" />取得ロードマップ</a></li>
+        <li><a :class="{ active: activeId === 'eligibility' }" href="#eligibility" @click="closeSidebar"><Icon name="tabler:clipboard-check" />受験資格要件</a></li>
+        <li><a :class="{ active: activeId === 'exam-format' }" href="#exam-format" @click="closeSidebar"><Icon name="tabler:list-check" />試験の全体像</a></li>
 
-      <li class="nav-group-label">出題ドメイン(Domain)</li>
-      <li><a href="#domain-people"><i class="ti ti-users"></i>Domain I: People</a></li>
-      <li><a href="#domain-process"><i class="ti ti-settings"></i>Domain II: Process</a></li>
-      <li><a href="#domain-business"><i class="ti ti-building-bank"></i>Domain III: Business Env.</a></li>
+        <li class="nav-group-label">出題ドメイン(Domain)</li>
+        <li><a :class="{ active: activeId === 'domain-people' }" href="#domain-people" @click="closeSidebar"><Icon name="tabler:users" />Domain I: People</a></li>
+        <li><a :class="{ active: activeId === 'domain-process' }" href="#domain-process" @click="closeSidebar"><Icon name="tabler:settings" />Domain II: Process</a></li>
+        <li><a :class="{ active: activeId === 'domain-business' }" href="#domain-business" @click="closeSidebar"><Icon name="tabler:building-bank" />Domain III: Business Env.</a></li>
 
-      <li class="nav-group-label">学習・資格維持</li>
-      <li><a href="#talent-triangle"><i class="ti ti-refresh"></i>資格維持(PDU)</a></li>
-      <li><a href="#study-roadmap"><i class="ti ti-map-2"></i>学習ロードマップ</a></li>
-      <li><a href="#pitfalls"><i class="ti ti-alert-triangle"></i>つまずきポイント</a></li>
-      <li><a href="#eco-changes"><i class="ti ti-news"></i>2026年改定の要点</a></li>
+        <li class="nav-group-label">学習・資格維持</li>
+        <li><a :class="{ active: activeId === 'talent-triangle' }" href="#talent-triangle" @click="closeSidebar"><Icon name="tabler:refresh" />資格維持(PDU)</a></li>
+        <li><a :class="{ active: activeId === 'study-roadmap' }" href="#study-roadmap" @click="closeSidebar"><Icon name="tabler:map-2" />学習ロードマップ</a></li>
+        <li><a :class="{ active: activeId === 'pitfalls' }" href="#pitfalls" @click="closeSidebar"><Icon name="tabler:alert-triangle" />つまずきポイント</a></li>
+        <li><a :class="{ active: activeId === 'eco-changes' }" href="#eco-changes" @click="closeSidebar"><Icon name="tabler:news" />2026年改定の要点</a></li>
 
-      <li class="nav-group-label">参考資料</li>
-      <li><a href="#glossary"><i class="ti ti-book-2"></i>頻出用語集</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
-    </ul>
-  </nav>
+        <li class="nav-group-label">参考資料</li>
+        <li><a :class="{ active: activeId === 'glossary' }" href="#glossary" @click="closeSidebar"><Icon name="tabler:book-2" />頻出用語集</a></li>
+        <li><a :class="{ active: activeId === 'references' }" href="#references" @click="closeSidebar"><Icon name="tabler:link" />参考文献・出典</a></li>
+      </ul>
+    </nav>
 
-  <!-- ===================== Main content ===================== -->
-  <main class="main-content">
-
-    <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>PMI公式 Exam Content Outline - 2026(7月改定)準拠</div>
+      <main class="main-content">
+        <div class="hero">
+      <div class="hero-eyebrow"><Icon name="tabler:award" />PMI公式 Exam Content Outline - 2026(7月改定)準拠</div>
       <h1>PMP®(Project Management Professional)認定試験 完全攻略ガイド</h1>
       <p class="hero-lede">
         初学者向け ステップバイステップ解説 — 2026年7月改定 Exam Content Outline (ECO) 準拠
@@ -649,14 +211,14 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <Icon name="tabler:info-circle" />
         本ガイドはPMI公式資料に基づく独自の要約・解説であり、PMIによる公式認定や保証を受けたものではありません。PMIは特定の受験対策教材を推奨・保証しておらず、本ガイドも合格を保証するものではありません。試験の詳細・最新の受験資格要件は必ず<a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式サイト</a>で確認してください。「PMI」「PMP」「PMBOK」はProject Management Institute, Inc.の登録商標です。
       </div>
     </div>
 
     <!-- ===================== 01. About This Guide ===================== -->
     <section id="about-this-guide">
-      <div class="section-eyebrow"><i class="ti ti-file-description"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:file-description" />SECTION 01</div>
       <h2>このガイドについて</h2>
 
       <p>このガイドは、PMI(Project Management Institute)が公開している一次情報源を基に、PMP®認定試験の出題内容・受験資格・ベストプラクティスを初学者向けに整理・解説したものです。原文の要約・翻訳・独自解説であり、PMI公式資料そのものではありません。正確な最新情報は必ず一次情報源(巻末の「参考文献・出典」セクション)を参照してください。</p>
@@ -672,15 +234,15 @@
         </table>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
         <p>PMPの出題内容(ECO)は定期的に改定されます。本ガイドは2026年7月改定版を基にしていますが、受験前に必ずPMI公式サイトで最新版を確認してください。</p>
       </div>
     </section>
 
     <!-- ===================== 02. What is PMP ===================== -->
     <section id="what-is-pmp">
-      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" />SECTION 02</div>
       <h2>PMP資格とは何か</h2>
 
       <p>PMP®(Project Management Professional)は、PMIが認定する、プロジェクトを主導した3年以上の実務経験を持つ人向けの専門資格です。特定の業界・地域・開発手法(予測型/アジャイル/ハイブリッド)に縛られず、「人」「プロセス」「ビジネス環境」の3つの側面からプロジェクトを主導する能力を証明します。</p>
@@ -699,8 +261,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式 PMP認定ページ</a></li>
         </ul>
@@ -712,47 +274,54 @@
 
     <!-- ===================== 03. Roadmap ===================== -->
     <section id="roadmap">
-      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" />SECTION 03</div>
       <h2>PMP取得までのロードマップ</h2>
 
       <p>PMI公式ページは、PMP取得までの流れを5つのステップで示しています。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="roadmap5"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ROADMAP5" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">PMP取得までの5ステップ(Prepare → Apply → Study → Earn → Maintain)</div>
       </div>
 
       <ol class="step-list">
         <li>
-          <div class="step-num">1</div>
+          <div class="step-num" data-testid="step-tag">1</div>
           <div class="step-body">
             <div class="step-title">Prepare(準備)</div>
             <div class="step-desc">自分の学歴・実務経験がどの受験資格パターンに該当するかを確認する。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">2</div>
+          <div class="step-num" data-testid="step-tag">2</div>
           <div class="step-body">
             <div class="step-title">Apply(申請)</div>
             <div class="step-desc">PMIオンライン申請システムで学歴・35時間の研修・プロジェクト経験(月単位)を記録する。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">3</div>
+          <div class="step-num" data-testid="step-tag">3</div>
           <div class="step-body">
             <div class="step-title">Study(学習)</div>
             <div class="step-desc">ECOのDomain(People / Process / Business Environment)ごとにタスクとイネイブラーを学習する。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">4</div>
+          <div class="step-num" data-testid="step-tag">4</div>
           <div class="step-body">
             <div class="step-title">Earn(取得)</div>
             <div class="step-desc">受験料を支払い、Pearson VUEのテストセンターまたはオンライン監督試験で180問・240分の試験を受ける。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">5</div>
+          <div class="step-num" data-testid="step-tag">5</div>
           <div class="step-body">
             <div class="step-title">Maintain(維持)</div>
             <div class="step-desc">3年間の更新サイクルごとに60 PDU(Professional Development Unit)を取得し、更新費用を支払う。</div>
@@ -760,8 +329,8 @@
         </li>
       </ol>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式 PMP認定ページ「Your Path to PMP Certification」</a></li>
         </ul>
@@ -770,7 +339,7 @@
 
     <!-- ===================== 04. Eligibility ===================== -->
     <section id="eligibility">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" />SECTION 04</div>
       <h2>受験資格要件(Eligibility Requirements)</h2>
 
       <p>PMP認定試験を受験するには、以下の「学歴 × 実務経験」の4パターンのいずれか <strong>1つ</strong> を満たし、かつ35時間の商業研修(Project Professional Training)を修了している必要があります。</p>
@@ -788,16 +357,16 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.13-14)</a></li>
           <li><a href="https://www.pmi.org/global-accreditation-center/" target="_blank" rel="noopener">PMI Global Accreditation Center</a></li>
         </ul>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
         <p>2026年改定のポイント: 学歴要件が国・地域ごとの資格枠組み(EQFやISCEDなど)にマッピングされる形に明確化されました。学歴証明書にレベル記載がない場合、監査時には国の資格登録簿の抜粋、発行機関の公式声明、または認定機関による正式な評価のいずれかの提出が求められます。</p>
       </div>
 
@@ -814,8 +383,8 @@
       </ul>
       <p><strong>重要:</strong>書籍のみ・模試のみの学習は、35時間の商業研修としては認められません。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.14-15)</a></li>
           <li><a href="https://www.pmi.org/learning/authorized-training-partners" target="_blank" rel="noopener">PMI公認研修パートナー(ATP)検索</a></li>
@@ -825,8 +394,8 @@
       <h3>CAPM®保持者への優遇措置</h3>
       <p>アクティブなCAPM®認定を保持しており、学歴・実務経験要件を満たしている場合、35時間の研修要件のドキュメント提出が <strong>免除</strong> されます(CAPM保持自体が35時間分の研修クレジットとして扱われます)。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.15)</a></li>
           <li><a href="https://www.pmi.org/certifications/certified-associate-capm" target="_blank" rel="noopener">CAPM®認定ページ</a></li>
@@ -836,16 +405,16 @@
       <h3>プロジェクト経験の数え方(重複月のカウント方法)</h3>
       <p>実務経験は「プロジェクト数」ではなく「月数」で数えます。同じ期間に複数のプロジェクトを並行してリードしていた場合、その重複期間を二重にカウントすることはできません。例えば、1月〜3月にプロジェクトI、2月〜5月にプロジェクトIIをリードしていた場合、合計は「1月〜5月の5ヶ月間」としてカウントします。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.16)</a></li>
         </ul>
       </div>
 
       <h3>申請時のベストプラクティス</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>学校のプロジェクトや個人的な活動は対象外。</strong>学業目的のプロジェクト、個人的なイベント企画、自宅のリフォームなどは「プロフェッショナルな設定」での経験と認められません。</li>
           <li><strong>ルーティン業務は除外する。</strong>定型的な運用・管理業務のみのエントリーは記載しないこと(監査対象になりやすい)。</li>
@@ -854,8 +423,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.13-17)</a></li>
         </ul>
@@ -864,7 +433,7 @@
 
     <!-- ===================== 05. Exam Format ===================== -->
     <section id="exam-format">
-      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" />SECTION 05</div>
       <h2>試験の全体像</h2>
 
       <h3>試験形式</h3>
@@ -883,8 +452,8 @@
         </table>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
         <p>休憩を開始すると、それ以前のセクションの問題には戻れません。</p>
       </div>
 
@@ -905,8 +474,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.17-20)</a></li>
         </ul>
@@ -914,12 +483,19 @@
 
       <h3>出題領域(Domain)と配点比率</h3>
       <div class="diagram-card">
-        <div class="diagram-container" id="domainPie"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_DOMAIN_PIE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">出題領域別 配点比率(People 33% / Process 41% / Business Environment 26%)</div>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.5)</a></li>
         </ul>
@@ -929,12 +505,19 @@
       <p>ECOは、Domainのどこか特定の場所に開発アプローチが偏っているわけではなく、People・Process・Business Environmentの <strong>すべてのDomainを横断して</strong> 予測型・適応型/アジャイル・ハイブリッドの3つの働き方が出題されると明記しています。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="approachPie"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_APPROACH_PIE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">開発アプローチ別 出題比率(概算): 予測型 約40% / 適応型・アジャイル+ハイブリッド 残り約60%</div>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.5): 「Approximately 40% of the items will represent predictive project management approaches, whereas the remaining 60% will be divided between adaptive/agile and hybrid management approaches」の記述に基づく(正確な内訳は試験フォームにより変動)</a></li>
         </ul>
@@ -954,8 +537,8 @@
 
       <p><strong>再受験ポリシー:</strong>1回目の受験に不合格の場合、1年間の受験資格期間内であれば最大3回まで再受験できます。3回不合格になった場合、最後の受験日から1年間は再申請できません(その間も他のPMI資格には申請可能)。1年の受験資格期間が切れた場合(3回受験していなくても)、再申請が必要ですが、この場合は待機期間はありません。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.21)</a></li>
           <li><a href="https://www.pearsonvue.com/us/en/pmi.html" target="_blank" rel="noopener">Pearson VUE テストセンター検索(CBT)</a></li>
@@ -967,14 +550,14 @@
 
     <!-- ===================== 06. Domain I: People ===================== -->
     <section id="domain-people">
-      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" />SECTION 06</div>
       <span class="domain-tag d1">Domain I &middot; People &middot; 33%</span>
       <h2>Domain I: People</h2>
 
       <p>Peopleドメインは、プロジェクトマネージャーが「人」を通じて成果を出す能力 — チームリーダーシップ、対立管理、ステークホルダーとの信頼構築、コミュニケーション — を測定します。ECOのタスク構造説明にあるとおり、PMIは近年のリサーチ(<em>Maximizing Project Success</em> レポート)を踏まえ、プロジェクトの成功を「スケジュール・予算・スコープの達成」だけでなく「ステークホルダーにとって、その労力と費用に見合う価値を提供できたか」という、より広い視点で再定義しています。Peopleドメインの多くのタスクはこの価値観と直結しています。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.6)</a></li>
         </ul>
@@ -991,8 +574,8 @@
         <li>ビジョンの誤解が生じている状況を分解し、根本原因を特定する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>プロジェクト憲章(Project Charter)策定の段階でスポンサーと合意した「ビジネスケース」「期待される成果」を、チーム全員が繰り返し参照できる形(1枚もののビジョンステートメントなど)に落とし込む。</strong></li>
           <li><strong>キックオフミーティングだけでなく、マイルストーンごとにビジョンを再確認する場を設ける。</strong>アジャイルではスプリントレビューやプロダクトビジョンの再共有がこれに相当する。</li>
@@ -1000,8 +583,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.7)</a></li>
@@ -1021,8 +604,8 @@
         <li>グラウンドルール違反を是正する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>対立の背景(価値観の相違か、リソース不足か、スケジュールのプレッシャーかなど)を切り分けてから対応方針を決める。</strong></li>
           <li><strong>対立解決のアプローチ(協力/妥協/強制/回避/緩和)を状況に応じて使い分ける。</strong>技術的な優先度をめぐる対立は「協力」で根本解決を目指し、些細な意見の相違は「妥協」で時間を節約する、といった判断が求められる。</li>
@@ -1030,8 +613,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI Talent Triangle - Power Skills</a></li>
@@ -1052,8 +635,8 @@
         <li>チーム内の明確な役割と責任を確立する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>RACIマトリクス(Responsible / Accountable / Consulted / Informed)を使い、タスクごとの役割と責任を可視化する。</strong></li>
           <li><strong>サーバントリーダーシップ(奉仕型リーダーシップ)は、特にアジャイル/自己組織化チームで推奨されるスタイルであり、Agile Practice Guideでも中心的な考え方として扱われている。</strong></li>
@@ -1061,8 +644,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
@@ -1085,12 +668,19 @@
       <p>以下は、ステークホルダーとの関わりを継続的なサイクルとして捉えたプロセスです。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="stakeholderCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_STAKEHOLDER_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">ステークホルダーエンゲージメントの継続的サイクル</div>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>「権力・関心度グリッド(Power/Interest Grid)」でステークホルダーを4象限(監視/情報提供/満足維持/密接管理)に分類し、労力の配分を最適化する。</strong></li>
           <li><strong>ステークホルダーレジスター(Stakeholder Register)を一度作って終わりにせず、プロジェクトの局面が変わるたびに更新する。</strong></li>
@@ -1098,8 +688,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.7)</a></li>
@@ -1117,8 +707,8 @@
         <li>メンタリングの機会を組織し、行動に移す</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>期待値の食い違いは「サイレント」なまま進行しやすいため、定期的な1on1やステークホルダーインタビューで早期に顕在化させる。</strong></li>
           <li><strong>ファシリテーションでは、対立する期待値そのものではなく「その期待の裏にある目的・懸念」を掘り下げて共通点を探す。</strong></li>
@@ -1126,8 +716,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI Talent Triangle</a></li>
@@ -1144,8 +734,8 @@
         <li>内部・外部顧客の満足度/期待をモニタリングし、必要に応じて対応する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>顧客満足度は主観的な印象ではなく、NPS(Net Promoter Score)や定期的なステークホルダーサーベイなど測定可能な指標で継続的に把握する。</strong></li>
           <li><strong>期待値のズレが検知された時点で、原因(スコープの誤解か、進捗の可視性不足か)を切り分けて対応する。</strong></li>
@@ -1153,8 +743,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1171,8 +761,8 @@
         <li>知識移転のための環境を醸成する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>レッスンズラーンド(Lessons Learned)を「プロジェクト終了時にまとめて書く」のではなく、フェーズやスプリントの節目ごとに継続的に記録する。</strong></li>
           <li><strong>暗黙知(ベテランの勘所やノウハウ)は文書化だけでなく、ペアワークやシャドーイングなど「一緒にやる」形での移転を組み合わせる。</strong></li>
@@ -1180,8 +770,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.6, タスク構造の例示として掲載)</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1201,8 +791,8 @@
         <li>レポーティングとガバナンスプロセスをサポートする</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>コミュニケーションマネジメント計画では「誰に・何を・いつ・どの手段で・誰が」伝えるかをマトリクス化する。</strong></li>
           <li><strong>レポートは受け手の役割(経営層向けはサマリーとKPI、実務チーム向けは詳細なバーンダウン/進捗)に応じて粒度を変える。</strong></li>
@@ -1210,8 +800,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI Talent Triangle</a></li>
@@ -1221,14 +811,14 @@
 
     <!-- ===================== 07. Domain II: Process ===================== -->
     <section id="domain-process">
-      <div class="section-eyebrow"><i class="ti ti-settings"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:settings" />SECTION 07</div>
       <span class="domain-tag d2">Domain II &middot; Process &middot; 41%</span>
       <h2>Domain II: Process</h2>
 
       <p>Processドメインは、出題比率41%と3ドメインの中で最大のウェイトを占めます。統合マネジメント計画の策定からスコープ・資源・調達・財務・品質・スケジュール・進捗評価・クロージャーまで、プロジェクトを「実行し、完了させる」ための一連のプロセスに関する実務能力を測定します。開発アプローチ(予測型/アジャイル/ハイブリッド)を問わず、これらのプロセスの目的と使い分けを理解していることが問われます。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.9-11)</a></li>
         </ul>
@@ -1250,8 +840,8 @@
         <li>データを収集・分析し、根拠あるプロジェクト意思決定を行う</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>開発アプローチの選定は「不確実性(要求が明確か)」と「変動性(解の合意度)」の2軸で判断する。</strong>要求もソリューションも明確なら予測型、両方が不透明ならアジャイル、一部が明確なら成果物やフェーズ単位でアプローチを混ぜるハイブリッドを検討する。</li>
           <li><strong>統合マネジメント計画は各サブ計画(スコープ・スケジュール・コスト・品質・資源・コミュニケーション・リスク・調達・ステークホルダー計画)を独立に作らず、依存関係を意識して整合させる。</strong></li>
@@ -1259,8 +849,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
@@ -1278,8 +868,8 @@
         <li>スコープを分解する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>予測型ではWBS(Work Breakdown Structure、作業分解構成図)で成果物ベースにスコープを階層分解し、WBS辞書で各要素の完了基準を明文化する。</strong></li>
           <li><strong>アジャイルではプロダクトバックログとユーザーストーリーでスコープを段階的に分解し、優先順位付けを継続的に見直す。</strong></li>
@@ -1287,8 +877,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
@@ -1308,8 +898,8 @@
         <li>価値を実証するためのデリバリーオプションを評価する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>MoSCoW法(Must/Should/Could/Won't)やWSJF(Weighted Shortest Job First)など、価値ベースの優先順位付け手法を活用する。</strong></li>
           <li><strong>「アウトプット(作ったもの)」ではなく「アウトカム(もたらした成果)」を測定するベネフィット追跡指標を設計する。</strong></li>
@@ -1317,8 +907,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.6, p.9)</a></li>
@@ -1334,8 +924,8 @@
         <li>資源のニーズと可用性を管理・最適化する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>資源ヒストグラム(Resource Histogram)で稼働の山谷を可視化し、資源平準化(Leveling)や資源円滑化(Smoothing)で過負荷を調整する。</strong></li>
           <li><strong>チームメンバーのスキルだけでなく可用性(他プロジェクトとの兼務状況)も含めて資源計画を立てる。</strong></li>
@@ -1343,8 +933,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
@@ -1371,12 +961,19 @@
       <p>調達プロセスは、一般的に以下のようなライフサイクルで進行します。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="procurementCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PROCUREMENT_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">調達マネジメントのライフサイクル</div>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>契約タイプはリスク分担で選ぶ。</strong>要件が明確なら<strong>FFP(Firm Fixed Price、確定固定価格)</strong>、要件が不確実で工数ベースなら<strong>T&M(Time and Materials)</strong>、開発コストが読みにくい研究開発案件なら<strong>CPFF(Cost Plus Fixed Fee)</strong>のように、プロジェクトの不確実性に応じて使い分ける。</li>
           <li><strong>ベンダー評価は契約締結後も継続的に行い(SLA遵守率、納期遵守率など)、評価結果を将来の調達判断にフィードバックする。</strong></li>
@@ -1384,8 +981,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.9)</a></li>
@@ -1406,8 +1003,8 @@
         <li>財務準備金を管理する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>コストベースライン(承認済み予算計画)を設定し、実績との差異をEVM(Earned Value Management)で定量的に把握する。</strong>代表的な指標は<code>CV(Cost Variance)</code>、<code>CPI(Cost Performance Index)</code>。</li>
           <li><strong>コンティンジェンシー予備(既知の未知リスク用)とマネジメント予備(未知の未知用)を明確に区別して管理する。</strong></li>
@@ -1415,8 +1012,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.10)</a></li>
@@ -1437,8 +1034,8 @@
         <li>継続的改善を実装する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>CoQは「適合コスト(予防・評価)」と「不適合コスト(内部/外部の失敗コスト)」に分け、予防への投資が下流の手戻りコストを削減することを意識する。</strong></li>
           <li><strong>品質は最終検査だけで担保せず、プロセスの早い段階での品質作り込み(Quality by Design、アジャイルの「Definition of Done」など)を重視する。</strong></li>
@@ -1446,8 +1043,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
@@ -1469,8 +1066,8 @@
         <li>スケジュール差異を分析する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>予測型ではクリティカルパス法(CPM: Critical Path Method)でフロート(余裕時間)がゼロのタスク列を特定し、そこに集中的にリソースを配分する。</strong></li>
           <li><strong>アジャイルではベロシティ(1スプリントあたりの完了ストーリーポイント数)の実績を蓄積し、将来のイテレーション計画に活用する。</strong></li>
@@ -1478,8 +1075,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
@@ -1501,8 +1098,8 @@
         <li>アーティファクト管理の有効性を継続的に評価する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>アーティファクト(バーンダウンチャート、ダッシュボード、ステータスレポート等)は「作ること」自体を目的化せず、意思決定に使われているかを定期的に見直し、使われていないものは廃止する。</strong></li>
           <li><strong>ステータスレポートは「進捗(何が終わったか)」だけでなく「今後のリスクと必要な意思決定」をセットで報告する。</strong></li>
@@ -1510,8 +1107,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.10)</a></li>
@@ -1532,12 +1129,19 @@
       <p>クロージャーは、以下のような流れで整理すると抜け漏れを防ぎやすくなります。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="closureFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CLOSURE_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">プロジェクトクロージャーの流れ</div>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>クロージャーの基準(Definition of Done at project level)はプロジェクト開始時点で定義し、終盤で場当たり的に決めない。</strong></li>
           <li><strong>調達のクローズでは、契約上の義務(検収、支払い、保証条件)がすべて満たされたことを文書で確認してから正式クローズする。</strong></li>
@@ -1545,8 +1149,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.10)</a></li>
@@ -1556,14 +1160,14 @@
 
     <!-- ===================== 08. Domain III: Business Environment ===================== -->
     <section id="domain-business">
-      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" />SECTION 08</div>
       <span class="domain-tag d3">Domain III &middot; Business Environment &middot; 26%</span>
       <h2>Domain III: Business Environment</h2>
 
       <p>Business Environmentドメインは、プロジェクトを組織・外部環境の文脈の中に位置づける能力を測定します。ガバナンス、コンプライアンス、変更管理、障害・課題対応、リスク管理、継続的改善、組織変革の支援、外部環境変化への対応まで、「プロジェクトの外側」との接続を扱うタスク群です。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.11-12)</a></li>
         </ul>
@@ -1579,8 +1183,8 @@
         <li>ガバナンスのエスカレーションパスと閾値を明確にする</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>ガバナンス構造(意思決定権限を持つのは誰か、どの階層で何を承認するか)はプロジェクト開始時点でRACIやガバナンス憲章として文書化する。</strong></li>
           <li><strong>成功指標はスケジュール・コスト・スコープだけでなく、ステークホルダーにとっての価値実現度を含めて定義する。</strong></li>
@@ -1588,8 +1192,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.11)</a></li>
@@ -1610,8 +1214,8 @@
         <li>プロジェクトがコンプライアンスを満たしている度合いを測定する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>コンプライアンス要件は業界・地域ごとに異なるため、プロジェクト開始時に法務・コンプライアンス部門と要件一覧を確定し、要件トレーサビリティマトリクスで管理する。</strong></li>
           <li><strong>非遵守が発覚した場合の影響(罰金・信用失墜・プロジェクト停止リスク)を事前に定量化し、優先度判断の材料にする。</strong></li>
@@ -1619,8 +1223,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.11)</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1641,12 +1245,19 @@
       <p>統合変更管理(Integrated Change Control)の典型的な流れは以下のとおりです。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="changeControl"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CHANGE_CONTROL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">統合変更管理(Integrated Change Control)のプロセス</div>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>すべての変更要求は、口頭や個別のチャットで処理せず、必ず正式な変更管理プロセス(変更ログへの記録)を通す。</strong></li>
           <li><strong>CCB(Change Control Board)には、プロジェクトへの影響を評価できる適切な権限者(技術リード、QAリード、プロダクトオーナー等)を含める。</strong></li>
@@ -1655,8 +1266,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/pmbok-guide-standards/practice-guides/change" target="_blank" rel="noopener">Managing Change in Organizations: A Practice Guide</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1676,8 +1287,8 @@
         <li>関連ステークホルダーと協力して課題解決のアプローチを決定する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>課題ログ(Issue Log)を維持し、リスクレジスターと分けて管理する。</strong>リスクは「起きるかもしれないこと」、課題は「すでに起きたこと」という区別を徹底する。</li>
           <li><strong>スクラムのデイリースタンドアップのように、障害物を毎日短いサイクルで可視化する仕組みを設けると、対応の遅れを防げる。</strong></li>
@@ -1685,8 +1296,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1710,12 +1321,19 @@
       <p>リスクマネジメントは、単発の作業ではなく継続的なライフサイクルとして扱われます。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="riskLifecycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_RISK_LIFECYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">リスクマネジメントの継続的ライフサイクル</div>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>発生確率×影響度のマトリクス(Probability-Impact Matrix)でリスクの優先順位を可視化し、対応リソースを高優先度リスクに集中させる。</strong></li>
           <li><strong>脅威(ネガティブリスク)への対応戦略は「回避・転嫁・軽減・受容」、好機(ポジティブリスク)への対応戦略は「活用・共有・強化・受容」というように、リスクの性質に応じた戦略を使い分ける。</strong></li>
@@ -1723,8 +1341,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/risk-management" target="_blank" rel="noopener">PMI: The Standard for Risk Management in Portfolios, Programs, and Projects</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1741,8 +1359,8 @@
         <li>OPAを更新する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>アジャイルのレトロスペクティブのように、定期的に「何がうまくいったか/何を改善すべきか」を振り返る場を予測型プロジェクトでも定例化する。</strong></li>
           <li><strong>改善のアイデアは出して終わりにせず、次のフェーズ/スプリントで実際に試すアクションアイテムとして追跡する。</strong></li>
@@ -1750,8 +1368,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1767,8 +1385,8 @@
         <li>組織変革がプロジェクトに与える影響を評価し、必要なアクションを決定する</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>組織変革への抵抗は「変化そのもの」への抵抗ではなく「不確実性」への反応であることが多いため、変更の目的・影響・スケジュールを早期かつ繰り返し伝えるコミュニケーション計画を重視する。</strong></li>
           <li><strong>チェンジマネジメントの代表的なフレームワーク(ADKARモデル、コッターの8段階プロセスなど)を、プロジェクトのステークホルダーエンゲージメント計画と統合して運用する。</strong></li>
@@ -1776,8 +1394,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/pmbok-guide-standards/practice-guides/change" target="_blank" rel="noopener">PMI: Managing Change in Organizations: A Practice Guide</a></li>
         </ul>
@@ -1793,8 +1411,8 @@
         <li>プロジェクトのスコープ/バックログへの影響について、外部ビジネス環境を継続的にレビューする</li>
       </ul>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>PESTLE分析(政治・経済・社会・技術・法律・環境)のようなフレームワークで外部環境要因を定期的にスキャンする。</strong></li>
           <li><strong>外部環境変化(例: 新しい規制、AI関連技術の急速な進化)を検知した際は、既存のリスクレジスターに統合し、影響度評価のプロセスに乗せる。</strong></li>
@@ -1802,8 +1420,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.12)</a></li>
           <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
@@ -1813,7 +1431,7 @@
 
     <!-- ===================== 09. Talent Triangle & CCR ===================== -->
     <section id="talent-triangle">
-      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 09</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" />SECTION 09</div>
       <h2>PMI Talent Triangle®と資格維持(PDU / CCRプログラム)</h2>
 
       <h3>PMI Talent Triangle®とは</h3>
@@ -1830,8 +1448,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI「Plan Your Development to the PMI Talent Triangle」</a></li>
         </ul>
@@ -1840,8 +1458,8 @@
       <h3>資格維持要件(CCR: Continuing Certification Requirements)</h3>
       <p>PMPは一度取得すれば終わりではなく、<strong>3年ごとの更新サイクル内に60 PDU(Professional Development Unit)を取得</strong>し、更新費用を支払うことで維持されます。1 PDUは、学習・他者への指導・プレゼンテーション・読書・ボランティア活動・コンテンツ制作などに費やした1時間に相当します。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式 PMP認定ページ「Maintaining your PMP certification」</a></li>
           <li><a href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener">PDU/CCRの詳細</a></li>
@@ -1851,19 +1469,26 @@
 
     <!-- ===================== 10. Study Roadmap ===================== -->
     <section id="study-roadmap">
-      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 10</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" />SECTION 10</div>
       <h2>初学者向け 学習ロードマップの提案</h2>
 
       <p>ECOの構成(People 33% / Process 41% / Business Environment 26%)を踏まえると、以下のような学習順序が効率的です。あくまで一つの提案であり、実務経験の偏り(例: すでに調達実務に強い、逆にステークホルダーマネジメントが苦手など)に応じて調整してください。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="studySteps"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_STUDY_STEPS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">初学者向け学習ロードマップ(7ステップ)</div>
       </div>
 
       <h3>学習時のポイント</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>知識の暗記ではなくシナリオ適用力を鍛える。</strong>2026年改定で新設されたCase/Scenario形式やGraphic-Based形式は、単純な用語暗記では対応できません。「この状況でプロジェクトマネージャーが最初にすべきことは何か」という判断力を問う問題が中心です。</li>
           <li><strong>開発アプローチを横断して理解する。</strong>同じタスク(例: スケジュール管理)でも、予測型ではクリティカルパス法、アジャイルではベロシティというように、アプローチごとの使い分けを問われるため、暗記ではなく「なぜその手法が適しているか」まで理解する。</li>
@@ -1871,8 +1496,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/learning/authorized-training-partners" target="_blank" rel="noopener">PMI公認研修パートナー(ATP)検索</a></li>
         </ul>
@@ -1881,7 +1506,7 @@
 
     <!-- ===================== 11. Common Pitfalls ===================== -->
     <section id="pitfalls">
-      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 11</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" />SECTION 11</div>
       <h2>初学者がつまずきやすいポイントとベストプラクティスまとめ</h2>
 
       <div class="table-wrap">
@@ -1903,7 +1528,7 @@
 
     <!-- ===================== 12. 2026 ECO Changes ===================== -->
     <section id="eco-changes">
-      <div class="section-eyebrow"><i class="ti ti-news"></i>SECTION 12</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:news" />SECTION 12</div>
       <h2>2026年7月改定ECOの主な変更点(まとめ)</h2>
 
       <ul>
@@ -1915,8 +1540,8 @@
         <li>PMP認定はISO/ANSI 17024およびISO 9001の国際規格認定を受けている</li>
       </ul>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.4-5)</a></li>
         </ul>
@@ -1925,7 +1550,7 @@
 
     <!-- ===================== 13. Glossary ===================== -->
     <section id="glossary">
-      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 13</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" />SECTION 13</div>
       <h2>頻出用語集</h2>
 
       <p>本ガイド全体で頻出する専門用語を整理しました。各タスクの詳細解説と合わせて参照してください。</p>
@@ -1952,7 +1577,7 @@
 
     <!-- ===================== 14. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" />SECTION 14</div>
       <h2>参考文献・出典一覧</h2>
 
       <p>本ガイドの作成にあたり参照した一次情報源(すべてPMI公式、または一部PMI公式が主催・運営するページ)は以下のとおりです。</p>
@@ -1995,8 +1620,8 @@
         </ul>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
         <p>本ガイドはPMI公式資料に基づく独自の要約・解説であり、PMIによる公式認定や保証を受けたものではありません。PMIは特定の受験対策教材・コース・参考資料を推奨も保証もしておらず、本ガイドも合格を保証するものではない点にご留意ください。試験の詳細・最新の受験資格要件は、必ず上記の一次情報源で確認してください。「PMI」「PMP」「PMBOK」はProject Management Institute, Inc.の登録商標です。</p>
       </div>
     </section>
@@ -2006,230 +1631,490 @@
     <footer>
       本ページは学習支援を目的とした非公式の解説資料です。「PMI」「PMP」「PMBOK」はProject Management Institute, Inc.の登録商標です。最新の受験資格・出題内容は必ず<a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式サイト</a>および<a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026</a>でご確認ください。
     </footer>
+      </main>
+    </div>
+  </div>
+</template>
 
-  </main>
-</div>
+<style scoped>
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: calc(100vh - var(--global-nav-height, 0px));
+}
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
-<script>
-(function () {
-  "use strict";
+.sidebar {
+  position: sticky;
+  top: var(--global-nav-height, 0px);
+  height: calc(100vh - var(--global-nav-height, 0px));
+  overflow-y: auto;
+  padding: 1.5rem 1rem 2rem;
+  border-right: 1px solid var(--color-border);
+  background: var(--color-paper);
+}
 
-  var DIAGRAMS = {
-    roadmap5: `flowchart LR
-    A["Prepare<br/>受験資格の確認"] --> B["Apply<br/>PMIへ申請"]
-    B --> C["Study<br/>ECOに沿った学習"]
-    C --> D["Earn<br/>受験して合格する"]
-    D --> E["Maintain<br/>PDU取得で資格を維持"]
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.5rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1rem;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class A,B,C,D,E box;`,
+.sidebar-brand .seal {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
 
-    domainPie: `pie showData title 出題領域別 配点比率
-    "People" : 33
-    "Process" : 41
-    "Business Environment" : 26`,
+.brand-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.2;
+}
 
-    approachPie: `pie showData title 開発アプローチ別 出題比率
-    "予測型" : 40
-    "アジャイル・ハイブリッド" : 60`,
+.brand-subtitle {
+  font-size: 0.7rem;
+  color: var(--color-ink-muted);
+}
 
-    stakeholderCycle: `flowchart LR
-    A["Identify<br/>ステークホルダーの特定"] --> B["Analyze<br/>関心度と影響力の分析"]
-    B --> C["Plan<br/>エンゲージメント計画の策定"]
-    C --> D["Engage<br/>計画の実行とコミュニケーション"]
-    D --> E["Monitor<br/>満足度と関与度のモニタリング"]
-    E -.->|"変化を検知したら再分析"| B
+.sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class A,B,C,D,E hub;`,
+.nav-group-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+  padding: 1rem 0.6rem 0.35rem;
+}
 
-    procurementCycle: `flowchart LR
-    A["調達計画<br/>Plan Procurement"] --> B["ソリシテーション<br/>Solicit and Select Sellers"]
-    B --> C["交渉と契約締結<br/>Negotiate and Award"]
-    C --> D["調達の実行と統制<br/>Administer and Control"]
-    D --> E["調達クロージャー<br/>Close Procurement"]
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.84rem;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class A,B,C,D,E box;`,
+.sidebar-nav a:hover {
+  background: var(--color-paper-raised);
+  color: var(--color-ink);
+}
 
-    closureFlow: `flowchart TB
-    A["成果物の受け入れ確認"] --> B["移行準備状況の検証<br/>運用チームまたは次フェーズへ"]
-    B --> C["最終レッスンズラーンドと<br/>レトロスペクティブ実施"]
-    C --> D["調達・財務・資源のクローズ"]
-    D --> E["ステークホルダーからの<br/>正式な受け入れサインオフ"]
-    E --> F["文書とOPAとしてアーカイブ"]
+.sidebar-nav a.active {
+  background: var(--color-primary-tint, #EEF1F8);
+  color: var(--color-primary, #2E3F72);
+  font-weight: 600;
+}
 
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class A,B,C,D,E,F done;`,
+.main-content {
+  padding: 2.5rem 3rem 5rem;
+  max-width: 960px;
+  min-width: 0;
+}
 
-    changeControl: `flowchart LR
-    A["変更要求の提出<br/>Change Request"] --> B["影響分析<br/>スコープ・コスト・スケジュール・リスクへの影響評価"]
-    B --> C{"CCB変更管理委員会<br/>による審査"}
-    C -->|"承認"| D["ベースラインの更新<br/>関連文書の改訂"]
-    C -->|"却下"| E["却下理由の文書化"]
-    D --> F["ステークホルダーへの<br/>変更内容の周知"]
-    E --> F
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class A,B,D,E,F box;
-    class C hub;`,
+.hero {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
 
-    riskLifecycle: `flowchart LR
-    A["リスクの識別<br/>Identify Risks"] --> B["定性的リスク分析<br/>発生確率と影響度"]
-    B --> C["定量的リスク分析<br/>必要な場合のみ"]
-    C --> D["リスク対応計画<br/>回避・転嫁・軽減・受容・活用・共有・強化"]
-    D --> E["リスク対応の実行"]
-    E --> F["リスクの監視と再評価"]
-    F -.->|"新たなリスクを検知"| A
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-gold, #B8802A);
+  margin-bottom: 0.75rem;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class A,B,C,D,E,F box;`,
+h1 {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin: 0 0 1rem;
+}
 
-    studySteps: `flowchart TB
-    A["Step 1<br/>ECO全体をざっと読み<br/>3ドメイン26タスクの全体像を掴む"] --> B["Step 2<br/>配点が最大のProcessドメインから基礎を学習"]
-    B --> C["Step 3<br/>Peopleドメインを学習<br/>ステークホルダーとコミュニケーション"]
-    C --> D["Step 4<br/>Business Environmentドメインを学習<br/>ガバナンスとリスク管理"]
-    D --> E["Step 5<br/>予測型・アジャイル・ハイブリッドの<br/>横断的な比較整理"]
-    E --> F["Step 6<br/>公式サンプル問題と模試で<br/>シナリオ形式に慣れる"]
-    F --> G["Step 7<br/>弱点ドメインを重点復習し受験申込へ"]
+.hero-lede {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+  margin: 0 0 1.75rem;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class A,B,C,D,E,F,G box;`
-  };
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
 
-  function extendViewBoxHeight(svgEl, extra) {
-    var vb = svgEl.getAttribute("viewBox");
-    if (!vb) return;
-    var parts = vb.split(/\s+/).map(Number);
-    if (parts.length !== 4) return;
-    svgEl.style.width = parts[2] + "px";
-    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+.stat-card {
+  padding: 1rem 1.25rem;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary, #2E3F72);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--color-ink-muted);
+  margin-top: 0.25rem;
+}
+
+.disclaimer-box {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
+
+.disclaimer-box :deep(.iconify) {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--color-ink-faint);
+}
+
+section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-gold, #B8802A);
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  line-height: 1.35;
+  color: var(--color-ink);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
+}
+
+h3 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: var(--color-ink);
+  margin: 2rem 0 0.85rem;
+  scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
+}
+
+h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 1.25rem 0 0.5rem;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--color-ink);
+  margin: 0 0 1rem;
+}
+
+ul, ol {
+  padding-left: 1.4rem;
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+th, td {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  background: var(--color-paper-raised);
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.callout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--color-border);
+  background: var(--color-paper-raised);
+}
+
+.callout.note {
+  border-left-color: var(--color-primary, #2E3F72);
+  background: var(--color-primary-tint, #EEF1F8);
+}
+
+.callout.practice {
+  border-left-color: var(--color-forest, #2F6B3D);
+  background: var(--color-forest-tint, #EAF4EC);
+}
+
+.callout.source {
+  border-left-color: var(--color-gold, #B8802A);
+  background: var(--color-gold-tint, #FAF1DF);
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-ink);
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.diagram-card {
+  margin: 1.75rem 0;
+  padding: 1.25rem;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.diagram-caption {
+  font-size: 0.8rem;
+  color: var(--color-ink-muted);
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.diagram-loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-ink-muted);
+  font-size: 0.85rem;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.step-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-primary, #2E3F72);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.step-body {
+  flex: 1;
+}
+
+.step-title {
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 0.2rem;
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  line-height: 1.55;
+}
+
+.domain-card {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.domain-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.domain-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: var(--color-gold-tint, #FAF1DF);
+  color: var(--color-gold, #B8802A);
+}
+
+.enabler-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+}
+
+.enabler-list li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.88rem;
+}
+
+.enabler-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0.3rem;
+  color: var(--color-primary, #2E3F72);
+  font-weight: bold;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.glossary-item {
+  padding: 1rem;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.glossary-term {
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 0.3rem;
+  font-size: 0.92rem;
+}
+
+.glossary-desc {
+  font-size: 0.84rem;
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
   }
 
-  async function renderAllDiagrams() {
-    if (typeof mermaid === "undefined") {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
-      });
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      try { await document.fonts.ready; } catch (e) { /* ignore */ }
-    }
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "strict",
-      theme: "base",
-      themeVariables: {
-        background: "transparent",
-        primaryColor: "#EEF1F8",
-        primaryBorderColor: "#2E3F72",
-        primaryTextColor: "#161B26",
-        lineColor: "#2E3F72",
-        secondaryColor: "#FAF1DF",
-        secondaryBorderColor: "#B8802A",
-        tertiaryColor: "#FFFFFF",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-        fontSize: "16px",
-        pie1: "#C7D1EA",
-        pie2: "#AEDBD6",
-        pie3: "#F0D9A6",
-        pie4: "#E7C0D0",
-        pieOpacity: "1",
-        pieStrokeColor: "#FFFFFF",
-        pieStrokeWidth: "2px",
-        pieOuterStrokeWidth: "1px",
-        pieOuterStrokeColor: "#DFE3EA",
-        pieSectionTextColor: "#161B26",
-        pieLegendTextColor: "#161B26",
-        pieTitleTextColor: "#161B26"
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        nodeSpacing: 45,
-        rankSpacing: 48,
-        curve: "basis"
-      },
-      pie: {
-        useMaxWidth: false
-      }
-    });
-
-    var entries = Object.keys(DIAGRAMS);
-    for (var i = 0; i < entries.length; i++) {
-      var id = entries[i];
-      var container = document.getElementById(id);
-      if (!container) continue;
-      try {
-        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
-        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
-        container.innerHTML = typeof result === "string" ? result : result.svg;
-        var svgEl = container.querySelector("svg");
-        if (svgEl) {
-          svgEl.removeAttribute("width");
-          svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.overflow = "visible";
-          extendViewBoxHeight(svgEl, 15);
-        }
-      } catch (err) {
-        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
-      }
-    }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 2px 0 16px rgba(0,0,0,0.15);
   }
 
-  function setupSidebarHighlight() {
-    var sections = document.querySelectorAll("main section[id]");
-    var navLinks = document.querySelectorAll(".sidebar-nav a");
-    var linkMap = {};
-    navLinks.forEach(function (link) {
-      var href = link.getAttribute("href").replace("#", "");
-      linkMap[href] = link;
-    });
-    if (!("IntersectionObserver" in window)) return;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var link = linkMap[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
-          link.classList.add("active");
-        }
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    sections.forEach(function (section) { observer.observe(section); });
+  .sidebar.open {
+    transform: translateX(0);
   }
 
-  function setupMobileToggle() {
-    var toggle = document.getElementById("sidebarToggle");
-    var sidebar = document.getElementById("sidebar");
-    if (!toggle || !sidebar) return;
-    toggle.addEventListener("click", function () {
-      var isOpen = sidebar.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        sidebar.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
+  .sidebar-toggle {
+    display: flex;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
-    setupSidebarHighlight();
-    setupMobileToggle();
-  });
-})();
-</script>
-</body>
-</html>
+  .main-content {
+    padding: 1.5rem 1.25rem 4rem;
+  }
+}
+</style>

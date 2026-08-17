@@ -21,6 +21,15 @@ const guides = [
     accent: "gold",
   },
   {
+    to: "/pmp-certification-guide",
+    category: "PROJECT MANAGEMENT",
+    title: "PMP® 認定試験 完全攻略ガイド",
+    description: "PMI公式Exam Content Outline(2026年7月改定版)に基づき、受験資格・試験形式・3ドメイン26タスクの出題内容とベストプラクティスを体系的に学びます。",
+    meta: "14セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/engineering-management-career-path",
     category: "ENGINEERING MANAGEMENT",
     title: "エンジニアのためのマネジメントキャリアパス",
