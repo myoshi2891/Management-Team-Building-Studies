@@ -170,7 +170,8 @@ nav { height: 100%; display: flex; align-items: stretch; }
 /*
  * 560px 以下では、ブランド名を隠してナビ 6 項目を全て残す。
  * 到達性（ナビ）を優先し、ブランドは丸マークのみにする
- * （リンクの aria-label がアクセシブル名を保持するため名前は失われない）。
+ * （680px 以下で視覚的に隠したリンクのラベル span は DOM に残るため、
+ *   支援技術にはアクセシブル名として引き続き読み上げられる）。
  */
 @media (max-width: 560px) {
   .global-brand-copy { display: none; }
