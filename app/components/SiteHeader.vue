@@ -10,6 +10,7 @@ const navigation = [
   { label: "EMキャリア", to: "/engineering-management-career-path", icon: "tabler:route" },
   { label: "チームリード術", to: "/engineering-team-leadership-guide", icon: "tabler:users-group" },
   { label: "EM入門", to: "/engineering-manager-guide", icon: "tabler:school" },
+  { label: "リチーミング", to: "/dynamic-reteaming-guide", icon: "tabler:refresh" },
 ] as const;
 
 function isCurrent(to: string): boolean {

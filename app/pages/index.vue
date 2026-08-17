@@ -47,6 +47,15 @@ const guides = [
     icon: "tabler:school",
     accent: "indigo",
   },
+  {
+    to: "/dynamic-reteaming-guide",
+    category: "TEAM BUILDING",
+    title: "ダイナミック・リチーミング実践ガイド",
+    description: "Heidi Helfand著『Dynamic Reteaming』に基づく、チームのエコサイクル、5つの基本パターン、実践ステップとアンチパターンを体系的に学びます。",
+    meta: "11セクション",
+    icon: "tabler:refresh",
+    accent: "forest",
+  },
 ] as const;
 
 const learningThemes = [
