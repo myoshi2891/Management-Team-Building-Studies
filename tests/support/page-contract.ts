@@ -32,6 +32,13 @@ export type PageWrapper = ReturnType<ReturnType<typeof createMountPage>>;
 /** 末尾スラッシュの有無を吸収して URL を比較する。 */
 export const normalizeUrl = (url: string) => url.replace(/\/$/, "");
 
+/**
+ * Extracts trimmed text from all elements matching a selector.
+ *
+ * @param wrapper - The mounted page wrapper to search
+ * @param selector - The selector used to find elements
+ * @returns An array containing the trimmed text of each matching element
+ */
 export function texts(wrapper: PageWrapper, selector: string): string[] {
   return wrapper.findAll(selector).map((el) => el.text().trim());
 }
@@ -67,12 +74,13 @@ export interface SourceParityContractInput {
 }
 
 /**
- * 原本照合 (S) / コンテンツ (C) / デザイン (D) / 品質 (Q) の共通契約を定義する。
- * ページ固有の追加契約は、呼び出し側で別途 describe を書いて足す。
+ * Defines shared source-parity, content, design, and quality contracts for a page.
  *
- * NOTE: 各テストファイル内での本関数の呼び出しは1回のみに制限すること。
- * 全ての Q-2 ケースが単一の hoisted された `seoMeta` モックを共有するため、
- * 同一ファイル内で複数回呼び出すと呼び出し回数（call-count）の検証が実行順序依存（order-dependent）になる。
+ * @param contract - The page, mocks, and expected values used by the contract tests.
+ *
+ * @remarks
+ * Call this function only once per test file because the SEO metadata call-count
+ * assertion shares a hoisted mock across the file.
  */
 export function defineSourceParityContract(contract: SourceParityContractInput): void {
   const {
