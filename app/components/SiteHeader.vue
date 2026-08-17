@@ -103,7 +103,7 @@ watch(() => route.path, () => {
         class="nav-toggle"
         data-testid="nav-toggle"
         aria-controls="global-nav"
-        :aria-expanded="String(isMenuOpen)"
+        :aria-expanded="isMenuOpen ? 'true' : 'false'"
         :aria-label="isMenuOpen ? 'ナビゲーションを閉じる' : 'ナビゲーションを開く'"
         @click="toggleMenu"
       >
@@ -142,7 +142,7 @@ watch(() => route.path, () => {
             data-testid="nav-category-trigger"
             :class="{ current: isCategoryCurrent(group) }"
             :aria-controls="`nav-panel-${group.category.id}`"
-            :aria-expanded="String(openCategoryId === group.category.id)"
+            :aria-expanded="openCategoryId === group.category.id ? 'true' : 'false'"
             @click="toggleCategory(group.category.id)"
           >
             <Icon :name="group.category.icon" aria-hidden="true" />
