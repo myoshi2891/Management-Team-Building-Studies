@@ -202,8 +202,11 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 | `nuxt.config.ts` の `icon.clientBundle.scan.globInclude` に `.ts` を追加 | 既定は `**/*.{vue,jsx,tsx,md,mdc,mdx,yml,yaml}` で **`.ts` を含まない** | アイコン名を `.ts` のカタログへ移した結果、静的生成物からアイコンが欠落する。dev サーバーは API 経由で解決するため気付けず、`bun run build` + 成果物の grep でしか検知できない |
 | hover 判定に `(min-width: 681px)` を含める | `(hover: hover) and (pointer: fine)` だけでは、ポインタデバイスでウィンドウを狭めた際に CSS はアコーディオンなのに hover が生き残り、`mouseenter` で開いた直後の `click` がトグルして閉じる | JS の分岐と `<style>` の 680px ブレークポイントを対で維持する。jsdom の `matchMedia` は常に `matches: false` を返すためユニットテストでは再現不能で、`e2e/site-header.spec.ts` が唯一の検知経路 |
 
-ホームの表示は改修前と完全に同一である。`tests/pages/index.test.ts` の 6 契約を
-**一切変更せずに** Green のまま通したことをもって同一性の根拠とする。
+ホームのカード描画ロジックは改修前と同一である。`tests/pages/index.test.ts` は
+**契約の件数（6 件）とアサーションの内容を変更していない**。変更したのは期待値配列だけで、
+新規 4 ガイド（ダイナミック・リチーミング／統括責任者の手引き／PMP 完全攻略／CAPM ドメイン2）の
+追加分を足してある。カタログ一本化そのものが表示を変えていないことの根拠は、この
+「契約は据え置き、期待値のみ追加」という差分の形にある。
 
 ## 次回セッションでの再開プロンプト
 

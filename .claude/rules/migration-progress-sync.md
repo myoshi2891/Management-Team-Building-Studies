@@ -241,7 +241,9 @@ git update-ref -m "commit: $COMMIT_MSG" HEAD "$NEW_COMMIT" "$OLD_HEAD" \
   || { echo "NG: HEAD の条件付き更新に失敗（検証後に HEAD が動いた）。中止する"; exit 1; }
 
 # 一時 index を片付け、以降のコマンドが共有 index を見るように戻す。
-rm -f "$TMP_INDEX"
+# 削除の成否を確認してから trap を外す。先に trap を外すと、削除に失敗した場合に
+# 一時 index を残したまま正常終了してしまい、次回の mktemp 以前に後始末の経路が消える。
+rm -f "$TMP_INDEX" || { echo "NG: 一時 index を削除できない"; exit 1; }
 trap - EXIT INT TERM
 unset GIT_INDEX_FILE
 echo "OK: コミット完了 $(git rev-parse --short HEAD)"
