@@ -165,11 +165,23 @@ ABS_GIT_DIR="$(git rev-parse --absolute-git-dir)" \
 # 共有 index と同じ問題を持ち込む: 別セッションが同時に (2) を実行していると、
 # 同じファイルへ read-tree / add してしまい、さらに初期化の `rm -f` が
 # 相手の使用中 index を消す。mktemp で排他的に確保して衝突をなくす。
-TMP_INDEX="$(mktemp "$ABS_GIT_DIR/session-commit-index.XXXXXX")" \
-  || { echo "NG: 一時 index を作成できない"; exit 1; }
 # 後続の fail-closed な exit でも取り残さないよう、片付けは trap に寄せる。
 # 削除対象は本セッションの $TMP_INDEX だけで、他セッションの一時 index には触れない。
-trap 'rm -f "$TMP_INDEX"' EXIT INT TERM
+# trap は mktemp より前に張る。生成直後にシグナルを受けても取りこぼさないよう、
+# 変数を空で初期化しておき、ハンドラ側で未生成を判定する。
+TMP_INDEX=""
+cleanup_tmp_index() {
+  if [ -n "$TMP_INDEX" ]; then rm -f "$TMP_INDEX"; fi
+}
+trap 'cleanup_tmp_index' EXIT
+# INT / TERM は「片付け」だけでなく**終了**まで行う。ハンドラ内で exit しないと、
+# シグナル処理後に中断地点から実行が再開され、index を消した状態のまま
+# 後続の git write-tree / git commit-tree が走ってしまう（fail-open になる）。
+trap 'cleanup_tmp_index; exit 130' INT
+trap 'cleanup_tmp_index; exit 143' TERM
+
+TMP_INDEX="$(mktemp "$ABS_GIT_DIR/session-commit-index.XXXXXX")" \
+  || { echo "NG: 一時 index を作成できない"; exit 1; }
 # mktemp が作った空ファイルは index として読めないため、名前だけ予約して実体は git に作らせる。
 rm -f "$TMP_INDEX" || { echo "NG: 一時 index を初期化できない"; exit 1; }
 export GIT_INDEX_FILE="$TMP_INDEX"
