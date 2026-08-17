@@ -1,5 +1,6 @@
 # Elastic Leadership（エラスティックリーダーシップ）実践ガイド
-### ― チームを自己組織化へ導くリーダーシップ・フレームワーク入門 ―
+
+**― チームを自己組織化へ導くリーダーシップ・フレームワーク入門 ―**
 
 > 本ガイドは、Roy Osherove 著『*Elastic Leadership: Growing Self-Organizing Teams*』（Manning Publications, 2016）を軸に、著者本人へのインタビュー記事・ポッドキャスト・カンファレンス講演などの一次情報をもとに、初学者向けにステップバイステップで再構成した解説書です。書誌情報は本文末尾の「参考文献・出典」を参照してください。
 
@@ -270,7 +271,7 @@ Elastic Leadershipの本質は、「良いリーダーシップスタイルが�
 | 1 | Manning Publications（書籍公式ページ） | 出版社公式情報 | https://www.manning.com/books/elastic-leadership |
 | 2 | Elastic Leadership 公式サイト（Roy Osherove） | 著者公式サイト | https://www.elasticleadership.com/ |
 | 3 | 5 Whys（Roy Osheroveのブログ／本フレームワークの発祥地） | 著者ブログ | https://www.5whys.com/ |
-| 4 | Team Leader Manifesto（草稿記事） | 著者ブログ | https://www.5whys.com/articles/software-team-leader-manifesto-take-2.html |
+| 4 | Team Leader Manifesto - Take #4（最新改訂版） | 著者ブログ | https://www.5whys.com/articles/team-leader-manifesto-take-4.html |
 | 5 | Roy Osherove 個人サイト | 著者公式サイト | https://osherove.com/ |
 | 6 | InfoQ「Q&A on the Book Elastic Leadership」（Ben Linders によるインタビュー） | 国際的技術メディア記事 | https://www.infoq.com/articles/book-review-elastic-leadership/ |
 | 7 | InfoQ「Team Leadership in the Age of Agile」（カンファレンス講演） | 国際的技術メディア講演 | https://www.infoq.com/presentations/Team-Leadership-in-the-Age-of-Internet/ |

@@ -1,4 +1,5 @@
 # Certified ScrumMaster®(CSM®)完全ガイド
+
 ## ― 初学者のためのステップバイステップ解説 ―
 
 > 本ガイドは、Scrum Alliance®が提供する **Certified ScrumMaster®(CSM®)** 資格について、公式情報源(Scrum Alliance公式サイト・公式Learning Objectives文書・Scrum Guide 2020年版)を根拠に、初学者でも理解できるようステップバイステップで解説したものです。各章末に該当するベストプラクティスと参考ソース(URL)を明記しています。
@@ -503,7 +504,6 @@ SEU(Scrum Education Units)は、継続学習の証明単位です。関連する
 | Professional | CSP-SM / CSP-PO / CSP-D | 40 | 250米ドル |
 | Advanced | A-CSM / A-CSPO / A-CSD / CAL 2 | 30 | 175米ドル |
 | Foundational | **CSM** / CSPO / CSD / CASP / CAF / CAL 1 | 20 | 100米ドル |
-| Certified Agile Leader | CAL | 10 | 50米ドル |
 
 更新は「SEU」と「更新料」の両方が必須であり、どちらか一方だけで更新することはできません。マイクロクレデンシャルは更新不要(無期限)です。
 

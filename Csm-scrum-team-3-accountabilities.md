@@ -46,7 +46,6 @@ Scrum Alliance が公開している「CSM Learning Objectives (2022年1月版)�
 ### 1.1 定義
 
 > Scrum Team(スクラムチーム)は、Scrumの基本単位となる少人数のチームである。Scrum Teamは、1人のScrum Master、1人のProduct Owner、そしてDevelopers(複数名)で構成される。
-
 > **出典:** The 2020 Scrum Guide, "Scrum Team" セクション. https://scrumguides.org/scrum-guide.html
 
 Scrum Teamには**サブチームや階層は存在しません**。全員が「Product Goal」という単一の目的に向かって働く、結束したプロフェッショナル集団です。
@@ -95,7 +94,7 @@ CSM学習目標1.1〜1.4は、いずれも "responsibilities **and accountabilit
 |---|---|---|
 | 呼称 | Roles(役割) | **Accountabilities(説明責任)** |
 | Development Team | 独立したサブチームとして存在 | 廃止。Developersとして単一のScrum Teamに統合 |
-| Scrum Masterの位置づけ | Servant-Leader(奉仕型リーダー) | **Leader who serves(奉仕するリーダー)** |
+| Scrum Masterの位置づけ | Servant-Leader(奉仕型リーダー) | **True leaders who serve(奉仕する真のリーダー)** |
 | self-organizing | 使用 | **self-managing** に変更(誰が・いつ・どのようにを含む) |
 
 > **出典:** Scrum.org, *Accountability, Responsibility and Roles*. https://www.scrum.org/resources/accountability-responsibility-and-roles
@@ -148,8 +147,12 @@ Developersに必要な具体的スキルは職種領域によって幅広く異�
 > **ベストプラクティス 1:** Sprint Planningの「Topic Three(どのように完了させるか)」では、Product Backlog項目を1日以内で完了できる小さな作業単位に分解する。これは**Developers自身の裁量で行い**、他の誰か(Product OwnerやScrum Masterを含む)が「どう作るか」を指図してはならない。
 > **出典:** The 2020 Scrum Guide, "Sprint Planning" セクション. https://scrumguides.org/scrum-guide.html
 
+<!-- -->
+
 > **ベストプラクティス 2:** Definition of Doneは組織標準がある場合はそれを最低基準として遵守し、複数のScrum Teamが同じプロダクトに取り組む場合は共通のDefinition of Doneに相互に合意・準拠する。
 > **出典:** The 2020 Scrum Guide, "Increment" セクション. https://scrumguides.org/scrum-guide.html
+
+<!-- -->
 
 > **ベストプラクティス 3:** 技術的負債(technical debt)を蓄積させないよう、リファクタリング・自動テスト・ペアプログラミング・継続的インテグレーションなどの開発プラクティスをSprintごとに適用し、高品質なIncrementを維持する。
 > **出典:** Scrum Alliance, *CSM Learning Objectives*, LO 3.2〜3.3. https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
@@ -215,8 +218,12 @@ flowchart LR
 > **ベストプラクティス 1:** Product Backlog refinement(リファインメント)を継続的な活動として実施し、Sprint Planningの前に項目の記述・順序・サイズなどの詳細度を高めておく。
 > **出典:** The 2020 Scrum Guide, "Product Backlog" セクション. https://scrumguides.org/scrum-guide.html
 
+<!-- -->
+
 > **ベストプラクティス 2:** Sprintを中止できるのはProduct Ownerのみであるという権限を正しく理解し、Sprint Goalが陳腐化した場合にのみこの権限を行使する。
 > **出典:** The 2020 Scrum Guide, "The Sprint" セクション. https://scrumguides.org/scrum-guide.html
+
+<!-- -->
 
 > **ベストプラクティス 3:** Sprint Reviewを単なる進捗報告の場にせず、Increment・市場の変化・ステークホルダーからのフィードバックをもとに次の一手を共同で決めるワーキングセッションとして運営する。
 > **出典:** The 2020 Scrum Guide, "Sprint Review" セクション. https://scrumguides.org/scrum-guide.html
@@ -233,9 +240,9 @@ Scrum Masterは、Scrum Team内および組織全体においてScrumの理論�
 
 > **出典:** The 2020 Scrum Guide, "Scrum Master" セクション. https://scrumguides.org/scrum-guide.html
 
-### 6.2 「Servant-Leader」から「Leader who serves」へ
+### 6.2 「Servant-Leader」から「True leaders who serve」へ
 
-2020年版Scrum Guideでは、Scrum Masterを指す表現が **"servant-leader"から"leader who serves(奉仕するリーダー)"** に変更されました。これはScrum Masterが単なる「支援役」ではなく、**真のリーダーシップ**を発揮する存在であることを明確化するための変更です。
+2020年版Scrum Guideでは、Scrum Masterを指す表現が **"servant-leader"から"true leaders who serve(奉仕する真のリーダー)"** に変更されました。公式の記述は "Scrum Masters are true leaders who serve the Scrum Team and the larger organization." であり、単に "leader who serves" と縮めた形ではありません。これはScrum Masterが単なる「支援役」ではなく、**真のリーダーシップ**を発揮する存在であることを明確化するための変更です。
 
 > **出典:** Medium (Kelly Simpson), *A Quick Summary of the November 2020 Scrum Guide Update*. https://hellomrssimpson.medium.com/a-quick-summary-of-the-november-2020-scrum-guide-update-6f754c93f755
 
@@ -245,7 +252,7 @@ Scrum Guideは、Scrum Masterのサービス対象を「Scrum Team」「Product 
 
 ```mermaid
 flowchart TB
-    SM["Scrum Master (leader who serves)"]
+    SM["Scrum Master (true leader who serves)"]
     SM -->|"コーチング・障害物の除去・イベントの成功"| TEAM["Scrum Team"]
     SM -->|"Product Goal定義とバックログ管理の支援"| PO["Product Owner"]
     SM -->|"Scrum導入の指導・障壁の除去"| ORG["Organization"]
@@ -301,8 +308,12 @@ CSM学習目標には、Scrum Masterに求められる**中核的なスキルセ
 > **ベストプラクティス 1:** 組織的な障害物(サイロ化した部門構造、承認プロセスの複雑さなど)を特定し、少なくとも1つの具体的な解決技法(例: 可視化ボードでの障害物トラッキング、エスカレーションパスの明確化)を適用する。
 > **出典:** Scrum Alliance, *CSM Learning Objectives*, LO 3.5〜3.7. https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
 
+<!-- -->
+
 > **ベストプラクティス 2:** Scrumにはプロジェクトマネージャーという役割が存在しない理由を理解した上で、進捗管理・スケジューリングといった従来型のPM業務を代行するのではなく、**チームが自己管理できる環境を作ること**に注力する。
 > **出典:** Scrum Alliance, *CSM Learning Objectives*, LO 3.9. https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
+
+<!-- -->
 
 > **ベストプラクティス 3:** Daily Scrumはあくまで**Developersのためのイベント**であり、Scrum MasterがSprint Backlogの実作業を行っていない限り、ステータス報告会のように仕切ったり出席を強制したりしない。
 > **出典:** The 2020 Scrum Guide, "Daily Scrum" セクション. https://scrumguides.org/scrum-guide.html
@@ -344,9 +355,9 @@ flowchart LR
 | 誤解 | 正しい理解 |
 |---|---|
 | Scrum Masterはプロジェクトマネージャーの別名である | Scrumにはプロジェクトマネージャーという役割は存在しない。Scrum Masterはスケジュール管理者ではなく、チームの効果性とScrumの実践に説明責任を持つリーダーである |
-| Developersはソフトウェアエンジニアだけを指す | テスター、アナリスト、データベースエンジニア、UXデザイナーなど、Product OwnerとScrum Master以外のScrum Teamメンバーは全員Developersに含まれる |
+| Developersはソフトウェアエンジニアだけを指す | Developersとは、毎Sprint使用可能なIncrementのあらゆる側面を作成することにコミットしているScrum Teamのメンバーを指す。テスター、アナリスト、データベースエンジニア、UXデザイナーなども含まれ、Product OwnerやScrum MasterがSprint Backlogの作業を担う場合はその人もDevelopersに含まれる |
 | Product Ownerは単なる「要求の伝書鳩」である | Product Ownerはプロダクトの価値最大化そのものに説明責任を負い、Product Backlogの内容・順序について最終決定権を持つ |
-| Scrum Masterは「奉仕するだけの黒子」である | 2020年版では"servant-leader"から"leader who serves"に表現が改められ、真のリーダーシップを発揮する存在として定義されている |
+| Scrum Masterは「奉仕するだけの黒子」である | 2020年版では"servant-leader"から"true leaders who serve"に表現が改められ、真のリーダーシップを発揮する存在として定義されている |
 | Development Teamという独立した下位チームが存在する | 2020年版でDevelopment Teamという区分は廃止され、Scrum Team内の単一のアカウンタビリティ「Developers」に統合された |
 | Sprint Retrospectiveは省略してもよい軽微なイベントである | 省略すると、プロセス改善の機会損失、繰り返される問題の放置、チームの学習サイクルの停止など複数の悪影響が生じる |
 
