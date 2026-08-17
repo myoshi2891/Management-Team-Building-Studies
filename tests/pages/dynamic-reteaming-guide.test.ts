@@ -48,6 +48,50 @@ const EXPECTED_H4 = [] as const;
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
 
+const EXPECTED_EXTERNAL_URLS = [
+  "https://www.oreilly.com/library/view/dynamic-reteaming-2nd/9781492061281/",
+  "https://www.infoq.com/articles/dynamic-reteaming-helfand",
+  "https://res.infoq.com/articles/dynamic-reteaming-helfand/en/resources/Chapter2_DynamicReteaming-1-1597951052416.pdf",
+  "https://www.infoq.com/presentations/dynamic-change-teams",
+  "https://se-radio.net/2024/12/se-radio-646-matthew-skelton-on-team-topologies/",
+  "https://martinfowler.com/bliki/TeamTopologies.html",
+  "https://gotopia.tech/articles/321/dynamic-teams-reteaming-patterns-and-practices",
+  "https://www.pluralsight.com/blog/teams/heidi-helfand-s-five-patterns-for-responsible-reteaming",
+  "https://www.heidihelfand.com/",
+  "https://heidihelfand.substack.com/p/hh-004-five-patterns-of-dynamic-reteaming",
+  "https://blog.logrocket.com/product-management/introduction-to-dynamic-reteaming/",
+  "https://github.com/TeamTopologies/Team-Topologies-Book-References/blob/main/Team-Topologies-references-Markdown.md",
+  "https://www.infoq.com/news/2026/03/ai-agency-team-topologies/",
+] as const;
+
+const EXPECTED_TOC_IDS = [
+  "introduction",
+  "what-is-dynamic-reteaming",
+  "why-it-matters",
+  "ecocycle",
+  "five-patterns",
+  "pattern-selection",
+  "step-by-step",
+  "anti-patterns",
+  "checklist",
+  "conclusion",
+  "references",
+] as const;
+
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+  "SECTION 11",
+] as const;
+
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart TB
     A["フロントループ 立ち上げ 探索"] --> B["フロントループ 成長・成熟 活用"]
@@ -91,28 +135,31 @@ const EXPECTED_MERMAID_SOURCES = [
     class S6 done;`,
 ] as const;
 
-const EXPECTED_CALLOUTS = [
-  {
-    variant: "note",
-    label: "補足",
-    keyword: "一次情報",
-  },
-] as const;
+/** 原本の `.callout.<variant>` の出現数。variant 名は原本のクラス名をそのまま使う。 */
+const EXPECTED_CALLOUT_VARIANTS = { note: 1 } as const;
+
+const EXPECTED_CALLOUT_LABELS = {
+  note: { "補足": 1 },
+} as const;
+
+const EXPECTED_STEP_TAGS = [] as const;
 
 defineSourceParityContract({
-  pageName: "Dynamic Reteaming Guide (app/pages/dynamic-reteaming-guide.vue)",
-  component: Page,
-  expectedH1: EXPECTED_H1,
-  expectedH2: EXPECTED_H2,
-  expectedH3: EXPECTED_H3,
-  expectedH4: EXPECTED_H4,
-  expectedH5: EXPECTED_H5,
-  expectedH6: EXPECTED_H6,
-  expectedMermaidSources: EXPECTED_MERMAID_SOURCES,
-  expectedCallouts: EXPECTED_CALLOUTS,
-  seoMetaSpy: seoMeta,
-  expectedSeo: {
-    titleKeyword: "ダイナミック・リチーミング",
-    descriptionKeyword: "Heidi Helfand",
-  },
+  suiteName: "pages/dynamic-reteaming-guide.vue",
+  page: Page,
+  seoMeta,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: EXPECTED_STEP_TAGS,
+  seoTitleFragments: ["ダイナミック・リチーミング"],
 });

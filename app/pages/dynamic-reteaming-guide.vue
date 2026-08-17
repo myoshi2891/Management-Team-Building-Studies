@@ -261,7 +261,7 @@ const DIAGRAM_STEP_BY_STEP = `flowchart TB
         <p>ポイントは、チームには「成長し、成熟していくフロントループ」と「創造的破壊を経て、再構成されるバックループ」という2つの局面があり、これらは一方向の直線ではなく、繰り返し循環するという点です。</p>
 
         <div class="diagram-card mermaid-wrap">
-          <div class="diagram-container" id="ecocycleDiagram">
+          <div id="ecocycleDiagram" class="diagram-container">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_ECOCYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
               <template #fallback>
@@ -329,7 +329,7 @@ const DIAGRAM_STEP_BY_STEP = `flowchart TB
         <p>「うちのチームには変化の兆しがある。でも、どのパターンを適用すればいいのか？」という初学者向けに、シンプルな判断の目安を示します。あくまで出発点であり、実際には複数のパターンを組み合わせて検討するのが基本です。</p>
 
         <div class="diagram-card mermaid-wrap">
-          <div class="diagram-container" id="patternSelectionDiagram">
+          <div id="patternSelectionDiagram" class="diagram-container">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_PATTERN_SELECTION" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
               <template #fallback>
@@ -349,7 +349,7 @@ const DIAGRAM_STEP_BY_STEP = `flowchart TB
         <p>ここからは、実際にリチーミングを計画し、実行するための具体的な手順を、初学者でも迷わないように6つのステップに分解して解説します。</p>
 
         <div class="diagram-card mermaid-wrap">
-          <div class="diagram-container" id="stepByStepDiagram">
+          <div id="stepByStepDiagram" class="diagram-container">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_STEP_BY_STEP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
               <template #fallback>
