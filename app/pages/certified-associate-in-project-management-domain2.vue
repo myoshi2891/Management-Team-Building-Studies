@@ -187,20 +187,21 @@ class BU,SR done;`;
 </script>
 
 <template>
-  <button
-    id="sidebarToggle"
-    ref="sidebarToggle"
-    type="button"
-    class="sidebar-toggle"
-    aria-label="目次を開閉する"
-    aria-controls="sidebar"
-    :aria-expanded="sidebarOpen ? 'true' : 'false'"
-    @click="sidebarOpen = !sidebarOpen"
-  >
-    <Icon name="tabler:menu-2" aria-hidden="true" />
-  </button>
+  <div class="capm-domain2-page">
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen ? 'true' : 'false'"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
 
-  <div class="layout">
+    <div class="layout">
     <!-- ===================== Sidebar ===================== -->
     <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
       <div class="sidebar-brand">
@@ -1007,6 +1008,7 @@ class BU,SR done;`;
       </footer>
     </main>
   </div>
+</div>
 </template>
 
 <style scoped>
@@ -1192,15 +1194,12 @@ class BU,SR done;`;
   padding: 16px 20px;
   font-size: 16px;
   margin-top: 28px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+  line-height: 1.6;
 }
 
 .disclaimer-box :deep(.iconify) {
-  flex: none;
-  font-size: 20px;
-  margin-top: 2px;
+  margin-right: 6px;
+  vertical-align: -2px;
 }
 
 section {
