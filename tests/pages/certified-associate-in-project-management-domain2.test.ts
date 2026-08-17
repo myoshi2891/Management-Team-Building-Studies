@@ -101,28 +101,28 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class CH,PMP,BL,DOC box;`,
   `flowchart TD
 ROOT["1.0 社内タスク管理ツール導入プロジェクト"]
-ROOT --> D1["1.1 要件定義"]
-ROOT --> D2["1.2 設計"]
-ROOT --> D3["1.3 開発"]
-ROOT --> D4["1.4 テスト"]
-ROOT --> D5["1.5 導入・移行"]
+ROOT --> D1["1.1 要件定義成果物"]
+ROOT --> D2["1.2 設計成果物"]
+ROOT --> D3["1.3 実装済みソフトウェア"]
+ROOT --> D4["1.4 テスト成果物"]
+ROOT --> D5["1.5 導入・移行成果物"]
 
-D1 --> W1["1.1.1 業務要件ヒアリング"]
+D1 --> W1["1.1.1 業務要件一覧"]
 D1 --> W2["1.1.2 要件定義書"]
 
 D2 --> W3["1.2.1 画面設計書"]
 D2 --> W4["1.2.2 DB設計書"]
 D2 --> W5["1.2.3 API設計書"]
 
-D3 --> W6["1.3.1 画面開発"]
-D3 --> W7["1.3.2 DB構築"]
-D3 --> W8["1.3.3 API開発"]
+D3 --> W6["1.3.1 画面モジュール"]
+D3 --> W7["1.3.2 データベース"]
+D3 --> W8["1.3.3 APIモジュール"]
 
-D4 --> W9["1.4.1 結合テスト"]
-D4 --> W10["1.4.2 受入テスト"]
+D4 --> W9["1.4.1 結合テスト報告書"]
+D4 --> W10["1.4.2 受入テスト報告書"]
 
-D5 --> W11["1.5.1 データ移行"]
-D5 --> W12["1.5.2 本番リリース"]
+D5 --> W11["1.5.1 移行済みデータ"]
+D5 --> W12["1.5.2 本番稼働システム"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
@@ -317,8 +317,8 @@ describe("pages/certified-associate-in-project-management-domain2.vue — ペー
 
   it("サイドバーの開閉トグルボタンが aria-expanded と open クラスを同期させる", async () => {
     const wrapper = mountPage();
-    const toggle = wrapper.find("#sidebarToggle");
-    const sidebar = wrapper.find("#sidebar");
+    const toggle = wrapper.get(".sidebar-toggle");
+    const sidebar = wrapper.get("#sidebar");
 
     expect(toggle.attributes("aria-expanded")).toBe("false");
     expect(sidebar.classes()).not.toContain("open");
