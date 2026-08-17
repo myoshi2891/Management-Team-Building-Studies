@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `8f4e3e6` — refactor(pages): archive CAPM domain 2 source files, add audit:capm-d2 script, and verify types/lint（本ファイルのコミットより前のコード側コミット） |
-| 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
-| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run test:e2e` ✔ / `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔（2026-08-17 実測） |
-| テスト数 | **252** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28）+ **4** E2E — これがベースライン |
+| コードコミット HEAD | `ed960ab` — fix(components): gate hover-open on the desktop breakpoint（本ファイルのコミットより前のコード側コミット） |
+| 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
+| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run test:e2e` ✔ / `bun run lint` ✔ / `bun run audit:capm` ✔ / `bun run audit:capm-d2` ✔（2026-08-17 実測） |
+| テスト数 | **269** ユニット（MermaidDiagram 11 + SiteHeader 13 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28）+ **11** E2E（capm 4 + site-header 7）— これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致）。ただし **CAPM ドメイン1 のみ exit 1 かつ差分 1 件が正常**（「正当な差分の記録」§8 の意図的逸脱。それ以外の差分が出たら移行漏れ） |
 
 ## ページ移行状況
@@ -38,8 +38,10 @@
 | `app/plugins/mermaid.client.ts` | ✅ 完了 | `tests/plugins/mermaid.client.test.ts`（3 件・初期化設定の契約）+ 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
-| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（3 件）+ `tests/app.test.ts`（1 件） |
+| `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（7 件・ガイド定義の SSoT） |
+| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（13 件・カテゴリー別ドロップダウン）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
+| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 7 件（メディアクエリ依存の挙動。jsdom では再現不能） |
 
 ## 技術スタック（2026-08-16 時点の npm 実測値）
 
@@ -186,15 +188,34 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 | 参考文献の見出し `h4` → `h3` 昇格 | `PMI公式 資格・試験情報` / `PMI標準・プラクティスガイド` / `資格維持・研修` / `受験ロジスティクス` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
 | 原本アーカイブ移動 | `Pmp-certification-guide.html` / `.md` を `archive/Pmp-certification-guide/` 配下へ移動 | 移行完了原本の集約管理 |
 
+### 12. グローバルナビのカテゴリー別ドロップダウン化とガイドカタログ集約（2026-08-17）
+
+ガイドが 9 本に増え、ホーム + 9 項目のフラットなグローバルナビが横幅の限界に達したため、
+カテゴリー別ドロップダウンへ変更した。あわせてガイド定義を単一カタログへ集約した。
+原本 HTML には存在しない導線であり、**原本照合監査では検知できない**変更である。
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| ガイド定義の集約 | `app/pages/index.vue` の `guides` と `SiteHeader.vue` の `navigation` を廃止し、`app/utils/guide-catalog.ts` の `GUIDES` / `GUIDE_CATEGORIES` に一本化 | 二重管理による登録漏れ（旧 CLAUDE.md が IMPORTANT で警告していた問題）を構造的に排除するため。契約は `tests/utils/guide-catalog.test.ts`（7 件）で固定 |
+| カテゴリーの粒度 | ホームのカード表記（英語 `cardLabel`）とナビのグループ（日本語 `navLabel`）を **1:1 の 4 種**にした | マッピング層を持たず、カテゴリー追加が配列 1 行で済むようにするため |
+| ナビの横並び項目数 | ホーム + 4 カテゴリーの計 5 に固定 | ガイドが増えても横幅が変わらないため、旧実装のリンク数ベースのブレークポイント再計算（`SiteHeader.vue` の計算コメント）とラベル視覚的非表示の回避策を削除できた |
+| `nuxt.config.ts` の `icon.clientBundle.scan.globInclude` に `.ts` を追加 | 既定は `**/*.{vue,jsx,tsx,md,mdc,mdx,yml,yaml}` で **`.ts` を含まない** | アイコン名を `.ts` のカタログへ移した結果、静的生成物からアイコンが欠落する。dev サーバーは API 経由で解決するため気付けず、`bun run build` + 成果物の grep でしか検知できない |
+| hover 判定に `(min-width: 681px)` を含める | `(hover: hover) and (pointer: fine)` だけでは、ポインタデバイスでウィンドウを狭めた際に CSS はアコーディオンなのに hover が生き残り、`mouseenter` で開いた直後の `click` がトグルして閉じる | JS の分岐と `<style>` の 680px ブレークポイントを対で維持する。jsdom の `matchMedia` は常に `matches: false` を返すためユニットテストでは再現不能で、`e2e/site-header.spec.ts` が唯一の検知経路 |
+
+ホームの表示は改修前と完全に同一である。`tests/pages/index.test.ts` の 6 契約を
+**一切変更せずに** Green のまま通したことをもって同一性の根拠とする。
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 725f47e
+コードコミット HEAD: ed960ab
 次の作業: 保守・新規ガイドの追加
-  新規ページは app/pages/index.vue の guides と app/components/SiteHeader.vue の
-  navigation への登録が必須（契約 N-1〜N-3）
+  新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
+  ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
+  tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
+  tests/components/SiteHeader.test.ts の期待値配列を先に更新して Red を作ること
 
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
@@ -206,14 +227,15 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/engineering-executive-playbook.vue（エンジニアリング統括責任者の手引き ガイド）
   - app/pages/pmp-certification-guide.vue（PMP認定試験完全攻略ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
-  - SiteHeader.vue（全ページ共通グローバルナビ）
+  - app/utils/guide-catalog.ts（ガイド定義の SSoT）
+  - SiteHeader.vue（全ページ共通グローバルナビ。カテゴリー別ドロップダウン + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 224 件
+  - ユニットテスト 269 件
   - test / build / typecheck / test:e2e はいずれも 2026-08-17 時点で ✔（実測）
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
     ただし CAPM ドメイン1 の原本照合監査だけは exit 1 かつ差分 1 件
     （リスク登録簿 R-002 の意図的逸脱。docs/PROGRESS.md「正当な差分の記録」§8 を参照。
     差分がこの 1 件以外に増えたら移行漏れとして Green コミット禁止）
 
-ベースラインテスト数: ユニット 224 + E2E 4
+ベースラインテスト数: ユニット 269 + E2E 11
 ```
