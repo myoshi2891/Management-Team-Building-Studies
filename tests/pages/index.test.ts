@@ -60,6 +60,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "PMP® 認定試験 完全攻略ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-certification-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
