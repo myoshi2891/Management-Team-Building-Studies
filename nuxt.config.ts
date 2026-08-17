@@ -23,7 +23,9 @@ export default defineNuxtConfig({
     clientBundle: {
       scan: {
         globInclude: ["**/*.{vue,jsx,tsx,ts,md,mdc,mdx,yml,yaml}"],
-        globExclude: ["node_modules", "dist", "build", "coverage", "tests", "e2e", ".*"],
+        // globExclude は既定値を丸ごと置き換えるため、既定に含まれる "test" も明記する
+        // （落とすと @nuxt/icon の既定より走査範囲が広がる）。"tests" / "e2e" は本リポジトリ固有。
+        globExclude: ["node_modules", "dist", "build", "coverage", "test", "tests", "e2e", ".*"],
       },
       includeCustomCollections: true,
     },

@@ -34,10 +34,14 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   await expect(panel.locator("a.current")).toHaveAttribute("href", "/capm");
 
-  // パネルはヘッダーの下端より下に出る（ヘッダーに潜り込んで切れない）
-  const panelBox = (await panel.boundingBox())!;
+  // パネルはヘッダーの下端より下に出る（ヘッダーに潜り込んで切れない）。
+  // toBeVisible() は visibility が切り替わった時点で通るが、パネルは 160ms かけて
+  // translateY(-6px) → translateY(0) するため、直後の boundingBox() はまだ 6px 上にある。
+  // 最終位置を見るために expect.poll で落ち着くまで待つ。
   const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
-  expect(panelBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height - 2);
+  await expect
+    .poll(async () => (await panel.boundingBox())!.y)
+    .toBeGreaterThanOrEqual(headerBox.y + headerBox.height - 2);
 });
 
 test("デスクトップ: Escape で閉じてトリガーへフォーカスが戻る", async ({ page }) => {
@@ -112,7 +116,16 @@ test("横幅 320px でもヘッダーが横にはみ出さない", async ({ page
 test("ガイドページのサイドバー TOC が固定ヘッダーに隠れない", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/capm");
-  await page.evaluate(() => window.scrollTo(0, 1200));
+  // main.css の `scroll-behavior: smooth` により既定の scrollTo はアニメーションになるため、
+  // 直後に boundingBox() を読むとスクロール反映前の座標で判定してしまう。
+  // behavior: "instant" なら evaluate 内で位置が確定するので、待ち合わせ自体が不要になる。
+  // （waitForFunction の既定 polling は rAF。fullyParallel でページが非アクティブだと
+  //   rAF が止まり、待ち合わせがそのままタイムアウトしうる。）
+  const scrolledY = await page.evaluate(() => {
+    window.scrollTo({ top: 1200, behavior: "instant" });
+    return window.scrollY;
+  });
+  expect(scrolledY).toBeGreaterThan(0);
 
   const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
   const sidebarBox = (await page.locator(".sidebar-nav").first().boundingBox())!;

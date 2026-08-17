@@ -110,7 +110,12 @@ watch(() => route.path, () => {
 </script>
 
 <template>
-  <header ref="headerRef" class="global-header" data-site-header>
+  <!--
+    Escape はヘッダー全体で受ける。<nav> に載せるとハンバーガー（nav-toggle）は
+    <nav> の外側にあるため、トグルにフォーカスが残ったままでは Escape が届かず、
+    開いたメニューを閉じられない。
+  -->
+  <header ref="headerRef" class="global-header" data-site-header @keydown.escape="handleEscape">
     <div class="global-header-inner">
       <NuxtLink class="global-brand" to="/" aria-label="Management Studies ホーム">
         <span class="global-brand-mark" aria-hidden="true">M</span>
@@ -136,7 +141,6 @@ watch(() => route.path, () => {
         id="global-nav"
         aria-label="グローバルナビゲーション"
         :class="{ open: isMenuOpen }"
-        @keydown.escape="handleEscape"
       >
         <NuxtLink
           class="global-nav-link"
