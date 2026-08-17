@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `725f47e` — refactor(pages): archive PMP source files, add audit:pmp script, and verify types/lint（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `df1a7c2` — fix(style): match PMP certification guide styles and full-width layout to original HTML（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
 | ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run test:e2e` ✔ / `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔（2026-08-17 実測） |
 | テスト数 | **224** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23）+ **4** E2E — これがベースライン |
