@@ -100,8 +100,15 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         new RegExp(`\\.${accentClass}\\s*\\{[^}]*--card-accent\\s*:`),
       );
       // アイコン配色は既定が indigo のため、それ以外は上書き定義が必須。
+      // セレクタの存在だけでは空ルールを通してしまうため、background と color の
+      // 両方が宣言されていることまで確認する（--color-*-tint の誤マッチは lookbehind で除く）。
       if (accentClass !== "guide-card-indigo") {
-        expect(source).toMatch(new RegExp(`\\.${accentClass}\\s+\\.guide-icon\\s*\\{`));
+        const iconRule = source.match(
+          new RegExp(`\\.${accentClass}\\s+\\.guide-icon\\s*\\{([^}]*)\\}`),
+        );
+        expect(iconRule, `${accentClass} に .guide-icon の上書き定義が無い`).not.toBeNull();
+        expect(iconRule?.[1]).toMatch(/(?<![\w-])background\s*:/);
+        expect(iconRule?.[1]).toMatch(/(?<![\w-])color\s*:/);
       }
     }
   });
