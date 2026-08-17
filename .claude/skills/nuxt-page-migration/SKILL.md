@@ -16,7 +16,8 @@ description: >
   - site navigation: "ホームにガイドが出ない" / "グローバルナビに追加" / "ヘッダーのリンクが古い"
   Applies: source-parity audit script, contract tests (Vitest + Vue Test Utils),
   Vue SFC structure, scoped CSS, Mermaid via ClientOnly, the content-width policy,
-  and registration into app/pages/index.vue (guides) + app/components/SiteHeader.vue (navigation).
+  and registration into the guide catalog (app/utils/guide-catalog.ts GUIDES), which feeds both
+  app/pages/index.vue and app/components/SiteHeader.vue.
   NOTE: this front matter is Claude Code specific. The body section
   "エージェント互換" carries the same triggers for agents that ignore front matter.
 invocation: explicit
@@ -76,8 +77,9 @@ allowed-tools:
 | ファイル | 役割 |
 |---|---|
 | `app/app.vue` | アプリシェル。`<SiteHeader />` → `<NuxtPage />` の順で描画する |
-| `app/components/SiteHeader.vue` | **全ページ共通のグローバルヘッダー**。`navigation` 配列が導線の SSoT |
-| `app/pages/index.vue` | **ホーム（学習ライブラリ）**。`guides` 配列が公開中ガイド一覧の SSoT |
+| `app/utils/guide-catalog.ts` | **公開ガイド定義の SSoT**。`GUIDES` / `GUIDE_CATEGORIES` をホームとヘッダーが共有する |
+| `app/components/SiteHeader.vue` | **全ページ共通のグローバルヘッダー**。カテゴリー別ドロップダウンをカタログから生成する |
+| `app/pages/index.vue` | **ホーム（学習ライブラリ）**。カード一覧をカタログから生成する |
 | `app/pages/capm.vue` | 移行済みページの実例（`<script setup>` → `<template>` → `<style scoped>`） |
 | `app/pages/engineering-management-career-path.vue` | 2 ページ目の移行実例 |
 | `app/components/MermaidDiagram.vue` | 図解レイアウトの SSoT + svg 後処理 |
@@ -104,7 +106,7 @@ allowed-tools:
 4. `.claude/rules/mermaid-diagram-layout.md` — 図解レイアウトの不変条件
 5. `.claude/rules/no-absolute-paths.md` — コミット前の PII 検査
 6. 本スキルの `references/source-parity-audit.md` — 監査結果の判断基準と S 契約の実装例
-7. `app/pages/index.vue` と `app/components/SiteHeader.vue` — 新規ページの登録先（§5 Step 2.5）
+7. `app/utils/guide-catalog.ts` — 新規ページの登録先（§5 Step 2.5）
 
 デザイン契約を書く場合は `references/design-contract-tests.md`、共有部品や設定を触る場合は
 `references/implementation-reference.md` も読む。**自動で開かれる前提を置かず、明示的に開くこと。**
@@ -351,24 +353,27 @@ sticky なサイドバー・TOC・見出しアンカーは、必ずこの変数�
 `<script setup>` に書いた文字列は本文として数えられない。逆に、Mermaid の
 `:chart="NAME"` バインドは `<script setup>` の `const NAME = \`…\`` を解決して照合される。
 
-### Step 2.5: [Green] ホームとグローバルナビへ登録する
+### Step 2.5: [Green] ガイドカタログへ登録する
 
-新規ページは**作っただけでは到達不能**。N-1〜N-3 を Green にするため 2 か所へ登録する。
+新規ページは**作っただけでは到達不能**。N-1〜N-3 を Green にするため、
+ガイドカタログへ 1 件追加する（ホームのカードとグローバルナビの両方がここから生成される）。
 
 | 登録先 | 配列 | 追加する内容 |
 |---|---|---|
-| `app/pages/index.vue` | `guides` | `to` / `category` / `title` / `description` / `meta` / `icon` / `accent` |
-| `app/components/SiteHeader.vue` | `navigation` | `label`（短い表示名） / `to` / `icon` |
+| `app/utils/guide-catalog.ts` | `GUIDES` | `to` / `categoryId` / `navLabel`（ナビの短縮名） / `title` / `description` / `meta` / `icon` / `accent` |
+
+`categoryId` は `GUIDE_CATEGORIES` に存在する値でなければ型検査で落ちる。
+新しいカテゴリーが必要な場合は `GUIDE_CATEGORIES` に `id` / `navLabel` / `cardLabel` / `icon` を追加する。
 
 - `to` は `app/pages/<slug>.vue` から決まるルートと**厳密に一致**させる（`.html` を付けない）。
 - `icon` は `tabler:*` を使う。`@nuxt/icon` の `clientBundle.scan` がビルド時に走査するため、
   文字列を動的組み立てにすると静的生成で欠落する。**リテラルで書く**。
 - `meta`（例: `"15セクション"`）は原本の実数を書く。推測値を書かない。
-- ナビの `label` は原本のタイトルそのままではなく短縮名でよいが、
+- `navLabel` は原本のタイトルそのままではなく短縮名でよいが、
   `tests/components/SiteHeader.test.ts` の期待値と完全一致させる。
 
-登録後に `bun run test tests/pages/index.test.ts tests/components/SiteHeader.test.ts` が
-Green になることを確認する。
+登録後に `bun run test tests/utils/guide-catalog.test.ts tests/pages/index.test.ts tests/components/SiteHeader.test.ts`
+が Green になることを確認する。
 
 ### Step 3: [Green の前提] 原本照合監査を通す
 
@@ -442,8 +447,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 3. 実装を修正
 4. **原本照合監査を再実行**（保守でも exit 0 を維持する）
 5. ページのタイトル・スラッグ・セクション数を変えた場合は、
-   `app/pages/index.vue` の `guides` と `app/components/SiteHeader.vue` の `navigation` を同時に直す
-   （N-1〜N-3 の期待値も更新する。片方だけ直すとリンク切れか表示ズレが残る）
+   `app/utils/guide-catalog.ts` の `GUIDES` を直す（N-1〜N-3 の期待値も更新する）
 6. `bun run test` / `bunx nuxi typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
 
 デザイン不一致（配色・テーブルヘッダー・callout 等）の相談は、
@@ -460,7 +464,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | E2E が別プロジェクトの 404 ページを検証する | Playwright の `reuseExistingServer` は応答しているサーバーが自分のものかを検証しない | 既定ポートを避け、`reuseExistingServer: false` にする |
 | E2E の TOC スクロールが届かない | Mermaid 描画のたびに文書高さが変わり、スムーススクロールの目標位置が動く | 図の描画完了を待ってからクリックし、長距離スクロールはタイムアウトを延ばす |
 | サイドバー TOC がグローバルヘッダーの下に潜る / アンカー遷移で見出しが隠れる | sticky の `top` と `scroll-margin-top` が固定ヘッダー分を退避していない | `--global-nav-height` を使う（§5 Step 2 の 3 行）。数値のハードコード禁止 |
-| 新ページが完成しているのにサイト上から到達できない | `index.vue` の `guides` と `SiteHeader.vue` の `navigation` は原本に無いため、原本照合監査では検知されない | N-1〜N-3 契約で固定する（§5 Step 1 / Step 2.5） |
+| 新ページが完成しているのにサイト上から到達できない | `guide-catalog.ts` の `GUIDES` は原本に無いため、原本照合監査では検知されない | N-1〜N-3 契約で固定する（§5 Step 1 / Step 2.5） |
 | ナビ・カードのアイコンが静的生成後だけ消える | `@nuxt/icon` の `clientBundle.scan` はソース中のリテラルしか走査しない | `icon` 名は動的組み立てにせずリテラルで書き、`bun run test:e2e` で確認する |
 
 ## 7. Constraints（禁止事項）
@@ -486,8 +490,8 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 - 監査 exit 0 を確認せずに Green コミットすること
 - ページ側で独自のグローバルヘッダー／サイト内ナビを実装すること（`app/components/SiteHeader.vue` が SSoT）
 - 固定ヘッダー分の退避を `72px` 等の数値で直書きすること（`--global-nav-height` を使う）
-- ホーム（`index.vue` の `guides`）とグローバルナビ（`SiteHeader.vue` の `navigation`）へ
-  登録しないまま、新規ページの移行完了を報告すること
+- ガイドカタログ（`app/utils/guide-catalog.ts` の `GUIDES`）へ登録しないまま、
+  新規ページの移行完了を報告すること
 
 ## 8. 関連ファイル
 

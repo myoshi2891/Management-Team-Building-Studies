@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Updated 2026-08-15
+Updated 2026-08-17
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -35,22 +35,32 @@ docs/PROGRESS.md                                 Nuxt 移行の進捗と「正�
 ```text
 app/app.vue                        <SiteHeader /> → <NuxtPage /> のアプリシェル
 app/assets/css/main.css            :root トークン + 基底要素（全ページ共有）
-app/pages/index.vue                ホーム（学習ライブラリ）。guides 配列が公開中ガイドの SSoT
+app/pages/index.vue                ホーム（学習ライブラリ）。カード一覧は guide-catalog から導出
 app/pages/capm.vue                 CAPM ガイド（移行済み）
 app/pages/engineering-management-career-path.vue  EM キャリアパスガイド（移行済み）
-app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。navigation 配列が導線の SSoT
+app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。カテゴリー別ドロップダウン（導線は guide-catalog 由来）
 app/components/MermaidDiagram.vue  図解レイアウトの SSoT + svg 後処理
 app/composables/useActiveHeading.ts  TOC のスクロール連動
 app/plugins/mermaid.client.ts      mermaid.initialize を一度だけ実行
+app/utils/guide-catalog.ts         公開ガイド定義の SSoT（ホーム・グローバルナビの共通データ源）
 app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 ```
 
 > [!IMPORTANT]
-> **新規ガイドページは 2 か所への登録が必須。** `app/pages/index.vue` の `guides` と
-> `app/components/SiteHeader.vue` の `navigation` に追加しないと、ページはどこからも到達できない。
+> **新規ガイドページの登録先は `app/utils/guide-catalog.ts` の `GUIDES` 1 か所。**
+> ここに 1 件追加すれば、ホームのカード一覧（`app/pages/index.vue`）と
+> グローバルナビのドロップダウン（`app/components/SiteHeader.vue`）の両方が追随する。
+> 登録しないとページはどこからも到達できない。
 > これらの導線は原本 HTML に存在しないため**原本照合監査では検知できない**。
-> 契約テスト（`tests/pages/index.test.ts` / `tests/components/SiteHeader.test.ts`）で固定する。
+> 契約テスト（`tests/utils/guide-catalog.test.ts` / `tests/pages/index.test.ts` /
+> `tests/components/SiteHeader.test.ts`）で固定する。
 > 手順は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 2.5。
+>
+> カテゴリーを増やす場合は同ファイルの `GUIDE_CATEGORIES` に追加する。
+> `cardLabel`（ホームのカードに出る英語表記）と `navLabel`（ナビの日本語表記）は 1:1 対応。
+> アイコン名を `.ts` に置いている都合上、`nuxt.config.ts` の
+> `icon.clientBundle.scan.globInclude` から `.ts` を外すとビルド成果物からアイコンが
+> 欠落する（dev サーバーでは再現しない）。
 >
 > 固定ヘッダーの高さは `--global-nav-height`（`app/assets/css/main.css`）が SSoT。
 > sticky なサイドバー・TOC・見出しアンカーは必ずこの変数で退避させる（数値の直書き禁止）。
