@@ -11,8 +11,8 @@
 |---|---|
 | コードコミット HEAD | `ff2ca56` — test(pages): add contract test for card accent classes and icon palette（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先: `index.vue` の `guides` / `SiteHeader.vue` の `navigation`） |
-| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ |
-| テスト数 | **149** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 23）+ **4** E2E — これがベースライン |
+| ビルド状態 | `bun run test` ✔ / `bun run build` ✔ / `bunx nuxi typecheck` ✔ / `bun run test:e2e` ✔（2026-08-17 実測） |
+| テスト数 | **155** ユニット（MermaidDiagram 11 + SiteHeader 3 + useActiveHeading 9 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29）+ **4** E2E — これがベースライン |
 | 原本照合監査 | ✔ exit 0（全要素一致）。ただし **CAPM ドメイン1 のみ exit 1 かつ差分 1 件が正常**（「正当な差分の記録」§8 の意図的逸脱。それ以外の差分が出たら移行漏れ） |
 
 ## ページ移行状況
@@ -180,11 +180,12 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - SiteHeader.vue（全ページ共通グローバルナビ）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 149 件
+  - ユニットテスト 155 件
+  - test / build / typecheck / test:e2e はいずれも 2026-08-17 時点で ✔（実測）
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査 exit 0 パス
     ただし CAPM ドメイン1 の原本照合監査だけは exit 1 かつ差分 1 件
     （リスク登録簿 R-002 の意図的逸脱。docs/PROGRESS.md「正当な差分の記録」§8 を参照。
     差分がこの 1 件以外に増えたら移行漏れとして Green コミット禁止）
 
-ベースラインテスト数: ユニット 149 + E2E 4
+ベースラインテスト数: ユニット 155 + E2E 4
 ```
