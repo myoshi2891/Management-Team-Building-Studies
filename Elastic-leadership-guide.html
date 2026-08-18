@@ -1292,8 +1292,13 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          // 同一ページ内の現在位置なので aria-current は "location"（"page" ではない）。
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
