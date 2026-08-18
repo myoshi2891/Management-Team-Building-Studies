@@ -776,6 +776,8 @@ class S1,S2,S3 box;`;
 <style scoped>
 /* ===================== CSS Custom Properties & Base ===================== */
 .layout {
+  --toc-toggle-gap: 16px;
+  --heading-anchor-gap: 32px;
   display: block;
 }
 
@@ -866,8 +868,8 @@ class S1,S2,S3 box;`;
 .sidebar-toggle {
   display: none;
   position: fixed;
-  top: calc(var(--global-nav-height) + 16px);
-  left: 16px;
+  top: calc(var(--global-nav-height) + var(--toc-toggle-gap));
+  left: var(--toc-toggle-gap);
   z-index: 30;
   background: var(--color-paper-raised);
   border: 1px solid var(--color-border);
@@ -993,7 +995,7 @@ section {
 .section-eyebrow :deep(.iconify) { font-size: 15px; }
 
 :is(h2, h3) {
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 h2 {

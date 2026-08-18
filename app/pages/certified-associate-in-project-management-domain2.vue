@@ -1002,6 +1002,11 @@ class BU,SR done;`;
 
 <style scoped>
 /* ===================== Layout & Variables ===================== */
+.capm-domain2-page {
+  --toc-toggle-gap: 16px;
+  --heading-anchor-gap: 32px;
+}
+
 .layout {
   display: block;
 }
@@ -1096,8 +1101,8 @@ class BU,SR done;`;
 .sidebar-toggle {
   display: none;
   position: fixed;
-  top: calc(var(--global-nav-height) + 16px);
-  left: 16px;
+  top: calc(var(--global-nav-height) + var(--toc-toggle-gap));
+  left: var(--toc-toggle-gap);
   z-index: 30;
   background: var(--color-paper-raised);
   border: 1px solid var(--color-border);
@@ -1193,7 +1198,7 @@ class BU,SR done;`;
 
 section {
   margin: 72px 0;
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 section:first-of-type {
@@ -1219,7 +1224,7 @@ h2 {
   margin: 0 0 24px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--color-border);
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 h3 {
@@ -1228,7 +1233,7 @@ h3 {
   font-size: 21px;
   color: var(--color-ink);
   margin: 40px 0 16px;
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 h4 {
@@ -1237,7 +1242,7 @@ h4 {
   font-size: 17px;
   color: var(--color-ink);
   margin: 28px 0 12px;
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 p {
