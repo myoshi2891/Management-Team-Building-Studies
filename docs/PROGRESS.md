@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `8804e6c` — refactor(pages): archive capm domain 4 source files and update audit script（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `e43d152` — fix(pages): restore exact styles from source html in capm domain 4（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
 | ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔（2026-08-18 実測） |
 | テスト数 | **322** ユニット（MermaidDiagram 11 + SiteHeader 13 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25）+ **11** E2E（capm 4 + site-header 7）— これがベースライン |
@@ -229,7 +229,7 @@ node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 8804e6c
+コードコミット HEAD: e43d152
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
