@@ -186,7 +186,6 @@ const EXPECTED_MERMAID_SOURCES = [
 const EXPECTED_EXTERNAL_URLS = [
   "https://www.pmi.org/certifications/certified-associate-capm",
   "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf?rev=583ca4688c844ea59a5f84258c106146",
-  "https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf",
   "https://www.bridging-the-gap.com/elicitation-techniques-business-analysts/",
   "https://sites.nd.edu/businessanalysis/?page_id=321",
   "https://businessanalyststoolkit.com/ba-essentials-elicitation-techniques/",

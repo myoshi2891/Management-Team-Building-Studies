@@ -106,6 +106,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/capm-domain4-business-analysis-frameworks",
+    categoryId: "project-management",
+    navLabel: "CAPM ドメイン4",
+    title: "CAPM® ドメイン4: ビジネス分析フレームワーク",
+    description: "PMI CAPM®試験ドメイン4「ビジネス分析フレームワーク」(出題比率27%)を初学者向けに解説。BAの役割、要求収集、ロードマップ、要求検証まで図解とベストプラクティスで整理。",
+    meta: "11セクション",
+    icon: "tabler:briefcase-2",
+    accent: "gold",
+  },
+  {
     to: "/pmp-certification-guide",
     categoryId: "project-management",
     navLabel: "PMP 完全攻略",
