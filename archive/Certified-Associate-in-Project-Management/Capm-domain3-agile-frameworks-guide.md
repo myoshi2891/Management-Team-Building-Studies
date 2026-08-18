@@ -253,7 +253,7 @@ ECOが示すイネーブラーは1つです。
 
 - Scrum、エクストリーム・プログラミング(XP)、SAFe®、Kanbanなど、異なるアダプティブ方法論の構成要素を区別する
 
-ここがドメイン3の中でも特に出題頻度が高い領域です。それぞれのフレームワークの「単位」「ロール」「ルール」の違いを正確に押さえましょう。
+ECOのドメイン3は、これら複数のアダプティブ方法論を対象範囲に含みます。それぞれのフレームワークの「単位」「ロール」「ルール」の違いを正確に押さえましょう。
 
 ### 4.1 Scrum
 
@@ -475,6 +475,8 @@ CAPM受験者が特に混同しやすい用語をまとめました。
 ## 第8章 参考文献・ソース一覧
 
 本ガイドの作成にあたり、以下の一次資料を直接参照しました。
+
+### 一次ソース一覧
 
 1. **PMI, *Certified Associate in Project Management (CAPM)® Exam Content Outline*(2023 Exam Update)** — ドメイン3の5つのタスクとイネーブラーの一次ソース。
    [https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf](https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf)

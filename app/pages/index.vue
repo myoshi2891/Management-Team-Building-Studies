@@ -1,53 +1,16 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { GUIDES, categoryCardLabel } from "~/utils/guide-catalog";
 
-const guides = [
-  {
-    to: "/capm",
-    category: "PROJECT MANAGEMENT",
-    title: "CAPM® 認定資格 完全ガイド",
-    description: "PMI公式情報をもとに、受験資格・4つの出題領域・学習計画までを一つの流れで理解できます。",
-    meta: "15セクション",
-    icon: "tabler:certificate",
-    accent: "indigo",
-  },
-  {
-    to: "/certified-associate-in-project-management-domain1",
-    category: "PROJECT MANAGEMENT",
-    title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
-    description: "PMI公式CAPM Exam Content Outlineに基づく、ドメイン1(PM基礎と主要概念・配点36%)の初学者向け解説ガイド。",
-    meta: "9セクション",
-    icon: "tabler:award",
-    accent: "gold",
-  },
-  {
-    to: "/engineering-management-career-path",
-    category: "ENGINEERING MANAGEMENT",
-    title: "エンジニアのためのマネジメントキャリアパス",
-    description: "テックリードからCTOまで。役割の違いと、マネージャーとしての最初の90日を体系的に学びます。",
-    meta: "12セクション",
-    icon: "tabler:route",
-    accent: "forest",
-  },
-  {
-    to: "/engineering-team-leadership-guide",
-    category: "ENGINEERING LEADERSHIP",
-    title: "エンジニアリングチームのリード術 完全ガイド",
-    description: "効果的なチーム作りの科学的根拠から、1on1、委譲、コードレビュー文化まで、実践できるベストプラクティスを体系的に学びます。",
-    meta: "11セクション",
-    icon: "tabler:users-group",
-    accent: "plum",
-  },
-  {
-    to: "/engineering-manager-guide",
-    category: "ENGINEERING MANAGEMENT",
-    title: "エンジニアリングマネージャー入門完全ガイド",
-    description: "James Stanier著『Become an Effective Software Engineering Manager』を主軸に、新任EMのスタートダッシュから心理的安全性、AI時代の役割まで体系的に学びます。",
-    meta: "14セクション",
-    icon: "tabler:school",
-    accent: "indigo",
-  },
-] as const;
+/*
+ * カードの内容はガイドカタログ（app/utils/guide-catalog.ts）が正。
+ * ここに配列を持たないことで、グローバルナビとの二重管理と登録漏れをなくす。
+ * category はカード表示用の英語表記をカテゴリー定義から引く。
+ */
+const guides = GUIDES.map((guide) => ({
+  ...guide,
+  category: categoryCardLabel(guide.categoryId),
+}));
 
 const learningThemes = [
   { number: "01", title: "体系的に理解する", description: "点在する知識を、全体像から詳細へ進む一貫したストーリーに整理します。", icon: "tabler:books" },

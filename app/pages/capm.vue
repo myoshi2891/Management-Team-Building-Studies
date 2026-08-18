@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "what-is-capm", "roadmap", "eligibility", "exam-format", "eco-overview",
@@ -19,30 +20,6 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-  pie1: "#C7D1EA",
-  pie2: "#AEDBD6",
-  pie3: "#F0D9A6",
-  pie4: "#E7C0D0",
-  pieOpacity: "1",
-  pieStrokeColor: "#FFFFFF",
-  pieStrokeWidth: "2px",
-  pieOuterStrokeWidth: "1px",
-  pieOuterStrokeColor: "#DFE3EA",
-  pieSectionTextColor: "#161B26",
-  pieLegendTextColor: "#161B26",
-  pieTitleTextColor: "#161B26",
-};
 
 const DIAGRAM_ROADMAP5 = `flowchart TB
 A["ステップ1 受験資格の確認と学習準備"] --> B["ステップ2 申請書の作成と提出"]

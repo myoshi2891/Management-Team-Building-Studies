@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP®(Project Management Professional)認定試験 完全ガイド | 初学者向けステップバイステップ解説</title>
+<meta name="description" content="PMI公式のPMP Examination Content Outline(2026年7月改定版)に基づき、受験資格・試験形式・3ドメイン26タスクの出題内容とベストプラクティスを初学者向けに解説する完全ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PMP®完全ガイド</div>
+        <div class="brand-subtitle">Project Management Professional</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="nav-group-label">試験の基礎知識</li>
+      <li><a href="#about-this-guide"><i class="ti ti-file-description"></i>このガイドについて</a></li>
+      <li><a href="#what-is-pmp"><i class="ti ti-certificate"></i>PMP資格とは</a></li>
+      <li><a href="#roadmap"><i class="ti ti-route"></i>取得ロードマップ</a></li>
+      <li><a href="#eligibility"><i class="ti ti-clipboard-check"></i>受験資格要件</a></li>
+      <li><a href="#exam-format"><i class="ti ti-list-check"></i>試験の全体像</a></li>
+
+      <li class="nav-group-label">出題ドメイン(Domain)</li>
+      <li><a href="#domain-people"><i class="ti ti-users"></i>Domain I: People</a></li>
+      <li><a href="#domain-process"><i class="ti ti-settings"></i>Domain II: Process</a></li>
+      <li><a href="#domain-business"><i class="ti ti-building-bank"></i>Domain III: Business Env.</a></li>
+
+      <li class="nav-group-label">学習・資格維持</li>
+      <li><a href="#talent-triangle"><i class="ti ti-refresh"></i>資格維持(PDU)</a></li>
+      <li><a href="#study-roadmap"><i class="ti ti-map-2"></i>学習ロードマップ</a></li>
+      <li><a href="#pitfalls"><i class="ti ti-alert-triangle"></i>つまずきポイント</a></li>
+      <li><a href="#eco-changes"><i class="ti ti-news"></i>2026年改定の要点</a></li>
+
+      <li class="nav-group-label">参考資料</li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>頻出用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PMI公式 Exam Content Outline - 2026(7月改定)準拠</div>
+      <h1>PMP®(Project Management Professional)認定試験 完全攻略ガイド</h1>
+      <p class="hero-lede">
+        初学者向け ステップバイステップ解説 — 2026年7月改定 Exam Content Outline (ECO) 準拠
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">180問</div><div class="stat-label">総試験問題数(240分・休憩2回)</div></div>
+        <div class="stat-card"><div class="stat-number">170万人+</div><div class="stat-label">世界のPMP保持者数</div></div>
+        <div class="stat-card"><div class="stat-number">3ドメイン26タスク</div><div class="stat-label">People・Process・Business Env.</div></div>
+        <div class="stat-card"><div class="stat-number">60 PDU</div><div class="stat-label">3年ごとの資格維持要件</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドはPMI公式資料に基づく独自の要約・解説であり、PMIによる公式認定や保証を受けたものではありません。PMIは特定の受験対策教材を推奨・保証しておらず、本ガイドも合格を保証するものではありません。試験の詳細・最新の受験資格要件は必ず<a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式サイト</a>で確認してください。「PMI」「PMP」「PMBOK」はProject Management Institute, Inc.の登録商標です。
+      </div>
+    </div>
+
+    <!-- ===================== 01. About This Guide ===================== -->
+    <section id="about-this-guide">
+      <div class="section-eyebrow"><i class="ti ti-file-description"></i>SECTION 01</div>
+      <h2>このガイドについて</h2>
+
+      <p>このガイドは、PMI(Project Management Institute)が公開している一次情報源を基に、PMP®認定試験の出題内容・受験資格・ベストプラクティスを初学者向けに整理・解説したものです。原文の要約・翻訳・独自解説であり、PMI公式資料そのものではありません。正確な最新情報は必ず一次情報源(巻末の「参考文献・出典」セクション)を参照してください。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>対象読者</td><td>PMP受験を検討し始めたばかりの初学者、プロジェクトマネジメント未経験〜浅い経験者</td></tr>
+            <tr><td>ベース資料</td><td>Project Management Professional (PMP)® Examination Content Outline - 2026(2026年7月改定版)、PMI公式PMP認定ページ</td></tr>
+            <tr><td>表記方針</td><td>日本語解説の中で、試験に頻出する英語の専門用語(Domain, Task, Enabler, ECO, CCB, EVM など)はそのまま併記する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>PMPの出題内容(ECO)は定期的に改定されます。本ガイドは2026年7月改定版を基にしていますが、受験前に必ずPMI公式サイトで最新版を確認してください。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 02. What is PMP ===================== -->
+    <section id="what-is-pmp">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 02</div>
+      <h2>PMP資格とは何か</h2>
+
+      <p>PMP®(Project Management Professional)は、PMIが認定する、プロジェクトを主導した3年以上の実務経験を持つ人向けの専門資格です。特定の業界・地域・開発手法(予測型/アジャイル/ハイブリッド)に縛られず、「人」「プロセス」「ビジネス環境」の3つの側面からプロジェクトを主導する能力を証明します。</p>
+
+      <p>PMI公式ページによると、PMP保持者は以下のような特徴を持つとされています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指標</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>保有者数</td><td>世界で170万人以上(プロジェクトマネジメント関連資格として世界最多)</td></tr>
+            <tr><td>米国での年収中央値</td><td>135,000ドル</td></tr>
+            <tr><td>給与プレミアム</td><td>非保持者と比較して中央値で17%高い給与を報告</td></tr>
+            <tr><td>対応する開発アプローチ</td><td>予測型(Predictive)、適応型/アジャイル(Adaptive/Agile)、ハイブリッド(Hybrid)のすべて</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式 PMP認定ページ</a></li>
+        </ul>
+      </div>
+
+      <h3>CAPM®との違い</h3>
+      <p>CAPM®(Certified Associate in Project Management)は実務経験を問わない入門資格である一方、PMPはプロジェクトを「主導・指揮した」実務経験(3〜5年、学歴により変動)を必須とする、より上位の資格です。CAPM保持者はPMP申請時に35時間の商業研修要件が免除されるという優遇措置があります。</p>
+    </section>
+
+    <!-- ===================== 03. Roadmap ===================== -->
+    <section id="roadmap">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <h2>PMP取得までのロードマップ</h2>
+
+      <p>PMI公式ページは、PMP取得までの流れを5つのステップで示しています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="roadmap5"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PMP取得までの5ステップ(Prepare → Apply → Study → Earn → Maintain)</div>
+      </div>
+
+      <ol class="step-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Prepare(準備)</div>
+            <div class="step-desc">自分の学歴・実務経験がどの受験資格パターンに該当するかを確認する。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Apply(申請)</div>
+            <div class="step-desc">PMIオンライン申請システムで学歴・35時間の研修・プロジェクト経験(月単位)を記録する。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Study(学習)</div>
+            <div class="step-desc">ECOのDomain(People / Process / Business Environment)ごとにタスクとイネイブラーを学習する。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">Earn(取得)</div>
+            <div class="step-desc">受験料を支払い、Pearson VUEのテストセンターまたはオンライン監督試験で180問・240分の試験を受ける。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">Maintain(維持)</div>
+            <div class="step-desc">3年間の更新サイクルごとに60 PDU(Professional Development Unit)を取得し、更新費用を支払う。</div>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式 PMP認定ページ「Your Path to PMP Certification」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 04. Eligibility ===================== -->
+    <section id="eligibility">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 04</div>
+      <h2>受験資格要件(Eligibility Requirements)</h2>
+
+      <p>PMP認定試験を受験するには、以下の「学歴 × 実務経験」の4パターンのいずれか <strong>1つ</strong> を満たし、かつ35時間の商業研修(Project Professional Training)を修了している必要があります。</p>
+
+      <h3>学歴・実務経験の4パターン</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学歴パターン</th><th>必要な非重複プロジェクトマネジメント実務経験(過去10年以内)</th></tr></thead>
+          <tbody>
+            <tr><td>高校卒業(またはGED等の中等教育修了相当)</td><td>60ヶ月/5年</td></tr>
+            <tr><td>準学士号・専門学校卒業等(EQF Level 5相当)</td><td>48ヶ月/4年</td></tr>
+            <tr><td>学士号以上(EQF Level 6相当)</td><td>36ヶ月/3年</td></tr>
+            <tr><td>PMI GAC(Global Accreditation Center)認定プログラムの学士号/大学院学位</td><td>24ヶ月/2年</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.13-14)</a></li>
+          <li><a href="https://www.pmi.org/global-accreditation-center/" target="_blank" rel="noopener">PMI Global Accreditation Center</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>2026年改定のポイント: 学歴要件が国・地域ごとの資格枠組み(EQFやISCEDなど)にマッピングされる形に明確化されました。学歴証明書にレベル記載がない場合、監査時には国の資格登録簿の抜粋、発行機関の公式声明、または認定機関による正式な評価のいずれかの提出が求められます。</p>
+      </div>
+
+      <h3>商業研修(35時間)要件</h3>
+      <p>学歴・実務経験に加えて、ECOの内容に沿った <strong>35時間</strong> の商業研修(Project Professional Training)を修了している必要があります。以下のいずれかの提供元からの研修が対象です。</p>
+      <ul>
+        <li>PMI公認研修パートナー(ATP: Authorized Training Partner)</li>
+        <li>中国登録教育プロバイダー(REP)</li>
+        <li>PMI GACプログラム</li>
+        <li>認定高等教育機関のプロジェクトマネジメント関連講座</li>
+        <li>雇用主/企業主催のプログラム</li>
+        <li>研修会社・コンサルタントによるコース</li>
+        <li>修了時評価を含む自己学習型オンデマンド講座</li>
+      </ul>
+      <p><strong>重要:</strong>書籍のみ・模試のみの学習は、35時間の商業研修としては認められません。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.14-15)</a></li>
+          <li><a href="https://www.pmi.org/learning/authorized-training-partners" target="_blank" rel="noopener">PMI公認研修パートナー(ATP)検索</a></li>
+        </ul>
+      </div>
+
+      <h3>CAPM®保持者への優遇措置</h3>
+      <p>アクティブなCAPM®認定を保持しており、学歴・実務経験要件を満たしている場合、35時間の研修要件のドキュメント提出が <strong>免除</strong> されます(CAPM保持自体が35時間分の研修クレジットとして扱われます)。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.15)</a></li>
+          <li><a href="https://www.pmi.org/certifications/certified-associate-capm" target="_blank" rel="noopener">CAPM®認定ページ</a></li>
+        </ul>
+      </div>
+
+      <h3>プロジェクト経験の数え方(重複月のカウント方法)</h3>
+      <p>実務経験は「プロジェクト数」ではなく「月数」で数えます。同じ期間に複数のプロジェクトを並行してリードしていた場合、その重複期間を二重にカウントすることはできません。例えば、1月〜3月にプロジェクトI、2月〜5月にプロジェクトIIをリードしていた場合、合計は「1月〜5月の5ヶ月間」としてカウントします。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.16)</a></li>
+        </ul>
+      </div>
+
+      <h3>申請時のベストプラクティス</h3>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>学校のプロジェクトや個人的な活動は対象外。</strong>学業目的のプロジェクト、個人的なイベント企画、自宅のリフォームなどは「プロフェッショナルな設定」での経験と認められません。</li>
+          <li><strong>ルーティン業務は除外する。</strong>定型的な運用・管理業務のみのエントリーは記載しないこと(監査対象になりやすい)。</li>
+          <li><strong>監査に備えて記録を保管する。</strong>学歴証明・研修修了証・プロジェクトの詳細記録は、監査に選ばれた場合に提出できるよう事前に整理しておく。</li>
+          <li><strong>要件を満たさない場合はCAPMを検討する。</strong>PMI自身も、要件を満たさない場合はまずCAPM®取得を推奨している。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.13-17)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 05. Exam Format ===================== -->
+    <section id="exam-format">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 05</div>
+      <h2>試験の全体像</h2>
+
+      <h3>試験形式</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>総問題数</td><td>180問</td></tr>
+            <tr><td>採点対象問題数</td><td>170問</td></tr>
+            <tr><td>プレテスト(採点対象外)問題数</td><td>10問(将来の問題の妥当性検証用。ランダムに配置され、どれがプレテストかは受験者にはわからない)</td></tr>
+            <tr><td>制限時間</td><td>240分(4時間)</td></tr>
+            <tr><td>休憩</td><td>10分の休憩が2回(1回目はケーススタディセクション後、2回目は独立問題セクションの中間付近)</td></tr>
+            <tr><td>再受験可能回数</td><td>1年間の受験資格期間内に最大3回まで</td></tr>
+            <tr><td>出題領域構成比</td><td>People 33% / Process 41% / Business Environment 26%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>休憩を開始すると、それ以前のセクションの問題には戻れません。</p>
+      </div>
+
+      <h3>出題形式(2026年7月改定で新設された形式を含む)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>出題形式</th><th>説明</th><th>提供形式</th></tr></thead>
+          <tbody>
+            <tr><td>Case/Scenario(新形式)</td><td>詳細なシナリオ(グラフ・チャートを含む場合あり)を提示し、それに基づく複数の設問に回答する</td><td>全形式(CBT/PBT/OPT)で利用可能</td></tr>
+            <tr><td>Graphic-Based Question(新形式)</td><td>チャート・グラフ・図表・画像などの視覚情報を読み取って解答する</td><td>全形式で利用可能</td></tr>
+            <tr><td>Enhanced Matching</td><td>画像や図を用いたマッチング問題。項目をドラッグ&ドロップして図の特定位置に配置する形式を含む</td><td>CBTのみ</td></tr>
+            <tr><td>Multiple-Choice Single Response</td><td>選択肢の中から正解を1つ選ぶ</td><td>全形式</td></tr>
+            <tr><td>Multiple-Response</td><td>選択肢の中から正解を複数選ぶ</td><td>全形式</td></tr>
+            <tr><td>Point and Click</td><td>画像上の隠れたホットスポット領域をクリックして解答する</td><td>CBTのみ</td></tr>
+            <tr><td>Matching</td><td>複数のリストから項目をペアリングする</td><td>CBTのみ</td></tr>
+            <tr><td>Pull-down List</td><td>ドロップダウンリストから正解を選択する</td><td>CBTのみ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.17-20)</a></li>
+        </ul>
+      </div>
+
+      <h3>出題領域(Domain)と配点比率</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="domainPie"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">出題領域別 配点比率(People 33% / Process 41% / Business Environment 26%)</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.5)</a></li>
+        </ul>
+      </div>
+
+      <h3>開発アプローチ(予測型 / アジャイル / ハイブリッド)の出題比率</h3>
+      <p>ECOは、Domainのどこか特定の場所に開発アプローチが偏っているわけではなく、People・Process・Business Environmentの <strong>すべてのDomainを横断して</strong> 予測型・適応型/アジャイル・ハイブリッドの3つの働き方が出題されると明記しています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="approachPie"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">開発アプローチ別 出題比率(概算): 予測型 約40% / 適応型・アジャイル+ハイブリッド 残り約60%</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.5): 「Approximately 40% of the items will represent predictive project management approaches, whereas the remaining 60% will be divided between adaptive/agile and hybrid management approaches」の記述に基づく(正確な内訳は試験フォームにより変動)</a></li>
+        </ul>
+      </div>
+
+      <h3>受験方法と再受験ポリシー</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>受験方法</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>CBT(Computer-Based Testing)</td><td>Pearson VUEのテストセンターで受験。PMI推奨の方式</td></tr>
+            <tr><td>PBT(Paper-Based Testing)</td><td>中国本土のみ、ATA test servicesが提供</td></tr>
+            <tr><td>OPT(Online Proctored Test)</td><td>自宅等からオンライン監督で受験。事前のシステムチェックが必要</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>再受験ポリシー:</strong>1回目の受験に不合格の場合、1年間の受験資格期間内であれば最大3回まで再受験できます。3回不合格になった場合、最後の受験日から1年間は再申請できません(その間も他のPMI資格には申請可能)。1年の受験資格期間が切れた場合(3回受験していなくても)、再申請が必要ですが、この場合は待機期間はありません。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.21)</a></li>
+          <li><a href="https://www.pearsonvue.com/us/en/pmi.html" target="_blank" rel="noopener">Pearson VUE テストセンター検索(CBT)</a></li>
+          <li><a href="https://www.pearsonvue.com/us/en/pmi/onvue.html" target="_blank" rel="noopener">Pearson VUE OnVue オンライン監督試験</a></li>
+          <li><a href="https://www.pmi.org/certifications/certification-resources/accommodations" target="_blank" rel="noopener">試験配慮(Exam Accommodations)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 06. Domain I: People ===================== -->
+    <section id="domain-people">
+      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 06</div>
+      <span class="domain-tag d1">Domain I &middot; People &middot; 33%</span>
+      <h2>Domain I: People</h2>
+
+      <p>Peopleドメインは、プロジェクトマネージャーが「人」を通じて成果を出す能力 — チームリーダーシップ、対立管理、ステークホルダーとの信頼構築、コミュニケーション — を測定します。ECOのタスク構造説明にあるとおり、PMIは近年のリサーチ(<em>Maximizing Project Success</em> レポート)を踏まえ、プロジェクトの成功を「スケジュール・予算・スコープの達成」だけでなく「ステークホルダーにとって、その労力と費用に見合う価値を提供できたか」という、より広い視点で再定義しています。Peopleドメインの多くのタスクはこの価値観と直結しています。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.6)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 1: 共通ビジョンの構築(Develop a common vision)</h3>
+      <p><strong>このタスクが測る能力:</strong>プロジェクトマネージャーが、キーステークホルダーと共有された「なぜこのプロジェクトをやるのか」というビジョンを確立し、維持し続ける能力です。ビジョンは一度作って終わりではなく、プロジェクトの進行に伴って形骸化しないよう継続的に発信・更新する必要があります。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>キーステークホルダーとの間で共有ビジョンを確立する</li>
+        <li>共有ビジョンを浸透させる(プロモート)</li>
+        <li>ビジョンを最新の状態に保つ</li>
+        <li>ビジョンの誤解が生じている状況を分解し、根本原因を特定する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>プロジェクト憲章(Project Charter)策定の段階でスポンサーと合意した「ビジネスケース」「期待される成果」を、チーム全員が繰り返し参照できる形(1枚もののビジョンステートメントなど)に落とし込む。</strong></li>
+          <li><strong>キックオフミーティングだけでなく、マイルストーンごとにビジョンを再確認する場を設ける。</strong>アジャイルではスプリントレビューやプロダクトビジョンの再共有がこれに相当する。</li>
+          <li><strong>ビジョンの誤解が疑われる場合は、表面的な意見の相違ではなく「なぜそう解釈したのか」を掘り下げるルートコーズ分析を行う。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.7)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 2: 対立の管理(Manage conflicts)</h3>
+      <p><strong>このタスクが測る能力:</strong>チーム内・ステークホルダー間で発生する対立(コンフリクト)を、発生源を特定した上で適切な解決戦略を選び、実行する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>対立の発生源を特定する</li>
+        <li>対立の文脈を分析する</li>
+        <li>合意された解決戦略を実行する</li>
+        <li>チームや外部ステークホルダーに対立管理の原則を伝える</li>
+        <li>グラウンドルール(共通のルール)が守られる環境を確立する</li>
+        <li>グラウンドルール違反を是正する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>対立の背景(価値観の相違か、リソース不足か、スケジュールのプレッシャーかなど)を切り分けてから対応方針を決める。</strong></li>
+          <li><strong>対立解決のアプローチ(協力/妥協/強制/回避/緩和)を状況に応じて使い分ける。</strong>技術的な優先度をめぐる対立は「協力」で根本解決を目指し、些細な意見の相違は「妥協」で時間を節約する、といった判断が求められる。</li>
+          <li><strong>チーム憲章(Team Charter)でグラウンドルールを明文化し、違反時の対応プロセスをあらかじめ合意しておく。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI Talent Triangle - Power Skills</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 3: プロジェクトチームのリード(Lead the project team)</h3>
+      <p><strong>このタスクが測る能力:</strong>チームへの期待値設定、権限委譲(エンパワーメント)、問題解決、チームの多様な経験・スキル・視点のサポート、状況に応じたリーダーシップスタイルの選択、明確な役割と責任の設定など、チームリーダーとしての総合力を測定します。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>チームレベルでの期待値を設定する</li>
+        <li>チームをエンパワーする</li>
+        <li>問題を解決する</li>
+        <li>チームの声を代弁する</li>
+        <li>チームの多様な経験・スキル・視点をサポートする</li>
+        <li>適切なリーダーシップスタイルを判断する</li>
+        <li>チーム内の明確な役割と責任を確立する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>RACIマトリクス(Responsible / Accountable / Consulted / Informed)を使い、タスクごとの役割と責任を可視化する。</strong></li>
+          <li><strong>サーバントリーダーシップ(奉仕型リーダーシップ)は、特にアジャイル/自己組織化チームで推奨されるスタイルであり、Agile Practice Guideでも中心的な考え方として扱われている。</strong></li>
+          <li><strong>チームの成熟度(Tuckmanの「形成期・混乱期・統一期・機能期」モデルなど)に応じてリーダーシップスタイル(指示型→コーチ型→支援型→委任型)を切り替える。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 4: ステークホルダーの関与(Engage stakeholders)</h3>
+      <p><strong>このタスクが測る能力:</strong>ステークホルダーを特定し、分析し、それぞれのニーズに合わせてコミュニケーションを調整し、ステークホルダーエンゲージメント計画を実行し、信頼を構築してプロジェクト目標達成に向けて影響力を発揮する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>ステークホルダーを特定する</li>
+        <li>ステークホルダーを分析する</li>
+        <li>コミュニケーションを分析しステークホルダーのニーズに合わせて調整する</li>
+        <li>ステークホルダーエンゲージメント計画を実行する</li>
+        <li>ステークホルダーのニーズ・期待とプロジェクト目標の整合を最適化する</li>
+        <li>信頼を構築し、ステークホルダーに影響を与えてプロジェクト目標達成を促す</li>
+      </ul>
+
+      <p>以下は、ステークホルダーとの関わりを継続的なサイクルとして捉えたプロセスです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="stakeholderCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ステークホルダーエンゲージメントの継続的サイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「権力・関心度グリッド(Power/Interest Grid)」でステークホルダーを4象限(監視/情報提供/満足維持/密接管理)に分類し、労力の配分を最適化する。</strong></li>
+          <li><strong>ステークホルダーレジスター(Stakeholder Register)を一度作って終わりにせず、プロジェクトの局面が変わるたびに更新する。</strong></li>
+          <li><strong>影響力のあるステークホルダーには「伝える」だけでなく「巻き込む」双方向のコミュニケーションを設計する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.7)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 5: ステークホルダーの期待の整合(Align stakeholder expectations)</h3>
+      <p><strong>このタスクが測る能力:</strong>ステークホルダーを分類し、それぞれの期待値を特定した上で、期待値の食い違いを解消するための議論を進行し、メンタリングの機会を組織・活用する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>ステークホルダーを分類する</li>
+        <li>ステークホルダーの期待値を特定する</li>
+        <li>期待値を整合させるための議論をファシリテートする</li>
+        <li>メンタリングの機会を組織し、行動に移す</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>期待値の食い違いは「サイレント」なまま進行しやすいため、定期的な1on1やステークホルダーインタビューで早期に顕在化させる。</strong></li>
+          <li><strong>ファシリテーションでは、対立する期待値そのものではなく「その期待の裏にある目的・懸念」を掘り下げて共通点を探す。</strong></li>
+          <li><strong>経験豊富なメンバーと若手・新規参画者をペアリングするメンタリング機会を意図的に設計し、暗黙知の共有と期待値のすり合わせを同時に進める。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI Talent Triangle</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 6: ステークホルダーの期待の管理(Manage stakeholder expectations)</h3>
+      <p><strong>このタスクが測る能力:</strong>内部・外部の顧客の期待を特定し、それに沿ってアウトカムを整合・維持し、満足度や期待の変化を継続的にモニタリングして対応する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>内部・外部顧客の期待を特定する</li>
+        <li>内部・外部顧客の期待にアウトカムを整合させ、維持する</li>
+        <li>内部・外部顧客の満足度/期待をモニタリングし、必要に応じて対応する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>顧客満足度は主観的な印象ではなく、NPS(Net Promoter Score)や定期的なステークホルダーサーベイなど測定可能な指標で継続的に把握する。</strong></li>
+          <li><strong>期待値のズレが検知された時点で、原因(スコープの誤解か、進捗の可視性不足か)を切り分けて対応する。</strong></li>
+          <li><strong>アジャイル環境では、スプリントレビューでのプロダクトオーナー/顧客からの直接フィードバックが期待値管理の中心的な仕組みになる。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 7: 知識移転の促進(Help ensure knowledge transfer)</h3>
+      <p><strong>このタスクが測る能力:</strong>プロジェクトにとって重要な知識を特定し、収集し、その知識がチーム内・組織内で移転される環境を醸成する能力です。ECOの本文中でも例示として取り上げられているタスクです。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクトにとって重要な知識を特定する</li>
+        <li>知識を収集する</li>
+        <li>知識移転のための環境を醸成する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>レッスンズラーンド(Lessons Learned)を「プロジェクト終了時にまとめて書く」のではなく、フェーズやスプリントの節目ごとに継続的に記録する。</strong></li>
+          <li><strong>暗黙知(ベテランの勘所やノウハウ)は文書化だけでなく、ペアワークやシャドーイングなど「一緒にやる」形での移転を組み合わせる。</strong></li>
+          <li><strong>ナレッジをOPA(組織のプロセス資産)として組織のリポジトリに蓄積し、将来のプロジェクトが再利用できる形にする。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.6, タスク構造の例示として掲載)</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 8: コミュニケーションの計画と管理(Plan and manage communication)</h3>
+      <p><strong>このタスクが測る能力:</strong>コミュニケーション戦略の定義、透明性とコラボレーションの促進、フィードバックループの確立、レポーティング要件の理解、スポンサー/ステークホルダーの期待に沿ったレポート作成、ガバナンスプロセスのサポートまでを含む、包括的なコミュニケーション管理能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>コミュニケーション戦略を定義する</li>
+        <li>透明性とコラボレーションを促進する</li>
+        <li>フィードバックループを確立する</li>
+        <li>レポーティング要件を理解する</li>
+        <li>スポンサー/ステークホルダーの期待に沿ったレポートを作成する</li>
+        <li>レポーティングとガバナンスプロセスをサポートする</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>コミュニケーションマネジメント計画では「誰に・何を・いつ・どの手段で・誰が」伝えるかをマトリクス化する。</strong></li>
+          <li><strong>レポートは受け手の役割(経営層向けはサマリーとKPI、実務チーム向けは詳細なバーンダウン/進捗)に応じて粒度を変える。</strong></li>
+          <li><strong>フィードバックループは一方向の報告で終わらせず、受け手からの質問・懸念を吸い上げる仕組み(定例会の質疑時間、非同期コメントなど)を組み込む。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI Talent Triangle</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 07. Domain II: Process ===================== -->
+    <section id="domain-process">
+      <div class="section-eyebrow"><i class="ti ti-settings"></i>SECTION 07</div>
+      <span class="domain-tag d2">Domain II &middot; Process &middot; 41%</span>
+      <h2>Domain II: Process</h2>
+
+      <p>Processドメインは、出題比率41%と3ドメインの中で最大のウェイトを占めます。統合マネジメント計画の策定からスコープ・資源・調達・財務・品質・スケジュール・進捗評価・クロージャーまで、プロジェクトを「実行し、完了させる」ための一連のプロセスに関する実務能力を測定します。開発アプローチ(予測型/アジャイル/ハイブリッド)を問わず、これらのプロセスの目的と使い分けを理解していることが問われます。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.9-11)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 1: 統合プロジェクトマネジメント計画の策定とデリバリー計画(Develop an integrated project management plan and plan delivery)</h3>
+      <p><strong>このタスクが測る能力:</strong>プロジェクトの複雑さ・規模を評価し、適切な開発アプローチ(予測型・アジャイル・ハイブリッド)を推奨し、統合されたプロジェクトマネジメント計画を作成・維持する能力です。2026年改定では「サステナビリティ」を含む重要情報要件の判断が明示的に追加されています。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクトのニーズ・複雑さ・規模を評価する</li>
+        <li>プロジェクト開発アプローチ(予測型/アジャイル/ハイブリッド)を推奨する</li>
+        <li>重要な情報要件(例: サステナビリティ)を決定する</li>
+        <li>プロジェクト実行戦略を推奨する</li>
+        <li>統合プロジェクトマネジメント計画を作成する</li>
+        <li>作業工数と資源要件を見積もる</li>
+        <li>統合された計画の依存関係・ギャップ・継続的なビジネス価値を評価する</li>
+        <li>統合プロジェクトマネジメント計画を維持する</li>
+        <li>データを収集・分析し、根拠あるプロジェクト意思決定を行う</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>開発アプローチの選定は「不確実性(要求が明確か)」と「変動性(解の合意度)」の2軸で判断する。</strong>要求もソリューションも明確なら予測型、両方が不透明ならアジャイル、一部が明確なら成果物やフェーズ単位でアプローチを混ぜるハイブリッドを検討する。</li>
+          <li><strong>統合マネジメント計画は各サブ計画(スコープ・スケジュール・コスト・品質・資源・コミュニケーション・リスク・調達・ステークホルダー計画)を独立に作らず、依存関係を意識して整合させる。</strong></li>
+          <li><strong>計画は一度作って固定するのではなく、段階的詳細化(Progressive Elaboration)の考え方で継続的に更新する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.9)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 2: プロジェクトスコープの策定と管理(Develop and manage project scope)</h3>
+      <p><strong>このタスクが測る能力:</strong>スコープを定義し、ステークホルダーの合意を取り付け、スコープを分解する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>スコープを定義する</li>
+        <li>プロジェクトスコープについてステークホルダーの合意を得る</li>
+        <li>スコープを分解する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>予測型ではWBS(Work Breakdown Structure、作業分解構成図)で成果物ベースにスコープを階層分解し、WBS辞書で各要素の完了基準を明文化する。</strong></li>
+          <li><strong>アジャイルではプロダクトバックログとユーザーストーリーでスコープを段階的に分解し、優先順位付けを継続的に見直す。</strong></li>
+          <li><strong>スコープの合意は口頭ではなく、スコープ記述書やプロダクトバックログへのサインオフという形で記録に残す。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 3: 価値に基づくデリバリーの促進(Help ensure value-based delivery)</h3>
+      <p><strong>このタスクが測る能力:</strong>キーステークホルダーと共に価値の構成要素を特定し、価値とフィードバックに基づいて作業を優先順位付けし、価値を段階的に届ける機会を評価する能力です。前述のとおり、2026年改定ECOはPMIの調査<em>Maximizing Project Success</em>を反映し、プロジェクト成功の定義を「価値の提供」に寄せています。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>キーステークホルダーと共に価値の構成要素を特定する</li>
+        <li>価値とステークホルダーのフィードバックに基づいて作業を優先順位付けする</li>
+        <li>価値を段階的に届ける機会を評価する</li>
+        <li>プロジェクトを通じてビジネス価値を検証する</li>
+        <li>便益を追跡する測定システムが整っていることを確認する</li>
+        <li>価値を実証するためのデリバリーオプションを評価する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>MoSCoW法(Must/Should/Could/Won't)やWSJF(Weighted Shortest Job First)など、価値ベースの優先順位付け手法を活用する。</strong></li>
+          <li><strong>「アウトプット(作ったもの)」ではなく「アウトカム(もたらした成果)」を測定するベネフィット追跡指標を設計する。</strong></li>
+          <li><strong>インクリメンタルデリバリー(MVPやリリースの分割)により、早期に価値を届けフィードバックを得る機会を最大化する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.6, p.9)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 4: 資源の計画と管理(Plan and manage resources)</h3>
+      <p><strong>このタスクが測る能力:</strong>要求事項に基づいて資源を定義・計画し、資源のニーズと可用性を管理・最適化する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>要求事項に基づいて資源を定義・計画する</li>
+        <li>資源のニーズと可用性を管理・最適化する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>資源ヒストグラム(Resource Histogram)で稼働の山谷を可視化し、資源平準化(Leveling)や資源円滑化(Smoothing)で過負荷を調整する。</strong></li>
+          <li><strong>チームメンバーのスキルだけでなく可用性(他プロジェクトとの兼務状況)も含めて資源計画を立てる。</strong></li>
+          <li><strong>アジャイルチームでは「専属・安定したチーム(Stable Team)」を維持する方が、都度アサインを変えるより生産性が高いとされる。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 5: 調達の計画と管理(Plan and manage procurement)</h3>
+      <p><strong>このタスクが測る能力:</strong>調達の計画、調達マネジメント計画の実行、契約タイプの選定、サプライヤーのパフォーマンス評価、契約合意の目的達成確認、交渉への参加、交渉戦略の決定、サプライヤーと契約の管理など、調達プロセス全体を扱う能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>調達を計画する</li>
+        <li>調達マネジメント計画を実行する</li>
+        <li>望ましい契約タイプを選定する</li>
+        <li>ベンダーのパフォーマンスを評価する</li>
+        <li>調達合意の目的が満たされていることを確認する</li>
+        <li>合意の交渉に参加する</li>
+        <li>交渉戦略を決定する</li>
+        <li>サプライヤーと契約を管理する</li>
+        <li>調達戦略を計画・管理する</li>
+        <li>デリバリーソリューションを策定する</li>
+      </ul>
+
+      <p>調達プロセスは、一般的に以下のようなライフサイクルで進行します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="procurementCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">調達マネジメントのライフサイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>契約タイプはリスク分担で選ぶ。</strong>要件が明確なら<strong>FFP(Firm Fixed Price、確定固定価格)</strong>、要件が不確実で工数ベースなら<strong>T&M(Time and Materials)</strong>、開発コストが読みにくい研究開発案件なら<strong>CPFF(Cost Plus Fixed Fee)</strong>のように、プロジェクトの不確実性に応じて使い分ける。</li>
+          <li><strong>ベンダー評価は契約締結後も継続的に行い(SLA遵守率、納期遵守率など)、評価結果を将来の調達判断にフィードバックする。</strong></li>
+          <li><strong>交渉戦略は自社の代替案(BATNA: Best Alternative to a Negotiated Agreement)を事前に明確化してから臨む。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.9)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 6: 財務の計画と管理(Plan and manage finance)</h3>
+      <p><strong>このタスクが測る能力:</strong>プロジェクトの財務ニーズの分析、リスク・コンティンジェンシーの財務的配分の定量化、プロジェクトライフサイクルを通じた支出追跡計画、財務レポーティング計画、将来の財務課題の予測、財務差異のモニタリングとガバナンスプロセスとの連携、財務準備金の管理までを扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクトの財務ニーズを分析する</li>
+        <li>リスクとコンティンジェンシーの財務的配分を定量化する</li>
+        <li>プロジェクトライフサイクル全体の支出追跡を計画する</li>
+        <li>財務レポーティングを計画する</li>
+        <li>将来の財務上の課題を予測する</li>
+        <li>財務差異をモニタリングし、ガバナンスプロセスと連携する</li>
+        <li>財務準備金を管理する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>コストベースライン(承認済み予算計画)を設定し、実績との差異をEVM(Earned Value Management)で定量的に把握する。</strong>代表的な指標は<code>CV(Cost Variance)</code>、<code>CPI(Cost Performance Index)</code>。</li>
+          <li><strong>コンティンジェンシー予備(既知の未知リスク用)とマネジメント予備(未知の未知用)を明確に区別して管理する。</strong></li>
+          <li><strong>財務差異は発見してから報告するのではなく、閾値(例: CPIが0.9を下回ったら)を事前に定義し、ガバナンスへのエスカレーション基準を明文化しておく。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.10)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 7: 成果物の品質計画と最適化(Plan and optimize quality of products/deliverables)</h3>
+      <p><strong>このタスクが測る能力:</strong>成果物の品質要求事項の収集、品質プロセス/ツールの計画、品質マネジメント計画の実行、規制遵守の確保、CoQ(品質コスト)とサステナビリティの管理、継続的な品質レビュー、継続的改善の実装までを扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクト成果物の品質要求事項を収集する</li>
+        <li>品質プロセスとツールを計画する</li>
+        <li>品質マネジメント計画を実行する</li>
+        <li>規制遵守を確保する</li>
+        <li>CoQ(Cost of Quality)とサステナビリティを管理する</li>
+        <li>継続的な品質レビューを実施する</li>
+        <li>継続的改善を実装する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>CoQは「適合コスト(予防・評価)」と「不適合コスト(内部/外部の失敗コスト)」に分け、予防への投資が下流の手戻りコストを削減することを意識する。</strong></li>
+          <li><strong>品質は最終検査だけで担保せず、プロセスの早い段階での品質作り込み(Quality by Design、アジャイルの「Definition of Done」など)を重視する。</strong></li>
+          <li><strong>品質メトリクスは定期的にレビューし、パレート分析や特性要因図(フィッシュボーン図)で不具合の根本原因を特定して継続的改善につなげる。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 8: スケジュールの計画と管理(Plan and manage schedule)</h3>
+      <p><strong>このタスクが測る能力:</strong>選定した開発アプローチに基づくスケジュール準備、他プロジェクト/オペレーションとの調整、プロジェクトタスク(マイルストーン・依存関係・ストーリーポイント)の見積もり、ベンチマークと過去実績データの活用、スケジュール作成・ベースライン設定・実行・差異分析までを扱う、実務上非常に幅広いタスクです。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>選定した開発アプローチに基づいてスケジュールを準備する</li>
+        <li>他プロジェクト/オペレーションと調整する</li>
+        <li>プロジェクトタスク(マイルストーン、依存関係、ストーリーポイント)を見積もる</li>
+        <li>ベンチマークと過去実績データを活用する</li>
+        <li>プロジェクトスケジュールを作成する</li>
+        <li>プロジェクトスケジュールをベースライン化する</li>
+        <li>スケジュールマネジメント計画を実行する</li>
+        <li>スケジュール差異を分析する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>予測型ではクリティカルパス法(CPM: Critical Path Method)でフロート(余裕時間)がゼロのタスク列を特定し、そこに集中的にリソースを配分する。</strong></li>
+          <li><strong>アジャイルではベロシティ(1スプリントあたりの完了ストーリーポイント数)の実績を蓄積し、将来のイテレーション計画に活用する。</strong></li>
+          <li><strong>スケジュール差異は<code>SV(Schedule Variance)</code>や<code>SPI(Schedule Performance Index)</code>などEVM指標で定量化し、感覚ではなくデータで遅延リスクを判断する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 9: プロジェクト状況の評価(Evaluate project status)</h3>
+      <p><strong>このタスクが測る能力:</strong>プロジェクトメトリクスの開発・分析・照合、必要なアーティファクト(成果物・記録物)の特定とカスタマイズ、アーティファクトの作成・レビュー・更新・文書化の確保、進捗の評価、メトリクスの測定・分析・更新、プロジェクト状況のコミュニケーション、アーティファクト管理の有効性の継続的評価までを扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクトメトリクス・分析・照合を開発する</li>
+        <li>必要なアーティファクトを特定し、テーラリング(調整)する</li>
+        <li>アーティファクトが作成・レビュー・更新・文書化されるようにする</li>
+        <li>アーティファクトへのアクセス可能性を確保する</li>
+        <li>現在の進捗を評価する</li>
+        <li>プロジェクトメトリクスを測定・分析・更新する</li>
+        <li>プロジェクト状況をコミュニケーションする</li>
+        <li>アーティファクト管理の有効性を継続的に評価する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>アーティファクト(バーンダウンチャート、ダッシュボード、ステータスレポート等)は「作ること」自体を目的化せず、意思決定に使われているかを定期的に見直し、使われていないものは廃止する。</strong></li>
+          <li><strong>ステータスレポートは「進捗(何が終わったか)」だけでなく「今後のリスクと必要な意思決定」をセットで報告する。</strong></li>
+          <li><strong>アジャイルではバーンダウン/バーンアップチャートとベロシティトレンドを組み合わせ、予測型ではEVMのSPI/CPIトレンドを用いて、いずれも「トレンド」で状況を判断する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.10)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 10: プロジェクトクロージャーの管理(Manage project closure)</h3>
+      <p><strong>このタスクが測る能力:</strong>プロジェクト完了に対するステークホルダーの承認取得、プロジェクト/フェーズを正常にクローズする基準の決定、移行(運用チームや次フェーズへの移行など)の準備状況の検証、プロジェクト/フェーズをクローズするための活動(最終レッスンズラーンド、レトロスペクティブ、調達・財務・資源のクローズなど)の完了までを扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクト完了に対するステークホルダーの承認を得る</li>
+        <li>プロジェクト/フェーズを正常にクローズする基準を決定する</li>
+        <li>移行(例: 運用チームや次フェーズへ)の準備状況を検証する</li>
+        <li>プロジェクト/フェーズをクローズするための活動を完了する(最終レッスンズラーンド、レトロスペクティブ、調達、財務、資源など)</li>
+      </ul>
+
+      <p>クロージャーは、以下のような流れで整理すると抜け漏れを防ぎやすくなります。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="closureFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロジェクトクロージャーの流れ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>クロージャーの基準(Definition of Done at project level)はプロジェクト開始時点で定義し、終盤で場当たり的に決めない。</strong></li>
+          <li><strong>調達のクローズでは、契約上の義務(検収、支払い、保証条件)がすべて満たされたことを文書で確認してから正式クローズする。</strong></li>
+          <li><strong>レッスンズラーンドは組織のナレッジベース(OPA)に登録し、将来のプロジェクトの見積もり精度・リスク識別に活用できる形にする。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.10)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 08. Domain III: Business Environment ===================== -->
+    <section id="domain-business">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 08</div>
+      <span class="domain-tag d3">Domain III &middot; Business Environment &middot; 26%</span>
+      <h2>Domain III: Business Environment</h2>
+
+      <p>Business Environmentドメインは、プロジェクトを組織・外部環境の文脈の中に位置づける能力を測定します。ガバナンス、コンプライアンス、変更管理、障害・課題対応、リスク管理、継続的改善、組織変革の支援、外部環境変化への対応まで、「プロジェクトの外側」との接続を扱うタスク群です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.11-12)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 1: プロジェクトガバナンスの定義と確立(Define and establish project governance)</h3>
+      <p><strong>このタスクが測る能力:</strong>OPA(組織のプロセス資産)を活用して、プロジェクトの構造・ルール・手続き・レポーティング・倫理・ポリシーを記述・確立し、成功指標を定義し、ガバナンスのエスカレーションパスと閾値を明確化する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>OPAを活用してプロジェクトの構造・ルール・手続き・レポーティング・倫理・ポリシーを記述・確立する</li>
+        <li>成功指標を定義する</li>
+        <li>ガバナンスのエスカレーションパスと閾値を明確にする</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>ガバナンス構造(意思決定権限を持つのは誰か、どの階層で何を承認するか)はプロジェクト開始時点でRACIやガバナンス憲章として文書化する。</strong></li>
+          <li><strong>成功指標はスケジュール・コスト・スコープだけでなく、ステークホルダーにとっての価値実現度を含めて定義する。</strong></li>
+          <li><strong>エスカレーションの閾値(例: コスト差異が◯%を超えたらスポンサーへ報告)を数値で事前合意しておくことで、判断の属人化を防ぐ。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.11)</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 2: プロジェクトコンプライアンスの計画と管理(Plan and manage project compliance)</h3>
+      <p><strong>このタスクが測る能力:</strong>セキュリティ、健康・安全、サステナビリティ、規制遵守などのコンプライアンス要件を確認し、コンプライアンスカテゴリを分類し、コンプライアンスへの潜在的な脅威を判断し、コンプライアンスをサポートする手法を用い、非遵守の影響を分析し、必要なアプローチ・アクションを決定し、コンプライアンスの遵守度を測定する能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>プロジェクトのコンプライアンス要件を確認する(例: セキュリティ、健康・安全、サステナビリティ、規制遵守)</li>
+        <li>コンプライアンスカテゴリを分類する</li>
+        <li>コンプライアンスへの潜在的な脅威を判断する</li>
+        <li>コンプライアンスをサポートする手法を用いる</li>
+        <li>非遵守の影響を分析する</li>
+        <li>コンプライアンス対応に必要なアプローチとアクションを決定する</li>
+        <li>プロジェクトがコンプライアンスを満たしている度合いを測定する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>コンプライアンス要件は業界・地域ごとに異なるため、プロジェクト開始時に法務・コンプライアンス部門と要件一覧を確定し、要件トレーサビリティマトリクスで管理する。</strong></li>
+          <li><strong>非遵守が発覚した場合の影響(罰金・信用失墜・プロジェクト停止リスク)を事前に定量化し、優先度判断の材料にする。</strong></li>
+          <li><strong>サステナビリティ関連のコンプライアンス(環境負荷、労働慣行など)は、2026年改定ECOでも明示的に言及されており、リスク・品質管理と統合して扱うのがベストプラクティスとされる。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.11)</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 3: 変更の管理と統制(Manage and control changes)</h3>
+      <p><strong>このタスクが測る能力:</strong>変更管理プロセスの実行、提案された変更のステータスのコミュニケーション、承認された変更のプロジェクトへの実装、変更を反映したプロジェクト文書の更新を扱う、PMP試験で頻出のタスクです。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>変更管理プロセスを実行する</li>
+        <li>提案された変更のステータスをコミュニケーションする</li>
+        <li>承認された変更をプロジェクトに実装する</li>
+        <li>変更を反映してプロジェクト文書を更新する</li>
+      </ul>
+
+      <p>統合変更管理(Integrated Change Control)の典型的な流れは以下のとおりです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="changeControl"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">統合変更管理(Integrated Change Control)のプロセス</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>すべての変更要求は、口頭や個別のチャットで処理せず、必ず正式な変更管理プロセス(変更ログへの記録)を通す。</strong></li>
+          <li><strong>CCB(Change Control Board)には、プロジェクトへの影響を評価できる適切な権限者(技術リード、QAリード、プロダクトオーナー等)を含める。</strong></li>
+          <li><strong>承認された変更は、必ず影響を受けるすべての計画・文書(スコープ記述書、スケジュール、コストベースラインなど)に反映してから初めて「完了」とする。</strong>変更の実装だけでベースライン更新を忘れるのはよくある失敗パターン。</li>
+          <li><strong>アジャイル環境では、変更管理はスプリント境界での「バックログの再優先順位付け」という形で軽量化されるが、進行中のスプリントスコープの変更は原則避けるのが一般的な実務。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/pmbok-guide-standards/practice-guides/change" target="_blank" rel="noopener">Managing Change in Organizations: A Practice Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 4: 障害の除去と課題管理(Remove impediments and manage issues)</h3>
+      <p><strong>このタスクが測る能力:</strong>障害物(インペディメント)の影響評価、優先順位付けと強調表示、介入戦略の決定と適用、チームの障害・障壁・ブロッカーが対応され続けているかの継続的な再評価、リスクが課題に転化したことの認識、関連ステークホルダーとの協業による課題解決アプローチの決定を扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>障害物の影響を評価する</li>
+        <li>障害物を優先順位付けし、目立たせる</li>
+        <li>障害物を除去/最小化するための介入戦略を決定・適用する</li>
+        <li>チームの障害・障壁・ブロッカーへの対応が継続されているか、繰り返し再評価する</li>
+        <li>リスクが課題に転化したタイミングを認識する</li>
+        <li>関連ステークホルダーと協力して課題解決のアプローチを決定する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>課題ログ(Issue Log)を維持し、リスクレジスターと分けて管理する。</strong>リスクは「起きるかもしれないこと」、課題は「すでに起きたこと」という区別を徹底する。</li>
+          <li><strong>スクラムのデイリースタンドアップのように、障害物を毎日短いサイクルで可視化する仕組みを設けると、対応の遅れを防げる。</strong></li>
+          <li><strong>障害物の除去は担当者(プロジェクトマネージャー、スクラムマスター等)の権限を超える場合、速やかにエスカレーションする基準をあらかじめ明確にしておく。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 5: リスクの計画と管理(Plan and manage risk)</h3>
+      <p><strong>このタスクが測る能力:</strong>リスクの識別・分析・監視・統制、リスクマネジメント計画の策定、リスクレジスターの維持(例: 不十分なITセキュリティ)、リスクマネジメント計画の実行(例: セキュリティリスクへの対応、サステナビリティリスクの管理)、リスクの影響状況のコミュニケーションを扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>リスクを識別する</li>
+        <li>リスクを分析する</li>
+        <li>リスクを監視・統制する</li>
+        <li>リスクマネジメント計画を策定する</li>
+        <li>リスクレジスターを維持する(例: 不十分なITセキュリティ)</li>
+        <li>リスクマネジメント計画を実行する(例: セキュリティやサステナビリティリスクへのリスク対応)</li>
+        <li>プロジェクトへのリスク影響状況をコミュニケーションする</li>
+      </ul>
+
+      <p>リスクマネジメントは、単発の作業ではなく継続的なライフサイクルとして扱われます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="riskLifecycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">リスクマネジメントの継続的ライフサイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>発生確率×影響度のマトリクス(Probability-Impact Matrix)でリスクの優先順位を可視化し、対応リソースを高優先度リスクに集中させる。</strong></li>
+          <li><strong>脅威(ネガティブリスク)への対応戦略は「回避・転嫁・軽減・受容」、好機(ポジティブリスク)への対応戦略は「活用・共有・強化・受容」というように、リスクの性質に応じた戦略を使い分ける。</strong></li>
+          <li><strong>リスクレジスターはプロジェクト開始時に作って終わりにせず、定例のリスクレビュー会で継続的に更新し、「起きたリスク」は課題ログへ移管する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/risk-management" target="_blank" rel="noopener">PMI: The Standard for Risk Management in Portfolios, Programs, and Projects</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 6: 継続的改善(Continuous improvement)</h3>
+      <p><strong>このタスクが測る能力:</strong>レッスンズラーンドの活用、継続的改善プロセスが更新され続けていることの確保、OPA(組織のプロセス資産)の更新を扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>レッスンズラーンドを活用する</li>
+        <li>継続的改善プロセスが更新され続けていることを確保する</li>
+        <li>OPAを更新する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>アジャイルのレトロスペクティブのように、定期的に「何がうまくいったか/何を改善すべきか」を振り返る場を予測型プロジェクトでも定例化する。</strong></li>
+          <li><strong>改善のアイデアは出して終わりにせず、次のフェーズ/スプリントで実際に試すアクションアイテムとして追跡する。</strong></li>
+          <li><strong>改善サイクルの結果(テンプレート、チェックリスト、見積もり基準の更新など)はOPAとして組織に蓄積し、他プロジェクトが再利用できるようにする。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">Agile Practice Guide</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 7: 組織変革の支援(Support organizational change)</h3>
+      <p><strong>このタスクが測る能力:</strong>組織文化の評価、組織変革がプロジェクトに与える影響の評価と必要なアクションの決定を扱います。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>組織文化を評価する</li>
+        <li>組織変革がプロジェクトに与える影響を評価し、必要なアクションを決定する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>組織変革への抵抗は「変化そのもの」への抵抗ではなく「不確実性」への反応であることが多いため、変更の目的・影響・スケジュールを早期かつ繰り返し伝えるコミュニケーション計画を重視する。</strong></li>
+          <li><strong>チェンジマネジメントの代表的なフレームワーク(ADKARモデル、コッターの8段階プロセスなど)を、プロジェクトのステークホルダーエンゲージメント計画と統合して運用する。</strong></li>
+          <li><strong>組織文化(トップダウン型か、合意形成型かなど)を把握したうえで、その文化に合った変革の進め方(強制的な展開か、段階的なパイロット導入か)を選ぶ。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/pmbok-guide-standards/practice-guides/change" target="_blank" rel="noopener">PMI: Managing Change in Organizations: A Practice Guide</a></li>
+        </ul>
+      </div>
+
+      <h3>Task 8: 外部ビジネス環境変化の評価(Evaluate external business environment changes)</h3>
+      <p><strong>このタスクが測る能力:</strong>規制・技術・地政学・市場など外部ビジネス環境の変化を調査し、プロジェクトのスコープ/バックログへの影響を評価・優先順位付けし、外部ビジネス環境の変化がもたらす影響を継続的にレビューする能力です。</p>
+
+      <h4>主な行動要素(Enablers)</h4>
+      <ul>
+        <li>外部ビジネス環境の変化を調査する(例: 規制、技術、地政学、市場)</li>
+        <li>プロジェクトのスコープ/バックログへの影響を評価・優先順位付けする</li>
+        <li>プロジェクトのスコープ/バックログへの影響について、外部ビジネス環境を継続的にレビューする</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>PESTLE分析(政治・経済・社会・技術・法律・環境)のようなフレームワークで外部環境要因を定期的にスキャンする。</strong></li>
+          <li><strong>外部環境変化(例: 新しい規制、AI関連技術の急速な進化)を検知した際は、既存のリスクレジスターに統合し、影響度評価のプロセスに乗せる。</strong></li>
+          <li><strong>外部環境モニタリングは一度きりのタスクではなく、定例のガバナンスレビューに組み込み、継続的なプロセスとして運用する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(p.12)</a></li>
+          <li><a href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">PMBOK® Guide</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 09. Talent Triangle & CCR ===================== -->
+    <section id="talent-triangle">
+      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 09</div>
+      <h2>PMI Talent Triangle®と資格維持(PDU / CCRプログラム)</h2>
+
+      <h3>PMI Talent Triangle®とは</h3>
+      <p>PMI Talent Triangle®は、PMP保持者が継続教育(PDU取得)を通じて伸ばすべきスキル領域を3つに整理したフレームワークです。かつては「テクニカル」「リーダーシップ」「戦略・ビジネスマネジメント」と呼ばれていた区分が、現在は以下の名称に更新されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>領域</th><th>内容</th><th>具体例</th></tr></thead>
+          <tbody>
+            <tr><td>Ways of Working(旧: テクニカル)</td><td>予測型・アジャイル・ハイブリッドなど、プロジェクトを進める上での技術的な手法・ツール</td><td>スケジュール管理、リスク管理、要求管理、EVM、スコープ管理</td></tr>
+            <tr><td>Power Skills(旧: リーダーシップ)</td><td>チームやステークホルダーに影響を与えるための対人スキル</td><td>コミュニケーション、協働的リーダーシップ、傾聴、共感</td></tr>
+            <tr><td>Business Acumen(旧: 戦略・ビジネスマネジメント)</td><td>組織・業界の文脈でプロジェクトを判断するための知識</td><td>業界知識、法規制、市場動向、財務指標の理解</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">PMI「Plan Your Development to the PMI Talent Triangle」</a></li>
+        </ul>
+      </div>
+
+      <h3>資格維持要件(CCR: Continuing Certification Requirements)</h3>
+      <p>PMPは一度取得すれば終わりではなく、<strong>3年ごとの更新サイクル内に60 PDU(Professional Development Unit)を取得</strong>し、更新費用を支払うことで維持されます。1 PDUは、学習・他者への指導・プレゼンテーション・読書・ボランティア活動・コンテンツ制作などに費やした1時間に相当します。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式 PMP認定ページ「Maintaining your PMP certification」</a></li>
+          <li><a href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener">PDU/CCRの詳細</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Study Roadmap ===================== -->
+    <section id="study-roadmap">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 10</div>
+      <h2>初学者向け 学習ロードマップの提案</h2>
+
+      <p>ECOの構成(People 33% / Process 41% / Business Environment 26%)を踏まえると、以下のような学習順序が効率的です。あくまで一つの提案であり、実務経験の偏り(例: すでに調達実務に強い、逆にステークホルダーマネジメントが苦手など)に応じて調整してください。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="studySteps"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">初学者向け学習ロードマップ(7ステップ)</div>
+      </div>
+
+      <h3>学習時のポイント</h3>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>知識の暗記ではなくシナリオ適用力を鍛える。</strong>2026年改定で新設されたCase/Scenario形式やGraphic-Based形式は、単純な用語暗記では対応できません。「この状況でプロジェクトマネージャーが最初にすべきことは何か」という判断力を問う問題が中心です。</li>
+          <li><strong>開発アプローチを横断して理解する。</strong>同じタスク(例: スケジュール管理)でも、予測型ではクリティカルパス法、アジャイルではベロシティというように、アプローチごとの使い分けを問われるため、暗記ではなく「なぜその手法が適しているか」まで理解する。</li>
+          <li><strong>PMI公認研修パートナー(ATP)の活用を検討する。</strong>35時間の商業研修要件を満たしつつ、体系的な学習ができる。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/learning/authorized-training-partners" target="_blank" rel="noopener">PMI公認研修パートナー(ATP)検索</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Common Pitfalls ===================== -->
+    <section id="pitfalls">
+      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 11</div>
+      <h2>初学者がつまずきやすいポイントとベストプラクティスまとめ</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>つまずきポイント</th><th>対策(ベストプラクティス)</th></tr></thead>
+          <tbody>
+            <tr><td>実務経験の月数を「プロジェクト数」で数えてしまう</td><td>重複期間を除いた「月数」で正確に集計する</td></tr>
+            <tr><td>35時間の商業研修を書籍・模試だけで済ませようとする</td><td>ATPやGACプログラムなど、正式な研修修了証が出るコースを選ぶ</td></tr>
+            <tr><td>ECOのタスクを丸暗記しようとする</td><td>タスクごとの「なぜそれが必要か」という背景(価値提供、リスク低減など)を理解する</td></tr>
+            <tr><td>予測型の知識だけでアジャイル系の設問に対応しようとする</td><td>Agile Practice Guideの基礎(Kanban、スプリント、レトロスペクティブなど)も並行して学習する</td></tr>
+            <tr><td>Case/Scenario形式に慣れないまま本番に臨む</td><td>公式サンプル問題や模試で、長文シナリオから必要な情報を素早く抽出する練習をする</td></tr>
+            <tr><td>リスクと課題(Issue)を混同する</td><td>「まだ起きていない=リスク」「すでに起きた=課題」という定義の違いを徹底する</td></tr>
+            <tr><td>変更管理プロセスを飛ばして現場判断で変更を実装してしまう</td><td>どんな小さな変更もCCB/変更管理プロセスを通す習慣を学習段階から意識する</td></tr>
+            <tr><td>出題領域の配点比率を意識せずに学習時間を配分する</td><td>Process(41%)に厚めに時間を割きつつ、People(33%)・Business Environment(26%)も手薄にしない</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 12. 2026 ECO Changes ===================== -->
+    <section id="eco-changes">
+      <div class="section-eyebrow"><i class="ti ti-news"></i>SECTION 12</div>
+      <h2>2026年7月改定ECOの主な変更点(まとめ)</h2>
+
+      <ul>
+        <li>試験開発においてJTA(Job Task Analysis、職務タスク分析)を実施し、AI(人工知能)とサステナビリティという2つの新しいトレンドを分析に組み込んだ</li>
+        <li>出題形式に<strong>Case/Scenario</strong>と<strong>Graphic-Based Question</strong>という2つの新形式が追加された</li>
+        <li>受験資格の学歴要件が、国際的な資格枠組み(EQF/ISCED等)へのマッピングという形でより明確に定義された</li>
+        <li>プロジェクト成功の定義が、スケジュール・予算・スコープという伝統的指標に加え、「ステークホルダーにとって労力と費用に見合う価値を提供できたか」という視点を含む形に拡張された(PMI<em>Maximizing Project Success</em>レポートに基づく)</li>
+        <li>各タスク・イネイブラーの随所に、サステナビリティ・セキュリティ・AIに関する言及が追加された(例: リスクレジスターの例として「不十分なITセキュリティ」、財務タスクでのサステナビリティ言及など)</li>
+        <li>PMP認定はISO/ANSI 17024およびISO 9001の国際規格認定を受けている</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026(pp.4-5)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 13</div>
+      <h2>頻出用語集</h2>
+
+      <p>本ガイド全体で頻出する専門用語を整理しました。各タスクの詳細解説と合わせて参照してください。</p>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">ECO(Examination Content Outline)</div><div class="g-def">PMP試験の出題範囲を定義する公式文書。タスクとイネイブラーの一覧で構成される</div></div>
+        <div class="glossary-item"><div class="g-term">JTA(Job Task Analysis)</div><div class="g-def">実務者への調査に基づき出題内容を策定する職務タスク分析の手法</div></div>
+        <div class="glossary-item"><div class="g-term">CCB(Change Control Board)</div><div class="g-def">変更要求の採否を審査する変更管理委員会</div></div>
+        <div class="glossary-item"><div class="g-term">EVM(Earned Value Management)</div><div class="g-def">コスト・スケジュールの実績を計画と比較して定量評価する技法(SV, CV, SPI, CPIなど)</div></div>
+        <div class="glossary-item"><div class="g-term">WBS(Work Breakdown Structure)</div><div class="g-def">プロジェクトスコープを階層的に分解した構成図</div></div>
+        <div class="glossary-item"><div class="g-term">RACI</div><div class="g-def">Responsible / Accountable / Consulted / Informedの頭文字で役割と責任を整理するマトリクス</div></div>
+        <div class="glossary-item"><div class="g-term">OPA(Organizational Process Assets)</div><div class="g-def">組織のプロセス資産。過去プロジェクトのテンプレートやナレッジ</div></div>
+        <div class="glossary-item"><div class="g-term">EEF(Enterprise Environmental Factors)</div><div class="g-def">組織文化や市場環境などプロジェクトに影響を与える組織環境要因</div></div>
+        <div class="glossary-item"><div class="g-term">PDU(Professional Development Unit)</div><div class="g-def">PMP資格維持のために取得する継続教育単位</div></div>
+        <div class="glossary-item"><div class="g-term">CCR(Continuing Certification Requirements)</div><div class="g-def">3年ごとに60 PDUの取得を求める資格維持プログラム</div></div>
+        <div class="glossary-item"><div class="g-term">BATNA</div><div class="g-def">Best Alternative to a Negotiated Agreement。交渉が決裂した場合の最善の代替案</div></div>
+        <div class="glossary-item"><div class="g-term">MoSCoW法</div><div class="g-def">Must / Should / Could / Won'tで要求の優先順位を分類する手法</div></div>
+        <div class="glossary-item"><div class="g-term">WSJF(Weighted Shortest Job First)</div><div class="g-def">経済的価値と作業規模から優先順位を算出するアジャイルの手法</div></div>
+        <div class="glossary-item"><div class="g-term">CoQ(Cost of Quality)</div><div class="g-def">品質を確保するための予防・評価コストと、不適合による失敗コストの総称</div></div>
+        <div class="glossary-item"><div class="g-term">ADKARモデル</div><div class="g-def">Awareness / Desire / Knowledge / Ability / Reinforcementの5段階で個人の変革を捉えるチェンジマネジメントモデル</div></div>
+        <div class="glossary-item"><div class="g-term">PESTLE分析</div><div class="g-def">政治・経済・社会・技術・法律・環境の6要因で外部環境を分析するフレームワーク</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== 14. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
+      <h2>参考文献・出典一覧</h2>
+
+      <p>本ガイドの作成にあたり参照した一次情報源(すべてPMI公式、または一部PMI公式が主催・運営するページ)は以下のとおりです。</p>
+
+      <div class="ref-group">
+        <h3>PMI公式 資格・試験情報</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">PMI公式 PMP認定ページ</span><a class="ref-url" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">https://www.pmi.org/certifications/project-management-pmp</a></li>
+          <li><span class="ref-name">Project Management Professional (PMP)® Examination Content Outline - 2026(2026年7月改定版 PDF)</span><a class="ref-url" href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf</a></li>
+          <li><span class="ref-name">PMI Global Accreditation Center(GAC)</span><a class="ref-url" href="https://www.pmi.org/global-accreditation-center/" target="_blank" rel="noopener">https://www.pmi.org/global-accreditation-center/</a></li>
+          <li><span class="ref-name">CAPM®認定ページ</span><a class="ref-url" href="https://www.pmi.org/certifications/certified-associate-capm" target="_blank" rel="noopener">https://www.pmi.org/certifications/certified-associate-capm</a></li>
+          <li><span class="ref-name">試験配慮(Exam Accommodations)</span><a class="ref-url" href="https://www.pmi.org/certifications/certification-resources/accommodations" target="_blank" rel="noopener">https://www.pmi.org/certifications/certification-resources/accommodations</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>PMI標準・プラクティスガイド</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">PMBOK® Guide(PMI標準ページ)</span><a class="ref-url" href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">https://www.pmi.org/standards/pmbok</a></li>
+          <li><span class="ref-name">Agile Practice Guide(PMI標準ページ)</span><a class="ref-url" href="https://www.pmi.org/standards/agile" target="_blank" rel="noopener">https://www.pmi.org/standards/agile</a></li>
+          <li><span class="ref-name">The Standard for Risk Management in Portfolios, Programs, and Projects(PMI標準ページ)</span><a class="ref-url" href="https://www.pmi.org/standards/risk-management" target="_blank" rel="noopener">https://www.pmi.org/standards/risk-management</a></li>
+          <li><span class="ref-name">Managing Change in Organizations: A Practice Guide(PMI公式)</span><a class="ref-url" href="https://www.pmi.org/pmbok-guide-standards/practice-guides/change" target="_blank" rel="noopener">https://www.pmi.org/pmbok-guide-standards/practice-guides/change</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>資格維持・研修</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">PMI Talent Triangle®(PDU/資格維持ガイド)</span><a class="ref-url" href="https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle" target="_blank" rel="noopener">https://www.pmi.org/certifications/certification-resources/maintain/talent-triangle</a></li>
+          <li><span class="ref-name">PMP資格維持・CCRプログラム</span><a class="ref-url" href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener">https://www.pmi.org/certifications/certification-resources/maintain</a></li>
+          <li><span class="ref-name">PMI公認研修パートナー(ATP)検索</span><a class="ref-url" href="https://www.pmi.org/learning/authorized-training-partners" target="_blank" rel="noopener">https://www.pmi.org/learning/authorized-training-partners</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>受験ロジスティクス</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Pearson VUE テストセンター検索(CBT)</span><a class="ref-url" href="https://www.pearsonvue.com/us/en/pmi.html" target="_blank" rel="noopener">https://www.pearsonvue.com/us/en/pmi.html</a></li>
+          <li><span class="ref-name">Pearson VUE OnVue オンライン監督試験</span><a class="ref-url" href="https://www.pearsonvue.com/us/en/pmi/onvue.html" target="_blank" rel="noopener">https://www.pearsonvue.com/us/en/pmi/onvue.html</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>本ガイドはPMI公式資料に基づく独自の要約・解説であり、PMIによる公式認定や保証を受けたものではありません。PMIは特定の受験対策教材・コース・参考資料を推奨も保証もしておらず、本ガイドも合格を保証するものではない点にご留意ください。試験の詳細・最新の受験資格要件は、必ず上記の一次情報源で確認してください。「PMI」「PMP」「PMBOK」はProject Management Institute, Inc.の登録商標です。</p>
+      </div>
+    </section>
+
+
+
+    <footer>
+      本ページは学習支援を目的とした非公式の解説資料です。「PMI」「PMP」「PMBOK」はProject Management Institute, Inc.の登録商標です。最新の受験資格・出題内容は必ず<a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式サイト</a>および<a href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf" target="_blank" rel="noopener">PMP Examination Content Outline - 2026</a>でご確認ください。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    roadmap5: `flowchart LR
+    A["Prepare<br/>受験資格の確認"] --> B["Apply<br/>PMIへ申請"]
+    B --> C["Study<br/>ECOに沿った学習"]
+    C --> D["Earn<br/>受験して合格する"]
+    D --> E["Maintain<br/>PDU取得で資格を維持"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E box;`,
+
+    domainPie: `pie showData title 出題領域別 配点比率
+    "People" : 33
+    "Process" : 41
+    "Business Environment" : 26`,
+
+    approachPie: `pie showData title 開発アプローチ別 出題比率
+    "予測型" : 40
+    "アジャイル・ハイブリッド" : 60`,
+
+    stakeholderCycle: `flowchart LR
+    A["Identify<br/>ステークホルダーの特定"] --> B["Analyze<br/>関心度と影響力の分析"]
+    B --> C["Plan<br/>エンゲージメント計画の策定"]
+    C --> D["Engage<br/>計画の実行とコミュニケーション"]
+    D --> E["Monitor<br/>満足度と関与度のモニタリング"]
+    E -.->|"変化を検知したら再分析"| B
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E hub;`,
+
+    procurementCycle: `flowchart LR
+    A["調達計画<br/>Plan Procurement"] --> B["ソリシテーション<br/>Solicit and Select Sellers"]
+    B --> C["交渉と契約締結<br/>Negotiate and Award"]
+    C --> D["調達の実行と統制<br/>Administer and Control"]
+    D --> E["調達クロージャー<br/>Close Procurement"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E box;`,
+
+    closureFlow: `flowchart TB
+    A["成果物の受け入れ確認"] --> B["移行準備状況の検証<br/>運用チームまたは次フェーズへ"]
+    B --> C["最終レッスンズラーンドと<br/>レトロスペクティブ実施"]
+    C --> D["調達・財務・資源のクローズ"]
+    D --> E["ステークホルダーからの<br/>正式な受け入れサインオフ"]
+    E --> F["文書とOPAとしてアーカイブ"]
+
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E,F done;`,
+
+    changeControl: `flowchart LR
+    A["変更要求の提出<br/>Change Request"] --> B["影響分析<br/>スコープ・コスト・スケジュール・リスクへの影響評価"]
+    B --> C{"CCB変更管理委員会<br/>による審査"}
+    C -->|"承認"| D["ベースラインの更新<br/>関連文書の改訂"]
+    C -->|"却下"| E["却下理由の文書化"]
+    D --> F["ステークホルダーへの<br/>変更内容の周知"]
+    E --> F
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class A,B,D,E,F box;
+    class C hub;`,
+
+    riskLifecycle: `flowchart LR
+    A["リスクの識別<br/>Identify Risks"] --> B["定性的リスク分析<br/>発生確率と影響度"]
+    B --> C["定量的リスク分析<br/>必要な場合のみ"]
+    C --> D["リスク対応計画<br/>回避・転嫁・軽減・受容・活用・共有・強化"]
+    D --> E["リスク対応の実行"]
+    E --> F["リスクの監視と再評価"]
+    F -.->|"新たなリスクを検知"| A
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E,F box;`,
+
+    studySteps: `flowchart TB
+    A["Step 1<br/>ECO全体をざっと読み<br/>3ドメイン26タスクの全体像を掴む"] --> B["Step 2<br/>配点が最大のProcessドメインから基礎を学習"]
+    B --> C["Step 3<br/>Peopleドメインを学習<br/>ステークホルダーとコミュニケーション"]
+    C --> D["Step 4<br/>Business Environmentドメインを学習<br/>ガバナンスとリスク管理"]
+    D --> E["Step 5<br/>予測型・アジャイル・ハイブリッドの<br/>横断的な比較整理"]
+    E --> F["Step 6<br/>公式サンプル問題と模試で<br/>シナリオ形式に慣れる"]
+    F --> G["Step 7<br/>弱点ドメインを重点復習し受験申込へ"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E,F,G box;`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

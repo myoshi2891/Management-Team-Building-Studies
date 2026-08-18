@@ -60,6 +60,30 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CAPM® ドメイン2: 予測型・計画重視の手法",
+        category: "PROJECT MANAGEMENT",
+        href: "/certified-associate-in-project-management-domain2",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "CAPM® ドメイン3: アジャイルフレームワーク/方法論",
+        category: "PROJECT MANAGEMENT",
+        href: "/capm-domain3-agile-frameworks-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "CAPM® ドメイン4: ビジネス分析フレームワーク",
+        category: "PROJECT MANAGEMENT",
+        href: "/capm-domain4-business-analysis-frameworks",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "PMP® 認定試験 完全攻略ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-certification-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
@@ -76,6 +100,24 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-manager-guide",
         accentClass: "guide-card-indigo",
+      },
+      {
+        title: "ダイナミック・リチーミング実践ガイド",
+        category: "TEAM BUILDING",
+        href: "/dynamic-reteaming-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "エンジニアリング統括責任者の手引き",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/engineering-executive-playbook",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/leadership-practices-guide",
+        accentClass: "guide-card-gold",
       },
     ]);
   });
