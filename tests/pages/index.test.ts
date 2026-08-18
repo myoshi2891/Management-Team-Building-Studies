@@ -84,6 +84,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "PMP® Domain I: People 完全攻略ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-domain1-people-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",

@@ -68,6 +68,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CAPM ドメイン3", href: "/capm-domain3-agile-frameworks-guide" },
       { label: "CAPM ドメイン4", href: "/capm-domain4-business-analysis-frameworks" },
       { label: "PMP 完全攻略", href: "/pmp-certification-guide" },
+      { label: "PMP ドメイン1", href: "/pmp-domain1-people-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -94,6 +95,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/capm-domain3-agile-frameworks-guide",
       "/capm-domain4-business-analysis-frameworks",
       "/pmp-certification-guide",
+      "/pmp-domain1-people-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/engineering-team-leadership-guide",
