@@ -75,6 +75,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
       { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
+      { label: "リーダーの作法", href: "/leadership-practices-guide" },
     ]);
     expect(panelLinks(wrapper, "team-building")).toEqual([
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
@@ -96,6 +97,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/engineering-manager-guide",
       "/engineering-team-leadership-guide",
       "/engineering-executive-playbook",
+      "/leadership-practices-guide",
       "/dynamic-reteaming-guide",
     ]);
   });
@@ -165,6 +167,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

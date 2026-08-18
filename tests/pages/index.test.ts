@@ -113,6 +113,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/engineering-executive-playbook",
         accentClass: "guide-card-gold",
       },
+      {
+        title: "リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/leadership-practices-guide",
+        accentClass: "guide-card-gold",
+      },
     ]);
   });
 
