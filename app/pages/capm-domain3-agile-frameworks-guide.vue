@@ -986,11 +986,26 @@ class ACCEPT done;`;
 
   .sidebar-nav li { margin: 2px 0; }
 
-  .sidebar-nav 
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  
+    text-decoration: none;}
 
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+  .sidebar-nav a :deep(.iconify), .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
 
-  .sidebar-nav 
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
 
   .sidebar-nav a.active {
     background: var(--color-indigo-tint);
@@ -999,12 +1014,12 @@ class ACCEPT done;`;
     border-left: 2px solid var(--color-indigo);
   }
 
-  .sidebar-nav a.active i { color: var(--color-indigo); }
+  .sidebar-nav a.active :deep(.iconify), .sidebar-nav a.active i { color: var(--color-indigo); }
 
   .sidebar-toggle {
     display: none;
     position: fixed;
-    top: 16px;
+    top: calc(var(--global-nav-height) + 16px);
     left: 16px;
     z-index: 30;
     background: var(--color-paper-raised);
@@ -1041,7 +1056,7 @@ class ACCEPT done;`;
     margin-bottom: 18px;
   }
 
-  .hero-eyebrow i { font-size: 17px; }
+  .hero-eyebrow :deep(.iconify), .hero-eyebrow i { font-size: 17px; }
 
   .hero h1 {
     font-family: var(--font-display);
@@ -1261,7 +1276,7 @@ class ACCEPT done;`;
 
   .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
   .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source 
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
   .callout.source ul { list-style: none; padding-left: 0; }
   .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
 
@@ -1417,7 +1432,7 @@ class ACCEPT done;`;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    
+
     .sidebar { transition: none; }
   }
 </style>
