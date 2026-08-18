@@ -206,42 +206,42 @@ class BU,SR done;`;
 
       <ul class="sidebar-nav">
         <li>
-          <a href="#how-to-use-this-guide" :class="{ active: activeId === 'how-to-use-this-guide' }" @click="closeSidebar">
+          <a href="#how-to-use-this-guide" :class="{ active: activeId === 'how-to-use-this-guide' }" :aria-current="activeId === 'how-to-use-this-guide' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:route" aria-hidden="true" />このガイドの使い方
           </a>
         </li>
         <li>
-          <a href="#domain-2-overview" :class="{ active: activeId === 'domain-2-overview' }" @click="closeSidebar">
+          <a href="#domain-2-overview" :class="{ active: activeId === 'domain-2-overview' }" :aria-current="activeId === 'domain-2-overview' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:chart-pie" aria-hidden="true" />ドメイン2の全体像
           </a>
         </li>
         <li>
-          <a href="#task-1-when-predictive-fits" :class="{ active: activeId === 'task-1-when-predictive-fits' }" @click="closeSidebar">
+          <a href="#task-1-when-predictive-fits" :class="{ active: activeId === 'task-1-when-predictive-fits' }" :aria-current="activeId === 'task-1-when-predictive-fits' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:building-bank" aria-hidden="true" />Task 1: 予測型・計画重視アプローチが適切な場面の説明
           </a>
         </li>
         <li>
-          <a href="#task-2-schedule-and-plan" :class="{ active: activeId === 'task-2-schedule-and-plan' }" @click="closeSidebar">
+          <a href="#task-2-schedule-and-plan" :class="{ active: activeId === 'task-2-schedule-and-plan' }" :aria-current="activeId === 'task-2-schedule-and-plan' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:timeline" aria-hidden="true" />Task 2: プロジェクトマネジメント計画とスケジュールの理解
           </a>
         </li>
         <li>
-          <a href="#task-3-project-controls" :class="{ active: activeId === 'task-3-project-controls' }" @click="closeSidebar">
+          <a href="#task-3-project-controls" :class="{ active: activeId === 'task-3-project-controls' }" :aria-current="activeId === 'task-3-project-controls' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:clipboard-text" aria-hidden="true" />Task 3: 予測型プロジェクトのプロジェクトコントロールの文書化
           </a>
         </li>
         <li>
-          <a href="#domain-2-best-practices" :class="{ active: activeId === 'domain-2-best-practices' }" @click="closeSidebar">
+          <a href="#domain-2-best-practices" :class="{ active: activeId === 'domain-2-best-practices' }" :aria-current="activeId === 'domain-2-best-practices' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:flag-3" aria-hidden="true" />ドメイン2 ベストプラクティス総まとめ
           </a>
         </li>
         <li>
-          <a href="#study-checklist" :class="{ active: activeId === 'study-checklist' }" @click="closeSidebar">
+          <a href="#study-checklist" :class="{ active: activeId === 'study-checklist' }" :aria-current="activeId === 'study-checklist' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:list-check" aria-hidden="true" />学習チェックリスト
           </a>
         </li>
         <li>
-          <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+          <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:link" aria-hidden="true" />参考文献・出典
           </a>
         </li>

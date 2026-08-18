@@ -199,17 +199,17 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
         </div>
 
         <ul class="sidebar-nav">
-          <li><a href="#overview" :class="{ active: activeId === 'overview' }" @click="closeSidebar"><Icon name="tabler:chart-pie" />全体像</a></li>
-          <li><a href="#what-is-business-analysis" :class="{ active: activeId === 'what-is-business-analysis' }" @click="closeSidebar"><Icon name="tabler:building-bank" />ビジネス分析とは</a></li>
-          <li><a href="#task1-ba-roles-responsibilities" :class="{ active: activeId === 'task1-ba-roles-responsibilities' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" />Task 1: BAの役割</a></li>
-          <li><a href="#task2-stakeholder-communication" :class="{ active: activeId === 'task2-stakeholder-communication' }" @click="closeSidebar"><Icon name="tabler:file-text" />Task 2: コミュニケーション</a></li>
-          <li><a href="#task3-requirements-gathering" :class="{ active: activeId === 'task3-requirements-gathering' }" @click="closeSidebar"><Icon name="tabler:clipboard-text" />Task 3: 要求収集</a></li>
-          <li><a href="#task4-product-roadmap" :class="{ active: activeId === 'task4-product-roadmap' }" @click="closeSidebar"><Icon name="tabler:route" />Task 4: ロードマップ</a></li>
-          <li><a href="#task5-methodology-influence" :class="{ active: activeId === 'task5-methodology-influence' }" @click="closeSidebar"><Icon name="tabler:git-branch" />Task 5: 手法とBA</a></li>
-          <li><a href="#task6-validate-requirements" :class="{ active: activeId === 'task6-validate-requirements' }" @click="closeSidebar"><Icon name="tabler:list-check" />Task 6: 要求検証</a></li>
-          <li><a href="#domain4-summary" :class="{ active: activeId === 'domain4-summary' }" @click="closeSidebar"><Icon name="tabler:map-2" />ドメイン4の全体フロー</a></li>
-          <li><a href="#study-checklist" :class="{ active: activeId === 'study-checklist' }" @click="closeSidebar"><Icon name="tabler:flag-3" />学習チェックリスト</a></li>
-          <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" />参考文献</a></li>
+          <li><a href="#overview" :class="{ active: activeId === 'overview' }" :aria-current="activeId === 'overview' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:chart-pie" />全体像</a></li>
+          <li><a href="#what-is-business-analysis" :class="{ active: activeId === 'what-is-business-analysis' }" :aria-current="activeId === 'what-is-business-analysis' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:building-bank" />ビジネス分析とは</a></li>
+          <li><a href="#task1-ba-roles-responsibilities" :class="{ active: activeId === 'task1-ba-roles-responsibilities' }" :aria-current="activeId === 'task1-ba-roles-responsibilities' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:clipboard-check" />Task 1: BAの役割</a></li>
+          <li><a href="#task2-stakeholder-communication" :class="{ active: activeId === 'task2-stakeholder-communication' }" :aria-current="activeId === 'task2-stakeholder-communication' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:file-text" />Task 2: コミュニケーション</a></li>
+          <li><a href="#task3-requirements-gathering" :class="{ active: activeId === 'task3-requirements-gathering' }" :aria-current="activeId === 'task3-requirements-gathering' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:clipboard-text" />Task 3: 要求収集</a></li>
+          <li><a href="#task4-product-roadmap" :class="{ active: activeId === 'task4-product-roadmap' }" :aria-current="activeId === 'task4-product-roadmap' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:route" />Task 4: ロードマップ</a></li>
+          <li><a href="#task5-methodology-influence" :class="{ active: activeId === 'task5-methodology-influence' }" :aria-current="activeId === 'task5-methodology-influence' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:git-branch" />Task 5: 手法とBA</a></li>
+          <li><a href="#task6-validate-requirements" :class="{ active: activeId === 'task6-validate-requirements' }" :aria-current="activeId === 'task6-validate-requirements' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:list-check" />Task 6: 要求検証</a></li>
+          <li><a href="#domain4-summary" :class="{ active: activeId === 'domain4-summary' }" :aria-current="activeId === 'domain4-summary' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:map-2" />ドメイン4の全体フロー</a></li>
+          <li><a href="#study-checklist" :class="{ active: activeId === 'study-checklist' }" :aria-current="activeId === 'study-checklist' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:flag-3" />学習チェックリスト</a></li>
+          <li><a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar"><Icon name="tabler:link" />参考文献</a></li>
         </ul>
       </nav>
 
