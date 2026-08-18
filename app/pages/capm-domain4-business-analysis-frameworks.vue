@@ -836,7 +836,6 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
 </template>
 
 <style scoped>
-/* ===================== Layout & SSoT Top Offset ===================== */
 .layout {
   display: block;
 }
@@ -950,7 +949,6 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
 .main-content {
   margin-left: var(--sidebar-width);
   padding: 56px 72px 120px;
-  max-width: 960px;
 }
 
 .hero {
@@ -1013,26 +1011,25 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
   font-size: 16px;
   color: var(--color-ink-soft);
   margin-top: 6px;
-  line-height: 1.35;
 }
 
 .disclaimer-box {
-  margin-top: 24px;
-  padding: 14px 18px;
-  background: var(--color-paper-sunken);
-  border-left: 3px solid var(--color-gold);
-  border-radius: 0 8px 8px 0;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
   font-size: 16px;
-  color: var(--color-ink-soft);
+  margin-top: 28px;
   display: flex;
-  gap: 10px;
   align-items: flex-start;
+  gap: 10px;
   line-height: 1.6;
 }
 
 .disclaimer-box :deep(.iconify) {
   font-size: 18px;
-  color: var(--color-gold);
+  color: var(--color-info-text);
   flex: none;
   margin-top: 2px;
 }
@@ -1043,221 +1040,220 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
 
 /* ===================== Sections ===================== */
 section {
-  padding-top: 48px;
-  margin-top: 48px;
-  border-top: 1px solid var(--color-border);
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
 }
 
 section:first-of-type {
-  border-top: none;
-  padding-top: 0;
   margin-top: 0;
-}
-
-:is(h2, h3) {
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
 }
 
 .section-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--color-gold);
-  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
 }
 
 .section-eyebrow :deep(.iconify) {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 h2 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 28px;
-  line-height: 1.35;
+  font-size: 29px;
   color: var(--color-ink);
-  margin: 0 0 20px;
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 h3 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 21px;
-  line-height: 1.4;
-  color: var(--color-indigo-dark);
-  margin: 32px 0 12px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
 }
 
 p {
-  margin: 0 0 16px;
-  color: var(--color-ink);
+  margin: 0 0 18px;
 }
 
 ul, ol {
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   padding-left: 24px;
 }
 
 li {
-  margin: 6px 0;
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
   color: var(--color-ink);
 }
 
-/* ===================== Domain grid ===================== */
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Domain badge cards ===================== */
 .domain-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin: 24px 0;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 28px 0 8px;
 }
 
 .domain-card {
   border: 1px solid var(--color-border);
   background: var(--color-paper-raised);
   border-radius: 10px;
-  padding: 16px 18px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  padding: 20px;
+  border-top: 3px solid var(--d-color);
 }
 
-.domain-card.d1 { border-left: 4px solid var(--color-indigo); }
-.domain-card.d2 { border-left: 4px solid var(--color-forest); }
-.domain-card.d3 { border-left: 4px solid var(--color-gold); }
-.domain-card.d4 { border-left: 4px solid var(--color-plum); background: var(--color-plum-tint); }
-
-.domain-pct {
+.domain-card .domain-pct {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 24px;
-  color: var(--color-ink);
-  flex: none;
-  min-width: 56px;
+  font-size: 30px;
+  color: var(--d-color);
 }
 
-.domain-card.d4 .domain-pct {
-  color: var(--color-plum);
+.domain-card .domain-name {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
 }
 
-.domain-name {
+.domain-card.d1 { --d-color: var(--color-indigo); }
+.domain-card.d2 { --d-color: var(--color-forest); }
+.domain-card.d3 { --d-color: var(--color-gold); }
+.domain-card.d4 { --d-color: var(--color-plum); }
+
+.domain-tag {
+  display: inline-block;
   font-size: 16px;
   font-weight: 600;
-  color: var(--color-ink);
-  line-height: 1.4;
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
 }
 
-/* ===================== Table ===================== */
+.domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+.domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+.domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+.domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+/* ===================== Tables ===================== */
 .table-wrap {
   overflow-x: auto;
-  margin: 24px 0;
   border: 1px solid var(--color-border);
   border-radius: 10px;
-  background: var(--color-paper-raised);
+  margin: 0 0 24px;
+  max-width: 100%;
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
-  text-align: left;
+  width: 100%;
   font-size: 16px;
 }
 
-thead {
+thead th {
   background: var(--color-paper-sunken);
-  border-bottom: 2px solid var(--color-border-strong);
-}
-
-th {
-  padding: 12px 16px;
+  text-align: left;
   font-weight: 600;
   color: var(--color-ink);
-  font-size: 16px;
-  letter-spacing: 0.02em;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
 }
 
-td {
+tbody td {
   padding: 12px 16px;
   border-bottom: 1px solid var(--color-border);
-  color: var(--color-ink);
+  color: var(--color-ink-soft);
   vertical-align: top;
 }
 
-tbody tr:last-child td {
-  border-bottom: none;
-}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:nth-child(even) { background: var(--color-paper); }
 
-tbody tr:hover {
-  background: var(--color-paper-sunken);
-}
+td strong, th strong { color: var(--color-ink); }
 
-/* ===================== Callout ===================== */
+/* ===================== Callouts ===================== */
 .callout {
-  border-radius: 10px;
-  padding: 20px 22px;
-  margin: 28px 0;
   border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
   background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
 }
 
 .callout-title {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
+  color: var(--color-indigo);
   margin-bottom: 10px;
 }
 
-.callout.practice {
-  border-left: 4px solid var(--color-forest);
-  background: var(--color-forest-tint);
-}
-.callout.practice .callout-title { color: var(--color-forest); }
+.callout ul { margin-bottom: 0; padding-left: 20px; }
+.callout p:last-child { margin-bottom: 0; }
 
-.callout.source {
-  border-left: 4px solid var(--color-indigo);
-  background: var(--color-indigo-tint);
-}
-.callout.source .callout-title { color: var(--color-indigo); }
+.callout.practice { border-left-color: var(--color-gold); }
+.callout.practice .callout-title { color: var(--color-gold); }
 
-.callout.note {
-  border-left: 4px solid var(--color-gold);
-  background: var(--color-gold-tint);
-}
-.callout.note .callout-title { color: var(--color-gold); }
+.callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+.callout.source .callout-title { color: var(--color-forest); }
+.callout.source a { color: var(--color-forest); font-weight: 500; }
+.callout.source ul { list-style: none; padding-left: 0; }
+.callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
 
-.callout ul { margin: 0; padding-left: 20px; }
-.callout li { margin: 6px 0; }
-.callout p { margin: 0; }
+.callout.note { border-left-color: var(--color-plum); }
+.callout.note .callout-title { color: var(--color-plum); }
 
-/* ===================== Diagram ===================== */
+/* ===================== Diagram containers ===================== */
 .diagram-card {
-  margin: 28px 0;
   border: 1px solid var(--color-border);
   background: var(--color-paper-raised);
-  border-radius: 10px;
-  padding: 24px;
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
 }
 
 .mermaid-wrap {
   width: 100%;
 }
 
-.diagram-caption {
-  text-align: center;
+.diagram-card .diagram-caption {
   font-size: 16px;
   color: var(--color-ink-faint);
   margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px dashed var(--color-border);
+  text-align: center;
 }
 
 /* ===================== Reference list ===================== */
 .ref-group { margin-bottom: 28px; }
-.ref-group h3 { margin-top: 0; font-size: 18px; }
+.ref-group h3 { margin-top: 0; }
 .ref-list { list-style: none; margin: 0; padding: 0; }
 .ref-list li {
   padding: 12px 0;
@@ -1270,8 +1266,8 @@ tbody tr:hover {
 
 /* ===================== Footer ===================== */
 footer {
-  margin-top: 80px;
-  padding-top: 28px;
+  margin-top: 96px;
+  padding-top: 32px;
   border-top: 1px solid var(--color-border);
   color: var(--color-ink-faint);
   font-size: 16px;
