@@ -22,7 +22,7 @@
     "audit:lead": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-team-leadership-guide.html app/pages/engineering-team-leadership-guide.vue",
     "audit:reteam": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Dynamic-reteaming-guide.html app/pages/dynamic-reteaming-guide.vue",
     "audit:exec": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-executive-playbook.html app/pages/engineering-executive-playbook.vue",
-    "audit:practices": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Leadership-practices-guide.html app/pages/leadership-practices-guide.vue"
+    "audit:practices": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Leadership-practices-guide.html app/pages/leadership-practices-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
