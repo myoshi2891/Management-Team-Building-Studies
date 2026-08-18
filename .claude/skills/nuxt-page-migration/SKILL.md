@@ -14,12 +14,12 @@ description: >
   - design mismatch: "デザイン違う" / "スタイルがおかしい" / "テーブルヘッダーの色が" /
     "callout の色が" / "コードブロックの色" / "図解の色が違う"
   - site navigation: "ホームにガイドが出ない" / "グローバルナビに追加" / "ヘッダーのリンクが古い"
-  Applies: source-parity audit script, contract tests (Vitest + Vue Test Utils),
-  Vue SFC structure, scoped CSS, Mermaid via ClientOnly, the content-width policy,
-  and registration into the guide catalog (app/utils/guide-catalog.ts GUIDES), which feeds both
-  app/pages/index.vue and app/components/SiteHeader.vue.
-  NOTE: this front matter is Claude Code specific. The body section
-  "エージェント互換" carries the same triggers for agents that ignore front matter.
+  適用対象: 原本照合監査スクリプト、契約テスト（Vitest + Vue Test Utils）、
+  Vue SFC の構造、scoped CSS、ClientOnly 経由の Mermaid、本文カラム幅の方針、
+  およびガイドカタログ（app/utils/guide-catalog.ts の GUIDES）への登録。
+  カタログは app/pages/index.vue と app/components/SiteHeader.vue の両方の導線を生成する。
+  注記: この front matter は Claude Code 固有である。front matter を解釈しないエージェント向けに、
+  本文「エージェント互換」節が同じトリガーを保持する。
 invocation: explicit
 allowed-tools:
   - Read

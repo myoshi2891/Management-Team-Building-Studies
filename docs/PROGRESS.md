@@ -11,9 +11,9 @@
 |---|---|
 | コードコミット HEAD | `ba1631a` — chore(archive): move leadership practices html and md to archive folder（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
-| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔（2026-08-18 実測） |
-| テスト数 | **346** ユニット（MermaidDiagram 11 + SiteHeader 13 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24）+ **11** E2E（capm 4 + site-header 7）— これがベースライン |
-| 原本照合監査 | ✔ exit 0（全要素一致）。ただし **CAPM ドメイン1 のみ exit 1 かつ差分 1 件が正常**（「正当な差分の記録」§8 の意図的逸脱。それ以外の差分が出たら移行漏れ） |
+| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-18 実測） |
+| テスト数 | **348** ユニット（MermaidDiagram 11 + SiteHeader 15 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
+| 原本照合監査 | ✔ **全 10 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -146,29 +146,24 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 アーカイブ済み原本（`archive/` 配下）は当時の状態を保存する目的のため `loose` のまま残している。
 `app/plugins/mermaid.client.ts` の JSDoc が、この 1 点だけ原本から逐語移植していない旨を明記している。
 
-### 8. CAPM ドメイン1 リスク登録簿 R-002 の対応戦略を修正（2026-08-17）
+### 8. CAPM ドメイン1 リスク登録簿 R-002 の対応戦略を修正（2026-08-17 / 2026-08-18 解消）
 
-コードレビュー指摘への対応。**原本 HTML からの意図的な逸脱**であり、
-原本照合監査が恒常的に 1 件の差分を報告するため記録する。
+**この項目は差分としては解消済み。** 経緯を残すために節ごと保持する。
 
 | 項目 | 内容 |
 |---|---|
 | 対象 | `app/pages/certified-associate-in-project-management-domain1.vue` §2.5 リスク登録簿の表 |
-| 原本 | `R-002 主要開発者の離脱` の対応戦略が `転嫁/軽減(ナレッジ共有の徹底)` |
-| 移行先 | `軽減(ナレッジ共有の徹底)` |
+| 当初の原本 | `R-002 主要開発者の離脱` の対応戦略が `転嫁/軽減(ナレッジ共有の徹底)` |
+| 修正後 | `軽減(ナレッジ共有の徹底)`（Vue / 原本 `.html` / 原本 `.md` の 3 者すべて） |
 | 理由 | 括弧内の具体策「ナレッジ共有の徹底」は発生確率・影響度を下げる**軽減**そのものであり、第三者へリスクを移す**転嫁**ではない。同じ表の R-001・R-003 は戦略を 1 つだけ挙げており、R-002 のみ 2 つ併記されているのも不整合 |
-| ユーザー判断 | 「Vue 側だけ直して問題なし」との明示的な承認を得ている。原本 HTML / `.md` は未修正のまま |
 
-そのため下記の監査は **exit 1 かつ差分 1 件**が正常な状態である。
-これ以外の差分が出た場合は本項目とは別の移行漏れなので、通常どおり Green コミット禁止として扱う。
+**経緯**: 2026-08-17 時点では「Vue 側だけ直して問題なし」とのユーザー判断により
+原本 `.html` / `.md` を未修正のまま残したため、`audit:capm-d1` が恒常的に exit 1 になっていた。
+恒久的に赤いゲートは「本物の移行漏れ」との区別を難しくするため、2026-08-18 にユーザー承認のうえ
+`archive/` 配下の原本 `.html` / `.md` にも同じ修正を反映し、**差分そのものを解消**した。
 
-```bash
-node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs \
-  Certified-associate-in-project-management-domain1.html \
-  app/pages/certified-associate-in-project-management-domain1.vue
-# 期待される唯一の差分:
-#   "R-002主要開発者の離脱人的資源低高中転嫁/軽減(ナレッジ共有の徹底)PM監視中"
-```
+現在は `bun run audit:capm-d1` が **exit 0**（差分 0 件）である。
+差分が出た場合はすべて通常の移行漏れとして扱い、Green コミット禁止とする。
 
 ### 9. ダイナミック・リチーミング実践ガイド（`dynamic-reteaming-guide.vue`）での差分
 
