@@ -202,7 +202,7 @@ class G done;`,
 ] as const;
 
 const EXPECTED_CALLOUT_VARIANTS = {
-  source: 11,
+  source: 12,
   practice: 9,
 } as const;
 
@@ -213,7 +213,7 @@ const EXPECTED_CALLOUT_LABELS = {
     "ベストプラクティス: ステークホルダー分析ツール": 1,
   },
   source: {
-    "ソース": 11,
+    "ソース": 12,
   },
 } as const;
 

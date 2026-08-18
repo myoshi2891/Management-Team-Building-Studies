@@ -126,6 +126,16 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/pmp-domain1-people-guide",
+    categoryId: "project-management",
+    navLabel: "PMP ドメイン1",
+    title: "PMP® Domain I: People 完全攻略ガイド",
+    description: "PMI公式Examination Content Outline(ECO)2026年7月改定版に基づき、PMP試験Domain I: Peopleの8Taskを初学者向けに解説する学習ガイドです。",
+    meta: "15セクション",
+    icon: "tabler:users",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",
