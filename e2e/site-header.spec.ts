@@ -169,9 +169,16 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   await page.keyboard.press("Enter");
   await expect(panel).toBeVisible();
 
-  // パネル内のリンクにフォーカスを当ててから外側クリック
+  // パネル内のリンクにフォーカスを当ててから外側クリック。
+  // クリック先は必ず <main> にする。`locator("main, body")` は CSS セレクタリストを
+  // DOM 順で解決するため .first() が <body> になり、body 相対 (10,10) は
+  // position: sticky なヘッダーの内側に落ちる（= 外側クリックにならない）。
   await panel.locator("a").first().focus();
-  await page.locator("main, body").first().click({ position: { x: 10, y: 10 }, force: true });
+  const main = page.locator("main").first();
+  await expect
+    .poll(async () => (await main.boundingBox())!.y)
+    .toBeGreaterThanOrEqual((await page.locator("[data-site-header]").boundingBox())!.height);
+  await main.click({ position: { x: 4, y: 4 }, force: true });
   await expect(panel).toBeHidden();
   await expect(trigger).toBeFocused();
 });

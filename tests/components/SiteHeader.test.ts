@@ -21,8 +21,9 @@ const NuxtLinkStub = {
   template: `<a :href="to"><slot /></a>`,
 };
 
-const mountHeader = () =>
+const mountHeader = (options: { attachTo?: Element } = {}) =>
   mount(SiteHeader, {
+    ...options,
     global: {
       stubs: {
         NuxtLink: NuxtLinkStub,
@@ -214,5 +215,87 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.get("header").attributes("data-site-header")).toBe("");
     expect(wrapper.get(".global-brand").attributes("aria-label")).toBe("Management Studies ホーム");
     expect(wrapper.get("nav").attributes("aria-label")).toBe("グローバルナビゲーション");
+  });
+});
+
+/*
+ * DESKTOP_HOVER_QUERY が外れる原因は 2 通りある。
+ *   (a) ビューポートが 680px 以下になった  → nav-toggle が可視になる
+ *   (b) デスクトップ幅のまま入力方式が変わった（マウス → タッチなど）
+ *       → nav-toggle は display:none のままでフォーカスを受け取れない
+ * (b) で nav-toggle へ focus() すると無言で失敗し、フォーカスが body へ落ちる。
+ *
+ * Playwright は hover / pointer のメディア特性を実行時に切り替えられないため
+ * （emulateMedia が扱うのは color-scheme / reduced-motion 等のみ）、
+ * この経路は matchMedia をスタブしたユニットテストでしか固定できない。
+ */
+describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", () => {
+  type Listener = (event: MediaQueryListEvent) => void;
+
+  /** 幅と入力方式を個別に制御できる matchMedia スタブを仕込む。 */
+  function stubMatchMedia(options: { mobileWidth: boolean }) {
+    const listeners: Listener[] = [];
+    const original = window.matchMedia;
+
+    window.matchMedia = ((query: string) => ({
+      matches: query.includes("max-width: 680px") ? options.mobileWidth : !options.mobileWidth,
+      media: query,
+      addEventListener: (_: string, listener: Listener) => listeners.push(listener),
+      removeEventListener: () => {},
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
+      onchange: null,
+    })) as unknown as typeof window.matchMedia;
+
+    return {
+      /** hover/pointer だけが変化したことを伝える（幅は options.mobileWidth のまま）。 */
+      emitChange: (matches: boolean) =>
+        listeners.forEach((listener) => listener({ matches } as MediaQueryListEvent)),
+      restore: () => {
+        window.matchMedia = original;
+      },
+    };
+  }
+
+  it("デスクトップ幅のまま入力方式が変わったら、隠れた nav-toggle ではなくトリガーへ戻す", async () => {
+    const media = stubMatchMedia({ mobileWidth: false });
+    const wrapper = mountHeader({ attachTo: document.body });
+
+    try {
+      const trigger = wrapper.get("#nav-trigger-project-management");
+      await trigger.trigger("click");
+      const link = wrapper.get("#nav-panel-project-management a");
+      (link.element as HTMLAnchorElement).focus();
+
+      media.emitChange(false);
+      await wrapper.vm.$nextTick();
+
+      expect(document.activeElement).toBe(trigger.element);
+      expect(trigger.attributes("aria-expanded")).toBe("false");
+    } finally {
+      wrapper.unmount();
+      media.restore();
+    }
+  });
+
+  it("モバイル幅へ切り替わったときは可視になった nav-toggle へ戻す", async () => {
+    const media = stubMatchMedia({ mobileWidth: true });
+    const wrapper = mountHeader({ attachTo: document.body });
+
+    try {
+      const trigger = wrapper.get("#nav-trigger-project-management");
+      await trigger.trigger("click");
+      const link = wrapper.get("#nav-panel-project-management a");
+      (link.element as HTMLAnchorElement).focus();
+
+      media.emitChange(false);
+      await wrapper.vm.$nextTick();
+
+      expect(document.activeElement).toBe(wrapper.get("[data-testid='nav-toggle']").element);
+    } finally {
+      wrapper.unmount();
+      media.restore();
+    }
   });
 });

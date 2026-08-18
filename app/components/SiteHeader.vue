@@ -23,8 +23,20 @@ const isMenuOpen = ref(false);
  * したがって min-width は <style> の 680px ブレークポイントと必ず対で維持する。
  */
 const DESKTOP_HOVER_QUERY = "(hover: hover) and (pointer: fine) and (min-width: 681px)";
+/*
+ * nav-toggle（ハンバーガー）は <style> の 680px ブレークポイントでしか表示されない。
+ * DESKTOP_HOVER_QUERY が外れる理由は「幅が狭まった」だけでなく
+ * 「デスクトップ幅のまま入力方式が変わった（hover/pointer の変化）」もありうるため、
+ * フォーカスの戻し先を決めるには幅だけを見る別のクエリが必要になる。
+ */
+const MOBILE_LAYOUT_QUERY = "(max-width: 680px)";
 const canHover = ref(false);
 let hoverMedia: MediaQueryList | null = null;
+
+/** 現在のビューポートがモバイルレイアウト（nav-toggle が可視）かを判定する。 */
+function isMobileLayout(): boolean {
+  return window.matchMedia?.(MOBILE_LAYOUT_QUERY).matches ?? false;
+}
 
 /** フォーカスがナビゲーション内にあるかを判定する。 */
 function isFocusInsideNav(): boolean {
@@ -38,9 +50,20 @@ function syncCanHover(event: MediaQueryListEvent | MediaQueryList): void {
   // モバイルレイアウトへ切り替わった瞬間に開きっぱなしのパネルを残さない。
   if (!event.matches) {
     closeAllCategories();
-    if (hadFocus) {
-      // モバイルレイアウトへの切替 → nav-toggle へ戻す
+    if (!hadFocus) return;
+    if (isMobileLayout()) {
+      // モバイルレイアウトへの切替 → 可視になった nav-toggle へ戻す
       headerRef.value?.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
+      return;
+    }
+    /*
+     * デスクトップ幅のまま入力方式だけが変わった場合。
+     * nav-toggle は display:none でフォーカスを受け取れず、focus() が無言で失敗して
+     * フォーカスが body へ落ちる。閉じたカテゴリのトリガーへ戻し、
+     * 戻し先が無ければフォーカスは動かさない。
+     */
+    if (closingId) {
+      headerRef.value?.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)?.focus();
     }
   } else if (hadFocus && closingId) {
     // デスクトップレイアウトへの切替 → カテゴリトリガーへ戻す
@@ -104,15 +127,26 @@ function handlePointerDownOutside(event: Event): void {
   const closingId = openCategoryId.value;
   closeAllCategories();
   isMenuOpen.value = false;
-  if (hadFocus) {
-    if (canHover.value && closingId) {
-      // デスクトップ: 閉じたカテゴリのトリガーへ戻す
-      header.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)?.focus();
-    } else {
-      // モバイル: nav-toggle へ戻す
-      header.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
-    }
-  }
+  if (!hadFocus) return;
+
+  const fallbackTarget = canHover.value && closingId
+    // デスクトップ: 閉じたカテゴリのトリガーへ戻す
+    ? header.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)
+    // モバイル: nav-toggle へ戻す
+    : header.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']");
+  if (!fallbackTarget) return;
+
+  /*
+   * ここは pointerdown。ブラウザの既定のフォーカス移動は直後の mousedown で起きるため、
+   * 同期的に focus() してもすぐ奪い返される。クリック処理が一巡したあとに退避する。
+   *
+   * さらに「フォーカスが body へ落ちた場合だけ」に限定する。外側のフォーカス可能な
+   * 要素（本文中のリンク等）を押したときにナビへ引き戻すと、利用者の操作を横取りしてしまう。
+   */
+  requestAnimationFrame(() => {
+    const active = document.activeElement;
+    if (active === null || active === document.body) fallbackTarget.focus();
+  });
 }
 
 onMounted(() => {
