@@ -194,7 +194,7 @@ const DIAGRAM_STEP_BY_STEP = `flowchart TB
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" />
-          本ガイドは、Heidi Helfand氏が提唱した「ダイナミック・リチーミング」の考え方を初学者向けに要約・解説した非公式の学習支援資料です。正確な原文表現や詳細な事例については、必ず一次情報である<a href="https://www.oreilly.com/library/view/dynamic-reteaming-2nd/9781492061281/" target="_blank" rel="noopener">書籍公式ページ(O'Reilly)</a>をご確認ください。
+          <span>本ガイドは、Heidi Helfand氏が提唱した「ダイナミック・リチーミング」の考え方を初学者向けに要約・解説した非公式の学習支援資料です。正確な原文表現や詳細な事例については、必ず一次情報である<a href="https://www.oreilly.com/library/view/dynamic-reteaming-2nd/9781492061281/" target="_blank" rel="noopener">書籍公式ページ(O'Reilly)</a>をご確認ください。</span>
         </div>
       </div>
 
@@ -708,9 +708,11 @@ const DIAGRAM_STEP_BY_STEP = `flowchart TB
   padding: 16px 20px;
   font-size: 16px;
   margin-top: 28px;
+  line-height: 1.6;
 }
 
 .disclaimer-box svg { flex: none; width: 20px; height: 20px; margin-top: 2px; }
+.disclaimer-box > span { flex: 1; }
 
 section {
   margin: 72px 0;

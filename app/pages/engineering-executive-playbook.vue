@@ -251,7 +251,7 @@ class S1,S2,S3 box;`;
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" />
-          本ガイドは、国際的に著名な実務家の書籍・記事・研究を要約した教育目的の非公式資料です。原典の著作権はそれぞれの著者・発行元に帰属します。詳細は末尾の参考文献、または<a href="https://www.oreilly.com/library/view/the-engineering-executives/9781098149475/" target="_blank" rel="noopener">原典（The Engineering Executive's Primer）</a>をご確認ください。
+          <span>本ガイドは、国際的に著名な実務家の書籍・記事・研究を要約した教育目的の非公式資料です。原典の著作権はそれぞれの著者・発行元に帰属します。詳細は末尾の参考文献、または<a href="https://www.oreilly.com/library/view/the-engineering-executives/9781098149475/" target="_blank" rel="noopener">原典（The Engineering Executive's Primer）</a>をご確認ください。</span>
         </div>
       </div>
 
@@ -969,6 +969,7 @@ class S1,S2,S3 box;`;
   display: flex;
   gap: 10px;
   align-items: flex-start;
+  line-height: 1.6;
 }
 
 .disclaimer-box :deep(.iconify) {
@@ -976,6 +977,10 @@ class S1,S2,S3 box;`;
   color: var(--color-gold);
   flex: none;
   margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 /* ===================== Sections ===================== */

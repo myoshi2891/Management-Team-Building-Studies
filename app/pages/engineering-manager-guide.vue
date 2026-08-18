@@ -289,7 +289,7 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" aria-hidden="true" />
-            本ガイドは公開されている書籍・記事・研究発表等の情報を基にした非公式の学習支援資料です。より深い内容や原典については、各セクション末の出典、および書籍<a href="https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/" target="_blank" rel="noopener">『Become an Effective Software Engineering Manager』(James Stanier著)</a>をご参照ください。
+            <span>本ガイドは公開されている書籍・記事・研究発表等の情報を基にした非公式の学習支援資料です。より深い内容や原典については、各セクション末の出典、および書籍<a href="https://pragprog.com/titles/jsengman/become-an-effective-software-engineering-manager/" target="_blank" rel="noopener">『Become an Effective Software Engineering Manager』(James Stanier著)</a>をご参照ください。</span>
           </div>
         </div>
 
@@ -1151,6 +1151,10 @@ h1 {
   color: var(--color-ink-faint);
   flex: none;
   margin-top: 3px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 /* ===================== Sections ===================== */
