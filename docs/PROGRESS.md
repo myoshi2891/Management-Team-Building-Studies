@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `8e2923b` — refactor(pages): clean up template root and aria-expanded for capm-domain3-agile-frameworks-guide（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `6c76e3f` — fix(pages): restore missing sidebar link styles and deep icon selectors in capm domain 3（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
 | ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔（2026-08-18 実測） |
 | テスト数 | **297** ユニット（MermaidDiagram 11 + SiteHeader 13 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28）+ **11** E2E（capm 4 + site-header 7）— これがベースライン |
