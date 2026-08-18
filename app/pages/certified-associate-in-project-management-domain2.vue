@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "how-to-use-this-guide",
@@ -21,8 +22,6 @@ function closeSidebar(): void {
   sidebarOpen.value = false;
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
-
-import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 useSeoMeta({
   title: "CAPM(R) ドメイン2 完全学習ガイド | 予測型・計画重視の手法(Predictive, Plan-Based Methodologies)",
@@ -1529,10 +1528,11 @@ code {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
+  /*
+   * `html { scroll-behavior: auto }` はここには置かない。
+   * scoped CSS は `html[data-v-xxxx]` にコンパイルされ <html> には決して一致しないため、
+   * スクロール挙動は app/assets/css/main.css のグローバル定義が担う。
+   */
   .sidebar {
     transition: none;
   }

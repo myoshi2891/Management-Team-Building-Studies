@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "introduction",
@@ -27,18 +28,6 @@ useSeoMeta({
   description: "初めてテックリード・エンジニアリングマネージャーになった方向けに、国際的に著名なリーダーたちの実践知を基にしたリーダーシップのベストプラクティスをステップバイステップで解説する。",
 });
 
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-};
 
 const DIAGRAM_OVERALL_ROADMAP = `flowchart TB
     subgraph PhaseA["フェーズ1 土台をつくる"]
@@ -290,6 +279,9 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
           <div class="mermaid-wrap">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_OVERALL_ROADMAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
             </ClientOnly>
           </div>
           <div class="diagram-caption">8ステップ実践ガイドの全体像(4フェーズ構成)</div>
@@ -320,6 +312,9 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
           <div class="mermaid-wrap">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_ONE_ON_ONE_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
             </ClientOnly>
           </div>
           <div class="diagram-caption">1on1ミーティングの前・中・後で意識すること</div>
@@ -371,6 +366,9 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
           <div class="mermaid-wrap">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_DELEGATION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
             </ClientOnly>
           </div>
           <div class="diagram-caption">委譲すべきかどうかの判断フロー</div>
@@ -405,6 +403,9 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
           <div class="mermaid-wrap">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_FEEDBACK_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
             </ClientOnly>
           </div>
           <div class="diagram-caption">Radical Candorに基づくフィードバックの進め方</div>
@@ -427,6 +428,9 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
           <div class="mermaid-wrap">
             <ClientOnly>
               <MermaidDiagram :chart="DIAGRAM_DECISION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
             </ClientOnly>
           </div>
           <div class="diagram-caption">「状況」と「決定」を見極める意思決定フロー</div>
@@ -562,7 +566,11 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
 </template>
 
 <style scoped>
+/* ===================== Layout & Variables ===================== */
 .layout {
+  --toc-toggle-gap: 16px;
+  --heading-anchor-gap: 32px;
+
   display: block;
 }
 
@@ -652,8 +660,8 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
 .sidebar-toggle {
   display: none;
   position: fixed;
-  top: calc(var(--global-nav-height) + 16px);
-  left: 16px;
+  top: calc(var(--global-nav-height) + var(--toc-toggle-gap));
+  left: var(--toc-toggle-gap);
   z-index: 30;
   background: var(--color-paper-raised);
   border: 1px solid var(--color-border);
@@ -764,7 +772,7 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
 
 section {
   margin: 72px 0;
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 section:first-of-type { margin-top: 0; }
@@ -790,7 +798,7 @@ h2 {
   margin: 0 0 24px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--color-border);
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 h3 {
@@ -799,7 +807,7 @@ h3 {
   font-size: 21px;
   color: var(--color-ink);
   margin: 40px 0 16px;
-  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  scroll-margin-top: calc(var(--global-nav-height) + var(--heading-anchor-gap));
 }
 
 p { margin: 0 0 18px; }
@@ -890,10 +898,18 @@ td strong, th strong { color: var(--color-ink); }
   text-align: center;
 }
 
+/*
+ * 図解の中央寄せ・縮小フィットは MermaidDiagram.vue が担う（.claude/rules/mermaid-diagram-layout.md）。
+ * ここではフレームとして列幅を占めるだけにとどめ、display / justify-content は再指定しない。
+ */
 .mermaid-wrap {
-  display: flex;
-  justify-content: center;
   width: 100%;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
 }
 
 /* ===================== Reference list ===================== */

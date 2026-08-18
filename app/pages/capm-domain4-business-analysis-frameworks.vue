@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "overview",
@@ -30,30 +31,6 @@ useSeoMeta({
   description: "PMI CAPM(R)試験ドメイン4「ビジネス分析フレームワーク」(出題比率27%)を初学者向けに解説。BAの役割、ステークホルダー・コミュニケーション、要求収集、プロダクトロードマップ、要求検証までを図解とベストプラクティスで整理。",
 });
 
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-  pie1: "#C7D1EA",
-  pie2: "#AEDBD6",
-  pie3: "#F0D9A6",
-  pie4: "#E7C0D0",
-  pieOpacity: "1",
-  pieStrokeColor: "#FFFFFF",
-  pieStrokeWidth: "2px",
-  pieOuterStrokeWidth: "1px",
-  pieOuterStrokeColor: "#DFE3EA",
-  pieSectionTextColor: "#161B26",
-  pieLegendTextColor: "#161B26",
-  pieTitleTextColor: "#161B26",
-};
 
 const DIAGRAM_BA_PROCESS_OVERVIEW = `flowchart LR
     A["経営課題/ビジネスニーズ"] --> B["ステークホルダー特定"]
@@ -302,6 +279,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_BA_PROCESS_OVERVIEW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">ビジネスニーズからビジネス価値実現までの一連の流れ</div>
@@ -365,6 +345,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_STAKEHOLDER_ROLE_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">内部ステークホルダーと外部ステークホルダーの分類</div>
@@ -424,6 +407,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_BA_COMMUNICATION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">ビジネス側と開発側をつなぐBAのコミュニケーション経路</div>
@@ -474,6 +460,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_ELICITATION_DECISION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">ステークホルダー構成に応じた要求収集手法の選び方</div>
@@ -522,6 +511,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_RTM_VS_BACKLOG_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">予測型プロジェクトのRTMとアジャイルプロジェクトのバックログの違い</div>
@@ -581,6 +573,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_ROADMAP_NOW_NEXT_LATER" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">Now-Next-Laterロードマップの構成イメージ</div>
@@ -648,6 +643,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_METHODOLOGY_DECISION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">プロジェクトの進め方によるBAアプローチの違い</div>
@@ -698,6 +696,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_ACCEPTANCE_VALIDATION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">DoDと受け入れ基準による二段階の検証フロー</div>
@@ -743,6 +744,9 @@ const DIAGRAM_DOMAIN4_TASK_CYCLE = `flowchart TB
             <div class="mermaid-wrap">
               <ClientOnly>
                 <MermaidDiagram :chart="DIAGRAM_DOMAIN4_TASK_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <p class="diagram-loading">図を読み込み中...</p>
+                </template>
               </ClientOnly>
             </div>
             <div class="diagram-caption">Task1からTask6までの連動関係と継続的フィードバック</div>
@@ -1242,6 +1246,12 @@ td strong, th strong { color: var(--color-ink); }
 
 .mermaid-wrap {
   width: 100%;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
 }
 
 .diagram-card .diagram-caption {

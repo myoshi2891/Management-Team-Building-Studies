@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "how-to-use",
@@ -29,30 +30,6 @@ useSeoMeta({
   description: "PMI公式のCAPM Exam Content Outlineに基づく、ドメイン3アジャイルフレームワーク/方法論(試験全体の20%)の初学者向け解説ガイド。Scrum・XP・Kanban・SAFeの構成要素とベストプラクティスをMermaid図解付きで詳解し、一次ソースのURLを明記する。",
 });
 
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-  pie1: "#C7D1EA",
-  pie2: "#AEDBD6",
-  pie3: "#F0D9A6",
-  pie4: "#E7C0D0",
-  pieOpacity: "1",
-  pieStrokeColor: "#FFFFFF",
-  pieStrokeWidth: "2px",
-  pieOuterStrokeWidth: "1px",
-  pieOuterStrokeColor: "#DFE3EA",
-  pieSectionTextColor: "#161B26",
-  pieLegendTextColor: "#161B26",
-  pieTitleTextColor: "#161B26",
-};
 
 const DIAGRAM_TASK_OVERVIEW = `flowchart TD
 D3["ドメイン3 アダプティブフレームワーク・方法論 5つのタスク"]
@@ -1299,14 +1276,8 @@ class ACCEPT done;`;
     text-align: center;
   }
 
-  .diagram-container {
-    display: flex;
-    /* safe center 非対応ブラウザ向けに center をフォールバックとして先に置く */
-    justify-content: center;
-    justify-content: safe center;
+  .mermaid-wrap {
     width: 100%;
-    min-height: 60px;
-    overflow-x: auto;
   }
 
   .diagram-loading {
@@ -1314,44 +1285,6 @@ class ACCEPT done;`;
     font-size: 16px;
     padding: 20px 0;
   }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
 
   /* ===================== Glossary ===================== */
   .glossary-grid {
@@ -1380,7 +1313,7 @@ class ACCEPT done;`;
 
   /* ===================== Reference list ===================== */
   .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
+  .ref-group h3 { margin-top: 0; }
   .ref-list { list-style: none; margin: 0; padding: 0; }
   .ref-list li {
     padding: 12px 0;
