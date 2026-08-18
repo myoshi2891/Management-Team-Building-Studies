@@ -161,17 +161,20 @@ OLD_HEAD="$(git rev-parse HEAD)" || { echo "NG: HEAD を解決できない"; exi
 ABS_GIT_DIR="$(git rev-parse --absolute-git-dir)" \
   || { echo "NG: git-dir を絶対パスで解決できない"; exit 1; }
 
-# 一時 index の名前も**セッションごとに一意**にする。固定名（session-commit-index）は
+# 一時 index の置き場も**セッションごとに一意**にする。固定名（session-commit-index）は
 # 共有 index と同じ問題を持ち込む: 別セッションが同時に (2) を実行していると、
 # 同じファイルへ read-tree / add してしまい、さらに初期化の `rm -f` が
-# 相手の使用中 index を消す。mktemp で排他的に確保して衝突をなくす。
+# 相手の使用中 index を消す。PID 付きの専用ディレクトリで排他的に確保して衝突をなくす。
 # 後続の fail-closed な exit でも取り残さないよう、片付けは trap に寄せる。
-# 削除対象は本セッションの $TMP_INDEX だけで、他セッションの一時 index には触れない。
-# trap は mktemp より前に張る。生成直後にシグナルを受けても取りこぼさないよう、
-# 変数を空で初期化しておき、ハンドラ側で未生成を判定する。
-TMP_INDEX=""
+#
+# 削除対象は **trap を張る前に名前だけで確定させる**。`TMP_INDEX="$(mktemp ...)"` の形は
+# ファイル生成と変数代入が別の瞬間に起きるため、その隙間でシグナルを受けると
+# ハンドラから見た変数がまだ空で、生成済みの実体を回収できない。
+# 先にディレクトリ名を決めてしまえば、中身が未生成でも `rm -rf` で確実に片付く。
+# 触れるのは自分の $TMP_INDEX_DIR だけで、他セッションの一時 index には影響しない。
+TMP_INDEX_DIR="$ABS_GIT_DIR/session-commit-index.$$"
 cleanup_tmp_index() {
-  if [ -n "$TMP_INDEX" ]; then rm -f "$TMP_INDEX"; fi
+  rm -rf "$TMP_INDEX_DIR"
 }
 trap 'cleanup_tmp_index' EXIT
 # INT / TERM は「片付け」だけでなく**終了**まで行う。ハンドラ内で exit しないと、
@@ -180,10 +183,10 @@ trap 'cleanup_tmp_index' EXIT
 trap 'cleanup_tmp_index; exit 130' INT
 trap 'cleanup_tmp_index; exit 143' TERM
 
-TMP_INDEX="$(mktemp "$ABS_GIT_DIR/session-commit-index.XXXXXX")" \
-  || { echo "NG: 一時 index を作成できない"; exit 1; }
-# mktemp が作った空ファイルは index として読めないため、名前だけ予約して実体は git に作らせる。
-rm -f "$TMP_INDEX" || { echo "NG: 一時 index を初期化できない"; exit 1; }
+# `mkdir`（-p なし）は既存なら失敗するため、排他確保の検査も兼ねる。
+mkdir "$TMP_INDEX_DIR" || { echo "NG: 一時 index 用ディレクトリを作成できない"; exit 1; }
+# index の実体は git に作らせる（空ファイルは index として読めない）。名前だけ予約する。
+TMP_INDEX="$TMP_INDEX_DIR/index"
 export GIT_INDEX_FILE="$TMP_INDEX"
 
 git read-tree "$OLD_HEAD" || { echo "NG: 一時 index へ HEAD を読み込めない"; exit 1; }
@@ -242,8 +245,8 @@ git update-ref -m "commit: $COMMIT_MSG" HEAD "$NEW_COMMIT" "$OLD_HEAD" \
 
 # 一時 index を片付け、以降のコマンドが共有 index を見るように戻す。
 # 削除の成否を確認してから trap を外す。先に trap を外すと、削除に失敗した場合に
-# 一時 index を残したまま正常終了してしまい、次回の mktemp 以前に後始末の経路が消える。
-rm -f "$TMP_INDEX" || { echo "NG: 一時 index を削除できない"; exit 1; }
+# 一時 index を残したまま正常終了してしまい、後始末の経路が消える。
+cleanup_tmp_index || { echo "NG: 一時 index を削除できない"; exit 1; }
 trap - EXIT INT TERM
 unset GIT_INDEX_FILE
 echo "OK: コミット完了 $(git rev-parse --short HEAD)"
