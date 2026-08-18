@@ -110,8 +110,14 @@ function handleEscape(): void {
   closeAllCategories();
   if (id === null) {
     isMenuOpen.value = false;
-    // モバイルメニューが閉じたら nav-toggle へフォーカスを戻す
-    headerRef.value?.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
+    /*
+     * nav-toggle はモバイルレイアウトでしか可視でない。デスクトップ幅で focus() すると
+     * 無言で失敗してフォーカスが body へ落ちるため、可視なときだけ戻す。
+     * デスクトップでは戻し先が無いのでフォーカスは動かさない。
+     */
+    if (isMobileLayout()) {
+      headerRef.value?.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
+    }
     return;
   }
   const trigger = headerRef.value?.querySelector<HTMLButtonElement>(`#nav-trigger-${id}`);
@@ -129,11 +135,18 @@ function handlePointerDownOutside(event: Event): void {
   isMenuOpen.value = false;
   if (!hadFocus) return;
 
-  const fallbackTarget = canHover.value && closingId
-    // デスクトップ: 閉じたカテゴリのトリガーへ戻す
-    ? header.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)
-    // モバイル: nav-toggle へ戻す
-    : header.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']");
+  /*
+   * 戻し先は nav-toggle の可視性で決める。canHover（入力方式）で分岐すると、
+   * デスクトップ幅のままタッチ入力に変わった場合に display:none の nav-toggle を
+   * 選んでしまい、focus() が無言で失敗してフォーカスが body へ落ちる。
+   */
+  const fallbackTarget = isMobileLayout()
+    // モバイル: 可視な nav-toggle へ戻す
+    ? header.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")
+    // デスクトップ: 閉じたカテゴリのトリガーへ戻す（無ければ動かさない）
+    : closingId
+      ? header.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)
+      : null;
   if (!fallbackTarget) return;
 
   /*

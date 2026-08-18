@@ -279,6 +279,81 @@ describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", (
     }
   });
 
+  /*
+   * Escape / 外側クリックのフォーカス退避も同じ落とし穴を持つ。
+   * 戻し先を canHover（入力方式）で決めると、デスクトップ幅のままタッチ入力へ
+   * 変わった場合に display:none の nav-toggle を選んでしまう。
+   */
+  it("デスクトップ幅では、開いていない状態の Escape でフォーカスを動かさない", async () => {
+    const media = stubMatchMedia({ mobileWidth: false });
+    const wrapper = mountHeader({ attachTo: document.body });
+
+    try {
+      const home = wrapper.get("[data-testid='nav-home']");
+      (home.element as HTMLAnchorElement).focus();
+
+      await wrapper.get("header").trigger("keydown.escape");
+
+      expect(document.activeElement).toBe(home.element);
+    } finally {
+      wrapper.unmount();
+      media.restore();
+    }
+  });
+
+  it("モバイル幅では、開いていない状態の Escape で nav-toggle へ戻す", async () => {
+    const media = stubMatchMedia({ mobileWidth: true });
+    const wrapper = mountHeader({ attachTo: document.body });
+
+    try {
+      (wrapper.get("[data-testid='nav-home']").element as HTMLAnchorElement).focus();
+
+      await wrapper.get("header").trigger("keydown.escape");
+
+      expect(document.activeElement).toBe(wrapper.get("[data-testid='nav-toggle']").element);
+    } finally {
+      wrapper.unmount();
+      media.restore();
+    }
+  });
+
+  it("デスクトップ幅で外側を押したら、隠れた nav-toggle ではなくトリガーへ戻す", async () => {
+    const media = stubMatchMedia({ mobileWidth: false });
+    const outside = document.createElement("button");
+    document.body.appendChild(outside);
+    const wrapper = mountHeader({ attachTo: document.body });
+    /*
+     * pointerdown 直後の focus() はブラウザの既定動作に奪われるため、実装は
+     * requestAnimationFrame へ退避を遅延させる。テストではコールバックを捕まえ、
+     * 「フォーカスが body へ落ちた」状態を再現してから手動で実行する。
+     */
+    const rafCallbacks: FrameRequestCallback[] = [];
+    const raf = vi.spyOn(window, "requestAnimationFrame")
+      .mockImplementation((callback: FrameRequestCallback) => rafCallbacks.push(callback));
+
+    try {
+      // 幅はデスクトップのまま、入力方式だけタッチへ変化させる（nav-toggle は不可視）。
+      media.emitChange(false);
+      await wrapper.vm.$nextTick();
+
+      const trigger = wrapper.get("#nav-trigger-project-management");
+      await trigger.trigger("click");
+      const link = wrapper.get("#nav-panel-project-management a").element as HTMLAnchorElement;
+      link.focus();
+
+      outside.dispatchEvent(new Event("pointerdown", { bubbles: true }));
+      link.blur();
+      rafCallbacks.forEach((callback) => callback(0));
+
+      expect(document.activeElement).toBe(trigger.element);
+    } finally {
+      raf.mockRestore();
+      wrapper.unmount();
+      outside.remove();
+      media.restore();
+    }
+  });
+
   it("モバイル幅へ切り替わったときは可視になった nav-toggle へ戻す", async () => {
     const media = stubMatchMedia({ mobileWidth: true });
     const wrapper = mountHeader({ attachTo: document.body });
