@@ -1230,7 +1230,7 @@
       <p>本ガイドの作成にあたり、以下の一次資料を直接参照しました。</p>
 
       <div class="ref-group">
-        <h4>一次ソース一覧</h4>
+        <h3>一次ソース一覧</h3>
         <ul class="ref-list">
           <li><span class="ref-name">PMI, Certified Associate in Project Management (CAPM)® Exam Content Outline(2023 Exam Update) — ドメイン3の5つのタスクとイネーブラーの一次ソース</span><a class="ref-url" href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf" target="_blank" rel="noopener">https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/capm-exam-content-outline-english.pdf</a></li>
           <li><span class="ref-name">PMI, Certified Associate in Project Management (CAPM)® Certification(公式認定ページ) — 試験構成(150問、180分、8言語対応)、出題比率の一次ソース</span><a class="ref-url" href="https://www.pmi.org/certifications/certified-associate-capm" target="_blank" rel="noopener">https://www.pmi.org/certifications/certified-associate-capm</a></li>
@@ -1259,135 +1259,135 @@
 (function () {
   "use strict";
 
-  var DIAGRAMS = {
+  const DIAGRAMS = {
     taskOverviewFlow: `flowchart TD
-    D3["ドメイン3 アダプティブフレームワーク・方法論 5つのタスク"]
-    D3 --> T1["Task1 アダプティブアプローチが適切な場面を説明する"]
-    D3 --> T2["Task2 プロジェクトイテレーションの計画方法を決定する"]
-    D3 --> T3["Task3 アダプティブプロジェクトのプロジェクトコントロールの文書化方法を決定する"]
-    D3 --> T4["Task4 アダプティブ計画の構成要素を説明する"]
-    D3 --> T5["Task5 タスク管理ステップの準備・実行方法を決定する"]
+D3["ドメイン3 アダプティブフレームワーク・方法論 5つのタスク"]
+D3 --> T1["Task1 アダプティブアプローチが適切な場面を説明する"]
+D3 --> T2["Task2 プロジェクトイテレーションの計画方法を決定する"]
+D3 --> T3["Task3 アダプティブプロジェクトのプロジェクトコントロールの文書化方法を決定する"]
+D3 --> T4["Task4 アダプティブ計画の構成要素を説明する"]
+D3 --> T5["Task5 タスク管理ステップの準備・実行方法を決定する"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class D3 hub;
-    class T1,T2,T3,T4,T5 box;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class D3 hub;
+class T1,T2,T3,T4,T5 box;`,
 
     predictiveVsAdaptiveFlow: `flowchart TD
-    A["プロジェクトの特性を評価する"] --> B{"要求事項は明確で安定しているか"}
-    B -- "はい" --> C{"変更が発生する可能性は低いか"}
-    B -- "いいえ" --> D{"要求事項が探索的・流動的か"}
-    C -- "はい" --> E["予測型アプローチを選択"]
-    C -- "いいえ" --> F["ハイブリッドアプローチを検討"]
-    D -- "はい" --> G["アダプティブアプローチを選択"]
-    D -- "いいえ" --> F
-    E --> H["WBS・ガントチャート・EVMで管理"]
-    G --> I["Scrum・Kanban・XP・SAFe等の中から選択"]
-    F --> J["フェーズごとに予測型・アダプティブを使い分け"]
+A["プロジェクトの特性を評価する"] --> B{"要求事項は明確で安定しているか"}
+B -- "はい" --> C{"変更が発生する可能性は低いか"}
+B -- "いいえ" --> D{"要求事項が探索的・流動的か"}
+C -- "はい" --> E["予測型アプローチを選択"]
+C -- "いいえ" --> F["ハイブリッドアプローチを検討"]
+D -- "はい" --> G["アダプティブアプローチを選択"]
+D -- "いいえ" --> F
+E --> H["WBS・ガントチャート・EVMで管理"]
+G --> I["Scrum・Kanban・XP・SAFe等の中から選択"]
+F --> J["フェーズごとに予測型・アダプティブを使い分け"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class A hub;
-    class B,C,D,H,I,J box;
-    class E,F,G done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,H,I,J box;
+class E,F,G done;`,
 
     wbsToBacklogFlow: `flowchart TD
-    WBS["WBS 成果物ベースの階層分解"] --> WP["ワークパッケージ"]
-    WP --> EPIC["エピック 大きな機能のまとまり"]
-    EPIC --> STORY["ユーザーストーリー PBIとして起票"]
-    STORY --> PB["プロダクトバックログ 優先順位付けされたPBIの一覧"]
-    PB --> REFINE["優先順位付け バックログリファインメント"]
-    REFINE --> PULL["スプリントバックログへ引き込み Pull"]
-    PULL --> TASK["選択したPBIをタスクへ分解 見積り可能な作業単位"]
+WBS["WBS 成果物ベースの階層分解"] --> WP["ワークパッケージ"]
+WP --> EPIC["エピック 大きな機能のまとまり"]
+EPIC --> STORY["ユーザーストーリー PBIとして起票"]
+STORY --> PB["プロダクトバックログ 優先順位付けされたPBIの一覧"]
+PB --> REFINE["優先順位付け バックログリファインメント"]
+REFINE --> PULL["スプリントバックログへ引き込み Pull"]
+PULL --> TASK["選択したPBIをタスクへ分解 見積り可能な作業単位"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class WBS hub;
-    class WP,EPIC,STORY,PB,REFINE,PULL box;
-    class TASK done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class WBS hub;
+class WP,EPIC,STORY,PB,REFINE,PULL box;
+class TASK done;`,
 
     iterationPlanningFlow: `flowchart TD
-    VISION["プロダクトビジョン ロードマップ"] --> PO["プロダクトオーナーが優先順位付け"]
-    PO --> PB["プロダクトバックログ"]
-    PB --> REFINE2["バックログリファインメント"]
-    REFINE2 --> PLAN["スプリントプランニング 容量とベロシティを考慮"]
-    PLAN --> GOAL["スプリントゴールの設定"]
-    GOAL --> SBACK["スプリントバックログの確定"]
+VISION["プロダクトビジョン ロードマップ"] --> PO["プロダクトオーナーが優先順位付け"]
+PO --> PB["プロダクトバックログ"]
+PB --> REFINE2["バックログリファインメント"]
+REFINE2 --> PLAN["スプリントプランニング 容量とベロシティを考慮"]
+PLAN --> GOAL["スプリントゴールの設定"]
+GOAL --> SBACK["スプリントバックログの確定"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class VISION hub;
-    class PO,PB,REFINE2,PLAN,GOAL box;
-    class SBACK done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class VISION hub;
+class PO,PB,REFINE2,PLAN,GOAL box;
+class SBACK done;`,
 
     scrumSprintCycle: `flowchart TD
-    PB2["プロダクトバックログ"] --> SP2["スプリントプランニング What Howを決定"]
-    SP2 --> SG2["スプリントゴールの設定"]
-    SG2 --> DEV2["スプリント実行 開発作業"]
-    DEV2 --> DS2["デイリースクラム 毎日15分"]
-    DS2 --> DEV2
-    DEV2 --> SR2["スプリントレビュー 検査"]
-    SR2 --> RETRO2["スプリントレトロスペクティブ 適応"]
-    RETRO2 --> INC2["インクリメントの完成"]
-    INC2 --> PB2
+PB2["プロダクトバックログ"] --> SP2["スプリントプランニング What Howを決定"]
+SP2 --> SG2["スプリントゴールの設定"]
+SG2 --> DEV2["スプリント実行 開発作業"]
+DEV2 --> DS2["デイリースクラム 毎日15分"]
+DS2 --> DEV2
+DEV2 --> SR2["スプリントレビュー 検査"]
+SR2 --> RETRO2["スプリントレトロスペクティブ 適応"]
+RETRO2 --> INC2["インクリメントの完成"]
+INC2 --> PB2
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class PB2 hub;
-    class SP2,SG2,DEV2,DS2,SR2,RETRO2 box;
-    class INC2 done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PB2 hub;
+class SP2,SG2,DEV2,DS2,SR2,RETRO2 box;
+class INC2 done;`,
 
     kanbanFlow: `flowchart LR
-    A2["バックログ"] --> B2["分析中 WIP上限2"]
-    B2 --> C2["開発中 WIP上限3"]
-    C2 --> D2["テスト中 WIP上限2"]
-    D2 --> E2["完了"]
+A2["バックログ"] --> B2["分析中 WIP上限2"]
+B2 --> C2["開発中 WIP上限3"]
+C2 --> D2["テスト中 WIP上限2"]
+D2 --> E2["完了"]
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class A2 hub;
-    class B2,C2,D2 box;
-    class E2 done;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A2 hub;
+class B2,C2,D2 box;
+class E2 done;`,
 
     safeLayerStructure: `flowchart TB
-    subgraph L1["ポートフォリオレベル"]
-        STRAT2["戦略テーマ リーン予算配分"]
-    end
-    subgraph L2["プログラムレベル"]
-        ART2["アジャイルリリーストレイン ART"]
-        PI2["PIプランニング 8-12週間ごと"]
-    end
-    subgraph L3["チームレベル"]
-        SCRUM2["Scrumチーム"]
-        KANBAN2["Kanbanチーム"]
-    end
-    L1 --> L2 --> L3
+subgraph L1["ポートフォリオレベル"]
+    STRAT2["戦略テーマ リーン予算配分"]
+end
+subgraph L2["プログラムレベル"]
+    ART2["アジャイルリリーストレイン ART"]
+    PI2["PIプランニング 8-12週間ごと"]
+end
+subgraph L3["チームレベル"]
+    SCRUM2["Scrumチーム"]
+    KANBAN2["Kanbanチーム"]
+end
+L1 --> L2 --> L3
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class STRAT2 hub;
-    class ART2,PI2,SCRUM2,KANBAN2 box;`,
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class STRAT2 hub;
+class ART2,PI2,SCRUM2,KANBAN2 box;`,
 
     dorDodAcFlow: `flowchart LR
-    DOR["Definition of Ready 着手可能基準"] --> WORK["タスクの実行"]
-    WORK --> DOD["Definition of Done 完了基準"]
-    DOD --> AC{"受け入れ基準を満たしているか"}
-    AC -- "はい" --> ACCEPT["プロダクトオーナーが承認"]
-    AC -- "いいえ" --> REWORK["プロダクトバックログへ差し戻し"]
-    REWORK --> WORK
+DOR["Definition of Ready 着手可能基準"] --> WORK["タスクの実行"]
+WORK --> DOD["Definition of Done 完了基準"]
+DOD --> AC{"受け入れ基準を満たしているか"}
+AC -- "はい" --> ACCEPT["プロダクトオーナーが承認"]
+AC -- "いいえ" --> REWORK["プロダクトバックログへ差し戻し"]
+REWORK --> WORK
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class DOR hub;
-    class WORK,DOD,AC,REWORK box;
-    class ACCEPT done;`
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class DOR hub;
+class WORK,DOD,AC,REWORK box;
+class ACCEPT done;`,
   };
 
   function extendViewBoxHeight(svgEl, extra) {

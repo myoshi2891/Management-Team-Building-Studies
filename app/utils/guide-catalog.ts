@@ -96,6 +96,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/capm-domain3-agile-frameworks-guide",
+    categoryId: "project-management",
+    navLabel: "CAPM ドメイン3",
+    title: "CAPM® ドメイン3: アジャイルフレームワーク/方法論",
+    description: "PMI公式CAPM Exam Content Outlineに基づく、ドメイン3(アジャイルフレームワーク/方法論・配点20%)の初学者向け解説ガイド。Scrum・XP・Kanban・SAFeを詳解。",
+    meta: "10セクション",
+    icon: "tabler:topology-star-3",
+    accent: "gold",
+  },
+  {
     to: "/pmp-certification-guide",
     categoryId: "project-management",
     navLabel: "PMP 完全攻略",

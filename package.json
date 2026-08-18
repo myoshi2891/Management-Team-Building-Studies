@@ -16,6 +16,7 @@
     "audit:capm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Certified-Associate-in-Project-Management.html app/pages/capm.vue",
     "audit:capm-d1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Certified-associate-in-project-management-domain1.html app/pages/certified-associate-in-project-management-domain1.vue",
     "audit:capm-d2": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Certified-associate-in-project-management-domain2.html app/pages/certified-associate-in-project-management-domain2.vue",
+    "audit:capm-d3": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Capm-domain3-agile-frameworks-guide.html app/pages/capm-domain3-agile-frameworks-guide.vue",
     "audit:pmp": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-certification-guide.html app/pages/pmp-certification-guide.vue",
     "audit:lead": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-team-leadership-guide.html app/pages/engineering-team-leadership-guide.vue",
     "audit:reteam": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Dynamic-reteaming-guide.html app/pages/dynamic-reteaming-guide.vue",
