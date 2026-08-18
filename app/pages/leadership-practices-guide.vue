@@ -153,20 +153,20 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
 </script>
 
 <template>
-  <button
-    id="sidebarToggle"
-    ref="sidebarToggle"
-    type="button"
-    class="sidebar-toggle"
-    aria-label="目次を開閉する"
-    aria-controls="sidebar"
-    :aria-expanded="String(sidebarOpen)"
-    @click="sidebarOpen = !sidebarOpen"
-  >
-    <Icon name="tabler:menu-2" />
-  </button>
-
   <div class="layout">
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" />
+    </button>
+
     <!-- ===================== Sidebar ===================== -->
     <nav id="sidebar" class="sidebar" aria-label="目次" :class="{ open: sidebarOpen }">
       <div class="sidebar-brand">
@@ -358,7 +358,7 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th></th><th>単純な作業</th><th>複雑な作業</th></tr>
+              <tr><th /><th>単純な作業</th><th>複雑な作業</th></tr>
             </thead>
             <tbody>
               <tr><td><strong>頻繁に発生する</strong></td><td>最優先で委譲する(自分が抱え続ける理由がない)</td><td>次世代のリーダーを育てる機会として、計画的に委譲する</td></tr>
@@ -392,7 +392,7 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
         <div class="table-wrap">
           <table>
             <thead>
-              <tr><th></th><th>率直に伝えない</th><th>率直に伝える</th></tr>
+              <tr><th /><th>率直に伝えない</th><th>率直に伝える</th></tr>
             </thead>
             <tbody>
               <tr><td><strong>相手を気にかけている</strong></td><td>Ruinous Empathy(誤った優しさ) — 曖昧なフィードバックで相手の成長機会を奪う</td><td>Radical Candor(理想) — 誠実で具体的なフィードバック</td></tr>
