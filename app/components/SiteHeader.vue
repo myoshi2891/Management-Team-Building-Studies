@@ -26,10 +26,26 @@ const DESKTOP_HOVER_QUERY = "(hover: hover) and (pointer: fine) and (min-width: 
 const canHover = ref(false);
 let hoverMedia: MediaQueryList | null = null;
 
+/** フォーカスがナビゲーション内にあるかを判定する。 */
+function isFocusInsideNav(): boolean {
+  return !!headerRef.value?.contains(document.activeElement);
+}
+
 function syncCanHover(event: MediaQueryListEvent | MediaQueryList): void {
+  const hadFocus = isFocusInsideNav();
+  const closingId = openCategoryId.value;
   canHover.value = event.matches;
   // モバイルレイアウトへ切り替わった瞬間に開きっぱなしのパネルを残さない。
-  if (!event.matches) closeAllCategories();
+  if (!event.matches) {
+    closeAllCategories();
+    if (hadFocus) {
+      // モバイルレイアウトへの切替 → nav-toggle へ戻す
+      headerRef.value?.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
+    }
+  } else if (hadFocus && closingId) {
+    // デスクトップレイアウトへの切替 → カテゴリトリガーへ戻す
+    headerRef.value?.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)?.focus();
+  }
 }
 
 const headerRef = ref<HTMLElement | null>(null);
@@ -71,6 +87,8 @@ function handleEscape(): void {
   closeAllCategories();
   if (id === null) {
     isMenuOpen.value = false;
+    // モバイルメニューが閉じたら nav-toggle へフォーカスを戻す
+    headerRef.value?.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
     return;
   }
   const trigger = headerRef.value?.querySelector<HTMLButtonElement>(`#nav-trigger-${id}`);
@@ -82,8 +100,19 @@ function handlePointerDownOutside(event: Event): void {
   if (!header) return;
   const target = event.target;
   if (target instanceof Node && header.contains(target)) return;
+  const hadFocus = isFocusInsideNav();
+  const closingId = openCategoryId.value;
   closeAllCategories();
   isMenuOpen.value = false;
+  if (hadFocus) {
+    if (canHover.value && closingId) {
+      // デスクトップ: 閉じたカテゴリのトリガーへ戻す
+      header.querySelector<HTMLButtonElement>(`#nav-trigger-${closingId}`)?.focus();
+    } else {
+      // モバイル: nav-toggle へ戻す
+      header.querySelector<HTMLButtonElement>("[data-testid='nav-toggle']")?.focus();
+    }
+  }
 }
 
 onMounted(() => {

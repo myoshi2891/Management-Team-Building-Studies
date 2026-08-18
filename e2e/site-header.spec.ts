@@ -125,9 +125,53 @@ test("ガイドページのサイドバー TOC が固定ヘッダーに隠れな
     window.scrollTo({ top: 1200, behavior: "instant" });
     return window.scrollY;
   });
-  expect(scrolledY).toBeGreaterThan(0);
+  expect(scrolledY).toBeGreaterThanOrEqual(1100);
 
   const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
   const sidebarBox = (await page.locator(".sidebar-nav").first().boundingBox())!;
   expect(sidebarBox.y).toBeGreaterThanOrEqual(headerBox.y + headerBox.height - 2);
+});
+
+test("モバイル幅: Escape でメニューが閉じて nav-toggle へフォーカスが戻る", async ({ page }) => {
+  await page.setViewportSize(MOBILE);
+  await page.goto("/");
+
+  const toggle = page.locator("[data-testid='nav-toggle']");
+  await toggle.click();
+  await expect(page.locator("#global-nav")).toBeVisible();
+
+  // カテゴリを開いてリンクにフォーカスを当てる
+  await page.locator("#nav-trigger-project-management").click();
+  const link = page.locator("#nav-panel-project-management a").first();
+  await link.focus();
+  await expect(link).toBeFocused();
+
+  // Escape でパネルが閉じトリガーに戻る
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#nav-panel-project-management")).toBeHidden();
+  await expect(page.locator("#nav-trigger-project-management")).toBeFocused();
+
+  // もう一度 Escape でメニュー自体が閉じて nav-toggle に戻る
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#global-nav")).toBeHidden();
+  await expect(toggle).toBeFocused();
+});
+
+test("デスクトップ: 外側クリックでパネルが閉じトリガーへフォーカスが戻る", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const trigger = page.locator("#nav-trigger-engineering-management");
+  const panel = page.locator("#nav-panel-engineering-management");
+
+  // キーボードで開く（フォーカスがナビ内に入る）
+  await trigger.focus();
+  await page.keyboard.press("Enter");
+  await expect(panel).toBeVisible();
+
+  // パネル内のリンクにフォーカスを当ててから外側クリック
+  await panel.locator("a").first().focus();
+  await page.locator("main, body").first().click({ position: { x: 10, y: 10 }, force: true });
+  await expect(panel).toBeHidden();
+  await expect(trigger).toBeFocused();
 });
