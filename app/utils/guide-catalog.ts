@@ -175,6 +175,16 @@ export const GUIDES = [
     icon: "tabler:briefcase",
     accent: "gold",
   },
+  {
+    to: "/leadership-practices-guide",
+    categoryId: "engineering-leadership",
+    navLabel: "リーダーの作法",
+    title: "リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド",
+    description: "初めてテックリード・エンジニアリングマネージャーになった方向けに、国際的に著名なリーダーたちの実践知を基にしたリーダーシップのベストプラクティスをステップバイステップで解説する。",
+    meta: "8セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {

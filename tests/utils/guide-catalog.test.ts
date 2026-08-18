@@ -33,6 +33,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/engineering-manager-guide", categoryId: "engineering-management", navLabel: "EM 入門" },
       { to: "/dynamic-reteaming-guide", categoryId: "team-building", navLabel: "ダイナミック・リチーミング" },
       { to: "/engineering-executive-playbook", categoryId: "engineering-leadership", navLabel: "統括責任者の手引き" },
+      { to: "/leadership-practices-guide", categoryId: "engineering-leadership", navLabel: "リーダーの作法" },
     ]);
   });
 
@@ -66,7 +67,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-leadership",
-        guides: ["チームリード術", "統括責任者の手引き"],
+        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法"],
       },
       {
         id: "team-building",
