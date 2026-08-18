@@ -22,23 +22,12 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
+
 useSeoMeta({
   title: "CAPM(R) ドメイン2 完全学習ガイド | 予測型・計画重視の手法(Predictive, Plan-Based Methodologies)",
   description: "CAPM(R)試験ドメイン2「予測型・計画重視の手法」を、組織構造、プロセス群、WBS、クリティカルパス法、EVM、品質・統合管理まで初学者向けに図解付きで解説する学習ガイド。",
 });
-
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-};
 
 const DIAGRAM_DOMAIN_TWO_TASKS = `flowchart TD
 D2["ドメイン2: 予測型・計画重視の手法 (17%)"]

@@ -27,23 +27,12 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
+
 useSeoMeta({
   title: "エンジニアリング統括責任者の手引き | 初学者のためのステップバイステップ・ベストプラクティス",
   description: "CTO・VP of Engineeringなどエンジニアリング統括責任者のための実践ガイド。最初の90日間、組織設計、DORAメトリクス、インシデント管理まで、国際的に著名な実務家の知見をもとに解説します。",
 });
-
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-};
 
 const DIAGRAM_ROADMAP_LOOP = `flowchart LR
 A["着任"] --> B["Phase 1 最初の90日間 学習と信頼構築"]

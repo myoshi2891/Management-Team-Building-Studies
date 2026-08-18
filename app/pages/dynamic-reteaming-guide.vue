@@ -25,23 +25,12 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
+
 useSeoMeta({
   title: "ダイナミック・リチーミング実践ガイド ｜ 変化に強いチームをつくるステップ・バイ・ステップのベストプラクティス",
   description: "Heidi Helfand氏が提唱したダイナミック・リチーミングの基本概念、5つのパターン、実践のためのステップ・バイ・ステップの手順を初学者向けに解説するガイド。",
 });
-
-const MERMAID_THEME_VARIABLES = {
-  background: "transparent",
-  primaryColor: "#EEF1F8",
-  primaryBorderColor: "#2E3F72",
-  primaryTextColor: "#161B26",
-  lineColor: "#2E3F72",
-  secondaryColor: "#FAF1DF",
-  secondaryBorderColor: "#B8802A",
-  tertiaryColor: "#FFFFFF",
-  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-  fontSize: "16px",
-};
 
 const DIAGRAM_ECOCYCLE = `flowchart TB
     A["フロントループ 立ち上げ 探索"] --> B["フロントループ 成長・成熟 活用"]
