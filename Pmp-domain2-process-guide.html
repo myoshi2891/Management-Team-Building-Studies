@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Domain II: Process 完全解説ガイド | 初学者向けECO徹底解説</title>
+<meta name="description" content="PMP試験Domain II: Process(出題比率41%)の10Taskを初学者向けに解説。ECO 2026年7月改訂版に基づくEnabler一覧とベストプラクティスを網羅。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PMP® Domain II 完全ガイド</div>
+        <div class="brand-subtitle">Process 徹底解説</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-this-guide"><i class="ti ti-certificate"></i>本ガイドについて</a></li>
+      <li><a href="#exam-overview-domain-ii"><i class="ti ti-chart-pie"></i>試験全体像とDomain II</a></li>
+      <li><a href="#eco-structure"><i class="ti ti-building-bank"></i>ECOの構造</a></li>
+      <li><a href="#domain-ii-task-map"><i class="ti ti-git-branch"></i>Domain II 全体マップ</a></li>
+      <li><a href="#task-details"><i class="ti ti-clipboard-text"></i>Task別詳細解説</a></li>
+      <li><a href="#learning-roadmap"><i class="ti ti-map-2"></i>学習ロードマップ</a></li>
+      <li><a href="#exam-tips"><i class="ti ti-bulb"></i>試験対策のポイント</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PMI公式ECO 2026年7月改訂版 準拠</div>
+      <h1>PMP® Domain II: Process 完全解説ガイド</h1>
+      <p class="hero-lede">
+        対象読者はPMP®(Project Management Professional)受験を検討している初学者です。範囲はPMP Examination Content Outline(ECO)2026年7月改訂版におけるDomain II: Process(プロセス)—試験全体の41%を占める最大領域を扱います。本ガイドはPMI公式のECO(出題範囲定義文書)を一次情報源とし、各タスク(Task)とイネーブラー(Enabler)を初学者向けに翻訳・解説し、実務でのベストプラクティスを補足したものです。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">41%</div><div class="stat-label">Domain II の出題比率(3領域中最大)</div></div>
+        <div class="stat-card"><div class="stat-number">10</div><div class="stat-label">Domain II 内のTask数</div></div>
+        <div class="stat-card"><div class="stat-number">180問</div><div class="stat-label">試験問題数(採点対象170問)</div></div>
+        <div class="stat-card"><div class="stat-number">240分</div><div class="stat-label">試験時間(4時間)</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは教育・学習支援を目的とした非公式の解説資料です。PMI公式の教材そのものではないため、試験内容は改訂される可能性があります。受験前に必ず<a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式サイト</a>で最新のECOをご確認ください。
+      </div>
+    </div>
+
+    <!-- ===================== 1. About This Guide ===================== -->
+    <section id="about-this-guide">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>本ガイドについて</h2>
+
+      <p>PMP®認定試験は、PMI(Project Management Institute)が実施する世界で最も広く保有されているプロジェクトマネジメント認定資格です。出題範囲は<strong>Examination Content Outline(ECO)</strong>という公式文書で定義されており、2026年7月改訂版のECOでは試験が3つのDomain(領域)に分かれています。</p>
+
+      <p>このガイドは、その中でも最大の比重(41%)を占める<strong>Domain II: Process</strong>に焦点を当て、以下の観点で解説します。</p>
+
+      <ul>
+        <li>各Task(タスク)が何を問うているのかを、初学者にもわかる言葉で説明する</li>
+        <li>各TaskのEnabler(具体的な業務例)を漏れなく取り上げる</li>
+        <li>実務におけるベストプラクティスを補足する</li>
+        <li>可能な限りMermaidのフローチャートで処理の流れを可視化する(ASCII図解は使用しない)</li>
+      </ul>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>ECOはPMBOK® Guideとは異なる文書です。ECOはプロジェクトマネージャーが実際に行う「職務(job task)」を定義したものであり、PMBOK® Guideはその職務を支える知識体系・原則です。PMP試験はECOに基づいて出題されるため、本ガイドもECOの構成を軸に解説します。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 2. Exam Overview & Domain II Position ===================== -->
+    <section id="exam-overview-domain-ii">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 02</div>
+      <h2>PMP試験全体像とDomain IIの位置づけ</h2>
+
+      <h3>2-1. 3つのDomainと出題比率</h3>
+
+      <p>PMP試験の出題は以下の3つのDomainに分類され、それぞれ出題比率が定められています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Domain</th><th>名称</th><th>出題比率</th><th>概要</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>I</td><td>People(人)</td><td>33%</td><td>チームリード、コンフリクト管理、ステークホルダーエンゲージメントなど「人」に関する能力</td></tr>
+            <tr><td>II</td><td><strong>Process(プロセス)</strong></td><td><strong>41%</strong></td><td>計画作成、スコープ、価値提供、資源、調達、財務、品質、スケジュール、状況評価、終結など「プロセス」の遂行能力</td></tr>
+            <tr><td>III</td><td>Business Environment(ビジネス環境)</td><td>26%</td><td>ガバナンス、コンプライアンス、変更管理、リスク、継続的改善、組織変革対応など</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="examDomainPie"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PMP試験におけるDomain別出題比率(Process が最大の41%)</div>
+      </div>
+
+      <p>Domain IIは3領域の中で最も出題比率が高く、<strong>10個のTask</strong>で構成されています。プロジェクトの計画立案から終結までの一連の「実務プロセス」を幅広くカバーしているため、PMP合格のためには最も重点的に学習すべき領域です。</p>
+
+      <h3>2-2. アプローチ(開発手法)の出題バランス</h3>
+
+      <p>ECOでは、predictive(予測型)・adaptive/agile(適応型/アジャイル)・hybrid(ハイブリッド)という3つのプロジェクト開発アプローチが、特定のDomainに偏ることなく全Domainを通じて出題されることが明記されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アプローチ区分</th><th>出題割合の目安</th></tr></thead>
+          <tbody>
+            <tr><td>Predictive(予測型・ウォーターフォール型)</td><td>約40%</td></tr>
+            <tr><td>Adaptive/Agile + Hybrid(適応型・アジャイル・ハイブリッドの合計)</td><td>残り約60%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>この配分は試験フォームごとに変動する可能性があるとECOに明記されています。特定の手法に偏った学習ではなく、3つのアプローチすべてに対応できる知識が求められます。</p>
+      </div>
+
+      <h3>2-3. 試験フォーマットの基本情報</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>総問題数</td><td>180問(うち採点対象170問、プレテスト[未採点]10問)</td></tr>
+            <tr><td>試験時間</td><td>240分(4時間)</td></tr>
+            <tr><td>休憩</td><td>10分間の休憩が2回(ケーススタディセクション後、独立問題セクションの中間)</td></tr>
+            <tr><td>出題形式</td><td>単一選択、複数選択、ドラッグ&amp;ドロップ、ケース/シナリオ形式(新形式)、拡張マッチング、グラフィックベース問題(新形式)、ポイント&amp;クリック、マッチング、プルダウンリストなど</td></tr>
+            <tr><td>再受験</td><td>1年間の受験資格期間内に最大3回まで受験可能</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 3. ECO Structure ===================== -->
+    <section id="eco-structure">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
+      <h2>ECOの構造を理解する: Domain / Task / Enabler</h2>
+
+      <p>ECOは3階層の構造で出題範囲を定義しています。この構造を理解しておくと、各Taskの学習がしやすくなります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階層</th><th>定義</th><th>具体例(Domain II Task 1より)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Domain(領域)</strong></td><td>プロジェクトマネジメントの実践に不可欠な、ハイレベルな知識領域</td><td>Process(プロセス)</td></tr>
+            <tr><td><strong>Task(タスク)</strong></td><td>各Domain領域内でプロジェクトマネージャーが担う基本的な責務</td><td>統合プロジェクトマネジメント計画の作成とデリバリー計画</td></tr>
+            <tr><td><strong>Enabler(イネーブラー)</strong></td><td>そのTaskに関連する業務の具体例(網羅的リストではなく代表例)</td><td>プロジェクトのニーズ・複雑さ・規模を評価する 等</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="ecoStructureFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ECOの3階層構造(Domain → Task → Enabler)の関係</div>
+      </div>
+
+      <p>試験問題は、この構造に沿って各Domainの全Taskをカバーするように出題され、PMIはDomainレベルでの出題比率(33/41/26%)を遵守しています。なお、<strong>ECOが定めているのはDomain単位の出題比率のみで、Task別の出題比率は定められていません。</strong>したがって、特定のTaskだけを重点的に絞り込むことはできず、Domain II内の10Taskはすべて学習対象として押さえる必要があります。</p>
+    </section>
+
+    <!-- ===================== 4. Domain II 10-Task Map ===================== -->
+    <section id="domain-ii-task-map">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 04</div>
+      <h2>Domain II: Process 10タスクの全体マップ</h2>
+
+      <p>Domain II: Processは以下の10個のTaskで構成されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No.</th><th>Task名(原文)</th><th>Task名(日本語)</th><th>主要キーワード</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Develop an integrated project management plan and plan delivery</td><td>統合プロジェクトマネジメント計画の作成とデリバリー計画</td><td>統合計画、開発アプローチ、見積り</td></tr>
+            <tr><td>2</td><td>Develop and manage project scope</td><td>プロジェクトスコープの策定と管理</td><td>スコープ定義、WBS、合意形成</td></tr>
+            <tr><td>3</td><td>Help ensure value-based delivery</td><td>価値ベースのデリバリーの徹底</td><td>価値、優先順位付け、インクリメンタルデリバリー</td></tr>
+            <tr><td>4</td><td>Plan and manage resources</td><td>資源の計画と管理</td><td>資源計画、資源の最適化</td></tr>
+            <tr><td>5</td><td>Plan and manage procurement</td><td>調達の計画と管理</td><td>契約タイプ、ベンダー評価、交渉</td></tr>
+            <tr><td>6</td><td>Plan and manage finance</td><td>財務の計画と管理</td><td>財務ニーズ、予備費、財務報告</td></tr>
+            <tr><td>7</td><td>Plan and optimize quality of products/deliverables</td><td>製品/成果物の品質計画と最適化</td><td>品質要件、CoQ、継続的改善</td></tr>
+            <tr><td>8</td><td>Plan and manage schedule</td><td>スケジュールの計画と管理</td><td>見積り、ベースライン、差異分析</td></tr>
+            <tr><td>9</td><td>Evaluate project status</td><td>プロジェクト状況の評価</td><td>メトリクス、成果物管理、報告</td></tr>
+            <tr><td>10</td><td>Manage project closure</td><td>プロジェクト終結の管理</td><td>完了承認、移行、教訓</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>以下のフローチャートは、10のTaskを学習上の意味合いでグルーピングしたものです(ECO自体は厳密な順序を定めていませんが、初学者が全体像をつかむための整理です)。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="tenTaskGroupMap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Domain II 10Taskの学習上のグルーピング</div>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>実際のプロジェクトでは、これらのTaskは一度きりの直線的な流れではなく、開発アプローチ(予測型/アジャイル/ハイブリッド)に応じて反復的に実施されます。特にTask3(価値提供)とTask9(状況評価)はプロジェクト期間中継続的に回り続けるサイクルです。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Task Details ===================== -->
+    <section id="task-details">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 05</div>
+      <h2>Task別詳細解説</h2>
+
+      <h3>Task 1: 統合プロジェクトマネジメント計画の作成とデリバリー計画</h3>
+
+      <p><strong>原文</strong>: Develop an integrated project management plan and plan delivery</p>
+
+      <p>このTaskは、Domain II全体の「入口」にあたるTaskです。プロジェクトの特性を評価し、最適な開発アプローチを選び、それを1つの整合性あるマネジメント計画にまとめる能力が問われます。</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Assess project needs, complexity, and magnitude</td><td>プロジェクトのニーズ・複雑さ・規模を評価する</td></tr>
+            <tr><td>Recommend a project management development approach (predictive, adaptive/agile, or hybrid)</td><td>開発アプローチ(予測型/アジャイル/ハイブリッド)を推奨する</td></tr>
+            <tr><td>Determine critical information requirements (e.g., sustainability)</td><td>重要な情報要件を決定する(例: サステナビリティ)</td></tr>
+            <tr><td>Recommend a project execution strategy</td><td>プロジェクト実行戦略を推奨する</td></tr>
+            <tr><td>Create an integrated project management plan</td><td>統合プロジェクトマネジメント計画を作成する</td></tr>
+            <tr><td>Estimate work effort and resource requirements</td><td>工数・資源要件を見積もる</td></tr>
+            <tr><td>Assess consolidated project plans for dependencies, gaps, and continued business value</td><td>統合された計画の依存関係・ギャップ・継続的なビジネス価値を評価する</td></tr>
+            <tr><td>Maintain the integrated project management plan</td><td>統合プロジェクトマネジメント計画を維持する</td></tr>
+            <tr><td>Collect and analyze data to make informed project decisions</td><td>データを収集・分析し、根拠に基づく意思決定を行う</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>プロジェクトの性質を見極める</strong>: いきなり計画を書き始めるのではなく、まずプロジェクトの複雑さ・不確実性・規模を評価します。要件が固まっているか、変化が予想されるかによって、次のステップで選ぶアプローチが変わります。</li>
+        <li><strong>開発アプローチを選ぶ</strong>: 予測型(要件を先に固めて計画通り進める)、アジャイル(短いサイクルで反復しながら適応する)、ハイブリッド(両者を組み合わせる)のいずれが最適かを判断し、根拠を持って推奨します。</li>
+        <li><strong>重要情報要件を洗い出す</strong>: サステナビリティ要件などプロジェクト特有の制約・要件を特定します。</li>
+        <li><strong>実行戦略と統合計画の作成</strong>: スコープ・スケジュール・コスト・品質・資源・コミュニケーション・リスク・調達・ステークホルダーなど、個別の補助計画(サブシディアリープラン)を1つの首尾一貫した統合計画にまとめます。</li>
+        <li><strong>見積りを行う</strong>: 工数と資源要件を見積もります。</li>
+        <li><strong>整合性を検証する</strong>: 複数の計画要素間の依存関係・ギャップ・ビジネス価値への貢献を継続的に確認します。</li>
+        <li><strong>計画を維持する</strong>: プロジェクトの進行に伴い、計画は「一度作って終わり」ではなく継続的に更新します。</li>
+        <li><strong>データドリブンな意思決定</strong>: 収集したデータを分析し、勘や経験だけに頼らない意思決定を行います。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>開発アプローチの選定は「組織の慣習」ではなく、プロジェクト固有の複雑さ・要件の安定度・ステークホルダーの関与度で判断する</li>
+          <li>統合計画は各補助計画(スコープ、スケジュール、コスト等)の単純な集合ではなく、それらの間の依存関係が可視化された「1つの整合性ある計画」であるべき</li>
+          <li>計画はベースライン化した後も、変更管理プロセスを通じて継続的にメンテナンスする(「作りっぱなし」にしない)</li>
+          <li>意思決定の根拠となるデータの収集・分析を、直感だけに頼らず定期的に行う</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="task1StepsFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Task1: 統合プロジェクトマネジメント計画作成の流れ</div>
+      </div>
+
+      <h3>Task 2: プロジェクトスコープの策定と管理</h3>
+
+      <p><strong>原文</strong>: Develop and manage project scope</p>
+
+      <p>Enablerが3つとDomain II内では最もシンプルですが、「何を作るか/作らないか」を定義する基盤的なTaskです。</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Define scope</td><td>スコープを定義する</td></tr>
+            <tr><td>Obtain stakeholder agreement on project scope</td><td>プロジェクトスコープについてステークホルダーの合意を得る</td></tr>
+            <tr><td>Break down scope</td><td>スコープを分解する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>スコープを定義する</strong>: プロジェクトが「何を含み、何を含まないか」を明確にします。予測型では要件定義書やスコープ記述書として、アジャイルではプロダクトバックログとして表現されることが多いです。</li>
+        <li><strong>合意を得る</strong>: 定義したスコープについて、スポンサーや主要ステークホルダーから明確な合意を取り付けます。認識のズレは後工程での手戻りやスコープクリープの原因になります。</li>
+        <li><strong>分解する</strong>: 大きなスコープを、管理可能な単位(WBS: Work Breakdown Structure のワークパッケージや、アジャイルにおけるエピック→ストーリー→タスク)に分解します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>スコープ定義は「成果物ベース」で行い、あいまいな表現(「使いやすいシステム」等)を避け、検証可能な受け入れ基準を併記する</li>
+          <li>合意形成は口頭ではなく文書化し、後で参照できる形で残す</li>
+          <li>スコープの分解は100%ルール(上位要素の作業内容を漏れなくすべて下位要素でカバーする)を意識する</li>
+          <li>アジャイル環境では、プロダクトバックログの優先順位を継続的にリファインメントし、固定的なスコープではなく「進化するスコープ」として扱う</li>
+        </ul>
+      </div>
+
+      <h3>Task 3: 価値ベースのデリバリーの徹底</h3>
+
+      <p><strong>原文</strong>: Help ensure value-based delivery</p>
+
+      <p>「アジャイル/価値駆動」の考え方が分かりやすく表れるTaskの一例です。単に成果物を作ることではなく、ビジネス価値を実際に届けることに焦点を当てます。なお、予測型・適応型(アジャイル)・ハイブリッドの3アプローチは全Domain・全Taskを横断して問われるため、アジャイル的な出題がこのTaskに限定されるわけではありません。</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Identify value components with key stakeholders</td><td>主要ステークホルダーと共に価値の構成要素を特定する</td></tr>
+            <tr><td>Prioritize work based on value and stakeholder feedback</td><td>価値とステークホルダーからのフィードバックに基づき作業を優先順位付けする</td></tr>
+            <tr><td>Assess opportunities to deliver value incrementally</td><td>価値を段階的(インクリメンタル)に提供する機会を評価する</td></tr>
+            <tr><td>Examine the business value throughout the project</td><td>プロジェクト全体を通じてビジネス価値を検証する</td></tr>
+            <tr><td>Verify a measurement system is in place to track benefits</td><td>ベネフィットを追跡するための測定システムが整備されていることを確認する</td></tr>
+            <tr><td>Evaluate delivery options to demonstrate value</td><td>価値を実証するためのデリバリーオプションを評価する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>価値の構成要素を特定する</strong>: 「このプロジェクトが生み出す価値とは何か」をステークホルダーと一緒に明確化します。</li>
+        <li><strong>価値に基づき優先順位を付ける</strong>: バックログやタスクリストを、ビジネス価値とステークホルダーフィードバックに基づいて並び替えます。</li>
+        <li><strong>段階的デリバリーの機会を探す</strong>: 完成を待たず、価値のある単位で早期かつ頻繁にリリースできないかを検討します(MVP: Minimum Viable Product の考え方に近い)。</li>
+        <li><strong>継続的に価値を検証する</strong>: プロジェクトの節目ごとに、当初想定した価値が実際に生まれているかを確認します。</li>
+        <li><strong>測定の仕組みを確認する</strong>: ベネフィット(便益)を定量的に追跡する仕組み(KPIやベネフィットレジスタなど)が機能しているかを検証します。</li>
+        <li><strong>デリバリーオプションを評価する</strong>: 価値を証明するための最適な提供方法(段階リリース、パイロット導入等)を選びます。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「完成させること」と「価値を届けること」は同じではないと意識し、進捗の測定はアウトプット(作業量)ではなくアウトカム(成果・便益)で行う</li>
+          <li>バックログの優先順位付けは、思い込みではなくステークホルダーからの定量・定性フィードバックに基づいて定期的に見直す</li>
+          <li>ベネフィットの測定は一度きりではなく、プロジェクト完了後の運用フェーズまで見据えて計画する</li>
+          <li>早期に小さく価値を届けることで、方向性の誤りを早期発見しやすくなる</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="task3ValueCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Task3: 価値ベースデリバリーの継続的サイクル</div>
+      </div>
+
+      <h3>Task 4: 資源の計画と管理</h3>
+
+      <p><strong>原文</strong>: Plan and manage resources</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Define and plan resources based on requirements</td><td>要件に基づき資源を定義・計画する</td></tr>
+            <tr><td>Manage and optimize resource needs and availability</td><td>資源のニーズと可用性を管理・最適化する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>資源要件を定義する</strong>: 人的資源(チームメンバーのスキル・役割)、設備、資材など、プロジェクト遂行に必要な資源を要件から洗い出します。</li>
+        <li><strong>資源を計画する</strong>: いつ、誰が、どの資源をどれだけ必要とするかを計画します(資源マネジメント計画、資源カレンダー等)。</li>
+        <li><strong>需給を管理・最適化する</strong>: 実際のプロジェクト進行に伴い、資源の需要と供給(可用性)のギャップを継続的に監視し、コンフリクトが起きた際は調整・最適化します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>チームメンバーの稼働率は100%を前提にせず、他プロジェクトとの兼務や不確実性を考慮したバッファを設ける</li>
+          <li>資源の最適化は「足りない資源をどう補うか」だけでなく「過剰な資源をどう再配置するか」も含めて検討する</li>
+          <li>物理的資源(設備・資材)についても、リードタイムを考慮した調達計画と連動させる</li>
+        </ul>
+      </div>
+
+      <h3>Task 5: 調達の計画と管理</h3>
+
+      <p><strong>原文</strong>: Plan and manage procurement</p>
+
+      <p>Domain II内でEnablerが最多(10個)のTaskで、外部サプライヤー・ベンダーとの関係構築から契約管理までを幅広くカバーします。</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Plan procurement</td><td>調達を計画する</td></tr>
+            <tr><td>Execute a procurement management plan</td><td>調達マネジメント計画を実行する</td></tr>
+            <tr><td>Select preferred contract types</td><td>優先する契約タイプを選定する</td></tr>
+            <tr><td>Evaluate vendor performance</td><td>ベンダーパフォーマンスを評価する</td></tr>
+            <tr><td>Verify objectives of the procurement agreement are met</td><td>調達契約の目的が達成されていることを確認する</td></tr>
+            <tr><td>Participate in agreement negotiations</td><td>合意交渉に参加する</td></tr>
+            <tr><td>Determine a negotiation strategy</td><td>交渉戦略を決定する</td></tr>
+            <tr><td>Manage suppliers and contracts</td><td>サプライヤーと契約を管理する</td></tr>
+            <tr><td>Plan and manage the procurement strategy</td><td>調達戦略を計画・管理する</td></tr>
+            <tr><td>Develop a delivery solution</td><td>デリバリーソリューションを策定する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>調達戦略と調達自体を計画する</strong>: 何を内製し、何を外部調達するか(Make-or-Buy分析)を判断し、調達全体の戦略を立てます。</li>
+        <li><strong>契約タイプを選ぶ</strong>: 固定価格契約、実費償還契約、タイム・アンド・マテリアル契約など、リスク配分に応じた契約タイプを選定します。</li>
+        <li><strong>デリバリーソリューションを策定する</strong>: 調達を通じてどのように成果物を届けるかの具体的な方法を設計します。</li>
+        <li><strong>交渉戦略を立て、交渉に参加する</strong>: 価格・納期・品質・リスク分担などについて、事前に戦略を練った上で交渉に臨みます。</li>
+        <li><strong>調達管理計画を実行する</strong>: 契約に基づき、実際の発注・履行管理を行います。</li>
+        <li><strong>サプライヤーと契約を管理する</strong>: 契約履行状況を継続的にモニタリングします。</li>
+        <li><strong>ベンダーパフォーマンスを評価する</strong>: 品質・納期・コストの観点からベンダーの実績を評価します。</li>
+        <li><strong>契約目的の達成を確認する</strong>: 最終的に契約が本来の目的(必要な成果物・サービスの取得)を満たしたかを検証します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>契約タイプの選定は、要件の明確さ・リスク配分・変更条件の3点を比較して決める。要件が明確でリスクをベンダー側に移したい場合は固定価格が有効であり、不確実性が高い場合はフェーズ単位で固定価格を結び直す、あるいは実費償還型・タイム&amp;マテリアル型と組み合わせる、といった選択肢も検討する</li>
+          <li>交渉は一方的な価格圧縮ではなく、双方にとって持続可能な関係(Win-Winの範囲)を意識する</li>
+          <li>ベンダー評価は契約終了時だけでなく、プロジェクト期間中に定期的に実施し、早期に問題を是正する</li>
+          <li>調達文書(SOW、RFP等)は成果物の受け入れ基準まで明記し、後の解釈の相違を防ぐ</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="task5ProcurementFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Task5: 調達の計画から契約管理までの流れ</div>
+      </div>
+
+      <h3>Task 6: 財務の計画と管理</h3>
+
+      <p><strong>原文</strong>: Plan and manage finance</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Analyze project financial needs</td><td>プロジェクトの財務ニーズを分析する</td></tr>
+            <tr><td>Quantify risk and contingency financial allocations</td><td>リスクとコンティンジェンシー(予備費)の財務配分を定量化する</td></tr>
+            <tr><td>Plan spend tracking throughout the project life cycle</td><td>プロジェクトライフサイクル全体を通じた支出追跡を計画する</td></tr>
+            <tr><td>Plan financial reporting</td><td>財務報告を計画する</td></tr>
+            <tr><td>Anticipate future finance challenges</td><td>将来の財務上の課題を予測する</td></tr>
+            <tr><td>Monitor financial variations and work with the governance process</td><td>財務差異を監視し、ガバナンスプロセスと連携する</td></tr>
+            <tr><td>Manage financial reserves</td><td>財務予備を管理する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>財務ニーズを分析する</strong>: プロジェクトに必要な予算の全体像を分析します。</li>
+        <li><strong>予備費を定量化する</strong>: リスク対応のためのコンティンジェンシー予備(既知の未知に対応)とマネジメント予備(未知の未知に対応)を見積もります。</li>
+        <li><strong>支出追跡を計画する</strong>: プロジェクト期間全体を通じて、実際の支出をどう追跡・記録するかを計画します。</li>
+        <li><strong>財務報告を計画する</strong>: 誰に、どの頻度で、どのような形式で財務状況を報告するかを設計します。</li>
+        <li><strong>将来の課題を予測する</strong>: 為替変動、コスト超過リスクなど、将来起こりうる財務上の課題を先読みします。</li>
+        <li><strong>差異を監視し、ガバナンスと連携する</strong>: 予算と実績の差異を継続的に監視し、必要に応じて組織のガバナンスプロセス(承認機関等)と連携します。</li>
+        <li><strong>予備を管理する</strong>: 予備費の消費状況を管理し、必要に応じて再配分や追加承認を行います。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>コンティンジェンシー予備とマネジメント予備は目的が異なるため、混同せず別々に管理・報告する</li>
+          <li>コスト差異は発生後の事後対応ではなく、EVM(アーンドバリューマネジメント)等の手法で早期に傾向を捉える</li>
+          <li>財務報告のフォーマットと頻度は、スポンサーやガバナンス機関の意思決定サイクルに合わせて設計する</li>
+        </ul>
+      </div>
+
+      <h3>Task 7: 製品/成果物の品質計画と最適化</h3>
+
+      <p><strong>原文</strong>: Plan and optimize quality of products/deliverables</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Gather quality requirements for project deliverables</td><td>プロジェクト成果物の品質要件を収集する</td></tr>
+            <tr><td>Plan quality processes and tools</td><td>品質プロセスとツールを計画する</td></tr>
+            <tr><td>Execute a quality management plan</td><td>品質マネジメント計画を実行する</td></tr>
+            <tr><td>Help ensure regulatory compliance</td><td>規制コンプライアンスの遵守を徹底する</td></tr>
+            <tr><td>Manage cost of quality (CoQ) and sustainability</td><td>品質コスト(CoQ)とサステナビリティを管理する</td></tr>
+            <tr><td>Conduct ongoing quality reviews</td><td>継続的な品質レビューを実施する</td></tr>
+            <tr><td>Implement continuous improvement</td><td>継続的改善を実施する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>品質要件を収集する</strong>: 顧客・規制・組織標準など複数の観点から品質要件を集めます。</li>
+        <li><strong>品質プロセスとツールを計画する</strong>: どのような検査・レビュー・テスト手法(チェックリスト、統計的サンプリング等)を用いるかを計画します。</li>
+        <li><strong>規制コンプライアンスを確認する</strong>: 業界規制や法令への準拠を組み込みます。</li>
+        <li><strong>品質マネジメント計画を実行する</strong>: 計画したプロセスを実際の作業に適用します。</li>
+        <li><strong>品質コスト(CoQ)とサステナビリティを管理する</strong>: 予防コスト・評価コストと、内部/外部失敗コストのバランスを管理し、サステナビリティの観点も含めます。</li>
+        <li><strong>継続的な品質レビューを行う</strong>: 一度きりの検査ではなく、プロジェクトを通じて継続的にレビューを実施します。</li>
+        <li><strong>継続的改善を実施する</strong>: レビューで得られた知見をプロセス改善に反映します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>品質は「検査で作り込む」のではなく「プロセスで作り込む」— 予防コストへの投資は失敗コストの削減につながる</li>
+          <li>品質基準は測定可能な受け入れ基準として定義し、主観的な「良い/悪い」の判断を避ける</li>
+          <li>継続的改善はKaizenの考え方に基づき、小さな改善を積み重ねるサイクル(PDCA等)として運用する</li>
+        </ul>
+      </div>
+
+      <h3>Task 8: スケジュールの計画と管理</h3>
+
+      <p><strong>原文</strong>: Plan and manage schedule</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Prepare a schedule based on the selected development approach</td><td>選択した開発アプローチに基づきスケジュールを準備する</td></tr>
+            <tr><td>Coordinate with other projects and operations</td><td>他のプロジェクトや運用部門と調整する</td></tr>
+            <tr><td>Estimate project tasks (milestones, dependencies, story points)</td><td>プロジェクトタスクを見積もる(マイルストーン、依存関係、ストーリーポイント)</td></tr>
+            <tr><td>Utilize benchmarks and historical data</td><td>ベンチマークと過去データを活用する</td></tr>
+            <tr><td>Create a project schedule</td><td>プロジェクトスケジュールを作成する</td></tr>
+            <tr><td>Baseline a project schedule</td><td>プロジェクトスケジュールをベースライン化する</td></tr>
+            <tr><td>Execute a schedule management plan</td><td>スケジュールマネジメント計画を実行する</td></tr>
+            <tr><td>Analyze schedule variation</td><td>スケジュールの差異を分析する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>開発アプローチに応じたスケジュールを準備する</strong>: 予測型ではガントチャート形式、アジャイルではスプリント計画・リリース計画といったように、選んだアプローチに適した形式でスケジュールを準備します。</li>
+        <li><strong>他プロジェクト・運用と調整する</strong>: 共有資源や依存関係がある他プロジェクト・運用チームとスケジュールを調整します。</li>
+        <li><strong>タスクを見積もる</strong>: マイルストーン、タスク間の依存関係、(アジャイルの場合)ストーリーポイントなどを見積もります。</li>
+        <li><strong>過去データとベンチマークを活用する</strong>: 類似プロジェクトの実績データを参考に見積り精度を高めます。</li>
+        <li><strong>スケジュールを作成する</strong>: クリティカルパス法などを用いてスケジュールを作成します。</li>
+        <li><strong>ベースライン化する</strong>: 承認されたスケジュールを基準線(ベースライン)として固定します。</li>
+        <li><strong>スケジュールマネジメント計画を実行する</strong>: 計画に基づき実行・監視します。</li>
+        <li><strong>差異を分析する</strong>: 実績と計画のズレを分析し、必要な是正措置を検討します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>見積りは単一の点推定ではなく、三点見積り(楽観値・最頻値・悲観値)などで不確実性を織り込む</li>
+          <li>クリティカルパス上のタスクは特に重点的に監視し、余裕(フロート)のあるタスクと区別して管理する</li>
+          <li>ベースラインは変更管理プロセスを通じてのみ更新し、無秩序な変更を防ぐ</li>
+          <li>アジャイル環境では、固定スケジュールよりベロシティに基づく予測(リリースバーンアップ等)を用いる</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="task8ScheduleFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Task8: スケジュール計画から差異分析までの流れ</div>
+      </div>
+
+      <h3>Task 9: プロジェクト状況の評価</h3>
+
+      <p><strong>原文</strong>: Evaluate project status</p>
+
+      <p>プロジェクトの「健康状態」を継続的にチェックし、関係者に伝えるTaskです。Domain IIの中でTask3(価値提供)と並んで、プロジェクト期間中ずっと回り続けるサイクル型のTaskです。</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Develop project metrics, analysis, and reconciliation</td><td>プロジェクトのメトリクス・分析・照合の仕組みを策定する</td></tr>
+            <tr><td>Identify and tailor needed artifacts</td><td>必要な成果物(アーティファクト)を特定し、テーラリングする</td></tr>
+            <tr><td>Help ensure artifacts are created, reviewed, updated, and documented</td><td>成果物が作成・レビュー・更新・文書化されることを徹底する</td></tr>
+            <tr><td>Help ensure accessibility of artifacts</td><td>成果物へのアクセス性を確保する</td></tr>
+            <tr><td>Assess current progress</td><td>現在の進捗を評価する</td></tr>
+            <tr><td>Measure, analyze, and update project metrics</td><td>プロジェクトメトリクスを測定・分析・更新する</td></tr>
+            <tr><td>Communicate project status</td><td>プロジェクト状況をコミュニケーションする</td></tr>
+            <tr><td>Continually assess the effectiveness of artifact management</td><td>成果物管理の有効性を継続的に評価する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>メトリクスの仕組みを作る</strong>: 進捗・コスト・品質などを測るための指標(メトリクス)とその分析・照合方法を設計します。</li>
+        <li><strong>必要な成果物を特定・調整する</strong>: プロジェクトの規模や複雑さに応じて、どの成果物(ステータスレポート、ダッシュボード等)が必要かをテーラリングします。</li>
+        <li><strong>成果物のライフサイクルを管理する</strong>: 作成・レビュー・更新・文書化のサイクルが確実に回るようにします。</li>
+        <li><strong>アクセス性を確保する</strong>: 関係者が必要な情報に必要なタイミングでアクセスできるようにします(情報の透明性)。</li>
+        <li><strong>現状を評価する</strong>: 実際の進捗を客観的に評価します。</li>
+        <li><strong>メトリクスを測定・更新する</strong>: 定期的にデータを収集し、指標を更新します。</li>
+        <li><strong>状況をコミュニケーションする</strong>: 評価結果を適切な相手に、適切な形式・頻度で伝えます。</li>
+        <li><strong>成果物管理の有効性を継続評価する</strong>: 使っている報告・管理の仕組み自体が本当に機能しているかを見直します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>進捗評価は「作業がどれだけ終わったか」だけでなく「価値がどれだけ届いたか」を含めて評価する(Task3との連動)</li>
+          <li>レポートは受け手(経営層・チーム・顧客)ごとに粒度と形式を変える(One-size-fits-allにしない)</li>
+          <li>悪い知らせ(赤信号)ほど早く、正確に共有する文化を作る</li>
+          <li>成果物やレポートのテンプレートは定期的に見直し、実際に読まれていない/使われていないものは廃止する</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="task9StatusCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Task9: プロジェクト状況評価の継続的サイクル</div>
+      </div>
+
+      <h3>Task 10: プロジェクト終結の管理</h3>
+
+      <p><strong>原文</strong>: Manage project closure</p>
+
+      <p>プロジェクトまたはフェーズを適切に締めくくるTaskです。単なる「作業の終わり」ではなく、承認・検証・移行・教訓の記録までを含みます。</p>
+
+      <h4>Enabler(業務例)一覧</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(原文)</th><th>日本語訳</th></tr></thead>
+          <tbody>
+            <tr><td>Obtain project stakeholder approval of project completion</td><td>プロジェクト完了についてステークホルダーの承認を取得する</td></tr>
+            <tr><td>Determine criteria to successfully close the project or phase</td><td>プロジェクト/フェーズを正常に終結するための基準を決定する</td></tr>
+            <tr><td>Validate readiness for transition (e.g., to operations team or next phase)</td><td>移行(運用チームや次フェーズ等へ)への準備状況を検証する</td></tr>
+            <tr><td>Conclude activities to close the project or phase (e.g., final lessons learned, retrospectives, procurement, financials, resources)</td><td>プロジェクト/フェーズを終結するための活動を完了する(最終的な教訓、振り返り、調達、財務、資源等)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向けステップ解説</h4>
+
+      <ol>
+        <li><strong>完了承認を得る</strong>: 成果物がスコープ・品質基準を満たしていることをステークホルダーに確認してもらい、正式な承認を取得します。</li>
+        <li><strong>終結基準を決定する</strong>: 何をもって「終わった」とみなすかの基準を明確にします(契約上の完了条件、受け入れテストの合格等)。</li>
+        <li><strong>移行準備を検証する</strong>: 運用チームへの引き継ぎや次フェーズへの移行に必要な準備(ドキュメント、トレーニング、サポート体制等)が整っているかを確認します。</li>
+        <li><strong>終結活動を完了する</strong>: 最終的な教訓(レッスンズラーンド)の記録、振り返り(レトロスペクティブ)、契約の終了処理、財務の最終精算、資源(人員・設備)の解放など、一連の締めくくり作業を実施します。</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>終結基準はプロジェクト開始時(計画段階)にあらかじめ定義しておき、終結間際に場当たり的に決めない</li>
+          <li>教訓(レッスンズラーンド)はプロジェクトの最後だけでなく、フェーズ・イテレーションごとに記録し、組織のナレッジとして蓄積する</li>
+          <li>契約や調達の終結では、未解決の請求・保証条項などを漏れなく確認する</li>
+          <li>チームメンバーの次のアサインへのスムーズな移行にも配慮し、燃え尽き(バーンアウト)を防ぐ</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="task10ClosureFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Task10: プロジェクト終結管理の流れ</div>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Learning Roadmap ===================== -->
+    <section id="learning-roadmap">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 06</div>
+      <h2>Domain II 学習ロードマップとタスク間の関係</h2>
+
+      <p>10のTaskを個別に暗記するのではなく、以下のような「循環構造」として理解すると記憶に定着しやすくなります。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="domainIiRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Domain II 全体の学習ロードマップ(Task間の関係)</div>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>BRANCHノードは「同時並行で計画されうる複数の補助計画」を表現するための分岐点であり、実務上は資源・調達・財務・品質・スケジュールの計画は多くの場合並行して進みます。</p>
+      </div>
+
+      <p>学習の際は、以下の順序で押さえると効率的です。</p>
+
+      <ol>
+        <li><strong>土台となる3つ(Task1, 2, 9)</strong>: 統合計画・スコープ・状況評価は他の全Taskの前提や着地点になるため、最優先で理解する</li>
+        <li><strong>専門領域(Task4〜8)</strong>: 資源・調達・財務・品質・スケジュールは、それぞれ独立した専門知識(契約タイプ、CoQ、EVM等)を含むため個別に深掘りする</li>
+        <li><strong>価値と終結(Task3, 10)</strong>: プロジェクトの「目的」と「締めくくり」に関わるTaskとして、他のTaskとどう連動するかを意識する</li>
+      </ol>
+    </section>
+
+    <!-- ===================== 7. Exam Tips ===================== -->
+    <section id="exam-tips">
+      <div class="section-eyebrow"><i class="ti ti-bulb"></i>SECTION 07</div>
+      <h2>試験対策のポイント</h2>
+
+      <h3>7-1. Domain IIならではの出題傾向</h3>
+
+      <ul>
+        <li>Domain IIは<strong>41%と出題比率が最大</strong>であるため、10Task全体をバランスよく学習することが合格への近道です。特定のTask(例えば人気の高い調達やスケジュール)に偏らないよう注意しましょう。</li>
+        <li>出題形式には<strong>ケース/シナリオ形式</strong>や<strong>グラフィックベース問題</strong>といった新形式が導入されています。単なる用語の暗記ではなく、シナリオの中で「次に何をすべきか」を判断する能力が問われます。</li>
+        <li>出題の約60%は<strong>アジャイル・ハイブリッドのアプローチ</strong>を含むため、予測型の知識だけでは不十分です。この比率は試験全体の目安であり、アジャイル的な出題は全Domain・全Taskに分散します。Task3(価値ベースデリバリー)やTask8(開発アプローチに応じたスケジューリング)は、その考え方が表れやすい例として押さえておくとよいでしょう。</li>
+      </ul>
+
+      <h3>7-2. 学習の進め方の提案</h3>
+
+      <ul>
+        <li>各TaskのEnablerを「暗記」するのではなく、「なぜこの業務が必要なのか」を実務のストーリーとして理解する</li>
+        <li>ケーススタディ形式の問題に慣れるため、単純な用語問題だけでなくシナリオベースの練習問題に取り組む</li>
+        <li>Domain I(People)・Domain III(Business Environment)ともTaskが連動している(例: Task9の状況評価とDomain IIIのガバナンス・コンプライアンスは密接に関連)ため、Domain単位で学習を分断しすぎない</li>
+      </ul>
+
+      <h3>7-3. 受験資格・申請の概要(参考)</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学歴要件</th><th>必要なプロジェクトマネジメント実務経験</th></tr></thead>
+          <tbody>
+            <tr><td>高校卒業相当</td><td>過去10年で60ヶ月(5年)</td></tr>
+            <tr><td>準学士・高等専門課程修了相当</td><td>過去10年で48ヶ月(4年)</td></tr>
+            <tr><td>学士号以上</td><td>過去10年で36ヶ月(3年)</td></tr>
+            <tr><td>PMI GAC認定プログラムの学位</td><td>過去10年で24ヶ月(2年)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>いずれの要件でも、<strong>35時間以上のプロジェクトマネジメント関連の商業トレーニング</strong>の受講が必要です(アクティブなCAPM®保有者はこの要件が免除されます)。</p>
+    </section>
+
+    <!-- ===================== 8. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 08</div>
+      <h2>参考文献・ソース一覧</h2>
+
+      <p>本ガイドの内容は、以下のPMI公式情報を一次情報源としています。数値・出題比率・Task/Enablerの内容に関する最新情報は、必ず公式サイトでもご確認ください。</p>
+
+      <div class="ref-group">
+        <h4>情報源一覧</h4>
+        <ul class="ref-list">
+          <li>
+            <span class="ref-name">Project Management Professional (PMP)® Examination Content Outline – July 2026(PMI公式ECO文書) — Domain II: Process のTask/Enabler全項目、出題比率、試験フォーマット、受験資格要件の一次情報源</span>
+            <a class="ref-url" href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b618cf45573e4276a54151e7636c97bf" target="_blank" rel="noopener">https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b618cf45573e4276a54151e7636c97bf</a>
+          </li>
+          <li>
+            <span class="ref-name">Project Management Professional (PMP)® Certification | PMI(PMP認定公式ページ) — 試験概要、Domain別出題比率のサマリー、受験資格・トレーニング要件、サンプル問題</span>
+            <a class="ref-url" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">https://www.pmi.org/certifications/project-management-pmp</a>
+          </li>
+          <li>
+            <span class="ref-name">PMBOK® Guide(PMI公式標準ガイド概要ページ) — ECOが前提とする、プロジェクトマネジメントの原則・知識体系の参照先</span>
+            <a class="ref-url" href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">https://www.pmi.org/standards/pmbok</a>
+          </li>
+          <li>
+            <span class="ref-name">Pearson VUE(PMP試験の試験会場情報) — 試験会場の検索・予約に関する公式情報</span>
+            <a class="ref-url" href="https://www.pearsonvue.com/us/en/pmi.html" target="_blank" rel="noopener">https://www.pearsonvue.com/us/en/pmi.html</a>
+          </li>
+          <li>
+            <span class="ref-name">PMI 認定資格の維持(CCR: Continuing Certification Requirements) — PMP資格取得後、3年ごとに60PDU取得による資格維持に関する公式情報</span>
+            <a class="ref-url" href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener">https://www.pmi.org/certifications/certification-resources/maintain</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>免責事項</div>
+        <p>本ガイドはPMI公式のECO(2026年7月改訂版)を基に作成した学習補助資料であり、PMI公式の教材そのものではありません。試験内容は改訂される可能性があるため、受験前に必ずPMI公式サイトで最新のECOをご確認ください。</p>
+      </div>
+    </section>
+
+    <footer>
+      本ガイドはPMI公式のPMP® Examination Content Outline(ECO、2026年7月改訂版)を一次情報源として作成した非公式の学習補助資料です。PMP®、PMI®、PMBOK® は Project Management Institute, Inc. の登録商標です。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    examDomainPie: `pie showData
+    title PMP試験 Domain別出題比率
+    "Process" : 41
+    "People" : 33
+    "Business Environment" : 26`,
+    ecoStructureFlow: `flowchart TB
+    D["Domain<br/>プロセスに不可欠な<br/>ハイレベル知識領域"] --> T["Task<br/>統合プロジェクトマネジメント<br/>計画の作成とデリバリー計画"]
+    T --> E1["Enabler<br/>ニーズ・複雑さ・規模を評価"]
+    T --> E2["Enabler<br/>開発アプローチを推奨"]
+    T --> E3["Enabler<br/>統合計画を作成・維持"]`,
+    tenTaskGroupMap: `flowchart TB
+    subgraph PLAN["計画の基盤づくり"]
+        direction TB
+        T1["Task1 統合計画"]
+        T2["Task2 スコープ"]
+        T4["Task4 資源"]
+        T5["Task5 調達"]
+        T6["Task6 財務"]
+        T7["Task7 品質"]
+        T8["Task8 スケジュール"]
+    end
+    subgraph DELIVER["価値の提供"]
+        T3["Task3 価値ベースデリバリー"]
+    end
+    subgraph MONITOR["状況の評価"]
+        T9["Task9 状況評価"]
+    end
+    subgraph CLOSE["終結"]
+        T10["Task10 終結管理"]
+    end
+    T1 --> T2
+    T2 --> T4
+    T2 --> T5
+    T2 --> T6
+    T2 --> T7
+    T2 --> T8
+    T4 --> T3
+    T5 --> T3
+    T6 --> T3
+    T7 --> T3
+    T8 --> T3
+    T3 --> T9
+    T9 -.->|継続的サイクル| T3
+    T9 --> T10`,
+    task1StepsFlow: `flowchart LR
+    A["プロジェクトの<br/>ニーズ・複雑さ・<br/>規模を評価"] --> B["開発アプローチを推奨<br/>(予測型/アジャイル/<br/>ハイブリッド)"]
+    B --> C["重要な情報要件を決定<br/>(例: サステナビリティ)"]
+    C --> D["プロジェクト<br/>実行戦略を推奨"]
+    D --> E["統合プロジェクト<br/>マネジメント計画を作成"]
+    E --> F["工数・資源要件を<br/>見積もる"]
+    F --> G["依存関係・ギャップ・<br/>ビジネス価値を評価"]
+    G --> H["統合計画を<br/>維持・更新"]
+    H --> I["データを収集・分析し<br/>意思決定"]
+    I -.->|継続的フィードバック| G`,
+    task3ValueCycle: `flowchart LR
+    A["主要ステークホルダーと<br/>価値の構成要素を特定"] --> B["価値とフィードバックに<br/>基づき作業を<br/>優先順位付け"]
+    B --> C["段階的な価値提供の<br/>機会を評価"]
+    C --> D["プロジェクト全体を<br/>通じてビジネス価値を検証"]
+    D --> E["ベネフィット追跡の<br/>測定システムを確認"]
+    E --> F["価値を実証する<br/>デリバリーオプションを評価"]
+    F -.->|継続的サイクル| A`,
+    task5ProcurementFlow: `flowchart TB
+    A["調達を計画"] --> B["調達戦略を<br/>計画・管理"]
+    B --> C["優先する契約タイプを<br/>選定"]
+    C --> D["デリバリーソリューションを<br/>策定"]
+    D --> E["交渉戦略を決定"]
+    E --> F["合意交渉に参加"]
+    F --> G["調達マネジメント計画を<br/>実行"]
+    G --> H["サプライヤーと<br/>契約を管理"]
+    H --> I["ベンダーパフォーマンスを<br/>評価"]
+    I --> J["調達契約の目的達成を<br/>確認"]`,
+    task8ScheduleFlow: `flowchart LR
+    A["開発アプローチに基づき<br/>スケジュールを準備"] --> B["他プロジェクト・<br/>運用と調整"]
+    B --> C["タスクを見積もる<br/>(マイルストーン/依存関係/<br/>ストーリーポイント)"]
+    C --> D["ベンチマークと<br/>過去データを活用"]
+    D --> E["プロジェクト<br/>スケジュールを作成"]
+    E --> F["スケジュールを<br/>ベースライン化"]
+    F --> G["スケジュール<br/>マネジメント計画を実行"]
+    G --> H["スケジュールの<br/>差異を分析"]
+    H -.->|見積り精度の改善| C`,
+    task9StatusCycle: `flowchart TB
+    A["メトリクス・分析・<br/>照合の仕組みを策定"] --> B["必要な成果物を<br/>特定・テーラリング"]
+    B --> C["成果物の作成・レビュー・<br/>更新・文書化を徹底"]
+    C --> D["成果物への<br/>アクセス性を確保"]
+    D --> E["現在の進捗を評価"]
+    E --> F["メトリクスを<br/>測定・分析・更新"]
+    F --> G["プロジェクト状況を<br/>コミュニケーション"]
+    G --> H["成果物管理の<br/>有効性を継続評価"]
+    H -.->|次のサイクルへ| A`,
+    task10ClosureFlow: `flowchart LR
+    A["プロジェクト完了について<br/>ステークホルダーの<br/>承認を取得"] --> B["終結の基準を決定"]
+    B --> C["移行への準備状況を検証<br/>(運用チーム/次フェーズ等)"]
+    C --> D["終結活動を完了<br/>(教訓・振り返り・調達・<br/>財務・資源の解放等)"]`,
+    domainIiRoadmap: `flowchart TB
+    START(["プロジェクト開始"]) --> T1["Task1<br/>統合計画の作成"]
+    T1 --> T2["Task2<br/>スコープの策定"]
+    T2 --> BRANCH{"補助計画を<br/>並行して展開"}
+    BRANCH --> T4["Task4 資源"]
+    BRANCH --> T5["Task5 調達"]
+    BRANCH --> T6["Task6 財務"]
+    BRANCH --> T7["Task7 品質"]
+    BRANCH --> T8["Task8 スケジュール"]
+    T4 --> T3["Task3<br/>価値ベースデリバリー<br/>(継続サイクル)"]
+    T5 --> T3
+    T6 --> T3
+    T7 --> T3
+    T8 --> T3
+    T3 --> T9["Task9<br/>状況評価<br/>(継続サイクル)"]
+    T9 -.->|フィードバック| T3
+    T9 --> T10["Task10<br/>終結管理"]
+    T10 --> END(["プロジェクト完了"])`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
