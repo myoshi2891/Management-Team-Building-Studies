@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "introduction",
@@ -24,8 +25,6 @@ function closeSidebar(): void {
   sidebarOpen.value = false;
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
-
-import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 useSeoMeta({
   title: "ダイナミック・リチーミング実践ガイド ｜ 変化に強いチームをつくるステップ・バイ・ステップのベストプラクティス",

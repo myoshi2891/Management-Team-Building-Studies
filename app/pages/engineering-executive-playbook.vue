@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "what-is-eng-exec",
@@ -26,8 +27,6 @@ function closeSidebar(): void {
   sidebarOpen.value = false;
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
-
-import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 useSeoMeta({
   title: "エンジニアリング統括責任者の手引き | 初学者のためのステップバイステップ・ベストプラクティス",
