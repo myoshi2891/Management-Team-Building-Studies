@@ -26,6 +26,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/certified-associate-in-project-management-domain1", categoryId: "project-management", navLabel: "CAPM ドメイン1" },
       { to: "/certified-associate-in-project-management-domain2", categoryId: "project-management", navLabel: "CAPM ドメイン2" },
       { to: "/capm-domain3-agile-frameworks-guide", categoryId: "project-management", navLabel: "CAPM ドメイン3" },
+      { to: "/capm-domain4-business-analysis-frameworks", categoryId: "project-management", navLabel: "CAPM ドメイン4" },
       { to: "/pmp-certification-guide", categoryId: "project-management", navLabel: "PMP 完全攻略" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", navLabel: "EM キャリアパス" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", navLabel: "チームリード術" },
@@ -57,7 +58,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "PMP 完全攻略"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略"],
       },
       {
         id: "engineering-management",

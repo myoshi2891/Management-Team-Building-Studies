@@ -72,6 +72,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CAPM® ドメイン4: ビジネス分析フレームワーク",
+        category: "PROJECT MANAGEMENT",
+        href: "/capm-domain4-business-analysis-frameworks",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "PMP® 認定試験 完全攻略ガイド",
         category: "PROJECT MANAGEMENT",
         href: "/pmp-certification-guide",
