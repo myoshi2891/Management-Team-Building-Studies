@@ -66,6 +66,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CAPM® ドメイン3: アジャイルフレームワーク/方法論",
+        category: "PROJECT MANAGEMENT",
+        href: "/capm-domain3-agile-frameworks-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "PMP® 認定試験 完全攻略ガイド",
         category: "PROJECT MANAGEMENT",
         href: "/pmp-certification-guide",

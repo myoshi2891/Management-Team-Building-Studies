@@ -64,6 +64,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CAPM 完全ガイド", href: "/capm" },
       { label: "CAPM ドメイン1", href: "/certified-associate-in-project-management-domain1" },
       { label: "CAPM ドメイン2", href: "/certified-associate-in-project-management-domain2" },
+      { label: "CAPM ドメイン3", href: "/capm-domain3-agile-frameworks-guide" },
       { label: "PMP 完全攻略", href: "/pmp-certification-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
@@ -87,6 +88,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/capm",
       "/certified-associate-in-project-management-domain1",
       "/certified-associate-in-project-management-domain2",
+      "/capm-domain3-agile-frameworks-guide",
       "/pmp-certification-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
