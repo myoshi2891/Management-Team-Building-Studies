@@ -105,7 +105,7 @@ flowchart TD
 
 ## 4. Team Leader Manifesto（チームリーダーの行動指針）
 
-著者は、日々の判断に迷ったときの「モラルコンパス」として、**Team Leader Manifesto（チームリーダー・マニフェスト）**という短い価値観の宣言をまとめています。このマニフェストは現在も5whys.comで継続的に改訂が続けられているオープンな文書です。要旨は次の4本柱に整理できます。
+著者は、日々の判断に迷ったときの「モラルコンパス」として、**Team Leader Manifesto（チームリーダー・マニフェスト）**という短い価値観の宣言をまとめています。このマニフェストは著者のブログ 5whys.com で公開されており、本ガイドが参照した公開版は Take #4 です。要旨は次の4本柱に整理できます。
 
 ```mermaid
 flowchart TD
@@ -271,7 +271,7 @@ Elastic Leadershipの本質は、「良いリーダーシップスタイルが�
 | 1 | Manning Publications（書籍公式ページ） | 出版社公式情報 | https://www.manning.com/books/elastic-leadership |
 | 2 | Elastic Leadership 公式サイト（Roy Osherove） | 著者公式サイト | https://www.elasticleadership.com/ |
 | 3 | 5 Whys（Roy Osheroveのブログ／本フレームワークの発祥地） | 著者ブログ | https://www.5whys.com/ |
-| 4 | Team Leader Manifesto - Take #4（最新改訂版） | 著者ブログ | https://www.5whys.com/articles/team-leader-manifesto-take-4.html |
+| 4 | Team Leader Manifesto - Take #4（本ガイドが参照した公開版） | 著者ブログ | https://www.5whys.com/articles/team-leader-manifesto-take-4.html |
 | 5 | Roy Osherove 個人サイト | 著者公式サイト | https://osherove.com/ |
 | 6 | InfoQ「Q&A on the Book Elastic Leadership」（Ben Linders によるインタビュー） | 国際的技術メディア記事 | https://www.infoq.com/articles/book-review-elastic-leadership/ |
 | 7 | InfoQ「Team Leadership in the Age of Agile」（カンファレンス講演） | 国際的技術メディア講演 | https://www.infoq.com/presentations/Team-Leadership-in-the-Age-of-Internet/ |
