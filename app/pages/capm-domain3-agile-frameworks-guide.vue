@@ -186,22 +186,24 @@ class ACCEPT done;`;
 </script>
 
 <template>
-  <button
-    ref="sidebarToggle"
-    class="sidebar-toggle"
-    type="button"
-    aria-label="目次を開閉する"
-    :aria-expanded="String(sidebarOpen)"
-    aria-controls="sidebar"
-    @click="sidebarOpen = !sidebarOpen"
-  >
-    <Icon name="tabler:menu-2" />
-  </button>
+  <div class="capm-domain3-page">
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      class="sidebar-toggle"
+      type="button"
+      aria-label="目次を開閉する"
+      :aria-expanded="sidebarOpen ? 'true' : 'false'"
+      aria-controls="sidebar"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" />
+    </button>
 
-<div class="layout">
+    <div class="layout">
 
-  <!-- ===================== Sidebar ===================== -->
-  <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
+      <!-- ===================== Sidebar ===================== -->
+      <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
     <div class="sidebar-brand">
       <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
@@ -916,6 +918,7 @@ class ACCEPT done;`;
 
   </main>
 </div>
+  </div>
 </template>
 
 <style scoped>
