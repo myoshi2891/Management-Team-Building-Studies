@@ -205,6 +205,16 @@ export const GUIDES = [
     icon: "tabler:users-group",
     accent: "plum",
   },
+  {
+    to: "/team-topologies-guide",
+    categoryId: "team-building",
+    navLabel: "Team Topologies",
+    title: "Team Topologies 実践ガイド",
+    description: "Matthew Skelton氏とManuel Pais氏が提唱したTeam Topologiesを、コンウェイの法則から導入ロードマップまで初学者向けにステップバイステップで解説する。",
+    meta: "15セクション",
+    icon: "tabler:topology-star-3",
+    accent: "indigo",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {
