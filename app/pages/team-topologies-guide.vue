@@ -143,13 +143,14 @@ const DIAGRAM_ROADMAP = `flowchart TB
 </script>
 
 <template>
-<button
+  <div>
+    <button
     ref="sidebarToggle"
     type="button"
     class="sidebar-toggle"
     aria-label="目次を開閉する"
     aria-controls="sidebar"
-    :aria-expanded="String(sidebarOpen)"
+    :aria-expanded="sidebarOpen ? 'true' : 'false'"
     @click="sidebarOpen = !sidebarOpen"
   >
     <Icon name="tabler:menu-2" />
@@ -777,7 +778,8 @@ const DIAGRAM_ROADMAP = `flowchart TB
     </footer>
 
   </main>
-</div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
