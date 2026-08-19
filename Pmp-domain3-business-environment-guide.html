@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMP® Domain III: Business Environment 完全ガイド | 初学者向けステップバイステップ解説</title>
+<meta name="description" content="PMI公式ECO(2026年7月改定版)に基づき、PMP試験Domain III: Business Environment(26%)の8つのTaskを初学者向けに解説。Mermaid図解とベストプラクティス付きの学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PMP® Domain III ガイド</div>
+        <div class="brand-subtitle">Business Environment 徹底解説</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#how-to-use"><i class="ti ti-file-text"></i>この記事の使い方</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>用語ミニ辞典</a></li>
+      <li><a href="#domain3-overview"><i class="ti ti-chart-pie"></i>Domain IIIの全体像</a></li>
+      <li><a href="#business-environment-tasks"><i class="ti ti-list-check"></i>8つのTaskを理解する</a></li>
+      <li><a href="#task-summary"><i class="ti ti-flag-3"></i>全体まとめ表</a></li>
+      <li><a href="#study-tips"><i class="ti ti-map-2"></i>学習のポイント</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PMI公式ECO 2026年7月改定版に基づく解説</div>
+      <h1>PMP® Domain III: Business Environment 徹底解説ガイド</h1>
+      <p class="hero-lede">
+        本ガイドはPMI(Project Management Institute)が公開するPMP® Certification Exam Content Outline – July 2026 Updateおよび、PMI公式サイトのPMP認定ページを一次情報源として、PMP試験の3ドメインのうちDomain III: Business Environment(ビジネス環境)を初学者向けにステップバイステップで解説するものです。原文の丸写しではなく、内容を咀嚼し直したうえで実務的な解説とベストプラクティスを付加しています。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">180問</div><div class="stat-label">PMP試験の総問題数(240分)</div></div>
+        <div class="stat-card"><div class="stat-number">26%</div><div class="stat-label">Domain III Business Environmentの出題比率</div></div>
+        <div class="stat-card"><div class="stat-number">約47問</div><div class="stat-label">Domain IIIからの出題数の目安</div></div>
+        <div class="stat-card"><div class="stat-number">8つ</div><div class="stat-label">Domain IIIを構成するTask数</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは教育・学習目的で作成された非公式の解説資料であり、PMI公式の教材・模擬試験・受験対策コースを代替するものではありません。PMP認定試験の内容・出題比率・受験資格は改定される可能性があるため、学習を開始する前に必ず<a href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">PMI公式サイト</a>で最新版のECO(Exam Content Outline)をご確認ください。本ガイドは2026年7月改定版ECOの内容に基づいています。
+      </div>
+    </div>
+
+    <!-- ===================== 01. How to Use This Guide ===================== -->
+    <section id="how-to-use">
+      <div class="section-eyebrow"><i class="ti ti-file-text"></i>SECTION 01</div>
+      <h2>この記事の使い方</h2>
+
+      <ul>
+        <li><strong>対象読者:</strong> PMP受験を検討し始めた初学者、Domain IIIの学習を始めたい方</li>
+        <li><strong>前提知識:</strong> 不要(用語はすべて解説します)</li>
+        <li><strong>図解ルール:</strong> すべてMermaidのフローチャートで表現し、ASCIIアートは使用していません。比較・整理はすべて表で表現しています</li>
+        <li><strong>情報の基準日:</strong> 2026年7月改定版ECO(Exam Content Outline)に基づく</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 02. Glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 02</div>
+      <h2>Part 0. 用語ミニ辞典</h2>
+
+      <p>Domain IIIの解説に入る前に、頻出する専門用語を先に押さえておきましょう。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>読み方・意味</th></tr></thead>
+          <tbody>
+            <tr><td>ECO(Exam Content Outline)</td><td>PMP試験の出題範囲を定義した公式文書。Domain・Task・Enablerの3階層で構成される</td></tr>
+            <tr><td>JTA(Job Task Analysis)</td><td>PMIが実施する職務分析。実際のプロジェクトマネージャーの業務実態を調査し、ECOの土台とする</td></tr>
+            <tr><td>PMBOK® Guide</td><td>PMIが発行するプロジェクトマネジメントの知識体系ガイド。ECOとは目的が異なる(後述)</td></tr>
+            <tr><td>OPA(Organizational Process Assets)</td><td>組織のプロセス資産。過去のテンプレート、手順書、教訓データベースなど組織に蓄積されたノウハウ</td></tr>
+            <tr><td>CCB(Change Control Board)</td><td>変更管理委員会。変更要求を評価し承認・却下を判断する機関</td></tr>
+            <tr><td>PDU(Professional Development Unit)</td><td>資格維持に必要な継続教育単位。認定後3年ごとに60PDUの取得が必要</td></tr>
+            <tr><td>予測型アプローチ(Predictive)</td><td>従来型のウォーターフォール型開発アプローチ。要件を事前に確定してから計画・実行する</td></tr>
+            <tr><td>適応型 / アジャイル(Adaptive/Agile)</td><td>短いイテレーションで計画と実行を繰り返す開発アプローチ</td></tr>
+            <tr><td>ハイブリッド(Hybrid)</td><td>予測型とアジャイルを組み合わせたアプローチ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 03. Domain III Overview ===================== -->
+    <section id="domain3-overview">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 03</div>
+      <h2>Part 1. Domain IIIの全体像を掴む</h2>
+
+      <h3>1-1. PMP試験全体におけるDomain IIIの位置づけ</h3>
+
+      <p>PMP試験は3つのDomain(領域)から構成されており、それぞれに出題比率が決められています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Domain</th><th>名称</th><th>出題比率</th></tr></thead>
+          <tbody>
+            <tr><td>Domain I</td><td>People(人)</td><td>33%</td></tr>
+            <tr><td>Domain II</td><td>Process(プロセス)</td><td>41%</td></tr>
+            <tr><td>Domain III</td><td><strong>Business Environment(ビジネス環境)</strong></td><td><strong>26%</strong></td></tr>
+            <tr><td>合計</td><td>—</td><td>100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>試験全体は180問(うち10問はスコアに影響しないプレテスト問題)、制限時間240分(4時間)で構成されます。単純計算では、180問中およそ47問前後がDomain IIIに関連する内容として出題される計算になります。</p>
+
+      <p>Domain IIIは3つのDomainの中では出題比率が最も低いものの、<strong>プロジェクトが組織・法規制・市場といった「外側の世界」とどう向き合うか</strong>を扱う領域であり、ガバナンス・コンプライアンス・リスク・変更管理・組織変革など、プロジェクトマネージャーが避けて通れない重要テーマを網羅しています。</p>
+
+      <p>以下は3つのDomainの構造をシンプルに図示したものです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="examOverview"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PMP試験の3ドメインとDomain IIIの8つのTaskの全体像</div>
+      </div>
+
+      <h3>1-2. Domain・Task・Enablerという3階層構造を理解する</h3>
+
+      <p>PMIのECOは、出題範囲を次の3階層で定義しています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階層</th><th>定義</th><th>具体例(People Domainより)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Domain(ドメイン)</strong></td><td>プロジェクトマネジメントの実務に不可欠な、高いレベルの知識領域</td><td>People(人)</td></tr>
+            <tr><td><strong>Task(タスク)</strong></td><td>そのDomain内でプロジェクトマネージャーが担う責務</td><td>「知識移転を確実にする」</td></tr>
+            <tr><td><strong>Enabler(イネーブラー)</strong></td><td>そのTaskに関連する具体的な業務例(網羅的リストではなく代表例)</td><td>「プロジェクトに不可欠な知識を特定する」「知識を収集する」「知識移転が起きる環境を醸成する」</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>つまり、試験問題はEnablerそのものを丸暗記させるのではなく、<strong>「このTaskの状況で、プロジェクトマネージャーとしてどう行動するのが最も適切か」</strong>を問うシナリオ形式で出題されます。Enablerはあくまで「Taskが具体的にどんな業務を含むかを理解するためのヒント」として位置づけられています。</p>
+
+      <h3>1-3. ECOとPMBOK® Guideの違い</h3>
+
+      <p>初学者が混同しやすいポイントとして、ECOとPMBOK® Guideは目的が異なります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>ECO(試験内容基準)</th><th>PMBOK® Guide</th></tr></thead>
+          <tbody>
+            <tr><td>位置づけ</td><td>実際のプロジェクトマネージャーの職務分析(JTA)に基づく試験の出題範囲</td><td>原則やプロセス、共通の技術領域を体系化した知識ガイド</td></tr>
+            <tr><td>問い方</td><td>経験に基づくシナリオ問題で、状況に対する適切な行動を問う</td><td>知識・プロセス・成果物の体系を学ぶための参考書</td></tr>
+            <tr><td>対応関係</td><td>JTA(職務分析)と実務経験に基づいて作成されており、PMBOK® Guideの特定の章や記述と1対1で対応しているわけではない</td><td>学習の参考資料の一つであって、ECOを定義する文書ではない。試験問題も必ずしもPMBOK® Guideの用語通りには出題されない</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>つまり、Domain IIIを学習する際も「PMBOK® Guideの章立てを丸暗記する」のではなく、「実際のプロジェクト現場でガバナンスやリスクにどう向き合うか」という実務的な視点を持つことが重要です。</p>
+
+      <h3>1-4. 開発アプローチとDomain IIIの関係</h3>
+
+      <p>ECOでは、予測型・適応型(アジャイル)・ハイブリッドという3つの開発アプローチが、特定のDomainに偏ることなく3つのDomainすべてに横断的に出題されると明記されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アプローチ</th><th>出題比率の目安</th></tr></thead>
+          <tbody>
+            <tr><td>予測型(Predictive)</td><td>約40%</td></tr>
+            <tr><td>適応型(Agile) + ハイブリッド(Hybrid)の合計</td><td>約60%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Domain IIIでも3つのアプローチすべてが出題されます。ただし上記の約40% / 約60%はあくまで試験全体としての目安であり、Domain III内の内訳を定めたものではありません。たとえば「変更の管理と統制(Task 3)」は、予測型プロジェクトではCCBによる正式な変更管理プロセスとして出題される一方、アジャイル環境ではプロダクトバックログの優先順位付けという形で出題される可能性があります。学習の際は、<strong>1つのTaskについて予測型・アジャイル両方の実務パターンを押さえる</strong>意識を持つと得点力が上がります。</p>
+    </section>
+
+    <!-- ===================== 04. The Eight Tasks ===================== -->
+    <section id="business-environment-tasks">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 04</div>
+      <h2>Part 2. Business Environmentの8つのTaskを1つずつ理解する</h2>
+
+      <p>Domain IIIは以下の8つのTaskで構成されています。ここから1つずつ、初学者向けに丁寧に解説していきます。</p>
+
+      <h3>Task 1. プロジェクトガバナンスの定義と確立</h3>
+
+      <p><strong>Taskの主旨:</strong> プロジェクトの意思決定の枠組み(誰が・何を・どうやって決めるか)を定義し、確立すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>OPAを活用して、構造・ルール・手続き・報告・倫理・ポリシーを記述し確立する</td><td>ゼロから作るのではなく、組織に蓄積された過去のガバナンステンプレートやルールを再利用するのが基本</td></tr>
+            <tr><td>成功指標(success metrics)を定義する</td><td>「プロジェクトが成功したと言える状態」を事前に数値・基準として合意しておく</td></tr>
+            <tr><td>ガバナンスのエスカレーションパスとしきい値を明確化する</td><td>「どのレベルの問題が、誰の判断を仰ぐべきか」をあらかじめ決めておく</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>「ガバナンス(governance)」と聞くと堅苦しく感じるかもしれませんが、要は<strong>「このプロジェクトでは誰がどんな権限を持ち、どうやって物事を決めるのか」というルールブック</strong>のことです。ガバナンスが曖昧なプロジェクトでは、誰の承認を得ればよいか分からず意思決定が滞ったり、逆に権限のない人が勝手に重要な決定を下してしまったりします。</p>
+
+      <p>ガバナンス構造には一般的に、スポンサー、ステアリングコミッティ(運営委員会)、PMO(プロジェクトマネジメントオフィス)、プロジェクトマネージャー、プロジェクトチームといった階層が関わります。プロジェクトマネージャーの役割は、この構造を実際に機能させ、報告ルールや倫理規範、エスカレーションのしきい値(例: 予算超過が10%を超えたら上位層に報告する、など)を具体的に定義することです。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>ガバナンス構造とステークホルダーの権限を、プロジェクト憲章(Project Charter)の段階でスポンサーと合意しておく</li>
+          <li>RACIチャートや意思決定権限マトリクス(Decision Rights Matrix)を用いて、誰が実行責任者(Responsible)で誰が説明責任者(Accountable)かを明確にする</li>
+          <li>成功指標はビジネス価値・アウトカムに紐づけ、単なるスコープ・スケジュール・コストだけに偏らせない</li>
+          <li>エスカレーションのしきい値は数値(コスト超過率、スケジュール遅延日数など)で事前定義し、属人的な判断に頼らない</li>
+          <li>過去プロジェクトのOPA(ガバナンステンプレート、意思決定ログなど)を積極的に再利用する</li>
+          <li>アジャイル環境では、ガバナンスを軽量化しつつも「透明性(visibility)」と「説明責任(accountability)」は絶対に犠牲にしない</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="governanceFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロジェクトガバナンス確立の流れとエスカレーション判断</div>
+      </div>
+
+      <h3>Task 2. プロジェクトコンプライアンスの計画と管理</h3>
+
+      <p><strong>Taskの主旨:</strong> プロジェクトが遵守すべき法規制・基準・ポリシーを把握し、遵守状況を計画的に管理すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>コンプライアンス要件を確認する(セキュリティ、健康・安全、サステナビリティ、規制遵守など)</td><td>対象範囲が「法律」だけでなく、業界標準・組織ポリシー・サステナビリティ要件まで広い</td></tr>
+            <tr><td>コンプライアンスのカテゴリを分類する</td><td>法的要件、契約要件、組織要件などに整理すると管理しやすい</td></tr>
+            <tr><td>コンプライアンスに対する潜在的な脅威を判定する</td><td>規制変更や監査ギャップなど、遵守を脅かす要因を洗い出す</td></tr>
+            <tr><td>遵守を支援する手法を用いる</td><td>チェックリスト、監査、第三者認証などのツールを活用する</td></tr>
+            <tr><td>非遵守の結果を分析する</td><td>罰金・契約解除・レピュテーション毀損など、影響を具体的に想定する</td></tr>
+            <tr><td>必要なアプローチとアクションを決定する</td><td>脅威の深刻度に応じて対応策を選ぶ</td></tr>
+            <tr><td>プロジェクトがどの程度遵守できているかを測定する</td><td>定期的な監査やレポートで遵守状況を可視化する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>コンプライアンスは「法律を守ること」だけをイメージしがちですが、ECOでは<strong>セキュリティ、健康・安全、サステナビリティ(環境・社会・ガバナンス)、規制遵守</strong>という幅広い範囲が明示されています。特に近年はサステナビリティやAI活用に関する規制・ガイドラインも急速に増えており、プロジェクトマネージャーはこうした変化にも継続的に目を配る必要があります。</p>
+
+      <p>重要なのは、コンプライアンスを<strong>事後対応(reactive)ではなく事前計画(proactive)</strong>として扱うことです。プロジェクト計画の初期段階でコンプライアンス要件を洗い出し、リスク登録簿や品質計画と連携させておくことで、後から手戻りが発生するリスクを大幅に減らせます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>規制・コンプライアンス要件を初期段階でリスク登録簿に組み込み、他のプロジェクトリスクと同列で管理する</li>
+          <li>コンプライアンスマトリクス(要件・根拠法令・担当者・証跡)を作成し、要件ごとの対応状況を追跡する</li>
+          <li>法務・監査・情報セキュリティ部門と定例で連携し、規制動向の変化を早期にキャッチする</li>
+          <li>非遵守時の影響(罰金額、契約解除条件、レピュテーション毀損)を定量化し、対応の優先順位付けに使う</li>
+          <li>サステナビリティ(ESG)要件も他のコンプライアンス項目と同じ重みで計画段階から明示する</li>
+          <li>遵守状況を定期的に監査・レポートし、監査証跡(エビデンス)を必ず残しておく</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="complianceFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">コンプライアンス管理の一連の流れと非遵守時の対応</div>
+      </div>
+
+      <h3>Task 3. 変更の管理と統制</h3>
+
+      <p><strong>Taskの主旨:</strong> 発生した変更要求を正式なプロセスに沿って評価・承認し、確実にプロジェクトへ反映すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>変更管理プロセスを実行する</td><td>変更要求の受付から承認までの一連の流れを回す</td></tr>
+            <tr><td>提案された変更のステータスを伝達する</td><td>承認待ち・承認済み・却下などの状況をステークホルダーに周知する</td></tr>
+            <tr><td>承認された変更をプロジェクトに実装する</td><td>承認されたものだけを実行し、無許可の変更を防ぐ</td></tr>
+            <tr><td>プロジェクト文書を更新し変更を反映する</td><td>スコープ記述書・スケジュール・予算などのベースラインを更新する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>「変更管理(Change Control)」は、統合変更管理(Integrated Change Control)とも呼ばれ、プロジェクトの3大制約(スコープ・スケジュール・コスト)だけでなく品質やリスクへの影響も含めて変更を評価する仕組みです。予測型プロジェクトでは、変更要求を正式なプロセスに乗せて審査し、承認・却下・保留を判断します。ここで<strong>影響分析を行うのはPMとチーム</strong>であり、<strong>承認可否を判断するのはガバナンス層</strong>です。その承認権限者としてCCB(Change Control Board: 変更管理委員会)が置かれることが多いものの、CCBの設置は組織やプロジェクトのガバナンス次第で、常に必須というわけではありません(スポンサーやプログラムマネージャーが承認権限を持つ場合もあります)。</p>
+
+      <p>一方でアジャイル環境では、正式なCCBを置かない代わりに、プロダクトオーナーがプロダクトバックログの優先順位を継続的に見直すことで「変更」を扱います。つまり<strong>アジャイルにも変更管理は存在しますが、その形が「正式な承認プロセス」から「継続的な優先順位付け」に変わる</strong>という点が試験でも問われやすいポイントです。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>変更管理計画(Change Management Plan)を事前に定義し、承認フロー・権限者(CCB、スポンサー等)を明確にしておく</li>
+          <li>すべての変更要求を単一の変更ログ(Change Log)で一元管理し、抜け漏れを防ぐ</li>
+          <li>影響分析(スコープ・スケジュール・コスト・品質・リスクへの影響)を必須ステップとして組み込む</li>
+          <li>承認結果にかかわらず、要求者へ理由とともに必ずフィードバックする</li>
+          <li>ベースラインの更新は承認後にのみ行い、無許可の変更(スコープクリープ)を防止する</li>
+          <li>アジャイル環境ではプロダクトバックログの優先順位付けという軽量な形で変更を扱う</li>
+          <li>変更のステータスをステークホルダーへタイムリーに伝達し、透明性を確保する</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="changeControlFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">変更要求の提案から承認 実装 文書更新までの流れ</div>
+      </div>
+
+      <h3>Task 4. 障害物の除去と課題管理</h3>
+
+      <p><strong>Taskの主旨:</strong> チームの作業を妨げる障害物を取り除き、リスクが顕在化した課題(issue)に対応すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>障害物の影響を評価する</td><td>放置した場合にどれだけプロジェクトへ影響するかを見積もる</td></tr>
+            <tr><td>障害物を優先順位付けし強調する</td><td>影響の大きいものから対処する</td></tr>
+            <tr><td>障害物を除去・最小化する介入戦略を決定し適用する</td><td>PM自らが動くか、他のリソースを動員するかを判断する</td></tr>
+            <tr><td>チームの障害物が対応されているか継続的に再評価する</td><td>一度対応して終わりではなく、繰り返し確認する</td></tr>
+            <tr><td>リスクが課題に変わったタイミングを認識する</td><td>「起こるかもしれない」が「実際に起きた」に変わった瞬間を見逃さない</td></tr>
+            <tr><td>関係するステークホルダーと解決策を協働で検討する</td><td>PM一人で抱え込まず、関係者を巻き込む</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>「障害物(impediment)」はアジャイルの文脈(デイリースタンドアップで報告される「ブロッカー」)でよく使われる言葉で、「課題(issue)」はより公式な課題管理台帳(Issue Log)で管理される概念です。両者は似ていますが、<strong>障害物はチームの日々の作業を妨げるもの、課題はより広い意味でプロジェクトに影響を与える未解決の問題</strong>と捉えると整理しやすくなります。</p>
+
+      <p>特に重要なのが「リスクが課題になる瞬間を認識する」という点です。リスクはあくまで「将来起こるかもしれない不確実な事象」ですが、それが実際に発生した時点で「課題」に変わります。この移行を見逃さず、リスク登録簿の記録は残したまま課題ログへ確実に引き継ぐことが求められます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>デイリースタンドアップなどの短いチェックインで障害物を早期に可視化する</li>
+          <li>課題ログ(Issue Log)を維持し、優先度・担当者・期限を必ず明記する</li>
+          <li>リスクが顕在化した際は、リスク登録簿の該当エントリを削除せず「発生済み」「クローズ済み」などの状態へ更新したうえで、対応すべき課題を課題ログに登録し、両者を相互参照できるようにする</li>
+          <li>Task 1で確立したエスカレーションパスと連携し、PMの権限を超える障害物は上位層へ引き上げる</li>
+          <li>チームの障害物を取り除くことはPM / スクラムマスターの重要な役割(サーバントリーダーシップ)と捉える</li>
+          <li>同種の障害物が繰り返し発生する場合は、根本原因分析(RCA: Root Cause Analysis)を実施する</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="issueFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">障害物 課題の識別から対応 モニタリングまでの流れ</div>
+      </div>
+
+      <h3>Task 5. リスクの計画と管理</h3>
+
+      <p><strong>Taskの主旨:</strong> プロジェクトに影響しうる不確実性を特定・分析し、計画的に対応・監視すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>リスクを特定する</td><td>起こりうる不確実な事象を洗い出す</td></tr>
+            <tr><td>リスクを分析する</td><td>発生確率と影響度を評価する(定性的・定量的)</td></tr>
+            <tr><td>リスクを監視しコントロールする</td><td>継続的にリスク状況を追跡する</td></tr>
+            <tr><td>リスクマネジメント計画を策定する</td><td>どうリスクに向き合うかの方針を定める</td></tr>
+            <tr><td>リスク登録簿を維持する(例: ITセキュリティの不備)</td><td>すべてのリスクを一元管理する台帳を持つ</td></tr>
+            <tr><td>リスクマネジメント計画を実行する(例: セキュリティリスクへの対応、サステナビリティリスクの管理)</td><td>計画倒れにせず、実際に対応策を実行する</td></tr>
+            <tr><td>プロジェクトへのリスク影響状況を伝達する</td><td>ステークホルダーに状況を継続的に共有する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>リスクマネジメントは「悪いことが起きないようにする」だけの活動ではありません。PMBOK的な考え方では、リスクには<strong>脅威(threat: 望ましくない影響)</strong>と<strong>好機(opportunity: 望ましい影響)</strong>の両方が含まれます。リスク対応戦略としては、回避(Avoid)・転嫁(Transfer)・軽減(Mitigate)・受容(Accept)に加え、好機に対しては活用(Exploit)・共有(Share)・強化(Enhance)といった戦略があります。</p>
+
+      <p>ECOの例示にもある通り、ITセキュリティやサステナビリティに関するリスクも、通常のプロジェクトリスクと同様にリスク登録簿で管理し、リスクオーナーを割り当てて対応する必要があります。近年はサイバーセキュリティやサステナビリティに関するリスクの重要性が高まっており、試験でもこうした現代的なテーマを扱ったシナリオが出題される傾向にあります。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>プロジェクト初期にリスクマネジメント計画を策定し、組織・ステークホルダーのリスク許容度(risk appetite)を明確化する</li>
+          <li>リスク登録簿を継続的に更新し、すべてのリスクに責任を持つリスクオーナーを割り当てる</li>
+          <li>発生確率と影響度のマトリクスを用いて定性的・定量的分析を組み合わせ、優先順位を付ける</li>
+          <li>コンティンジェンシー予備(既知のリスク用)とマネジメント予備(未知のリスク用)を確保する</li>
+          <li>セキュリティやサステナビリティに関するリスクも、通常のプロジェクトリスクと同じ厳密さで管理する</li>
+          <li>リスクステータスを定期的にステークホルダーへ報告し、透明性を確保する</li>
+          <li>アジャイル環境では、スプリントレビューやレトロスペクティブにリスクレビューを組み込む</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="riskCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">リスクの特定から分析 対応 監視までを繰り返すサイクル</div>
+      </div>
+
+      <h3>Task 6. 継続的改善</h3>
+
+      <p><strong>Taskの主旨:</strong> プロジェクトを通じて得られた教訓を組織の資産として蓄積し、継続的な改善サイクルを回すこと。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>レッスンズラーンド(教訓)を活用する</td><td>過去の経験を今のプロジェクトに活かす</td></tr>
+            <tr><td>継続的改善プロセスが更新されていることを確実にする</td><td>改善の仕組み自体も定期的に見直す</td></tr>
+            <tr><td>OPAを更新する</td><td>得られた知見を組織全体の資産として残す</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>継続的改善は、プロジェクトの<strong>終了時にまとめて振り返る</strong>ものだと誤解されがちですが、実際には<strong>プロジェクトを通じて継続的に</strong>行うものです。アジャイルのレトロスペクティブ(振り返り)はその典型例で、各イテレーションの終わりに「うまくいったこと」「改善すべきこと」「次に試すこと」を短いサイクルで回します。</p>
+
+      <p>重要なのは、得られた教訓を個人やチームの中だけに留めず、<strong>OPA(組織のプロセス資産)として組織全体に還元する</strong>ことです。これにより、同じ失敗を別のプロジェクトで繰り返すリスクを減らし、組織全体の成熟度を高めることができます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>プロジェクト終了時だけでなく、フェーズの節目やイテレーションごとにレッスンズラーンドを収集する</li>
+          <li>レトロスペクティブ(振り返り)を定例化し、改善アクションを次のサイクルに確実に反映する</li>
+          <li>得られた知見をテンプレート・チェックリスト・過去データとしてOPAへ反映し、組織全体の資産にする</li>
+          <li>改善の効果を測定する指標(サイクルタイムの短縮、手戻り率の低下など)を設定する</li>
+          <li>率直なフィードバックが出やすいよう、心理的安全性(psychological safety)を確保する</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="improvementCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">レッスンズラーンドの収集からOPA更新 次プロジェクトへの適用までの循環</div>
+      </div>
+
+      <h3>Task 7. 組織変革の支援</h3>
+
+      <p><strong>Taskの主旨:</strong> プロジェクトが組織にもたらす変化を理解し、組織側の受け入れ準備を支援すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>組織文化をアセスメントする</td><td>変化に対する組織の受け入れやすさを見極める</td></tr>
+            <tr><td>組織変革がプロジェクトに与える影響を評価し必要なアクションを決定する</td><td>組織側の変化がプロジェクトの前提を揺るがすことがある</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>プロジェクトは多くの場合、単に成果物を作るだけでなく、<strong>組織のプロセスや働き方そのものを変える</strong>ことを目的としています(例: 新しい基幹システムの導入、業務プロセスの再設計)。このとき、プロジェクトマネージャーは技術的な納品物の管理だけでなく、<strong>組織の受け入れ準備(readiness)</strong>にも目を配る必要があります。</p>
+
+      <p>たとえば、組織文化が変化に対して保守的である場合、どれだけ優れたシステムを納品しても現場で使われなければプロジェクトは実質的に失敗です。逆に、組織側で進行中の別の変革(M&amp;A、大規模な組織再編など)がプロジェクトの前提条件を覆すこともあります。プロジェクトマネージャーはこうした組織側の動きを常に把握し、必要に応じてプロジェクト計画を調整する役割を担います。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>プロジェクト開始前に組織文化とチェンジレディネス(変革への準備度)を評価する</li>
+          <li>変革影響評価(Change Impact Assessment)を実施し、影響を受ける部門・役割・業務プロセスを特定する</li>
+          <li>チェンジマネジメント計画をプロジェクトマネジメント計画と連携させ、別々の取り組みにしない</li>
+          <li>スポンサーシップを可視化し、経営層からの一貫したメッセージ発信を後押しする</li>
+          <li>抵抗(resistance)の兆候を早期に察知し、コミュニケーションとトレーニングで対応する</li>
+          <li>プロジェクト終了後も変革の定着度(サステインメント)をモニタリングする</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="orgChangeFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">組織文化アセスメントから影響評価 プロジェクト計画への反映までの流れ</div>
+      </div>
+
+      <h3>Task 8. 外部ビジネス環境変化の評価</h3>
+
+      <p><strong>Taskの主旨:</strong> 規制・技術・地政学・市場といった外部環境の変化を継続的に把握し、プロジェクトへの影響を評価すること。</p>
+
+      <h4>Enablerの整理</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Enabler(要約)</th><th>初学者向けポイント</th></tr></thead>
+          <tbody>
+            <tr><td>外部ビジネス環境の変化を調査する(規制、技術、地政学、市場など)</td><td>プロジェクトの外側で何が起きているかを常にウォッチする</td></tr>
+            <tr><td>外部環境の変化がプロジェクトスコープ / バックログに与える影響を評価し優先順位付けする</td><td>変化を検知したら、対応の要否と優先度を判断する</td></tr>
+            <tr><td>プロジェクトスコープ / バックログへの影響について外部環境を継続的にレビューする</td><td>一度きりの調査ではなく、継続的な監視活動として捉える</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>初学者向け解説</h4>
+
+      <p>このTaskは、いわゆる<strong>PESTLE分析</strong>(政治・経済・社会・技術・法規制・環境)に近い考え方で、プロジェクトを取り巻く外部環境の変化をプロジェクトマネージャーが継続的に監視することを求めています。ECOでは特に「規制」「技術」「地政学」「市場」の4点が具体例として挙げられています。</p>
+
+      <p>現代のプロジェクトでは、AI技術の急速な進化、地政学的な緊張(貿易規制・関税など)、サプライチェーンの変動など、外部環境の変化がプロジェクトのスコープや前提条件に直接影響を与えるケースが増えています。重要なのは、これを<strong>プロジェクト計画時の一度きりの分析で終わらせず、プロジェクト期間中を通じて継続的にレビューする</strong>ことです。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>規制・技術・地政学・市場の動向を対象に、定例で外部環境スキャンを実施する</li>
+          <li>外部変化がプロジェクトスコープ / バックログに与える影響を評価し、対応の優先順位を付ける</li>
+          <li>外部環境スキャンの結果をTask 3(変更管理)・Task 5(リスク管理)のプロセスと連携させる</li>
+          <li>業界動向・競合・サプライチェーンの変化を継続的にモニタリングする</li>
+          <li>地政学的リスク(関税、貿易規制、地域紛争など)を定期的にレビュー対象に含める</li>
+          <li>変化の兆候をとらえる先行指標(leading indicators)を定義し、後手に回らないようにする</li>
+        </ul>
+      </div>
+
+      <h4>プロセスイメージ</h4>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="externalEnvFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">外部環境調査から影響評価 変更 リスク管理への連携までの継続的サイクル</div>
+      </div>
+    </section>
+
+    <!-- ===================== 05. Task Summary ===================== -->
+    <section id="task-summary">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 05</div>
+      <h2>Part 3. 8つのTask 全体まとめ表</h2>
+
+      <p>学習の総復習用に、Domain IIIの8つのTaskを一覧化しました。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>No</th><th>Task名</th><th>中心テーマ</th><th>主に関連するEnabler数</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>プロジェクトガバナンスの定義と確立</td><td>意思決定の枠組み・エスカレーション</td><td>3</td></tr>
+            <tr><td>2</td><td>プロジェクトコンプライアンスの計画と管理</td><td>法規制・セキュリティ・サステナビリティ遵守</td><td>7</td></tr>
+            <tr><td>3</td><td>変更の管理と統制</td><td>変更要求の評価・承認・実装</td><td>4</td></tr>
+            <tr><td>4</td><td>障害物の除去と課題管理</td><td>ブロッカー対応・リスクから課題への移行</td><td>6</td></tr>
+            <tr><td>5</td><td>リスクの計画と管理</td><td>リスク特定・分析・対応・監視</td><td>7</td></tr>
+            <tr><td>6</td><td>継続的改善</td><td>レッスンズラーンド・OPA更新</td><td>3</td></tr>
+            <tr><td>7</td><td>組織変革の支援</td><td>組織文化・チェンジマネジメント</td><td>2</td></tr>
+            <tr><td>8</td><td>外部ビジネス環境変化の評価</td><td>規制・技術・地政学・市場の監視</td><td>3</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Task間の連携イメージ</h3>
+
+      <p>Domain IIIの8つのTaskは独立して機能するのではなく、相互に連携しています。特にTask 3(変更管理)・Task 4(課題管理)・Task 5(リスク管理)・Task 8(外部環境評価)は密接に関連しており、外部環境の変化がリスクや課題を生み、それが変更要求につながるという流れが典型的です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="taskRelationFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Domain III 8つのTask間の連携イメージ</div>
+      </div>
+    </section>
+
+    <!-- ===================== 06. Study Tips ===================== -->
+    <section id="study-tips">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 06</div>
+      <h2>Part 4. 学習のポイント(初学者向けTips)</h2>
+
+      <h3>4-1. 出題形式を知っておく</h3>
+
+      <p>PMP試験は単純な用語の暗記ではなく、<strong>シナリオ(状況設定)に基づいて「次に何をすべきか」を問う形式</strong>が中心です。2026年7月改定版のECOでは、ケース / シナリオ形式やグラフィックを用いた問題形式が新たに追加されており、より実務に近い判断力が問われる傾向が強まっています。</p>
+
+      <h3>4-2. Domain IIIならではの視点</h3>
+
+      <p>Domain IIIの問題を解く際は、次のような視点を意識すると精度が上がります。</p>
+
+      <ul>
+        <li><strong>「誰が決めるべきか」を常に考える:</strong> Task 1のガバナンス構造を踏まえ、PM単独で判断してよい範囲か、エスカレーションが必要な範囲かを区別する</li>
+        <li><strong>予測型かアジャイルかで対応の形が変わる:</strong> 同じ「変更」でも、CCBでの正式承認なのか、バックログの優先順位付けなのかで正解の選択肢が変わりうる</li>
+        <li><strong>リスクと課題を混同しない:</strong> 「まだ起きていないこと」はリスク、「実際に起きたこと」は課題として扱う</li>
+        <li><strong>受動的(reactive)ではなく能動的(proactive)な選択肢を選ぶ:</strong> コンプライアンスやリスクへの対応は、事前の計画・監視を伴う選択肢が正解になりやすい</li>
+      </ul>
+
+      <h3>4-3. オリジナル演習シナリオ(学習用)</h3>
+
+      <p>以下は本ガイド独自に作成した、Domain IIIの考え方を練習するための例題です(PMI公式問題の引用ではありません)。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>シナリオ:</strong> ハイブリッド開発で進行中のプロジェクトで、主要な外部サプライヤーが新たな貿易規制により部材の納期を4週間遅延させる可能性があると連絡してきた。プロジェクトにはスケジュール予備がほとんど残っていない。</p>
+        <p><strong>考え方:</strong> これはTask 8(外部ビジネス環境変化の評価)とTask 5(リスクの計画と管理)が交差する状況です。まず影響範囲を評価し(Task 8)、既存のリスク登録簿を更新して対応策を検討し(Task 5)、対応にスコープやスケジュールの変更が必要であれば正式な変更管理プロセスに乗せる(Task 3)、という流れで整理すると、試験のシナリオ問題にも応用しやすい考え方になります。</p>
+      </div>
+
+      <h3>4-4. 他Domainとのつながりを意識する</h3>
+
+      <p>Domain IIIの内容は、Domain II(Process)のTask 5「調達の計画と管理」やTask 6「財務の計画と管理」、Domain I(People)のTask 2「対立の管理」などとも密接に関連しています。Domain IIIだけを切り離して学習するのではなく、People・Processの学習と並行して「この状況ならどのDomainのどのTaskの視点で考えるべきか」を整理する習慣をつけることをお勧めします。</p>
+    </section>
+
+    <!-- ===================== 07. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 07</div>
+      <h2>Part 5. 参考文献・出典</h2>
+
+      <p>本ガイドの内容は、以下のPMI公式情報源に基づいています。詳細な一次情報は必ず公式サイト・公式PDFをご確認ください。</p>
+
+      <div class="ref-group">
+        <h4>一次情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Project Management Institute, <em>Project Management Professional (PMP)® Examination Content Outline – July 2026 Update</em>(Domain III: Business Environment - 26%のTask / Enabler一覧の一次情報源)</span><a class="ref-url" href="https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b618cf45573e4276a54151e7636c97bf" target="_blank" rel="noopener">https://www.pmi.org/-/media/pmi/documents/public/pdf/certifications/new-pmp-examination-content-outline-2026.pdf?rev=b618cf45573e4276a54151e7636c97bf</a></li>
+          <li><span class="ref-name">PMI公式サイト <em>Project Management Professional (PMP)® Certification</em>ページ(試験概要、出題比率、受験資格、試験形式)</span><a class="ref-url" href="https://www.pmi.org/certifications/project-management-pmp" target="_blank" rel="noopener">https://www.pmi.org/certifications/project-management-pmp</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>関連情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PMI <em>PMBOK® Guide</em>紹介ページ(ECOとPMBOK® Guideの関係を理解するための参考)</span><a class="ref-url" href="https://www.pmi.org/standards/pmbok" target="_blank" rel="noopener">https://www.pmi.org/standards/pmbok</a></li>
+          <li><span class="ref-name">PMI <em>Certification Resources – Maintain &amp; Renew Your Certification</em>(PDU・資格更新に関する情報)</span><a class="ref-url" href="https://www.pmi.org/certifications/certification-resources/maintain" target="_blank" rel="noopener">https://www.pmi.org/certifications/certification-resources/maintain</a></li>
+          <li><span class="ref-name">PMI <em>Certification FAQs</em>(受験資格・試験運用に関するFAQ)</span><a class="ref-url" href="https://www.pmi.org/certifications/certification-resources/faq" target="_blank" rel="noopener">https://www.pmi.org/certifications/certification-resources/faq</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>PMP認定試験の内容・出題比率・受験資格は改定される可能性があります。学習を開始する前に、必ず上記PMI公式サイトで最新版のECOを確認してください。本ガイドは2026年7月改定版ECOの内容に基づいています。</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>PMP®、PMBOK®、およびPMIロゴはProject Management Institute, Inc.の商標です。本ページはPMI非公式の学習支援コンテンツであり、PMIによる承認・監修を受けたものではありません。</p>
+      <p><em>本ガイドは教育・学習目的で作成されたものであり、PMI公式の教材・模擬試験・受験対策コースを代替するものではありません。</em></p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+examOverview: `flowchart TB
+EXAM["PMP試験 180問 240分"] --> D1["Domain I People 33パーセント"]
+EXAM --> D2["Domain II Process 41パーセント"]
+EXAM --> D3["Domain III Business Environment 26パーセント"]
+D3 --> T1["Task1 ガバナンスの定義と確立"]
+D3 --> T2["Task2 コンプライアンスの計画と管理"]
+D3 --> T3["Task3 変更の管理と統制"]
+D3 --> T4["Task4 障害物の除去と課題管理"]
+D3 --> T5["Task5 リスクの計画と管理"]
+D3 --> T6["Task6 継続的改善"]
+D3 --> T7["Task7 組織変革の支援"]
+D3 --> T8["Task8 外部ビジネス環境変化の評価"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class EXAM hub;
+class D1,D2,D3,T1,T2,T3,T4,T5,T6,T7,T8 box;`,
+governanceFlow: `flowchart TB
+A["プロジェクト憲章の承認"] --> B["ガバナンス構造の定義"]
+B --> C["役割 責任 権限の明確化"]
+C --> D["意思決定プロセスの確立"]
+D --> E["報告ルールの設定"]
+E --> F["エスカレーションパスの整備"]
+F --> G{"しきい値を超える問題か"}
+G -- はい --> H["上位ガバナンス層へエスカレーション"]
+G -- いいえ --> I["プロジェクトチーム内で対応"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,G box;
+class H,I done;`,
+complianceFlow: `flowchart LR
+A["コンプライアンス要件の特定"] --> B["コンプライアンスカテゴリの分類"]
+B --> C["潜在的な脅威の判定"]
+C --> D["遵守を支援する手法の適用"]
+D --> E["遵守状況の測定"]
+E --> F{"非遵守が検出されたか"}
+F -- はい --> G["影響分析と是正措置"]
+F -- いいえ --> H["監視を継続"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;
+class G,H done;`,
+changeControlFlow: `flowchart TB
+A["変更の提案"] --> B["変更要求の文書化"]
+B --> C["PM チームによる影響分析と評価"]
+C --> C2["承認権限者 CCB スポンサー等 による審査"]
+C2 --> D{"承認されたか"}
+D -- 承認 --> E["承認済み変更の実装"]
+D -- 却下または保留 --> F["要求者へ理由を伝達"]
+E --> G["プロジェクト文書 ベースラインの更新"]
+G --> H["ステークホルダーへ状況を伝達"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,C2,D box;
+class E,G,H,F done;`,
+issueFlow: `flowchart TB
+A["障害物 課題の識別"] --> B["影響度の評価"]
+B --> C["優先順位付け"]
+C --> D["介入戦略の決定"]
+D --> E["対応の実施"]
+E --> F{"リスクが顕在化したか"}
+F -- はい --> G["課題ログへ登録し対応"]
+F -- いいえ --> H["継続的にモニタリング"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;
+class G,H done;`,
+riskCycle: `flowchart LR
+A["リスクの特定"] --> B["リスクの分析"]
+B --> C["リスク対応計画の策定"]
+C --> D["リスク対応策の実行"]
+D --> E["監視とコントロール"]
+E --> A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E box;`,
+improvementCycle: `flowchart TB
+A["レッスンズラーンドの収集"] --> B["改善プロセスの見直し"]
+B --> C["OPAの更新"]
+C --> D["次のイテレーション プロジェクトへの適用"]
+D --> A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D box;`,
+orgChangeFlow: `flowchart TB
+A["組織文化のアセスメント"] --> B["組織変革の影響評価"]
+B --> C{"プロジェクトへの影響は大きいか"}
+C -- はい --> D["プロジェクト計画 チェンジ計画への反映"]
+C -- いいえ --> E["通常のモニタリングを継続"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C box;
+class D,E done;`,
+externalEnvFlow: `flowchart TB
+A["外部環境の調査 規制 技術 地政学 市場"] --> B["プロジェクトへの影響評価"]
+B --> C["優先順位付け"]
+C --> D{"対応が必要か"}
+D -- はい --> E["変更管理 リスク管理プロセスへ連携"]
+D -- いいえ --> F["継続的レビューを続行"]
+E --> F
+F --> A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;`,
+taskRelationFlow: `flowchart LR
+T8["Task8 外部環境変化"] --> T5["Task5 リスク管理"]
+T5 --> T4["Task4 課題管理"]
+T4 --> T3["Task3 変更管理"]
+T3 --> T1["Task1 ガバナンス エスカレーション判断"]
+T2["Task2 コンプライアンス"] --> T5
+T7["Task7 組織変革"] --> T3
+T3 --> T6["Task6 継続的改善 教訓の蓄積"]
+T6 --> T1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class T8 hub;
+class T5,T4,T3,T2,T7 box;
+class T1,T6 done;`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
