@@ -82,6 +82,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(panelLinks(wrapper, "team-building")).toEqual([
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
       { label: "Team Geek", href: "/team-geek-guide" },
+      { label: "Team Topologies", href: "/team-topologies-guide" },
     ]);
   });
 
@@ -104,6 +105,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/leadership-practices-guide",
       "/dynamic-reteaming-guide",
       "/team-geek-guide",
+      "/team-topologies-guide",
     ]);
   });
 
@@ -172,6 +174,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

@@ -131,6 +131,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/team-geek-guide",
         accentClass: "guide-card-plum",
       },
+      {
+        title: "Team Topologies 実践ガイド",
+        category: "TEAM BUILDING",
+        href: "/team-topologies-guide",
+        accentClass: "guide-card-indigo",
+      },
     ]);
   });
 

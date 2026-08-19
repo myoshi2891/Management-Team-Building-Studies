@@ -36,6 +36,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/engineering-executive-playbook", categoryId: "engineering-leadership", navLabel: "統括責任者の手引き" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", navLabel: "リーダーの作法" },
       { to: "/team-geek-guide", categoryId: "team-building", navLabel: "Team Geek" },
+      { to: "/team-topologies-guide", categoryId: "team-building", navLabel: "Team Topologies" },
     ]);
   });
 
@@ -73,7 +74,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["ダイナミック・リチーミング", "Team Geek"],
+        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies"],
       },
     ]);
   });
