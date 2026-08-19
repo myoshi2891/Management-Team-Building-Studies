@@ -125,6 +125,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/leadership-practices-guide",
         accentClass: "guide-card-gold",
       },
+      {
+        title: "Team Geek ― Googleのギークたちはいかにしてチームを作るのか",
+        category: "TEAM BUILDING",
+        href: "/team-geek-guide",
+        accentClass: "guide-card-plum",
+      },
     ]);
   });
 

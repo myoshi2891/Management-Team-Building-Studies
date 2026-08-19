@@ -35,6 +35,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/dynamic-reteaming-guide", categoryId: "team-building", navLabel: "ダイナミック・リチーミング" },
       { to: "/engineering-executive-playbook", categoryId: "engineering-leadership", navLabel: "統括責任者の手引き" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", navLabel: "リーダーの作法" },
+      { to: "/team-geek-guide", categoryId: "team-building", navLabel: "Team Geek" },
     ]);
   });
 
@@ -72,7 +73,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["ダイナミック・リチーミング"],
+        guides: ["ダイナミック・リチーミング", "Team Geek"],
       },
     ]);
   });
