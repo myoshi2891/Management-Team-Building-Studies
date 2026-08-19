@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `9f2c1e3` — refactor(team-geek): add audit npm script and verify type/lint quality（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `67b0573` — refactor(team-topologies): add audit npm script and verify type/lint quality（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
-| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-19 実測） |
-| テスト数 | **397** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
-| 原本照合監査 | ✔ **全 12 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-19 実測） |
+| テスト数 | **420** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
+| 原本照合監査 | ✔ **全 13 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -33,6 +33,7 @@
 | `archive/Pmp-certification-guide/Pmp-certification-guide.html` | `app/pages/pmp-certification-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `archive/Pmp-certification-guide/Pmp-domain1-people-guide.html` | `app/pages/pmp-domain1-people-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Team-geek-guide/Team-geek-guide.html` | `app/pages/team-geek-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Team-topologies-guide/Team-topologies-guide.html` | `app/pages/team-topologies-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -241,12 +242,20 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 原本アーカイブ移動 | `Team-geek-guide.html` / `.md` を `archive/Team-geek-guide/` 配下へ移動 | 移行完了原本の集約管理 |
 | 照合監査のパス | `npm run audit:team-geek` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
 
+### 18. Team Topologies 実践ガイド（`team-topologies-guide.vue`）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 原本照合の完全一致 | 全要素（リスト 84, 表行 26, 段落 33, 見出し 26, 外部リンク 14, Mermaid 5, SVG 1, Callout 17）が原本と完全一致 | 逸脱なしの忠実移植（**exit 0**） |
+| 原本アーカイブ移動 | `Team-topologies-guide.html` / `.md` を `archive/Team-topologies-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:team-topologies` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 9f2c1e3
+コードコミット HEAD: 67b0573
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
@@ -268,16 +277,17 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/pmp-certification-guide.vue（PMP認定試験完全攻略ガイド）
   - app/pages/pmp-domain1-people-guide.vue（PMP Domain I: People 完全攻略ガイド）
   - app/pages/team-geek-guide.vue（Team Geek 完全ガイド）
+  - app/pages/team-topologies-guide.vue（Team Topologies 実践ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。カテゴリー別ドロップダウン + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 397 件
+  - ユニットテスト 420 件
   - test / typecheck / lint はいずれも 2026-08-19 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 12 本 exit 0 パス
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 13 本 exit 0 パス
     （CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み。
     docs/PROGRESS.md「正当な差分の記録」§8 を参照。
     差分が 1 件でも出たら移行漏れとして Green コミット禁止）
 
-ベースラインテスト数: ユニット 397 + E2E 13
+ベースラインテスト数: ユニット 420 + E2E 13
 ```

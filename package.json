@@ -25,7 +25,7 @@
     "audit:exec": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-executive-playbook.html app/pages/engineering-executive-playbook.vue",
     "audit:practices": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Leadership-practices-guide.html app/pages/leadership-practices-guide.vue",
     "audit:team-geek": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Team-geek-guide/Team-geek-guide.html app/pages/team-geek-guide.vue",
-    "audit:team-topologies": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Team-topologies-guide.html app/pages/team-topologies-guide.vue"
+    "audit:team-topologies": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Team-topologies-guide/Team-topologies-guide.html app/pages/team-topologies-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
