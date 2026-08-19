@@ -285,7 +285,7 @@ const DIAGRAM_USER_PHASES = `flowchart LR
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" aria-hidden="true" />
-            本ガイドはBrian W. FitzpatrickとBen Collins-Sussman著『Team Geek: A Software Developer's Guide to Working Well with Others』(O'Reilly Media, 2012)の要点を初学者向けに再構成した非公式の解説記事です。原著の文章を逐語的に引用したものではありません。詳しくは<a href="https://www.oreilly.com/library/view/team-geek/9781449329839/" target="_blank" rel="noopener">O'Reilly公式ページ</a>をご確認ください。
+            <span>本ガイドはBrian W. FitzpatrickとBen Collins-Sussman著『Team Geek: A Software Developer's Guide to Working Well with Others』(O'Reilly Media, 2012)の要点を初学者向けに再構成した非公式の解説記事です。原著の文章を逐語的に引用したものではありません。詳しくは<a href="https://www.oreilly.com/library/view/team-geek/9781449329839/" target="_blank" rel="noopener">O'Reilly公式ページ</a>をご確認ください。</span>
           </div>
         </div>
 
@@ -894,7 +894,7 @@ const DIAGRAM_USER_PHASES = `flowchart LR
 .disclaimer-box {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
   border: 1px solid var(--color-info-border);
   background: var(--color-info-bg);
   color: var(--color-info-text);
@@ -902,6 +902,23 @@ const DIAGRAM_USER_PHASES = `flowchart LR
   padding: 16px 20px;
   font-size: 16px;
   margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+
+.disclaimer-box a {
+  color: var(--color-indigo);
+  text-decoration: underline;
 }
 
 section {
