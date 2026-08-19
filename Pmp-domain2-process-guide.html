@@ -1377,7 +1377,8 @@
     T --> E1["Enabler<br/>ニーズ・複雑さ・規模を評価"]
     T --> E2["Enabler<br/>開発アプローチを推奨"]
     T --> E3["Enabler<br/>統合計画を作成・維持"]`,
-    tenTaskGroupMap: `flowchart TB
+    tenTaskGroupMap: `%%{init: {"flowchart": {"curve": "linear", "rankSpacing": 70, "nodeSpacing": 55}}}%%
+flowchart TB
     subgraph PLAN["計画の基盤づくり"]
         direction TB
         T1["Task1 統合計画"]
@@ -1460,7 +1461,8 @@
     A["プロジェクト完了について<br/>ステークホルダーの<br/>承認を取得"] --> B["終結の基準を決定"]
     B --> C["移行への準備状況を検証<br/>(運用チーム/次フェーズ等)"]
     C --> D["終結活動を完了<br/>(教訓・振り返り・調達・<br/>財務・資源の解放等)"]`,
-    domainIiRoadmap: `flowchart TB
+    domainIiRoadmap: `%%{init: {"flowchart": {"curve": "linear", "rankSpacing": 70, "nodeSpacing": 55}}}%%
+flowchart TB
     START(["プロジェクト開始"]) --> T1["Task1<br/>統合計画の作成"]
     T1 --> T2["Task2<br/>スコープの策定"]
     T2 --> BRANCH{"補助計画を<br/>並行して展開"}
