@@ -195,6 +195,16 @@ export const GUIDES = [
     icon: "tabler:award",
     accent: "gold",
   },
+  {
+    to: "/team-geek-guide",
+    categoryId: "team-building",
+    navLabel: "Team Geek",
+    title: "Team Geek ― Googleのギークたちはいかにしてチームを作るのか",
+    description: "「Team Geek」をもとに、HRT(謙虚さ・尊敬・信頼)を軸としたチーム開発のベストプラクティスを初学者向けにステップバイステップで解説します。",
+    meta: "12セクション",
+    icon: "tabler:users-group",
+    accent: "plum",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {
