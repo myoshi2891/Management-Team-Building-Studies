@@ -229,7 +229,7 @@ flowchart LR
 
 **原文**: Develop and manage project scope
 
-Enablerが3つとDomain II内では最もシンプルですが、「何を作るか/作らないか」を定義する基盤的なTaskです。
+Enablerは3つで、「何を作るか/作らないか」を定義する基盤的なTaskです。
 
 #### Enabler(業務例)一覧
 
