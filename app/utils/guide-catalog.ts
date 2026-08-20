@@ -146,6 +146,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/pmp-domain3-business-environment-guide",
+    categoryId: "project-management",
+    navLabel: "PMP ドメイン3",
+    title: "PMP® Domain III: Business Environment 徹底解説ガイド",
+    description: "PMI公式ECO(2026年7月改定版)に基づき、PMP試験Domain III: Business Environment(26%)の8つのTaskを初学者向けに解説。Mermaid図解とベストプラクティス付きの学習ガイド。",
+    meta: "7セクション",
+    icon: "tabler:briefcase-2",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",

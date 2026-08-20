@@ -42,6 +42,8 @@ const EXPECTED_H3 = [
   "4-2. Domain IIIならではの視点",
   "4-3. オリジナル演習シナリオ(学習用)",
   "4-4. 他Domainとのつながりを意識する",
+  "一次情報源",
+  "関連情報源",
 ] as const;
 
 const EXPECTED_H4 = [
@@ -69,8 +71,6 @@ const EXPECTED_H4 = [
   "Enablerの整理",
   "初学者向け解説",
   "プロセスイメージ",
-  "一次情報源",
-  "関連情報源",
 ] as const;
 
 const EXPECTED_H5 = [] as const;
