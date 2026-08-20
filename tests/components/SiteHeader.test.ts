@@ -71,6 +71,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "PMP ドメイン1", href: "/pmp-domain1-people-guide" },
       { label: "PMP ドメイン2", href: "/pmp-domain2-process-guide" },
       { label: "PMP ドメイン3", href: "/pmp-domain3-business-environment-guide" },
+      { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -104,6 +105,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/pmp-domain1-people-guide",
       "/pmp-domain2-process-guide",
       "/pmp-domain3-business-environment-guide",
+      "/csm-certified-scrummaster-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/engineering-team-leadership-guide",

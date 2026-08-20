@@ -102,6 +102,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Certified ScrumMaster®(CSM®)完全ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/csm-certified-scrummaster-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
