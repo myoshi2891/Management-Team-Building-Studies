@@ -90,16 +90,16 @@ Sprintは「アイデアを価値に変換する心臓の鼓動(heartbeat)」と
 > - Sprintの長さはチームの学習サイクルとリスク許容度に応じて決める。不確実性が高いほど短く(1〜2週間)する。
 > - すべてのイベントを毎回同じ曜日・時間・場所で開催し(Scrum Guideは "Optimally, all events are held at the same time and place" と明記)、認知負荷とスケジューリングコストを下げる。
 > - Sprint中に新しい緊急要求が来た場合は、Sprint Goalを壊さない範囲でのみ受け入れ、原則は次のSprintのProduct Backlogに積む。
-
+>
 > **CSM試験ポイント**
 > - LO1.14「Sprintが早期に終了しうる条件」に対応:Sprint Goalの陳腐化のみが正当な中止理由であり、権限はProduct Ownerに限定される。
 > - Sprintは「他の4つのイベントを包含するコンテナ」であるという位置づけが、5イベント構造を理解する鍵になる。
-
+>
 > **アンチパターン**
 > - Sprintの長さを毎回バラバラに変える(予測可能性が失われる)。
 > - Scrum Master・開発者がSprintを中止する、または「なんとなく」延長する。
 > - Sprintとリリースを同一視し、「Sprint Review=リリース判定ゲート」だと誤解する(後述の第4章を参照)。
-
+>
 > **出典**
 > - The 2020 Scrum Guide, "The Sprint" 節 ― https://scrumguides.org/scrum-guide.html
 > - CSM Learning Objectives 2022, LO1.14 ― https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
@@ -165,17 +165,17 @@ Sprint Goal・選択したProduct Backlog Item・その実行計画をあわせ�
 > - What(選択量)の見積もりは、ベロシティなど過去の実績データを参照しつつも、それに固執しすぎない。経験主義に基づき、状況に応じて調整する。
 > - Howの計画はDevelopers自身が作る。Scrum MasterやProduct Ownerが「どう作業すべきか」を指図しない。
 > - Product Backlogのリファインメントを普段から行っておくと、Planning当日の議論が速くなる。
-
+>
 > **CSM試験ポイント**
 > - LO1.8「Sprint Planningを実施する」に対応。3トピック(Why/What/How)の順序と役割分担を正しく説明できるようにする。
 > - 「Sprint Goalは誰が最終確定するか」→ Scrum Team全体の協働(Product Ownerが一方的に決めるのではない)。
 > - 「作業計画(How)を誰が決めるか」→ Developersのみ。これは試験で頻出のひっかけポイント。
-
+>
 > **アンチパターン**
 > - Product OwnerやScrum Masterが、Developersのタスク分解方法にまで介入する。
 > - Sprint Goalを作らず、Product Backlog Itemの寄せ集めをそのまま「計画」と呼ぶ。
 > - キャパシティを無視して「積めるだけ積む」計画にし、Sprintの途中で破綻する。
-
+>
 > **出典**
 > - The 2020 Scrum Guide, "Sprint Planning" 節 ― https://scrumguides.org/scrum-guide.html
 > - CSM Learning Objectives 2022, LO1.8 ― https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
@@ -217,7 +217,7 @@ Daily Scrumは、Developersが計画を調整できる **唯一の機会では�
 > - 「進捗報告会」ではなく「明日の計画を作る場」と位置づける。話す相手はScrum Masterや上司ではなく、チームメンバー同士。
 > - タイムボックス(15分)を厳守する。詳細な議論が必要な場合はDaily Scrumの直後に別途「Daily Scrum後の会議」を設ける。
 > - フォーマットはチームに委ねる。3つの質問形式に固執する必要はなく、タスクボード起点や障害起点など、チームが最もSprint Goalに集中できる形式を選ぶ。
-
+>
 > **CSM試験ポイント**
 > - LO1.12「DevelopersがどのようにDaily Scrumを行うか説明する」/ LO1.13「Daily ScrumがStatus Meetingと異なる点を3つ以上」に対応。
 > - Daily Scrumが status meeting(進捗報告会)と異なる代表的な点:
@@ -226,12 +226,12 @@ Daily Scrumは、Developersが計画を調整できる **唯一の機会では�
 >   3. 主催者・参加必須者はDevelopersであり、Scrum MasterやProduct Ownerに向けた説明責任の場ではない
 >   4. 時間制約(15分)や頻度(毎営業日)といった制約は、Developersの自己管理と集中を支えるために存在する
 > - 「Product OwnerやScrum Masterは参加できないのか」→ 参加自体は可能。ただし作業に実際に取り組んでいる場合のみDevelopersとして参加する。
-
+>
 > **アンチパターン**
 > - Scrum Masterが一人ひとりに順番に質問し、進捗を「聞き取る」形式にしてしまう(ステータス報告会化)。
 > - 15分を大幅に超えて技術的な議論を続けてしまう。
 > - Product OwnerやマネージャーへのアップデートとしてDaily Scrumを使う。
-
+>
 > **出典**
 > - The 2020 Scrum Guide, "Daily Scrum" 節 ― https://scrumguides.org/scrum-guide.html
 > - CSM Learning Objectives 2022, LO1.12 / LO1.13 ― https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
@@ -274,17 +274,17 @@ flowchart TD
 > - 事前に作り込んだスライドでの一方的な発表にせず、実際に動くIncrementをその場で操作しながら対話する。
 > - ステークホルダーからのフィードバックをその場でProduct Backlogに反映する(または反映の要否を議論する)ことを前提に設計する。
 > - 「今回できたこと」だけでなく「環境の変化(市場・競合・技術動向など)」も議題に含め、Product Goalへの進捗を多面的に検査する。
-
+>
 > **CSM試験ポイント**
 > - LO1.9「Sprint Reviewを実施する」に対応。
 > - 「Sprint Reviewはリリース判定会議か」→ いいえ。Incrementのリリースはいつでも可能で、Sprint Reviewはゲートではない、という点が頻出のひっかけ。
 > - Sprint Reviewは「発表」ではなく「作業セッション(working session)」であると明記されている点を正確に覚える。
-
+>
 > **アンチパターン**
 > - デモを完璧に見せるための「作り込み」に時間を使いすぎる(Sprint中の本来の開発作業を圧迫する)。
 > - ステークホルダーを呼ばず、チーム内だけで完結させてしまう。
 > - Sprint Reviewを「合否判定」の場として恐れの対象にしてしまう(心理的安全性の欠如)。
-
+>
 > **出典**
 > - The 2020 Scrum Guide, "Sprint Review" 節 ― https://scrumguides.org/scrum-guide.html
 > - CSM Learning Objectives 2022, LO1.9 ― https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
@@ -343,7 +343,7 @@ flowchart TD
 > - 改善策は絞り込む。一度に多くの改善を狙うより、次のSprintで確実に着手できる1〜数個に絞るほうが実行力が高まる。
 > - 定期的にフォーマット(KPT、Start-Stop-Continueなど)を変え、マンネリ化を防ぐ。
 > - 改善策は「誰が」「いつまでに」実行するかまで具体化する。
-
+>
 > **CSM試験ポイント**
 > - LO1.10「Sprint Retrospectiveを実施する」、LO1.11「Sprint Retrospectiveを省略した場合の影響を3つ以上説明する」に対応。
 > - Retrospectiveを省略した場合の代表的な影響の例:
@@ -351,12 +351,12 @@ flowchart TD
 >   2. 検査(inspection)が行われないため適応(adaptation)も起きず、経験主義のサイクルが機能しなくなる
 >   3. 同じ問題が繰り返し発生し、チームの士気やベロシティの安定性が損なわれる
 > - Sprint RetrospectiveはSprintを「締めくくる」イベントであり、次のSprintのSprint Planningより前に必ず行われる点を押さえる。
-
+>
 > **アンチパターン**
 > - 忙しさを理由にRetrospectiveを省略・短縮し続ける。
 > - 個人への批判や犯人探しの場になってしまう。
 > - 改善アクションを洗い出すだけで、実際には誰も実行しない(「話して終わり」)。
-
+>
 > **出典**
 > - The 2020 Scrum Guide, "Sprint Retrospective" 節 ― https://scrumguides.org/scrum-guide.html
 > - CSM Learning Objectives 2022, LO1.10 / LO1.11 ― https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf
@@ -461,7 +461,7 @@ Scrum Alliance公式ページに基づく、CSM認定試験の概要は以下の
 
 > **補足**
 > 価格や運用ルールはトレーナー・地域・時期により変動するため、最新情報は必ずScrum Alliance公式ページで確認してください。
-
+>
 > **出典**
 > - Scrum Alliance, "Certified ScrumMaster (CSM) Certification" ― https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster
 > - Scrum Alliance Support, "How do I take the CSM test?" ― https://support.scrumalliance.org/hc/en-us/articles/360002112772-How-do-I-take-the-CSM-test
