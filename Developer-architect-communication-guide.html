@@ -21,7 +21,7 @@
 
     --color-ink:          #161B26;
     --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
+    --color-ink-faint:    #666E7E;
 
     --color-border:       #DFE3EA;
     --color-border-strong:#C7CDD9;
@@ -30,7 +30,7 @@
     --color-indigo-dark:  #1F2C57;
     --color-indigo-tint:  #EEF1F8;
 
-    --color-gold:         #B8802A;
+    --color-gold:         #8A5F1F;
     --color-gold-tint:    #FAF1DF;
 
     --color-forest:       #1B6E6A;
@@ -1151,8 +1151,13 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          // 同一ページ内の現在位置なので aria-current は "location"（"page" ではない）。
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1169,10 +1174,15 @@
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
-        var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
+        // リンク先の見出しへフォーカスを移す(トグルへ戻すと選んだ内容から離れてしまうため)
+        var targetId = (link.getAttribute("href") || "").replace("#", "");
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (!target) return;
+        if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+        // スクロールはアンカーの既定動作に任せる(scroll-margin-top を尊重させる)
+        target.focus({ preventScroll: true });
       });
     });
   }
