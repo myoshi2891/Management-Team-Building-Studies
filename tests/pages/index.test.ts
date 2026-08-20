@@ -96,6 +96,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "PMP® Domain III: Business Environment 徹底解説ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-domain3-business-environment-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
