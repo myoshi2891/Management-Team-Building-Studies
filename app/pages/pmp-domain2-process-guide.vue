@@ -152,20 +152,20 @@ flowchart TB
 </script>
 
 <template>
-  <button
-    id="sidebarToggle"
-    ref="sidebarToggle"
-    type="button"
-    class="sidebar-toggle"
-    aria-label="目次を開閉する"
-    aria-controls="sidebar"
-    :aria-expanded="sidebarOpen"
-    @click="sidebarOpen = !sidebarOpen"
-  >
-    <Icon name="tabler:menu-2" aria-hidden="true" />
-  </button>
-
   <div class="layout">
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
     <!-- ===================== Sidebar ===================== -->
     <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
       <div class="sidebar-brand">
