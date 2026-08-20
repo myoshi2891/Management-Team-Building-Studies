@@ -1,6 +1,6 @@
 # スクラム実践者が知るべきベストプラクティス97 ― 初学者のための完全ガイド
 
-> 本ガイドは、O'Reilly刊『[97 Things Every Scrum Practitioner Should Know](https://www.oreilly.com/library/view/97-things-every/9781492073833/)』（編：Gunther Verheyen、Scrum.org刊行）の章立て構成にインスピレーションを得て、スクラム初学者がゼロから実践できるように、公式Scrum Guideおよび国際的に著名な実践者たちの知見を基に書き下ろしたオリジナル解説書です。書籍本文の引用・複製は行わず、公開情報源への参照とともに独自の解説を提供します。
+> 本ガイドは、O'Reilly刊『[97 Things Every Scrum Practitioner Should Know](https://www.oreilly.com/library/view/97-things-every/9781492073833/)』（編：Gunther Verheyen）の章立て構成にインスピレーションを得て、スクラム初学者がゼロから実践できるように、公式Scrum Guideおよび国際的に著名な実践者たちの知見を基に書き下ろしたオリジナル解説書です。書籍本文の引用・複製は行わず、公開情報源への参照とともに独自の解説を提供します。
 
 ---
 
@@ -23,6 +23,7 @@
 ---
 
 <a id="0"></a>
+
 ## 0. このガイドについて
 
 ### 0.1 なぜ「97」なのか
@@ -65,6 +66,7 @@
 ---
 
 <a id="1"></a>
+
 ## 1. Part I. 始める・導入する・繰り返す（Start, Adopt, Repeat）
 
 ### 1.1 スクラムとは何か（3分で理解する）
@@ -111,7 +113,7 @@ flowchart TB
 いきなりイベントを機械的に始めるのではなく、なぜスクラムを導入したいのか（リリース頻度を上げたい、手戻りを減らしたい、顧客フィードバックを早く得たいなど）を明確にします。目的を見失うと、後述する「形だけのスクラム」に陥りやすくなります。
 
 **ステップ2：スクラムチームを編成する**
-プロダクトオーナー・スクラムマスター・開発者を任命します。開発者はプロダクトの完成に必要なスキルをチーム全体でカバーできる「機能横断型（cross-functional）」であることが望ましいとされています。
+プロダクトオーナー・スクラムマスター・開発者を任命します。開発者は「機能横断型（cross-functional）」である必要があります。これは任意の推奨ではなく、各スプリントで価値あるインクリメントを生み出すために必要なスキルを、チーム全体として備えていなければならないという要件です。
 
 **ステップ3：プロダクトバックログを作成する**
 プロダクトゴールに向けて、やるべきことを一覧化し優先順位をつけます。最初から完璧である必要はなく、後述する「リファインメント」で継続的に磨いていきます。
@@ -130,6 +132,7 @@ flowchart TB
 ---
 
 <a id="2"></a>
+
 ## 2. Part II. プロダクトが価値を届ける（Products Deliver Value）
 
 ### 2.1 プロダクトバックログの基本原則
@@ -142,7 +145,7 @@ flowchart TB
 
 リファインメントとは、プロダクトバックログの項目に詳細・見積り・並び順を付与する継続的な活動です。Mike Cohn（Mountain Goat Software創業者、Scrum Alliance共同創設者）は、リファインメントの目的について、確実性（certainty）を作ることではなく、次のスプリントプランニングに十分なだけの**自信（confidence）**を作ることだと説明しています。
 
-出典：[Mountain Goat Softwareブログ](https://www.mountaingoatsoftware.com/blog?p=77)
+出典：[Mountain Goat Software「Product Backlog Refinement: How Scrum Teams Do It Right」](https://www.mountaingoatsoftware.com/agile/user-stories/product-backlog-refinement)
 
 **リファインメントのステップ：**
 
@@ -180,6 +183,7 @@ Mike Cohnは、チームがすべての未解決事項をリファインメン�
 ---
 
 <a id="3"></a>
+
 ## 3. Part III. コラボレーションこそが鍵（Collaboration Is Key）
 
 ### 3.1 プロダクトオーナーと開発者の協働
@@ -207,6 +211,7 @@ Mike Cohnは、チームがすべての未解決事項をリファインメン�
 ---
 
 <a id="4"></a>
+
 ## 4. Part IV. 開発は多面的な仕事（Development Is Multi-faceted Work）
 
 ### 4.1 「Flaccid Scrum（軟弱なスクラム）」という警鐘
@@ -251,6 +256,7 @@ Robert C. Martin（"Uncle Bob"、"Clean Code"や"Clean Agile"の著者）も、�
 ---
 
 <a id="5"></a>
+
 ## 5. Part V. イベントであってミーティングではない（Events, Not Meetings）
 
 スクラムには、スプリント自体を含めて5つのイベントがあります。これらは単なる「会議」ではなく、透明性・検査・適応を実践するための構造化された機会です。
@@ -260,7 +266,7 @@ Robert C. Martin（"Uncle Bob"、"Clean Code"や"Clean Agile"の著者）も、�
 flowchart TB
     PB["プロダクトバックログ"] --> SP["スプリントプランニング"]
     SP --> SB["スプリントバックログ"]
-    subgraph SPRINT["スプリント（最大4週間）"]
+    subgraph SPRINT["スプリント（1ヶ月以内）"]
         direction TB
         SB --> DEV["開発作業"]
         DEV --> DS["デイリースクラム"]
@@ -274,7 +280,7 @@ flowchart TB
 
 ### 5.1 スプリント（Sprint）
 
-すべてのイベントを内包する「コンテナ」で、最大1ヶ月の固定期間です。期間を固定することで、検査と適応のリズム（ケイデンス）が生まれます。スプリントの途中でゴールを危うくするような変更は避けるべきとされていますが、プロダクトオーナーが必要と判断すればスプリントを中止することも可能です（ただしこれは稀なケースとして扱われます）。
+すべてのイベントを内包する「コンテナ」で、最大1ヶ月の固定期間です。期間を固定することで、検査と適応のリズム（ケイデンス）が生まれます。スプリントの途中でゴールを危うくするような変更は避けるべきとされています。スプリントを中止できるのはプロダクトオーナーだけであり、しかも中止できるのはスプリントゴールが陳腐化した（意味を失った）場合に限られます（ただしこれは稀なケースとして扱われます）。
 
 ### 5.2 スプリントプランニング（Sprint Planning）
 
@@ -362,6 +368,7 @@ Esther Derbyは、心理的安全性とは常に快適でいられることで�
 ---
 
 <a id="6"></a>
+
 ## 6. Part VI. 熟達こそが重要（Mastery Does Matter）
 
 ### 6.1 ストーリーポイントによる見積り
@@ -372,7 +379,7 @@ Esther Derbyは、心理的安全性とは常に快適でいられることで�
 |---|---|
 | 複雑さ（Complexity） | 作業の難易度。思考の量、試行錯誤の必要性 |
 | リスク・不確実性（Risk/Uncertainty） | 問題が発生する可能性とその影響の大きさ |
-| 反復性（Repetition） | チームが同種の作業をどれだけ経験しているか |
+| 作業量（Amount of Work） | やるべきことの量。同種の作業でも、量が増えれば見積りは大きくなる |
 
 出典：[Mountain Goat Software「What Are Story Points and Why Do We Use Them?」](https://www.mountaingoatsoftware.com/agile/what-are-story-points)
 
@@ -411,6 +418,7 @@ Mike Cohnは、見積りを「バケット（範囲）」として捉え、境�
 ---
 
 <a id="7"></a>
+
 ## 7. Part VII. 人はどこまでも人間である（People, All Too Human）
 
 ### 7.1 心理的安全性はなぜ重要か
@@ -432,6 +440,7 @@ Zombie Scrum Survival Guideの著者らは、自己管理を形だけのもの�
 ---
 
 <a id="8"></a>
+
 ## 8. Part VIII. 価値基準が行動を導く（Values Drive Behavior）
 
 Scrum Guideは、スクラムが機能するために必要な5つの価値基準を定めています。これらはスキルや手法ではなく、日々の意思決定を導く「心構え」です。
@@ -455,6 +464,7 @@ Scrum Guideは、スクラムが機能するために必要な5つの価値基�
 ---
 
 <a id="9"></a>
+
 ## 9. Part IX. 組織デザイン（Organizational Design）
 
 ### 9.1 いつスケーリングを検討すべきか
@@ -466,12 +476,20 @@ Scrum Guideは、スクラムが機能するために必要な5つの価値基�
 ```mermaid
 %%{init: {'flowchart': {'subGraphTitleMargin': {'top': 10, 'bottom': 28}}} }%%
 flowchart TB
-    START["複数チームで1つのプロダクトを開発する"] --> Q1{"チーム数はいくつか"}
-    Q1 -->|"1チーム"| S1["まず単一チームのスクラムを磨く"]
-    Q1 -->|"2〜8チーム"| S2["LeSS または Nexus"]
-    Q1 -->|"8〜50チーム"| S3["LeSS Huge または SAFe"]
-    Q1 -->|"50チーム以上"| S4["SAFeのポートフォリオレベル"]
+    START["複数チームで1つのプロダクトを開発する"] --> Q0{"単一チームのスクラムは健全に機能しているか"}
+    Q0 -->|"いいえ"| S0["まず単一チームのスクラムを磨く"]
+    Q0 -->|"はい"| Q1{"チーム間の依存関係と統合コストは大きいか"}
+    Q1 -->|"依存が少なく頻繁に統合できる"| S1["LeSS または Nexus"]
+    Q1 -->|"依存が多く調整コストが大きい"| Q2{"1つのプロダクト・1つの組織として束ねられるか"}
+    Q2 -->|"束ねられる"| S2["LeSS Huge"]
+    Q2 -->|"複数プロダクト・複数部門にまたがる"| S3["SAFe（ポートフォリオレベルを含む）"]
 ```
+
+各フレームワークが示すチーム数（LeSS は2〜8チーム、LeSS Huge や SAFe は8チーム以上など）は、
+あくまで適用範囲の目安であり、チーム数だけでフレームワークが自動的に決まる境界ではありません。
+実際の選択で効いてくるのは、チーム間の依存関係の多さ、統合にかかるコスト、
+プロダクトが1つのバックログで束ねられる構造かどうか、
+そして組織構造が単一プロダクトとして意思決定できる形になっているか、といった条件です。
 
 ### 9.2 代表的なスケーリングフレームワークの比較
 
@@ -502,6 +520,7 @@ Nexus・LeSSの双方に共通する前提として、Craig Larman（LeSS考案�
 ---
 
 <a id="10"></a>
+
 ## 10. Part X. 台本のないスクラム（Scrum Off Script）
 
 理論通りにいかないのが現場の常です。ここでは、国際的に広く共有されている代表的なアンチパターンと、2026年時点で議論が活発なAIとスクラムの関係を取り上げます。
@@ -536,9 +555,9 @@ Zombie Scrum Survival Guideは、症状を4つの領域に整理しています�
 
 出典：[Scrum.org「Scrum.org Launches New AI Training for Scrum Masters」](https://www.scrum.org/resources/scrumorg-launches-new-ai-training-scrum-masters)
 
-Dave Westは2026年のOnline Scrum Summitの基調講演「Scrum Master 2.0: The AI Catalyst」で、AIとの関わり方を段階的なモード（例えば、個人の生産性を高めるためにAIを使う段階から、AIを含めたチーム全体のワークフローをオーケストレーションする段階まで）として整理しています。
+Dave Westは2026年6月開催の Online Scrum Master Summit 2026 の基調セッション「AI Catalyst: The Scrum Master's New Role」で、AIとの関わり方を段階的なモード（例えば、個人の生産性を高めるためにAIを使う段階から、AIを含めたチーム全体のワークフローをオーケストレーションする段階まで）として整理しています。
 
-出典：[TeamRetro「AI in Agile Project Management in 2026」](https://www.teamretro.com/blog/ai-agile-project-management/)
+出典：[Online Scrum Master Summit 2026（公式イベントページ）](https://onlinescrummastersummit.com/)
 
 **実践上の注意点（2026年時点での共通見解）：**
 
@@ -548,13 +567,14 @@ Dave Westは2026年のOnline Scrum Summitの基調講演「Scrum Master 2.0: The
 
 出典：[TeamRetro「AI in Agile Project Management in 2026」](https://www.teamretro.com/blog/ai-agile-project-management/)
 
-現時点でのコミュニティの大勢の見解は、「スクラムマスターという役割がAIに置き換えられるか」という問いよりも、「スクラムマスターが担う仕事の中身が事務的なファシリテーションから、人間同士の複雑な調整・コーチング・組織変革のリードへとシフトしていく」という見方に collectively 収束しつつあります。
+現時点でのコミュニティの大勢の見解は、「スクラムマスターという役割がAIに置き換えられるか」という問いよりも、「スクラムマスターが担う仕事の中身が事務的なファシリテーションから、人間同士の複雑な調整・コーチング・組織変革のリードへとシフトしていく」という見方へ、全体として収束しつつあります。
 
 出典：[Agilemania「Is the Scrum Master Role Dying in 2026?」](https://agilemania.com/is-the-scrum-master-role-dying)
 
 ---
 
 <a id="11"></a>
+
 ## 11. まとめ：実践チェックリスト
 
 初学者が最初の数スプリントで確認すべき項目をまとめました。
@@ -575,6 +595,7 @@ Dave Westは2026年のOnline Scrum Summitの基調講演「Scrum Master 2.0: The
 ---
 
 <a id="12"></a>
+
 ## 12. 参考文献・出典URL一覧
 
 本ガイドの作成にあたり参照した一次情報・国際的に著名な実践者による情報源です（2026年8月18日時点でのアクセス確認済み）。
