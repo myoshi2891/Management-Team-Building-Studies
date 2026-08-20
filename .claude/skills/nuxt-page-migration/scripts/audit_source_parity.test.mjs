@@ -374,7 +374,61 @@ test("recognizes every allowed Mermaid diagram declaration including pie", () =>
 	assert.equal(result.json.counts.mermaidSources.source, charts.length);
 	assert.equal(MERMAID_DIAGRAM_TYPES.length, charts.length);
 	for (const chart of charts) assert.match(chart, MERMAID_DIAGRAM_DECLARATION);
+	assert.match(
+		'%%{init: {"flowchart": {"curve": "linear"}}}%%\nflowchart TB\nA --> B',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+	// 行コメント（%% ...）が先頭に付く図も宣言として認識する（ブロックディレクティブとは別分岐）。
+	assert.match("%% 図の意図を書いた行コメント\nflowchart TB\nA --> B", MERMAID_DIAGRAM_DECLARATION);
 	assert.doesNotMatch("block-beta\ncolumns 1", MERMAID_DIAGRAM_DECLARATION);
+});
+
+test("matches a Mermaid declaration preceded by multiple leading directive and comment lines", () => {
+	// ブロックディレクティブと行コメントが複数連続しても、末尾の図種宣言に到達できる。
+	assert.match(
+		'%%{init: {"theme": "base"}}%%\n%% second line comment\ngitGraph\ncommit',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+	assert.match(
+		"%% first comment\n%% second comment\nsequenceDiagram\nA->>B: hi",
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+});
+
+test("matches a Mermaid declaration preceded by a multi-line block directive", () => {
+	// %%{ ... }%% ブロックが複数行にわたっても non-greedy マッチで正しく閉じられる。
+	const source = [
+		"%%{",
+		'  init: {',
+		'    "theme": "dark"',
+		"  }",
+		"}%%",
+		"flowchart TB",
+		"A --> B",
+	].join("\n");
+	assert.match(source, MERMAID_DIAGRAM_DECLARATION);
+});
+
+test("allows trailing whitespace after a directive line before the newline", () => {
+	assert.match(
+		'%%{init: {"theme":"base"}}%%   \ntimeline\ntitle History',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+});
+
+test("does not match when a blank line precedes the diagram declaration", () => {
+	// 正規表現は ^ で文字列先頭に固定されるため、先頭の空行はディレクティブとして扱われない。
+	assert.doesNotMatch("\nflowchart TB\nA --> B", MERMAID_DIAGRAM_DECLARATION);
+});
+
+test("does not match when directive lines are followed by a non-diagram keyword", () => {
+	assert.doesNotMatch("%% just a note\nnotADiagramType\nA --> B", MERMAID_DIAGRAM_DECLARATION);
+});
+
+test("still enforces a word boundary after the diagram keyword when directives are present", () => {
+	// "graphics" は "graph" を含むが、\b により図種名として誤マッチしてはならない。
+	assert.doesNotMatch("%% note\ngraphics TD\nA --> B", MERMAID_DIAGRAM_DECLARATION);
+	assert.doesNotMatch("graphics TD\nA --> B", MERMAID_DIAGRAM_DECLARATION);
 });
 
 test("treats normalized HTML and Markdown paragraphs as blocking parity elements", () => {
