@@ -20,6 +20,7 @@
     "audit:capm-d4": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Capm-domain4-business-analysis-frameworks.html app/pages/capm-domain4-business-analysis-frameworks.vue",
     "audit:pmp": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-certification-guide.html app/pages/pmp-certification-guide.vue",
     "audit:pmp-d1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-domain1-people-guide.html app/pages/pmp-domain1-people-guide.vue",
+    "audit:pmp-d2": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Pmp-domain2-process-guide.html app/pages/pmp-domain2-process-guide.vue",
     "audit:lead": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-team-leadership-guide.html app/pages/engineering-team-leadership-guide.vue",
     "audit:reteam": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Dynamic-reteaming-guide.html app/pages/dynamic-reteaming-guide.vue",
     "audit:exec": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-executive-playbook.html app/pages/engineering-executive-playbook.vue",

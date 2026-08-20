@@ -136,6 +136,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/pmp-domain2-process-guide",
+    categoryId: "project-management",
+    navLabel: "PMP ドメイン2",
+    title: "PMP® Domain II: Process 完全解説ガイド",
+    description: "PMI公式Examination Content Outline(ECO)2026年7月改訂版に基づき、PMP試験Domain II: Processの10Taskを初学者向けに解説する学習ガイドです。",
+    meta: "8セクション",
+    icon: "tabler:settings-automation",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",
