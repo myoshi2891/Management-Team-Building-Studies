@@ -94,7 +94,15 @@ const EXPECTED_TOC_IDS = [
   "references",
 ] as const;
 
-const EXPECTED_SECTION_EYEBROWS = [] as const;
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart TB

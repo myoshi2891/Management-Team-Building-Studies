@@ -217,7 +217,13 @@ const EXPECTED_CALLOUT_LABELS = {
   },
 } as const;
 
-const EXPECTED_STEP_TAGS = [] as const;
+const EXPECTED_STEP_TAGS = [
+  "ビジョンを言語化する",
+  "主要ステークホルダーと共同構築する",
+  "反復的に発信する",
+  "定点観測する",
+  "ズレが起きたら分解して原因分析する",
+] as const;
 
 const EXPECTED_SEO_TITLE_FRAGMENTS = [
   "PMP",

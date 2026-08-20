@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi } from "vitest";
-import { defineSourceParityContract } from "../support/page-contract";
+import { describe, expect, it, vi } from "vitest";
+import { createMountPage, defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/pmp-domain2-process-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -240,6 +240,8 @@ const EXPECTED_SEO_TITLE_FRAGMENTS = [
   "Process",
 ] as const;
 
+const mountPage = createMountPage(Page);
+
 defineSourceParityContract({
   suiteName: "pages/pmp-domain2-process-guide.vue",
   page: Page,
@@ -258,4 +260,23 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: EXPECTED_SEO_TITLE_FRAGMENTS,
+});
+
+describe("pages/pmp-domain2-process-guide.vue — 目次の現在地", () => {
+  it("active な目次リンクだけが aria-current=location を持つ", () => {
+    const links = mountPage().findAll(".sidebar-nav a");
+    expect(links).toHaveLength(EXPECTED_TOC_IDS.length);
+
+    // 初期状態では先頭の TOC 項目が active（契約 C-3）。
+    // active クラスと aria-current の対象が完全に一致することを保証する。
+    const current = links
+      .filter((link) => link.attributes("aria-current") === "location")
+      .map((link) => link.attributes("href"));
+    const active = links
+      .filter((link) => link.classes().includes("active"))
+      .map((link) => link.attributes("href"));
+
+    expect(current).toEqual([`#${EXPECTED_TOC_IDS[0]}`]);
+    expect(active).toEqual(current);
+  });
 });

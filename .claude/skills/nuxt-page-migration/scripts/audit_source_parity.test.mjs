@@ -378,6 +378,8 @@ test("recognizes every allowed Mermaid diagram declaration including pie", () =>
 		'%%{init: {"flowchart": {"curve": "linear"}}}%%\nflowchart TB\nA --> B',
 		MERMAID_DIAGRAM_DECLARATION,
 	);
+	// 行コメント（%% ...）が先頭に付く図も宣言として認識する（ブロックディレクティブとは別分岐）。
+	assert.match("%% 図の意図を書いた行コメント\nflowchart TB\nA --> B", MERMAID_DIAGRAM_DECLARATION);
 	assert.doesNotMatch("block-beta\ncolumns 1", MERMAID_DIAGRAM_DECLARATION);
 });
 

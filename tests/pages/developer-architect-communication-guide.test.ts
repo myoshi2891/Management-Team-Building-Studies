@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi } from "vitest";
-import { defineSourceParityContract } from "../support/page-contract";
+import { describe, expect, it, vi } from "vitest";
+import { createMountPage, defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/developer-architect-communication-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -219,6 +219,8 @@ const SEO_TITLE_FRAGMENTS = [
   "実践ガイド",
 ] as const;
 
+const mountPage = createMountPage(Page);
+
 defineSourceParityContract({
   suiteName: "pages/developer-architect-communication-guide.vue",
   page: Page,
@@ -237,4 +239,25 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: SEO_TITLE_FRAGMENTS,
+});
+
+describe("pages/developer-architect-communication-guide.vue — モバイルサイドバー", () => {
+  it("トグルを押すとサイドバーに open クラスが付き、目次リンクを押すと外れる", async () => {
+    const wrapper = mountPage();
+    const sidebar = wrapper.find("#sidebar");
+    const toggle = wrapper.find(".sidebar-toggle");
+
+    expect(sidebar.classes()).not.toContain("open");
+
+    await toggle.trigger("click");
+    expect(wrapper.find("#sidebar").classes()).toContain("open");
+    expect(wrapper.find(".sidebar-toggle").attributes("aria-expanded")).toBe("true");
+
+    await wrapper.find(".sidebar-nav a").trigger("click");
+    expect(wrapper.find("#sidebar").classes()).not.toContain("open");
+  });
+
+  it("サイドバーは aria-label 目次 を保持する", () => {
+    expect(mountPage().find("#sidebar").attributes("aria-label")).toBe("目次");
+  });
 });
