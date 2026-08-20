@@ -95,7 +95,7 @@ flowchart TB
 
 ### 3.3 例外：分割可能なタスクには当てはまらない
 
-Joel Spolsky は、既存コードベース全体をレビューしてセキュリティ上の問題を洗い出すような、相互依存の少ない作業には「人月の神話」の制約はそのまま当てはまらないと指摘しています。ブルックスの法則が効くのは、あくまで**メンバー間の緊密な調整が必要な、相互依存性の高い作業**だという点は押さえておく必要があります。
+ブルックス自身が本書で述べているとおり、ブルックスの法則が効くのは**メンバー間の緊密な調整が必要な、相互依存性の高い作業**であり、担当者どうしのやり取りをほとんど必要としない分割可能なタスクには当てはまりません。本ガイドの適用例を挙げるなら、既存コードベース全体を手分けしてレビューし、セキュリティ上の問題を洗い出すような作業がこれに当たります（この例は本ガイドによる応用であり、原著や後述の引用元が挙げているものではありません）。
 
 ---
 
@@ -209,7 +209,7 @@ flowchart LR
 
 > 「パイロット版を作って捨てるかどうかを議論する必要はない。あなたはどのみちそれをやることになる。だから最初からそのつもりで計画せよ」
 
-- 最初に書いたコードには、要件理解の不足からくる設計上の欠陥が必ず含まれます。
+- 最初に書いたコードには、要件理解の不足からくる設計上の欠陥が含まれやすくなります。
 - これを前提に計画すれば、「捨てる」ことが失敗ではなく、計画通りの学習プロセスとして扱えます。
 - 一方で、apenwarr（Avery Pennarun）は、大規模な「ゼロからの書き直し」自体が第二システム症候群の温床になりやすいと指摘しており、Joel Spolsky が論じた Netscape のフルスクラッチ書き直しの失敗例（"Things You Should Never Do, Part I"）を教訓として挙げています。**「捨てる前提で小さく作る」と「土台からすべて作り直す」は別物である**という点は現代的な補足として重要です。
 
@@ -226,7 +226,7 @@ flowchart LR
 
 ### Step 9｜銀の弾丸はないと理解する（第16・17章：No Silver Bullet）
 
-1986年の論文 "No Silver Bullet — Essence and Accident in Software Engineering" で Brooks は、ソフトウェア開発の困難さを **本質的複雑さ（essential complexity）** と **偶有的複雑さ（accidental complexity）** に分類しました。
+1986年の論文 "No Silver Bullet: Essence and Accidents of Software Engineering" で Brooks は、ソフトウェア開発の困難さを **本質的複雑さ（essential complexity）** と **偶有的複雑さ（accidental complexity）** に分類しました。
 
 ```mermaid
 flowchart TB
@@ -259,7 +259,7 @@ flowchart TB
 | 二作目のシステムは経験を積んだ分、必ず良くなる | 自信過剰から機能を詰め込みすぎる「第二システム症候群」に陥りやすい |
 | ドキュメント作成は開発速度を遅らせるだけの作業だ | 文書化の過程は設計の曖昧さを可視化し、後工程の手戻りを減らす |
 | 新しい言語・ツール・手法を導入すれば生産性は劇的に向上する | 偶有的複雑さは削減できても、本質的複雑さは技術だけでは解決できない |
-| 最初に書いたコードをそのまま本番運用すればよい | 最初の版には設計上の欠陥が必ず含まれるため、学習として捨てる前提で計画すべき |
+| 最初に書いたコードをそのまま本番運用すればよい | 最初の版は設計上の問題が見つかる可能性が高いため、学習として捨てる前提で計画すべき |
 
 ---
 
@@ -267,7 +267,7 @@ flowchart TB
 
 ### Joel Spolsky（Stack Overflow 共同創業者・元CEO、Fog Creek Software 創業者）
 
-自身のブログ Joel on Software で本書に繰り返し言及しており、「凡庸なプログラマー5人を優秀なプログラマー1人の代わりにすることはできない」という論旨のもと、少人数の精鋭チームがなぜ調整コストの面で有利かを説明しています。また、既存コードのレビューのように相互依存の少ない作業には人月の神話がそのまま当てはまらないとも指摘し、法則の適用条件を明確化しています。
+自身のブログ Joel on Software で本書に繰り返し言及しており、「凡庸なプログラマー5人を優秀なプログラマー1人の代わりにすることはできない」という論旨のもと、少人数の精鋭チームがなぜ調整コストの面で有利かを説明しています。ここでの論点は、人数を増やすことでは代替できない「調整コスト」と個人の能力差にあります。
 
 ### apenwarr（Avery Pennarun、Tailscale 共同創業者・CEO、git-subtree や sshuttle などの開発者）
 
@@ -334,7 +334,7 @@ Brooks 自身が述べたように「みんなが引用し、何人かが読み�
   https://blog.acolyer.org/2016/09/06/no-silver-bullet-essence-and-accident-in-software-engineering/
 - Jason Sachs, "In Memoriam: Frederick P. Brooks, Jr. and The Mythical Man-Month"（EmbeddedRelated）
   https://www.embeddedrelated.com/showarticle/1484.php
-- Fred Brooks, "No Silver Bullet — Essence and Accidents of Software Engineering"（原著論文 PDF、UNC 技術報告書）
+- Fred Brooks, "No Silver Bullet: Essence and Accidents of Software Engineering"（原著論文 PDF、UNC 技術報告書）
   https://www.cs.unc.edu/techreports/86-020.pdf
 - "The Mythical Man Month: 5 Lessons About Software Development"（vibe coding 時代における再評価、2026年）
   https://five.co/blog/5-lessons-on-software-development-the-mythical-man-month/
