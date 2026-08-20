@@ -33,7 +33,8 @@
     "audit:elastic": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Elastic-leadership-guide.html app/pages/elastic-leadership-guide.vue",
     "audit:csm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csm-certified-scrummaster-guide/Csm-certified-scrummaster-guide.html app/pages/csm-certified-scrummaster-guide.vue",
     "audit:csm-team": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csm-certified-scrummaster-guide/Csm-scrum-team-3-accountabilities.html app/pages/csm-scrum-team-3-accountabilities.vue",
-    "audit:csm-theory": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csm-certified-scrummaster-guide/Csm-scrum-theory-guide.html app/pages/csm-scrum-theory-guide.vue"
+    "audit:csm-theory": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csm-certified-scrummaster-guide/Csm-scrum-theory-guide.html app/pages/csm-scrum-theory-guide.vue",
+    "audit:scrum-97": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-97-things-guide/Scrum-97-things-guide.html app/pages/scrum-97-things-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
