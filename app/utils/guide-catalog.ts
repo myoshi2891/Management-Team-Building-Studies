@@ -245,6 +245,16 @@ export const GUIDES = [
     icon: "tabler:messages",
     accent: "forest",
   },
+  {
+    to: "/elastic-leadership-guide",
+    categoryId: "engineering-leadership",
+    navLabel: "Elastic Leadership",
+    title: "Elastic Leadership 実践ガイド",
+    description: "Roy Osherove著『Elastic Leadership』をもとに、サバイバル・ラーニング・セルフオーガナイジングの3フェーズモデルと実践テクニックを初学者向けにステップバイステップで解説するガイド。",
+    meta: "13セクション",
+    icon: "tabler:compass",
+    accent: "indigo",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {

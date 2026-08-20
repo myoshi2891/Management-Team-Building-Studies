@@ -1146,6 +1146,20 @@
     class Q0 hub;
     class Q1,Q2,M1,M2,A1,A2 box;
     class M3,A3 done;`,
+    manifestoPillars: `flowchart TD
+    TLM["Team Leader Manifesto"] --> P1["人を機械のように扱わず心理を理解する"]
+    TLM --> P2["単一スタイルに固執せずフェーズに応じて変える"]
+    TLM --> P3["恐れや不快感を避けず挑戦と実験を歓迎する"]
+    TLM --> P4["自分がボトルネックでなくなることを目指す"]
+    P1 ~~~ P2
+    P2 ~~~ P3
+    P3 ~~~ P4
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class TLM hub;
+    class P1,P2,P3,P4 box;`,
     survivalModeSteps: `flowchart TD
     S1["現在のすべてのコミットメントを洗い出す"] --> S2["経営層に現状を正直に共有する"]
     S2 --> S3["今後30日で完了できる分だけに絞り込む"]
@@ -1176,20 +1190,6 @@
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class N1,N2,N3 box;
     class P1,P2,P3 done;`,
-    manifestoPillars: `flowchart TD
-    TLM["Team Leader Manifesto"] --> P1["人を機械のように扱わず心理を理解する"]
-    TLM --> P2["単一スタイルに固執せずフェーズに応じて変える"]
-    TLM --> P3["恐れや不快感を避けず挑戦と実験を歓迎する"]
-    TLM --> P4["自分がボトルネックでなくなることを目指す"]
-    P1 ~~~ P2
-    P2 ~~~ P3
-    P3 ~~~ P4
-
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class TLM hub;
-    class P1,P2,P3,P4 box;`,
   };
 
   function extendViewBoxHeight(svgEl, extra) {
