@@ -143,81 +143,81 @@ class G done;`;
       <ul class="sidebar-nav">
         <li class="nav-group-label">はじめに</li>
         <li>
-          <a href="#about-this-guide" :class="{ active: activeId === 'about-this-guide' }" @click="closeSidebar">
+          <a href="#about-this-guide" :class="{ active: activeId === 'about-this-guide' }" :aria-current="activeId === 'about-this-guide' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:info-circle" />このガイドについて
           </a>
         </li>
         <li>
-          <a href="#exam-overview" :class="{ active: activeId === 'exam-overview' }" @click="closeSidebar">
+          <a href="#exam-overview" :class="{ active: activeId === 'exam-overview' }" :aria-current="activeId === 'exam-overview' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:list-check" />試験の全体像
           </a>
         </li>
         <li>
-          <a href="#eco-2026-update" :class="{ active: activeId === 'eco-2026-update' }" @click="closeSidebar">
+          <a href="#eco-2026-update" :class="{ active: activeId === 'eco-2026-update' }" :aria-current="activeId === 'eco-2026-update' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:refresh" />2026年改定のポイント
           </a>
         </li>
         <li>
-          <a href="#what-is-domain-people" :class="{ active: activeId === 'what-is-domain-people' }" @click="closeSidebar">
+          <a href="#what-is-domain-people" :class="{ active: activeId === 'what-is-domain-people' }" :aria-current="activeId === 'what-is-domain-people' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:users" />Domain Iとは何か
           </a>
         </li>
 
         <li class="nav-group-label">Task別解説</li>
         <li>
-          <a href="#task-1-common-vision" :class="{ active: activeId === 'task-1-common-vision' }" @click="closeSidebar">
+          <a href="#task-1-common-vision" :class="{ active: activeId === 'task-1-common-vision' }" :aria-current="activeId === 'task-1-common-vision' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:flag-3" />Task 1: 共通ビジョン
           </a>
         </li>
         <li>
-          <a href="#task-2-manage-conflicts" :class="{ active: activeId === 'task-2-manage-conflicts' }" @click="closeSidebar">
+          <a href="#task-2-manage-conflicts" :class="{ active: activeId === 'task-2-manage-conflicts' }" :aria-current="activeId === 'task-2-manage-conflicts' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:swords" />Task 2: コンフリクト
           </a>
         </li>
         <li>
-          <a href="#task-3-lead-team" :class="{ active: activeId === 'task-3-lead-team' }" @click="closeSidebar">
+          <a href="#task-3-lead-team" :class="{ active: activeId === 'task-3-lead-team' }" :aria-current="activeId === 'task-3-lead-team' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:crown" />Task 3: チームのリード
           </a>
         </li>
         <li>
-          <a href="#task-4-engage-stakeholders" :class="{ active: activeId === 'task-4-engage-stakeholders' }" @click="closeSidebar">
+          <a href="#task-4-engage-stakeholders" :class="{ active: activeId === 'task-4-engage-stakeholders' }" :aria-current="activeId === 'task-4-engage-stakeholders' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:affiliate" />Task 4: エンゲージメント
           </a>
         </li>
         <li>
-          <a href="#task-5-align-expectations" :class="{ active: activeId === 'task-5-align-expectations' }" @click="closeSidebar">
+          <a href="#task-5-align-expectations" :class="{ active: activeId === 'task-5-align-expectations' }" :aria-current="activeId === 'task-5-align-expectations' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:arrows-join" />Task 5: 期待値の整合
           </a>
         </li>
         <li>
-          <a href="#task-6-manage-expectations" :class="{ active: activeId === 'task-6-manage-expectations' }" @click="closeSidebar">
+          <a href="#task-6-manage-expectations" :class="{ active: activeId === 'task-6-manage-expectations' }" :aria-current="activeId === 'task-6-manage-expectations' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:target-arrow" />Task 6: 期待値のマネジメント
           </a>
         </li>
         <li>
-          <a href="#task-7-knowledge-transfer" :class="{ active: activeId === 'task-7-knowledge-transfer' }" @click="closeSidebar">
+          <a href="#task-7-knowledge-transfer" :class="{ active: activeId === 'task-7-knowledge-transfer' }" :aria-current="activeId === 'task-7-knowledge-transfer' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:bulb" />Task 7: 知識移転
           </a>
         </li>
         <li>
-          <a href="#task-8-plan-communication" :class="{ active: activeId === 'task-8-plan-communication' }" @click="closeSidebar">
+          <a href="#task-8-plan-communication" :class="{ active: activeId === 'task-8-plan-communication' }" :aria-current="activeId === 'task-8-plan-communication' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:message-circle" />Task 8: コミュニケーション
           </a>
         </li>
 
         <li class="nav-group-label">まとめ</li>
         <li>
-          <a href="#cross-task-summary" :class="{ active: activeId === 'cross-task-summary' }" @click="closeSidebar">
+          <a href="#cross-task-summary" :class="{ active: activeId === 'cross-task-summary' }" :aria-current="activeId === 'cross-task-summary' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:table" />横断ベストプラクティス
           </a>
         </li>
         <li>
-          <a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" @click="closeSidebar">
+          <a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" :aria-current="activeId === 'exam-tips' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:checklist" />試験対策のコツ
           </a>
         </li>
         <li>
-          <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+          <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:link" />参考文献・出典
           </a>
         </li>
