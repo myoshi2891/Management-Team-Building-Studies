@@ -1,5 +1,6 @@
 # 『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド
-### ― ソフトウェアエンジニアリングマネージャーのためのベストプラクティスをステップバイステップで学ぶ ―
+
+*― ソフトウェアエンジニアリングマネージャーのためのベストプラクティスをステップバイステップで学ぶ ―*
 
 > 本ガイドは、Michael Lopp（ペンネーム「Rands」）による書籍 *Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager*（第4版、Apress）の内容を、初めてマネジメントに触れる方向けに整理・体系化した学習資料です。原著の詳細な文章の引用は最小限に留め、要点を独自の言葉で解説しています。原著を読む際の「地図」としてご活用ください。
 
@@ -14,7 +15,7 @@
 | 出版社 | Apress（Springer Nature） |
 | 著者の経歴 | Apple、Pinterest、Palantir、Netscape、Symantec、Borland、Slackなどシリコンバレーの主要テック企業でエンジニアリングマネジメントを20年以上経験 |
 | ジャンル | エンジニアリングマネジメント／人材マネジメント（実話ベースのエッセイ集、ユーモア混じり） |
-| 構成 | 全3部・約50章（版によって章構成は異なる） |
+| 構成 | 全3部・約60章＋エピローグ（第4版。第3版から2章を削除し、11章を新規追加） |
 
 Michael Lopp は自身のブログ「[Rands in Repose](https://randsinrepose.com/)」で発表してきたエッセイをまとめてこの本を執筆しました。もともとは同僚だった *Joel on Software* の著者 Joel Spolsky が出版を勧めたことがきっかけで書籍化されたと伝えられています。
 
@@ -69,7 +70,7 @@ graph TD
     D --> D3["退屈させない・チームを飽きさせない工夫"]
 ```
 
-出典: [O'Reilly 書誌ページ](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)、章構成の詳細は [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)、[thriftbooks.com掲載の目次](https://www.thriftbooks.com/w/managing-humans-biting-and-humorous-tales-of-a-software-engineering-manager_michael-lopp/399304/)を参照して構成。
+出典: [O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)、第4版での章構成の変更点は著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) を参照。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている。
 
 ---
 
@@ -88,7 +89,6 @@ Part Iは、マネージャーが日々の対人関係で使う「道具（矢�
 | How to Run a Meeting | 会議運営 | アジェンダを用意し、レフェリー役として進行に責任を持つ |
 | The Twinge | 違和感の察知 | データが少なくても違和感（Twinge）を無視せず確認する |
 | The Update, the Vent, and the Disaster | 1on1の型 | 週次30分の1on1を固定し、相手の話を3種類に分類して聞く |
-| The Monday Freakout | 感情の爆発への対応 | 反論せず、質問で相手を感情から論理へ導く |
 | Dissecting the Mandate | トップダウン決定の伝え方 | Decide→Deliver→Deliver againの手順で意思決定を通す |
 | Information Starvation | 情報共有の重要性 | 有益無益にかかわらず情報を流し続ける習慣をつける |
 | Fred Hates the Off-Site | オフサイト運営 | 参加者全員に発表の機会を与え、2日以上かけて議論する |
@@ -96,7 +96,7 @@ Part Iは、マネージャーが日々の対人関係で使う「道具（矢�
 | Titles Are Toxic | 役職とキャリア | 役職の名称ではなく、実際の職務内容と成長を評価する |
 | Saying No | 意思決定の勇気 | チームを巻き込みながら「ノー」と言える文化を作る |
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ### 3-2. ステップ実践：健全な1on1の進め方
 
@@ -119,7 +119,7 @@ flowchart TD
 - 最低30分は確保する。人数が多くても時間を削らない。
 - ステータス報告に終始しそうな場合は、その中から掘り下げられる話題を探して深掘りする。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ### 3-3. ステップ実践：会議をレフェリーとして進行する
 
@@ -144,7 +144,7 @@ flowchart TD
 - 誰も発言しない・進行が止まる状態が30分続いたら、論点が多すぎるサインとして仕切り直す。
 - 「独裁者」的に発言を止めるのは最終手段。多用すると場全体が萎縮する。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ### 3-4. ステップ実践：トップダウンの意思決定（Mandate）を通す
 
@@ -163,7 +163,7 @@ flowchart LR
 - 決定後、賛成・反対どちらの側にも個別に理由を説明する時間を取る。
 - 上位組織からの決定を伝える場合は、その背景・根拠を自分の言葉で咀嚼してから伝える。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ### 3-5. Stables（安定志向型）とVolatiles（変革志向型）
 
@@ -187,7 +187,7 @@ flowchart LR
 
 このサイクルを理解しておくと、「なぜ古参メンバーは保守的になりがちなのか」「なぜ新しく入った人は既存のやり方に反発するのか」を構造的に説明できるようになります。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ---
 
@@ -209,7 +209,7 @@ Part IIは、プロダクト開発そのものやチームのプロセス設計�
 | Hacking Is Important | 創造性と安定のバランス | 予測可能性を保ちながらも、意図的に「ハック」する余地を残す |
 | Entropy Crushers | プロジェクト／プログラムマネジメント | PM・プロダクトマネージャー・プログラムマネージャーの役割分担を明確にする |
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ### 4-2. 「1.0」における優先順位ピラミッド
 
@@ -224,7 +224,7 @@ Part IIは、プロダクト開発そのものやチームのプロセス設計�
 
 **実践のコツ**：組織図を作りたくなったら要注意のサインと捉える。1.0フェーズで「これは誰の仕事か」を可視化し始めるのは、停滞の始まりであることが多いとされています。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ### 4-3. ステップ実践：危機対応（When the Sky Falls）
 
@@ -246,7 +246,7 @@ flowchart TD
 - 対応中は自分の名前をタスクの担当者に入れない。マネージャーの役目は実行ではなく調整と情報発信。
 - 目先の症状を抑える「応急処置」と、根本原因を解決する「本当の治療」を混同しない。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ---
 
@@ -274,7 +274,7 @@ Part IIIは、キャリアの成長、多様な人材タイプへの向き合い
 - つまらない仕事（Shit Work）は公平に配分し、誰がやっているかを把握し、いつ終わるかを伝える。
 - マネージャーになっても完全にコードから離れない。エンジニアの思考プロセスへの理解を保つため。
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
 
 ---
 
@@ -317,7 +317,7 @@ flowchart TD
 | マネージャーが完全にコードから離れる | エンジニアとの共通言語を失う | 開発環境に触れ続け、実装への理解を保つ |
 | 役職だけでキャリアパスを設計する | 役職では成長の多様性を捉えきれない | 職務内容と実際の貢献を軸に評価する |
 
-出典: [mgp/book-notes（GitHub）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)、[briansnotes.io](https://www.briansnotes.io/book/managing-humans/)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。、[briansnotes.io](https://www.briansnotes.io/book/managing-humans/)
 
 ---
 
@@ -359,8 +359,9 @@ flowchart TD
 | 2 | Springer/Apress 書誌ページ（第4版） | https://link.springer.com/book/10.1007/978-1-4842-7116-2 |
 | 3 | Springer/Apress 書誌ページ（初版） | https://link.springer.com/book/10.1007/978-1-4302-0271-4 |
 | 4 | Rands in Repose（著者公式ブログ）書籍紹介ページ | https://randsinrepose.com/books/ |
-| 5 | Rands in Repose：第3版発表記事 | https://randsinrepose.com/archives/managing-humans-third-edition/ |
-| 6 | mgp/book-notes（GitHub、章ごとの詳細ノート） | https://github.com/mgp/book-notes/blob/master/managing-humans.markdown |
+| 5 | Rands in Repose：第4版発表記事（章構成の変更点の一次情報） | https://randsinrepose.com/archives/managing-humans-4th-edition/ |
+| 5b | Rands in Repose：第3版発表記事 | https://randsinrepose.com/archives/managing-humans-third-edition/ |
+| 6 | mgp/book-notes（GitHub、章ごとの詳細ノート／旧版に基づく） | https://github.com/mgp/book-notes/blob/master/managing-humans.markdown |
 | 7 | charlax/engineering-management（GitHub、キュレーションリスト） | https://github.com/charlax/engineering-management |
 | 8 | skyzyx/managing-humans（GitHub、推薦リスト） | https://github.com/skyzyx/managing-humans |
 | 9 | The Pragmatic Engineer（Gergely Orosz）書籍推薦記事 | https://blog.pragmaticengineer.com/holiday-tech-book-recommendations/ |
@@ -370,7 +371,7 @@ flowchart TD
 | 13 | Goodreads（第4版ページ） | https://www.goodreads.com/book/show/58153385 |
 | 14 | Goodreads（旧版ページ） | https://www.goodreads.com/book/show/1317946.Managing_Humans |
 | 15 | Brian's Notes 書籍要約ページ | https://www.briansnotes.io/book/managing-humans/ |
-| 16 | Thriftbooks 目次掲載ページ | https://www.thriftbooks.com/w/managing-humans-biting-and-humorous-tales-of-a-software-engineering-manager_michael-lopp/399304/ |
+| 16 | Thriftbooks 目次掲載ページ（旧版の目次） | https://www.thriftbooks.com/w/managing-humans-biting-and-humorous-tales-of-a-software-engineering-manager_michael-lopp/399304/ |
 
 ---
 
