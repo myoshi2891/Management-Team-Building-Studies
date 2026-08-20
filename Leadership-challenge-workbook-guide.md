@@ -1,5 +1,6 @@
 # The Leadership Challenge Workbook 完全ガイド
-### ― ソフトウェアエンジニア／スクラムマスターのためのリーダーシップ実践入門 ―
+
+*― ソフトウェアエンジニア／スクラムマスターのためのリーダーシップ実践入門 ―*
 
 > 対象書籍: *The Leadership Challenge Workbook, 4th Edition*（James M. Kouzes, Barry Z. Posner 著／Wiley／2023年4月刊／全160ページ）
 > 本ガイドは、同ワークブックの構成に沿いながら、初学者のソフトウェアエンジニアやスクラムマスターが「今日から実践できる」形に翻訳したステップバイステップ解説です。
@@ -179,7 +180,7 @@ flowchart TB
 
 *The Leadership Challenge* は一般的な組織論の古典ですが、ソフトウェアエンジニアリング業界の著名なリーダーたちの推薦図書リストの中でも繰り返し取り上げられています。
 
-- 海外のエンジニアリングマネジメント系メディアがまとめた「目指すべきテックリーダーのための必読書リスト」では、*The Leadership Challenge* が Will Larson（元Calm CTO）の *An Elegant Puzzle: Systems of Engineering Management* と並んで紹介されており、両者は「システム思考に基づく実務書」と「行動科学に基づく理論書」という補完関係にあります。
+- 海外のエンジニアリングマネジメント系メディアがまとめた「目指すべきテックリーダーのための必読書リスト」では、*The Leadership Challenge* が Will Larson（元Calm CTO）の *Staff Engineer: Leadership Beyond the Management Track*（同リストでは技術リーダーシップ／キャリア成長の分野で紹介）や *An Elegant Puzzle: Systems of Engineering Management*（同リストの FAQ で「すべてのエンジニアリングマネージャーへの推薦書」として紹介）と同じリストに並んでいます。Larson の実務書群と Kouzes & Posner は、「システム思考に基づく実務書」と「行動科学に基づく理論書」という補完関係にあります。
 - Camille Fournier（元 Rent the Runway CTO、現 CoreWeave VP Engineering）は著書 *The Manager's Path*（O'Reilly, 2017）で、エンジニアからマネージャーへのキャリアパスにおけるコミュニケーションと信頼構築の重要性を論じており、InfoQ のインタビューでもこのテーマについて詳しく語っています。これは Kouzes & Posner の「Enable Others to Act」「Model the Way」と直接重なる主張です。
 - James Stanier の *Become an Effective Software Engineering Manager* も同様に、実務寄りのマネジメント書として *The Leadership Challenge* と並んで紹介されることが多く、理論（Kouzes & Posner）と実務（Fournier, Larson, Stanier）を組み合わせて読むことが、海外のテックリーダーシップ教育では一般的なアプローチとなっています。
 
@@ -233,18 +234,21 @@ Kouzes & Posner のモデルは唯一絶対の正解ではなく、他の主要�
 - The Leadership Challenge ホーム（LPI・実績データ）: https://www.leadershipchallenge.com/home
 - Meet the Authors（Kouzes & Posner 経歴）: https://www.leadershipchallenge.com/five-practices/about-the-authors
 - The Leadership Challenge, 7th Edition（Wiley）: https://www.wiley.com/en-us/The+Leadership+Challenge:+How+to+Make+Extraordinary+Things+Happen+in+Organizations,+7th+Edition-p-9781119736127
-- The Leadership Challenge（Wikipedia、書誌情報）: https://en.wikipedia.org/wiki/The_Leadership_Challenge
 
 **学術・解説記事**
 - Kouzes & Posner, "The Five Practices of Exemplary Leadership"（Encyclopedia of Management Theory 収録原稿）: https://scholarcommons.scu.edu/mgmt/30/
 - Kouzes-Posner Five Practices of Exemplary Leadership（他理論との比較解説）: https://umbrex.com/resources/frameworks/organization-frameworks/kouzes-posner-five-practices-of-exemplary-leadership/
-- The 5 Practices of Exemplary Leadership（Boise State University による解説・教育リソース）: https://www.boisestate.edu/academics-deptchairs/
+- The 5 Practices of Exemplary Leadership（Boise State University による解説・教育リソース）: https://www.boisestate.edu/academics-deptchairs/home/resources-for-academic-leaders/new-academic-leaders-program/the-5-practices-of-exemplary-leadership/
 
 **ソフトウェアエンジニアリング／テックリーダーシップの文脈**
-- Essential Engineering Management Books for Aspiring Tech Leaders（Will Larson『An Elegant Puzzle』等との併記）: https://engineeringmanagement.org/essential-em-books/
+- Essential Engineering Management Books for Aspiring Tech Leaders（Will Larson『Staff Engineer』『An Elegant Puzzle』等との併記）: https://engineeringmanagement.org/essential-em-books/
+- Camille Fournier（CoreWeave 公式・現職「VP of Engineering at CoreWeave」を確認できる一次情報）: https://www.coreweave.com/resources/videos/empowering-development-teams
+
+**二次情報・歴史的資料**
+- The Leadership Challenge（Wikipedia、書誌情報）: https://en.wikipedia.org/wiki/The_Leadership_Challenge
 - Camille Fournier（Wikipedia、経歴・著書情報）: https://en.wikipedia.org/wiki/Camille_Fournier
-- Q&A on The Manager's Path with Camille Fournier（InfoQ）: https://www.infoq.com/articles/book-review-managers-path
-- Camille Fournier on Platform Engineering, Engineering Ladders, and Her Book "The Manager's Path"（InfoQ Podcast）: https://www.infoq.com/culture-methods/podcasts/9
+- Q&A on The Manager's Path with Camille Fournier（InfoQ／執筆当時の所属に基づく記事）: https://www.infoq.com/articles/book-review-managers-path
+- Camille Fournier on Platform Engineering, Engineering Ladders, and Her Book "The Manager's Path"（InfoQ Podcast／公開当時の所属に基づく）: https://www.infoq.com/culture-methods/podcasts/9
 
 ---
 
