@@ -36,14 +36,14 @@ Michael Lopp は自身のブログ「[Rands in Repose](https://randsinrepose.com
 
 この本はエンジニア出身のマネージャーにとって定番の一冊として、世界中の開発者コミュニティで長年参照され続けています。以下は、著名な開発者・技術ブログによる評価の一部です。
 
-- 著名なテック業界ニュースレター「The Pragmatic Engineer」（Gergely Orosz運営）が毎年公開している技術者向け書籍推薦リストでは、あるDevelopment Leadが本書について「エンジニアリングマネジメントへの扉を開いてくれた一冊（The book that opened the door for me into engineering management.）」と評しています。（出典: [blog.pragmaticengineer.com](https://blog.pragmaticengineer.com/holiday-tech-book-recommendations/)）
+- 著名なテック業界ニュースレター「The Pragmatic Engineer」（Gergely Orosz運営）の2021年の技術者向け書籍推薦記事では、あるDevelopment Leadが本書について「エンジニアリングマネジメントへの扉を開いてくれた一冊（The book that opened the door for me into engineering management.）」と評しています。（出典: [blog.pragmaticengineer.com](https://blog.pragmaticengineer.com/holiday-tech-book-recommendations/)）
 - 開発者コミュニティサイト DEV Community に投稿されたレビューでは、マネジメント書籍にありがちな堅苦しさがなく、実用性とエンターテインメント性を両立している点が評価されています。（出典: [dev.to](https://dev.to/rachelsoderberg/book-review-managing-humans-by-michael-lopp-11fo)）
 - ソフトウェアエンジニアによる技術ブログ「horia141」のレビューでは、本書は50章以上の短い章立てで構成され、Will Larson著『An Elegant Puzzle』と同様に著者のブログ記事を再編集した実践的な内容だと紹介されています。（出典: [horia141.com](https://horia141.com/book_reviews/2022-08-08-managing-humans-review)）
 - GitHubで4,000以上のスターを集める書籍ノートリポジトリ「mgp/book-notes」では、本書の各章が詳細に要約・整理されており、開発者コミュニティにおける実務リファレンスとして参照されています。（出典: [github.com/mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)）
 - エンジニアリングマネジメント関連リソースをまとめたキュレーションリポジトリ「charlax/engineering-management」でも本書は定番書籍として紹介され、Camille Fournier著『The Manager's Path』などと並んで頻繁に推薦されています。（出典: [github.com/charlax/engineering-management](https://github.com/charlax/engineering-management)）
 - Hacker Newsのディスカッションでも、本書で紹介される「優秀な人材（rockstar）」を無理にマネジメントするコストに関する考え方が、エンジニアリング組織の生産性議論の文脈で引用されています。（出典: [news.ycombinator.com](https://news.ycombinator.com/item?id=21508140)）
 
-一方で、本書には批判的な評価も存在します。Goodreadsのレビューには、著者の視点がやや皮肉的・否定的すぎると感じる読者や、内容に古さを感じる読者の声もあります。ブログ「Brian's Notes」では10点満点中8点という評価をつけつつも、内容の毒舌さゆえに賛同しにくい部分があることを指摘しています。（出典: [briansnotes.io](https://www.briansnotes.io/book/managing-humans/)）**本書はあくまで著者個人の経験則の集積であり、鵜呑みにせず自分のチームの文脈に照らして取捨選択することが推奨されます。**
+一方で、本書には批判的な評価も存在します。Goodreadsのレビューには、著者の視点がやや皮肉的・否定的すぎると感じる読者や、内容に古さを感じる読者の声もあります。（出典: [goodreads.com](https://www.goodreads.com/book/show/1317946.Managing_Humans)）また、ブログ「Brian's Notes」では10点満点中8点という評価をつけつつも、内容の毒舌さゆえに賛同しにくい部分があることを指摘しています。（出典: [briansnotes.io](https://www.briansnotes.io/book/managing-humans/)）**本書はあくまで著者個人の経験則の集積であり、鵜呑みにせず自分のチームの文脈に照らして取捨選択することが推奨されます。**
 
 ---
 

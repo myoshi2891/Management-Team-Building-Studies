@@ -280,7 +280,7 @@ flowchart TB
 
 ### Adrian Colyer（the morning paper、元 Pivotal / SpringSource CTO）
 
-技術論文の要約ブログ the morning paper において "No Silver Bullet" を取り上げ、本質的困難と偶有的困難というアリストテレス由来の区分を丁寧に解説し、後年の "Out of the Tar Pit"（Moseley & Marks, 2006）との思想的な連続性も指摘しています。
+技術論文の要約ブログ the morning paper において "No Silver Bullet" を取り上げ、本質的困難と偶有的困難というアリストテレス由来の区分を丁寧に解説するとともに、漸進的な開発の重要性を論じています。
 
 ---
 
