@@ -235,6 +235,16 @@ export const GUIDES = [
     icon: "tabler:topology-star-3",
     accent: "indigo",
   },
+  {
+    to: "/developer-architect-communication-guide",
+    categoryId: "engineering-leadership",
+    navLabel: "開発者・アーキテクト",
+    title: "開発者とアーキテクトのためのコミュニケーションガイド",
+    description: "Elastic Leadership、Architect Elevator、ADR、C4モデルなど、世界的に知られる開発者が実践するコミュニケーション手法を初学者向けに9つのステップで解説する実践ガイド。",
+    meta: "12セクション",
+    icon: "tabler:messages",
+    accent: "forest",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {
