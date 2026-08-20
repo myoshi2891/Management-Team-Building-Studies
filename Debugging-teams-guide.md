@@ -234,7 +234,7 @@ flowchart TB
 - 組織図の外にある「実際に物事を動かしている人」との関係を大切にする
 - 上司との関係も一方通行ではなく、期待値を伝え合う双方向の関係として築く
 - 一度身についた悪習慣は禁止するだけでは変わらないため、より良い習慣に置き換える意識を持つ
-- 許可を求めるより先に行動し、必要なら後から謝るくらいの機動力を持つ場面と、慎重に合意形成すべき場面を見極める
+- 「許可を求めるより先に行動する」機動力は、後から元に戻せる低リスクな範囲に限定する。本番環境の変更・セキュリティ設定・契約上の約束・費用が発生する行為は、必ず事前に承認を得てから動く
 
 ### ステップ9：ユーザーも人間として扱い、信頼口座を積み立てる
 
@@ -282,7 +282,6 @@ flowchart TB
 - 書籍公式サイト（著者による全文公開版） ― https://book.debuggingteams.com/
 - 著者Brian Fitzpatrick氏自身によるブログ記事「Shit Sandwich」（Medium） ― https://therealfitz.medium.com/shit-sandwich-6748283f07ae
 - O'Reilly「Debugging teams: Creating relationships to get things done」（書籍からの抜粋記事） ― https://www.oreilly.com/content/debugging-teams-creating-relationships-to-get-things-done/
-- Karl Fogel氏（Open Tech Strategies共同創業者）・Robert Kaye氏（MusicBrainz）による推薦コメントを含む書籍全文（dokumen.pub） ― https://dokumen.pub/debugging-teams-2nd-edition-9781491932056-9781491932506-1491932503-9781491932513-1491932511.html
 - ソフトウェアエンジニアによる書評（odino.org） ― https://odino.org/book-review-debugging-teams-better-productivity-through-collaboration/
 - データサイエンティストによる書評（planspace.org） ― https://planspace.org/20151118-debugging_teams/
 - エンジニアリングマネージャーによる書評シリーズ「Manager Reads」（mark.gg） ― https://mark.gg/2018/06/02/manager-reads-debugging-teams/
