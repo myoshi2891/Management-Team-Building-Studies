@@ -374,6 +374,10 @@ test("recognizes every allowed Mermaid diagram declaration including pie", () =>
 	assert.equal(result.json.counts.mermaidSources.source, charts.length);
 	assert.equal(MERMAID_DIAGRAM_TYPES.length, charts.length);
 	for (const chart of charts) assert.match(chart, MERMAID_DIAGRAM_DECLARATION);
+	assert.match(
+		'%%{init: {"flowchart": {"curve": "linear"}}}%%\nflowchart TB\nA --> B',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
 	assert.doesNotMatch("block-beta\ncolumns 1", MERMAID_DIAGRAM_DECLARATION);
 });
 
