@@ -166,6 +166,16 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/csm-scrum-team-3-accountabilities",
+    categoryId: "project-management",
+    navLabel: "CSM 3つのアカウンタビリティ",
+    title: "Scrum Team とは何か ― 3つのアカウンタビリティ徹底解説",
+    description: "Certified ScrumMaster(CSM)学習ガイド。Scrum Guide 2020とCSM Learning Objectivesに基づき、Product Owner・Scrum Master・Developersの3つのアカウンタビリティを初学者向けに解説。",
+    meta: "12セクション",
+    icon: "tabler:users",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",

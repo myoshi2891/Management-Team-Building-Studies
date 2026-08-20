@@ -50,14 +50,14 @@ const EXPECTED_H3 = [
   "経験主義サイクルとしてのScrum",
   "各Scrumイベントにおける関与度",
   "参考: CSM認定試験の概要",
+  "一次情報源・公式ドキュメント",
+  "解説・二次情報源",
 ] as const;
 
 const EXPECTED_H4 = [
   "(a) Scrum Teamへのサービス",
   "(b) Product Ownerへのサービス",
   "(c) Organizationへのサービス",
-  "一次情報源・公式ドキュメント",
-  "解説・二次情報源",
 ] as const;
 
 const EXPECTED_H5 = [] as const;
