@@ -437,7 +437,7 @@ Definition of Done(DoD)はイベントそのものではなく **Increment(成�
 | 1.10 | Sprint Retrospectiveを実施する | 5. Sprint Retrospective |
 | 1.11 | Sprint Retrospectiveを省略した場合の影響を3つ以上説明する | 5.3〜5.4「CSM試験ポイント」 |
 | 1.12 | DevelopersがどのようにDaily Scrumを行うか説明する | 3. Daily Scrum |
-| 1.13 | Daily Scrumがstatus meetingと異なる点を3つ以上、制約の理由を議論する | 3.4「CSM試験ポイント」 |
+| 1.13 | Daily Scrumがstatus meetingと異なる点を3つ以上、制約の理由を議論する | 3.3 進め方 |
 | 1.14 | Sprintが早期終了しうる条件を説明する | 1.3 Sprintの中止 |
 | 1.15 | 強固なDefinition of Doneの利点を3つ以上説明する | 8. Definition of Doneとイベントの関係 |
 | 1.16 | Definition of Doneを作成する方法を示す | 8. Definition of Doneとイベントの関係 |

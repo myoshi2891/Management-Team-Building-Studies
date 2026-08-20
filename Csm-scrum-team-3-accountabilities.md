@@ -324,7 +324,7 @@ CSM学習目標には、Scrum Masterに求められる**中核的なスキルセ
 
 ### 7.1 経験主義サイクルとしてのScrum
 
-Scrum Guideは、Scrumを次の4ステップの反復サイクルとして「一言で」説明しています。
+Scrum Guideは、Scrumを次の3ステップを繰り返す反復サイクルとして「一言で」説明しています。
 
 ```mermaid
 flowchart LR
