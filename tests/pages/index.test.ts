@@ -149,6 +149,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/team-topologies-guide",
         accentClass: "guide-card-indigo",
       },
+      {
+        title: "開発者とアーキテクトのためのコミュニケーションガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/developer-architect-communication-guide",
+        accentClass: "guide-card-forest",
+      },
     ]);
   });
 
