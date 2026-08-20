@@ -183,42 +183,42 @@ flowchart TB
 
       <ul class="sidebar-nav">
         <li>
-          <a href="#about-this-guide" :class="{ active: activeId === 'about-this-guide' }" @click="closeSidebar">
+          <a href="#about-this-guide" :class="{ active: activeId === 'about-this-guide' }" :aria-current="activeId === 'about-this-guide' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:certificate" aria-hidden="true" />本ガイドについて
           </a>
         </li>
         <li>
-          <a href="#exam-overview-domain-ii" :class="{ active: activeId === 'exam-overview-domain-ii' }" @click="closeSidebar">
+          <a href="#exam-overview-domain-ii" :class="{ active: activeId === 'exam-overview-domain-ii' }" :aria-current="activeId === 'exam-overview-domain-ii' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:chart-pie" aria-hidden="true" />試験全体像とDomain II
           </a>
         </li>
         <li>
-          <a href="#eco-structure" :class="{ active: activeId === 'eco-structure' }" @click="closeSidebar">
+          <a href="#eco-structure" :class="{ active: activeId === 'eco-structure' }" :aria-current="activeId === 'eco-structure' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:building-bank" aria-hidden="true" />ECOの構造
           </a>
         </li>
         <li>
-          <a href="#domain-ii-task-map" :class="{ active: activeId === 'domain-ii-task-map' }" @click="closeSidebar">
+          <a href="#domain-ii-task-map" :class="{ active: activeId === 'domain-ii-task-map' }" :aria-current="activeId === 'domain-ii-task-map' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:git-branch" aria-hidden="true" />Domain II 全体マップ
           </a>
         </li>
         <li>
-          <a href="#task-details" :class="{ active: activeId === 'task-details' }" @click="closeSidebar">
+          <a href="#task-details" :class="{ active: activeId === 'task-details' }" :aria-current="activeId === 'task-details' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:clipboard-text" aria-hidden="true" />Task別詳細解説
           </a>
         </li>
         <li>
-          <a href="#learning-roadmap" :class="{ active: activeId === 'learning-roadmap' }" @click="closeSidebar">
+          <a href="#learning-roadmap" :class="{ active: activeId === 'learning-roadmap' }" :aria-current="activeId === 'learning-roadmap' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:map-2" aria-hidden="true" />学習ロードマップ
           </a>
         </li>
         <li>
-          <a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" @click="closeSidebar">
+          <a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" :aria-current="activeId === 'exam-tips' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:bulb" aria-hidden="true" />試験対策のポイント
           </a>
         </li>
         <li>
-          <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+          <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
             <Icon name="tabler:link" aria-hidden="true" />参考文献
           </a>
         </li>

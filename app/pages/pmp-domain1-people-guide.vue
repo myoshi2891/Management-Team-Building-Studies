@@ -387,35 +387,35 @@ class G done;`;
           <li>
             <div class="step-num">1</div>
             <div class="step-body">
-              <div class="step-title">ビジョンを言語化する</div>
+              <div class="step-title" data-testid="step-tag">ビジョンを言語化する</div>
               <div class="step-desc">プロジェクト憲章(Project Charter)やビジネスケースをもとに、「なぜこのプロジェクトを行うのか」「成功した状態はどのようなものか」を短い言葉で表現する</div>
             </div>
           </li>
           <li>
             <div class="step-num">2</div>
             <div class="step-body">
-              <div class="step-title">主要ステークホルダーと共同構築する</div>
+              <div class="step-title" data-testid="step-tag">主要ステークホルダーと共同構築する</div>
               <div class="step-desc">一方的に伝えるのではなく、キックオフミーティングやワークショップでステークホルダーの意見を取り入れながらビジョンを練り上げる</div>
             </div>
           </li>
           <li>
             <div class="step-num">3</div>
             <div class="step-body">
-              <div class="step-title">反復的に発信する</div>
+              <div class="step-title" data-testid="step-tag">反復的に発信する</div>
               <div class="step-desc">一度伝えただけでは浸透しない。定例会議、ニュースレター、ダッシュボードなど複数のチャネルで繰り返し伝える</div>
             </div>
           </li>
           <li>
             <div class="step-num">4</div>
             <div class="step-body">
-              <div class="step-title">定点観測する</div>
+              <div class="step-title" data-testid="step-tag">定点観測する</div>
               <div class="step-desc">プロジェクトの状況やスコープが変化した際、ビジョンが現実と乖離していないか定期的に確認する</div>
             </div>
           </li>
           <li>
             <div class="step-num">5</div>
             <div class="step-body">
-              <div class="step-title">ズレが起きたら分解して原因分析する</div>
+              <div class="step-title" data-testid="step-tag">ズレが起きたら分解して原因分析する</div>
               <div class="step-desc">チームやステークホルダーの言動にビジョンとの不一致が見られた場合、感情的に対応せず、状況を要素分解して根本原因(情報不足か、優先順位の対立か、単なる誤解か)を特定する</div>
             </div>
           </li>

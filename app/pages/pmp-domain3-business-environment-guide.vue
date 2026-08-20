@@ -234,7 +234,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 01. How to Use This Guide ===================== -->
         <section id="how-to-use">
-          <div class="section-eyebrow"><Icon name="tabler:file-text" aria-hidden="true" />SECTION 01</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:file-text" aria-hidden="true" />SECTION 01</div>
           <h2>この記事の使い方</h2>
 
           <ul>
@@ -247,7 +247,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 02. Glossary ===================== -->
         <section id="glossary">
-          <div class="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 02</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 02</div>
           <h2>Part 0. 用語ミニ辞典</h2>
 
           <p>Domain IIIの解説に入る前に、頻出する専門用語を先に押さえておきましょう。</p>
@@ -272,7 +272,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 03. Domain III Overview ===================== -->
         <section id="domain3-overview">
-          <div class="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 03</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 03</div>
           <h2>Part 1. Domain IIIの全体像を掴む</h2>
 
           <h3>1-1. PMP試験全体におけるDomain IIIの位置づけ</h3>
@@ -359,7 +359,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 04. The Eight Tasks ===================== -->
         <section id="business-environment-tasks">
-          <div class="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 04</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 04</div>
           <h2>Part 2. Business Environmentの8つのTaskを1つずつ理解する</h2>
 
           <p>Domain IIIは以下の8つのTaskで構成されています。ここから1つずつ、初学者向けに丁寧に解説していきます。</p>
@@ -747,7 +747,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 05. Task Summary ===================== -->
         <section id="task-summary">
-          <div class="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 05</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 05</div>
           <h2>Part 3. 8つのTask 全体まとめ表</h2>
 
           <p>学習の総復習用に、Domain IIIの8つのTaskを一覧化しました。</p>
@@ -784,7 +784,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 06. Study Tips ===================== -->
         <section id="study-tips">
-          <div class="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 06</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 06</div>
           <h2>Part 4. 学習のポイント(初学者向けTips)</h2>
 
           <h3>4-1. 出題形式を知っておく</h3>
@@ -819,7 +819,7 @@ class T1,T6 done;`;
 
         <!-- ===================== 07. References ===================== -->
         <section id="references">
-          <div class="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 07</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 07</div>
           <h2>Part 5. 参考文献・出典</h2>
 
           <p>本ガイドの内容は、以下のPMI公式情報源に基づいています。詳細な一次情報は必ず公式サイト・公式PDFをご確認ください。</p>
