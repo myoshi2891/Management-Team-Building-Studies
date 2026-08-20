@@ -13,5 +13,5 @@ export const MERMAID_DIAGRAM_TYPES = [
 ];
 
 export const MERMAID_DIAGRAM_DECLARATION = new RegExp(
-	`^(?:${MERMAID_DIAGRAM_TYPES.join("|")})\\b`,
+	`^(?:(?:%%\\{[\\s\\S]*?\\}%%|%%[^\\n]*)\\s*\\n)*(?:${MERMAID_DIAGRAM_TYPES.join("|")})\\b`,
 );
