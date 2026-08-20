@@ -817,7 +817,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
 
   section {
     margin: 72px 0;
-    scroll-margin-top: 32px;
+    scroll-margin-top: calc(var(--global-nav-height) + 32px);
   }
 
   section:first-of-type { margin-top: 0; }
