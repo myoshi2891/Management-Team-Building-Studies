@@ -156,6 +156,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csm-certified-scrummaster-guide",
+    categoryId: "project-management",
+    navLabel: "CSM 完全ガイド",
+    title: "Certified ScrumMaster®(CSM®)完全ガイド",
+    description: "Scrum Alliance公式のLearning ObjectivesとScrum Guideに基づき、CSM資格の出題範囲・ベストプラクティス・試験対策を初学者向けに解説する完全ガイドです。",
+    meta: "15セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",
