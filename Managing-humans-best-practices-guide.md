@@ -96,7 +96,7 @@ Part Iは、マネージャーが日々の対人関係で使う「道具（矢�
 | Titles Are Toxic | 役職とキャリア | 役職の名称ではなく、実際の職務内容と成長を評価する |
 | Saying No | 意思決定の勇気 | チームを巻き込みながら「ノー」と言える文化を作る |
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ### 3-2. ステップ実践：健全な1on1の進め方
 
@@ -119,7 +119,7 @@ flowchart TD
 - 最低30分は確保する。人数が多くても時間を削らない。
 - ステータス報告に終始しそうな場合は、その中から掘り下げられる話題を探して深掘りする。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ### 3-3. ステップ実践：会議をレフェリーとして進行する
 
@@ -144,7 +144,7 @@ flowchart TD
 - 誰も発言しない・進行が止まる状態が30分続いたら、論点が多すぎるサインとして仕切り直す。
 - 「独裁者」的に発言を止めるのは最終手段。多用すると場全体が萎縮する。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ### 3-4. ステップ実践：トップダウンの意思決定（Mandate）を通す
 
@@ -163,7 +163,7 @@ flowchart LR
 - 決定後、賛成・反対どちらの側にも個別に理由を説明する時間を取る。
 - 上位組織からの決定を伝える場合は、その背景・根拠を自分の言葉で咀嚼してから伝える。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ### 3-5. Stables（安定志向型）とVolatiles（変革志向型）
 
@@ -187,7 +187,7 @@ flowchart LR
 
 このサイクルを理解しておくと、「なぜ古参メンバーは保守的になりがちなのか」「なぜ新しく入った人は既存のやり方に反発するのか」を構造的に説明できるようになります。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ---
 
@@ -209,7 +209,7 @@ Part IIは、プロダクト開発そのものやチームのプロセス設計�
 | Hacking Is Important | 創造性と安定のバランス | 予測可能性を保ちながらも、意図的に「ハック」する余地を残す |
 | Entropy Crushers | プロジェクト／プログラムマネジメント | PM・プロダクトマネージャー・プログラムマネージャーの役割分担を明確にする |
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ### 4-2. 「1.0」における優先順位ピラミッド
 
@@ -224,7 +224,7 @@ Part IIは、プロダクト開発そのものやチームのプロセス設計�
 
 **実践のコツ**：組織図を作りたくなったら要注意のサインと捉える。1.0フェーズで「これは誰の仕事か」を可視化し始めるのは、停滞の始まりであることが多いとされています。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ### 4-3. ステップ実践：危機対応（When the Sky Falls）
 
@@ -246,7 +246,7 @@ flowchart TD
 - 対応中は自分の名前をタスクの担当者に入れない。マネージャーの役目は実行ではなく調整と情報発信。
 - 目先の症状を抑える「応急処置」と、根本原因を解決する「本当の治療」を混同しない。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ---
 
@@ -274,7 +274,7 @@ Part IIIは、キャリアの成長、多様な人材タイプへの向き合い
 - つまらない仕事（Shit Work）は公平に配分し、誰がやっているかを把握し、いつ終わるかを伝える。
 - マネージャーになっても完全にコードから離れない。エンジニアの思考プロセスへの理解を保つため。
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。
 
 ---
 
@@ -317,7 +317,7 @@ flowchart TD
 | マネージャーが完全にコードから離れる | エンジニアとの共通言語を失う | 開発環境に触れ続け、実装への理解を保つ |
 | 役職だけでキャリアパスを設計する | 役職では成長の多様性を捉えきれない | 職務内容と実際の貢献を軸に評価する |
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。章ごとの要約は [Brian's Notes「Managing Humans」](https://www.briansnotes.io/book/managing-humans/) も参考になる。
+出典: 章立ては第4版の目次（[O'Reilly 書誌ページ（第4版）](https://www.oreilly.com/library/view/managing-humans-more/9781484271162/)）と、著者本人の告知記事 [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) に基づく。同記事によれば、第4版では「The Monday Freakout」と「Avoiding the Fez」の2章が削除され、11章が新規に追加され、エピローグが加わっている（本ガイドの各表は削除された2章を含まない）。各章の内容要約にあたっては旧版に基づく章ノート [mgp/book-notes](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown) も補助的に参照したが、同ノートは旧版準拠であり、第4版で新規追加された11章とエピローグは扱っていない。章ごとの要約は [Brian's Notes「Managing Humans」](https://www.briansnotes.io/book/managing-humans/) も参考になる。
 
 ---
 
