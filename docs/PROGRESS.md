@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `e2bc859` — refactor(pmp-d2): archive source files and verify type/lint quality（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `bb44e73` — fix(pmp-d2): apply shared mermaid theme variables to diagram components（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
 | ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-20 実測） |
 | テスト数 | **443** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 23 + PMP domain 2 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
@@ -267,7 +267,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: e2bc859
+コードコミット HEAD: bb44e73
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
