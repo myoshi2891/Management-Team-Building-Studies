@@ -14,7 +14,7 @@ const TOC_IDS = [
   "practice-quiz",
   "summary-checklist",
   "references",
-] as const;
+];
 
 const activeId = useActiveHeading(TOC_IDS);
 const sidebarOpen = ref(false);
