@@ -176,6 +176,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csm-scrum-theory-guide",
+    categoryId: "project-management",
+    navLabel: "CSM Scrum理論",
+    title: "Scrum理論の基礎(Scrum Theory) ― CSM®試験対応 初学者向け完全ガイド",
+    description: "Scrum Alliance Certified ScrumMaster(CSM)のScrum Foundations Learning Objectives「Scrum Theory」(LO1.1-1.7)を、Scrum Guide 2020とScrum Alliance公式資料に基づき初学者向けに解説する完全ガイド。",
+    meta: "12セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",
