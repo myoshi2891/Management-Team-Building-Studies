@@ -153,7 +153,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
 
     <div class="layout">
 <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
+  <nav id="sidebar" class="sidebar" aria-label="目次">
     <div class="sidebar-brand">
       <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
@@ -508,7 +508,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
 
       <div class="table-wrap">
         <table>
-          <thead><tr><th></th><th>慎重 (Prudent)</th><th>無謀 (Reckless)</th></tr></thead>
+          <thead><tr><th/><th>慎重 (Prudent)</th><th>無謀 (Reckless)</th></tr></thead>
           <tbody>
             <tr><td><strong>意図的 (Deliberate)</strong></td><td>「今は出荷を優先し、後で結果に対処する」</td><td>「設計する時間がない」</td></tr>
             <tr><td><strong>非意図的 (Inadvertent)</strong></td><td>「今ならこうすべきだったと分かった」</td><td>「レイヤリングって何？」</td></tr>
