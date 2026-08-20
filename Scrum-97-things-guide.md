@@ -299,7 +299,7 @@ flowchart TB
 
 **見積りとプランニングの進め方（Mike Cohn流）：**
 
-Mike Cohnは、チームのベロシティ（過去の実績）だけを基準に機械的に項目を積み上げる「ベロシティ駆動プランニング」よりも、1項目ずつタスクを大まかに洗い出しながら「これでスプリントが一杯になった」と感じるまで積み上げていく**コミットメント駆動（近年は容量駆動＝capacity-driven とも呼ばれる）プランニング**を好むと述べています。理由は、ベロシティは変動が大きく（プラスマイナス20%程度が一般的）、短期の計画には不向きだからです。
+Mike Cohnは、チームのベロシティ（過去の実績）だけを基準に機械的に項目を積み上げる「ベロシティ駆動プランニング」よりも、1項目ずつタスクを大まかに洗い出しながら「これでスプリントが一杯になった」と感じるまで積み上げていく**コミットメント駆動（近年は容量駆動＝capacity-driven とも呼ばれる）プランニング**を好むと述べています。理由は、ベロシティはスプリントごとの変動が大きく、短期の計画には不向きだからです。
 
 出典：[InfoQ「Velocity-Driven Versus Commitment-Driven Sprint Planning」](https://www.infoq.com/news/2014/11/sprint-planning)、[Mountain Goat Softwareブログ](https://www.mountaingoatsoftware.com/blog/dont-estimate-the-sprint-backlog-using-task-points)
 
@@ -314,7 +314,7 @@ Mike Cohnは、チームのベロシティ（過去の実績）だけを基準�
 3. 詳細な問題解決はデイリースクラムの外で、関係者だけで行う
 4. 15分を超えそうな話題は「あとで」に回す
 
-### 5.4 スプリントレビュー（Sprint Review)
+### 5.4 スプリントレビュー（Sprint Review）
 
 スプリントの成果を検査し、プロダクトバックログを適応させるための、ステークホルダーを交えたワーキングセッションです。単なるデモではなく、フィードバックを次の計画に反映させる対話の場である点が重要です。
 
@@ -506,7 +506,7 @@ flowchart TB
 
 - 技術的な統合（複数チームの成果物を1つに結合すること）が最大の課題であれば、Nexusのように統合に焦点を当てたフレームワークが直接的に役立ちます
 - 組織のサイロ化や部門間の壁が課題であれば、LeSSのようにチーム構造そのものを見直すアプローチが根本原因に効きます
-- 数十〜数百人規模で、経営層の強いスポンサーシップと18ヶ月以上の移行期間を確保できるなら、体系的なガイドを提供するSAFeが選択肢になります
+- 数十〜数百人規模で、経営層の強いスポンサーシップと、段階的な導入に十分な期間を確保できるなら、体系的なガイドを提供するSAFeが選択肢になります
 - 逆に、単に「もっと構造が欲しい」という理由だけでスケーリングフレームワークを導入すると、組織の政治的・構造的な問題を隠すだけの「シアター（見せかけの改善）」になりがちだという警鐘も、複数の実践者から共通して発せられています
 
 出典：[Rockmere Partners「SAFe vs LeSS vs Nexus」](https://rockmerepartners.com/resources/safe-vs-less-vs-nexus/)
@@ -551,7 +551,7 @@ Zombie Scrum Survival Guideは、症状を4つの領域に整理しています�
 
 ### 10.3 2026年の視点：AIとスクラムマスターの役割
 
-2026年に入り、Scrum.orgのCEOであるDave Westは、AI活用を前提としたスクラムマスター向けの新研修「Professional Scrum Master - AI Essentials」を発表しました。この研修は、AIが従来スクラムマスターが担ってきた事務的・反復的なタスク（レポート作成、ボード更新、議事録作成など）を代替しつつある一方で、コーチング・コンフリクト解消・チームダイナミクスの調整といった、人間の判断力が必要な領域は引き続き重要であるという立場を取っています。
+2026年に入り、Scrum.orgは、AI活用を前提としたスクラムマスター向けの新研修「Professional Scrum Master - AI Essentials」を発表しました（同社CEOのDave Westもこの取り組みについて述べています）。この研修は、AIを実践的・倫理的に活用して事務的・反復的なタスク（レポート作成、ボード更新、議事録作成など）を支援・効率化する一方で、コーチング・コンフリクト解消・チームダイナミクスの調整といった、人間の判断力が必要な領域は引き続き重要であるという立場を取っています。
 
 出典：[Scrum.org「Scrum.org Launches New AI Training for Scrum Masters」](https://www.scrum.org/resources/scrumorg-launches-new-ai-training-scrum-masters)
 
@@ -567,7 +567,7 @@ Dave Westは2026年6月開催の Online Scrum Master Summit 2026 の基調セッ
 
 出典：[TeamRetro「AI in Agile Project Management in 2026」](https://www.teamretro.com/blog/ai-agile-project-management/)
 
-現時点でのコミュニティの大勢の見解は、「スクラムマスターという役割がAIに置き換えられるか」という問いよりも、「スクラムマスターが担う仕事の中身が事務的なファシリテーションから、人間同士の複雑な調整・コーチング・組織変革のリードへとシフトしていく」という見方へ、全体として収束しつつあります。
+たとえばAgilemaniaの論考では、「スクラムマスターという役割がAIに置き換えられるか」という問いよりも、「スクラムマスターが担う仕事の中身が事務的なファシリテーションから、人間同士の複雑な調整・コーチング・組織変革のリードへとシフトしていく」という見方が示されています。
 
 出典：[Agilemania「Is the Scrum Master Role Dying in 2026?」](https://agilemania.com/is-the-scrum-master-role-dying)
 
