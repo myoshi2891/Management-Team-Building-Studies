@@ -84,6 +84,24 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "PMP® Domain I: People 完全攻略ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-domain1-people-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "PMP® Domain II: Process 完全解説ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-domain2-process-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "PMP® Domain III: Business Environment 徹底解説ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-domain3-business-environment-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
@@ -118,6 +136,30 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         category: "ENGINEERING LEADERSHIP",
         href: "/leadership-practices-guide",
         accentClass: "guide-card-gold",
+      },
+      {
+        title: "Team Geek ― Googleのギークたちはいかにしてチームを作るのか",
+        category: "TEAM BUILDING",
+        href: "/team-geek-guide",
+        accentClass: "guide-card-plum",
+      },
+      {
+        title: "Team Topologies 実践ガイド",
+        category: "TEAM BUILDING",
+        href: "/team-topologies-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "開発者とアーキテクトのためのコミュニケーションガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/developer-architect-communication-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "Elastic Leadership 実践ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/elastic-leadership-guide",
+        accentClass: "guide-card-indigo",
       },
     ]);
   });

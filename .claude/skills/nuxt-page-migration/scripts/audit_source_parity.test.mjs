@@ -374,7 +374,91 @@ test("recognizes every allowed Mermaid diagram declaration including pie", () =>
 	assert.equal(result.json.counts.mermaidSources.source, charts.length);
 	assert.equal(MERMAID_DIAGRAM_TYPES.length, charts.length);
 	for (const chart of charts) assert.match(chart, MERMAID_DIAGRAM_DECLARATION);
+	assert.match(
+		'%%{init: {"flowchart": {"curve": "linear"}}}%%\nflowchart TB\nA --> B',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+	// 行コメント（%% ...）が先頭に付く図も宣言として認識する（ブロックディレクティブとは別分岐）。
+	assert.match("%% 図の意図を書いた行コメント\nflowchart TB\nA --> B", MERMAID_DIAGRAM_DECLARATION);
 	assert.doesNotMatch("block-beta\ncolumns 1", MERMAID_DIAGRAM_DECLARATION);
+});
+
+test("recognizes every diagram type when preceded by a single block directive", () => {
+	const charts = [
+		"graph TD\nA --> B",
+		"flowchart TD\nA --> B",
+		"sequenceDiagram\nA->>B: ping",
+		"mindmap\n  root((Root))",
+		"stateDiagram-v2\nA --> B",
+		"gitGraph\ncommit",
+		"erDiagram\nA ||--o{ B : has",
+		"classDiagram\nA <|-- B",
+		"journey\ntitle Trip",
+		"timeline\ntitle History",
+		'pie title Share\n"A" : 1',
+	];
+	assert.equal(MERMAID_DIAGRAM_TYPES.length, charts.length);
+	for (const chart of charts) {
+		assert.match(`%%{init: {"theme": "base"}}%%\n${chart}`, MERMAID_DIAGRAM_DECLARATION);
+	}
+});
+
+test("recognizes every diagram type when preceded by a leading line comment", () => {
+	const charts = [
+		"graph TD\nA --> B",
+		"flowchart TD\nA --> B",
+		"sequenceDiagram\nA->>B: ping",
+		"mindmap\n  root((Root))",
+		"stateDiagram-v2\nA --> B",
+		"gitGraph\ncommit",
+		"erDiagram\nA ||--o{ B : has",
+		"classDiagram\nA <|-- B",
+		"journey\ntitle Trip",
+		"timeline\ntitle History",
+		'pie title Share\n"A" : 1',
+	];
+	for (const chart of charts) {
+		assert.match(`%% この図の説明コメント\n${chart}`, MERMAID_DIAGRAM_DECLARATION);
+	}
+});
+
+test("recognizes a diagram declaration preceded by multiple stacked directives and line comments", () => {
+	assert.match(
+		'%%{init: {"theme": "base"}}%%\n%% 行コメント\n%%{config: {"foo": "bar"}}%%\nflowchart TB\nA --> B',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+	// ブロックディレクティブ→ブロックディレクティブの連続でも認識される。
+	assert.match(
+		'%%{init: {"theme": "base"}}%%\n%%{config: {"foo": "bar"}}%%\npie title Share\n"A" : 1',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+});
+
+test("does not match a directive or line comment that is not followed by a recognized diagram declaration", () => {
+	assert.doesNotMatch('%%{init: {"theme": "base"}}%%\n', MERMAID_DIAGRAM_DECLARATION);
+	assert.doesNotMatch("%% comment only, no diagram follows", MERMAID_DIAGRAM_DECLARATION);
+	assert.doesNotMatch(
+		"%% 図の意図を書いた行コメント\nblock-beta\ncolumns 1",
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+});
+
+test("tolerates a blank line between the leading directive and the diagram declaration", () => {
+	// `\s*\n` は空行由来の余分な改行も吸収するため、ディレクティブ直後に空行があっても認識される。
+	assert.match(
+		'%%{init: {"theme": "base"}}%%\n\nflowchart TB\nA --> B',
+		MERMAID_DIAGRAM_DECLARATION,
+	);
+});
+
+test("still anchors the diagram declaration match to the very start of the string", () => {
+	assert.doesNotMatch("not a diagram\nflowchart TB\nA --> B", MERMAID_DIAGRAM_DECLARATION);
+	assert.doesNotMatch("  flowchart TB\nA --> B", MERMAID_DIAGRAM_DECLARATION);
+});
+
+test("still requires a word boundary after the diagram keyword when a directive precedes it", () => {
+	assert.doesNotMatch("%%{init: {}}%%\ngraphics TD\nA --> B", MERMAID_DIAGRAM_DECLARATION);
+	assert.match("%%{init: {}}%%\ngraph TD\nA --> B", MERMAID_DIAGRAM_DECLARATION);
 });
 
 test("treats normalized HTML and Markdown paragraphs as blocking parity elements", () => {

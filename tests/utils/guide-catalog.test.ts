@@ -28,12 +28,19 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/capm-domain3-agile-frameworks-guide", categoryId: "project-management", navLabel: "CAPM ドメイン3" },
       { to: "/capm-domain4-business-analysis-frameworks", categoryId: "project-management", navLabel: "CAPM ドメイン4" },
       { to: "/pmp-certification-guide", categoryId: "project-management", navLabel: "PMP 完全攻略" },
+      { to: "/pmp-domain1-people-guide", categoryId: "project-management", navLabel: "PMP ドメイン1" },
+      { to: "/pmp-domain2-process-guide", categoryId: "project-management", navLabel: "PMP ドメイン2" },
+      { to: "/pmp-domain3-business-environment-guide", categoryId: "project-management", navLabel: "PMP ドメイン3" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", navLabel: "EM キャリアパス" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", navLabel: "チームリード術" },
       { to: "/engineering-manager-guide", categoryId: "engineering-management", navLabel: "EM 入門" },
       { to: "/dynamic-reteaming-guide", categoryId: "team-building", navLabel: "ダイナミック・リチーミング" },
       { to: "/engineering-executive-playbook", categoryId: "engineering-leadership", navLabel: "統括責任者の手引き" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", navLabel: "リーダーの作法" },
+      { to: "/team-geek-guide", categoryId: "team-building", navLabel: "Team Geek" },
+      { to: "/team-topologies-guide", categoryId: "team-building", navLabel: "Team Topologies" },
+      { to: "/developer-architect-communication-guide", categoryId: "engineering-leadership", navLabel: "開発者・アーキテクト" },
+      { to: "/elastic-leadership-guide", categoryId: "engineering-leadership", navLabel: "Elastic Leadership" },
     ]);
   });
 
@@ -59,7 +66,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"],
       },
       {
         id: "engineering-management",
@@ -67,11 +74,11 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-leadership",
-        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法"],
+        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法", "開発者・アーキテクト", "Elastic Leadership"],
       },
       {
         id: "team-building",
-        guides: ["ダイナミック・リチーミング"],
+        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies"],
       },
     ]);
   });

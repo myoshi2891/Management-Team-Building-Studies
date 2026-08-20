@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-18)
+(最終更新日: 2026-08-20)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `ba1631a` — chore(archive): move leadership practices html and md to archive folder（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `91b147f` — refactor(elastic-leadership): archive source files and update audit script path（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
-| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-18 実測） |
-| テスト数 | **351** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
-| 原本照合監査 | ✔ **全 10 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-20 実測） |
+| テスト数 | **512** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 23 + PMP domain 2 page 23 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 23 + Elastic Leadership guide page 23）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
+| 原本照合監査 | ✔ **全 17 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -30,7 +30,14 @@
 | `archive/Engineering-management-career-path/Dynamic-reteaming-guide.html` | `app/pages/dynamic-reteaming-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `archive/Engineering-management-career-path/Engineering-executive-playbook.html` | `app/pages/engineering-executive-playbook.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
 | `archive/Engineering-management-career-path/Leadership-practices-guide.html` | `app/pages/leadership-practices-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `archive/Engineering-management-career-path/Developer-architect-communication-guide.html` | `app/pages/developer-architect-communication-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Engineering-management-career-path/Elastic-leadership-guide.html` | `app/pages/elastic-leadership-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Pmp-certification-guide/Pmp-certification-guide.html` | `app/pages/pmp-certification-guide.vue` | ✅ 全文移行・原本照合完了・契約テスト Green |
+| `archive/Pmp-certification-guide/Pmp-domain1-people-guide.html` | `app/pages/pmp-domain1-people-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Pmp-certification-guide/Pmp-domain2-process-guide.html` | `app/pages/pmp-domain2-process-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Pmp-certification-guide/Pmp-domain3-business-environment-guide.html` | `app/pages/pmp-domain3-business-environment-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Team-geek-guide/Team-geek-guide.html` | `app/pages/team-geek-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Team-topologies-guide/Team-topologies-guide.html` | `app/pages/team-topologies-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -225,14 +232,69 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 項目 | 内容 | 理由 |
 |---|---|---|
 | 参考文献の見出し `h4` → `h3` 昇格 | `書籍`、`ブログ・ニュースレター`、`フレームワーク・調査` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
-| 原本アーカイブ移動 | `Leadership-practices-guide.html` / `Leadership-practices-guide.md`（旧 `the-art-of-leadership.md`）を `archive/Engineering-management-career-path/` 配下へ移動 | 移行完了原本の集約管理 |
+
+### 16. PMP Domain I: People 完全攻略ガイド（`pmp-domain1-people-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 原本アーカイブ移動 | `Pmp-domain1-people-guide.html` / `.md` を `archive/Pmp-certification-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:pmp-d1` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 17. Team Geek 完全ガイド（`team-geek-guide.vue`）での差分
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `一次情報 ― O'Reilly公式ページ`、`海外の著名開発者による書評・言及` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 原本アーカイブ移動 | `Team-geek-guide.html` / `.md` を `archive/Team-geek-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:team-geek` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 18. Team Topologies 実践ガイド（`team-topologies-guide.vue`）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 原本照合の完全一致 | 全要素（リスト 84, 表行 26, 段落 33, 見出し 26, 外部リンク 14, Mermaid 5, SVG 1, Callout 17）が原本と完全一致 | 逸脱なしの忠実移植（**exit 0**） |
+| 原本アーカイブ移動 | `Team-topologies-guide.html` / `.md` を `archive/Team-topologies-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:team-topologies` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 19. PMP Domain II: Process 完全解説ガイド（`pmp-domain2-process-guide.vue`）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `情報源一覧` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| Mermaid 宣言正規表現の拡張 | `MERMAID_DIAGRAM_DECLARATION` に `%%{...}%%` ディレクティブ許容を追加 | `tenTaskGroupMap` / `domainIiRoadmap` のディレクティブ付き図解の照合対応 |
+| 原本アーカイブ移動 | `Pmp-domain2-process-guide.html` / `.md` を `archive/Pmp-certification-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:pmp-d2` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 20. PMP Domain III: Business Environment 徹底解説ガイド（`pmp-domain3-business-environment-guide.vue`）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `一次情報源`, `関連情報源` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 原本アーカイブ移動 | `Pmp-domain3-business-environment-guide.html` / `.md` を `archive/Pmp-certification-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:pmp-d3` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 21. 開発者とアーキテクトのためのコミュニケーションガイド（`developer-architect-communication-guide.vue`）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 参考文献の見出し `h4` → `h3` 昇格 | `情報源一覧` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
+| 原本アーカイブ移動 | `Developer-architect-communication-guide.html` / `.md` を `archive/Engineering-management-career-path/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:dev-arch` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 22. Elastic Leadership 実践ガイド（`elastic-leadership-guide.vue`）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| DIAGRAMS キー順序の調整 | 原本 HTML の `DIAGRAMS` 定義内の `manifestoPillars` を DOM の出現順（Section 04: `phaseDecisionFlow` の直後）に合わせて配置（原本 HTML も追随修正） | 監査スクリプトの DOM 出現順抽出との順序不整合を解消するため（§2 と同様） |
+| 原本アーカイブ移動 | `Elastic-leadership-guide.html` / `.md` を `archive/Engineering-management-career-path/` 配下へ移動 | 移行完了原本の集約管理 |
+| 照合監査のパス | `npm run audit:elastic` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
 
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: ba1631a
+コードコミット HEAD: 91b147f
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
@@ -251,17 +313,28 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/dynamic-reteaming-guide.vue（ダイナミック・リチーミング実践ガイド）
   - app/pages/engineering-executive-playbook.vue（エンジニアリング統括責任者の手引き ガイド）
   - app/pages/leadership-practices-guide.vue（リーダーの作法ガイド）
+  - app/pages/developer-architect-communication-guide.vue（開発者とアーキテクトのためのコミュニケーションガイド）
+  - app/pages/elastic-leadership-guide.vue（Elastic Leadership 実践ガイド）
   - app/pages/pmp-certification-guide.vue（PMP認定試験完全攻略ガイド）
+  - app/pages/pmp-domain1-people-guide.vue（PMP Domain I: People 完全攻略ガイド）
+  - app/pages/pmp-domain2-process-guide.vue（PMP Domain II: Process 完全解説ガイド）
+  - app/pages/pmp-domain3-business-environment-guide.vue（PMP Domain III: Business Environment 徹底解説ガイド）
+  - app/pages/team-geek-guide.vue（Team Geek 完全ガイド）
+  - app/pages/team-topologies-guide.vue（Team Topologies 実践ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。カテゴリー別ドロップダウン + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 351 件
-  - test / typecheck / lint はいずれも 2026-08-18 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 10 本 exit 0 パス
+  - ユニットテスト 512 件
+  - test / typecheck / lint はいずれも 2026-08-20 時点で ✔（実測）
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 17 本 exit 0 パス
     （CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み。
     docs/PROGRESS.md「正当な差分の記録」§8 を参照。
     差分が 1 件でも出たら移行漏れとして Green コミット禁止）
 
-ベースラインテスト数: ユニット 351 + E2E 13
+ベースラインテスト数: ユニット 512 + E2E 13
 ```
+
+
+
+

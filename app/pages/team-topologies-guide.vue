@@ -1,598 +1,165 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team Topologies 実践ガイド ― 初学者のためのステップバイステップ解説</title>
-<meta name="description" content="Matthew Skelton氏とManuel Pais氏が提唱したTeam Topologiesを、コンウェイの法則から導入ロードマップまで初学者向けにステップバイステップで解説する。">
-
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
-
-<style>
-  :root {
-    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
-    --color-paper:        #F6F7F9;
-    --color-paper-raised: #FFFFFF;
-    --color-paper-sunken: #EEF0F4;
-
-    --color-ink:          #161B26;
-    --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
-
-    --color-border:       #DFE3EA;
-    --color-border-strong:#C7CDD9;
-
-    --color-indigo:       #2E3F72;
-    --color-indigo-dark:  #1F2C57;
-    --color-indigo-tint:  #EEF1F8;
-
-    --color-gold:         #B8802A;
-    --color-gold-tint:    #FAF1DF;
-
-    --color-forest:       #1B6E6A;
-    --color-forest-tint:  #E7F3F2;
-
-    --color-plum:         #8C3A5C;
-    --color-plum-tint:    #F6EAEF;
-
-    --color-success-bg:    #EAF4EC;
-    --color-success-text:  #2F6B3D;
-    --color-success-border:#BFE0C6;
-
-    --color-info-bg:       #EEF1F8;
-    --color-info-text:     #2E3F72;
-    --color-info-border:   #C7D1EA;
-
-    /* ---- Typography ---- */
-    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-    --sidebar-width: 288px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--color-indigo); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
-
-  img, svg { max-width: 100%; }
-
-  .layout {
-    display: block;
-  }
-
-  /* ===================== Sidebar ===================== */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--color-paper-raised);
-    border-right: 1px solid var(--color-border);
-    padding: 32px 24px 40px;
-    z-index: 20;
-  }
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .seal {
-    flex: none;
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-text .brand-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--color-ink);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-text .brand-subtitle {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 2px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar-nav .nav-group-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.06em;
-    margin: 22px 0 8px;
-    padding-left: 12px;
-  }
-
-  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
-
-  .sidebar-nav li { margin: 2px 0; }
-
-  .sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--color-ink-soft);
-    font-size: 16px;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-  }
-
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
-
-  .sidebar-nav a:hover {
-    background: var(--color-indigo-tint);
-    text-decoration: none;
-    color: var(--color-indigo);
-  }
-
-  .sidebar-nav a.active {
-    background: var(--color-indigo-tint);
-    color: var(--color-indigo);
-    font-weight: 600;
-    border-left: 2px solid var(--color-indigo);
-  }
-
-  .sidebar-nav a.active i { color: var(--color-indigo); }
-
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 30;
-    background: var(--color-paper-raised);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  /* ===================== Main content ===================== */
-  .main-content {
-    margin-left: var(--sidebar-width);
-    padding: 56px 72px 120px;
-  }
-
-  .hero {
-    margin-bottom: 56px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  .hero-eyebrow i { font-size: 17px; }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.28;
-    margin: 0 0 16px;
-    color: var(--color-ink);
-  }
-
-  .hero .hero-lede {
-    font-size: 18px;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .stat-card .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--color-indigo);
-    line-height: 1.1;
-  }
-
-  .stat-card .stat-label {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .disclaimer-box {
-    border: 1px solid var(--color-info-border);
-    background: var(--color-info-bg);
-    color: var(--color-info-text);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-size: 16px;
-    margin-top: 28px;
-  }
-
-  section {
-    margin: 72px 0;
-    scroll-margin-top: 32px;
-  }
-
-  section:first-of-type { margin-top: 0; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 29px;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--color-ink);
-    margin: 40px 0 16px;
-  }
-
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-ink);
-    margin: 28px 0 12px;
-  }
-
-  p { margin: 0 0 18px; }
-
-  ul, ol { margin: 0 0 18px; padding-left: 24px; }
-  li { margin-bottom: 8px; }
-
-  strong { font-weight: 600; color: var(--color-ink); }
-
-  em { color: var(--color-ink-soft); }
-
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
-  /* ===================== Tables ===================== */
-  .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  thead th {
-    background: var(--color-paper-sunken);
-    text-align: left;
-    font-weight: 600;
-    color: var(--color-ink);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border-strong);
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-ink-soft);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--color-paper); }
-
-  td strong, th strong { color: var(--color-ink); }
-
-  /* ===================== Callouts ===================== */
-  .callout {
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-indigo);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 28px 0;
-  }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--color-indigo);
-    margin-bottom: 10px;
-  }
-
-  .callout ul { margin-bottom: 0; padding-left: 20px; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .callout.practice { border-left-color: var(--color-gold); }
-  .callout.practice .callout-title { color: var(--color-gold); }
-
-  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
-  .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source a { color: var(--color-forest); font-weight: 500; }
-  .callout.source ul { list-style: none; padding-left: 0; }
-  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
-
-  .callout.note { border-left-color: var(--color-plum); }
-  .callout.note .callout-title { color: var(--color-plum); }
-
-  /* ===================== Diagram containers ===================== */
-  .diagram-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 12px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-
-  .diagram-card .diagram-caption {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 14px;
-    text-align: center;
-  }
-
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
-
-  /* ===================== Glossary ===================== */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-
-  .glossary-item .g-term {
-    font-weight: 600;
-    color: var(--color-indigo);
-    margin-bottom: 4px;
-  }
-
-  .glossary-item .g-def {
-    color: var(--color-ink-soft);
-    font-size: 16px;
-  }
-
-  /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h3 { margin-top: 0; }
-  .ref-list { list-style: none; margin: 0; padding: 0; }
-  .ref-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 16px;
-  }
-  .ref-list li:last-child { border-bottom: none; }
-  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
-  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
-
-  footer {
-    margin-top: 96px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-ink-faint);
-    font-size: 16px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
-  /* ===================== Responsive ===================== */
-  @media (max-width: 980px) {
-    .sidebar-toggle { display: flex; }
-    .sidebar {
-      transform: translateX(-100%);
-      visibility: hidden;
-      transition: transform 0.2s ease, visibility 0.2s ease;
-      box-shadow: none;
-    }
-    .sidebar.open { transform: translateX(0); visibility: visible; }
-    .main-content { margin-left: 0; padding: 88px 24px 100px; }
-    .hero h1 { font-size: 32px; }
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
-    .glossary-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .sidebar { transition: none; }
-  }
-</style>
-</head>
-<body>
-
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "introduction",
+  "what-is-team-topologies",
+  "conways-law",
+  "cognitive-load",
+  "four-team-types",
+  "interaction-modes",
+  "fracture-planes",
+  "reverse-conway",
+  "team-api",
+  "implementation-roadmap",
+  "anti-patterns",
+  "platform-engineering-trends",
+  "critical-perspective",
+  "further-learning",
+  "references",
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "Team Topologies 実践ガイド ― 初学者のためのステップバイステップ解説 | Management Studies",
+  description: "Matthew Skelton氏とManuel Pais氏が提唱したTeam Topologiesを、コンウェイの法則から導入ロードマップまで初学者向けにステップバイステップで解説する。",
+});
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+};
+
+const DIAGRAM_CONWAYS_LAW = `flowchart TB
+    subgraph ORG["組織のコミュニケーション構造"]
+        direction TB
+        O1["UIチーム"]
+        O2["APIチーム"]
+        O3["DBAチーム"]
+        O1 --- O2
+        O2 --- O3
+    end
+    subgraph SYS["結果として生まれるシステム構造"]
+        direction TB
+        S1["UI層モジュール"]
+        S2["API層モジュール"]
+        S3["DB層モジュール"]
+        S1 --- S2
+        S2 --- S3
+    end
+    ORG -->|"組織構造がシステム構造を規定する"| SYS
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class O1,O2,O3,S1,S2,S3 box;`;
+
+const DIAGRAM_FOUR_TEAM_TYPES = `flowchart TB
+    SA["ストリームアラインドチーム Stream-aligned Team 事業価値を単独で顧客に届ける主役"]
+    PF["プラットフォームチーム Platform Team 基盤をサービスとして提供"]
+    EN["イネーブリングチーム Enabling Team 能力ギャップを一時的に伴走支援"]
+    CS["コンプリケイテッド・サブシステムチーム Complicated-Subsystem Team 高度に専門的な領域を担当"]
+
+    PF -->|"X-as-a-Service 外在的負荷を軽減"| SA
+    EN -.->|"Facilitating 数週間の伴走支援"| SA
+    CS -->|"X-as-a-Service 専門領域を提供"| SA
+
+    PF ~~~ EN ~~~ CS
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PF,EN,CS box;
+    class SA hub;`;
+
+const DIAGRAM_INTERACTION_MODES = `flowchart TB
+    A["コラボレーション Collaboration 期間の目安は数週間程度 目的は発見と探索"]
+    B["X-as-a-Service 期間の目安は長期的で安定運用 目的はセルフサービスでの利用"]
+    C["ファシリテーション Facilitating 期間の目安は数週間程度 目的は能力向上の伴走支援"]
+
+    A -->|"境界が明確になったら移行"| B
+    C -.->|"必要な時だけ一時的に発生"| A
+    C -.->|"必要な時だけ一時的に発生"| B
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A,C box;
+    class B done;`;
+
+const DIAGRAM_REVERSE_CONWAY = `flowchart TB
+    subgraph BEFORE["Before 職能別サイロ組織"]
+        direction TB
+        B1["UIチーム"]
+        B2["APIチーム"]
+        B3["DBAチーム"]
+        B1 --- B2 --- B3
+    end
+    subgraph AFTER["After Reverse Conway適用後"]
+        direction TB
+        A1["ストリームアラインドチームA UI・API・DBを内包"]
+        A2["ストリームアラインドチームB UI・API・DBを内包"]
+    end
+    BEFORE -->|"目指すアーキテクチャに合わせて先にチームを再編する"| AFTER
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class B1,B2,B3 box;
+    class A1,A2 done;`;
+
+const DIAGRAM_ROADMAP = `flowchart TB
+    S1["Step1 現状のチームとコミュニケーション経路を可視化する"]
+    S2["Step2 コンウェイの法則の観点で組織とアーキテクチャの不一致を分析する"]
+    S3["Step3 既存チームを4つの基本タイプへマッピングする"]
+    S4["Step4 フラクチャープレーンを特定しシステムの分割線を検討する"]
+    S5["Step5 チームの認知負荷を測定し評価する"]
+    S6["Step6 3つのインタラクションモードでTo-Beの連携を設計する"]
+    S7["Step7 Reverse Conway Maneuverでチーム構造を段階的に移行する"]
+    S8["Step8 Team APIを定義しチーム間の期待値を明文化する"]
+    S9["Step9 定期的にセンシングし継続的に組織を進化させる"]
+
+    S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8 --> S9
+    S9 -.->|"継続的改善ループ"| S1
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class S1 hub;
+    class S9 done;
+    class S2,S3,S4,S5,S6,S7,S8 box;`;
+</script>
+
+<template>
+  <div>
+    <button
+    ref="sidebarToggle"
+    type="button"
+    class="sidebar-toggle"
+    aria-label="目次を開閉する"
+    aria-controls="sidebar"
+    :aria-expanded="sidebarOpen ? 'true' : 'false'"
+    @click="sidebarOpen = !sidebarOpen"
+  >
+    <Icon name="tabler:menu-2" />
+  </button>
 
 <div class="layout">
 
   <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
+  <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
     <div class="sidebar-brand">
       <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
@@ -607,27 +174,27 @@
 
     <ul class="sidebar-nav">
       <li class="nav-group-label">基礎知識</li>
-      <li><a href="#introduction"><i class="ti ti-info-circle"></i>はじめに</a></li>
-      <li><a href="#what-is-team-topologies"><i class="ti ti-certificate"></i>Team Topologiesとは何か</a></li>
-      <li><a href="#conways-law"><i class="ti ti-git-branch"></i>コンウェイの法則</a></li>
-      <li><a href="#cognitive-load"><i class="ti ti-brain"></i>チーム認知負荷</a></li>
+      <li><a :class="{ active: activeId === 'introduction' }" href="#introduction" @click="closeSidebar"><Icon name="tabler:info-circle" />はじめに</a></li>
+      <li><a :class="{ active: activeId === 'what-is-team-topologies' }" href="#what-is-team-topologies" @click="closeSidebar"><Icon name="tabler:certificate" />Team Topologiesとは何か</a></li>
+      <li><a :class="{ active: activeId === 'conways-law' }" href="#conways-law" @click="closeSidebar"><Icon name="tabler:git-branch" />コンウェイの法則</a></li>
+      <li><a :class="{ active: activeId === 'cognitive-load' }" href="#cognitive-load" @click="closeSidebar"><Icon name="tabler:brain" />チーム認知負荷</a></li>
 
       <li class="nav-group-label">コアコンセプト</li>
-      <li><a href="#four-team-types"><i class="ti ti-users-group"></i>4つの基本チームタイプ</a></li>
-      <li><a href="#interaction-modes"><i class="ti ti-arrows-exchange"></i>3つのインタラクションモード</a></li>
-      <li><a href="#fracture-planes"><i class="ti ti-puzzle"></i>フラクチャープレーン</a></li>
-      <li><a href="#reverse-conway"><i class="ti ti-refresh"></i>Reverse Conway Maneuver</a></li>
-      <li><a href="#team-api"><i class="ti ti-plug-connected"></i>Team API</a></li>
+      <li><a :class="{ active: activeId === 'four-team-types' }" href="#four-team-types" @click="closeSidebar"><Icon name="tabler:users-group" />4つの基本チームタイプ</a></li>
+      <li><a :class="{ active: activeId === 'interaction-modes' }" href="#interaction-modes" @click="closeSidebar"><Icon name="tabler:arrows-exchange" />3つのインタラクションモード</a></li>
+      <li><a :class="{ active: activeId === 'fracture-planes' }" href="#fracture-planes" @click="closeSidebar"><Icon name="tabler:puzzle" />フラクチャープレーン</a></li>
+      <li><a :class="{ active: activeId === 'reverse-conway' }" href="#reverse-conway" @click="closeSidebar"><Icon name="tabler:refresh" />Reverse Conway Maneuver</a></li>
+      <li><a :class="{ active: activeId === 'team-api' }" href="#team-api" @click="closeSidebar"><Icon name="tabler:plug-connected" />Team API</a></li>
 
       <li class="nav-group-label">実践ガイド</li>
-      <li><a href="#implementation-roadmap"><i class="ti ti-route"></i>導入ステップバイステップ</a></li>
-      <li><a href="#anti-patterns"><i class="ti ti-alert-triangle"></i>アンチパターン</a></li>
+      <li><a :class="{ active: activeId === 'implementation-roadmap' }" href="#implementation-roadmap" @click="closeSidebar"><Icon name="tabler:route" />導入ステップバイステップ</a></li>
+      <li><a :class="{ active: activeId === 'anti-patterns' }" href="#anti-patterns" @click="closeSidebar"><Icon name="tabler:alert-triangle" />アンチパターン</a></li>
 
       <li class="nav-group-label">発展と参考</li>
-      <li><a href="#platform-engineering-trends"><i class="ti ti-trending-up"></i>2025〜2026年の動向</a></li>
-      <li><a href="#critical-perspective"><i class="ti ti-scale"></i>批判的視点</a></li>
-      <li><a href="#further-learning"><i class="ti ti-book-2"></i>さらに学ぶために</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+      <li><a :class="{ active: activeId === 'platform-engineering-trends' }" href="#platform-engineering-trends" @click="closeSidebar"><Icon name="tabler:trending-up" />2025〜2026年の動向</a></li>
+      <li><a :class="{ active: activeId === 'critical-perspective' }" href="#critical-perspective" @click="closeSidebar"><Icon name="tabler:scale" />批判的視点</a></li>
+      <li><a :class="{ active: activeId === 'further-learning' }" href="#further-learning" @click="closeSidebar"><Icon name="tabler:book-2" />さらに学ぶために</a></li>
+      <li><a :class="{ active: activeId === 'references' }" href="#references" @click="closeSidebar"><Icon name="tabler:link" />参考文献・出典</a></li>
     </ul>
   </nav>
 
@@ -635,7 +202,7 @@
   <main class="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-sitemap"></i>ORGANIZATIONAL DESIGN GUIDE</div>
+      <div class="hero-eyebrow"><Icon name="tabler:sitemap" />ORGANIZATIONAL DESIGN GUIDE</div>
       <h1>Team Topologies 実践ガイド</h1>
       <p class="hero-lede">
         組織の複雑化とリリース速度低下という根深い問題に対し、Matthew Skelton氏とManuel Pais氏が提唱した実践的フレームワークを、コンウェイの法則から導入ロードマップまでステップバイステップで解説する。
@@ -649,14 +216,14 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <Icon name="tabler:info-circle" />
         本ガイドは教育・学習支援を目的とした非公式の解説資料です。内容は2026年8月16日時点のWeb検索結果に基づいています。正確な定義や最新情報は必ず<a href="https://www.oreilly.com/library/view/team-topologies/9781098157234/" target="_blank" rel="noopener">O'Reilly Mediaの書籍ページ</a>および<a href="https://teamtopologies.com" target="_blank" rel="noopener">Team Topologies公式サイト</a>でご確認ください。
       </div>
     </div>
 
     <!-- ===================== 01. Introduction ===================== -->
     <section id="introduction">
-      <div class="section-eyebrow"><i class="ti ti-info-circle"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:info-circle" />SECTION 01</div>
       <h2>はじめに</h2>
 
       <p>組織が大きくなるほど、チーム間の調整コストが増え、リリースは遅くなり、誰が何に責任を持つのかが曖昧になっていく。Team Topologiesは、この組織の複雑化という問題に対して、ソフトウェアアーキテクチャと組織設計を同時に扱う実践的なフレームワークである。</p>
@@ -665,8 +232,8 @@
 
       <p>本ガイドはMermaidフローチャートとMarkdown由来の比較表で構成しており、ASCIIアートの図解は使用していない。対象読者は、エンジニアリングマネージャー、テックリード、プロダクトマネージャー、ソフトウェアアーキテクト、そして「なぜうちの組織は開発が遅いのか」を考え始めたすべての人である。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.oreilly.com/library/view/team-topologies/9781098157234/" target="_blank" rel="noopener">O'Reilly Media - 書籍『Team Topologies』詳細ページ</a></li>
           <li><a href="https://teamtopologies.com" target="_blank" rel="noopener">Team Topologies公式サイト</a></li>
@@ -676,7 +243,7 @@
 
     <!-- ===================== 02. What is Team Topologies ===================== -->
     <section id="what-is-team-topologies">
-      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" />SECTION 02</div>
       <h2>Team Topologiesとは何か</h2>
 
       <p>一言で言うと、Team Topologiesは「4つの基本チームタイプ」と「3つのチームインタラクションモード」という最小限の語彙を使い、チームの認知負荷をコントロールしながら価値提供のスピード(Fast Flow)を最大化するための組織設計手法である。</p>
@@ -700,8 +267,8 @@
         <div class="glossary-item"><div class="g-term">Reverse Conway Maneuver</div><div class="g-def">理想のアーキテクチャに合わせて先にチーム構造を再編する手法</div></div>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://martinfowler.com/bliki/TeamTopologies.html" target="_blank" rel="noopener">Martin Fowler - bliki: Team Topologies</a></li>
         </ul>
@@ -710,7 +277,7 @@
 
     <!-- ===================== 03. Conway's Law ===================== -->
     <section id="conways-law">
-      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" />SECTION 03</div>
       <h2>なぜ大切か: コンウェイの法則</h2>
 
       <p>1967年、計算機科学者Melvin Conway氏は、システムを設計する組織は、その組織のコミュニケーション構造をそのまま反映した設計を生み出す、という趣旨の指摘を行った。これが「コンウェイの法則」である。</p>
@@ -718,14 +285,21 @@
       <p>つまり、フロントエンド担当チーム・バックエンド担当チーム・DBA(データベース管理)チームのように職能別に分かれた組織を作ると、たとえ意図していなくても、フロントエンド・バックエンド・DBという同じ境界線を持つシステムアーキテクチャが自然に生まれてしまう。これが、変更のたびに複数チームをまたぐ調整が発生し、リリースが遅くなる根本原因になる。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="conwaysLawDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CONWAYS_LAW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">組織のコミュニケーション構造がシステムアーキテクチャを規定する仕組み</div>
       </div>
 
       <p>Team Topologiesは、このコンウェイの法則を逆手に取ることを提案する。詳しくは「<a href="#reverse-conway">Reverse Conway Maneuver</a>」の章で解説する。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://martinfowler.com/bliki/TeamTopologies.html" target="_blank" rel="noopener">Martin Fowler - bliki: Team Topologies</a></li>
         </ul>
@@ -734,7 +308,7 @@
 
     <!-- ===================== 04. Cognitive Load ===================== -->
     <section id="cognitive-load">
-      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:brain" />SECTION 04</div>
       <h2>チーム認知負荷 Cognitive Load</h2>
 
       <p>Team Topologiesがチーム設計の基準として重視するのが「認知負荷(Cognitive Load)」である。これは教育心理学者John Sweller氏が提唱した認知負荷理論を組織設計に応用したもので、次の3種類に分類される。</p>
@@ -754,8 +328,8 @@
 
       <p>チームの認知負荷がキャパシティを超えると、品質低下・燃え尽き・スピード低下といった問題が発生する。Team Topologiesの各チームタイプは、この認知負荷を適切に分散させるための「型」だと理解すると、フレームワーク全体の意図がつかみやすくなる。</p>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>外在的負荷はゼロを目指す。</strong>デプロイや環境構築の手順は自動化・プラットフォーム化し、チームの working memory を奪わないようにする。</li>
           <li><strong>内在的負荷はトレーニングで下げる。</strong>採用・教育・ペアプログラミングによって習熟度を上げ、負荷そのものを軽くする。</li>
@@ -763,8 +337,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://itrevolution.com/articles/cognitive-load/" target="_blank" rel="noopener">IT Revolution - Team Cognitive Load</a></li>
         </ul>
@@ -773,13 +347,20 @@
 
     <!-- ===================== 05. Four Team Types ===================== -->
     <section id="four-team-types">
-      <div class="section-eyebrow"><i class="ti ti-users-group"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users-group" />SECTION 05</div>
       <h2>4つの基本チームタイプ</h2>
 
       <p>Team Topologiesは、組織内のあらゆるチームを次の4つの基本タイプのいずれかに整理することを提案する。中心にあるのは常に「ストリームアラインドチーム」で、他の3タイプはそれを支援する役割である。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="fourTeamTypesDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FOUR_TEAM_TYPES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">ストリームアラインドチームを中心とした4つのチームタイプの関係</div>
       </div>
 
@@ -810,8 +391,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://martinfowler.com/bliki/TeamTopologies.html" target="_blank" rel="noopener">Martin Fowler - bliki: Team Topologies</a></li>
           <li><a href="https://teamtopologies.com/key-concepts-content/team-interaction-modeling-with-team-topologies" target="_blank" rel="noopener">Team Topologies公式 - Team Interaction Modeling</a></li>
@@ -821,13 +402,20 @@
 
     <!-- ===================== 06. Interaction Modes ===================== -->
     <section id="interaction-modes">
-      <div class="section-eyebrow"><i class="ti ti-arrows-exchange"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:arrows-exchange" />SECTION 06</div>
       <h2>3つのチームインタラクションモード</h2>
 
       <p>チームタイプを定義しただけでは組織は変わらない。Team Topologiesは、チーム同士がどのように関わり合うべきかを3つのモードに絞り込んで定義している。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="interactionModesDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_INTERACTION_MODES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">コラボレーションからX-as-a-Serviceへ至る典型的な遷移</div>
       </div>
 
@@ -846,8 +434,8 @@
 
       <p>公式サイトのガイドでは、「2チームが長期間にわたって密接に協働し続けている状態」は、正式な3モードのいずれにも当てはまらない「未定義のインタラクション」として可視化し、改善対象として扱うことが推奨されている。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://teamtopologies.com/key-concepts-content/team-interaction-modeling-with-team-topologies" target="_blank" rel="noopener">Team Topologies公式 - Team Interaction Modeling</a></li>
         </ul>
@@ -856,7 +444,7 @@
 
     <!-- ===================== 07. Fracture Planes ===================== -->
     <section id="fracture-planes">
-      <div class="section-eyebrow"><i class="ti ti-puzzle"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:puzzle" />SECTION 07</div>
       <h2>フラクチャープレーン: システムの分割線</h2>
 
       <p>モノリシックなシステムやチームを分割したいとき、Team Topologiesは「フラクチャープレーン(Fracture Plane)」、すなわちシステムを自然にきれいに分割できる継ぎ目を探すことを提案する。</p>
@@ -879,8 +467,8 @@
 
       <p>分割線を検討する際の基本方針は、ビジネスドメインの境界づけられたコンテキストに沿ったフラクチャープレーンを最優先することである。これはビジネスの変更の流れ(value stream)と自然に一致しやすいためである。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://teamtopologies.com/key-concepts-content/team-interaction-modeling-with-team-topologies" target="_blank" rel="noopener">Team Topologies公式 - Team Interaction Modeling</a></li>
         </ul>
@@ -889,25 +477,32 @@
 
     <!-- ===================== 08. Reverse Conway Maneuver ===================== -->
     <section id="reverse-conway">
-      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" />SECTION 08</div>
       <h2>Reverse Conway Maneuver 逆コンウェイ作戦</h2>
 
       <p>「コンウェイの法則」は「組織構造がシステム構造を規定する」という一種の重力のようなものである。Team Topologiesはこの重力を逆用し、先に理想のシステムアーキテクチャを描き、それに合わせてチーム構造を意図的に再編するというアプローチを取る。これが「Reverse Conway Maneuver(逆コンウェイ作戦、inverse Conway maneuver)」である。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="reverseConwayDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_REVERSE_CONWAY" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">職能別サイロ組織からReverse Conway適用後への再編</div>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
         <p>書籍『Team Topologies』では、この逆コンウェイ作戦の実行には経営陣の意志力(willpower)とチームの意識変革が必要であり、初期には抵抗が出ることも珍しくないと述べられている。それでも、疎結合(Loose Coupling)と高凝集(High Cohesion)というソフトウェアアーキテクチャの原則をチーム設計に適用することで、実現可能だとされている。</p>
       </div>
     </section>
 
     <!-- ===================== 09. Team API ===================== -->
     <section id="team-api">
-      <div class="section-eyebrow"><i class="ti ti-plug-connected"></i>SECTION 09</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:plug-connected" />SECTION 09</div>
       <h2>Team API: チーム間の期待値を明文化する</h2>
 
       <p>Team Topologiesのもう1つの重要な道具が「Team API」である。ソフトウェアのAPIが「そのコンポーネントとどう連携すればよいか」を定義するように、Team APIは「そのチームとどう連携すればよいか」を明文化したものである。</p>
@@ -924,8 +519,8 @@
 
       <p>Team Topologiesの共著者2人がInfoQのポッドキャストで語っているように、Team APIは「ソフトウェアにAPIがあるなら、チームにもインターフェースがあってしかるべきだ」という発想から来ている。多くのチームが既に持っている「チームチャーター」を、他チームとの連携という外向きの視点で捉え直すものだと説明されている。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/podcasts/software-architecture-team-topologies/" target="_blank" rel="noopener">InfoQ - Matthew Skelton and Manuel Pais on Software Architecture, Team Topologies, and Platforms</a></li>
           <li><a href="https://github.com/TeamTopologies/Team-API-template" target="_blank" rel="noopener">Team Topologies公式GitHub - Team API テンプレート</a></li>
@@ -935,75 +530,82 @@
 
     <!-- ===================== 10. Implementation Roadmap ===================== -->
     <section id="implementation-roadmap">
-      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 10</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" />SECTION 10</div>
       <h2>導入のステップバイステップガイド</h2>
 
       <p>ここからは、実際に組織へTeam Topologiesを導入する際の実践的なステップを解説する。公式サイトが提唱する「チームインタラクションモデリング」のアプローチをベースに、初学者でも着手しやすい順序に整理している。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="roadmapDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ROADMAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">導入からセンシングまでの9ステップの継続的改善ループ</div>
       </div>
 
       <ol class="step-list">
         <li>
-          <div class="step-num">1</div>
+          <div class="step-num" data-testid="step-tag">1</div>
           <div class="step-body">
             <div class="step-title">現状のチームと通信経路を可視化する</div>
             <div class="step-desc">まずは今ある全チームと、それらの間の連携(ハンドオフ、承認フロー、定例会議など)を書き出す。この段階では正しい分類を目指す必要はなく、「PMOからUX、開発、テスト、運用へ」のような引き継ぎの連鎖をそのまま図示することが目的である。公式ガイドでは、この引き継ぎを灰色のひし形で表現する記法が紹介されている。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">2</div>
+          <div class="step-num" data-testid="step-tag">2</div>
           <div class="step-body">
             <div class="step-title">コンウェイの法則の観点で不一致を分析する</div>
             <div class="step-desc">可視化した組織構造と、実際のシステムアーキテクチャを見比べる。多くの場合、職能別のサイロ構造が、疎結合であるべきアーキテクチャに不必要な結合を生んでいることが見えてくる。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">3</div>
+          <div class="step-num" data-testid="step-tag">3</div>
           <div class="step-body">
             <div class="step-title">既存チームを4つの基本タイプへマッピングする</div>
             <div class="step-desc">各チームが「ストリームアラインド」「プラットフォーム」「イネーブリング」「コンプリケイテッド・サブシステム」のどれに近いかを検討する。どれにも当てはまらない場合は無理に分類せず、「未定義タイプ」として一旦保留する。ここで重要なのは正確な分類よりも、議論のきっかけを作ることである。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">4</div>
+          <div class="step-num" data-testid="step-tag">4</div>
           <div class="step-body">
             <div class="step-title">フラクチャープレーンを特定する</div>
             <div class="step-desc">ビジネスドメイン境界、規制境界、変更ケイデンスなどの分割線の候補を使い、モノリスや巨大なチームをどう分割できるかを検討する。書籍では115〜123ページで複数のフラクチャープレーンのパターンが解説されている。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">5</div>
+          <div class="step-num" data-testid="step-tag">5</div>
           <div class="step-body">
             <div class="step-title">チームの認知負荷を測定・評価する</div>
             <div class="step-desc">各チームが「内在的」「外在的」「学習関連」のどの負荷で苦しんでいるかをヒアリングする。外在的負荷が高いならプラットフォームチームの支援を、内在的負荷が高いならイネーブリングチームの支援を検討する、という判断材料になる。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">6</div>
+          <div class="step-num" data-testid="step-tag">6</div>
           <div class="step-body">
             <div class="step-title">To-Beのインタラクションモードを設計する</div>
             <div class="step-desc">現状の「長期化したコラボレーション」や「頻繁なハンドオフ」を、どのインタラクションモード(コラボレーション・X-as-a-Service・ファシリテーション)に置き換えるべきかを設計する。目指す姿は、コラボレーションとファシリテーションが短期集中で発生し、安定した関係の多くがX-as-a-Serviceに収束している状態である。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">7</div>
+          <div class="step-num" data-testid="step-tag">7</div>
           <div class="step-body">
             <div class="step-title">Reverse Conway Maneuverで段階的に移行する</div>
             <div class="step-desc">一気に組織全体を再編するのではなく、小さな単位で段階的にチーム構造を目指すアーキテクチャへ寄せていく。経営層の後押しと、影響を受けるチームへの丁寧な説明が欠かせない。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">8</div>
+          <div class="step-num" data-testid="step-tag">8</div>
           <div class="step-body">
             <div class="step-title">Team APIを定義する</div>
             <div class="step-desc">再編後の各チームについて、Team APIを作成し、他チームがどのように連携すればよいかを明文化する。これにより暗黙のルールに依存した非効率なコミュニケーションを減らせる。</div>
           </div>
         </li>
         <li>
-          <div class="step-num">9</div>
+          <div class="step-num" data-testid="step-tag">9</div>
           <div class="step-body">
             <div class="step-title">継続的にセンシングし、組織を進化させ続ける</div>
             <div class="step-desc">Team Topologiesは一度作って終わりの静的な組織図ではない。「ユーザーの求めるものを見誤っていないか」「あるチーム間のコラボレーションはまだ有効か、X-as-a-Serviceへ移行すべきか」といった問いを定期的に立て、組織を継続的にセンシングし適応させ続けることが推奨されている。組織が成長したり、システムが1チームで扱うには大きくなりすぎたりするたびに、Step 1に戻って見直す。</div>
@@ -1011,8 +613,8 @@
         </li>
       </ol>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" />ベストプラクティス</div>
         <ul>
           <li><strong>正確な分類より対話を優先する。</strong>チームタイプへのマッピングは、完璧を目指すのではなく議論のきっかけとして使う。</li>
           <li><strong>一気に再編しない。</strong>小さな単位で段階的にチーム構造を移行し、都度フィードバックを得る。</li>
@@ -1020,8 +622,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://teamtopologies.com/key-concepts-content/team-interaction-modeling-with-team-topologies" target="_blank" rel="noopener">Team Topologies公式 - Team Interaction Modeling</a></li>
         </ul>
@@ -1030,7 +632,7 @@
 
     <!-- ===================== 11. Anti-patterns ===================== -->
     <section id="anti-patterns">
-      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 11</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" />SECTION 11</div>
       <h2>よくあるアンチパターンと落とし穴</h2>
 
       <div class="table-wrap">
@@ -1050,8 +652,8 @@
 
       <p>Martin Fowler氏はブログの中で、統計学者George Box氏の「モデルは完全ではないが役に立つものもある」という考え方を引用し、Team Topologiesも複雑な組織を4種類のチームと3種類のインタラクションだけで説明しきれるわけではないとしつつも、組織をより良い方向へ進化させるための実用的な制約・道具として評価している。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://martinfowler.com/bliki/TeamTopologies.html" target="_blank" rel="noopener">Martin Fowler - bliki: Team Topologies</a></li>
         </ul>
@@ -1060,7 +662,7 @@
 
     <!-- ===================== 12. 2025-2026 Trends ===================== -->
     <section id="platform-engineering-trends">
-      <div class="section-eyebrow"><i class="ti ti-trending-up"></i>SECTION 12</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:trending-up" />SECTION 12</div>
       <h2>2025〜2026年の最新動向: プラットフォームエンジニアリングとの融合</h2>
 
       <p>2022年頃からの「プラットフォームエンジニアリング」ムーブメントは、Team Topologiesのプラットフォームチームの考え方と強く結びついて発展してきた。2026年時点の業界レポートでは、次のような傾向が指摘されている。</p>
@@ -1072,8 +674,8 @@
         <li>書籍『Team Topologies』自体も、複数業界の新しいケーススタディを加えた第2版が刊行され、著者らによる新しいまえがき・あとがきでは、初版刊行以降のグローバルな影響と、今後の展望が語られている。</li>
       </ul>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://levstack.io/en/blog/platform-engineering-2026/" target="_blank" rel="noopener">LevStack - Platform Engineering in 2026</a></li>
           <li><a href="https://leanopstech.com/blog/platform-engineering-trends-2026/" target="_blank" rel="noopener">LeanOps - Platform Engineering Trends 2026</a></li>
@@ -1084,7 +686,7 @@
 
     <!-- ===================== 13. Critical Perspective ===================== -->
     <section id="critical-perspective">
-      <div class="section-eyebrow"><i class="ti ti-scale"></i>SECTION 13</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:scale" />SECTION 13</div>
       <h2>批判的視点: Team Topologiesの限界</h2>
 
       <p>どのフレームワークにも限界がある。実務家からは、次のような批判的視点も提示されている。</p>
@@ -1095,13 +697,13 @@
         <li>Martin Fowler氏自身も、複雑な組織を4種類のチームと3種類の交流だけで表現しきれるわけではないと明言した上で、それでもなお、組織をより良い方向へ動かすための実用的な制約として価値があると位置づけている。</li>
       </ul>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
         <p>これらの批判は、Team Topologiesを唯一絶対の正解としてではなく、組織設計についての対話を始めるための共通言語・思考の道具として使うべきだ、という共通のメッセージに集約される。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
         <ul>
           <li><a href="https://martinfowler.com/bliki/TeamTopologies.html" target="_blank" rel="noopener">Martin Fowler - bliki: Team Topologies</a></li>
         </ul>
@@ -1110,7 +712,7 @@
 
     <!-- ===================== 14. Further Learning ===================== -->
     <section id="further-learning">
-      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 14</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" />SECTION 14</div>
       <h2>さらに学ぶために</h2>
 
       <ul>
@@ -1124,7 +726,7 @@
 
     <!-- ===================== 15. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 15</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" />SECTION 15</div>
       <h2>参考文献・出典</h2>
 
       <p>本ガイドの作成にあたり、2026年8月16日時点でWeb検索により参照した情報源は以下の通りである(国際的に著名な開発者・企業の一次情報を優先している)。</p>
@@ -1165,8 +767,8 @@
         </ul>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>免責事項</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />免責事項</div>
         <p>本ガイドは公開情報を基にした要約・解説であり、原典(書籍およびWeb記事)の著作権はそれぞれの著者・出版社に帰属する。正確な定義や詳細な事例は、必ず原典(特に書籍『Team Topologies』第2版)を参照してほしい。</p>
       </div>
     </section>
@@ -1176,245 +778,590 @@
     </footer>
 
   </main>
-</div>
+    </div>
+  </div>
+</template>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
-<script>
-(function () {
-  "use strict";
+<style scoped>
+.layout {
+  display: block;
+}
 
-  var DIAGRAMS = {
-    conwaysLawDiagram: `flowchart TB
-    subgraph ORG["組織のコミュニケーション構造"]
-        direction TB
-        O1["UIチーム"]
-        O2["APIチーム"]
-        O3["DBAチーム"]
-        O1 --- O2
-        O2 --- O3
-    end
-    subgraph SYS["結果として生まれるシステム構造"]
-        direction TB
-        S1["UI層モジュール"]
-        S2["API層モジュール"]
-        S3["DB層モジュール"]
-        S1 --- S2
-        S2 --- S3
-    end
-    ORG -->|"組織構造がシステム構造を規定する"| SYS
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class O1,O2,O3,S1,S2,S3 box;`,
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
 
-    fourTeamTypesDiagram: `flowchart TB
-    SA["ストリームアラインドチーム Stream-aligned Team 事業価値を単独で顧客に届ける主役"]
-    PF["プラットフォームチーム Platform Team 基盤をサービスとして提供"]
-    EN["イネーブリングチーム Enabling Team 能力ギャップを一時的に伴走支援"]
-    CS["コンプリケイテッド・サブシステムチーム Complicated-Subsystem Team 高度に専門的な領域を担当"]
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
 
-    PF -->|"X-as-a-Service 外在的負荷を軽減"| SA
-    EN -.->|"Facilitating 数週間の伴走支援"| SA
-    CS -->|"X-as-a-Service 専門領域を提供"| SA
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
 
-    PF ~~~ EN ~~~ CS
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    class PF,EN,CS box;
-    class SA hub;`,
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    interactionModesDiagram: `flowchart TB
-    A["コラボレーション Collaboration 期間の目安は数週間程度 目的は発見と探索"]
-    B["X-as-a-Service 期間の目安は長期的で安定運用 目的はセルフサービスでの利用"]
-    C["ファシリテーション Facilitating 期間の目安は数週間程度 目的は能力向上の伴走支援"]
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
 
-    A -->|"境界が明確になったら移行"| B
-    C -.->|"必要な時だけ一時的に発生"| A
-    C -.->|"必要な時だけ一時的に発生"| B
+.sidebar-nav .nav-group-label:first-child {
+  margin-top: 0;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class A,C box;
-    class B done;`,
+.sidebar-nav li {
+  margin: 2px 0;
+}
 
-    reverseConwayDiagram: `flowchart TB
-    subgraph BEFORE["Before 職能別サイロ組織"]
-        direction TB
-        B1["UIチーム"]
-        B2["APIチーム"]
-        B3["DBAチーム"]
-        B1 --- B2 --- B3
-    end
-    subgraph AFTER["After Reverse Conway適用後"]
-        direction TB
-        A1["ストリームアラインドチームA UI・API・DBを内包"]
-        A2["ストリームアラインドチームB UI・API・DBを内包"]
-    end
-    BEFORE -->|"目指すアーキテクチャに合わせて先にチームを再編する"| AFTER
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class B1,B2,B3 box;
-    class A1,A2 done;`,
+.sidebar-nav a :deep(span) {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
 
-    roadmapDiagram: `flowchart TB
-    S1["Step1 現状のチームとコミュニケーション経路を可視化する"]
-    S2["Step2 コンウェイの法則の観点で組織とアーキテクチャの不一致を分析する"]
-    S3["Step3 既存チームを4つの基本タイプへマッピングする"]
-    S4["Step4 フラクチャープレーンを特定しシステムの分割線を検討する"]
-    S5["Step5 チームの認知負荷を測定し評価する"]
-    S6["Step6 3つのインタラクションモードでTo-Beの連携を設計する"]
-    S7["Step7 Reverse Conway Maneuverでチーム構造を段階的に移行する"]
-    S8["Step8 Team APIを定義しチーム間の期待値を明文化する"]
-    S9["Step9 定期的にセンシングし継続的に組織を進化させる"]
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
 
-    S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8 --> S9
-    S9 -.->|"継続的改善ループ"| S1
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
 
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class S1 hub;
-    class S9 done;
-    class S2,S3,S4,S5,S6,S7,S8 box;`
-  };
+.sidebar-nav a.active :deep(span) {
+  color: var(--color-indigo);
+}
 
-  function extendViewBoxHeight(svgEl, extra) {
-    var vb = svgEl.getAttribute("viewBox");
-    if (!vb) return;
-    var parts = vb.split(/\s+/).map(Number);
-    if (parts.length !== 4) return;
-    svgEl.style.width = parts[2] + "px";
-    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(span) {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul, ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong, th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Diagram containers ===================== */
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.mermaid-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
+}
+
+/* ===================== Step list (roadmap) ===================== */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.step-list li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.step-num {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo);
+  color: var(--color-indigo);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-body .step-title {
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.step-body .step-desc {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+/* ===================== Glossary ===================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 4px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h3 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--color-paper-sunken);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
   }
 
-  async function renderAllDiagrams() {
-    if (typeof mermaid === "undefined") {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
-      });
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      try { await document.fonts.ready; } catch (e) { /* ignore */ }
-    }
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "strict",
-      theme: "base",
-      themeVariables: {
-        background: "transparent",
-        primaryColor: "#EEF1F8",
-        primaryBorderColor: "#2E3F72",
-        primaryTextColor: "#161B26",
-        lineColor: "#2E3F72",
-        secondaryColor: "#FAF1DF",
-        secondaryBorderColor: "#B8802A",
-        tertiaryColor: "#FFFFFF",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-        fontSize: "16px",
-        pie1: "#C7D1EA",
-        pie2: "#AEDBD6",
-        pie3: "#F0D9A6",
-        pie4: "#E7C0D0",
-        pieOpacity: "1",
-        pieStrokeColor: "#FFFFFF",
-        pieStrokeWidth: "2px",
-        pieOuterStrokeWidth: "1px",
-        pieOuterStrokeColor: "#DFE3EA",
-        pieSectionTextColor: "#161B26",
-        pieLegendTextColor: "#161B26",
-        pieTitleTextColor: "#161B26"
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        nodeSpacing: 45,
-        rankSpacing: 48,
-        curve: "basis"
-      },
-      pie: {
-        useMaxWidth: false
-      }
-    });
-
-    var entries = Object.keys(DIAGRAMS);
-    for (var i = 0; i < entries.length; i++) {
-      var id = entries[i];
-      var container = document.getElementById(id);
-      if (!container) continue;
-      try {
-        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
-        container.innerHTML = typeof result === "string" ? result : result.svg;
-        var svgEl = container.querySelector("svg");
-        if (svgEl) {
-          svgEl.removeAttribute("width");
-          svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.overflow = "visible";
-          extendViewBoxHeight(svgEl, 15);
-        }
-      } catch (err) {
-        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
-      }
-    }
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
   }
 
-  function setupSidebarHighlight() {
-    var sections = document.querySelectorAll("main section[id]");
-    var navLinks = document.querySelectorAll(".sidebar-nav a");
-    var linkMap = {};
-    navLinks.forEach(function (link) {
-      var href = link.getAttribute("href").replace("#", "");
-      linkMap[href] = link;
-    });
-    if (!("IntersectionObserver" in window)) return;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var link = linkMap[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
-          link.classList.add("active");
-        }
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    sections.forEach(function (section) { observer.observe(section); });
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
   }
 
-  function setupMobileToggle() {
-    var toggle = document.getElementById("sidebarToggle");
-    var sidebar = document.getElementById("sidebar");
-    if (!toggle || !sidebar) return;
-    toggle.addEventListener("click", function () {
-      var isOpen = sidebar.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        // visibility:hidden になる前にフォーカスをトグルボタンへ戻す。
-        // (閉じたサイドバー内の要素にフォーカスが残ると body へ落ちるため)
-        // 逆に閉じた状態(デスクトップ相当)で退避すると、リンク先へ移動したい
-        // 利用者からフォーカスを奪ってしまうので wasOpen で守る。
-        var wasOpen = sidebar.classList.contains("open");
-        if (wasOpen) toggle.focus();
-        sidebar.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      });
-    });
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
-    setupSidebarHighlight();
-    setupMobileToggle();
-  });
-})();
-</script>
-</body>
-</html>
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sidebar {
+    transition: none;
+  }
+}
+</style>

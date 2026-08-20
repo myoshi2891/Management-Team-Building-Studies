@@ -19,10 +19,17 @@
     "audit:capm-d3": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Capm-domain3-agile-frameworks-guide.html app/pages/capm-domain3-agile-frameworks-guide.vue",
     "audit:capm-d4": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Certified-Associate-in-Project-Management/Capm-domain4-business-analysis-frameworks.html app/pages/capm-domain4-business-analysis-frameworks.vue",
     "audit:pmp": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-certification-guide.html app/pages/pmp-certification-guide.vue",
+    "audit:pmp-d1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-domain1-people-guide.html app/pages/pmp-domain1-people-guide.vue",
+    "audit:pmp-d2": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-domain2-process-guide.html app/pages/pmp-domain2-process-guide.vue",
+    "audit:pmp-d3": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Pmp-certification-guide/Pmp-domain3-business-environment-guide.html app/pages/pmp-domain3-business-environment-guide.vue",
     "audit:lead": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-team-leadership-guide.html app/pages/engineering-team-leadership-guide.vue",
     "audit:reteam": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Dynamic-reteaming-guide.html app/pages/dynamic-reteaming-guide.vue",
     "audit:exec": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Engineering-executive-playbook.html app/pages/engineering-executive-playbook.vue",
-    "audit:practices": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Leadership-practices-guide.html app/pages/leadership-practices-guide.vue"
+    "audit:practices": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Leadership-practices-guide.html app/pages/leadership-practices-guide.vue",
+    "audit:team-geek": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Team-geek-guide/Team-geek-guide.html app/pages/team-geek-guide.vue",
+    "audit:team-topologies": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Team-topologies-guide/Team-topologies-guide.html app/pages/team-topologies-guide.vue",
+    "audit:dev-arch": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Developer-architect-communication-guide.html app/pages/developer-architect-communication-guide.vue",
+    "audit:elastic": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Engineering-management-career-path/Elastic-leadership-guide.html app/pages/elastic-leadership-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
