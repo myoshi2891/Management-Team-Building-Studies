@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
+import { MERMAID_THEME_VARIABLES } from "~/utils/mermaid-theme";
 
 const TOC_IDS = [
   "about-this-guide",
@@ -293,7 +294,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_EXAM_DOMAIN_PIE" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_EXAM_DOMAIN_PIE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">PMP試験におけるDomain別出題比率(Process が最大の41%)</div>
@@ -357,7 +358,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_ECO_STRUCTURE" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_ECO_STRUCTURE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">ECOの3階層構造(Domain → Task → Enabler)の関係</div>
@@ -396,7 +397,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TEN_TASK_MAP" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TEN_TASK_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Domain II 10Taskの学習上のグルーピング</div>
@@ -464,7 +465,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TASK1_STEPS" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TASK1_STEPS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Task1: 統合プロジェクトマネジメント計画作成の流れ</div>
@@ -553,7 +554,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TASK3_VALUE" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TASK3_VALUE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Task3: 価値ベースデリバリーの継続的サイクル</div>
@@ -644,7 +645,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TASK5_PROCUREMENT" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TASK5_PROCUREMENT" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Task5: 調達の計画から契約管理までの流れ</div>
@@ -782,7 +783,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TASK8_SCHEDULE" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TASK8_SCHEDULE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Task8: スケジュール計画から差異分析までの流れ</div>
@@ -838,7 +839,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TASK9_STATUS" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TASK9_STATUS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Task9: プロジェクト状況評価の継続的サイクル</div>
@@ -886,7 +887,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_TASK10_CLOSURE" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_TASK10_CLOSURE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Task10: プロジェクト終結管理の流れ</div>
@@ -903,7 +904,7 @@ flowchart TB
         <div class="diagram-card">
           <div class="mermaid-wrap">
             <ClientOnly>
-              <MermaidDiagram :chart="DIAGRAM_ROADMAP" theme="base" />
+              <MermaidDiagram :chart="DIAGRAM_ROADMAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
             </ClientOnly>
           </div>
           <div class="diagram-caption">Domain II 全体の学習ロードマップ(Task間の関係)</div>
