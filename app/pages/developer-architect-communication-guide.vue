@@ -628,23 +628,23 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
 </template>
 
 <style scoped>
-.layout {
+  .layout {
     display: block;
   }
 
   /* ===================== Sidebar ===================== */
   .sidebar {
-  position: fixed;
-  top: var(--global-nav-height);
-  left: 0;
-  width: var(--sidebar-width);
-  height: calc(100vh - var(--global-nav-height));
-  overflow-y: auto;
-  background: var(--color-paper-raised);
-  border-right: 1px solid var(--color-border);
-  padding: 32px 24px 40px;
-  z-index: 20;
-}
+    position: fixed;
+    top: var(--global-nav-height);
+    left: 0;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--global-nav-height));
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
 
   .sidebar-brand {
     display: flex;
@@ -704,6 +704,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
     border-left: 2px solid transparent;
   }
 
+  .sidebar-nav a :deep(svg),
   .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
 
   .sidebar-nav a:hover {
@@ -719,6 +720,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
     border-left: 2px solid var(--color-indigo);
   }
 
+  .sidebar-nav a.active :deep(svg),
   .sidebar-nav a.active i { color: var(--color-indigo); }
 
   .sidebar-toggle {
@@ -761,6 +763,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
     margin-bottom: 18px;
   }
 
+  .hero-eyebrow :deep(svg),
   .hero-eyebrow i { font-size: 17px; }
 
   .hero h1 {
