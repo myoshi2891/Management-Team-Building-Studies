@@ -1050,80 +1050,6 @@ em {
   color: var(--color-ink-soft);
 }
 
-/* ===================== Domain badge cards ===================== */
-.domain-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
-  gap: 16px;
-  margin: 28px 0 8px;
-}
-
-.domain-card {
-  border: 1px solid var(--color-border);
-  background: var(--color-paper-raised);
-  border-radius: 10px;
-  padding: 20px;
-  border-top: 3px solid var(--d-color);
-}
-
-.domain-card .domain-pct {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 30px;
-  color: var(--d-color);
-}
-
-.domain-card .domain-name {
-  font-size: 16px;
-  color: var(--color-ink-soft);
-  margin-top: 6px;
-}
-
-.domain-card.d1 {
-  --d-color: var(--color-indigo);
-}
-
-.domain-card.d2 {
-  --d-color: var(--color-forest);
-}
-
-.domain-card.d3 {
-  --d-color: var(--color-gold);
-}
-
-.domain-card.d4 {
-  --d-color: var(--color-plum);
-}
-
-.domain-tag {
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 3px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-}
-
-.domain-tag.d1 {
-  background: var(--color-indigo-tint);
-  color: var(--color-indigo);
-}
-
-.domain-tag.d2 {
-  background: var(--color-forest-tint);
-  color: var(--color-forest);
-}
-
-.domain-tag.d3 {
-  background: var(--color-gold-tint);
-  color: var(--color-gold);
-}
-
-.domain-tag.d4 {
-  background: var(--color-plum-tint);
-  color: var(--color-plum);
-}
-
 /* ===================== Tables ===================== */
 .table-wrap {
   overflow-x: auto;
@@ -1418,10 +1344,6 @@ code {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .domain-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .glossary-grid {
     grid-template-columns: 1fr;
   }
@@ -1429,10 +1351,6 @@ code {
 
 @media (max-width: 560px) {
   .stat-row {
-    grid-template-columns: 1fr;
-  }
-
-  .domain-grid {
     grid-template-columns: 1fr;
   }
 }
