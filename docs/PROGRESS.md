@@ -366,7 +366,3 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 
 ベースラインテスト数: ユニット 608 + E2E 13
 ```
-
-
-
-
