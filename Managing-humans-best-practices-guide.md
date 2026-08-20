@@ -317,7 +317,7 @@ flowchart TD
 | マネージャーが完全にコードから離れる | エンジニアとの共通言語を失う | 開発環境に触れ続け、実装への理解を保つ |
 | 役職だけでキャリアパスを設計する | 役職では成長の多様性を捉えきれない | 職務内容と実際の貢献を軸に評価する |
 
-出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。、[briansnotes.io](https://www.briansnotes.io/book/managing-humans/)
+出典: [mgp/book-notes（GitHub／旧版に基づく章ノート）](https://github.com/mgp/book-notes/blob/master/managing-humans.markdown)。第4版の章構成との差分は [Rands in Repose「Managing Humans, 4th Edition」](https://randsinrepose.com/archives/managing-humans-4th-edition/) で確認できる。章ごとの要約は [Brian's Notes「Managing Humans」](https://www.briansnotes.io/book/managing-humans/) も参考になる。
 
 ---
 
