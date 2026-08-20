@@ -90,6 +90,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "PMP® Domain II: Process 完全解説ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/pmp-domain2-process-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",

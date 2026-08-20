@@ -69,6 +69,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CAPM ドメイン4", href: "/capm-domain4-business-analysis-frameworks" },
       { label: "PMP 完全攻略", href: "/pmp-certification-guide" },
       { label: "PMP ドメイン1", href: "/pmp-domain1-people-guide" },
+      { label: "PMP ドメイン2", href: "/pmp-domain2-process-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -98,6 +99,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/capm-domain4-business-analysis-frameworks",
       "/pmp-certification-guide",
       "/pmp-domain1-people-guide",
+      "/pmp-domain2-process-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/engineering-team-leadership-guide",
@@ -174,6 +176,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
