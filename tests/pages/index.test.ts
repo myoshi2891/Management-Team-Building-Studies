@@ -155,6 +155,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/developer-architect-communication-guide",
         accentClass: "guide-card-forest",
       },
+      {
+        title: "Elastic Leadership 実践ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/elastic-leadership-guide",
+        accentClass: "guide-card-indigo",
+      },
     ]);
   });
 

@@ -81,6 +81,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
       { label: "リーダーの作法", href: "/leadership-practices-guide" },
       { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
+      { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
     ]);
     expect(panelLinks(wrapper, "team-building")).toEqual([
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
@@ -109,6 +110,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/engineering-executive-playbook",
       "/leadership-practices-guide",
       "/developer-architect-communication-guide",
+      "/elastic-leadership-guide",
       "/dynamic-reteaming-guide",
       "/team-geek-guide",
       "/team-topologies-guide",
