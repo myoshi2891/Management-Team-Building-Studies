@@ -330,10 +330,10 @@ flowchart TD
 | The Manager's Path | Camille Fournier | よりキャリア段階別に体系化された内容。本書のエピソード集的な構成と対照的で併読が推奨されている |
 | An Elegant Puzzle: Systems of Engineering Management | Will Larson | 組織をシステムとして捉える視点を補完する |
 | Staff Engineer | Will Larson | マネジメント以外のキャリアパス（Titles Are Toxicの発展形）を掘り下げる |
-| The Art of Leadership: Small Things, Done Well | Michael Lopp（同著者） | 本書の続編にあたる、日々の小さな実践に焦点を当てた一冊 |
+| The Art of Leadership: Small Things, Done Well | Michael Lopp（同著者） | 本書の続編ではなく、同著者による独立した関連書。リーダーシップを「日々繰り返す小さな実践」として扱う |
 | Radical Candor | Kim Scott | フィードバックの与え方について、本書の1on1論を補完する |
 
-出典: [blog.pragmaticengineer.com](https://blog.pragmaticengineer.com/holiday-tech-book-recommendations/)、[github.com/charlax/engineering-management](https://github.com/charlax/engineering-management)
+出典: [blog.pragmaticengineer.com](https://blog.pragmaticengineer.com/holiday-tech-book-recommendations/)、[github.com/charlax/engineering-management](https://github.com/charlax/engineering-management)、[randsinrepose.com/books](https://randsinrepose.com/books/)（著者本人による著作一覧）
 
 ---
 
