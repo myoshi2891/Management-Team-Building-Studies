@@ -108,6 +108,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Scrum Team とは何か ― 3つのアカウンタビリティ徹底解説",
+        category: "PROJECT MANAGEMENT",
+        href: "/csm-scrum-team-3-accountabilities",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
