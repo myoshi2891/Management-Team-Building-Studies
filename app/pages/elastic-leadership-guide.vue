@@ -1165,6 +1165,17 @@ td strong, th strong {
   text-align: center;
 }
 
+/*
+ * 本ページの .mermaid-wrap は .diagram-card と同一要素で、キャプションも内側に持つ。
+ * そのため pmp-domain2-process-guide.vue のような `display:flex; justify-content:center`
+ * は当てない（図とキャプションが横並びになる）。図の中央寄せ・縮小フィットは
+ * app/components/MermaidDiagram.vue が担う（.claude/rules/mermaid-diagram-layout.md）。
+ * ここが持つのは描画前の高さ確保だけ。
+ */
+.mermaid-wrap {
+  min-height: 60px;
+}
+
 .diagram-loading {
   color: var(--color-ink-faint);
   font-size: 16px;

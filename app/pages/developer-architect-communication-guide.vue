@@ -956,22 +956,11 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
     text-align: center;
   }
 
-  .diagram-container {
+  .mermaid-wrap {
     display: flex;
     justify-content: center;
     width: 100%;
     min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
   }
 
   /* ===================== Step list (roadmap) ===================== */
@@ -1057,7 +1046,11 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    /*
+     * `html { scroll-behavior: auto }` はここには置かない。
+     * scoped CSS は `html[data-v-xxxx]` にコンパイルされ <html> には決して一致しないため、
+     * スクロール挙動は app/assets/css/main.css のグローバル定義が担う。
+     */
     .sidebar { transition: none; }
   }
 
