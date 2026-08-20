@@ -186,6 +186,16 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/scrum-97-things-guide",
+    categoryId: "project-management",
+    navLabel: "スクラム 97の知恵",
+    title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
+    description: "O'Reilly「97 Things Every Scrum Practitioner Should Know」の10パート構成に学び、公式Scrum Guideと国際的な実践者の知見をもとにスクラムのベストプラクティスをステップバイステップで解説する初学者向けガイド。",
+    meta: "13セクション",
+    icon: "tabler:list-check",
+    accent: "forest",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     navLabel: "EM キャリアパス",
