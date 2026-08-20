@@ -74,6 +74,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
       { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
       { label: "CSM Scrum理論", href: "/csm-scrum-theory-guide" },
+      { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -110,6 +111,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/csm-certified-scrummaster-guide",
       "/csm-scrum-team-3-accountabilities",
       "/csm-scrum-theory-guide",
+      "/scrum-97-things-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/engineering-team-leadership-guide",
@@ -188,6 +190,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

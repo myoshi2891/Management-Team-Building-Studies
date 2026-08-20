@@ -120,6 +120,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/scrum-97-things-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
