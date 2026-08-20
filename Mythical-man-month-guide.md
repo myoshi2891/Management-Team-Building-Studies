@@ -326,6 +326,8 @@ Brooks 自身が述べたように「みんなが引用し、何人かが読み�
   https://cacm.acm.org/news/in-memoriam-frederick-p-brooks-jr-1931-2022/
 - Joel Spolsky, "Hitting the High Notes"（Joel on Software）
   https://www.joelonsoftware.com/2005/07/25/hitting-the-high-notes/
+- Joel Spolsky, "Things You Should Never Do, Part I"（Netscape の全面書き直しの失敗、Joel on Software）
+  https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/
 - apenwarr（Avery Pennarun）, "Systems design explains the world: volume 1"
   https://apenwarr.ca/log/20201227
 - Mark Seemann, "Yes silver bullet"（ploeh blog）
