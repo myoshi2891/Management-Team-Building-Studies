@@ -923,6 +923,7 @@ const DIAGRAM_USER_PHASES = `flowchart LR
 
 section {
   margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
 }
 
 :is(h2, h3) {
