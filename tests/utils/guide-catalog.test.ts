@@ -45,6 +45,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/team-topologies-guide", categoryId: "team-building", navLabel: "Team Topologies" },
       { to: "/developer-architect-communication-guide", categoryId: "engineering-leadership", navLabel: "開発者・アーキテクト" },
       { to: "/elastic-leadership-guide", categoryId: "engineering-leadership", navLabel: "Elastic Leadership" },
+      { to: "/leadership-challenge-workbook-guide", categoryId: "engineering-leadership", navLabel: "Leadership Challenge" },
     ]);
   });
 
@@ -78,7 +79,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-leadership",
-        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法", "開発者・アーキテクト", "Elastic Leadership"],
+        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法", "開発者・アーキテクト", "Elastic Leadership", "Leadership Challenge"],
       },
       {
         id: "team-building",

@@ -86,6 +86,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "リーダーの作法", href: "/leadership-practices-guide" },
       { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
       { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
+      { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
     ]);
     expect(panelLinks(wrapper, "team-building")).toEqual([
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
@@ -119,6 +120,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/leadership-practices-guide",
       "/developer-architect-communication-guide",
       "/elastic-leadership-guide",
+      "/leadership-challenge-workbook-guide",
       "/dynamic-reteaming-guide",
       "/team-geek-guide",
       "/team-topologies-guide",
@@ -190,6 +192,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

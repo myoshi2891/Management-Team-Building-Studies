@@ -185,6 +185,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/elastic-leadership-guide",
         accentClass: "guide-card-indigo",
       },
+      {
+        title: "The Leadership Challenge Workbook 完全ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/leadership-challenge-workbook-guide",
+        accentClass: "guide-card-plum",
+      },
     ]);
   });
 
