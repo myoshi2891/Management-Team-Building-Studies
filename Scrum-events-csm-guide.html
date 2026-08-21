@@ -722,7 +722,7 @@
         <table>
           <thead><tr><th>LO番号</th><th>学習目標の要約</th><th>本ガイドの対応セクション</th></tr></thead>
           <tbody>
-            <tr><td>1.7</td><td>各Scrum eventで透明性を高めるためのinspect and adaptの例を挙げる</td><td>6. イベントの相互関係</td></tr>
+            <tr><td>1.7</td><td>各Scrum eventで透明性を高めるためのinspect and adaptの例を挙げる</td><td>8. イベントの相互関係</td></tr>
             <tr><td>1.8</td><td>Sprint Planningを実施する</td><td>4. Sprint Planning</td></tr>
             <tr><td>1.9</td><td>Sprint Reviewを実施する</td><td>6. Sprint Review</td></tr>
             <tr><td>1.10</td><td>Sprint Retrospectiveを実施する</td><td>7. Sprint Retrospective</td></tr>
@@ -835,7 +835,7 @@
     </section>
 
     <footer>
-      Scrum, Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective はScrum Guideで定義される用語です。Certified ScrumMaster(R) および CSM(R) はScrum Alliance(R)の登録商標です。本ページはScrum Allianceによる公式認定教材ではありません。 The Scrum Guide is &copy; 2020 Ken Schwaber and Jeff Sutherland, and is made available under the Creative Commons Attribution-ShareAlike 4.0 International License(CC BY-SA 4.0) &mdash; <a href=\"https://creativecommons.org/licenses/by-sa/4.0/legalcode\" target=\"_blank\" rel=\"noopener\">creativecommons.org/licenses/by-sa/4.0/legalcode</a>
+      Scrum, Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective はScrum Guideで定義される用語です。Certified ScrumMaster(R) および CSM(R) はScrum Alliance(R)の登録商標です。本ページはScrum Allianceによる公式認定教材ではありません。 The Scrum Guide is &copy; 2020 Ken Schwaber and Jeff Sutherland, and is made available under the Creative Commons Attribution-ShareAlike 4.0 International License(CC BY-SA 4.0) &mdash; <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="noopener">creativecommons.org/licenses/by-sa/4.0/legalcode</a>
     </footer>
 
   </main>
@@ -1025,6 +1025,14 @@
     toggle.addEventListener("click", function () {
       var isOpen = sidebar.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      // 既に閉じている場合はフォーカスを移動しない
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
     });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
