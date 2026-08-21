@@ -122,62 +122,62 @@ useSeoMeta({
 
         <ul class="sidebar-nav">
           <li>
-            <a href="#about-guide" :class="{ active: activeId === 'about-guide' }" @click="closeSidebar">
+            <a href="#about-guide" :class="{ active: activeId === 'about-guide' }" :aria-current="activeId === 'about-guide' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:certificate" />このガイドについて
             </a>
           </li>
           <li>
-            <a href="#scrum-definition" :class="{ active: activeId === 'scrum-definition' }" @click="closeSidebar">
+            <a href="#scrum-definition" :class="{ active: activeId === 'scrum-definition' }" :aria-current="activeId === 'scrum-definition' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:book" />Scrumの定義
             </a>
           </li>
           <li>
-            <a href="#empiricism-lean" :class="{ active: activeId === 'empiricism-lean' }" @click="closeSidebar">
+            <a href="#empiricism-lean" :class="{ active: activeId === 'empiricism-lean' }" :aria-current="activeId === 'empiricism-lean' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:eye" />経験主義とリーンシンキング
             </a>
           </li>
           <li>
-            <a href="#three-pillars" :class="{ active: activeId === 'three-pillars' }" @click="closeSidebar">
+            <a href="#three-pillars" :class="{ active: activeId === 'three-pillars' }" :aria-current="activeId === 'three-pillars' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:columns" />経験主義の3本柱
             </a>
           </li>
           <li>
-            <a href="#five-values" :class="{ active: activeId === 'five-values' }" @click="closeSidebar">
+            <a href="#five-values" :class="{ active: activeId === 'five-values' }" :aria-current="activeId === 'five-values' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:heart-handshake" />5つの価値観
             </a>
           </li>
           <li>
-            <a href="#iterative-incremental" :class="{ active: activeId === 'iterative-incremental' }" @click="closeSidebar">
+            <a href="#iterative-incremental" :class="{ active: activeId === 'iterative-incremental' }" :aria-current="activeId === 'iterative-incremental' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:refresh" />反復的・漸進的アプローチ
             </a>
           </li>
           <li>
-            <a href="#partial-implementation" :class="{ active: activeId === 'partial-implementation' }" @click="closeSidebar">
+            <a href="#partial-implementation" :class="{ active: activeId === 'partial-implementation' }" :aria-current="activeId === 'partial-implementation' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:alert-triangle" />部分的導入の欠点
             </a>
           </li>
           <li>
-            <a href="#agile-manifesto" :class="{ active: activeId === 'agile-manifesto' }" @click="closeSidebar">
+            <a href="#agile-manifesto" :class="{ active: activeId === 'agile-manifesto' }" :aria-current="activeId === 'agile-manifesto' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:git-branch" />アジャイル宣言との整合性
             </a>
           </li>
           <li>
-            <a href="#overview-diagram" :class="{ active: activeId === 'overview-diagram' }" @click="closeSidebar">
+            <a href="#overview-diagram" :class="{ active: activeId === 'overview-diagram' }" :aria-current="activeId === 'overview-diagram' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:sitemap" />全体像のまとめ
             </a>
           </li>
           <li>
-            <a href="#practice-quiz" :class="{ active: activeId === 'practice-quiz' }" @click="closeSidebar">
+            <a href="#practice-quiz" :class="{ active: activeId === 'practice-quiz' }" :aria-current="activeId === 'practice-quiz' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:list-check" />理解度チェック
             </a>
           </li>
           <li>
-            <a href="#summary-checklist" :class="{ active: activeId === 'summary-checklist' }" @click="closeSidebar">
+            <a href="#summary-checklist" :class="{ active: activeId === 'summary-checklist' }" :aria-current="activeId === 'summary-checklist' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:flag-3" />学習到達度チェックリスト
             </a>
           </li>
           <li>
-            <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+            <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:link" />参考文献・ソース一覧
             </a>
           </li>
@@ -359,7 +359,7 @@ useSeoMeta({
           <h2>経験主義の3本柱(LO 1.4)</h2>
 
           <h3>3本柱の全体像</h3>
-          <p>Scrum Guideは、経験主義を支える3つの柱として「透明性(Transparency)」「検査(Inspection)」「適応(Adaptation)」を挙げています。この3つは独立した概念ではなく、<strong>一方通行の連鎖</strong>として機能します。</p>
+          <p>Scrum Guideは、経験主義を支える3つの柱として「透明性(Transparency)」「検査(Inspection)」「適応(Adaptation)」を挙げています。この3つは独立した概念ではなく、<strong>循環する連鎖</strong>として機能します。</p>
 
           <div class="mermaid-wrap">
             <ClientOnly>
