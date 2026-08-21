@@ -1,5 +1,6 @@
 # 『Peopleware: Productive Projects and Teams』初学者ガイド
-### ソフトウェア開発が「人間」の問題であることを理解し、実践するためのステップバイステップ解説
+
+**ソフトウェア開発が「人間」の問題であることを理解し、実践するためのステップバイステップ解説**
 
 > 原著: *Peopleware: Productive Projects and Teams, Third Edition*
 > 著者: Tom DeMarco, Tim Lister（Addison-Wesley Professional, 2013年）
@@ -47,6 +48,7 @@
 `ソフトウェア工学分野で最も影響力のある管理書の一つ` として、*The Mythical Man-Month*（人月の神話）の著者であるFrederick P. Brooks Jr.や、Stack Overflow共同創業者のJoel Spolskyら著名な開発者・研究者からも高く評価されてきました（詳細は[第11章](#11-著名な開発者たちはどう語っているか)を参照）。
 
 ### 実践のポイント
+
 - はじめてマネジメントに関わる人は、まず「技術で解決しようとしていないか」を自問する習慣をつけましょう。
 - 本書は短いエッセイの集合体なので、通読よりも「気になる章から拾い読み」でも十分に効果があります。
 
@@ -71,6 +73,7 @@ flowchart TB
 ```
 
 ### 実践のポイント
+
 - プロジェクトの振り返り（レトロスペクティブ）で不具合が出たとき、真っ先に「ツールを変えよう」と結論づけず、コミュニケーションや環境の要因も同じ重みで検討しましょう。
 - 「人は部品ではない」という前提を、評価制度・配置転換・進捗管理の設計に反映させましょう。
 
@@ -96,13 +99,14 @@ flowchart TB
 | I. Managing the Human Resource | 人的資源のマネジメント | 1. Somewhere Today, a Project Is Failing／2. Make a Cheeseburger, Sell a Cheeseburger／4. Quality—If Time Permits／5. Parkinson's Law Revisited／6. Laetrile |
 | II. The Office Environment | オフィス環境 | 7. The Furniture Police／9. Saving Money on Space／10. Brain Time versus Body Time／11. The Telephone／12. Bring Back the Door |
 | III. The Right People | 適切な人材 | 14. The Hornblower Factor／15. Let's Talk about Leadership／16. Hiring a Juggler／19. Happy to Be Here（離職コスト）／20. Human Capital |
-| IV. Growing Productive Teams | 生産的なチームを育てる | 21. The Whole Is Greater Than the Sum of the Parts／22. The Black Team／23–24. Teamicide／26. A Spaghetti Dinner／28. Chemistry for Team Formation |
+| IV. Growing Productive Teams | 生産的なチームを育てる | 21. The Whole Is Greater Than the Sum of the Parts／22. The Black Team／23. Teamicide／24. Teamicide Revisited／26. A Spaghetti Dinner／28. Chemistry for Team Formation |
 | V. Fertile Soil | 肥沃な土壌 | 29. The Self-Healing System／30. Dancing with Risk／31. Meetings, Monologues, and Conversations／33. E(vil) Mail／35. Organizational Learning |
 | VI. It's Supposed to Be Fun to Work Here | ここで働くのは楽しいはず | 37. Chaos and Order／38. Free Electrons／39. Holgar Dansk |
 
 出典: [O'Reilly掲載の目次](https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/)
 
 ### 実践のポイント
+
 - 新任マネージャーには、まずPart II（オフィス環境）とPart IV（チーム形成）から読ませると、すぐに現場で応用しやすい概念に出会えます。
 
 ---
@@ -126,6 +130,7 @@ flowchart TB
 「レートリル」とは、かつて効果が証明されないまま流行したがん治療薬の名前です。著者たちはこれを比喩に用い、生産性向上を謳う流行の方法論やツールを鵜呑みにする危うさを警告しています。**特効薬のように見える解決策ほど、実際には検証が必要**、というメッセージです。
 
 ### 実践のポイント
+
 - 締切のプレッシャーがかかったとき、削るべきはスコープであって品質基準ではないか、を確認する。
 - 新しい開発手法やツールを導入する際は、「なぜ効くのか」の根拠を確認してから展開する。
 
@@ -198,6 +203,7 @@ IBMサンタテレサ研究所での調査（建築家Gerald McCue主導）を�
 「電話（The Telephone）」の章では、鳴った電話に反射的に応答してしまう心理的圧力と、それによる作業中断のコストが論じられています。「ドアを取り戻せ」の章では、開放的なオフィスの象徴であった「ドアを取り払う」流行に対し、著者たちは集中を守るための物理的な区切りの重要性を再主張しています。
 
 ### 実践のポイント
+
 - 「集中タイム」をカレンダー上に確保し、チャット通知をオフにできる文化を作る。
 - オフィスレイアウトを決める際、コスト最適化だけでなく「静けさ」「区切り」「日照」を評価基準に含める。
 - リモート/ハイブリッド環境でも、同期コミュニケーション（通話・チャット即レス期待）を必要最小限に絞る。
@@ -219,6 +225,7 @@ Part IIIでは、リーダーシップを「役職に付随する権限」では
 離職には採用コストのような「見えるコスト」だけでなく、引き継ぎロス・チームの再編成・知識の喪失といった「見えないコスト」が伴います。著者たちは、経験者の立ち上がり（ランプアップ）にかかる時間を軽視する組織文化にも警鐘を鳴らしています。
 
 ### 実践のポイント
+
 - 採用面接では、実際の作業に近いタスクで評価する（ペアプログラミングや設計ディスカッションなど）。
 - 離職率を「コスト」として経営層に説明する際は、採用コストだけでなく再教育・引き継ぎのコストも含めて試算する。
 
@@ -300,6 +307,7 @@ flowchart TB
 チームが「化学反応」を起こすためのいくつかの要因（質へのこだわりの共有、多様な専門性を持つメンバー、成功しているチームを不用意に解体しないこと、など）が論じられます。
 
 ### 実践のポイント
+
 - 新規チーム結成時には、意図的に「小さくても分かりやすい成功体験」を早期に設計する。
 - 個人ランキングや強制分布の評価制度が、チームの信頼関係にどう影響しているかを定期的に点検する。
 - ジェルしているチームを安易に解体・再編成しない。
@@ -333,6 +341,7 @@ flowchart TB
 失敗から学ぶ文化、知識を組織内で共有し続ける仕組みづくりが、持続的に生産性を高めるための土台として論じられます。
 
 ### 実践のポイント
+
 - 会議のたびに「目的」「終了条件」「必要な参加者」を明文化する。
 - 非同期で済むやり取りは、チャットの即レス期待から切り離す。
 - 失敗を罰するのではなく、学習の材料として扱うふりかえり文化を制度化する。
@@ -354,6 +363,7 @@ flowchart TB
 最終章は、デンマークの伝説の英雄になぞらえた寓話で締めくくられ、必要なときに立ち上がる「潜在的な力」としてのチームや個人の可能性を象徴的に描いています。
 
 ### 実践のポイント
+
 - ルールや標準化を強めすぎていないか、定期的に点検する。
 - 規範の外側で自発的に動く人の動きを、罰するのではなく歓迎する仕組みを作る。
 
@@ -403,6 +413,7 @@ Peoplewareは出版から30年以上を経た今も、著名な開発者やソ�
 - ソフトウェア工学の学術コミュニティでも、Coding War Gamesのデータは長年引用され続けており、Tim Lister自身の経歴ページでは、発表から25年以上経った後も職場設計に関する論考で参照され続けていると説明されています。（[Tim Lister — Wikipedia](https://en.wikipedia.org/wiki/Tim_Lister)）
 
 ### 実践のポイント
+
 - 「個室か、オープンオフィスか」は今も議論が分かれるテーマです。次章の批判的視点もあわせて確認し、自分たちのチームの働き方に合わせて判断しましょう。
 
 ---
@@ -417,6 +428,7 @@ Peoplewareは高く評価される一方で、いくつかの限界も指摘さ�
 - **時代背景の違い**：初版は1987年に書かれており、リモートワークやクラウドベースのコラボレーションツールが一般化した現在の働き方とは前提が異なる部分があります。第3版ではハイブリッドチームや会議文化の変化を扱う章が追加されていますが、リモートファーストの組織にそのまま当てはめる際は、自組織の状況に応じた読み替えが必要です。
 
 ### 実践のポイント
+
 - 本書の提言を「絶対的な正解」としてではなく、「検証すべき仮説」として自組織に適用し、実際の効果を観察しながら調整しましょう。
 
 ---
