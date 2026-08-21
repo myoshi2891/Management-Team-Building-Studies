@@ -638,7 +638,7 @@
         <div class="stat-card"><div class="stat-number">第3版</div><div class="stat-label">2021年9月刊行(O'Reilly Media)</div></div>
         <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Lean UX Canvasの構成ボックス数</div></div>
         <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Mermaidフローチャート図解</div></div>
-        <div class="stat-card"><div class="stat-number">17</div><div class="stat-label">参照した一次情報源URL</div></div>
+        <div class="stat-card"><div class="stat-number">17</div><div class="stat-label">参照URL</div></div>
       </div>
 
       <div class="disclaimer-box">
@@ -837,8 +837,8 @@
 
       <div class="callout note">
         <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
-        <p>ランディングページテスト、フィーチャーフェイク、ウィザード・オブ・オズ、コンシェルジュ型は、いずれも<strong>まだ提供していない機能をユーザーに提示する実験</strong>です。実施にあたっては、それが実験であり当該機能が未提供であることを明示し、課金や契約を発生させないでください。個人情報(メールアドレス等)を取得する場合は、利用目的の事前通知と本人の同意が必要です。</p>
-        <p>また、<strong>コード実装 / ライブデータのプロトタイプ</strong>で扱ってよいのは、<strong>利用が承認済みで、検証に必要最小限の、匿名化されたデータ</strong>だけです。個人情報や機密情報を含めざるを得ない場合は、利用目的の事前通知と本人の同意、適切なアクセス制御(権限を持つ担当者への限定)、および保存期間の制限(検証終了後の速やかな削除)を<strong>必須</strong>とします。ウィザード・オブ・オズ型・コンシェルジュ型のように裏側を人が処理する実験も、人が実データを閲覧する以上、同じ条件が適用されます。</p>
+        <p>ランディングページテスト、フィーチャーフェイク、ウィザード・オブ・オズ、コンシェルジュ型は、いずれも<strong>まだ提供していない機能をユーザーに提示する実験</strong>です。実施にあたっては、それが実験であり当該機能が未提供であることを明示し、課金や契約を発生させないでください。個人情報(メールアドレス等)を取得する場合、利用目的の通知・本人の同意・オプトアウト手段のうち<strong>どれが求められるかは、適用される法域(日本の個人情報保護法、EUのGDPR、米国州法など)、データの分類、処理の目的、および自社のプライバシーポリシーによって異なります</strong>。実施前に自社の要件を確認してください。</p>
+        <p>また、<strong>コード実装 / ライブデータのプロトタイプ</strong>で扱ってよいのは、<strong>利用が承認済みで、検証に必要最小限の、匿名化されたデータ</strong>だけです。個人情報や機密情報を含めざるを得ない場合、利用目的の通知・処理の適法根拠(同意など)・アクセス制御(権限を持つ担当者への限定)・保存期間の制限(検証終了後の速やかな削除)について<strong>具体的に何がどこまで求められるかは、適用法域、データの分類(要配慮個人情報を含むか等)、処理の目的、および自社のプライバシーポリシーに従って判断します</strong>。ウィザード・オブ・オズ型・コンシェルジュ型のように裏側を人が処理する実験も、人が実データを閲覧する以上、同じ判断が必要です。<strong>いずれの手法も、公開・実施の前に法務レビューを受けてください。</strong>本ガイドの記述は法的助言ではありません。</p>
       </div>
 
       <p><strong>進め方のポイント</strong>: まずは最も安価な手法(ペーパープロトタイプやランディングページ)から始め、仮説への確信度が高まった段階で、より作り込んだ実装へと進みます。いきなり本実装から検証を始めるのは避けます。</p>
@@ -983,7 +983,9 @@
       <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
       <h2>参考文献・出典</h2>
 
-      <p>本ガイドの作成にあたり、以下の情報源を参照しました(すべて2026年8月時点でアクセス可能なものです)。</p>
+      <p>本ガイドの作成にあたり、以下の情報源を参照しました(すべて2026年8月時点でアクセス可能なものです)。著者・版元が発信した<strong>一次情報源</strong>と、第三者による<strong>解説・二次情報源</strong>を区別して掲載します。</p>
+
+      <h3>一次情報源</h3>
 
       <div class="ref-group">
         <h4>O'Reilly Media</h4>
@@ -1017,12 +1019,20 @@
       </div>
 
       <div class="ref-group">
-        <h4>その他の一次情報源</h4>
+        <h4>その他(著者関連の公式情報)</h4>
         <ul class="ref-list">
           <li><span class="ref-name">Sense &amp; Respond Learning(Gothelf氏の教育事業) ― Facilitating the Lean UX Canvas: A Workshop Guide for Agile Coaches</span><a class="ref-url" href="https://www.senseandrespond.co/blog/lean-ux-canvas-workshop-guide" target="_blank" rel="noopener">https://www.senseandrespond.co/blog/lean-ux-canvas-workshop-guide</a></li>
           <li><span class="ref-name">Lean UX Book(公式書籍サイト) ― 推薦の声・概要</span><a class="ref-url" href="https://leanuxbook.com/" target="_blank" rel="noopener">https://leanuxbook.com/</a></li>
-          <li><span class="ref-name">Interaction Design Foundation ― What is Lean UX?(2026年更新版)</span><a class="ref-url" href="https://ixdf.org/literature/topics/lean-ux" target="_blank" rel="noopener">https://ixdf.org/literature/topics/lean-ux</a></li>
           <li><span class="ref-name">AgileData.io ― Jeff Gothelf インタビュー: Lean UX and Sense and Respond</span><a class="ref-url" href="https://agiledata.io/podcast/no-nonsense-agile-podcast/jeff-gothelf-lean-ux-and-sense-and-respond/" target="_blank" rel="noopener">https://agiledata.io/podcast/no-nonsense-agile-podcast/jeff-gothelf-lean-ux-and-sense-and-respond/</a></li>
+        </ul>
+      </div>
+
+      <h3>解説・二次情報源</h3>
+
+      <div class="ref-group">
+        <h4>Interaction Design Foundation</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">What is Lean UX?(2026年更新版) ― 第三者による解説記事</span><a class="ref-url" href="https://ixdf.org/literature/topics/lean-ux" target="_blank" rel="noopener">https://ixdf.org/literature/topics/lean-ux</a></li>
         </ul>
       </div>
 
