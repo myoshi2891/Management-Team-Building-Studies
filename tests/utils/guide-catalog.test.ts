@@ -31,6 +31,10 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/pmp-domain1-people-guide", categoryId: "project-management", navLabel: "PMP ドメイン1" },
       { to: "/pmp-domain2-process-guide", categoryId: "project-management", navLabel: "PMP ドメイン2" },
       { to: "/pmp-domain3-business-environment-guide", categoryId: "project-management", navLabel: "PMP ドメイン3" },
+      { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", navLabel: "CSM 完全ガイド" },
+      { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", navLabel: "CSM 3つのアカウンタビリティ" },
+      { to: "/csm-scrum-theory-guide", categoryId: "project-management", navLabel: "CSM Scrum理論" },
+      { to: "/scrum-97-things-guide", categoryId: "project-management", navLabel: "スクラム 97の知恵" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", navLabel: "EM キャリアパス" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", navLabel: "チームリード術" },
       { to: "/engineering-manager-guide", categoryId: "engineering-management", navLabel: "EM 入門" },
@@ -66,7 +70,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "スクラム 97の知恵"],
       },
       {
         id: "engineering-management",

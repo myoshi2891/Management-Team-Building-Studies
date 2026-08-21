@@ -185,85 +185,85 @@ const DIAGRAM_AI_ERA_ROLE = `flowchart TB
 
         <ul class="sidebar-nav">
           <li>
-            <a href="#what-is-em" :class="{ active: activeId === 'what-is-em' }" @click="closeSidebar">
+            <a href="#what-is-em" :class="{ active: activeId === 'what-is-em' }" :aria-current="activeId === 'what-is-em' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:certificate" aria-hidden="true" />
               <span>第1章 EMとは何か</span>
             </a>
           </li>
           <li>
-            <a href="#first-90-days" :class="{ active: activeId === 'first-90-days' }" @click="closeSidebar">
+            <a href="#first-90-days" :class="{ active: activeId === 'first-90-days' }" :aria-current="activeId === 'first-90-days' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:route" aria-hidden="true" />
               <span>第2章 最初の90日間</span>
             </a>
           </li>
           <li>
-            <a href="#self-management" :class="{ active: activeId === 'self-management' }" @click="closeSidebar">
+            <a href="#self-management" :class="{ active: activeId === 'self-management' }" :aria-current="activeId === 'self-management' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:adjustments" aria-hidden="true" />
               <span>第3章 自己管理</span>
             </a>
           </li>
           <li>
-            <a href="#one-on-ones" :class="{ active: activeId === 'one-on-ones' }" @click="closeSidebar">
+            <a href="#one-on-ones" :class="{ active: activeId === 'one-on-ones' }" :aria-current="activeId === 'one-on-ones' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:message-circle" aria-hidden="true" />
               <span>第4章 1on1の技術</span>
             </a>
           </li>
           <li>
-            <a href="#feedback-coaching" :class="{ active: activeId === 'feedback-coaching' }" @click="closeSidebar">
+            <a href="#feedback-coaching" :class="{ active: activeId === 'feedback-coaching' }" :aria-current="activeId === 'feedback-coaching' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:messages" aria-hidden="true" />
               <span>第5章 フィードバックとコーチング</span>
             </a>
           </li>
           <li>
-            <a href="#delegation" :class="{ active: activeId === 'delegation' }" @click="closeSidebar">
+            <a href="#delegation" :class="{ active: activeId === 'delegation' }" :aria-current="activeId === 'delegation' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:git-branch" aria-hidden="true" />
               <span>第6章 委任の技術</span>
             </a>
           </li>
           <li>
-            <a href="#psychological-safety" :class="{ active: activeId === 'psychological-safety' }" @click="closeSidebar">
+            <a href="#psychological-safety" :class="{ active: activeId === 'psychological-safety' }" :aria-current="activeId === 'psychological-safety' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:shield-check" aria-hidden="true" />
               <span>第7章 心理的安全性</span>
             </a>
           </li>
           <li>
-            <a href="#performance-review" :class="{ active: activeId === 'performance-review' }" @click="closeSidebar">
+            <a href="#performance-review" :class="{ active: activeId === 'performance-review' }" :aria-current="activeId === 'performance-review' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:chart-bar" aria-hidden="true" />
               <span>第8章 評価とキャリアラダー</span>
             </a>
           </li>
           <li>
-            <a href="#hiring-interviews" :class="{ active: activeId === 'hiring-interviews' }" @click="closeSidebar">
+            <a href="#hiring-interviews" :class="{ active: activeId === 'hiring-interviews' }" :aria-current="activeId === 'hiring-interviews' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:user-search" aria-hidden="true" />
               <span>第9章 採用と面接</span>
             </a>
           </li>
           <li>
-            <a href="#measuring-productivity" :class="{ active: activeId === 'measuring-productivity' }" @click="closeSidebar">
+            <a href="#measuring-productivity" :class="{ active: activeId === 'measuring-productivity' }" :aria-current="activeId === 'measuring-productivity' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:chart-dots" aria-hidden="true" />
               <span>第10章 DORA & SPACE</span>
             </a>
           </li>
           <li>
-            <a href="#ai-era-management" :class="{ active: activeId === 'ai-era-management' }" @click="closeSidebar">
+            <a href="#ai-era-management" :class="{ active: activeId === 'ai-era-management' }" :aria-current="activeId === 'ai-era-management' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:robot" aria-hidden="true" />
               <span>第11章 AI時代のEM</span>
             </a>
           </li>
           <li>
-            <a href="#remote-hybrid" :class="{ active: activeId === 'remote-hybrid' }" @click="closeSidebar">
+            <a href="#remote-hybrid" :class="{ active: activeId === 'remote-hybrid' }" :aria-current="activeId === 'remote-hybrid' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:home-2" aria-hidden="true" />
               <span>第12章 リモート/ハイブリッド</span>
             </a>
           </li>
           <li>
-            <a href="#summary-checklist" :class="{ active: activeId === 'summary-checklist' }" @click="closeSidebar">
+            <a href="#summary-checklist" :class="{ active: activeId === 'summary-checklist' }" :aria-current="activeId === 'summary-checklist' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:flag-3" aria-hidden="true" />
               <span>まとめ・チェックリスト</span>
             </a>
           </li>
           <li>
-            <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+            <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
               <Icon name="tabler:link" aria-hidden="true" />
               <span>参考文献・情報源</span>
             </a>

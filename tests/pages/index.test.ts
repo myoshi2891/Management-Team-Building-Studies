@@ -102,6 +102,30 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Certified ScrumMaster®(CSM®)完全ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/csm-certified-scrummaster-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Scrum Team とは何か ― 3つのアカウンタビリティ徹底解説",
+        category: "PROJECT MANAGEMENT",
+        href: "/csm-scrum-team-3-accountabilities",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Scrum理論の基礎(Scrum Theory) ― CSM®試験対応 初学者向け完全ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/csm-scrum-theory-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
+        category: "PROJECT MANAGEMENT",
+        href: "/scrum-97-things-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
