@@ -116,7 +116,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" />
-          対象書籍: <em>The Leadership Challenge Workbook, 4th Edition</em>(James M. Kouzes, Barry Z. Posner 著 / Wiley / 2023年4月刊 / 全160ページ)。本ガイドは、同ワークブックの構成に沿いながら、初学者のソフトウェアエンジニアやスクラムマスターが「今日から実践できる」形に翻訳したステップバイステップ解説です。
+          <span>対象書籍: <em>The Leadership Challenge Workbook, 4th Edition</em>(James M. Kouzes, Barry Z. Posner 著 / Wiley / 2023年4月刊 / 全160ページ)。本ガイドは、同ワークブックの構成に沿いながら、初学者のソフトウェアエンジニアやスクラムマスターが「今日から実践できる」形に翻訳したステップバイステップ解説です。</span>
         </div>
       </div>
 
@@ -629,6 +629,10 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
   font-size: 20px;
   flex: none;
   margin-top: 3px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 section {
