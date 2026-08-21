@@ -110,62 +110,122 @@ const DIAGRAM_EMPIRICAL_CYCLE = `flowchart LR
 
         <ul class="sidebar-nav">
           <li>
-            <a href="#guide-scope" :class="{ active: activeId === 'guide-scope' }" @click="closeSidebar">
+            <a
+              href="#guide-scope"
+              :class="{ active: activeId === 'guide-scope' }"
+              :aria-current="activeId === 'guide-scope' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:certificate" />この章の位置づけ
             </a>
           </li>
           <li>
-            <a href="#what-is-scrum-team" :class="{ active: activeId === 'what-is-scrum-team' }" @click="closeSidebar">
+            <a
+              href="#what-is-scrum-team"
+              :class="{ active: activeId === 'what-is-scrum-team' }"
+              :aria-current="activeId === 'what-is-scrum-team' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:users" />Scrum Team 全体像
             </a>
           </li>
           <li>
-            <a href="#role-to-accountability" :class="{ active: activeId === 'role-to-accountability' }" @click="closeSidebar">
+            <a
+              href="#role-to-accountability"
+              :class="{ active: activeId === 'role-to-accountability' }"
+              :aria-current="activeId === 'role-to-accountability' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:refresh" />Roleから Accountabilityへ
             </a>
           </li>
           <li>
-            <a href="#three-accountabilities-comparison" :class="{ active: activeId === 'three-accountabilities-comparison' }" @click="closeSidebar">
+            <a
+              href="#three-accountabilities-comparison"
+              :class="{ active: activeId === 'three-accountabilities-comparison' }"
+              :aria-current="activeId === 'three-accountabilities-comparison' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:scale" />3つの比較表
             </a>
           </li>
           <li>
-            <a href="#developers" :class="{ active: activeId === 'developers' }" @click="closeSidebar">
+            <a
+              href="#developers"
+              :class="{ active: activeId === 'developers' }"
+              :aria-current="activeId === 'developers' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:code" />Developers
             </a>
           </li>
           <li>
-            <a href="#product-owner" :class="{ active: activeId === 'product-owner' }" @click="closeSidebar">
+            <a
+              href="#product-owner"
+              :class="{ active: activeId === 'product-owner' }"
+              :aria-current="activeId === 'product-owner' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:target" />Product Owner
             </a>
           </li>
           <li>
-            <a href="#scrum-master" :class="{ active: activeId === 'scrum-master' }" @click="closeSidebar">
+            <a
+              href="#scrum-master"
+              :class="{ active: activeId === 'scrum-master' }"
+              :aria-current="activeId === 'scrum-master' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:shield-check" />Scrum Master
             </a>
           </li>
           <li>
-            <a href="#collaboration-with-events" :class="{ active: activeId === 'collaboration-with-events' }" @click="closeSidebar">
+            <a
+              href="#collaboration-with-events"
+              :class="{ active: activeId === 'collaboration-with-events' }"
+              :aria-current="activeId === 'collaboration-with-events' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:git-branch" />イベントとの協働
             </a>
           </li>
           <li>
-            <a href="#misconceptions" :class="{ active: activeId === 'misconceptions' }" @click="closeSidebar">
+            <a
+              href="#misconceptions"
+              :class="{ active: activeId === 'misconceptions' }"
+              :aria-current="activeId === 'misconceptions' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:alert-triangle" />よくある誤解
             </a>
           </li>
           <li>
-            <a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar">
+            <a
+              href="#best-practices-summary"
+              :class="{ active: activeId === 'best-practices-summary' }"
+              :aria-current="activeId === 'best-practices-summary' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:bulb" />ベストプラクティス総まとめ
             </a>
           </li>
           <li>
-            <a href="#learning-objectives-mapping" :class="{ active: activeId === 'learning-objectives-mapping' }" @click="closeSidebar">
+            <a
+              href="#learning-objectives-mapping"
+              :class="{ active: activeId === 'learning-objectives-mapping' }"
+              :aria-current="activeId === 'learning-objectives-mapping' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:list-check" />学習目標マッピング
             </a>
           </li>
           <li>
-            <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+            <a
+              href="#references"
+              :class="{ active: activeId === 'references' }"
+              :aria-current="activeId === 'references' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:link" />参考文献・出典
             </a>
           </li>

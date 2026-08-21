@@ -1170,11 +1170,14 @@ footer {
 @media (max-width: 1039px) {
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0.25s ease;
   }
 
   .sidebar.open {
     transform: translateX(0);
+    visibility: visible;
     box-shadow: 4px 0 20px rgba(22, 27, 38, 0.15);
   }
 
