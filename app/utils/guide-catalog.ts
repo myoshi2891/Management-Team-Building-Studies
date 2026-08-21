@@ -295,6 +295,16 @@ export const GUIDES = [
     icon: "tabler:compass",
     accent: "indigo",
   },
+  {
+    to: "/leadership-challenge-workbook-guide",
+    categoryId: "engineering-leadership",
+    navLabel: "Leadership Challenge",
+    title: "The Leadership Challenge Workbook 完全ガイド",
+    description: "Kouzes & Posnerの「The Leadership Challenge Workbook」を、ソフトウェアエンジニアとスクラムマスター向けにステップバイステップで解説する非公式ガイド。Five PracticesとTen Commitmentsをスクラムの現場に落とし込みます。",
+    meta: "12セクション",
+    icon: "tabler:award",
+    accent: "plum",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {
