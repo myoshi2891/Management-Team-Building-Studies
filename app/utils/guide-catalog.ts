@@ -305,6 +305,16 @@ export const GUIDES = [
     icon: "tabler:award",
     accent: "plum",
   },
+  {
+    to: "/lean-ux-beginner-guide",
+    categoryId: "team-building",
+    navLabel: "Lean UX 入門",
+    title: "Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門",
+    description: "Jeff GothelfとJosh Seidenの著書『Lean UX, 3rd Edition』を主軸に、Lean UX Canvas・仮説の書き方・MVPと実験・デザインスタジオ・デュアルトラック・アジャイルまでを初学者向けに解説するガイド。",
+    meta: "14セクション",
+    icon: "tabler:bulb",
+    accent: "forest",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {
