@@ -56,6 +56,13 @@
   a { color: var(--color-indigo); text-decoration: none; }
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
   img, svg { max-width: 100%; }
   .layout { display: block; }
   .sidebar {
@@ -181,6 +188,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
@@ -217,7 +226,7 @@
     </ul>
   </nav>
 
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum Alliance(R) CSM(R) 対応</div>
@@ -1010,8 +1019,12 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
