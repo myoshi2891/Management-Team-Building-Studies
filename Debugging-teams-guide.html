@@ -588,7 +588,7 @@
 </head>
 <body>
 
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
 
 <div class="layout">
 
@@ -607,15 +607,15 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#about-this-guide"><i class="ti ti-users"></i>この記事について</a></li>
-      <li><a href="#book-overview"><i class="ti ti-book-2"></i>書籍概要</a></li>
-      <li><a href="#why-debug-relationships"><i class="ti ti-bug"></i>なぜ人間関係もデバッグ対象か</a></li>
-      <li><a href="#hrt-principles"><i class="ti ti-heart"></i>核心原則: HRT</a></li>
-      <li><a href="#journey-overview"><i class="ti ti-route"></i>全体像: 6章の成長ステップ</a></li>
-      <li><a href="#step-by-step-practices"><i class="ti ti-list-check"></i>ステップバイステップ実践</a></li>
-      <li><a href="#hrt-checklist"><i class="ti ti-clipboard-check"></i>HRT実践チェックリスト</a></li>
-      <li><a href="#summary"><i class="ti ti-flag-3"></i>まとめ</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+      <li><a href="#about-this-guide"><i class="ti ti-users" aria-hidden="true"></i>この記事について</a></li>
+      <li><a href="#book-overview"><i class="ti ti-book-2" aria-hidden="true"></i>書籍概要</a></li>
+      <li><a href="#why-debug-relationships"><i class="ti ti-bug" aria-hidden="true"></i>なぜ人間関係もデバッグ対象か</a></li>
+      <li><a href="#hrt-principles"><i class="ti ti-heart" aria-hidden="true"></i>核心原則: HRT</a></li>
+      <li><a href="#journey-overview"><i class="ti ti-route" aria-hidden="true"></i>全体像: 6章の成長ステップ</a></li>
+      <li><a href="#step-by-step-practices"><i class="ti ti-list-check" aria-hidden="true"></i>ステップバイステップ実践</a></li>
+      <li><a href="#hrt-checklist"><i class="ti ti-clipboard-check" aria-hidden="true"></i>HRT実践チェックリスト</a></li>
+      <li><a href="#summary"><i class="ti ti-flag-3" aria-hidden="true"></i>まとめ</a></li>
+      <li><a href="#references"><i class="ti ti-link" aria-hidden="true"></i>参考文献・出典</a></li>
     </ul>
   </nav>
 
@@ -623,7 +623,7 @@
   <main class="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-book-2"></i>O'Reilly『Debugging Teams』ガイド</div>
+      <div class="hero-eyebrow"><i class="ti ti-book-2" aria-hidden="true"></i>O'Reilly『Debugging Teams』ガイド</div>
       <h1>Debugging Teams 完全ガイド ― チームの人間関係を「デバッグ」するベストプラクティス</h1>
       <p class="hero-lede">
         本ガイドは、O'Reilly刊『Debugging Teams: Better Productivity through Collaboration』(Brian W. Fitzpatrick, Ben Collins-Sussman 著)の内容と、著名な国際的エンジニアによる書評・ブログ記事をもとに、初学者にもわかりやすくステップバイステップで要点を整理したものです。
@@ -637,14 +637,14 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
         参考にした一次情報・出典のURLは、末尾の「参考文献・出典」にまとめています。本ガイドは筆者による非公式の要約・解説であり、原典の著作権は著者および出版社(O'Reilly Media)に帰属します。
       </div>
     </div>
 
     <!-- ===================== 01. About This Guide ===================== -->
     <section id="about-this-guide">
-      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 01</div>
+      <div class="section-eyebrow"><i class="ti ti-users" aria-hidden="true"></i>SECTION 01</div>
       <h2>この記事について</h2>
 
       <p>対象読者は、次のような方々です。</p>
@@ -661,7 +661,7 @@
 
     <!-- ===================== 02. Book Overview ===================== -->
     <section id="book-overview">
-      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 02</div>
+      <div class="section-eyebrow"><i class="ti ti-book-2" aria-hidden="true"></i>SECTION 02</div>
       <h2>書籍概要: Debugging Teamsとは</h2>
 
       <p><em>Debugging Teams</em> は、Googleで長年チームを率いてきた Brian W. Fitzpatrick と、Subversionの創設開発者の一人である Ben Collins-Sussman による著作です。2人は「Working with Poisonous People」(有害な人との付き合い方)という講演シリーズで多くの支持を集め、その内容を書籍化しました。</p>
@@ -687,7 +687,7 @@
 
     <!-- ===================== 03. Why Debug Relationships ===================== -->
     <section id="why-debug-relationships">
-      <div class="section-eyebrow"><i class="ti ti-bug"></i>SECTION 03</div>
+      <div class="section-eyebrow"><i class="ti ti-bug" aria-hidden="true"></i>SECTION 03</div>
       <h2>なぜ「人間関係」もデバッグの対象なのか</h2>
 
       <p>エンジニアは、コードのバグを見つけて修正する訓練は積んでいても、チーム内の摩擦や対立を「デバッグ」する訓練はほとんど受けていません。多くのレビューで指摘されているように、この本の価値は、対人関係の問題をコードのバグと同じように<strong>観察し、原因を特定し、修正する</strong>対象として扱う視点を与えてくれる点にあります。</p>
@@ -697,7 +697,7 @@
 
     <!-- ===================== 04. HRT Principles ===================== -->
     <section id="hrt-principles">
-      <div class="section-eyebrow"><i class="ti ti-heart"></i>SECTION 04</div>
+      <div class="section-eyebrow"><i class="ti ti-heart" aria-hidden="true"></i>SECTION 04</div>
       <h2>核心原則: HRT(謙虚さ・敬意・信頼)</h2>
 
       <p>本書全体を貫く中心概念が <strong>HRT</strong> です。これは以下3つの英単語の頭文字を取ったもので、あえて「ハート」と発音し、対立や苦痛を意味する「ハート(hurt)」とは区別して使われます。</p>
@@ -723,7 +723,7 @@
 
     <!-- ===================== 05. Journey Overview ===================== -->
     <section id="journey-overview">
-      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 05</div>
+      <div class="section-eyebrow"><i class="ti ti-route" aria-hidden="true"></i>SECTION 05</div>
       <h2>全体像: 6つの章が描くチームの成長ステップ</h2>
 
       <p>本書は、まず「自分自身」に向き合うところから始まり、徐々に視野を「チーム」「組織」「ユーザー」へと広げていく構成になっています。この流れを理解しておくと、各章の位置づけがつかみやすくなります。</p>
@@ -736,7 +736,7 @@
 
     <!-- ===================== 06. Step-by-Step Practices ===================== -->
     <section id="step-by-step-practices">
-      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 06</div>
+      <div class="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"></i>SECTION 06</div>
       <h2>ステップバイステップ ベストプラクティス</h2>
 
       <p>ここからは、本書の内容を実務にそのまま使える9つのステップに整理して解説します。</p>
@@ -745,7 +745,7 @@
       <p>まず最初に取り組むべきは、自分自身の思考の癖を変えることです。多くの技術者は「一人で優れたコードを書ける天才こそ理想」という無意識の思い込み(いわゆる天才神話)を持っています。しかし、コードを隠して一人で抱え込むことは、レビューの機会を失い、バス係数(=重要な知識を持つメンバーが何人欠けたらプロジェクトが停止または大幅に遅延するか、その人数)を下げてしまうだけです。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>完成していないコードでも早めに他者に見せる習慣をつける</li>
           <li>「自分が中心でなくてもよい」という前提でチームの意思決定に臨む</li>
@@ -757,7 +757,7 @@
       <p>天才神話を手放すための具体的な行動が「隠さないこと」です。設計段階からドキュメントを共有し、実装の途中経過をこまめに見せることで、手戻りのリスクを減らし、チームからのフィードバックを早期に取り込めます。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>設計ドキュメント(デザインドック)を書き、実装前にレビューを受ける</li>
           <li>コミットは小さく分割し、コードレビューを毎回必ず通す</li>
@@ -776,7 +776,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>「シット・サンドイッチ」で本題をぼかさない</li>
           <li>批判は成果物に対して行い、人格を評価する言葉を使わない</li>
@@ -788,7 +788,7 @@
       <p>完璧を目指すあまり着手が遅れることは、チームの前進を妨げる大きな要因です。小さく試し、早い段階で失敗し、そこから学んで次に活かすというサイクルを繰り返すほうが、結果的に大きな失敗を避けられます。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>大きな機能を小さく分割し、短いサイクルで検証する</li>
           <li>失敗を個人の責任として追及せず、チームの学びとして扱う</li>
@@ -800,7 +800,7 @@
       <p>良いチーム文化は自然発生するものではなく、意図的に設計し、繰り返しメンテナンスする必要があります。特に重要なのが、チーム全員が同じ方向を向くための「高レベルの同期」の仕組みです。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>チームのミッションステートメントを短く言語化し、迷ったときの判断基準にする</li>
           <li>会議は目的とアジェンダを明確にし、時間を尊重する</li>
@@ -845,7 +845,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>「自分がどう評価されるか」ではなく「チームが何を達成できるか」を軸に判断する</li>
           <li>部下に助言を求められても、すぐに答えを出さず、まず相手自身に考えさせる</li>
@@ -876,7 +876,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>ハラスメント・脅迫・差別・報復のリスクや、力関係の非対称がある場合は、直接のフィードバックを試みる前に事実を記録し、社内の該当窓口(マネージャー・人事・コンプライアンス・セキュリティ等)へ速やかに相談する</li>
           <li>感情的な反応(=「エネルギークリーチャーに餌をやる」状態)を避け、事実に集中する</li>
@@ -889,7 +889,7 @@
       <p>多くの組織には、大なり小なり官僚的な仕組みや政治的な力学が存在します。書籍では、これを「組織的マニピュレーション(=清く正しく行う社内政治)」と呼び、否定的に捉えるのではなく、チームの目的を達成するために必要なスキルとして紹介しています。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>組織図の外にある「実際に物事を動かしている人」との関係を大切にする</li>
           <li>上司との関係も一方通行ではなく、期待値を伝え合う双方向の関係として築く</li>
@@ -902,7 +902,7 @@
       <p>チームの外側にいる最も重要な存在がユーザーです。エンジニアはしばしば「ユーザーは自分たちほど賢くない」という誤解を抱きがちですが、これは大きな落とし穴です。ユーザーとの関係も、チーム内の関係と同じくHRTの延長線上で捉えるべきだと本書は説いています。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>実践ポイント</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>実践ポイント</div>
         <ul>
           <li>ユーザーとの一つひとつのやり取りを「信頼口座」への預け入れ、または引き出しとして意識する</li>
           <li>最低限の期待に応えるだけでなく、驚きや喜びを届ける体験を目指す</li>
@@ -913,7 +913,7 @@
 
     <!-- ===================== 07. HRT Checklist ===================== -->
     <section id="hrt-checklist">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 07</div>
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true"></i>SECTION 07</div>
       <h2>明日から使えるHRT実践チェックリスト</h2>
 
       <ul>
@@ -930,7 +930,7 @@
 
     <!-- ===================== 08. Summary ===================== -->
     <section id="summary">
-      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 08</div>
+      <div class="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"></i>SECTION 08</div>
       <h2>まとめ</h2>
 
       <p><em>Debugging Teams</em> が一貫して伝えているメッセージは非常にシンプルです。<strong>技術的な問題を解決する力と同じくらい、人間関係の問題を解決する力が重要である</strong>、ということです。多くの書評でも共通して評価されているのは、この本が特別な理論や難解な用語に頼るのではなく、HRT(謙虚さ・敬意・信頼)というシンプルな軸を一貫して使い続けている点です。</p>
@@ -940,7 +940,7 @@
 
     <!-- ===================== 09. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 09</div>
+      <div class="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 09</div>
       <h2>参考文献・出典</h2>
 
       <p>本ガイドの作成にあたり、以下の一次情報および著名な開発者・実務者による解説記事を参照しました(2026年8月19日時点でアクセス確認済み)。</p>
@@ -968,7 +968,7 @@
       </div>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
         <p>本ガイドは上記出典の内容を筆者の言葉で要約・再構成したものであり、原文からの逐語的な引用は最小限にとどめています。なお、引用が適法となる範囲は準拠法域、引用の目的、引用量とその重要性、および出典のライセンス条件によって判断されるものであり、一律の語数基準が存在するわけではありません。より詳しい内容や原文のニュアンスを確認したい場合は、上記リンク先の一次情報を直接ご参照ください。</p>
       </div>
     </section>
@@ -1183,7 +1183,15 @@ class X,E,H done;`
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });
