@@ -223,6 +223,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       undefined,
       undefined,
       undefined,
+      undefined,
     ]);
   });
 

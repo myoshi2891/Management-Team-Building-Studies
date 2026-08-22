@@ -325,6 +325,16 @@ export const GUIDES = [
     icon: "tabler:calendar-time",
     accent: "forest",
   },
+  {
+    to: "/debugging-teams-guide",
+    categoryId: "team-building",
+    navLabel: "Debugging Teams",
+    title: "Debugging Teams 完全ガイド ― チームの人間関係を「デバッグ」するベストプラクティス",
+    description: "O'Reilly刊『Debugging Teams』の内容と国際的なエンジニアの書評をもとに、HRT(謙虚さ・敬意・信頼)を軸としたチームづくりのベストプラクティスを初学者向けに9ステップで解説する。",
+    meta: "9セクション",
+    icon: "tabler:bug",
+    accent: "plum",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {
