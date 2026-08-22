@@ -1233,6 +1233,20 @@
       var isOpen = sidebar.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(isOpen));
     });
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      // 既に閉じている場合はフォーカスを移動しない
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    });
+    document.addEventListener("click", function (event) {
+      if (!sidebar.classList.contains("open")) return;
+      if (sidebar.contains(event.target) || toggle.contains(event.target)) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    });
     document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
       link.addEventListener("click", function () {
         var wasOpen = sidebar.classList.contains("open");
