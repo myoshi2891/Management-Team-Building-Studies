@@ -3,7 +3,7 @@
 > 原著: *The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition* / Frederick P. Brooks, Jr.（Addison-Wesley Professional）
 > 参照元: [O'Reilly 書誌ページ](https://www.oreilly.com/library/view/mythical-man-month-the/0201835959/)
 
-このガイドは、ソフトウェア工学史上もっとも引用される古典『人月の神話（The Mythical Man-Month）』を、初めて読む方でも実務にすぐ応用できるように、ステップ・バイ・ステップの形式でまとめたものです。ASCIIアートは使用せず、フローチャートはすべて Mermaid、構造化された情報はすべて Markdown の表で表現しています。内容は 2026年8月19日時点までの公開情報をウェブ検索し、著名な国際的開発者（Joel Spolsky、apenwarr こと Avery Pennarun、Mark Seemann、Adrian Colyer ほか）の言及も参照して作成しました。出典 URL は末尾の「参考文献」に一覧化しています。
+このガイドは、ソフトウェア工学史上もっとも引用される古典『人月の神話（The Mythical Man-Month）』を、初めて読む方でも実務にすぐ応用できるように、内容は 2026年8月19日時点までの公開情報をウェブ検索し、著名な国際的開発者（Joel Spolsky、apenwarr こと Avery Pennarun、Mark Seemann、Adrian Colyer ほか）の言及も参照して作成しました。出典 URL は末尾の「参考文献」に一覧化しています。
 
 ---
 
