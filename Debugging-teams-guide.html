@@ -560,6 +560,9 @@
   /* ===================== Responsive ===================== */
   @media (max-width: 980px) {
     .sidebar-toggle { display: flex; }
+    /* 固定表示になる目次トグル(top:16px + height:42px = 58px)に
+       アンカー先の見出しが隠れないよう、退避量を 32px から広げる */
+    section { scroll-margin-top: 72px; }
     .sidebar {
       transform: translateX(-100%);
       /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
