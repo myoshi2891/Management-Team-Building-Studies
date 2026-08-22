@@ -29,8 +29,8 @@ flowchart TB
 ```
 
 > **補足**
-> CAL1には試験がありません。認定バッジを得るには、2日間（合計16時間程度）のライブ研修（対面またはオンライン）に参加し、積極的に取り組むことが条件です。事前知識の前提条件は特にありませんが、アジャイル・スクラムの基礎を知っていると理解が深まります。
-
+> CAL1には試験がありません。認定バッジを得るには、合計16時間程度（通常2〜3日間）のライブ研修（対面またはオンライン）に参加し、積極的に取り組むことが条件です。事前知識の前提条件は特にありませんが、アジャイル・スクラムの基礎を知っていると理解が深まります。
+>
 > **ソース**
 > - [Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/agile-leader/cal-1)
 > - [Certified Agile Leader® 1 (CAL 1) | PM-Partners（学習領域の4分類を掲載）](https://www.pm-partners.com.au/course/certified-agile-leader/)
@@ -84,7 +84,7 @@ flowchart TB
 > - まずは自組織の意思決定プロセスを棚卸しし、「どの決定に、どれくらいの時間がかかっているか」を可視化することから始める
 > - 年次計画を廃止するのではなく、四半期単位のゴールに長期の方向性を紐づけ、短いサイクルで見直す運用に変えていく
 > - 「計画通りに進んだか」ではなく「顧客・市場の変化に対応できたか」を評価軸に加える
-
+>
 > **ソース**
 > - [What Makes You an Agile Leader? | Scrum Alliance](https://resources.scrumalliance.org/Article/makes-agile-leader)
 > - [Agile Manifesto（アジャイル的な価値観の基礎として推奨されている一次情報）](https://agilemanifesto.org/)
@@ -105,7 +105,7 @@ Scrum Allianceの公式学習目標によれば、CAL1を通じて次のよう�
 
 > **補足**
 > ここで扱う「アジャイル原則」は、もともとソフトウェア開発向けに書かれたAgile Manifesto（アジャイルソフトウェア開発宣言）に由来しますが、現在ではその価値観と原則が業種を問わず幅広い専門職に実践されています。CAL1の受講にあたり、アジャイルに馴染みがない場合はこの宣言に目を通しておくことが推奨されています。
-
+>
 > **ソース**
 > - [Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ（学習目標の一覧）](https://www.scrumalliance.org/get-certified/agile-leader/cal-1)
 > - [CAL 1™ Learning Objectives（Scrum Alliance公開資料）](https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view)
@@ -143,7 +143,7 @@ Expert・Achiever段階のリーダーシップは、タスク志向・結果志
 > - 自分の意思決定を振り返り、「専門知識で押し切っていないか（Expert）」「目標達成だけを追っていないか（Achiever）」を定期的にセルフチェックする
 > - 一足飛びにCatalyst段階を目指すのではなく、今の段階での強みを保ちながら、小さな場面から権限移譲やビジョン共有を試す
 > - 360度フィードバックなど第三者からの評価を取り入れ、自己認識と他者評価のギャップを把握する
-
+>
 > **ソース**
 > - [Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（William B. Joiner, Stephen A. Josephs, 2007）](https://www.researchgate.net/publication/23318406_Leadership_agility)
 > - [What is Leadership Agility? | Agile Leadership Journey（5段階モデルの解説）](https://www.agileleadershipjourney.com/leadership-journey/leadership-agility)
@@ -202,7 +202,7 @@ flowchart TB
 > - 自分に知見がある領域については、定期的な1on1コーチングの機会を設ける
 > - 本来の職務範囲を超えた挑戦を認め、越境的な学びを後押しする
 > - スキルアップや新しい学習のための研修機会を継続的に提供する
-
+>
 > **ソース**
 > - [What Makes You an Agile Leader? | Scrum Alliance（4つの行動の一次情報）](https://resources.scrumalliance.org/Article/makes-agile-leader)
 
@@ -218,7 +218,7 @@ flowchart TB
 | 所要時間 | トレーナーとの合計16時間程度のライブ学習（多くは2〜3日構成） |
 | 事前学習 | 開始2週間前を目安に配布される事前課題（所要時間の目安：約1時間） |
 | 教材 | 参加者向けワークブックが提供される |
-| 認定条件 | 試験はなく、2日間のコースに出席し積極的に参加することで認定バッジを取得 |
+| 認定条件 | 試験はなく、合計16時間のコースに出席し積極的に参加することで認定バッジを取得 |
 | 前提条件 | 必須の前提条件はないが、アジャイル・スクラムの基礎知識があると望ましい |
 | 有効期間 | 認定は2年間有効で、更新にはScrum Education Units（SEU）の取得が必要 |
 | 次のステップ | CAL1修了後、より発展的な内容を扱うCAL2に進むことができる |
@@ -239,7 +239,7 @@ flowchart TB
 
 > **補足**
 > CAL1は「Scrum masters（スクラムマスター）」「Leaders（リーダー）」「Managers（マネージャー）」「Senior directors（シニアディレクター）」「C-suite executives（経営幹部）」「Coaches and consultants（コーチ・コンサルタント）」など、人を率いる、または率いたいと考えるすべての人を対象としています。
-
+>
 > **ソース**
 > - [Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/agile-leader/cal-1)
 > - [Certified Agile Leader® 1 (CAL 1) | PM-Partners（Day1/Day2の内容構成）](https://www.pm-partners.com.au/course/certified-agile-leader/)
@@ -290,15 +290,15 @@ CAL1第1章の内容を体系立てて自分のものにするための学習ス
 
 ## 9. 参考文献・ソース一覧
 
-| 資料 | URL |
-|---|---|
+| 資料名 | 発行元 | URL |
+|---|---|---|
 | Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ | https://www.scrumalliance.org/get-certified/agile-leader/cal-1 |
-| CAL 1™ Learning Objectives（Scrum Alliance公開資料） | https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view |
+| CAL 1™ Learning Objectives | Scrum Alliance公開資料 | https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view |
 | Certified Agile Leader® 1 (CAL 1) | PM-Partners（学習領域4分類とDay1/Day2構成） | https://www.pm-partners.com.au/course/certified-agile-leader/ |
 | What Makes You an Agile Leader? | Scrum Alliance | https://resources.scrumalliance.org/Article/makes-agile-leader |
-| Agile Manifesto（アジャイルソフトウェア開発宣言） | https://agilemanifesto.org/ |
-| Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（Joiner & Josephs, 2007） | https://www.researchgate.net/publication/23318406_Leadership_agility |
+| Agile Manifesto（アジャイルソフトウェア開発宣言） | | https://agilemanifesto.org/ |
+| Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（Joiner & Josephs, 2007） | ResearchGate | https://www.researchgate.net/publication/23318406_Leadership_agility |
 | What is Leadership Agility? | Agile Leadership Journey | https://www.agileleadershipjourney.com/leadership-journey/leadership-agility |
 | Certified Agile Leadership Program Announced | InfoQ（CALプログラムの設計背景） | https://www.infoq.com/news/2016/08/certified-agile-leadership |
-| Certified Agile Leadership（InfoQ日本語版インタビュー、Pete Behrens氏） | https://www.infoq.com/jp/news/2016/10/certified-agile-leadership |
-| Skills in the New World of Work Report 2023（資格保有者への給与プレミアムに関する調査） | https://6606649.fs1.hubspotusercontent-na1.net/hubfs/6606649/Skills%20in%20the%20New%20World%20of%20Work%20Report%202023.pdf |
+| Certified Agile Leadership | InfoQ（日本語版インタビュー、Pete Behrens氏） | https://www.infoq.com/jp/news/2016/10/certified-agile-leadership |
+| Skills in the New World of Work Report 2023（資格保有者への給与プレミアムに関する調査） | | https://6606649.fs1.hubspotusercontent-na1.net/hubfs/6606649/Skills%20in%20the%20New%20World%20of%20Work%20Report%202023.pdf |
