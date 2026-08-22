@@ -998,7 +998,7 @@
           <thead><tr><th>概念</th><th>時間軸</th><th>誰が主導するか</th><th>Scrum Guide 上の位置づけ</th></tr></thead>
           <tbody>
             <tr><td>プロダクトビジョン</td><td>長期(数年単位)</td><td>プロダクトオーナー/組織</td><td>Scrum Guide には明文化されていない、実践上の概念</td></tr>
-            <tr><td>プロダクトゴール</td><td>中期(複数スプリント)</td><td>プロダクトオーナー(コミュニケーションの責任)</td><td>プロダクトバックログのコミットメント</td></tr>
+            <tr><td>プロダクトゴール</td><td>長期(具体的な期間・スプリント数は定めない)</td><td>プロダクトオーナー(コミュニケーションの責任)</td><td>プロダクトバックログのコミットメント</td></tr>
             <tr><td>スプリントゴール</td><td>短期(1スプリント)</td><td>開発者(スクラムチーム全体で合意)</td><td>スプリントバックログのコミットメント</td></tr>
           </tbody>
         </table>
@@ -1167,7 +1167,7 @@ class E2,E3 box;
 class E4 done;`,
 
     goalHierarchy: `flowchart TB
-VISION["プロダクトビジョン (組織戦略・長期)"] --> GOAL["プロダクトゴール (中期・数スプリント単位)"]
+VISION["プロダクトビジョン (組織戦略・長期)"] --> GOAL["プロダクトゴール (長期的な目的地)"]
 GOAL --> SG1["スプリントゴール (今回)"]
 GOAL --> SG2["スプリントゴール (次回)"]
 GOAL --> SG3["スプリントゴール (以降)"]
@@ -1280,8 +1280,12 @@ class SG1,SG2,SG3 done;`
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
