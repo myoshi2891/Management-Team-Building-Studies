@@ -1252,7 +1252,16 @@
         var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
+        if (!wasOpen) return;
+        var targetId = link.getAttribute("href").replace("#", "");
+        var targetSection = document.getElementById(targetId);
+        var heading = targetSection && targetSection.querySelector("h2");
+        if (heading) {
+          heading.setAttribute("tabindex", "-1");
+          heading.focus();
+        } else {
+          toggle.focus();
+        }
       });
     });
   }
