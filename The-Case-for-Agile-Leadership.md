@@ -216,12 +216,19 @@ flowchart TB
 |---|---|
 | 提供形式 | ライブ研修（対面またはオンライン）、Scrum Alliance認定トレーナーが提供 |
 | 所要時間 | トレーナーとの合計16時間程度のライブ学習（多くは2〜3日構成） |
-| 事前学習 | 開始2週間前を目安に配布される事前課題（所要時間の目安：約1時間） |
-| 教材 | 参加者向けワークブックが提供される |
+| 事前学習 ※ | 開始2週間前を目安に配布される事前課題（所要時間の目安：約1時間） |
+| 教材 ※ | 参加者向けワークブックが提供される |
 | 認定条件 | 試験はなく、合計16時間のコースに出席し積極的に参加することで認定バッジを取得 |
 | 前提条件 | 必須の前提条件はないが、アジャイル・スクラムの基礎知識があると望ましい |
 | 有効期間 | 認定は2年間有効で、更新にはScrum Education Units（SEU）の取得が必要 |
 | 次のステップ | CAL1修了後、より発展的な内容を扱うCAL2に進むことができる |
+
+> **※ 注記：全CAL1コース共通の要件と、提供元ごとに異なる運営情報の区別**
+> Scrum Alliance が全CAL1コース共通として定めているのは、**合計16時間のライブ学習**・**試験なしの出席型認定**・
+> **必須の前提条件なし**・**認定の2年間有効期間とSEUによる更新**である。
+> 一方、**事前学習の有無・分量、教材（ワークブック）の提供、Day 1／Day 2の日程構成**は
+> 認定トレーナー／研修提供元ごとに異なる。上表の ※ 付き項目と下図は
+> **PM-Partners の提供例**であり、全コース共通の要件ではない。受講前に各提供元の案内を確認すること。
 
 ```mermaid
 flowchart TB
@@ -231,7 +238,7 @@ flowchart TB
     D3 --> Cert["コース参加により認定バッジを取得 試験なし"]
 ```
 
-コースの内容構成をもう少し詳しく見ると、次のような流れになっています。
+コースの内容構成をもう少し詳しく見ると、次のような流れになっています（以下はPM-Partnersの提供例であり、日程配分や扱う順序はトレーナーにより異なる）。
 
 - **Day 1**：自己内省が中心。自分自身の価値観・信念、そして自分がリーダーとしてどのように振る舞っているか（"show up" しているか）を見つめ直し、アジャイルチームを支援するための行動やスキルを養う
 - **Day 2**：高パフォーマンスなチームの構築と維持に焦点が移る。アジャイルと親和性の高い組織文化の土台、そしてアジャイルな環境に適応させるべきプロセス・ポリシー・ガバナンスのあり方を扱う
@@ -296,9 +303,9 @@ CAL1第1章の内容を体系立てて自分のものにするための学習ス
 | CAL 1™ Learning Objectives | Scrum Alliance公開資料 | https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view |
 | Certified Agile Leader® 1 (CAL 1) | PM-Partners（学習領域4分類とDay1/Day2構成） | https://www.pm-partners.com.au/course/certified-agile-leader/ |
 | What Makes You an Agile Leader? | Scrum Alliance | https://resources.scrumalliance.org/Article/makes-agile-leader |
-| Agile Manifesto（アジャイルソフトウェア開発宣言） | | https://agilemanifesto.org/ |
+| Agile Manifesto（アジャイルソフトウェア開発宣言） | Kent Beck ほか17名（署名者） | https://agilemanifesto.org/ |
 | Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（Joiner & Josephs, 2007） | ResearchGate | https://www.researchgate.net/publication/23318406_Leadership_agility |
 | What is Leadership Agility? | Agile Leadership Journey | https://www.agileleadershipjourney.com/leadership-journey/leadership-agility |
 | Certified Agile Leadership Program Announced | InfoQ（CALプログラムの設計背景） | https://www.infoq.com/news/2016/08/certified-agile-leadership |
 | Certified Agile Leadership | InfoQ（日本語版インタビュー、Pete Behrens氏） | https://www.infoq.com/jp/news/2016/10/certified-agile-leadership |
-| Skills in the New World of Work Report 2023（資格保有者への給与プレミアムに関する調査） | | https://6606649.fs1.hubspotusercontent-na1.net/hubfs/6606649/Skills%20in%20the%20New%20World%20of%20Work%20Report%202023.pdf |
+| Skills in the New World of Work Report 2023（資格保有者への給与プレミアムに関する調査） | Scrum Alliance / Business Agility Institute | https://6606649.fs1.hubspotusercontent-na1.net/hubfs/6606649/Skills%20in%20the%20New%20World%20of%20Work%20Report%202023.pdf |
