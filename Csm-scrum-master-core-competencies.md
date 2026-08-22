@@ -464,10 +464,10 @@ A-CSM の Learning Objectives では、CSM のカテゴリ構成をさらに発�
 
 **ベストプラクティス**
 
-- CSM取得後、実務で半年〜1年ほど経験を積んでから A-CSM の受講を検討すると、学びが実務と結びつきやすい
+- A-CSM は CSM 取得後であれば受講申し込み自体は可能だが、A-CSM の認定発行には過去5年以内に積んだ12か月以上の Scrum Master としての実務経験の申告が必要になる。受講計画はこの12か月要件を前提に組み立てる
 - SEUは資格更新のためだけでなく、学び続ける習慣づくりの仕組みとして活用する
 
-> 出典: [Advanced Certified ScrumMaster (A-CSM) Learning Objectives(PDF)](https://assets.scrumalliance.org/media/certifications/los/adv_csm_learning_objectives_2022.pdf) / [Certified ScrumMaster (CSM) Certification - Scrum Alliance](https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster)
+> 出典: [Advanced Certified ScrumMaster (A-CSM) Learning Objectives(PDF)](https://assets.scrumalliance.org/media/certifications/los/adv_csm_learning_objectives_2022.pdf) / [Certified ScrumMaster (CSM) Certification - Scrum Alliance](https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster) / [Advanced Certified ScrumMaster コースページ(公式要件)](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster)
 
 ---
 
