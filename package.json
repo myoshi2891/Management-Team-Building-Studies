@@ -38,7 +38,7 @@
     "audit:lead-challenge": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Leadership-challenge-workbook-guide/Leadership-challenge-workbook-guide.html app/pages/leadership-challenge-workbook-guide.vue",
     "audit:lean-ux": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Lean-ux-beginner-guide/Lean-ux-beginner-guide.html app/pages/lean-ux-beginner-guide.vue",
     "audit:first-60-days": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Your-first-60-days-as-a-leader/Your-first-60-days-as-a-leader.html app/pages/your-first-60-days-as-a-leader.vue",
-    "audit:debugging-teams": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Debugging-teams-guide.html app/pages/debugging-teams-guide.vue"
+    "audit:debugging-teams": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Debugging-teams-guide/Debugging-teams-guide.html app/pages/debugging-teams-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",

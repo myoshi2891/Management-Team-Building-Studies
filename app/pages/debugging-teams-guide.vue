@@ -129,7 +129,7 @@ class X,E,H done;`;
       class="sidebar-toggle"
       aria-label="目次を開閉する"
       aria-controls="sidebar"
-      :aria-expanded="String(sidebarOpen)"
+      :aria-expanded="sidebarOpen"
       @click="sidebarOpen = !sidebarOpen"
     >
       <Icon name="tabler:menu-2" aria-hidden="true" />
