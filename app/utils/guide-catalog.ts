@@ -315,6 +315,16 @@ export const GUIDES = [
     icon: "tabler:bulb",
     accent: "forest",
   },
+  {
+    to: "/your-first-60-days-as-a-leader",
+    categoryId: "engineering-leadership",
+    navLabel: "最初の60日間",
+    title: "リーダーとしての最初の60日間",
+    description: "新任エンジニアリングリーダーのための、就任前準備から60日目までの実践ステップバイステップガイド。STARSモデル、1on1、心理的安全性などを解説。",
+    meta: "14セクション",
+    icon: "tabler:calendar-time",
+    accent: "forest",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {

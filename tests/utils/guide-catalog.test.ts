@@ -81,7 +81,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-leadership",
-        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法", "開発者・アーキテクト", "Elastic Leadership", "Leadership Challenge"],
+        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法", "開発者・アーキテクト", "Elastic Leadership", "Leadership Challenge", "最初の60日間"],
       },
       {
         id: "team-building",

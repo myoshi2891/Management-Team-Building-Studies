@@ -158,28 +158,54 @@ const EXPECTED_TOC_IDS = [
   "references",
 ] as const;
 
-const EXPECTED_CALLOUT_VARIANTS = [
-  { variant: "note", label: "補足", count: 5 },
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+  "SECTION 11",
+  "SECTION 12",
+  "SECTION 13",
+  "SECTION 14",
 ] as const;
 
-const EXPECTED_SEO = {
-  title: "リーダーとしての最初の60日間 完全ガイド | エンジニアリングリーダーのための実践ステップ",
-  description: "新任エンジニアリングリーダーのための、就任前準備から60日目までの実践ステップバイステップガイド。STARSモデル、1on1、心理的安全性などを解説。",
+const EXPECTED_CALLOUT_VARIANTS = {
+  note: 5,
 } as const;
 
+const EXPECTED_CALLOUT_LABELS = {
+  note: { 補足: 5 },
+} as const;
+
+const EXPECTED_STEP_TAGS = [] as const;
+
+const SEO_TITLE_FRAGMENTS = [
+  "リーダーとしての最初の60日間",
+  "完全ガイド",
+] as const;
+
 defineSourceParityContract({
-  pageName: "your-first-60-days-as-a-leader",
-  Page,
+  suiteName: "pages/your-first-60-days-as-a-leader.vue",
+  page: Page,
   seoMeta,
-  expectedH1: EXPECTED_H1,
-  expectedH2: EXPECTED_H2,
-  expectedH3: EXPECTED_H3,
-  expectedH4: EXPECTED_H4,
-  expectedH5: EXPECTED_H5,
-  expectedH6: EXPECTED_H6,
-  expectedMermaidSources: EXPECTED_MERMAID_SOURCES,
-  expectedExternalUrls: EXPECTED_EXTERNAL_URLS,
-  expectedTocIds: EXPECTED_TOC_IDS,
-  expectedCalloutVariants: EXPECTED_CALLOUT_VARIANTS,
-  expectedSeo: EXPECTED_SEO,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: EXPECTED_STEP_TAGS,
+  seoTitleFragments: SEO_TITLE_FRAGMENTS,
 });
