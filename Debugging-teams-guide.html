@@ -21,7 +21,7 @@
 
     --color-ink:          #161B26;
     --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
+    --color-ink-faint:    #6B7280;
 
     --color-border:       #DFE3EA;
     --color-border-strong:#C7CDD9;
@@ -673,7 +673,7 @@
 
       <p>書籍は次の6章構成になっています。</p>
 
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="書籍の6章構成一覧">
         <table>
           <thead><tr><th>章</th><th>タイトル(原題)</th><th>扱うテーマ</th></tr></thead>
           <tbody>
@@ -705,7 +705,7 @@
 
       <p>本書全体を貫く中心概念が <strong>HRT</strong> です。これは以下3つの英単語の頭文字を取ったもので、あえて「ハート」と発音し、対立や苦痛を意味する「ハート(hurt)」とは区別して使われます。</p>
 
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="HRT(謙虚さ・敬意・信頼)の各原則の意味と実践のポイント">
         <table>
           <thead><tr><th>原則</th><th>英語</th><th>意味</th><th>実践のポイント</th></tr></thead>
           <tbody>
@@ -819,7 +819,7 @@
 
       <p>したがって下表は「マネジメントをするかしないか」の対比ではなく、<strong>同じ管理責任に対する2つの果たし方</strong>の対比として読んでください。</p>
 
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="指示統制型のマネジメントとサーバントリーダーシップの比較">
         <table>
           <thead><tr><th>観点</th><th>指示統制型のマネジメント</th><th>サーバントリーダーシップ</th></tr></thead>
           <tbody>
@@ -833,7 +833,7 @@
 
       <p>リーダーが陥りやすい典型的なアンチパターンも整理しておきましょう。</p>
 
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="リーダーが陥りやすい典型的なアンチパターン一覧">
         <table>
           <thead><tr><th>アンチパターン</th><th>内容</th><th>なぜ問題か</th></tr></thead>
           <tbody>
@@ -859,7 +859,7 @@
       <h3>ステップ7: 有害な行動には早く気づき、人ではなく行動に対処する</h3>
       <p>チームには時折、周囲の生産性や士気を損なう「有害な言動」を取る人が現れます。重要なのは、<strong>人格を否定するのではなく、具体的な行動そのものを問題として切り分ける</strong>ことです。書籍では、有害な言動をいくつかの典型パターンに分類しています。</p>
 
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-label="有害な言動の典型パターンと対処のヒント">
         <table>
           <thead><tr><th>行動パターン</th><th>特徴</th><th>対処のヒント</th></tr></thead>
           <tbody>
@@ -1132,6 +1132,11 @@ class X,E,H done;`
           svgEl.style.height = "auto";
           svgEl.style.overflow = "visible";
           extendViewBoxHeight(svgEl, 15);
+          var captionEl = container.parentElement && container.parentElement.querySelector(".diagram-caption");
+          if (captionEl) {
+            svgEl.setAttribute("role", "img");
+            svgEl.setAttribute("aria-label", captionEl.textContent.trim());
+          }
         }
       } catch (err) {
         container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
