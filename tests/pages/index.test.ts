@@ -191,6 +191,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/leadership-challenge-workbook-guide",
         accentClass: "guide-card-plum",
       },
+      {
+        title: "Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門",
+        category: "TEAM BUILDING",
+        href: "/lean-ux-beginner-guide",
+        accentClass: "guide-card-forest",
+      },
     ]);
   });
 

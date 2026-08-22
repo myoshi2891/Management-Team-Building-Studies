@@ -92,6 +92,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
       { label: "Team Geek", href: "/team-geek-guide" },
       { label: "Team Topologies", href: "/team-topologies-guide" },
+      { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
     ]);
   });
 
@@ -124,6 +125,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/dynamic-reteaming-guide",
       "/team-geek-guide",
       "/team-topologies-guide",
+      "/lean-ux-beginner-guide",
     ]);
   });
 
@@ -192,6 +194,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

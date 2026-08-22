@@ -46,6 +46,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/developer-architect-communication-guide", categoryId: "engineering-leadership", navLabel: "開発者・アーキテクト" },
       { to: "/elastic-leadership-guide", categoryId: "engineering-leadership", navLabel: "Elastic Leadership" },
       { to: "/leadership-challenge-workbook-guide", categoryId: "engineering-leadership", navLabel: "Leadership Challenge" },
+      { to: "/lean-ux-beginner-guide", categoryId: "team-building", navLabel: "Lean UX 入門" },
     ]);
   });
 
@@ -83,7 +84,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies"],
+        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies", "Lean UX 入門"],
       },
     ]);
   });
