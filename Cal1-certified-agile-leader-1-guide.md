@@ -74,7 +74,7 @@ flowchart LR
 
 ## 3. 認定取得までの4ステップ
 
-Scrum Alliance の公式ページでは、認定取得までの流れを次の4ステップとして案内しています [18]。
+Scrum Alliance の公式ページでは、認定取得までの流れを大きく3段階で案内しています [18]。本ガイドでは、受講から認定までの流れをより分かりやすく整理するため、次の4ステップに分解しています。
 
 ```mermaid
 flowchart TD
@@ -240,7 +240,7 @@ flowchart LR
 
 ## 8. 講師・トレーニングパートナーの品質基準
 
-CAL 1 を教える資格を持つのは、Scrum Alliance が認定した **CAL トレーナー(CAL-T)** のみです。Scrum Alliance の公式申請要件によると、CAL トレーナーになるには以下のような条件を満たす必要があります [6]。
+CAL 1 を教える資格を持つのは、Scrum Alliance が認定した **CAL トレーナー** のみです。Scrum Alliance の公式申請要件によると、CAL トレーナーになるには以下のような条件を満たす必要があります [6]。
 
 | 品質基準項目 | 内容 |
 |---|---|
@@ -274,10 +274,10 @@ flowchart TD
 
 | 項目 | 内容 |
 |---|---|
-| 定義 | 継続的な学習活動(Scrum Alliance 認定コース以外の講座・研修の受講、記事講読、イベント参加、ボランティアなど)1時間 = 1 SEU |
+| 定義 | 継続的な学習活動(Scrum Allianceの認定資格コース(CAL 2、A-CSM など)以外の講座・研修の受講、記事講読、イベント参加、ボランティアなど)1時間 = 1 SEU。Scrum Allianceのマイクロクレデンシャルコースの受講もSEUの算入対象に含まれる |
 | 記録方法 | Scrum Alliance の会員ダッシュボードに活動内容を自己申告で登録する |
 | 目的 | 資格保有者が常に最新の知見を持ち続けていることを担保し、資格の信頼性を維持する |
-| 算入対象外 | Scrum Alliance の認定コース(CAL 2・A-CSM など)そのものは SEU としては算入されない。代わりに、修了時点で保有資格が自動更新される経路が用意されている [17] [27] |
+| 算入対象外 | Scrum Alliance の認定資格コース(CAL 2・A-CSM など)そのものは SEU としては算入されない(マイクロクレデンシャルコースは対象外ではなくSEU算入対象)。代わりに、修了時点で保有資格が自動更新される経路が用意されている [17] [27] |
 
 ### CAL 1 の更新要件
 
@@ -376,7 +376,7 @@ flowchart TD
 
 | No. | タイトル | URL |
 |---|---|---|
-| [7] [13] | Certified Agile Leader® 1 (CAL 1) コース詳細(学習目標4領域・Day1/Day2構成・試験の有無を明記) ― PM-Partners(Scrum Alliance認定トレーニングパートナー) | https://www.pm-partners.com.au/course/certified-agile-leader/ |
+| [7] [13] | Certified Agile Leader® 1 (CAL 1) コース詳細(学習目標4領域・Day1/Day2構成・試験の有無を明記) ― PM-Partners のトレーナー独自コース例 | https://www.pm-partners.com.au/course/certified-agile-leader/ |
 | [9] | Certified Agile Leadership Certification ― CAL1/CAL2再編の経緯解説 ― tryscrum.com | https://tryscrum.com/certifications/agile/scrum/leadership/certified-agile-leadership-i/ |
 | [10] | Certified Agile Leadership I (CAL-1) Certification Training ― KnowledgeHut | https://www.knowledgehut.com/agile-management/certified-agile-leadership-cal-1-training |
 | [14] | Certified Agile Leader® 2 コース詳細例 ― Evolve Agility(Scrum Alliance認定トレーニングパートナー、Scrum Alliance公式コース検索経由) | https://www.evolveagility.com/services-agile-training/certified-agile-leader-2/ |
