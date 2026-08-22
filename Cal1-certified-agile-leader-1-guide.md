@@ -25,23 +25,23 @@
 
 ## 1. CAL 1とは何か(概要)
 
-Certified Agile Leader® 1 (CAL 1™) は、Scrum Alliance® が提供する「アジャイルリーダーシップ」領域の入門資格です [1]。重要な前提として、**CAL 1には筆記試験・選択式試験が存在しません**。認定は「16時間のライブ講座への出席と積極的な参加、および事前・事後課題の完了」によって付与されます [7]。したがって、いわゆる「出題内容」に該当するものは存在せず、代わりに **Scrum Alliance が公式に定める4つの学習目標領域(Learning Objectives)** が、コースで扱われる内容の枠組みになります [7]。本ガイドではこの4領域を軸に、初学者にもわかりやすく解説していきます。
+Certified Agile Leader® 1 (CAL 1™) は、Scrum Alliance® が提供する「アジャイルリーダーシップ」領域の入門資格です [1]。重要な前提として、**CAL 1には筆記試験・選択式試験が存在しません**。認定は、**16時間のライブ講座への出席と積極的な参加**によって付与されます [1] [7]。これが全コースに共通する要件です。なお、トレーナーによっては事前課題・事後課題が別途課される場合がありますが、これはトレーナーごとの運用であり、Scrum Alliance が全 CAL 1 に共通して定める認定条件ではありません [7]。したがって、いわゆる「出題内容」に該当するものは存在せず、代わりに **Scrum Alliance が公式に定める4つの学習目標領域(Learning Objectives)** が、コースで扱われる内容の枠組みになります [7]。本ガイドではこの4領域を軸に、初学者にもわかりやすく解説していきます。
 
 ### 基本情報一覧
 
 | 項目 | 内容 | 出典 |
 |---|---|---|
 | 正式名称 | Certified Agile Leader® 1 (CAL 1™) | [1] |
-| 認定団体 | Scrum Alliance®(2001年設立の非営利団体) | [1][19] |
+| 認定団体 | Scrum Alliance®(2001年設立の非営利団体) | [1] [19] |
 | 前提条件 | なし(アジャイル/Scrumの基礎知識があると望ましい) | [1] |
 | 受講形式 | 対面 または ライブオンライン(同期型) | [1] |
 | 受講時間 | 16時間(多くは2〜3日間に分けて実施) | [1] |
 | 試験の有無 | なし(筆記・選択式試験は実施されない) | [7] |
-| 認定条件 | フルタイムでの出席と積極的な参加 + 事前/事後課題の完了 | [7] |
+| 認定条件 | 16時間の講座へのフルタイム出席と積極的な参加(トレーナーが指定する場合は事前/事後課題も) | [1] [7] |
 | 取得できるもの | デジタル認定バッジ + Scrum Alliance 2年間の専門会員資格 | [17] |
 | 有効期間 | 2年間(SEU取得により更新可能) | [17] |
 | 資格トラック上の位置 | Agile Leaderトラックの第1階層(CAL 2の前提資格) | [17] |
-| 費用目安 | トレーナー・地域により変動(例: 目安として概ね1,400〜1,700米ドル/豪ドル相当。トレーナーごとの最新価格は要確認) | [7][6] |
+| 費用目安 | トレーナー・地域・通貨により変動する。受講料は各トレーナーのコースページで確認する(税の内外表記もトレーナーごとに異なる) | [7] |
 
 > **初学者向けポイント**: 「資格試験に合格する」のではなく「講座に参加してワークを通じて自分のリーダーシップを見つめ直す」タイプの資格です。この点は CSM(Certified ScrumMaster)などの知識試験型資格とは大きく性質が異なります。
 
@@ -49,7 +49,7 @@ Certified Agile Leader® 1 (CAL 1™) は、Scrum Alliance® が提供する「�
 
 ## 2. 資格制度における位置づけ
 
-CAL 1 は、Scrum Alliance の「Agile Leader トラック」の入口にあたる資格です。2024年、Scrum Alliance は旧来の3階層プログラム(CAL-Essentials / CAL-Teams / CAL-Organizations)を、CAL 1・CAL 2 の2階層に再編しました [8][9]。
+CAL 1 は、Scrum Alliance の「Agile Leader トラック」の入口にあたる資格です。2024年、Scrum Alliance は旧来の3階層プログラム(CAL-Essentials / CAL-Teams / CAL-Organizations)を、CAL 1・CAL 2 の2階層に再編しました [8] [9]。
 
 ```mermaid
 flowchart LR
@@ -79,7 +79,7 @@ Scrum Alliance の公式ページでは、認定取得までの流れを次の4�
 ```mermaid
 flowchart TD
     S1["Step1: コースを探す(認定トレーナーによるCAL1講座を検索)"] --> S2["Step2: 受講する(対面 または ライブオンラインで参加)"]
-    S2 --> S3["Step3: コース要件を満たす(出席・積極的参加・事前事後課題)"]
+    S2 --> S3["Step3: コース要件を満たす(出席・積極的参加)"]
     S3 --> S4["Step4: 認定を取得(デジタルバッジが発行される)"]
 ```
 
@@ -89,7 +89,7 @@ flowchart TD
 |---|---|---|
 | Step 1: コースを探す | Scrum Alliance の Course Search で「CAL 1」を絞り込み検索する [1] | CAL トレーナーは個々に独立した事業として運営されており、Scrum Alliance が認定団体としてその品質を担保している [1] |
 | Step 2: 受講する | 16時間のライブ講座(対面/オンライン)に参加する [1] | どのトレーナーのコースを選んでも、修了すれば同一の「Scrum Alliance公認資格」を取得できる [1] |
-| Step 3: コース要件を満たす | 出席、演習への積極参加、事前・事後課題を完了する [7] | 一部のトレーナーは受講2週間前に事前課題(自己診断アンケートなど)を送付する [7] |
+| Step 3: コース要件を満たす | 16時間の講座に出席し、演習に積極的に参加する [1] [7] | 一部のトレーナーは受講2週間前に事前課題(自己診断アンケートなど)を送付する。課題の有無はトレーナーごとに異なる [7] |
 | Step 4: 認定を取得 | ライセンス契約に同意し、デジタルバッジをダウンロードする [9] | バッジはLinkedInなどの職務経歴に添付し、対外的に資格を証明する材料として使える |
 
 ---
@@ -229,7 +229,7 @@ flowchart LR
 | 比較項目 | CAL 1 | CAL 2 |
 |---|---|---|
 | 焦点 | アジャイルリーダーシップの基礎・必要性の理解 [1] | CAL1の学びを組織戦略・提供価値・自身の成長へ応用する [10] |
-| 前提条件 | なし [1] | CAL 1 取得済みであること [10][17] |
+| 前提条件 | なし [1] | CAL 1 取得済みであること [10] [17] |
 | 主な学習領域の例 | 4つの学習領域(第4章参照) [7] | 戦略と実行の連携、知識労働者のリード、組織設計とガバナンス、文化変容、変革への抵抗克服、自己マネジメント、意思決定と権限委譲、対立解決 等(トレーナーが提供するコース例より) [14] |
 | 試験の有無 | なし [7] | なし(トレーナー提供コース例より) [14] |
 | 取得できるもの | デジタルバッジ + 2年間の専門会員資格 [17] | 同様にデジタルバッジ + 専門会員資格 [14] |
@@ -250,7 +250,7 @@ CAL 1 を教える資格を持つのは、Scrum Alliance が認定した **CAL �
 | 最低受講時間の担保 | 提出する各コースが最低16時間の指導時間を含んでいること [6] |
 | 独自性の提示 | トレーナー自身の個性的なアプローチが伝わる教材・実施概要を提出すること [6] |
 
-> **初学者向けポイント**: どのトレーナーの講座を選んでも「最低16時間」「4つの学習領域のカバー」という共通の品質基準は担保されています [1][6]。一方で、具体的な演習内容やケーススタディはトレーナーごとに個性があるため、トレーナーのバックグラウンド(業界経験、コーチング資格など)を確認して選ぶとよいでしょう [1]。
+> **初学者向けポイント**: どのトレーナーの講座を選んでも「最低16時間」「4つの学習領域のカバー」という共通の品質基準は担保されています [1] [6]。一方で、具体的な演習内容やケーススタディはトレーナーごとに個性があるため、トレーナーのバックグラウンド(業界経験、コーチング資格など)を確認して選ぶとよいでしょう [1]。
 
 ---
 
@@ -275,7 +275,21 @@ flowchart TD
 | 記録方法 | Scrum Alliance の会員ダッシュボードに活動内容を自己申告で登録する |
 | 目的 | 資格保有者が常に最新の知見を持ち続けていることを担保し、資格の信頼性を維持する |
 
-> **注意(要最新確認)**: 旧来の「Leadership level」区分(CAL-E/CAL-O/CAL-T)では2年ごとに10 SEUの取得が必要とされていました(第三者情報源より)[25][28]。ただし、これは2024年のCAL1/CAL2再編**前**の区分に基づく数値であり、再編後のCAL1/CAL2に適用される最新の必要SEU数・更新手数料は、必ず自身のScrum Allianceアカウントまたは公式SEUページ [27] で確認してください。本ガイドでは古い情報を現在の要件として断定しないよう、参考情報としてのみ記載しています。
+### CAL 1 の更新要件
+
+CAL 1 は Scrum Alliance の認定レベル区分では **Foundational(基礎)レベル**(CSM / CSPO / CSD / CASP / CAF と同区分)に位置づけられ、更新要件も同レベルの他資格と共通です [17] [27]。
+
+| 項目 | CAL 1(Foundational レベル)の要件 |
+|---|---|
+| 必要SEU数 | **2年間で20 SEU** |
+| 更新手数料 | **100米ドル(2年間)** |
+| 更新の条件 | SEU と更新手数料の**両方**が必須(どちらか一方だけでは更新できない) |
+
+参考として、上位レベルの要件は Advanced(A-CSM / A-CSPO / A-CSD / **CAL 2**)が2年間で30 SEU・175米ドル、Professional(CSP-SM / CSP-PO / CSP-D)が2年間で40 SEU・250米ドルです [17] [27]。
+
+> **注記(旧制度の参考情報)**: 2024年の CAL トラック再編**前**の「Leadership level」区分(CAL-E / CAL-O / CAL-T)では、2年ごとに10 SEU とされていました(第三者情報源より) [25] [28]。これは**現行の CAL 1 には適用されない過去の値**であり、履歴情報としてのみ記載しています。現行の要件は上表のとおりです。
+>
+> **初学者向けポイント**: 複数の Scrum Alliance 認定を保有している場合、最上位の認定を SEU と更新手数料で更新すると、下位の認定は半分の SEU(かつ追加費用なし)で更新される仕組みがあります [17]。CAL 1 と CSM を併せ持つ場合などは、更新タイミングをまとめると手続きコストを抑えられます。
 
 ---
 
@@ -305,11 +319,11 @@ flowchart TD
 
 | よくある誤解 | 実際 | 出典 |
 |---|---|---|
-| CAL 1 には筆記試験・選択式試験がある | 試験は実施されない。出席と積極的な参加、事前・事後課題の完了が認定条件 | [7] |
+| CAL 1 には筆記試験・選択式試験がある | 試験は実施されない。16時間の講座への出席と積極的な参加が共通の認定条件(事前・事後課題はトレーナーが課す場合のみ) | [1] [7] |
 | CAL 1 はスクラムマスターなど特定の役職の人専用の資格である | 業種・役職を問わず「人をリードしている、またはこれからリードしたい人」が対象 | [1] |
-| CAL 1 を取得すればCAL 2の内容も自動的に含まれる | CAL 2 は別課程であり、CAL1取得を前提条件として追加で16時間の受講が必要 | [10][17] |
-| 資格は一度取得すれば永続的に有効である | 2年ごとにSEUを取得して更新する必要がある | [17][27] |
-| CAL-Essentials・CAL-Teams・CAL-Organizationsが今も個別に提供されている | 2024年の刷新により CAL 1 / CAL 2 の2階層に再編済み | [8][9] |
+| CAL 1 を取得すればCAL 2の内容も自動的に含まれる | CAL 2 は別課程であり、CAL1取得を前提条件として追加で16時間の受講が必要 | [10] [17] |
+| 資格は一度取得すれば永続的に有効である | 2年ごとにSEUを取得して更新する必要がある | [17] [27] |
+| CAL-Essentials・CAL-Teams・CAL-Organizationsが今も個別に提供されている | 2024年の刷新により CAL 1 / CAL 2 の2階層に再編済み | [8] [9] |
 | どのトレーナーの講座を選ぶかで取得できる資格の重みが変わる | どのトレーナーの講座を修了しても同一の、Scrum Alliance公認資格が得られる | [1] |
 
 ---
@@ -345,12 +359,12 @@ flowchart TD
 
 | No. | タイトル | URL |
 |---|---|---|
-| [7][13] | Certified Agile Leader® 1 (CAL 1) コース詳細(学習目標4領域・Day1/Day2構成・試験の有無を明記) ― PM-Partners(Scrum Alliance認定トレーニングパートナー) | https://www.pm-partners.com.au/course/certified-agile-leader/ |
+| [7] [13] | Certified Agile Leader® 1 (CAL 1) コース詳細(学習目標4領域・Day1/Day2構成・試験の有無を明記) ― PM-Partners(Scrum Alliance認定トレーニングパートナー) | https://www.pm-partners.com.au/course/certified-agile-leader/ |
 | [9] | Certified Agile Leadership Certification ― CAL1/CAL2再編の経緯解説 ― tryscrum.com | https://tryscrum.com/certifications/agile/scrum/leadership/certified-agile-leadership-i/ |
 | [10] | Certified Agile Leadership I (CAL-1) Certification Training ― KnowledgeHut | https://www.knowledgehut.com/agile-management/certified-agile-leadership-cal-1-training |
 | [14] | Certified Agile Leader® 2 コース詳細例 ― Evolve Agility(Scrum Alliance認定トレーニングパートナー、Scrum Alliance公式コース検索経由) | https://www.evolveagility.com/services-agile-training/certified-agile-leader-2/ |
-| [15][16] | Scrum Alliance Launches Updated Certified Agile Leader Track to Elevate Leadership Skills(公式プレスリリース、2024年) | https://www.prnewswire.com/news-releases/scrum-alliance-launches-updated-certified-agile-leader-track-to-elevate-leadership-skills-302212940.html |
-| [25][28] | Scrum Alliance SEU Program 解説(旧Leadership level区分のSEU要件、要最新確認) | https://sanfranciscobs.com/p/40-scrum-alliance-seu-program |
+| [15] [16] | Scrum Alliance Launches Updated Certified Agile Leader Track to Elevate Leadership Skills(公式プレスリリース、2024年) | https://www.prnewswire.com/news-releases/scrum-alliance-launches-updated-certified-agile-leader-track-to-elevate-leadership-skills-302212940.html |
+| [25] [28] | Scrum Alliance SEU Program 解説(旧Leadership level区分のSEU要件。再編前の履歴情報としてのみ参照) | https://sanfranciscobs.com/p/40-scrum-alliance-seu-program |
 
 ### 基礎資料(受講前に読むことが推奨される一次資料)
 
@@ -364,5 +378,22 @@ flowchart TD
 ### このガイドの取り扱いに関する注記
 
 - CAL 1 は Scrum Alliance® の登録商標です。本ガイドは同団体が公開している情報および認定トレーニングパートナーの公開情報を独自に要約・翻訳・整理した非公式の学習補助資料であり、Scrum Alliance による公認資料ではありません。
-- 費用・SEU要件・更新手数料などの数値情報は変更される可能性が高いため、実際の申し込み・更新の際は必ず出典[1][17][27]の最新ページを確認してください。
+- 受講料などトレーナーごとに設定される費用は変動します。また SEU 要件・更新手数料も改定される可能性があるため、実際の申し込み・更新の際は必ず出典[1] [17] [27]の最新ページを確認してください。
 - 第4章・第12章の「ベストプラクティス」列は、公式の学習領域の名称・範囲(出典[7])を土台にした実務解説であり、Scrum Alliance公式教材からの引用ではありません。
+
+[1]: https://www.scrumalliance.org/get-certified/agile-leader/cal-1
+[6]: https://scrumalliance.smapply.io/prog/certified_agile_leader_cal_trainer/
+[7]: https://www.pm-partners.com.au/course/certified-agile-leader/
+[8]: https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2
+[9]: https://tryscrum.com/certifications/agile/scrum/leadership/certified-agile-leadership-i/
+[10]: https://www.knowledgehut.com/agile-management/certified-agile-leadership-cal-1-training
+[13]: https://www.pm-partners.com.au/course/certified-agile-leader/
+[14]: https://www.evolveagility.com/services-agile-training/certified-agile-leader-2/
+[15]: https://www.prnewswire.com/news-releases/scrum-alliance-launches-updated-certified-agile-leader-track-to-elevate-leadership-skills-302212940.html
+[16]: https://www.prnewswire.com/news-releases/scrum-alliance-launches-updated-certified-agile-leader-track-to-elevate-leadership-skills-302212940.html
+[17]: https://www.scrumalliance.org/get-certified/agile-leadership/cal-certification
+[18]: https://www.scrumalliance.org/get-certified/agile-leader-track
+[19]: https://www.scrumalliance.org/about/we-are-scrum-alliance
+[25]: https://sanfranciscobs.com/p/40-scrum-alliance-seu-program
+[27]: https://www.scrumalliance.org/get-certified/scrum-education-units
+[28]: https://sanfranciscobs.com/p/40-scrum-alliance-seu-program
