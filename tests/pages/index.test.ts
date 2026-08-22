@@ -197,6 +197,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/lean-ux-beginner-guide",
         accentClass: "guide-card-forest",
       },
+      {
+        title: "リーダーとしての最初の60日間",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/your-first-60-days-as-a-leader",
+        accentClass: "guide-card-forest",
+      },
     ]);
   });
 
