@@ -1320,7 +1320,15 @@ class SG1,SG2,SG3 done;`
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });
