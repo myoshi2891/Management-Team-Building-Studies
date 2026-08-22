@@ -94,6 +94,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "Team Geek", href: "/team-geek-guide" },
       { label: "Team Topologies", href: "/team-topologies-guide" },
       { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
+      { label: "Debugging Teams", href: "/debugging-teams-guide" },
     ]);
   });
 
@@ -128,6 +129,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/team-geek-guide",
       "/team-topologies-guide",
       "/lean-ux-beginner-guide",
+      "/debugging-teams-guide",
     ]);
   });
 

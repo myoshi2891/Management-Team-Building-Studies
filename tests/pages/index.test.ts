@@ -203,6 +203,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/your-first-60-days-as-a-leader",
         accentClass: "guide-card-forest",
       },
+      {
+        title: "Debugging Teams 完全ガイド ― チームの人間関係を「デバッグ」するベストプラクティス",
+        category: "TEAM BUILDING",
+        href: "/debugging-teams-guide",
+        accentClass: "guide-card-plum",
+      },
     ]);
   });
 
