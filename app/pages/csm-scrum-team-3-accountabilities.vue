@@ -244,7 +244,7 @@ const DIAGRAM_EMPIRICAL_CYCLE = `flowchart LR
             <div class="stat-card"><div class="stat-number">16時間</div><div class="stat-label">CSM講座の標準所要時間</div></div>
             <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">CSM認定試験の出題数</div></div>
             <div class="stat-card"><div class="stat-number">37問</div><div class="stat-label">合格に必要な正解数</div></div>
-            <div class="stat-card"><div class="stat-number">90日</div><div class="stat-label">受講後の受験可能期間(2回まで)</div></div>
+            <div class="stat-card"><div class="stat-number">90日</div><div class="stat-label">受験費用込みの受験期間(2回まで)</div></div>
           </div>
 
           <div class="disclaimer-box">
@@ -749,7 +749,7 @@ const DIAGRAM_EMPIRICAL_CYCLE = `flowchart LR
                 <tr><td>試験形式</td><td>オンライン多肢選択式、50問</td></tr>
                 <tr><td>合格基準</td><td>50問中37問以上正解</td></tr>
                 <tr><td>制限時間</td><td>1時間</td></tr>
-                <tr><td>受験機会</td><td>講座受講後90日以内に2回まで挑戦可能</td></tr>
+                <tr><td>受験機会</td><td>最初のウェルカムメール受信日から90日以内は受験費用込みで2回まで。90日超・3回目以降は1回につき25米ドル</td></tr>
               </tbody>
             </table>
           </div>
