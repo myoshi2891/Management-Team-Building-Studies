@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `f7ad0e8` — style(peopleware): restore exact typography, components, and layout styling from original HTML（本ファイルのコミットより前のコード側コミット） |
-| 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
-| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-23 実測） |
-| テスト数 | **749** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 23 + Peopleware guide page 23）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
+| コードコミット HEAD | `c322665` — docs: document series registration in guide catalog（本ファイルのコミットより前のコード側コミット） |
+| 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクションとグローバルナビのメガメニューの両方が自動で追随する。**`seriesId` は省略不可**） |
+| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-23 実測。グローバルナビのメガメニュー化後に再実行） |
+| テスト数 | **763** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 16 + mermaid プラグイン 3 + app 1 + home 8 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 23 + Peopleware guide page 23）+ **14** E2E（capm 4 + site-header 10）— これがベースライン |
 | 原本照合監査 | ✔ **全 28 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
@@ -412,15 +412,43 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: team-building`, `accent: indigo` |
 | 監査スクリプト | — | `npm run audit:peopleware` | **exit 0**（全要素一致） |
 
+### 36. グローバルナビのメガメニュー化とホームのセクション化（2026-08-23）
+
+§12 のカテゴリー集約は**横方向**のスケールを解決したが、縦方向は未解決だった
+（プロジェクトマネジメント 13 件 = 1 カラム 13 行 ≒ 520px でノート PC の縦解像度をはみ出す）。
+カタログへシリーズ階層を 1 段追加し、ナビはカラム分割、ホームはセクション分割へ移行した。
+
+| 変更 | 内容 |
+|---|---|
+| カタログ | `GUIDE_SERIES` を追加（CAPM / PMP / Scrum・CSM / はじめてのリード / 組織・スケール / チーム文化 / チーム設計・変革）。`Guide.seriesId` は**省略不可**で、シリーズを持たないカテゴリーは `undefined` を明示 |
+| 並び順 | `GUIDES` を「カテゴリー順 → シリーズ順 → 定義順」へ並べ替え。`seriesGroups` の平坦化が `guides` と一致し、ナビとホームで順序を二重管理しない |
+| ナビ | `#nav-panel-<id>` を `<ul>` から `<div>`（グリッド）へ。配置基準を `.nav-category` から `nav` へ移し右揃えにした（カラムが増えたパネルを項目基準 `left: 0` で出すと右寄りカテゴリーで画面外へ出るため）。開いているトリガーには金色の下線を出して対応を示す |
+| ホーム | カード一覧をカテゴリーセクションへ。セクション見出し `h3` / カード見出し `h4`。カード上の英語表記はシリーズ表記（セクション見出しとの重複回避） |
+
+判断の記録:
+
+- **シリーズにアイコンを持たせない。** `.ts` へアイコン名を増やすほど
+  `nuxt.config.ts` の `icon.clientBundle.scan.globInclude` 依存が広がり、
+  dev では再現しない「本番だけアイコンが空白」の事故域が広がるため。
+- **シリーズを開閉可能にしない。** 状態を `openCategoryId` の 1 本に保つことで、
+  フォーカス退避・Escape・タブ順除外の既存契約に手を入れずに済む。
+- **e2e のパネル開閉を冪等な再試行へ変更。** SSG された HTML はボタンが押せる状態で
+  先に描画されるため、`goto()` 直後の `focus()+Enter` / `hover()` は Vue のリスナーが
+  付く前に発火しうる。実測で 30 回中 1 回の flaky を観測した。
+  `#__nuxt` に `data-v-app` は付与されないため、ハイドレーション内部フラグには依存していない。
+- ページ本体は無改変。原本照合監査は**全 28 本 exit 0** を再確認済み。
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 5172003
+コードコミット HEAD: c322665
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
-  ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
+  ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
+  seriesId は省略不可。シリーズを持たないカテゴリー（engineering-management のみ）は
+  undefined を明示する。挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守ること。
   tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
   tests/components/SiteHeader.test.ts の期待値配列を先に更新して Red を作ること
 
