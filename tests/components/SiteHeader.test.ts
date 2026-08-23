@@ -79,6 +79,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
       { label: "EM 入門", href: "/engineering-manager-guide" },
+      { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
@@ -130,6 +131,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/team-topologies-guide",
       "/lean-ux-beginner-guide",
       "/debugging-teams-guide",
+      "/managing-humans-best-practices-guide",
     ]);
   });
 
@@ -198,6 +200,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

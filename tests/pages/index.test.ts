@@ -209,6 +209,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/debugging-teams-guide",
         accentClass: "guide-card-plum",
       },
+      {
+        title: "『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/managing-humans-best-practices-guide",
+        accentClass: "guide-card-plum",
+      },
     ]);
   });
 

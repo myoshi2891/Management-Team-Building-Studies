@@ -49,6 +49,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/lean-ux-beginner-guide", categoryId: "team-building", navLabel: "Lean UX 入門" },
       { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", navLabel: "最初の60日間" },
       { to: "/debugging-teams-guide", categoryId: "team-building", navLabel: "Debugging Teams" },
+      { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", navLabel: "Managing Humans" },
     ]);
   });
 
@@ -78,7 +79,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-management",
-        guides: ["EM キャリアパス", "EM 入門"],
+        guides: ["EM キャリアパス", "EM 入門", "Managing Humans"],
       },
       {
         id: "engineering-leadership",
