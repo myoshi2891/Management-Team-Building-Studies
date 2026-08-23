@@ -939,6 +939,7 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
 
 section {
   margin: 72px 0;
+  scroll-margin-top: var(--global-nav-height);
 }
 
 :is(h2, h3) {
