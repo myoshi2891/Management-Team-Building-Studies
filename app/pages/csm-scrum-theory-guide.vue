@@ -359,7 +359,7 @@ useSeoMeta({
           <h2>経験主義の3本柱(LO 1.4)</h2>
 
           <h3>3本柱の全体像</h3>
-          <p>Scrum Guideは、経験主義を支える3つの柱として「透明性(Transparency)」「検査(Inspection)」「適応(Adaptation)」を挙げています。この3つは独立した概念ではなく、<strong>一方通行の連鎖</strong>として機能します。</p>
+          <p>Scrum Guideは、経験主義を支える3つの柱として「透明性(Transparency)」「検査(Inspection)」「適応(Adaptation)」を挙げています。この3つは独立した概念ではなく、各反復のなかで<strong>透明性 → 検査 → 適応</strong>という一方向に進む連鎖として機能します。そして適応の結果はふたたび透明性の対象となり、次の反復で同じ連鎖が繰り返されます。</p>
 
           <div class="mermaid-wrap">
             <ClientOnly>
