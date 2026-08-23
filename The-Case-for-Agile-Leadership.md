@@ -114,7 +114,7 @@ Scrum Allianceの公式学習目標によれば、CAL1を通じて次のよう�
 
 ## 3. なぜマインドセットの転換が必要なのか：リーダーシップ・アジリティ発展モデル
 
-「なぜアジャイルリーダーシップが必要か」を裏づける理論的な柱として、CALプログラムの設計には、Bill JoinerとStephen Josephsによる書籍『Leadership Agility（邦題なし、2007年刊）』の発展段階モデルが取り入れられています。CALプログラム自体も、2015〜2016年にかけてPete Behrens氏らScrum Alliance関係者によって設計されており、この理論を土台の一つとしています。
+「なぜアジャイルリーダーシップが必要か」を裏づける理論的な柱として、CALプログラムの設計には、Bill JoinerとStephen Josephsによる書籍『Leadership Agility（邦題なし、2006年刊）』の発展段階モデルが取り入れられています。CALプログラム自体も、2015〜2016年にかけてPete Behrens氏らScrum Alliance関係者によって設計されており、この理論を土台の一つとしています。
 
 ### 3.1 モデルの全体像：5段階のリーダーシップ発展
 
@@ -145,7 +145,7 @@ Expert・Achiever段階のリーダーシップは、タスク志向・結果志
 > - 360度フィードバックなど第三者からの評価を取り入れ、自己認識と他者評価のギャップを把握する
 >
 > **ソース**
-> - [Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（William B. Joiner, Stephen A. Josephs, 2007）](https://www.researchgate.net/publication/23318406_Leadership_agility)
+> - [Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（William B. Joiner, Stephen A. Josephs, 2006）](https://www.researchgate.net/publication/23318406_Leadership_agility)
 > - [What is Leadership Agility? | Agile Leadership Journey（5段階モデルの解説）](https://www.agileleadershipjourney.com/leadership-journey/leadership-agility)
 > - [Certified Agile Leadership Program Announced | InfoQ（CALプログラムの設計背景）](https://www.infoq.com/news/2016/08/certified-agile-leadership)
 
@@ -303,8 +303,8 @@ CAL1第1章の内容を体系立てて自分のものにするための学習ス
 | CAL 1™ Learning Objectives | Scrum Alliance公開資料 | https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view |
 | Certified Agile Leader® 1 (CAL 1) | PM-Partners（学習領域4分類とDay1/Day2構成） | https://www.pm-partners.com.au/course/certified-agile-leader/ |
 | What Makes You an Agile Leader? | Scrum Alliance | https://resources.scrumalliance.org/Article/makes-agile-leader |
-| Agile Manifesto（アジャイルソフトウェア開発宣言） | Kent Beck ほか17名（署名者） | https://agilemanifesto.org/ |
-| Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（Joiner & Josephs, 2007） | ResearchGate | https://www.researchgate.net/publication/23318406_Leadership_agility |
+| Agile Manifesto（アジャイルソフトウェア開発宣言） | Kent Beck ほか16名（署名者は Kent Beck を含む計17名） | https://agilemanifesto.org/ |
+| Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change（Joiner & Josephs, 2006） | ResearchGate | https://www.researchgate.net/publication/23318406_Leadership_agility |
 | What is Leadership Agility? | Agile Leadership Journey | https://www.agileleadershipjourney.com/leadership-journey/leadership-agility |
 | Certified Agile Leadership Program Announced | InfoQ（CALプログラムの設計背景） | https://www.infoq.com/news/2016/08/certified-agile-leadership |
 | Certified Agile Leadership | InfoQ（日本語版インタビュー、Pete Behrens氏） | https://www.infoq.com/jp/news/2016/10/certified-agile-leadership |

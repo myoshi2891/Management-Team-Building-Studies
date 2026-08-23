@@ -463,16 +463,19 @@ CAL1の「Leading Agile Teams」領域は、大きく3つのねらいに整理�
 ## 参考文献一覧
 
 ### Scrum Alliance公式情報源
+
 - Certified Agile Leader® 1 (CAL 1™) 公式ページ: https://www.scrumalliance.org/get-certified/agile-leader/cal-1
 - CAL 1™ Learning Objectives(公式配布資料): https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view
 - Scrum Alliance公式コース検索・詳細ページ(学習目標の記載): https://www.scrumalliance.org/courses-events/search/coursedetail?id=202405528
 - PM-Partners社(Scrum Alliance認定トレーニングパートナー)によるCAL1コース概要: https://www.pm-partners.com.au/course/certified-agile-leader/
 
 ### アジャイル基礎の一次情報源
+
 - Manifesto for Agile Software Development: https://agilemanifesto.org/
 - The 2020 Scrum Guide(scrumguides.org公式): https://scrumguides.org/scrum-guide.html
 
 ### チームリーダーシップのフレームワーク(提唱者・一次情報源)
+
 - Greenleaf Center for Servant Leadership「What is Servant Leadership?」: https://greenleaf.org/what-is-servant-leadership/
 - Tuckman, B.W. (1965) *Developmental Sequence in Small Groups* の解説(infed.org): https://infed.org/dir/welcome/bruce-w-tuckman-forming-storming-norming-and-performing-in-groups/
 - Google re:Work「Understand team effectiveness」(Project Aristotle): https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness
