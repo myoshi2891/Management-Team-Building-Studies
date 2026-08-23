@@ -73,6 +73,13 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
 
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
   img, svg { max-width: 100%; }
 
   .layout {
@@ -588,7 +595,9 @@
 </head>
 <body>
 
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
 
 <div class="layout">
 
@@ -607,24 +616,24 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>Step 0. CSM試験の基礎知識</a></li>
-      <li><a href="#artifacts-commitments-overview"><i class="ti ti-building-bank"></i>Step 1. 全体像</a></li>
-      <li><a href="#product-backlog"><i class="ti ti-clipboard-text"></i>Step 2. プロダクトバックログ</a></li>
-      <li><a href="#sprint-backlog"><i class="ti ti-timeline"></i>Step 3. スプリントバックログ</a></li>
-      <li><a href="#increment-definition-of-done"><i class="ti ti-clipboard-check"></i>Step 4. インクリメントと完成の定義</a></li>
-      <li><a href="#inspection-points"><i class="ti ti-calendar-event"></i>Step 5. イベントと検査ポイント</a></li>
-      <li><a href="#goal-hierarchy"><i class="ti ti-git-branch"></i>Step 6. ゴールの階層構造</a></li>
-      <li><a href="#common-misconceptions"><i class="ti ti-list-check"></i>Step 7. よくある誤解</a></li>
-      <li><a href="#learning-objectives-checklist"><i class="ti ti-map-2"></i>Step 8. LOチェックリスト</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・ソース</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-certificate" aria-hidden="true"></i>Step 0. CSM試験の基礎知識</a></li>
+      <li><a href="#artifacts-commitments-overview"><i class="ti ti-building-bank" aria-hidden="true"></i>Step 1. 全体像</a></li>
+      <li><a href="#product-backlog"><i class="ti ti-clipboard-text" aria-hidden="true"></i>Step 2. プロダクトバックログ</a></li>
+      <li><a href="#sprint-backlog"><i class="ti ti-timeline" aria-hidden="true"></i>Step 3. スプリントバックログ</a></li>
+      <li><a href="#increment-definition-of-done"><i class="ti ti-clipboard-check" aria-hidden="true"></i>Step 4. インクリメントと完成の定義</a></li>
+      <li><a href="#inspection-points"><i class="ti ti-calendar-event" aria-hidden="true"></i>Step 5. イベントと検査ポイント</a></li>
+      <li><a href="#goal-hierarchy"><i class="ti ti-git-branch" aria-hidden="true"></i>Step 6. ゴールの階層構造</a></li>
+      <li><a href="#common-misconceptions"><i class="ti ti-list-check" aria-hidden="true"></i>Step 7. よくある誤解</a></li>
+      <li><a href="#learning-objectives-checklist"><i class="ti ti-map-2" aria-hidden="true"></i>Step 8. LOチェックリスト</a></li>
+      <li><a href="#references"><i class="ti ti-link" aria-hidden="true"></i>参考文献・ソース</a></li>
     </ul>
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum Alliance CSM(R) Learning Objectives 準拠</div>
+      <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true"></i>Scrum Alliance CSM(R) Learning Objectives 準拠</div>
       <h1>Scrum Artifacts と Commitments 完全ガイド</h1>
       <p class="hero-lede">
         Certified ScrumMaster(R)(CSM(R))取得を目指す初学者を対象に、Scrumの3つのアーティファクト(Artifacts)と3つのコミットメント(Commitments)をステップバイステップで解説します。The 2020 Scrum GuideおよびScrum AllianceのCSM Learning Objectivesに準拠しています。
@@ -634,21 +643,21 @@
         <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">多肢選択式の出題数</div></div>
         <div class="stat-card"><div class="stat-number">37問以上</div><div class="stat-label">合格ライン(50問中)</div></div>
         <div class="stat-card"><div class="stat-number">60分</div><div class="stat-label">試験の制限時間</div></div>
-        <div class="stat-card"><div class="stat-number">2回</div><div class="stat-label">受験機会(90日以内)</div></div>
+        <div class="stat-card"><div class="stat-number">2回</div><div class="stat-label">受験費用込みの受験機会(90日以内)</div></div>
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
         本ガイドは学習支援を目的とした非公式の解説資料です。試験形式・料金・学習目標などの最新情報は、必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>および<a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">The 2020 Scrum Guide公式サイト</a>でご確認ください。
       </div>
     </div>
 
     <!-- ===================== 0. CSM Exam Overview ===================== -->
     <section id="exam-overview">
-      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <div class="section-eyebrow"><i class="ti ti-certificate" aria-hidden="true"></i>SECTION 01</div>
       <h2>Step 0. このガイドについて / CSM試験の基礎知識</h2>
 
-      <p>Scrum Alliance の Certified ScrumMaster(R)(CSM(R))コースは、Scrum フレームワークの中核(スクラムチームの役割、イベント、アーティファクト)を扱う入門資格です。コース受講後に受験するテストは、50問の多肢選択式で、90日以内・2回までの受験機会の中で1時間以内に37問以上正解する必要があります。</p>
+      <p>Scrum Alliance の Certified ScrumMaster(R)(CSM(R))コースは、Scrum フレームワークの中核(スクラムチームの役割、イベント、アーティファクト)を扱う入門資格です。コース受講後に受験するテストは、50問の多肢選択式で、1時間以内に37問以上正解する必要があります。最初のウェルカムメール受信日から90日以内であれば受験費用込みで最大2回まで受験でき、それを超える受験も可能ですが、1回につき25米ドルの受験料が別途必要です。</p>
 
       <p>CSM の Learning Objectives(学習目標)は、次の資料をベースに策定されています。</p>
 
@@ -662,14 +671,14 @@
       <p>このガイドは、この中でも出題の中心となる「Scrum Artifacts(アーティファクト)」と「Commitments(コミットメント)」を、初学者向けにステップバイステップで解説します。</p>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
         <p>CSM の Learning Objectives は Bloom のタキソノミー(分類)に基づいて動詞が選ばれています。「説明できる(describe)」「議論できる(discuss)」「適用できる(apply)」など、単なる暗記ではなく「理解して使いこなせるか」が問われる点を意識して学習すると効果的です。</p>
       </div>
     </section>
 
     <!-- ===================== 1. Artifacts and Commitments Overview ===================== -->
     <section id="artifacts-commitments-overview">
-      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
+      <div class="section-eyebrow"><i class="ti ti-building-bank" aria-hidden="true"></i>SECTION 02</div>
       <h2>Step 1. アーティファクトとコミットメントの全体像</h2>
 
       <h3>1-1. アーティファクトとは何か</h3>
@@ -715,7 +724,7 @@
 
     <!-- ===================== 2. Product Backlog and Product Goal ===================== -->
     <section id="product-backlog">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 03</div>
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text" aria-hidden="true"></i>SECTION 03</div>
       <h2>Step 2. プロダクトバックログ(Product Backlog)とプロダクトゴール(Product Goal)</h2>
 
       <h3>2-1. 定義</h3>
@@ -766,7 +775,7 @@
       <h3>2-5. リファインメントの実践ポイント</h3>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>リファインメントは正式なイベントではなく、必要に応じて継続的に行う活動(Scrum Guide では独立したイベントとして時間枠は定めていない)</li>
           <li>リファインメントに使う時間の目安として「開発者のキャパシティの10%程度」がよく引用されるが、これは Scrum Guide 本文の規定ではなく実践上の目安であることに注意する</li>
@@ -799,7 +808,7 @@
 
     <!-- ===================== 3. Sprint Backlog and Sprint Goal ===================== -->
     <section id="sprint-backlog">
-      <div class="section-eyebrow"><i class="ti ti-timeline"></i>SECTION 04</div>
+      <div class="section-eyebrow"><i class="ti ti-timeline" aria-hidden="true"></i>SECTION 04</div>
       <h2>Step 3. スプリントバックログ(Sprint Backlog)とスプリントゴール(Sprint Goal)</h2>
 
       <h3>3-1. 定義</h3>
@@ -868,14 +877,14 @@
       <p>代表的なテンプレートの一例(Scrum.org が紹介するシンプルな型):</p>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
         <p>私たちは〈アウトカム〉に注力する。これは〈顧客〉に〈インパクト〉をもたらすと信じている。これは〈確認できる条件〉が満たされたときに確認できる。</p>
       </div>
     </section>
 
     <!-- ===================== 4. Increment and Definition of Done ===================== -->
     <section id="increment-definition-of-done">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 05</div>
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true"></i>SECTION 05</div>
       <h2>Step 4. インクリメント(Increment)と完成の定義(Definition of Done)</h2>
 
       <h3>4-1. 定義</h3>
@@ -930,7 +939,7 @@
       <h3>4-6. ベストプラクティス:完成の定義の作り方</h3>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>チーム全員参加のワークショップ形式で、対象領域の専門家(セキュリティ、運用など該当する場合)を交えて洗い出す</li>
           <li>最初から完璧を求めず、小さく始めて経験を積みながら育てていく</li>
@@ -957,7 +966,7 @@
 
     <!-- ===================== 5. Events and Inspection Points ===================== -->
     <section id="inspection-points">
-      <div class="section-eyebrow"><i class="ti ti-calendar-event"></i>SECTION 06</div>
+      <div class="section-eyebrow"><i class="ti ti-calendar-event" aria-hidden="true"></i>SECTION 06</div>
       <h2>Step 5. イベントとアーティファクトの検査ポイント</h2>
 
       <p>Scrum の5つのイベントは、いずれも「検査と適応」の機会として設計されています。CSM の学習目標では「各スクラムイベントにおいて、透明性を高めるための検査・適応の例を1つ挙げられること」が明示的に求められます。</p>
@@ -983,7 +992,7 @@
 
     <!-- ===================== 6. Vision, Goal, Sprint Goal Hierarchy ===================== -->
     <section id="goal-hierarchy">
-      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 07</div>
+      <div class="section-eyebrow"><i class="ti ti-git-branch" aria-hidden="true"></i>SECTION 07</div>
       <h2>Step 6. プロダクトビジョン・プロダクトゴール・スプリントゴールの階層構造</h2>
 
       <p>3つの「目的地」を混同しないことも、CSM 試験の理解を深めるうえで重要です。</p>
@@ -1007,7 +1016,7 @@
 
     <!-- ===================== 7. Common Misconceptions ===================== -->
     <section id="common-misconceptions">
-      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 08</div>
+      <div class="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"></i>SECTION 08</div>
       <h2>Step 7. よくある誤解とCSM試験のひっかけポイント</h2>
 
       <div class="table-wrap">
@@ -1029,7 +1038,7 @@
 
     <!-- ===================== 8. CSM Learning Objectives Checklist ===================== -->
     <section id="learning-objectives-checklist">
-      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 09</div>
+      <div class="section-eyebrow"><i class="ti ti-map-2" aria-hidden="true"></i>SECTION 09</div>
       <h2>Step 8. CSM Learning Objectives との対応チェックリスト</h2>
 
       <p>Scrum Alliance の CSM Learning Objectives(2022年1月改訂版)のうち、本ガイドの内容と直接関係する項目を整理します。学習の仕上げに、以下を自分の言葉で説明できるか確認してください。</p>
@@ -1041,7 +1050,7 @@
             <tr><td>1.6</td><td>プロダクトオーナーがプロダクトバックログに対して権限を持ちながら、開発者やステークホルダーと協働する理由を議論できる</td><td>Step 2</td></tr>
             <tr><td>1.7</td><td>各スクラムイベントにおいて、透明性を高める検査・適応の例を1つ挙げられる</td><td>Step 5</td></tr>
             <tr><td>1.8〜1.10</td><td>スプリントプランニング/スプリントレビュー/スプリントレトロスペクティブを実施できる</td><td>Step 3〜5</td></tr>
-            <tr><td>1.13</td><td>デイリースクラムがステータス会議とどう異なるかを、制約の理由とともに議論できる</td><td>Step 3</td></tr>
+            <tr><td>1.13</td><td>デイリースクラムがステータス会議とどう異なるかを、制約の理由とともに議論できる</td><td>Step 5(検査対象と目的)。ステータス会議との違いの詳細は姉妹ガイド「Scrum イベント(CSM)」の Daily Scrum 節を参照</td></tr>
             <tr><td>1.15</td><td>強固な完成の定義がもたらす利点を3つ以上説明できる</td><td>Step 4</td></tr>
             <tr><td>1.16</td><td>完成の定義を作成する方法を1つ以上挙げられる</td><td>Step 4</td></tr>
             <tr><td>3.2〜3.3</td><td>技術的負債の影響と、高品質なインクリメントのための開発プラクティスを挙げられる</td><td>Step 4</td></tr>
@@ -1050,14 +1059,14 @@
       </div>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
         <p><strong>学習のコツ:</strong>CSM の Learning Objectives は「describe(説明できる)」「discuss(議論できる)」「apply(適用できる)」のように動詞が明示されています。単に用語を暗記するのではなく、実際のスクラムチームの場面を想定して「なぜそうなっているのか」を自分の言葉で説明できるようにしておくと、応用問題にも対応しやすくなります。</p>
       </div>
     </section>
 
     <!-- ===================== References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 10</div>
+      <div class="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 10</div>
       <h2>参考文献・ソース一覧</h2>
 
       <p>本ガイドの内容は、以下の一次情報源を根拠としています。Scrum Guide の内容は Ken Schwaber 氏・Jeff Sutherland 氏により Creative Commons Attribution-ShareAlike 4.0 ライセンスの下で提供されています。</p>
@@ -1106,7 +1115,7 @@
       </div>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
         <p>本ガイドは学習目的の要約・解説であり、Scrum Guide 原文の翻訳・転載ではありません。正確な定義・原文表現については、必ず上記の一次情報源(特に The 2020 Scrum Guide 公式サイト)を参照してください。</p>
       </div>
     </section>

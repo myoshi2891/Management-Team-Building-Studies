@@ -73,6 +73,13 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
 
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
   img, svg { max-width: 100%; }
 
   .layout {
@@ -588,6 +595,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
 
 <div class="layout">
@@ -619,7 +628,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true"></i>Scrum Alliance CSM 学習ガイド</div>
@@ -671,8 +680,8 @@
             <tr><td>試験形式</td><td>オンライン、多肢選択式 50問</td></tr>
             <tr><td>制限時間</td><td>1時間</td></tr>
             <tr><td>合格基準</td><td>50問中37問以上の正解</td></tr>
-            <tr><td>受験可能回数</td><td>コース費用に2回分の受験機会が含まれる</td></tr>
-            <tr><td>受験期限</td><td>コース修了から90日以内</td></tr>
+            <tr><td>受験可能回数</td><td>コース費用に2回分の受験機会が含まれる(以降は1回につき25米ドルの受験料が必要)</td></tr>
+            <tr><td>受験期限</td><td>最初のウェルカムメール受信日から90日以内(期限を過ぎても受験できるが、1回につき25米ドルの受験料が必要)</td></tr>
             <tr><td>認定後の特典</td><td>Scrum Alliance の2年間メンバーシップ</td></tr>
             <tr><td>費用の目安</td><td>250〜2,495 USD(トレーナー・地域・形式により変動)</td></tr>
           </tbody>
@@ -695,7 +704,7 @@
         <ul>
           <li>コース中に扱われる Learning Objectives(学習目標)を事前に確認し、コース後の復習チェックリストとして使う</li>
           <li>試験直前ではなく、コース修了後できるだけ早いタイミングで受験する(記憶が新しいうちに)</li>
-          <li>1回目で不合格でも90日以内・2回目の受験機会があることを覚えておき、焦らず復習する</li>
+          <li>1回目で不合格でも90日以内なら受験費用込みで2回目を受けられることを覚えておき、焦らず復習する(90日超・3回目以降は1回につき25米ドル)</li>
         </ul>
       </div>
     </section>
@@ -1414,8 +1423,12 @@ class CSPSM done;`,
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1449,7 +1462,15 @@ class CSPSM done;`,
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });

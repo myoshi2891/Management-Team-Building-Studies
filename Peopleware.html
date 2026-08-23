@@ -73,6 +73,13 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
 
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
   img, svg { max-width: 100%; }
 
   .layout {
@@ -588,7 +595,9 @@
 </head>
 <body>
 
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
 
 <div class="layout">
 
@@ -607,28 +616,28 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#what-is-peopleware"><i class="ti ti-book-2"></i>Peoplewareとは</a></li>
-      <li><a href="#core-thesis"><i class="ti ti-brain"></i>核心テーゼ</a></li>
-      <li><a href="#book-structure"><i class="ti ti-list-check"></i>書籍全体の構成</a></li>
-      <li><a href="#part1-human-resource"><i class="ti ti-users"></i>Part I 人的資源</a></li>
-      <li><a href="#part2-office-environment"><i class="ti ti-building"></i>Part II オフィス環境</a></li>
-      <li><a href="#part3-right-people"><i class="ti ti-user-check"></i>Part III 適切な人材</a></li>
-      <li><a href="#part4-productive-teams"><i class="ti ti-heart-handshake"></i>Part IV チーム形成</a></li>
-      <li><a href="#part5-fertile-soil"><i class="ti ti-leaf"></i>Part V 肥沃な土壌</a></li>
-      <li><a href="#part6-fun-to-work-here"><i class="ti ti-mood-smile"></i>Part VI 楽しい職場</a></li>
-      <li><a href="#action-roadmap"><i class="ti ti-route"></i>実践ロードマップ</a></li>
-      <li><a href="#developer-voices"><i class="ti ti-quote"></i>開発者たちの声</a></li>
-      <li><a href="#critiques-and-limits"><i class="ti ti-alert-triangle"></i>批判的な視点</a></li>
-      <li><a href="#summary"><i class="ti ti-flag-3"></i>まとめ</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考ソース</a></li>
+      <li><a href="#what-is-peopleware"><i class="ti ti-book-2" aria-hidden="true"></i>Peoplewareとは</a></li>
+      <li><a href="#core-thesis"><i class="ti ti-brain" aria-hidden="true"></i>核心テーゼ</a></li>
+      <li><a href="#book-structure"><i class="ti ti-list-check" aria-hidden="true"></i>書籍全体の構成</a></li>
+      <li><a href="#part1-human-resource"><i class="ti ti-users" aria-hidden="true"></i>Part I 人的資源</a></li>
+      <li><a href="#part2-office-environment"><i class="ti ti-building" aria-hidden="true"></i>Part II オフィス環境</a></li>
+      <li><a href="#part3-right-people"><i class="ti ti-user-check" aria-hidden="true"></i>Part III 適切な人材</a></li>
+      <li><a href="#part4-productive-teams"><i class="ti ti-heart-handshake" aria-hidden="true"></i>Part IV チーム形成</a></li>
+      <li><a href="#part5-fertile-soil"><i class="ti ti-leaf" aria-hidden="true"></i>Part V 肥沃な土壌</a></li>
+      <li><a href="#part6-fun-to-work-here"><i class="ti ti-mood-smile" aria-hidden="true"></i>Part VI 楽しい職場</a></li>
+      <li><a href="#action-roadmap"><i class="ti ti-route" aria-hidden="true"></i>実践ロードマップ</a></li>
+      <li><a href="#developer-voices"><i class="ti ti-quote" aria-hidden="true"></i>開発者たちの声</a></li>
+      <li><a href="#critiques-and-limits"><i class="ti ti-alert-triangle" aria-hidden="true"></i>批判的な視点</a></li>
+      <li><a href="#summary"><i class="ti ti-flag-3" aria-hidden="true"></i>まとめ</a></li>
+      <li><a href="#references"><i class="ti ti-link" aria-hidden="true"></i>参考ソース</a></li>
     </ul>
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-book-2"></i>ソフトウェア工学の名著</div>
+      <div class="hero-eyebrow"><i class="ti ti-book-2" aria-hidden="true"></i>ソフトウェア工学の名著</div>
       <h1>『Peopleware: Productive Projects and Teams』完全ガイド</h1>
       <p class="hero-lede">
         ソフトウェア開発が「人間」の問題であることを理解し、実践するためのステップバイステップ解説
@@ -642,13 +651,13 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
         本ガイドは教育・学習支援を目的とした非公式の解説記事です。原著の要約・翻訳・図解であり、原文の転載ではありません。詳細で正確な内容は必ず<a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">原著 Peopleware Productive Projects and Teams, Third Edition</a>をご参照ください。
       </div>
     </div>
 
     <div class="callout note">
-      <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
       <p><strong>原著情報</strong> 原著: Peopleware Productive Projects and Teams, Third Edition / 著者: Tom DeMarco, Tim Lister (Addison-Wesley Professional, 2013年) / 参照: <a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">O'Reilly掲載ページ</a></p>
       <p><strong>この記事の読み方</strong> このガイドは、ソフトウェア開発のマネジメントを学び始めた方に向けて、名著『Peopleware』の要点を<strong>ステップバイステップ</strong>で解説するものです。原著は272ページ・全39章という短めのエッセイ集ですが、扱っているテーマは多岐にわたります。そこで本ガイドでは、原著の6部構成(Part I〜VI)を軸に、初学者がつまずきやすい概念を図解・表・具体例つきで整理しました。</p>
       <ul>
@@ -660,7 +669,7 @@
 
     <!-- ===================== 1. What is Peopleware ===================== -->
     <section id="what-is-peopleware">
-      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 01</div>
+      <div class="section-eyebrow"><i class="ti ti-book-2" aria-hidden="true"></i>SECTION 01</div>
       <h2>Peoplewareとは何か</h2>
 
       <p><strong>Peopleware</strong>(ピープルウェア)は、1987年にTom DeMarcoとTim Listerが著したソフトウェアマネジメントの古典です。その後1999年(第2版)、2013年(第3版)と改訂が重ねられ、第3版では「リーダーシップの新たな病理」「会議文化の変化」「世代の異なるメンバーが混在するハイブリッドチーム」「便利なはずのツールが逆に足かせになる現象」などを扱う章が追加されました。</p>
@@ -672,7 +681,7 @@
       <p><em>ソフトウェア工学分野で最も影響力のある管理書の一つ</em>として、The Mythical Man-Month(人月の神話)の著者であるFrederick P. Brooks Jr.や、Stack Overflow共同創業者のJoel Spolskyら著名な開発者・研究者からも高く評価されてきました(詳細は<a href="#developer-voices">開発者たちの声</a>を参照)。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>はじめてマネジメントに関わる人は、まず「技術で解決しようとしていないか」を自問する習慣をつけましょう。</li>
           <li>本書は短いエッセイの集合体なので、通読よりも「気になる章から拾い読み」でも十分に効果があります。</li>
@@ -682,7 +691,7 @@
 
     <!-- ===================== 2. Core Thesis ===================== -->
     <section id="core-thesis">
-      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 02</div>
+      <div class="section-eyebrow"><i class="ti ti-brain" aria-hidden="true"></i>SECTION 02</div>
       <h2>核心テーゼ: プロジェクトの問題は技術ではなく社会学である</h2>
 
       <p>Peopleware第1章「Somewhere Today, a Project Is Failing(どこかで今日もプロジェクトが失敗している)」は、著者たちが数百のプロジェクトを調査した結果として、失敗の主要因が特定の技術的欠陥に集約されないことを明らかにしたところから始まります。よく挙げられる失敗理由は「政治」でしたが、著者たちはこれをより正確に「プロジェクトの社会学(project sociology)」と呼び直しています。</p>
@@ -695,7 +704,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>プロジェクトの振り返り(レトロスペクティブ)で不具合が出たとき、真っ先に「ツールを変えよう」と結論づけず、コミュニケーションや環境の要因も同じ重みで検討しましょう。</li>
           <li>「人は部品ではない」という前提を、評価制度・配置転換・進捗管理の設計に反映させましょう。</li>
@@ -705,7 +714,7 @@
 
     <!-- ===================== 3. Book Structure ===================== -->
     <section id="book-structure">
-      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 03</div>
+      <div class="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"></i>SECTION 03</div>
       <h2>書籍全体の構成(6部39章)</h2>
 
       <p>原著(第3版)は以下の6部構成になっています。各Partにどんな問いが置かれているかを把握しておくと、拾い読みの効率が上がります。</p>
@@ -732,14 +741,14 @@
       </div>
 
       <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
         <ul>
           <li><a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">O'Reilly掲載の目次</a></li>
         </ul>
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>新任マネージャーには、まずPart II(オフィス環境)とPart IV(チーム形成)から読ませると、すぐに現場で応用しやすい概念に出会えます。</li>
         </ul>
@@ -748,7 +757,7 @@
 
     <!-- ===================== 4. Part I Human Resource ===================== -->
     <section id="part1-human-resource">
-      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 04</div>
+      <div class="section-eyebrow"><i class="ti ti-users" aria-hidden="true"></i>SECTION 04</div>
       <h2>Part I: 人的資源のマネジメント</h2>
 
       <h3>チーズバーガー・マネジメントを避ける</h3>
@@ -764,7 +773,7 @@
       <p>「レートリル」とは、かつて効果が証明されないまま流行したがん治療薬の名前です。著者たちはこれを比喩に用い、生産性向上を謳う流行の方法論やツールを鵜呑みにする危うさを警告しています。<strong>特効薬のように見える解決策ほど、実際には検証が必要</strong>、というメッセージです。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>締切のプレッシャーがかかったとき、削るべきはスコープであって品質基準ではないか、を確認する。</li>
           <li>新しい開発手法やツールを導入する際は、「なぜ効くのか」の根拠を確認してから展開する。</li>
@@ -774,7 +783,7 @@
 
     <!-- ===================== 5. Part II Office Environment ===================== -->
     <section id="part2-office-environment">
-      <div class="section-eyebrow"><i class="ti ti-building"></i>SECTION 05</div>
+      <div class="section-eyebrow"><i class="ti ti-building" aria-hidden="true"></i>SECTION 05</div>
       <h2>Part II: オフィス環境とフロー状態</h2>
 
       <p>Peoplewareの中でも特に有名で、今なお引用され続けているのがこのPartです。</p>
@@ -810,7 +819,7 @@
       </div>
 
       <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
         <ul>
           <li><a href="https://www.usnews.com/opinion/blogs/economic-intelligence/2013/04/19/how-office-space-affects-company-productivity" target="_blank" rel="noopener">Coding War Gamesの分析記事 (U.S. News)</a></li>
           <li><a href="https://fs.blog/increasing-the-productivity-of-computer-programmers-and-engineers/" target="_blank" rel="noopener">Far From Random / fs.blog</a></li>
@@ -839,7 +848,7 @@
       <p>「電話 (The Telephone)」の章では、鳴った電話に反射的に応答してしまう心理的圧力と、それによる作業中断のコストが論じられています。「ドアを取り戻せ」の章では、開放的なオフィスの象徴であった「ドアを取り払う」流行に対し、著者たちは集中を守るための物理的な区切りの重要性を再主張しています。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>「集中タイム」をカレンダー上に確保し、チャット通知をオフにできる文化を作る。</li>
           <li>オフィスレイアウトを決める際、コスト最適化だけでなく「静けさ」「区切り」「日照」を評価基準に含める。</li>
@@ -850,7 +859,7 @@
 
     <!-- ===================== 6. Part III Right People ===================== -->
     <section id="part3-right-people">
-      <div class="section-eyebrow"><i class="ti ti-user-check"></i>SECTION 06</div>
+      <div class="section-eyebrow"><i class="ti ti-user-check" aria-hidden="true"></i>SECTION 06</div>
       <h2>Part III: 適切な人材</h2>
 
       <h3>Hiring a Juggler (ジャグラーを雇う)</h3>
@@ -863,7 +872,7 @@
       <p>離職には採用コストのような「見えるコスト」だけでなく、引き継ぎロス・チームの再編成・知識の喪失といった「見えないコスト」が伴います。著者たちは、経験者の立ち上がり (ランプアップ) にかかる時間を軽視する組織文化にも警鐘を鳴らしています。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>採用面接では、実際の作業に近いタスクで評価する (ペアプログラミングや設計ディスカッションなど)。</li>
           <li>離職率を「コスト」として経営層に説明する際は、採用コストだけでなく再教育・引き継ぎのコストも含めて試算する。</li>
@@ -873,7 +882,7 @@
 
     <!-- ===================== 7. Part IV Productive Teams ===================== -->
     <section id="part4-productive-teams">
-      <div class="section-eyebrow"><i class="ti ti-heart-handshake"></i>SECTION 07</div>
+      <div class="section-eyebrow"><i class="ti ti-heart-handshake" aria-hidden="true"></i>SECTION 07</div>
       <h2>Part IV: 生産的なチームを育てる</h2>
 
       <p>このPartはPeoplewareの中でも中心的なテーマである「チーム形成」を扱います。</p>
@@ -925,7 +934,7 @@
       </div>
 
       <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
         <ul>
           <li><a href="https://appliedframeworks.com/what-is-teamicide/" target="_blank" rel="noopener">Applied Frameworks「What is Teamicide?」</a></li>
           <li><a href="https://thescrumacademy.com/2015/03/16/peopleware-productive-teams-and-projects-3rd-edition/" target="_blank" rel="noopener">The Scrum Academyによる要約</a></li>
@@ -943,7 +952,7 @@
       <p>チームが「化学反応」を起こすためのいくつかの要因 (質へのこだわりの共有、多様な専門性を持つメンバー、成功しているチームを不用意に解体しないこと、など) が論じられます。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>新規チーム結成時には、意図的に「小さくても分かりやすい成功体験」を早期に設計する。</li>
           <li>個人ランキングや強制分布の評価制度が、チームの信頼関係にどう影響しているかを定期的に点検する。</li>
@@ -954,7 +963,7 @@
 
     <!-- ===================== 8. Part V Fertile Soil ===================== -->
     <section id="part5-fertile-soil">
-      <div class="section-eyebrow"><i class="ti ti-leaf"></i>SECTION 08</div>
+      <div class="section-eyebrow"><i class="ti ti-leaf" aria-hidden="true"></i>SECTION 08</div>
       <h2>Part V: 肥沃な土壌 (組織文化)</h2>
 
       <h3>The Self-Healing System (自己修復するシステム)</h3>
@@ -976,7 +985,7 @@
       <p>失敗から学ぶ文化、知識を組織内で共有し続ける仕組みづくりが、持続的に生産性を高めるための土台として論じられます。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>会議のたびに「目的」「終了条件」「必要な参加者」を明文化する。</li>
           <li>非同期で済むやり取りは、チャットの即レス期待から切り離す。</li>
@@ -987,7 +996,7 @@
 
     <!-- ===================== 9. Part VI Fun to Work Here ===================== -->
     <section id="part6-fun-to-work-here">
-      <div class="section-eyebrow"><i class="ti ti-mood-smile"></i>SECTION 09</div>
+      <div class="section-eyebrow"><i class="ti ti-mood-smile" aria-hidden="true"></i>SECTION 09</div>
       <h2>Part VI: ここで働くのは楽しいはず</h2>
 
       <h3>Chaos and Order (混沌と秩序)</h3>
@@ -1000,7 +1009,7 @@
       <p>最終章は、デンマークの伝説の英雄になぞらえた寓話で締めくくられ、必要なときに立ち上がる「潜在的な力」としてのチームや個人の可能性を象徴的に描いています。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>ルールや標準化を強めすぎていないか、定期的に点検する。</li>
           <li>規範の外側で自発的に動く人の動きを、罰するのではなく歓迎する仕組みを作る。</li>
@@ -1010,7 +1019,7 @@
 
     <!-- ===================== 10. Action Roadmap ===================== -->
     <section id="action-roadmap">
-      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 10</div>
+      <div class="section-eyebrow"><i class="ti ti-route" aria-hidden="true"></i>SECTION 10</div>
       <h2>実践ロードマップ: 7ステップで始めるPeopleware</h2>
 
       <p>ここまでの内容を、明日からのアクションに落とし込むと、次のようなロードマップになります。</p>
@@ -1038,7 +1047,7 @@
 
     <!-- ===================== 11. Developer Voices ===================== -->
     <section id="developer-voices">
-      <div class="section-eyebrow"><i class="ti ti-quote"></i>SECTION 11</div>
+      <div class="section-eyebrow"><i class="ti ti-quote" aria-hidden="true"></i>SECTION 11</div>
       <h2>著名な開発者たちはどう語っているか</h2>
 
       <p>Peoplewareは出版から30年以上を経た今も、著名な開発者やソフトウェア工学の権威によって繰り返し言及されています。</p>
@@ -1052,7 +1061,7 @@
       </ul>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>「個室か、オープンオフィスか」は今も議論が分かれるテーマです。次章の批判的視点もあわせて確認し、自分たちのチームの働き方に合わせて判断しましょう。</li>
         </ul>
@@ -1061,7 +1070,7 @@
 
     <!-- ===================== 12. Critiques and Limits ===================== -->
     <section id="critiques-and-limits">
-      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 12</div>
+      <div class="section-eyebrow"><i class="ti ti-alert-triangle" aria-hidden="true"></i>SECTION 12</div>
       <h2>批判的な視点・限界</h2>
 
       <p>Peoplewareは高く評価される一方で、いくつかの限界も指摘されています。バランスの取れた理解のために、以下の点も押さえておきましょう。</p>
@@ -1074,7 +1083,7 @@
       </ul>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li>本書の提言を「絶対的な正解」としてではなく、「検証すべき仮説」として自組織に適用し、実際の効果を観察しながら調整しましょう。</li>
         </ul>
@@ -1083,13 +1092,13 @@
 
     <!-- ===================== 13. Summary ===================== -->
     <section id="summary">
-      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 13</div>
+      <div class="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"></i>SECTION 13</div>
       <h2>まとめ</h2>
 
       <p>Peoplewareが一貫して伝えているメッセージは、次の一文に集約できます。</p>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
         <p><strong>ソフトウェア開発プロジェクトの成否を分けるのは、多くの場合、技術そのものではなく、人・環境・組織文化である。</strong></p>
       </div>
 
@@ -1098,7 +1107,7 @@
 
     <!-- ===================== 14. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
+      <div class="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 14</div>
       <h2>参考ソース (URL一覧)</h2>
 
       <p>本ガイドの作成にあたり、2026年8月19日時点で以下の情報源を参照しました。</p>
@@ -1309,8 +1318,12 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1338,10 +1351,26 @@
         if (wasOpen) toggle.focus();
       });
     });
+    // Escape キーで開いている目次を閉じ、フォーカスをトグルボタンに戻す
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });
