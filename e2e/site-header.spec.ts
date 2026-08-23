@@ -78,27 +78,73 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
     .toBeGreaterThanOrEqual(headerBox.y + headerBox.height - 2);
 });
 
-test("デスクトップ: どの幅・どのカテゴリーでもパネルがビューポート内に収まる", async ({ page }) => {
+test("デスクトップ: パネルはトリガー基準に出て、はみ出す分だけ内枠へ退避する", async ({ page }) => {
   /*
-   * シリーズカラム化でパネルが横に広がったため、項目基準（left: 0）のままだと
-   * 右寄りのカテゴリーで画面外へはみ出す。パネルの配置基準は nav の右端であり、
-   * これは CSS だけで決まるので jsdom のユニットテストでは検証できない。
+   * パネルはトリガーの左端に揃える。右がヘッダー内枠を超える場合だけ、超えた分を左へ退避する。
+   *
+   * 「常にナビ右端揃え」にすると、はみ出しは消えるがパネルがどの項目のものか読めなくなる
+   * （実測でエンジニアリングマネジメントはトリガー右端よりさらに 134px 右に出ていた）。
+   * 逆に「常にトリガー左端」だとリーダーシップ・チームビルディングが画面外へ出る。
+   * したがって「トリガー基準」と「内枠に収まる」の両方を同時に固定する必要がある。
+   *
+   * 位置は CSS とレイアウト実測で決まるため jsdom のユニットテストでは検証できない。
    */
-  for (const width of [1440, 1040]) {
+  for (const width of [1440, 1240, 1040]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
+    const container = (await page.locator(".global-header-inner").boundingBox())!;
 
     for (const id of CATEGORY_IDS) {
       await openWithHover(page, id);
       const panel = page.locator(`#nav-panel-${id}`);
-
+      const trigger = (await page.locator(`#nav-trigger-${id}`).boundingBox())!;
       const box = (await panel.boundingBox())!;
-      expect(box.x, `${id} @${width}px が左へはみ出している`).toBeGreaterThanOrEqual(0);
-      expect(box.x + box.width, `${id} @${width}px が右へはみ出している`).toBeLessThanOrEqual(width);
-      // 1 カラムに潰れていないこと（グリッドの列数指定が失われた場合の検知）。
-      const columns = Number(await panel.getAttribute("data-columns"));
-      expect(box.width).toBeGreaterThanOrEqual(196 * columns);
+      const where = `${id} @${width}px`;
+
+      // 内枠からはみ出さない
+      expect(box.x, `${where} が内枠の左へはみ出している`).toBeGreaterThanOrEqual(container.x - 0.5);
+      expect(box.x + box.width, `${where} が内枠の右へはみ出している`)
+        .toBeLessThanOrEqual(container.x + container.width + 0.5);
+
+      // トリガーより右から始まらない（別の項目の下に出ない）
+      expect(box.x, `${where} がトリガーより右から始まっている`).toBeLessThanOrEqual(trigger.x + 0.5);
+
+      // 退避していないならトリガー左端に一致し、退避しているなら内枠右端に接する
+      const alignedToTrigger = Math.abs(box.x - trigger.x) <= 0.5;
+      const clampedToContainer = Math.abs(box.x + box.width - (container.x + container.width)) <= 0.5;
+      expect(alignedToTrigger || clampedToContainer, `${where} がトリガー基準でも内枠右端でもない`).toBe(true);
     }
+  }
+});
+
+test("デスクトップ: パネル内のアイコンが潰れず、ラベルがカラムに収まる", async ({ page }) => {
+  /*
+   * カラム幅が最長ラベルより狭いと、svg が flex で圧縮され（実測 17px → 15px）
+   * テキストがカラムの縁まで張り出す。幅の充足は実レイアウトでしか判定できない。
+   */
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  for (const id of CATEGORY_IDS) {
+    await openWithHover(page, id);
+    const squeezed = await page.locator(`#nav-panel-${id}`).evaluate((el) =>
+      [...el.querySelectorAll("a")]
+        .map((link) => {
+          const icon = link.querySelector("svg")!;
+          const label = link.querySelector("span")!;
+          const range = document.createRange();
+          range.selectNodeContents(label);
+          return {
+            text: label.textContent?.trim() ?? "",
+            iconWidth: Math.round(icon.getBoundingClientRect().width),
+            labelWidth: Math.round(label.getBoundingClientRect().width),
+            textWidth: Math.ceil(range.getBoundingClientRect().width),
+          };
+        })
+        .filter((link) => link.iconWidth !== 17 || link.textWidth > link.labelWidth + 1),
+    );
+
+    expect(squeezed, `${id} に潰れたリンクがある`).toEqual([]);
   }
 });
 
