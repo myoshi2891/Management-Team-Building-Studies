@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-最終更新: 2026-08-17
+最終更新: 2026-08-23
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -35,14 +35,14 @@ docs/PROGRESS.md                                 Nuxt 移行の進捗と「正�
 ```text
 app/app.vue                        <SiteHeader /> → <NuxtPage /> のアプリシェル
 app/assets/css/main.css            :root トークン + 基底要素（全ページ共有）
-app/pages/index.vue                ホーム（学習ライブラリ）。カード一覧は guide-catalog から導出
+app/pages/index.vue                ホーム（学習ライブラリ）。カテゴリー別セクションを guide-catalog から導出
 app/pages/capm.vue                 CAPM ガイド（移行済み）
 app/pages/engineering-management-career-path.vue  EM キャリアパスガイド（移行済み）
-app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。カテゴリー別ドロップダウン（導線は guide-catalog 由来）
+app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。カテゴリー×シリーズのメガメニュー（導線は guide-catalog 由来）
 app/components/MermaidDiagram.vue  図解レイアウトの SSoT + svg 後処理
 app/composables/useActiveHeading.ts  TOC のスクロール連動
 app/plugins/mermaid.client.ts      mermaid.initialize を一度だけ実行
-app/utils/guide-catalog.ts         公開ガイド定義の SSoT（ホーム・グローバルナビの共通データ源）
+app/utils/guide-catalog.ts         公開ガイド定義の SSoT（カテゴリー → シリーズ → ガイドの 3 階層）
 app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 ```
 
@@ -56,8 +56,21 @@ app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 > `tests/components/SiteHeader.test.ts`）で固定する。
 > 手順は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 2.5。
 >
+> **シリーズを持つカテゴリーへ追加する場合は `seriesId` の指定が必須。**
+> シリーズ（`GUIDE_SERIES`）はカテゴリー内の小見出しで、グローバルナビのメガメニューの
+> カラムとホームのカード上の表記を決める。`seriesId` は省略できず、シリーズを持たない
+> カテゴリー（現在は `engineering-management` のみ）では `undefined` を明示する。
+> シリーズを持つカテゴリーで `undefined` にすると、ラベルの無いカラムとして黙って現れるため
+> `tests/utils/guide-catalog.test.ts` の契約テストで落ちる。
+>
+> `GUIDES` の並び順は「カテゴリー順 → シリーズ順 → 定義順」を守る。
+> この不変条件により `seriesGroups` の平坦化が `guides` と一致し、
+> ナビ（シリーズ順に描画）とホーム（定義順に描画）で並び順が二重管理にならない。
+>
 > カテゴリーを増やす場合は同ファイルの `GUIDE_CATEGORIES` に追加する。
 > `cardLabel`（ホームのカードに出る英語表記）と `navLabel`（ナビの日本語表記）は 1:1 対応。
+> シリーズも同じ 1:1 対応の `cardLabel` / `navLabel` を持つが、**アイコンは持たない**
+> （`.ts` へアイコン名を増やすほど本番だけ空白になる事故域が広がるため）。
 > アイコン名を `.ts` に置いている都合上、`nuxt.config.ts` の
 > `icon.clientBundle.scan.globInclude` から `.ts` を外すとビルド成果物からアイコンが
 > 欠落する（dev サーバーでは再現しない）。
