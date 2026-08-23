@@ -73,6 +73,46 @@ function syncCanHover(event: MediaQueryListEvent | MediaQueryList): void {
 
 const headerRef = ref<HTMLElement | null>(null);
 
+/**
+ * 開いているパネルが、ヘッダー内枠の右端をはみ出す分だけ左へ退避させる。
+ *
+ * パネルはトリガーの左端に揃えるのが原則。ただしシリーズカラム化で横に広がったため、
+ * 右寄りのカテゴリーは素の位置のままだと画面外へ出る（実測: リーダーシップは
+ * 1440px 幅で右端が 1490px、チームビルディングは 1715px）。
+ * かといって常にナビ右端へ揃えると、パネルがどの項目のものか読めなくなる。
+ * そこで「原則トリガー基準・必要な分だけ退避」を実測で満たす。
+ *
+ * 位置は CSS だけでは決められない（トリガーの x 座標を CSS は知らない）ため、
+ * ここだけレイアウト実測に頼る。契約は e2e で固定する。
+ */
+function clampOpenPanel(): void {
+  const header = headerRef.value;
+  const id = openCategoryId.value;
+  if (!header || id === null) return;
+
+  const panel = header.querySelector<HTMLElement>(`#nav-panel-${id}`);
+  const container = header.querySelector<HTMLElement>(".global-header-inner");
+  if (!panel || !container) return;
+
+  // モバイルは通常フローのアコーディオン。退避の対象外。
+  if (isMobileLayout()) {
+    panel.style.removeProperty("--nav-panel-shift");
+    return;
+  }
+
+  // 前回の退避量が混ざると累積するため、いったん解いてから素の位置を測る。
+  panel.style.setProperty("--nav-panel-shift", "0px");
+  const panelBox = panel.getBoundingClientRect();
+  const containerBox = container.getBoundingClientRect();
+
+  const overflow = panelBox.right - containerBox.right;
+  if (overflow <= 0) return;
+
+  // 内枠の左端を超えてまでは退避しない（左へはみ出すのは右へはみ出すより悪い）。
+  const shift = Math.min(overflow, panelBox.left - containerBox.left);
+  panel.style.setProperty("--nav-panel-shift", `${-Math.round(shift)}px`);
+}
+
 function isCurrent(to: string): boolean {
   return route.path === to;
 }
@@ -164,6 +204,8 @@ function handlePointerDownOutside(event: Event): void {
 
 onMounted(() => {
   document.addEventListener("pointerdown", handlePointerDownOutside);
+  // 開いたままウィンドウ幅が変わると退避量が合わなくなる。
+  window.addEventListener("resize", clampOpenPanel);
 
   hoverMedia = window.matchMedia?.(DESKTOP_HOVER_QUERY) ?? null;
   if (!hoverMedia) return;
@@ -174,9 +216,19 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener("pointerdown", handlePointerDownOutside);
+  window.removeEventListener("resize", clampOpenPanel);
   hoverMedia?.removeEventListener("change", syncCanHover);
   hoverMedia = null;
 });
+
+/*
+ * 開いた直後に退避量を決める。flush: "post" で DOM 更新後に測る。
+ * パネルは閉じていても DOM に残る（visibility で隠している）ため寸法は取れるが、
+ * open クラスの反映後に測るほうが将来の変更に強い。
+ */
+watch(openCategoryId, (id) => {
+  if (id !== null) clampOpenPanel();
+}, { flush: "post" });
 
 // 遷移したらパネルを閉じる（モバイルでリンクをタップした後に開きっぱなしにしない）。
 watch(() => route.path, () => {
@@ -344,15 +396,10 @@ watch(() => route.path, () => {
 .global-brand-copy strong { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.01em; }
 .global-brand-copy small { margin-top: 5px; color: var(--color-ink-faint); font-size: 8px; font-weight: 700; letter-spacing: 0.18em; }
 
-/*
- * パネルの配置基準は .nav-category ではなく nav。
- * カラムが増えたパネルを項目基準（left: 0）で出すと、右寄りのカテゴリーで
- * ビューポート右端をはみ出す。ナビ自体がヘッダー右端にあるため、
- * ナビ基準の右揃えなら JS の位置計算なしで全カテゴリーが画面内に収まる。
- */
-nav { position: relative; height: 100%; display: flex; align-items: stretch; }
+nav { height: 100%; display: flex; align-items: stretch; }
 
-.nav-category { display: flex; align-items: stretch; }
+/* パネルの配置基準。パネルはトリガーの左端に揃える（--nav-panel-shift で退避）。 */
+.nav-category { position: relative; display: flex; align-items: stretch; }
 
 .global-nav-link {
   position: relative;
@@ -401,14 +448,26 @@ nav { position: relative; height: 100%; display: flex; align-items: stretch; }
 .nav-dropdown {
   position: absolute;
   top: 100%;
-  right: 0;
-  left: auto;
+  left: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: repeat(var(--nav-panel-columns, 1), minmax(196px, 1fr));
+  /*
+   * トラックは内容幅で決める。1fr の等分割にすると、最長ラベルを持つカラムだけ
+   * 幅が足りず、svg が flex で圧縮されテキストが縁まで張り出す
+   * （実測: 必要 236px に対し 233px しか与えられず 17px → 15px に圧縮）。
+   */
+  grid-template-columns: repeat(var(--nav-panel-columns, 1), minmax(0, max-content));
   column-gap: 8px;
-  max-width: min(760px, calc(100vw - 32px));
-  margin: 0;
+  /*
+   * 幅を明示しないと shrink-to-fit になり、包含ブロック（.nav-category = トリガー 1 個分）
+   * の幅が「利用可能幅」として効いてグリッドが min-content まで潰れる
+   * （ラベルが省略記号になり、シリーズ見出しが縦積みになる）。
+   * 内容幅を起点にし、ビューポートだけを上限にする。
+   */
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  /* ヘッダー内枠の右端をはみ出す分だけ左へ退避する。値は JS が実測して設定する。 */
+  margin: 0 0 0 var(--nav-panel-shift, 0px);
   padding: 8px;
   border: 1px solid var(--color-border);
   background: var(--color-paper-raised);
@@ -457,7 +516,10 @@ nav { position: relative; height: 100%; display: flex; align-items: stretch; }
 
 .nav-dropdown a:hover { background: var(--color-indigo-tint); color: var(--color-indigo); text-decoration: none; }
 .nav-dropdown a.current { color: var(--color-indigo-dark); background: var(--color-indigo-tint); }
-.nav-dropdown a svg { width: 17px; height: 17px; color: var(--color-ink-faint); }
+/* flex-shrink の既定値のままだと、カラム幅が足りないときにアイコンが潰れる。 */
+.nav-dropdown a svg { flex: none; width: 17px; height: 17px; color: var(--color-ink-faint); }
+/* パネルがビューポート幅で頭打ちになった場合の保険（通常は max-content で収まる）。 */
+.nav-dropdown a span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .nav-dropdown a.current svg { color: var(--color-gold); }
 
 /* ハンバーガーは既定で非表示。モバイル幅のメディアクエリでのみ出す。 */
@@ -537,7 +599,11 @@ nav { position: relative; height: 100%; display: flex; align-items: stretch; }
   .nav-dropdown {
     position: static;
     display: none;
+    /* 通常フローでは内容幅ではなく親幅に従わせる（デスクトップの max-content を解く）。 */
+    width: auto;
     max-width: none;
+    /* 通常フローのアコーディオンなので退避しない。 */
+    margin-left: 0;
     padding: 0;
     border: 0;
     background: var(--color-paper-sunken);
