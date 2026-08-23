@@ -901,8 +901,7 @@ const DIAGRAM_ACTION_ROADMAP = `flowchart TB
 /* ===================== Main Content ===================== */
 .main-content {
   margin-left: var(--sidebar-width);
-  max-width: 900px;
-  padding: 48px 48px 96px;
+  padding: 56px 72px 120px;
 }
 
 /* ===================== Hero ===================== */
@@ -1209,21 +1208,28 @@ footer {
 }
 
 /* ===================== Responsive ===================== */
-@media (max-width: 960px) {
-  .sidebar {
-    transform: translateX(-100%);
-    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
-  }
-  .sidebar.open {
-    transform: translateX(0);
-  }
+@media (max-width: 980px) {
   .sidebar-toggle {
     display: flex;
   }
+
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
   .main-content {
     margin-left: 0;
-    padding: 32px 24px 80px;
+    padding: 88px 24px 100px;
   }
+
   .stat-row {
     grid-template-columns: repeat(2, 1fr);
   }
