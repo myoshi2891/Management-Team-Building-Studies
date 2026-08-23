@@ -215,6 +215,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/managing-humans-best-practices-guide",
         accentClass: "guide-card-plum",
       },
+      {
+        title: "『Peopleware: Productive Projects and Teams』完全ガイド",
+        category: "TEAM BUILDING",
+        href: "/peopleware-guide",
+        accentClass: "guide-card-indigo",
+      },
     ]);
   });
 

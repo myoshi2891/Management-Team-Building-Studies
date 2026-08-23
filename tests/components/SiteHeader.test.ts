@@ -96,6 +96,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "Team Topologies", href: "/team-topologies-guide" },
       { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
       { label: "Debugging Teams", href: "/debugging-teams-guide" },
+      { label: "Peopleware", href: "/peopleware-guide" },
     ]);
   });
 
@@ -132,6 +133,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/team-topologies-guide",
       "/lean-ux-beginner-guide",
       "/debugging-teams-guide",
+      "/peopleware-guide",
     ]);
   });
 
@@ -200,6 +202,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
