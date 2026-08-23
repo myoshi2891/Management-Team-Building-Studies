@@ -185,4 +185,6 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: ["Debugging Teams", "完全ガイド"],
+  seoTitle: "Debugging Teams 完全ガイド | チームの人間関係をデバッグするベストプラクティス",
+  seoDescription: "O'Reilly刊『Debugging Teams』の内容と国際的なエンジニアの書評をもとに、HRT(謙虚さ・敬意・信頼)を軸としたチームづくりのベストプラクティスを初学者向けに9ステップで解説する。",
 });

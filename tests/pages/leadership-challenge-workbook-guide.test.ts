@@ -141,6 +141,8 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: EXPECTED_SEO_TITLE_FRAGMENTS,
+  seoTitle: "The Leadership Challenge Workbook 完全ガイド | ソフトウェアエンジニア・スクラムマスターのためのリーダーシップ実践入門",
+  seoDescription: "Kouzes & Posnerの「The Leadership Challenge Workbook」を、ソフトウェアエンジニアとスクラムマスター向けにステップバイステップで解説する非公式ガイド。Five PracticesとTen Commitmentsをスクラムの現場に落とし込みます。",
 });
 
 describe("pages/leadership-challenge-workbook-guide.vue — 固有要素契約", () => {

@@ -206,4 +206,6 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: SEO_TITLE_FRAGMENTS,
+  seoTitle: "Lean UX 実践ガイド | 初学者のためのステップバイステップ入門",
+  seoDescription: "Jeff GothelfとJosh Seidenの著書『Lean UX, 3rd Edition』を主軸に、Lean UX Canvas・仮説の書き方・MVPと実験・デザインスタジオ・デュアルトラック・アジャイルまでを、初学者向けにステップバイステップで解説するガイドです。",
 });
