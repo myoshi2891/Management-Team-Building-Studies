@@ -7,7 +7,7 @@
 
 ## 3.0 この章の位置づけ
 
-CAL1(Certified Agile Leader 1)の学習内容は、Scrum Allianceによって4つの学習目標領域(Learning Objective Areas)に整理されています。本章で扱う「Leading Agile Teams(アジャイルチームのリード)」は、そのうちの3番目にあたります。
+CAL1(Certified Agile Leader 1)の学習内容は、Scrum Allianceが学習目標(Learning Objectives)として公開しています。本ガイドでは、トレーニング提供元 PM-Partners社が公開している分類にならい、これを4つの学習目標領域(Learning Objective Areas)として整理しています。本章で扱う「Leading Agile Teams(アジャイルチームのリード)」は、そのうちの3番目にあたります。
 
 ```mermaid
 flowchart LR
@@ -19,7 +19,7 @@ flowchart LR
 
 第1章・第2章で「アジャイルリーダー自身のマインドセットとスキル」を扱ったのに対し、第3章は視点を「チーム」に移し、リーダーがハイパフォーマンスなチームをどう構築・維持し、チーム内の課題にどう対処し、部門横断的な協働(cross-functional collaboration)をどう促すかを扱います。
 
-Scrum AllianceおよびそのトレーニングパートナーであるPM-Partners社が公開しているコース概要では、この学習領域は次のように説明されています。
+Scrum Alliance公式ページ、およびトレーニング提供元の一つであるPM-Partners社が公開しているコース概要では、この学習領域は次のように説明されています。
 
 > 高パフォーマンスなチームを構築・維持するためのツールと手法を学び、チームが直面する課題に対処し、部門横断的なコラボレーションを育む方法を身につける領域である。
 
@@ -28,7 +28,7 @@ Scrum AllianceおよびそのトレーニングパートナーであるPM-Partne
 - Scrum Alliance公式コース詳細(学習目標の記載): https://www.scrumalliance.org/courses-events/search/coursedetail?id=202405528
 - PM-Partners社 CAL1コース概要(4領域の分類と2日間のカリキュラム構成を掲載): https://www.pm-partners.com.au/course/certified-agile-leader/
 
-実際のCAL1コース(2日間・16時間)では、1日目に「リーダー自身の内省」、2日目に「ハイパフォーマンスチームの構築と、それを支える組織的プロセス・ガバナンス」が扱われる構成になっており、本章はその2日目の内容に対応します。
+トレーニング提供元 PM-Partners社が公開しているコース例(2日間・16時間)では、1日目に「リーダー自身の内省」、2日目に「ハイパフォーマンスチームの構築と、それを支える組織的プロセス・ガバナンス」が扱われる構成になっており、本章はその2日目の内容に対応します。なお、この日程配分は全CAL1コース共通の要件ではなく、トレーナーごとに異なります。
 
 ---
 
@@ -467,7 +467,7 @@ CAL1の「Leading Agile Teams」領域は、大きく3つのねらいに整理�
 - Certified Agile Leader® 1 (CAL 1™) 公式ページ: https://www.scrumalliance.org/get-certified/agile-leader/cal-1
 - CAL 1™ Learning Objectives(公式配布資料): https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view
 - Scrum Alliance公式コース検索・詳細ページ(学習目標の記載): https://www.scrumalliance.org/courses-events/search/coursedetail?id=202405528
-- PM-Partners社(Scrum Alliance認定トレーニングパートナー)によるCAL1コース概要: https://www.pm-partners.com.au/course/certified-agile-leader/
+- PM-Partners社によるCAL1コース概要(トレーナー独自コースの一例): https://www.pm-partners.com.au/course/certified-agile-leader/
 
 ### アジャイル基礎の一次情報源
 
