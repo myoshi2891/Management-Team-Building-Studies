@@ -83,20 +83,20 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     ]);
     expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
-      { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
       { label: "リーダーの作法", href: "/leadership-practices-guide" },
-      { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
-      { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
-      { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
       { label: "最初の60日間", href: "/your-first-60-days-as-a-leader" },
+      { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
+      { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
+      { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
+      { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
     ]);
     expect(panelLinks(wrapper, "team-building")).toEqual([
-      { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
       { label: "Team Geek", href: "/team-geek-guide" },
-      { label: "Team Topologies", href: "/team-topologies-guide" },
-      { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
       { label: "Debugging Teams", href: "/debugging-teams-guide" },
       { label: "Peopleware", href: "/peopleware-guide" },
+      { label: "Team Topologies", href: "/team-topologies-guide" },
+      { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
+      { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
     ]);
   });
 
@@ -122,18 +122,18 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/engineering-manager-guide",
       "/managing-humans-best-practices-guide",
       "/engineering-team-leadership-guide",
-      "/engineering-executive-playbook",
       "/leadership-practices-guide",
-      "/developer-architect-communication-guide",
-      "/elastic-leadership-guide",
-      "/leadership-challenge-workbook-guide",
       "/your-first-60-days-as-a-leader",
-      "/dynamic-reteaming-guide",
+      "/leadership-challenge-workbook-guide",
+      "/engineering-executive-playbook",
+      "/elastic-leadership-guide",
+      "/developer-architect-communication-guide",
       "/team-geek-guide",
-      "/team-topologies-guide",
-      "/lean-ux-beginner-guide",
       "/debugging-teams-guide",
       "/peopleware-guide",
+      "/team-topologies-guide",
+      "/dynamic-reteaming-guide",
+      "/lean-ux-beginner-guide",
     ]);
   });
 
