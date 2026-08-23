@@ -73,6 +73,13 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
 
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
   img, svg { max-width: 100%; }
 
   .layout {
@@ -588,7 +595,9 @@
 </head>
 <body>
 
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
 
 <div class="layout">
 
@@ -607,29 +616,29 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#introduction"><i class="ti ti-book-open"></i>はじめに</a></li>
-      <li><a href="#what-is-ai-pm"><i class="ti ti-brain"></i>AI駆動PMとは何か</a></li>
-      <li><a href="#roadmap-overview"><i class="ti ti-route"></i>導入までのロードマップ</a></li>
-      <li><a href="#step0-assessment"><i class="ti ti-clipboard-check"></i>ステップ0 現状棚卸し</a></li>
-      <li><a href="#step1-use-cases"><i class="ti ti-target"></i>ステップ1 ユースケース選定</a></li>
-      <li><a href="#step2-tool-selection"><i class="ti ti-tools"></i>ステップ2 ツール選定</a></li>
-      <li><a href="#step3-governance"><i class="ti ti-shield-check"></i>ステップ3 ガバナンス設計</a></li>
-      <li><a href="#step4-prompt-engineering"><i class="ti ti-message-2"></i>ステップ4 プロンプト基礎</a></li>
-      <li><a href="#step5-agentic-workflow"><i class="ti ti-git-branch"></i>ステップ5 エージェント活用</a></li>
-      <li><a href="#step6-risk-ethics"><i class="ti ti-alert-triangle"></i>ステップ6 リスクと倫理</a></li>
-      <li><a href="#step7-measure-scale"><i class="ti ti-trending-up"></i>ステップ7 計測とスケール</a></li>
-      <li><a href="#anti-patterns"><i class="ti ti-bug"></i>よくある失敗パターン</a></li>
-      <li><a href="#roadmap-30-60-90"><i class="ti ti-calendar-event"></i>30・60・90日ロードマップ</a></li>
-      <li><a href="#summary"><i class="ti ti-flag-3"></i>まとめ</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+      <li><a href="#introduction"><i class="ti ti-book-open" aria-hidden="true"></i>はじめに</a></li>
+      <li><a href="#what-is-ai-pm"><i class="ti ti-brain" aria-hidden="true"></i>AI駆動PMとは何か</a></li>
+      <li><a href="#roadmap-overview"><i class="ti ti-route" aria-hidden="true"></i>導入までのロードマップ</a></li>
+      <li><a href="#step0-assessment"><i class="ti ti-clipboard-check" aria-hidden="true"></i>ステップ0 現状棚卸し</a></li>
+      <li><a href="#step1-use-cases"><i class="ti ti-target" aria-hidden="true"></i>ステップ1 ユースケース選定</a></li>
+      <li><a href="#step2-tool-selection"><i class="ti ti-tools" aria-hidden="true"></i>ステップ2 ツール選定</a></li>
+      <li><a href="#step3-governance"><i class="ti ti-shield-check" aria-hidden="true"></i>ステップ3 ガバナンス設計</a></li>
+      <li><a href="#step4-prompt-engineering"><i class="ti ti-message-2" aria-hidden="true"></i>ステップ4 プロンプト基礎</a></li>
+      <li><a href="#step5-agentic-workflow"><i class="ti ti-git-branch" aria-hidden="true"></i>ステップ5 エージェント活用</a></li>
+      <li><a href="#step6-risk-ethics"><i class="ti ti-alert-triangle" aria-hidden="true"></i>ステップ6 リスクと倫理</a></li>
+      <li><a href="#step7-measure-scale"><i class="ti ti-trending-up" aria-hidden="true"></i>ステップ7 計測とスケール</a></li>
+      <li><a href="#anti-patterns"><i class="ti ti-bug" aria-hidden="true"></i>よくある失敗パターン</a></li>
+      <li><a href="#roadmap-30-60-90"><i class="ti ti-calendar-event" aria-hidden="true"></i>30・60・90日ロードマップ</a></li>
+      <li><a href="#summary"><i class="ti ti-flag-3" aria-hidden="true"></i>まとめ</a></li>
+      <li><a href="#references"><i class="ti ti-link" aria-hidden="true"></i>参考文献・出典</a></li>
     </ul>
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-sparkles"></i>AI-Driven Project Management</div>
+      <div class="hero-eyebrow"><i class="ti ti-sparkles" aria-hidden="true"></i>AI-Driven Project Management</div>
       <h1>AI駆動プロジェクトマネジメント実践ガイド</h1>
       <p class="hero-lede">
         初学者のためのステップバイステップ・ベストプラクティス
@@ -643,14 +652,14 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
         本ガイドは2026年8月時点でウェブ上に公開されている一次情報・業界レポート・著名なソフトウェアエンジニアやエンジニアリングリーダーの発信内容をもとに作成しています。出典はすべて末尾の「参考文献・出典」にURLとして明記しています。AIツールやサービス仕様は更新が速い領域のため、実際に導入する際は各ベンダーの公式ドキュメントで最新情報を確認してください。
       </div>
     </div>
 
     <!-- ===================== 1. Introduction ===================== -->
     <section id="introduction">
-      <div class="section-eyebrow"><i class="ti ti-book-open"></i>SECTION 01</div>
+      <div class="section-eyebrow"><i class="ti ti-book-open" aria-hidden="true"></i>SECTION 01</div>
       <h2>はじめに</h2>
 
       <p>「AI駆動プロジェクトマネジメント(AI-Driven Project Management、以下 AI-PM)」という言葉を聞くと、多くの初学者は「AIがプロジェクトマネージャーの仕事を奪うのではないか」という不安を抱きがちです。しかし2026年時点で業界の実務家やアナリストが繰り返し指摘しているのは、AIは意思決定を「支援」できても、その意思決定に対する「説明責任」を負うことはできないという点です。Project Management Institute(PMI)が2026年6月に発表した業界初のAI標準でも、この考え方が中核に据えられています。</p>
@@ -668,7 +677,7 @@
 
     <!-- ===================== 2. What is AI-PM ===================== -->
     <section id="what-is-ai-pm">
-      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 02</div>
+      <div class="section-eyebrow"><i class="ti ti-brain" aria-hidden="true"></i>SECTION 02</div>
       <h2>AI駆動プロジェクトマネジメント(AI-PM)とは何か</h2>
 
       <h3>定義</h3>
@@ -701,7 +710,7 @@
 
     <!-- ===================== 3. Roadmap overview ===================== -->
     <section id="roadmap-overview">
-      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <div class="section-eyebrow"><i class="ti ti-route" aria-hidden="true"></i>SECTION 03</div>
       <h2>全体像:導入までのロードマップ</h2>
 
       <p>AI-PMの導入は「ツールを入れて終わり」ではなく、継続的な改善サイクルです。以下は、現状診断からスケール展開までの全体フローです。</p>
@@ -716,7 +725,7 @@
 
     <!-- ===================== 4. Step 0 ===================== -->
     <section id="step0-assessment">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 04</div>
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true"></i>SECTION 04</div>
       <h2>ステップ0:現状を棚卸しする</h2>
 
       <p>AIツールを導入する前に、まず自分たちのプロジェクト運営の「現在地」を把握します。Airtableの実務ガイドでは、AIプロジェクト管理ツールは導入するだけでは価値を生まず、現場のPMを早期に巻き込み、どこに時間を取られているかを特定してから高インパクトな箇所を選ぶことが推奨されています。</p>
@@ -734,7 +743,7 @@
     </section>
     <!-- ===================== 5. Step 1 ===================== -->
     <section id="step1-use-cases">
-      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 05</div>
+      <div class="section-eyebrow"><i class="ti ti-target" aria-hidden="true"></i>SECTION 05</div>
       <h2>ステップ1:ユースケースを選ぶ</h2>
 
       <p>すべてのプロジェクトマネジメント業務を一度にAI化しようとすると失敗します。PMBOK(Project Management Body of Knowledge)が定義する知識エリアとAIの得意分野を掛け合わせ、投資対効果の高い領域から着手するのが定石です。</p>
@@ -774,7 +783,7 @@
 
     <!-- ===================== 6. Step 2 ===================== -->
     <section id="step2-tool-selection">
-      <div class="section-eyebrow"><i class="ti ti-tools"></i>SECTION 06</div>
+      <div class="section-eyebrow"><i class="ti ti-tools" aria-hidden="true"></i>SECTION 06</div>
       <h2>ステップ2:適切なツール・AIエージェントを選定する</h2>
 
       <p>2026年時点で、主要なプロジェクト管理プラットフォームのほとんどがAI機能を組み込んでいます。GitHubの発信やAtlassianの公式ブログ、業界メディアの比較記事をもとに、代表的なカテゴリを整理します。</p>
@@ -808,7 +817,7 @@
 
     <!-- ===================== 7. Step 3 ===================== -->
     <section id="step3-governance">
-      <div class="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 07</div>
+      <div class="section-eyebrow"><i class="ti ti-shield-check" aria-hidden="true"></i>SECTION 07</div>
       <h2>ステップ3:Human-in-the-Loopガバナンスを設計する</h2>
 
       <p>AI-PMで最も見落とされがちなのが「誰が、どの意思決定に、どこまで関与するか」というガバナンス設計です。PMIは2026年6月、業界として初めてANSI承認を受けたAI標準「The Standard for Artificial Intelligence in Portfolio, Program, and Project Management」を発表しました。この標準は、AIが意思決定を支援できても、その結果に対する説明責任は人間が負い続けるという考え方(Human-in-the-Loop)を中核原則としています。</p>
@@ -842,7 +851,7 @@
 
     <!-- ===================== 8. Step 4 ===================== -->
     <section id="step4-prompt-engineering">
-      <div class="section-eyebrow"><i class="ti ti-message-2"></i>SECTION 08</div>
+      <div class="section-eyebrow"><i class="ti ti-message-2" aria-hidden="true"></i>SECTION 08</div>
       <h2>ステップ4:プロンプトエンジニアリングの基礎</h2>
 
       <p>AIアシスタントの出力品質は、指示(プロンプト)の質に大きく左右されます。O'Reillyの書籍でも「プロジェクトマネージャーのためのプロンプトエンジニアリング」が独立した章として扱われているほど、PM実務における必須スキルになっています。</p>
@@ -875,7 +884,7 @@
     </section>
     <!-- ===================== 9. Step 5 ===================== -->
     <section id="step5-agentic-workflow">
-      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 09</div>
+      <div class="section-eyebrow"><i class="ti ti-git-branch" aria-hidden="true"></i>SECTION 09</div>
       <h2>ステップ5:エージェント型ワークフローを実践する</h2>
 
       <p>2026年の大きな変化は、AIが「質問に答えるアシスタント」から「タスクを自律的に遂行するエージェント」へと役割を広げていることです。特にソフトウェア開発を含むプロジェクトでは、GitHub Copilot coding agentのような「Issueに割り当てるとPRが返ってくる」ワークフローが一般化しつつあります。</p>
@@ -903,7 +912,7 @@
 
     <!-- ===================== 10. Step 6 ===================== -->
     <section id="step6-risk-ethics">
-      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 10</div>
+      <div class="section-eyebrow"><i class="ti ti-alert-triangle" aria-hidden="true"></i>SECTION 10</div>
       <h2>ステップ6:リスク管理と倫理的配慮</h2>
 
       <p>PMIのAI標準における8原則のうち、特にプロジェクトマネージャーが日常的に意識すべきなのが「倫理と専門的責任」「データ品質」「ガバナンスとコンプライアンス」の3つです。</p>
@@ -929,7 +938,7 @@
 
     <!-- ===================== 11. Step 7 ===================== -->
     <section id="step7-measure-scale">
-      <div class="section-eyebrow"><i class="ti ti-trending-up"></i>SECTION 11</div>
+      <div class="section-eyebrow"><i class="ti ti-trending-up" aria-hidden="true"></i>SECTION 11</div>
       <h2>ステップ7:効果を計測し、スケールする</h2>
 
       <p>パイロットで成果が出たら、チーム全体・組織全体への展開を検討します。ただしMcKinseyの調査が示す通り、多くの組織は「導入はしたが、スケールできない」という壁にぶつかります。</p>
@@ -961,7 +970,7 @@
     </section>
     <!-- ===================== 12. Anti-patterns ===================== -->
     <section id="anti-patterns">
-      <div class="section-eyebrow"><i class="ti ti-bug"></i>SECTION 12</div>
+      <div class="section-eyebrow"><i class="ti ti-bug" aria-hidden="true"></i>SECTION 12</div>
       <h2>よくある失敗パターンと回避策</h2>
 
       <div class="table-wrap">
@@ -983,7 +992,7 @@
 
     <!-- ===================== 13. 30-60-90 roadmap ===================== -->
     <section id="roadmap-30-60-90">
-      <div class="section-eyebrow"><i class="ti ti-calendar-event"></i>SECTION 13</div>
+      <div class="section-eyebrow"><i class="ti ti-calendar-event" aria-hidden="true"></i>SECTION 13</div>
       <h2>30・60・90日 導入ロードマップ</h2>
 
       <p>初学者チームが最初の3ヶ月でAI-PMに着手する場合の目安です。組織の規模やツール事情によって調整してください。</p>
@@ -1004,7 +1013,7 @@
 
     <!-- ===================== 14. Summary ===================== -->
     <section id="summary">
-      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 14</div>
+      <div class="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"></i>SECTION 14</div>
       <h2>まとめ</h2>
 
       <p>AI駆動プロジェクトマネジメントは、単なるツール導入ではなく、「どこにAIを任せ、どこに人間の判断を残すか」を設計する継続的なプロセスです。本ガイドで紹介した内容を要約すると、次の3点に集約されます。</p>
@@ -1020,7 +1029,7 @@
 
     <!-- ===================== 15. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 15</div>
+      <div class="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 15</div>
       <h2>参考文献・出典</h2>
 
       <p>本ガイドの作成にあたり、以下の情報源を参照しました(2026年8月時点でアクセス可能な情報)。</p>
@@ -1263,8 +1272,12 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1292,10 +1305,26 @@
         if (wasOpen) toggle.focus();
       });
     });
+    // Escape キーで開いている目次を閉じ、フォーカスをトグルボタンに戻す
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });

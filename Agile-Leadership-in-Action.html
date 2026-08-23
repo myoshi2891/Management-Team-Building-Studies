@@ -73,6 +73,13 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
 
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
   img, svg { max-width: 100%; }
 
   .layout {
@@ -616,7 +623,9 @@
 </head>
 <body>
 
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
 
 <div class="layout">
 
@@ -635,24 +644,24 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#this-chapter-position"><i class="ti ti-map-2"></i>この章の位置づけ</a></li>
-      <li><a href="#domain2-overview"><i class="ti ti-sitemap"></i>ドメイン2の全体構造</a></li>
-      <li><a href="#leadership-frameworks"><i class="ti ti-compass"></i>リーダーシップフレームワーク</a></li>
-      <li><a href="#personal-effectiveness"><i class="ti ti-user-check"></i>個人の効果性</a></li>
-      <li><a href="#coaching-skills"><i class="ti ti-message-2"></i>コーチングスキル</a></li>
-      <li><a href="#feedback-safety"><i class="ti ti-shield-check"></i>フィードバックと心理的安全性</a></li>
-      <li><a href="#growth-loop"><i class="ti ti-refresh"></i>まとめ:成長ループ</a></li>
-      <li><a href="#self-check"><i class="ti ti-clipboard-check"></i>自己診断チェックリスト</a></li>
-      <li><a href="#framework-summary"><i class="ti ti-table"></i>主要フレームワーク早見表</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+      <li><a href="#this-chapter-position"><i class="ti ti-map-2" aria-hidden="true"></i>この章の位置づけ</a></li>
+      <li><a href="#domain2-overview"><i class="ti ti-sitemap" aria-hidden="true"></i>ドメイン2の全体構造</a></li>
+      <li><a href="#leadership-frameworks"><i class="ti ti-compass" aria-hidden="true"></i>リーダーシップフレームワーク</a></li>
+      <li><a href="#personal-effectiveness"><i class="ti ti-user-check" aria-hidden="true"></i>個人の効果性</a></li>
+      <li><a href="#coaching-skills"><i class="ti ti-message-2" aria-hidden="true"></i>コーチングスキル</a></li>
+      <li><a href="#feedback-safety"><i class="ti ti-shield-check" aria-hidden="true"></i>フィードバックと心理的安全性</a></li>
+      <li><a href="#growth-loop"><i class="ti ti-refresh" aria-hidden="true"></i>まとめ:成長ループ</a></li>
+      <li><a href="#self-check"><i class="ti ti-clipboard-check" aria-hidden="true"></i>自己診断チェックリスト</a></li>
+      <li><a href="#framework-summary"><i class="ti ti-table" aria-hidden="true"></i>主要フレームワーク早見表</a></li>
+      <li><a href="#references"><i class="ti ti-link" aria-hidden="true"></i>参考文献・出典</a></li>
     </ul>
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>CAL1(Certified Agile Leader&reg; 1)学習ガイド ・ 第2章</div>
+      <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true"></i>CAL1(Certified Agile Leader&reg; 1)学習ガイド ・ 第2章</div>
       <h1>実践におけるリーダーシップ(Agile Leadership in Action)</h1>
       <p class="hero-lede">
         対象読者はCAL1(Certified Agile Leader® 1)の取得を目指す初学者で、第1章「The Case for Agile Leadership」を学習済みであることを前提としています。本章(ドメイン2)は、アジャイルリーダーシップの考え方をリーダー自身の行動として実践に移す段階であり、リーダーシップフレームワークの理解・個人の効果性・コーチング・フィードバックという4つの柱を扱います。
@@ -666,34 +675,34 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"></i>
         本ガイドは学習支援を目的とした非公式の解説資料です。CAL1(Certified Agile Leader® 1)の認定資格取得には、Scrum Alliance認定トレーナーによる公式トレーニングの受講が必要です。最新の学習目標・受講要件は必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>でご確認ください。
       </div>
     </div>
 
     <!-- ===================== 0. Chapter Position ===================== -->
     <section id="this-chapter-position">
-      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 00</div>
+      <div class="section-eyebrow"><i class="ti ti-map-2" aria-hidden="true"></i>SECTION 00</div>
       <h2>この章の位置づけ</h2>
 
-      <p>Scrum Alliance® の CAL1(Certified Agile Leader® 1)は、学習目標(Learning Objectives)が大きく4つのドメインに分かれています。第1章では「なぜアジャイルリーダーシップが必要なのか」という土台を扱いました。本章(ドメイン2)は、その考え方を<strong>リーダー自身の行動として実践に移す</strong>段階です。</p>
+      <p>Scrum Alliance® の CAL1(Certified Agile Leader® 1)は、学習目標(Learning Objectives)を、トレーニング提供元の公開分類にならって大きく4つのドメインに整理できます。第1章では「なぜアジャイルリーダーシップが必要なのか」という土台を扱いました。本章(ドメイン2)は、その考え方を<strong>リーダー自身の行動として実践に移す</strong>段階です。</p>
 
       <div class="diagram-card">
         <div class="diagram-container" id="domainOverview"><div class="diagram-loading">図を読み込み中...</div></div>
         <div class="diagram-caption">CAL1の4ドメインと本章(ドメイン2)の位置づけ</div>
       </div>
 
-      <p>Scrum Alliance公式ページでは、ドメイン2の狙いを「個人の効果性(personal effectiveness)を高めるためのリーダーシップフレームワークを学び、応用すること。そしてチームの能力(competencies)を伸ばすための重要なリーダーシップスキルを身につけること」と説明しています<sup><a href="#ref-1">[1]</a></sup>。CAL1のトレーニングパートナー各社(例:PM-Partners社)も、この定義とほぼ同一の表現で本ドメインを紹介しています<sup><a href="#ref-2">[2]</a></sup>。</p>
+      <p>Scrum Alliance公式ページでは、ドメイン2の狙いを「個人の効果性(personal effectiveness)を高めるためのリーダーシップフレームワークを学び、応用すること。そしてチームの能力(competencies)を伸ばすための重要なリーダーシップスキルを身につけること」と説明しています<sup><a href="#ref-1">[1]</a></sup>。CAL1のトレーニング提供元各社(例:PM-Partners社)も、この定義とほぼ同一の表現で本ドメインを紹介しています<sup><a href="#ref-2">[2]</a></sup>。</p>
 
       <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>重要な注記(正確性について)</div>
+        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>重要な注記(正確性について)</div>
         <p>CAL1の詳細な学習目標(Learning Objectives)一覧は、Scrum Alliance公式サイトからリンクされているPDF資料に記載されていますが、このPDFはGoogleアカウントでのサインインが必要な限定公開資料であり、本ガイド作成時点では本文を直接取得できませんでした<sup><a href="#ref-1">[1]</a></sup><sup><a href="#ref-3">[3]</a></sup>。そのため本章は、Scrum Alliance公式ページの説明文<sup><a href="#ref-1">[1]</a></sup>と、公式に認定されたトレーニングパートナーが公開しているコース概要<sup><a href="#ref-2">[2]</a></sup>、およびCALプログラムの設計に関わったPete Behrens氏へのインタビュー記事<sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>という、複数の公開情報源を突き合わせて構成しています。受講予定の方は、必ず申込先のCALトレーナーが提供する参加者ワークブックで正式な学習目標を確認してください。</p>
       </div>
     </section>
 
     <!-- ===================== 1. Domain 2 Overview ===================== -->
     <section id="domain2-overview">
-      <div class="section-eyebrow"><i class="ti ti-sitemap"></i>SECTION 01</div>
+      <div class="section-eyebrow"><i class="ti ti-sitemap" aria-hidden="true"></i>SECTION 01</div>
       <h2>ドメイン2の全体構造</h2>
 
       <p>「実践におけるリーダーシップ」は、大きく4つの柱で構成されていると整理できます。</p>
@@ -708,7 +717,7 @@
 
     <!-- ===================== 2. Leadership Frameworks ===================== -->
     <section id="leadership-frameworks">
-      <div class="section-eyebrow"><i class="ti ti-compass"></i>SECTION 02</div>
+      <div class="section-eyebrow"><i class="ti ti-compass" aria-hidden="true"></i>SECTION 02</div>
       <h2>アジャイルリーダーシップ・フレームワークの理解と活用</h2>
 
       <p>CAL1のプログラム設計者の一人であるPete Behrens氏は、Scrum Allianceの理事を務めながら、リーダーシップ開発の分野で実績のあるコーチとして、この認定プログラムの立ち上げに携わりました<sup><a href="#ref-4">[4]</a></sup><sup><a href="#ref-5">[5]</a></sup>。CAL1で紹介される代表的なリーダーシップ理論には、以下の3つがあります。</p>
@@ -737,7 +746,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>「この人はリーダーとしてどう扱うか」ではなく、「このタスクについて、この人は今どの発展レベルか」をタスクごとに診断する。</strong>同じ人でも業務内容によってD1〜D4は変わる。</li>
           <li><strong>D4の相手に対してS1(指示型)を続けると、マイクロマネジメントとして受け取られる。</strong>モチベーションを損なう典型的な失敗パターンになる。</li>
@@ -765,7 +774,7 @@
       <p>このモデルはアジャイル運動とは無関係に研究・確立されたにもかかわらず、「変化に適応し続ける」というアジャイルの価値観と非常に親和性が高いことから、CALプログラムの理論的基盤の一つに採用されたと説明されています<sup><a href="#ref-10">[10]</a></sup>。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>自分が普段どの段階の振る舞いに偏っているかを、重要な意思決定を振り返って自己診断してみる。</strong>例:「あの時、自分の専門知識で押し切った=Expert的な振る舞い」。</li>
           <li><strong>Achiever段階のリーダーがCatalystへ移行する際のつまずきは、「参加型にする」ことと「決めない」ことの混同。</strong>ビジョンを示した上で対話を促す、という順序を意識する。</li>
@@ -793,7 +802,7 @@
       </ul>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>1on1や振り返りの場で、まず「今週困っていることは?」と相手のニーズを聞くことから始め、指示から入らない。</strong></li>
           <li><strong>公式な権限が小さい役割ほど、サーバントリーダーシップの発想が実務上のリーダーシップの主軸になる。</strong>スクラムマスターやプロダクトオーナーが典型例。</li>
@@ -817,7 +826,7 @@
 
     <!-- ===================== 3. Personal Effectiveness ===================== -->
     <section id="personal-effectiveness">
-      <div class="section-eyebrow"><i class="ti ti-user-check"></i>SECTION 03</div>
+      <div class="section-eyebrow"><i class="ti ti-user-check" aria-hidden="true"></i>SECTION 03</div>
       <h2>個人の効果性(Personal Effectiveness)を高める</h2>
 
       <p>他者を導く前に、リーダー自身の内面の在り方(mindset)と自己理解を整えることが、CAL1で強調されるもう一つの柱です。</p>
@@ -834,7 +843,7 @@
       <p>Dweckの研究では、失敗を「自分には向いていない証拠」と捉えるか、「学習の機会」と捉えるかで、その後の挑戦意欲や粘り強さに大きな差が生まれることが示されています<sup><a href="#ref-13">[13]</a></sup><sup><a href="#ref-14">[14]</a></sup>。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>チームメンバーを評価するとき、結果だけでなく「取り組み方・工夫・学習プロセス」を具体的に言葉にしてフィードバックする。</strong></li>
           <li><strong>リーダー自身が「まだやったことがない」「今回はうまくいかなかった」を率直に口に出す。</strong>チームに学習を歓迎する空気を作る。</li>
@@ -860,7 +869,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>感情が高ぶった状態で重要な意思決定やフィードバックを行わない。</strong>一呼吸置くルールを自分に課す。</li>
           <li><strong>週次で「今週、自分の感情が大きく動いた出来事は何か」を短く記録し、パターンを可視化する。</strong></li>
@@ -873,7 +882,7 @@
       <p>アジャイルの「検査と適応(inspect and adapt)」はチームのふりかえり(レトロスペクティブ)だけでなく、リーダー個人の内省習慣にも応用できます。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>スプリントやイテレーションの区切りごとに、「リーダーとしての自分」に対する短いセルフふりかえりの時間を5〜10分確保する。</strong>チームの振り返りとは別に行う。</li>
           <li><strong>「今週、うまく機能したリーダー行動は何か」「次に試したい行動は何か」の2問だけに絞ると継続しやすい。</strong></li>
@@ -884,7 +893,7 @@
 
     <!-- ===================== 4. Coaching Skills ===================== -->
     <section id="coaching-skills">
-      <div class="section-eyebrow"><i class="ti ti-message-2"></i>SECTION 04</div>
+      <div class="section-eyebrow"><i class="ti ti-message-2" aria-hidden="true"></i>SECTION 04</div>
       <h2>チームメンバーの能力を育てるコーチングスキル</h2>
 
       <h3>4.1 コーチング・メンタリング・ティーチング・コンサルティングの違い</h3>
@@ -927,7 +936,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>Goalを飛ばしてReality(現状の愚痴)から入ると会話が発散しやすいため、最初に必ずGoalを一言で確認する。</strong></li>
           <li><strong>Optionsの段階では、リーダー自身のアイデアを最初に出さず、まず相手に3つ以上の選択肢を出してもらう。</strong></li>
@@ -940,7 +949,7 @@
       <p>コーチング型の対話で重要なのは「正しい答えを与えること」ではなく「相手が自分で答えにたどり着けるように問うこと」です。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>「なぜ」で始まる質問は相手を防御的にさせやすいため、「何が」「どのように」に言い換える。</strong>例:「なぜ失敗したのか」→「何が起きたのか、次に活かせることは何か」。</li>
           <li><strong>相手が話し終えてからワンテンポおいて反応する。</strong>沈黙を恐れず、相手に考える余白を与える。</li>
@@ -968,7 +977,7 @@
       </div>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>「権限移譲=レベル7を目指すこと」ではない。</strong>リスクの大きさやチームの成熟度に応じて、意思決定領域ごとに適切なレベルを選ぶ。</li>
           <li><strong>どの意思決定領域がどのレベルにあるかをチームで可視化する(Delegation Board)。</strong>「これは誰が決めるのか」という曖昧さによる摩擦を減らせる。</li>
@@ -979,7 +988,7 @@
 
     <!-- ===================== 5. Feedback & Psychological Safety ===================== -->
     <section id="feedback-safety">
-      <div class="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 05</div>
+      <div class="section-eyebrow"><i class="ti ti-shield-check" aria-hidden="true"></i>SECTION 05</div>
       <h2>フィードバックと心理的安全性</h2>
 
       <p>コーチングで引き出した気づきや、権限移譲した仕事の成果は、フィードバックを通じて初めて学習として定着します。</p>
@@ -1002,7 +1011,7 @@
       <p>CCLは近年、これに「Intent(意図)」を尋ねるステップを加えたSBI-Iという発展形も紹介しており、フィードバックを一方通行の指摘ではなく、相手の意図を確認する対話に変える工夫を提案しています<sup><a href="#ref-22">[22]</a></sup>。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>Behaviorの段階で「あなたは無責任だった」のような人格評価をしない。</strong>「〇〇という行動をした」という事実のみを述べる。</li>
           <li><strong>ポジティブフィードバックにもSBIは有効。</strong>良い行動を具体的な状況とセットで伝えると、再現性のある学びになる。</li>
@@ -1027,7 +1036,7 @@
       </ul>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>耳の痛いフィードバックを避け続けることは「優しさ」ではなく「Ruinous Empathy」であると自覚する。</strong>長期的には相手の成長機会を奪っている。</li>
           <li><strong>フィードバックの前に、日頃から相手個人への関心を示しておく。</strong>仕事以外の状況や価値観への理解があると、率直な指摘が受け止められやすくなる。</li>
@@ -1040,7 +1049,7 @@
       <p>ハーバード・ビジネス・スクールのAmy C. Edmondson教授が提唱した概念で、「対人関係においてリスクを取っても安全だとチームメンバーが信じられる状態」と定義されます<sup><a href="#ref-24">[24]</a></sup>。Edmondsonは、心理的安全性は「優しさ」や「馴れ合い」ではなく、率直なフィードバックを行い、失敗を率直に認め、互いに学び合うための土台であると強調しています<sup><a href="#ref-24">[24]</a></sup>。</p>
 
       <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
         <ul>
           <li><strong>リーダー自身が最初に自分のミスや不確実性を開示する。</strong>メンバーが発言しやすい空気を作る、リーダーからの自己開示が起点になる。</li>
           <li><strong>問題提起や反対意見を述べたメンバーに対して、その場で感謝を示す。</strong>発言そのものを歓迎する姿勢を明確にする。</li>
@@ -1051,7 +1060,7 @@
 
     <!-- ===================== 6. Growth Loop Summary ===================== -->
     <section id="growth-loop">
-      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 06</div>
+      <div class="section-eyebrow"><i class="ti ti-refresh" aria-hidden="true"></i>SECTION 06</div>
       <h2>まとめ:ドメイン2のリーダーシップ成長ループ</h2>
 
       <p>ここまで扱った内容は、以下のような循環として実務に落とし込むことができます。</p>
@@ -1066,25 +1075,25 @@
 
     <!-- ===================== 7. Self-Check ===================== -->
     <section id="self-check">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 07</div>
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true"></i>SECTION 07</div>
       <h2>自己診断チェックリスト</h2>
 
       <p>学習の定着のために、以下の問いに率直に答えてみてください(正解・不正解はありません)。</p>
 
       <ul class="checklist">
-        <li><i class="ti ti-square"></i><span>直近1週間で、メンバーごとに発展レベル(D1〜D4)を意識してリーダーシップスタイルを変えた場面があったか?</span></li>
-        <li><i class="ti ti-square"></i><span>自分がExpert/Achiever/Catalystのどの振る舞いに偏りやすいか、具体的な出来事で説明できるか?</span></li>
-        <li><i class="ti ti-square"></i><span>最近、自分から先に弱みや失敗を開示した場面があったか?</span></li>
-        <li><i class="ti ti-square"></i><span>GROWモデルを使って、答えを与えずに相手に考えさせる対話ができたか?</span></li>
-        <li><i class="ti ti-square"></i><span>意思決定領域ごとに、どのDelegationレベルで任せているかをチームと言語化できているか?</span></li>
-        <li><i class="ti ti-square"></i><span>直近のフィードバックはSituation・Behavior・Impactの3点を具体的に含んでいたか?</span></li>
-        <li><i class="ti ti-square"></i><span>チームメンバーが反対意見や失敗を安心して話せる空気を、自分の言動でどう支えているか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>直近1週間で、メンバーごとに発展レベル(D1〜D4)を意識してリーダーシップスタイルを変えた場面があったか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>自分がExpert/Achiever/Catalystのどの振る舞いに偏りやすいか、具体的な出来事で説明できるか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>最近、自分から先に弱みや失敗を開示した場面があったか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>GROWモデルを使って、答えを与えずに相手に考えさせる対話ができたか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>意思決定領域ごとに、どのDelegationレベルで任せているかをチームと言語化できているか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>直近のフィードバックはSituation・Behavior・Impactの3点を具体的に含んでいたか?</span></li>
+        <li><i class="ti ti-square" aria-hidden="true"></i><span>チームメンバーが反対意見や失敗を安心して話せる空気を、自分の言動でどう支えているか?</span></li>
       </ul>
     </section>
 
     <!-- ===================== 8. Framework Summary Table ===================== -->
     <section id="framework-summary">
-      <div class="section-eyebrow"><i class="ti ti-table"></i>SECTION 08</div>
+      <div class="section-eyebrow"><i class="ti ti-table" aria-hidden="true"></i>SECTION 08</div>
       <h2>主要フレームワーク早見表</h2>
 
       <div class="table-wrap">
@@ -1109,7 +1118,7 @@
 
     <!-- ===================== 9. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 09</div>
+      <div class="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 09</div>
       <h2>参考文献・出典(Sources)</h2>
 
       <div class="ref-group">
@@ -1371,8 +1380,12 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1395,10 +1408,26 @@
         if (wasOpen) toggle.focus();
       });
     });
+    // Escape キーで開いている目次を閉じ、フォーカスをトグルボタンに戻す
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });
