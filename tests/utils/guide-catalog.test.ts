@@ -102,7 +102,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
 
   it("ガイドのシリーズは同一カテゴリーのものだけを指す（カテゴリー跨ぎ禁止）", () => {
     // カテゴリー跨ぎのシリーズ指定はグルーピングでガイドを消し、ナビから到達不能にする。
-    const seriesCategory = new Map(GUIDE_SERIES.map((series) => [series.id, series.categoryId]));
+    const seriesCategory = new Map<string, string>(GUIDE_SERIES.map((series) => [series.id, series.categoryId]));
     const mismatched = GUIDES.filter(
       (guide) => guide.seriesId !== undefined && seriesCategory.get(guide.seriesId) !== guide.categoryId,
     );
@@ -115,7 +115,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
      * seriesId の指定漏れは「ラベルの無いカラム」としてナビに黙って現れる。
      * 見た目が壊れないぶん気づきにくいため、カタログ自身の契約として落とす。
      */
-    const categoriesWithSeries = new Set(GUIDE_SERIES.map((series) => series.categoryId));
+    const categoriesWithSeries = new Set<string>(GUIDE_SERIES.map((series) => series.categoryId));
     const unassigned = GUIDES.filter(
       (guide) => categoriesWithSeries.has(guide.categoryId) && guide.seriesId === undefined,
     );
