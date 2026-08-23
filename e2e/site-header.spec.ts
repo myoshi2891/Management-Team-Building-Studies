@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 /*
  * グローバルナビのスモーク。
@@ -19,6 +19,41 @@ const CATEGORY_IDS = [
 
 const MOBILE = { width: 375, height: 720 };
 
+/*
+ * キーボード（Enter）でドロップダウンを開く。
+ *
+ * SSG された HTML はボタンが押せる状態で先に描画されるため、goto() 直後に
+ * focus() → keyboard.press() を送ると Vue のリスナーが付く前のネイティブ click になり、
+ * パネルが開かないままタイムアウトする。再試行の効かない一発勝負の操作なので flaky になる。
+ *
+ * aria-expanded を見てから押すことで再試行を冪等にする（開いているものを閉じない）。
+ * ハイドレーション完了の内部フラグには依存しない。
+ */
+/*
+ * hover でドロップダウンを開く。keyboard 版と同じハイドレーション競合があるため、
+ * 一度マウスを外してから当て直す形で再試行する（hover は一度当てただけでは
+ * リスナーが付いた後に mouseenter が再発火しない）。
+ */
+async function openWithHover(page: Page, triggerId: string): Promise<void> {
+  const panel = page.locator(`#nav-panel-${triggerId}`);
+  await expect(async () => {
+    await page.mouse.move(0, 0);
+    await page.locator(`#nav-trigger-${triggerId}`).hover();
+    await expect(panel).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+}
+
+async function openWithKeyboard(page: Page, triggerId: string): Promise<void> {
+  const trigger = page.locator(`#nav-trigger-${triggerId}`);
+  await expect(async () => {
+    await trigger.focus();
+    if (await trigger.getAttribute("aria-expanded") === "false") {
+      await page.keyboard.press("Enter");
+    }
+    await expect(page.locator(`#nav-panel-${triggerId}`)).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+}
+
 test("デスクトップ: hover でドロップダウンが開き、現在のページを含むカテゴリーを示す", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/capm");
@@ -29,8 +64,7 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
   await expect(trigger).toHaveClass(/current/);
   await expect(panel).toBeHidden();
 
-  await trigger.hover();
-  await expect(panel).toBeVisible();
+  await openWithHover(page, "project-management");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   await expect(panel.locator("a.current")).toHaveAttribute("href", "/capm");
 
@@ -55,10 +89,8 @@ test("デスクトップ: どの幅・どのカテゴリーでもパネルがビ
     await page.goto("/");
 
     for (const id of CATEGORY_IDS) {
-      const trigger = page.locator(`#nav-trigger-${id}`);
-      await trigger.hover();
+      await openWithHover(page, id);
       const panel = page.locator(`#nav-panel-${id}`);
-      await expect(panel).toBeVisible();
 
       const box = (await panel.boundingBox())!;
       expect(box.x, `${id} @${width}px が左へはみ出している`).toBeGreaterThanOrEqual(0);
@@ -77,9 +109,7 @@ test("デスクトップ: Escape で閉じてトリガーへフォーカスが�
   const trigger = page.locator("#nav-trigger-engineering-leadership");
   const panel = page.locator("#nav-panel-engineering-leadership");
 
-  await trigger.focus();
-  await page.keyboard.press("Enter");
-  await expect(panel).toBeVisible();
+  await openWithKeyboard(page, "engineering-leadership");
 
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();
@@ -192,9 +222,7 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   const panel = page.locator("#nav-panel-engineering-management");
 
   // キーボードで開く（フォーカスがナビ内に入る）
-  await trigger.focus();
-  await page.keyboard.press("Enter");
-  await expect(panel).toBeVisible();
+  await openWithKeyboard(page, "engineering-management");
 
   // パネル内のリンクにフォーカスを当ててから外側クリック。
   // クリック先は必ず <main> にする。`locator("main, body")` は CSS セレクタリストを
