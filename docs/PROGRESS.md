@@ -369,6 +369,19 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | `csm-scrum-theory-guide.vue` の転写ズレ修正 | 経験主義の3本柱を「循環する連鎖」→「一方通行の連鎖」（原本の文言）へ修正 | セッション開始時点から `audit:csm-theory` が red だった既存の移行漏れ。Scrum Guide 上も「透明性→検査→適応」の方向性のある連鎖であり、言い換えが事実誤りを生んでいた |
 | SEO メタの完全一致契約 | `tests/support/page-contract.ts` に任意の `seoTitle` / `seoDescription` を追加し、`debugging-teams-guide` / `leadership-challenge-workbook-guide` / `lean-ux-beginner-guide` の 3 本で全文凍結 | 従来の `seoTitleFragments`（部分一致）は語順・副題の欠落を素通ししていた。残り 24 本は未凍結のため、順次 ratchet する |
 
+### 32. レビュー指摘のフォローアップ対応（2026-08-23）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| a11y 横展開の取りこぼし 2 本を補完 | `Agile-Leadership-in-Action.html` / `Ai-driven-project-management-guide.html` に skip-link・`id="main-content"`・装飾アイコンの `aria-hidden="true"`（43 件 / 33 件）・Escape でのサイドバー閉じ・`aria-current="location"`・`renderAllDiagrams().catch` を追加 | §31 は「全 7 本へ横展開」と記録していたが、この 2 本は未適用のままだった。`Peopleware.html` / `Cal1-certified-agile-leader-1-guide.html` を正典テンプレートとして文言まで一致させた |
+| `renderAllDiagrams()` の未処理 rejection | `mermaid.initialize()` は図ごとの `try/catch` の外にあり、初期化が失敗すると Promise 全体が reject して全図がローディング表示のまま残る | 呼び出し側の `.catch` で `DIAGRAMS` の全キーを走査し `diagram-error` 表示へ差し替える。サイレント失敗を可視のエラーに変える |
+| CAL1「4領域」の帰属を統一 | 「Scrum Alliance が4領域に整理」という断定を、`Cal1-chapter3-leading-agile-teams.md` / `The-Case-for-Agile-Leadership.md` / `Agile-Leadership-in-Action.md` / `.html` で「トレーニング提供元の公開分類にならって整理」へ修正 | `Cal1-certified-agile-leader-1-guide.md:99` 自身が「公式サイトでは領域区分は明記されていない／4領域は PM-Partners の整理」と書いており、リポジトリ内で矛盾していた |
+| PM-Partners の認定ステータス断定を削除 | 「認定トレーニングパートナー PM-Partners」→「トレーニング提供元の一つである PM-Partners」に統一（`.md` / `.html` 各 4 箇所）。`Cal1-chapter3` の 2 日間・16 時間構成も PM-Partners の公開例として明示 | Scrum Alliance の認定パートナー登録を裏づける一次情報がない。断定を外す方向の保守的な修正 |
+| 共通の品質基準の表現 | 「4つの学習領域のカバー」→「最新版の CAL 1 学習目標(Learning Objectives)への対応」 | 全コース共通なのは学習目標への対応であり、4領域という区分ではない |
+| CAL1 の更新ルートを追記 | `The-Case-for-Agile-Leadership.md` の有効期間欄に、通常ルート（SEU + 更新料）と自動更新ルート（Scrum Alliance 認定コースの新規修了で SEU・更新料とも不要）を併記 | 従来は SEU のみに言及し、更新料と自動更新ルートが欠落していた |
+| 3本柱の「一方通行」記述を再修正 | §31 で原本文言に合わせた「一方通行の連鎖」を、「各反復のなかで透明性 → 検査 → 適応と一方向に進み、適応の結果が次の透明性へ戻る」へ変更。`app/pages/csm-scrum-theory-guide.vue` と `archive/` 原本を同時修正 | 方向性は正しいが「一方通行」は反復ごとの循環を否定してしまう。原本も同時に直したので `audit:csm-theory` は Green のまま |
+| `audit:lead-challenge` のソース未追跡は未対応 | `archive/Leadership-challenge-workbook-guide/*.html` はクリーンチェックアウトに存在しない | `.gitignore:49` の `/archive/` により全 `audit:*` スクリプトが同じ性質を持つ。1 本だけ追跡対象にすると不整合になるため、`/archive/` の方針変更としてユーザー判断を仰ぐ |
+
 ## 次回セッションでの再開プロンプト
 
 ```text
