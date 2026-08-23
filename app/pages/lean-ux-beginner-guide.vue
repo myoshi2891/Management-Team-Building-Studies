@@ -219,7 +219,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
 
         <p>書籍では原則が「チーム編成」「文化」「プロセス」という3つの観点に整理されています。それぞれの要点を以下にまとめます(原文の逐語引用ではなく要約です)。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Lean UXの原則を3つの観点で整理した一覧">
           <table>
             <thead><tr><th>観点</th><th>主な考え方</th></tr></thead>
             <tbody>
@@ -294,7 +294,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
 
         <h3>各ボックスのステップバイステップ解説</h3>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Lean UX Canvasの各ボックスと答えるべき問い">
           <table>
             <thead><tr><th>Box</th><th>名称</th><th>このボックスで答える問い</th></tr></thead>
             <tbody>
@@ -337,7 +337,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
 
         <h3>テンプレートとCanvasの対応関係</h3>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="仮説の構成要素とCanvasのボックスの対応関係">
           <table>
             <thead><tr><th>仮説の構成要素</th><th>対応するCanvasのボックス</th></tr></thead>
             <tbody>
@@ -379,7 +379,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
 
         <h3>代表的なMVP・実験の種類</h3>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="代表的なMVP・実験の種類と向いている学び">
           <table>
             <thead><tr><th>種類</th><th>概要</th><th>主にどんな学びに向くか</th></tr></thead>
             <tbody>
@@ -476,7 +476,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
 
         <p>Lean UXを個人やチームの取り組みだけで終わらせず、組織全体に根づかせるには、「文化」「チーム編成」「プロセス」の3方向でのシフトが必要だとされています。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="従来型組織とLean UX移行後の組織の比較">
           <table>
             <thead><tr><th>シフトの方向</th><th>従来型の組織</th><th>Lean UXに移行した組織</th></tr></thead>
             <tbody>
@@ -529,7 +529,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" />SECTION 12</div>
         <h2>よくある落とし穴(アンチパターン)</h2>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Lean UX実践のよくある落とし穴と避け方">
           <table>
             <thead><tr><th>落とし穴</th><th>何が起きるか</th><th>避け方</th></tr></thead>
             <tbody>

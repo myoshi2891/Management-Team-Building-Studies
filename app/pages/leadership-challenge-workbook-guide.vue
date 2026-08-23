@@ -140,7 +140,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <p>書籍の核となる5つの実践を、一般的な定義とソフトウェア開発現場での具体例に対応させると次のようになります。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="模範的リーダーシップの5つの実践と開発現場での具体例">
           <table>
             <thead>
               <tr><th>#</th><th>Practice(原語)</th><th>日本語訳</th><th>一言でいうと</th><th>ソフトウェア開発現場での具体例</th></tr>
@@ -165,7 +165,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <p>各実践は、さらに2つずつの具体的な「誓約(Commitment)」に分解されています。これがワークブックの各章(Chapter 4〜8)で内省・実践課題として扱われる単位です。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="5つの実践に対応する10の誓約の一覧">
           <table>
             <thead>
               <tr><th>実践</th><th>誓約1</th><th>誓約2</th></tr>
@@ -199,7 +199,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <p><em>The Leadership Challenge Workbook, 4th Edition</em> の実際の章構成(目次)は以下の通りです。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="ワークブック(第4版)の章構成と内容の要旨">
           <table>
             <thead>
               <tr><th>Chapter</th><th>タイトル</th><th>内容の要旨</th></tr>
@@ -262,7 +262,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
         <h3>Step 3〜7: 5つの実践を一つずつ深める(Chapter 4〜8 相当)</h3>
         <p>各章は共通して「Reflection(内省の問い)→ Application(具体的な実践課題)→ Implications(次への示唆)」という3段構成になっています。ソフトウェアチームでの適用例を含めて整理すると以下の通りです。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="各章の内省の問いとエンジニアリングチームでの実践課題例">
           <table>
             <thead>
               <tr><th>Chapter</th><th>内省の問いの例</th><th>エンジニアリングチームでの実践課題例</th></tr>
@@ -291,7 +291,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <p>5つの実践を、スクラムの代表的なイベントやロールに対応させると、次のような役割マップになります。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="5つの実践とスクラムイベント・ロールの対応マップ">
           <table>
             <thead>
               <tr><th>実践</th><th>対応しやすいスクラムイベント / ロール</th><th>スクラムマスターが取れる具体的アクション</th></tr>
@@ -332,7 +332,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <p>Kouzes & Posner のモデルは唯一絶対の正解ではなく、他の主要なリーダーシップ理論と組み合わせて理解すると、より実践的になります。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="他のリーダーシップ理論とFive Practicesの関係">
           <table>
             <thead>
               <tr><th>関連理論</th><th>Five Practices との関係</th></tr>
@@ -357,7 +357,7 @@ const DIAGRAM_WORKBOOK_WORKFLOW = `flowchart TB
 
         <p>初学者がワークブックを実践する際に陥りやすい失敗パターンを整理しました。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="ワークブック実践時のアンチパターンと改善のヒント">
           <table>
             <thead>
               <tr><th>アンチパターン</th><th>何が問題か</th><th>改善のヒント</th></tr>

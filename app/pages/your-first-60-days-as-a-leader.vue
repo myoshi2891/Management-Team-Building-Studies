@@ -235,7 +235,7 @@ class F done;`;
 
         <p>各フェーズの目的を一言でまとめると、次のようになります。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="最初の60日間の各フェーズの目的と主な問い">
           <table>
             <thead><tr><th>フェーズ</th><th>期間</th><th>一言でいうと</th><th>主な問い</th></tr></thead>
             <tbody>
@@ -259,7 +259,7 @@ class F done;`;
 
         <p>新任リーダーがまず理解すべきなのは、「マネジメント(管理)」と「リーダーシップ(先導)」は似て非なるものだという点です。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="マネジメントとリーダーシップの違いの比較">
           <table>
             <thead><tr><th>観点</th><th>マネジメント</th><th>リーダーシップ</th></tr></thead>
             <tbody>
@@ -277,7 +277,7 @@ class F done;`;
 
         <p>Michael Watkinsが提唱する<strong>STARSモデル</strong>は、新しい役割で最初に行うべき「状況診断」のためのフレームワークです。自分のチームが今どの状態にあるかを見極めることで、取るべきアプローチが変わります。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="STARSモデルの各状況と求められるリーダーの姿勢">
           <table>
             <thead><tr><th>状況</th><th>特徴</th><th>エンジニアリングチームでの例</th><th>求められるリーダーの姿勢</th></tr></thead>
             <tbody>
@@ -369,7 +369,7 @@ class F done;`;
 
         <p>Michael Watkinsが提唱する「5つの重要な対話」は、上司との関係構築における実践的なチェックリストです。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="上司との5つの対話のテーマと確認すべきこと">
           <table>
             <thead><tr><th>対話のテーマ</th><th>確認すべきこと</th></tr></thead>
             <tbody>
@@ -418,7 +418,7 @@ class F done;`;
 
         <p>個別の1on1で聞いた声を、パターンとして整理します。エンジニアリングチームであれば、次のような軸で整理すると実務に落とし込みやすくなります。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="チームの現状を診断する軸と確認するポイント">
           <table>
             <thead><tr><th>診断軸</th><th>確認するポイント</th></tr></thead>
             <tbody>
@@ -499,7 +499,7 @@ class F done;`;
 
         <h3>実践のポイント</h3>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="1on1の実践のポイントと推奨プラクティス">
           <table>
             <thead><tr><th>項目</th><th>推奨プラクティス</th></tr></thead>
             <tbody>
@@ -534,7 +534,7 @@ class F done;`;
 
         <p>この調査では、心理的安全性に加えて次の4つの要因も、効果的なチームに共通する特徴として挙げられています。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Project Aristotleが特定したチームの効果性の要因">
           <table>
             <thead><tr><th>要因</th><th>内容</th></tr></thead>
             <tbody>
@@ -594,7 +594,7 @@ class F done;`;
 
         <p>複数の著名なエンジニアリングリーダーの発信(LeadDevに寄稿された新任マネージャーの体験談など)に共通して挙げられる失敗パターンを整理しました。</p>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="新任リーダーのよくある失敗と回避策">
           <table>
             <thead><tr><th>よくある失敗</th><th>なぜ起きるか</th><th>回避策</th></tr></thead>
             <tbody>
@@ -614,7 +614,7 @@ class F done;`;
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" />SECTION 12</div>
         <h2>60日間チェックリスト</h2>
 
-        <div class="table-wrap">
+        <div class="table-wrap" tabindex="0" role="region" aria-label="60日間チェックリスト(フェーズ別チェック項目)">
           <table>
             <thead><tr><th>フェーズ</th><th>チェック項目</th></tr></thead>
             <tbody>
