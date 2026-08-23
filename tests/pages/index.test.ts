@@ -185,6 +185,30 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         href: "/elastic-leadership-guide",
         accentClass: "guide-card-indigo",
       },
+      {
+        title: "The Leadership Challenge Workbook 完全ガイド",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/leadership-challenge-workbook-guide",
+        accentClass: "guide-card-plum",
+      },
+      {
+        title: "Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門",
+        category: "TEAM BUILDING",
+        href: "/lean-ux-beginner-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "リーダーとしての最初の60日間",
+        category: "ENGINEERING LEADERSHIP",
+        href: "/your-first-60-days-as-a-leader",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "Debugging Teams 完全ガイド ― チームの人間関係を「デバッグ」するベストプラクティス",
+        category: "TEAM BUILDING",
+        href: "/debugging-teams-guide",
+        accentClass: "guide-card-plum",
+      },
     ]);
   });
 

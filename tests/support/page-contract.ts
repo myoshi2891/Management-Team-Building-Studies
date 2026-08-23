@@ -71,6 +71,14 @@ export interface SourceParityContractInput {
   readonly stepTags: readonly string[];
   /** Q-2 で useSeoMeta の title に含まれることを要求する語。 */
   readonly seoTitleFragments: readonly string[];
+  /**
+   * 原本の useSeoMeta の title 全文（凍結リテラル）。
+   * 与えた場合は完全一致で照合する。断片一致だけでは、原本の見出しから
+   * 語順・副題・区切り記号がずれても検知できないため、可能な限り指定する。
+   */
+  readonly seoTitle?: string;
+  /** 原本の useSeoMeta の description 全文（凍結リテラル）。与えた場合は完全一致で照合する。 */
+  readonly seoDescription?: string;
 }
 
 /**
@@ -101,6 +109,8 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
     calloutLabels,
     stepTags,
     seoTitleFragments,
+    seoTitle,
+    seoDescription,
   } = contract;
   const mountPage = createMountPage(page);
 
@@ -308,6 +318,9 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
       for (const fragment of seoTitleFragments) {
         expect(meta?.title).toContain(fragment);
       }
+      // 全文を凍結しているページは完全一致で固定する（断片一致は取りこぼす）。
+      if (seoTitle !== undefined) expect(meta?.title).toBe(seoTitle);
+      if (seoDescription !== undefined) expect(meta?.description).toBe(seoDescription);
     });
 
     it("Q-3: 見出し階層が飛ばない（h1 → h3 のようなスキップが無い）", () => {

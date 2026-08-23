@@ -23,7 +23,7 @@
 
 ## Step 0. このガイドについて／CSM試験の基礎知識
 
-Scrum Alliance の Certified ScrumMaster®（CSM®）コースは、Scrum フレームワークの中核（スクラムチームの役割、イベント、アーティファクト）を扱う入門資格です。コース受講後に受験するテストは、50問の多肢選択式で、90日以内・2回までの受験機会の中で1時間以内に37問以上正解する必要があります。
+Scrum Alliance の Certified ScrumMaster®（CSM®）コースは、Scrum フレームワークの中核（スクラムチームの役割、イベント、アーティファクト）を扱う入門資格です。コース受講後に受験するテストは、50問の多肢選択式で、1時間以内に37問以上正解する必要があります。最初のウェルカムメール受信日から90日以内であれば受験費用込みで最大2回まで受験でき、それを超える受験も可能ですが、1回につき25米ドルの受験料が別途必要です。
 
 CSM の Learning Objectives（学習目標）は、次の資料をベースに策定されています。
 
@@ -370,7 +370,7 @@ Scrum Alliance の CSM Learning Objectives（2022年1月改訂版）のうち、
 | 10 | Scrum.org | DONE - Understanding of the Definition of "Done" | https://www.scrum.org/resources/blog/done-understanding-definition-done |
 | 11 | Scrum.org | Crafting Effective Sprint Goals in Scrum | https://www.scrum.org/resources/blog/crafting-effective-sprint-goals-scrum |
 | 12 | Scrum.org | Getting to Done: Creating Good Sprint Goals | https://www.scrum.org/resources/blog/getting-done-creating-good-sprint-goals |
-| 13 | Scrum.org | Crafting a good Sprint Goal | https://www.scrum.org/resources/blog/crafting-good-sprint-goal | 
+| 13 | Scrum.org | Crafting a good Sprint Goal | https://www.scrum.org/resources/blog/crafting-good-sprint-goal |
 | 14 | Scrum.org | Formulating a Product Goal | https://www.scrum.org/resources/formulating-product-goal |
 | 15 | Scrum.org | The Product Goal explained | https://www.scrum.org/resources/blog/product-goal-explained |
 | 16 | Scrum.org | What is a Sprint Backlog? | https://www.scrum.org/resources/what-is-a-sprint-backlog |

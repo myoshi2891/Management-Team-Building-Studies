@@ -1,0 +1,1134 @@
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "what-is-lean-ux",
+  "lean-ux-principles",
+  "lean-ux-cycle",
+  "lean-ux-canvas",
+  "hypothesis-writing",
+  "mvp-and-experiments",
+  "design-studio",
+  "lean-ux-and-agile",
+  "organizational-adoption",
+  "canvas-evolution-2024",
+  "getting-started-checklist",
+  "common-pitfalls",
+  "summary",
+  "references",
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "Lean UX 実践ガイド | 初学者のためのステップバイステップ入門",
+  description: "Jeff GothelfとJosh Seidenの著書『Lean UX, 3rd Edition』を主軸に、Lean UX Canvas・仮説の書き方・MVPと実験・デザインスタジオ・デュアルトラック・アジャイルまでを、初学者向けにステップバイステップで解説するガイドです。",
+});
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+};
+
+const DIAGRAM_THREE_SOURCES = `flowchart TB
+    A["デザイン思考 Design Thinking"] --> D["Lean UX"]
+    B["アジャイル開発 Agile"] --> D
+    C["リーンスタートアップ Lean Startup"] --> D
+    D --> E["少人数のクロスファンクショナルなチームが仮説を高速に検証しながらプロダクトを作る"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class A,B,C,E box;
+    class D hub;`;
+
+const DIAGRAM_OUTPUT_OUTCOME_IMPACT = `flowchart LR
+    O1["アウトプット 作ったもの・機能や画面"] --> O2["アウトカム ユーザー行動の変化"]
+    O2 --> O3["インパクト ビジネスへの効果"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class O1,O2,O3 box;`;
+
+const DIAGRAM_THINK_MAKE_CHECK = `flowchart LR
+    A["Think 思考する 仮説を立てる"] --> B["Make 作る MVPを設計する"]
+    B --> C["Check 確かめる 実験で検証する"]
+    C --> A
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C box;`;
+
+const DIAGRAM_LEAN_UX_CANVAS = `flowchart TB
+    B1["Box1 ビジネス課題"] --> B2["Box2 ビジネス成果"]
+    B2 --> B3["Box3 ユーザー"]
+    B3 --> B4["Box4 ユーザーの成果とベネフィット"]
+    B4 --> B5["Box5 解決策アイデア"]
+    B5 --> B6["Box6 仮説"]
+    B6 --> B7["Box7 最初に検証すべきこと"]
+    B7 --> B8["Box8 MVPと実験"]
+    B8 -->|学びをCanvasに反映する| B1
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class B1,B2,B3,B4,B5,B6,B7,B8 box;`;
+
+const DIAGRAM_DESIGN_STUDIO_STEPS = `flowchart TB
+    S1["問題定義とルール確認 約15分"] --> S2["個人でアイデアスケッチ 約10分"]
+    S2 --> S3["発表とクリティーク 1人あたり約3分"]
+    S3 --> S4["ペアで反復・改良 約10分"]
+    S4 --> S5["チームでアイデアを統合 約45分"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class S1,S2,S3,S4,S5 box;`;
+
+const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
+    Track1["発見トラック"] --> D1["仮説を立てる"]
+    D1 --> D2["MVPで検証する"]
+    D2 --> D3["学びを得る"]
+    D3 -->|検証済みの項目を渡す| Backlog["共有バックログ"]
+    Backlog --> Track2["提供トラック"]
+    Track2 --> E1["検証済みの項目を実装する"]
+    E1 --> E2["リリースする"]
+    E2 --> E3["計測する"]
+    E3 -->|フィードバック| D1
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class D1,D2,D3,E1,E2,E3 box;
+    class Track1,Track2,Backlog hub;`;
+</script>
+
+<template>
+  <div class="layout">
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" />
+    </button>
+
+    <!-- ===================== Sidebar ===================== -->
+    <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
+      <div class="sidebar-brand">
+        <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4" />
+          <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1" />
+          <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="brand-text">
+          <div class="brand-title">Lean UX 実践ガイド</div>
+          <div class="brand-subtitle">初学者のための入門</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li><a href="#what-is-lean-ux" :class="{ active: activeId === 'what-is-lean-ux' }" @click="closeSidebar"><Icon name="tabler:bulb" />Lean UXとは何か</a></li>
+        <li><a href="#lean-ux-principles" :class="{ active: activeId === 'lean-ux-principles' }" @click="closeSidebar"><Icon name="tabler:compass" />Lean UXを支える原則</a></li>
+        <li><a href="#lean-ux-cycle" :class="{ active: activeId === 'lean-ux-cycle' }" @click="closeSidebar"><Icon name="tabler:refresh" />Lean UXの全体サイクル</a></li>
+        <li><a href="#lean-ux-canvas" :class="{ active: activeId === 'lean-ux-canvas' }" @click="closeSidebar"><Icon name="tabler:layout-grid" />Lean UX Canvas実践</a></li>
+        <li><a href="#hypothesis-writing" :class="{ active: activeId === 'hypothesis-writing' }" @click="closeSidebar"><Icon name="tabler:flask" />仮説の書き方</a></li>
+        <li><a href="#mvp-and-experiments" :class="{ active: activeId === 'mvp-and-experiments' }" @click="closeSidebar"><Icon name="tabler:rocket" />MVPと実験の設計</a></li>
+        <li><a href="#design-studio" :class="{ active: activeId === 'design-studio' }" @click="closeSidebar"><Icon name="tabler:users" />デザインスタジオ</a></li>
+        <li><a href="#lean-ux-and-agile" :class="{ active: activeId === 'lean-ux-and-agile' }" @click="closeSidebar"><Icon name="tabler:git-branch" />アジャイル統合</a></li>
+        <li><a href="#organizational-adoption" :class="{ active: activeId === 'organizational-adoption' }" @click="closeSidebar"><Icon name="tabler:building-bank" />組織への浸透</a></li>
+        <li><a href="#canvas-evolution-2024" :class="{ active: activeId === 'canvas-evolution-2024' }" @click="closeSidebar"><Icon name="tabler:trending-up" />2024年以降の進化</a></li>
+        <li><a href="#getting-started-checklist" :class="{ active: activeId === 'getting-started-checklist' }" @click="closeSidebar"><Icon name="tabler:list-check" />実践チェックリスト</a></li>
+        <li><a href="#common-pitfalls" :class="{ active: activeId === 'common-pitfalls' }" @click="closeSidebar"><Icon name="tabler:alert-triangle" />よくある落とし穴</a></li>
+        <li><a href="#summary" :class="{ active: activeId === 'summary' }" @click="closeSidebar"><Icon name="tabler:flag-3" />まとめ</a></li>
+        <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" />参考文献・出典</a></li>
+      </ul>
+    </nav>
+
+    <!-- ===================== Main content ===================== -->
+    <main class="main-content">
+      <div class="hero">
+        <div class="hero-eyebrow"><Icon name="tabler:books" />O'Reilly『Lean UX, 3rd Edition』ほか一次情報源をもとに解説</div>
+        <h1>Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門</h1>
+        <p class="hero-lede">
+          本ガイドは、Jeff Gothelf と Josh Seiden の著書 <em>Lean UX, 3rd Edition</em>(O'Reilly Media, 2021年9月刊)を主軸に、著者本人の公式ブログ、Nielsen Norman Group(NN/g)などの一次情報源をもとに2026年8月時点の情報を反映してまとめたものです。ソフトウェアエンジニアやスクラムマスターがチームに導入する際に、迷わず一歩ずつ進められることを目指しています。
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-number">第3版</div><div class="stat-label">2021年9月刊行(O'Reilly Media)</div></div>
+          <div class="stat-card"><div class="stat-number">8</div><div class="stat-label">Lean UX Canvasの構成ボックス数</div></div>
+          <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Mermaidフローチャート図解</div></div>
+          <div class="stat-card"><div class="stat-number">17</div><div class="stat-label">参照URL</div></div>
+        </div>
+
+        <div class="disclaimer-box">
+          <Icon name="tabler:info-circle" />
+          本ガイドは、書籍『Lean UX, 3rd Edition』および関連する一次情報源をもとに独自にまとめた非公式の学習用資料です。正式な内容は<a href="https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/" target="_blank" rel="noopener">O'Reilly Media公式ページ</a>でご確認ください。
+        </div>
+      </div>
+
+      <!-- ===================== 01. What Is Lean UX ===================== -->
+      <section id="what-is-lean-ux">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bulb" />SECTION 01</div>
+        <h2>Lean UXとは何か</h2>
+
+        <p>Lean UXは、デザイン思考・アジャイル開発・リーンスタートアップという3つの潮流を土台にした、プロダクト開発のアプローチです。特定の成果物(詳細な仕様書や完璧なモックアップ)を作ることをゴールにするのではなく、<strong>プロダクト体験そのもの</strong>にチームの意識を向けることを目的としています。</p>
+
+        <p>Gothelf氏とSeiden氏は、Lean UXを「コラボレーティブでクロスファンクショナル、かつユーザー中心のやり方で、プロダクトの本質をより早く明らかにするデザインアプローチ」と位置づけています。重要なのは、UXデザイナーだけの手法ではなく、プロダクトマネージャー、エンジニア、スクラムマスターを含むチーム全体のための働き方だという点です。</p>
+
+        <h3>なぜ今、重要なのか</h3>
+        <p>継続的デリバリーが当たり前になった現在、プロダクトは一度作って終わりではなく、リリース後も学習と改善を繰り返す前提で開発されます。要求仕様を最初に固めてから作る「ウォーターフォール型」の進め方では、変化の速い市場や顧客ニーズに追従できません。Lean UXは、この前提の変化に対応するための考え方として、2013年の初版以来10年以上にわたり実務で使われ続けています。</p>
+
+        <h3>3つの源流</h3>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_THREE_SOURCES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <div class="diagram-loading">図を読み込み中...</div>
+              </template>
+            </ClientOnly>
+          </div>
+          <div id="threeSources-caption" class="diagram-caption">デザイン思考・アジャイル・リーンスタートアップの3つがLean UXへ合流する</div>
+        </div>
+
+        <ul>
+          <li><strong>デザイン思考</strong>: ユーザーへの共感を起点に問題を定義し、発散と収束を繰り返して解決策を探る考え方</li>
+          <li><strong>アジャイル開発</strong>: 小さなサイクルで反復的に作り、変化を歓迎する開発プロセス</li>
+          <li><strong>リーンスタートアップ</strong>: Eric Riesが提唱した「構築(Build)→計測(Measure)→学習(Learn)」のループで、仮説を検証しながら無駄な投資を避ける考え方</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 02. Lean UX Principles ===================== -->
+      <section id="lean-ux-principles">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:compass" />SECTION 02</div>
+        <h2>Lean UXを支える原則</h2>
+
+        <p>書籍では原則が「チーム編成」「文化」「プロセス」という3つの観点に整理されています。それぞれの要点を以下にまとめます(原文の逐語引用ではなく要約です)。</p>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Lean UXの原則を3つの観点で整理した一覧">
+          <table>
+            <thead><tr><th>観点</th><th>主な考え方</th></tr></thead>
+            <tbody>
+              <tr><td>チーム編成の原則</td><td>デザイナー・エンジニア・プロダクトマネージャーなど専門性の異なるメンバーを、一つの小さなチームに常駐させる。役割の壁を越えて共同で問題に取り組む</td></tr>
+              <tr><td>文化の原則</td><td>「正しさを主張する」より「学びを得る」ことを評価する。失敗を許容し、チーム全員が意思決定に関与できる心理的安全性を重視する</td></tr>
+              <tr><td>プロセスの原則</td><td>大きな一括の要件定義ではなく、小さなバッチサイズで検証を繰り返す。ドキュメントは必要最小限にとどめ、対話と共有理解を優先する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>これらの原則を貫く最も重要な転換が、次に説明する「アウトプットからアウトカムへ」という視点の変化です。</p>
+
+        <h3>アウトプットからアウトカムへ</h3>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_OUTPUT_OUTCOME_IMPACT" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <div class="diagram-loading">図を読み込み中...</div>
+              </template>
+            </ClientOnly>
+          </div>
+          <div id="outputOutcomeImpact-caption" class="diagram-caption">アウトプットからアウトカム、そしてインパクトへ至る流れ</div>
+        </div>
+
+        <p>Lean UXでは、「何を作ったか(アウトプット)」ではなく、「その結果ユーザーの行動がどう変わったか(アウトカム)」、さらに「それがビジネスにどんな効果をもたらしたか(インパクト)」を進捗の物差しにします。機能をリリースすること自体はゴールではなく、あくまで仮説を検証するための手段だという考え方が全体を貫いています。</p>
+      </section>
+
+      <!-- ===================== 03. Lean UX Cycle ===================== -->
+      <section id="lean-ux-cycle">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" />SECTION 03</div>
+        <h2>Lean UXの全体サイクル</h2>
+
+        <p>Lean UXの日々の営みは、「考える(Think)→作る(Make)→確かめる(Check)」という小さなループの繰り返しです。これはリーンスタートアップの「構築→計測→学習」ループをUXの文脈に置き換えたものと理解すると分かりやすいです。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_THINK_MAKE_CHECK" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <div class="diagram-loading">図を読み込み中...</div>
+              </template>
+            </ClientOnly>
+          </div>
+          <div id="thinkMakeCheck-caption" class="diagram-caption">Think・Make・Checkの3ステップループ</div>
+        </div>
+
+        <p>このループを、チームで協働しながら・反復的に・並行して(デザイン、開発、検証をなるべく同時並行で)回し続けることが、Lean UXの日常的な実践の姿です。次章では、このループを具体的にどう回すかを助けてくれる「Lean UX Canvas」というツールを見ていきます。</p>
+      </section>
+
+      <!-- ===================== 04. Lean UX Canvas ===================== -->
+      <section id="lean-ux-canvas">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:layout-grid" />SECTION 04</div>
+        <h2>Lean UX Canvasによるステップバイステップ実践</h2>
+
+        <p>Lean UX Canvasは、Jeff Gothelf氏が考案した1枚のワークシートで、書籍第3版ではこのCanvasが本全体の目次にもなっています。Business Model Canvasに似た見た目を持ち、8つのボックスに番号順で答えていくことで、チームが「何を作るか」ではなく「どんなビジネス課題を解決するか」から議論を始められるように設計されています。</p>
+
+        <p>重要な点として、Canvasはチェックリストではなく<strong>ファシリテーションツール</strong>です。すべてのボックスを完璧に埋める必要はなく、チームが正しい対話をするためのきっかけとして使います。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_LEAN_UX_CANVAS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <div class="diagram-loading">図を読み込み中...</div>
+              </template>
+            </ClientOnly>
+          </div>
+          <div id="leanUxCanvas-caption" class="diagram-caption">Lean UX Canvasの8ボックスと学びの循環</div>
+        </div>
+
+        <h3>各ボックスのステップバイステップ解説</h3>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Lean UX Canvasの各ボックスと答えるべき問い">
+          <table>
+            <thead><tr><th>Box</th><th>名称</th><th>このボックスで答える問い</th></tr></thead>
+            <tbody>
+              <tr><td>Box 1</td><td>ビジネス課題</td><td>私たちが解決しようとしているビジネス上の課題は何か？</td></tr>
+              <tr><td>Box 2</td><td>ビジネス成果</td><td>課題が解決されたと、どんな行動指標の変化で判断するか？</td></tr>
+              <tr><td>Box 3</td><td>ユーザー</td><td>誰のために作るのか。想定する顧客・ユーザー像は？</td></tr>
+              <tr><td>Box 4</td><td>ユーザーの成果とベネフィット</td><td>ユーザーは何を達成したいのか。その先にどんな便益があるか？</td></tr>
+              <tr><td>Box 5</td><td>解決策アイデア</td><td>ユーザーの成果を実現するために、どんな機能・体験を提供できるか？</td></tr>
+              <tr><td>Box 6</td><td>仮説</td><td>Box2〜5をひとつの検証可能な文章にまとめる</td></tr>
+              <tr><td>Box 7</td><td>最初に検証すべきこと</td><td>複数の仮説のうち、最もリスクが高く最初に検証すべきものはどれか？</td></tr>
+              <tr><td>Box 8</td><td>MVPと実験</td><td>その仮説を検証するために、最小限どんな実験を行うか？</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>進め方のコツ</strong></p>
+        <ol>
+          <li>まずは番号順に、1〜2時間程度のワークショップ形式でチーム全員(デザイナーだけでなくPM・エンジニアも)が集まって埋めます。</li>
+          <li>Box 6(仮説)は、Box 2〜5に書いた内容を1文にまとめ直す作業です。書き方は次章で詳しく説明します。</li>
+          <li>Box 7では、洗い出した仮説の中から「これが間違っていたら計画全体が崩れる」という最もリスクの高い前提(riskiest assumption)を選びます。</li>
+          <li>Box 8で決めた実験を実施したら、得られた学びを再びBox 1〜6に反映させ、Canvasをアップデートします。これが「学習が終わったら終わり」ではなく「学習し続ける」というLean UXの本質です。</li>
+          <li>Box 8では、実験の方法をできるだけ具体的に書きます。「ユーザーからフィードバックを集める」のような曖昧な記述では、ワークショップに参加していなかったメンバーが実行できません。「誰に」「何人に」「どの期間で」「どんな手法で」まで書き切ることが推奨されています。</li>
+        </ol>
+      </section>
+
+      <!-- ===================== 05. Hypothesis Writing ===================== -->
+      <section id="hypothesis-writing">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flask" />SECTION 05</div>
+        <h2>仮説(ハイポセシス)の書き方</h2>
+
+        <p>Lean UXでは、要求仕様の代わりに「仮説」を書きます。仮説は、Box 2〜5で洗い出した前提を、検証可能な1つの文章にまとめたものです。</p>
+
+        <h3>基本テンプレート</h3>
+        <p>書籍で紹介されている基本形は、次のような組み立て方です(要約)。</p>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
+          <p>私たちは、<strong>[このユーザー]</strong> が <strong>[この機能・体験]</strong> によって <strong>[このベネフィット]</strong> を得られれば <strong>[このビジネス成果]</strong> を達成できる、と信じている。これが正しいかどうかは、市場から次のようなフィードバックが得られたときに分かる: <strong>[定性的な兆候]</strong> および / または <strong>[定量的な指標の変化]</strong>。</p>
+        </div>
+
+        <h3>テンプレートとCanvasの対応関係</h3>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="仮説の構成要素とCanvasのボックスの対応関係">
+          <table>
+            <thead><tr><th>仮説の構成要素</th><th>対応するCanvasのボックス</th></tr></thead>
+            <tbody>
+              <tr><td>ビジネス成果</td><td>Box 2(ビジネス成果)</td></tr>
+              <tr><td>ユーザー</td><td>Box 3(ユーザー)</td></tr>
+              <tr><td>ベネフィット</td><td>Box 4(ユーザーの成果とベネフィット)</td></tr>
+              <tr><td>機能・解決策</td><td>Box 5(解決策アイデア)</td></tr>
+              <tr><td>成功の判定基準</td><td>Box 8で計測する指標</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>具体例(イメージ)</h3>
+        <ul>
+          <li>「私たちは、オンライン購入者がアカウント作成なしで注文できるようになれば、注文完了率が向上すると信じている。現在15%のカゴ落ち改善が見られれば、これは正しいと言える」</li>
+          <li>「新機能に進捗バーと完了報酬を追加すれば、新規ユーザーのプロフィール完成率が上がると信じている。登録から2週間以内の平均完成率が現状より有意に高くなれば、これは正しいと言える」</li>
+        </ul>
+
+        <h3>仮説を書くときの注意点</h3>
+        <ul>
+          <li><strong>1つの仮説は1つのアウトカムに絞る</strong>: 1つの仮説文に複数のビジネス成果が混ざっている場合は、仮説を分割します。</li>
+          <li><strong>検証可能な形にする</strong>: 「良い体験にする」のような曖昧な表現ではなく、測定できる指標や観察可能な行動で表現します。</li>
+          <li><strong>技術的な前提も忘れない</strong>: レイテンシ、データ品質、セキュリティなど、ユーザー価値だけでなく実現可能性に関わる前提も仮説に含めることが推奨されます。</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 06. MVP and Experiments ===================== -->
+      <section id="mvp-and-experiments">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:rocket" />SECTION 06</div>
+        <h2>MVPと実験の設計</h2>
+
+        <h3>MVPとは何か</h3>
+        <p>Lean UXにおけるMVP(Minimum Viable Product)の定義は、Eric Riesが<em>The Lean Startup</em>で示した定義をそのまま踏襲しています。つまり、MVPは「利益を生む最小限の製品」ではなく、<strong>仮説を検証して学習を得るために作る最小限の製品</strong>です。ここで重要なのは、MVPが「製品を作って学ぶ」手段だという点です。ランディングページテストや紙のプロトタイプのように<strong>製品を作らずに学ぶ検証手法</strong>は、同じ「実験」ではあってもMVPそのものとは区別されます(本ガイドでは両者をまとめて「MVP・実験の種類」として扱います)。いずれの場合も「最小限の作業量で、次に最も重要なことを学ぶには何が必要か」を問うのがBox 8の核心であり、最小限であること・速く学ぶことという原則は共通しています。</p>
+
+        <p>最小限であることは手抜きではなく、「リーン」の本質そのものです。無駄な作業を減らすことで、アイデアを早く軌道修正でき、チームの機動力が高まります。</p>
+
+        <h3>真実の曲線(Truth Curve)という考え方</h3>
+        <p>書籍では、検証の初期段階では低コスト・低精度な定性的手法(インタビューなど)から始め、確信度が高まるにつれて、より高コスト・高精度な定量的手法(ライブデータを使ったプロトタイプなど)へと段階的に投資を増やしていく考え方が紹介されています。最初から作り込みすぎず、学びの確信度に応じて投資を増やす、という順序立てが重要です。</p>
+
+        <h3>代表的なMVP・実験の種類</h3>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="代表的なMVP・実験の種類と向いている学び">
+          <table>
+            <thead><tr><th>種類</th><th>概要</th><th>主にどんな学びに向くか</th></tr></thead>
+            <tbody>
+              <tr><td>ランディングページテスト</td><td>実際には存在しない製品・機能の紹介ページを公開し、関心の度合いを計測する</td><td>需要があるかどうかの検証</td></tr>
+              <tr><td>フィーチャーフェイク(ボタン・トゥ・ノーウェア)</td><td>未実装の機能へのリンクやボタンだけを先に置き、クリック率を計測する</td><td>特定機能への需要の検証</td></tr>
+              <tr><td>ウィザード・オブ・オズ</td><td>裏側の処理を人力で行い、ユーザーには自動化された製品のように見せる</td><td>提供価値そのものの検証(実装前)</td></tr>
+              <tr><td>コンシェルジュ型</td><td>人が直接サービスを提供し、後で自動化する前提でニーズを確かめる</td><td>サービスの価値と業務フローの検証</td></tr>
+              <tr><td>ペーパープロトタイプ</td><td>紙のスケッチでユーザーの反応を確認する</td><td>情報設計・操作の流れの検証</td></tr>
+              <tr><td>ローファイ / ミッド〜ハイファイのオンスクリーンプロトタイプ</td><td>忠実度を段階的に上げた画面モックアップでテストする</td><td>UIの使いやすさ・体験の検証</td></tr>
+              <tr><td>ノーコードMVP</td><td>ノーコードツールで実際に動く簡易版を作る</td><td>実際の利用フローの検証</td></tr>
+              <tr><td>コード実装 / ライブデータのプロトタイプ</td><td>実データを使った動く実装でテストする</td><td>本番相当の挙動・精度の検証</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
+          <p>ランディングページテスト、フィーチャーフェイク、ウィザード・オブ・オズ、コンシェルジュ型は、いずれも<strong>まだ提供していない機能をユーザーに提示する実験</strong>です。実施にあたっては、それが実験であり当該機能が未提供であることを明示し、課金や契約を発生させないでください。個人情報(メールアドレス等)を取得する場合、利用目的の通知・本人の同意・オプトアウト手段のうち<strong>どれが求められるかは、適用される法域(日本の個人情報保護法、EUのGDPR、米国州法など)、データの分類、処理の目的、および自社のプライバシーポリシーによって異なります</strong>。実施前に自社の要件を確認してください。</p>
+          <p>また、<strong>コード実装 / ライブデータのプロトタイプ</strong>で扱ってよいのは、<strong>利用が承認済みで、検証に必要最小限の、匿名化されたデータ</strong>だけです。個人情報や機密情報を含めざるを得ない場合、利用目的の通知・処理の適法根拠(同意など)・アクセス制御(権限を持つ担当者への限定)・保存期間の制限(検証終了後の速やかな削除)について<strong>具体的に何がどこまで求められるかは、適用法域、データの分類(要配慮個人情報を含むか等)、処理の目的、および自社のプライバシーポリシーに従って判断します</strong>。ウィザード・オブ・オズ型・コンシェルジュ型のように裏側を人が処理する実験も、人が実データを閲覧する以上、同じ判断が必要です。<strong>いずれの手法も、公開・実施の前に法務レビューを受けてください。</strong>本ガイドの記述は法的助言ではありません。</p>
+        </div>
+
+        <p><strong>進め方のポイント</strong>: まずは最も安価な手法(ペーパープロトタイプやランディングページ)から始め、仮説への確信度が高まった段階で、より作り込んだ実装へと進みます。いきなり本実装から検証を始めるのは避けます。</p>
+      </section>
+
+      <!-- ===================== 07. Design Studio ===================== -->
+      <section id="design-studio">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" />SECTION 07</div>
+        <h2>コラボレイティブデザイン: デザインスタジオ</h2>
+
+        <p>Lean UXでは、デザイナーが一人で解決策を考えるのではなく、チーム全員でアイデアを出し合う「デザインスタジオ」という時間割型のワークショップ手法が紹介されています。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DESIGN_STUDIO_STEPS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <div class="diagram-loading">図を読み込み中...</div>
+              </template>
+            </ClientOnly>
+          </div>
+          <div id="designStudioSteps-caption" class="diagram-caption">デザインスタジオ・ワークショップの5ステップ</div>
+        </div>
+
+        <p><strong>進め方のステップ</strong></p>
+        <ol>
+          <li><strong>問題定義とルール確認</strong>: この回のワークショップで解こうとしている問題と制約条件をチーム全員で確認します。</li>
+          <li><strong>個人でアイデアスケッチ</strong>: 一人ひとりが時間を区切って複数の解決策案を紙にスケッチします。</li>
+          <li><strong>発表とクリティーク</strong>: 各自が短時間で案を発表し、他のメンバーからフィードバックを受けます。</li>
+          <li><strong>ペアで反復・改良</strong>: 2人1組になり、お互いの案を組み合わせて改善します。</li>
+          <li><strong>チームでアイデアを統合</strong>: 最終的にチーム全体で最も有望な案をまとめ上げます。</li>
+        </ol>
+
+        <p>この手法の利点は、エンジニアやPMも含めた全員が「デザインする」経験を持つことで、その後の実装フェーズでの共通理解が格段に高まる点にあります。</p>
+      </section>
+
+      <!-- ===================== 08. Lean UX and Agile ===================== -->
+      <section id="lean-ux-and-agile">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" />SECTION 08</div>
+        <h2>Lean UXとアジャイル / スクラムの統合</h2>
+
+        <p>Lean UXはアジャイルプロセスを必須とする手法ではなく、アジャイルを採用していない環境でも実践できます。一方で、スクラムを運用しているチームでは Lean UX をスプリントの流れに組み込むことで効果を出しやすく、書籍ではその統合方法の一つとして「デュアルトラック・アジャイル」が紹介されています。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DUAL_TRACK_AGILE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              <template #fallback>
+                <div class="diagram-loading">図を読み込み中...</div>
+              </template>
+            </ClientOnly>
+          </div>
+          <div id="dualTrackAgile-caption" class="diagram-caption">発見トラックと提供トラックが共有バックログでつながるデュアルトラック・アジャイル</div>
+        </div>
+
+        <p><strong>デュアルトラック・アジャイルの考え方</strong></p>
+        <ul>
+          <li>1つのチームが、1つのバックログを共有しながら、「発見(研究・デザイン・検証)」と「提供(実装・リリース)」の作業を同じスプリント内で並行して行います。</li>
+          <li>発見トラックで検証された項目だけが、提供トラックの実装対象として選ばれます。多くの発見作業は、そのまま開発には進まず「作らない」という結論に至ることも重要な成果です。</li>
+          <li>ロードマップは機能のリストではなく、アウトカム(目指す行動変化)を軸に組み立てます。</li>
+        </ul>
+
+        <p><strong>統合のための実務ポイント</strong></p>
+        <ul>
+          <li>スクラムの「完了の定義(Definition of Done)」は、Increment が満たすべき品質基準です。ここに「検証された学び」を混ぜ込むのではなく、学習成果は発見トラックの独立した指標として追跡・評価します(例: 検証した仮説の数、意思決定に至った学びの件数)。</li>
+          <li>デザイナーはスプリントプランニングに参加し、次のスプリントで何を検証すべきかを一緒に決めます。</li>
+          <li>ステークホルダーとの合意形成のために、進捗状況やリスクを可視化する「リスクダッシュボード」のような仕組みを使うことも紹介されています。</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 09. Organizational Adoption ===================== -->
+      <section id="organizational-adoption">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" />SECTION 09</div>
+        <h2>組織にLean UXを浸透させる</h2>
+
+        <p>Lean UXを個人やチームの取り組みだけで終わらせず、組織全体に根づかせるには、「文化」「チーム編成」「プロセス」の3方向でのシフトが必要だとされています。</p>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="従来型組織とLean UX移行後の組織の比較">
+          <table>
+            <thead><tr><th>シフトの方向</th><th>従来型の組織</th><th>Lean UXに移行した組織</th></tr></thead>
+            <tbody>
+              <tr><td>文化</td><td>承認プロセスと計画通りの実行を重視</td><td>学習と実験、心理的安全性を重視</td></tr>
+              <tr><td>チーム編成</td><td>機能ごとに分断された専門チーム(サイロ)</td><td>デザイナー・エンジニア・PMが常駐するクロスファンクショナルなチーム</td></tr>
+              <tr><td>プロセス</td><td>大きな要件定義書を先に確定</td><td>小さな仮説単位で継続的に検証・反復</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Nielsen Norman Group(NN/g)も、アジャイルとUXの両立には、経営層がUXの価値を理解していること、UX担当者自身がリーダーシップを発揮すること、プロセスを厳格になりすぎないよう運用すること、そしてUXがチームに埋め込まれていることが鍵になると解説しています。特に、アジャイル環境では開発チームの少し先を走る形でデザインチームが動く、ドキュメントは「必要十分」を心がける、といった実務上の工夫が紹介されています。</p>
+      </section>
+
+      <!-- ===================== 10. Canvas Evolution 2024 ===================== -->
+      <section id="canvas-evolution-2024">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:trending-up" />SECTION 10</div>
+        <h2>2024年以降の進化: Lean Product CanvasとLean Strategy Canvas</h2>
+
+        <p>書籍『Lean UX 第3版』(2021年)で使われているLean UX Canvasはそれ自体、今でも広く使われている有効なツールですが、著者のJeff Gothelf氏は2024年11月、このCanvasを進化させた<strong>Lean Product Canvas</strong>と、それを補完する<strong>Lean Strategy Canvas</strong>を新たに公開しました。学習の最新動向として押さえておくとよいポイントです。</p>
+
+        <ul>
+          <li><strong>Lean Product Canvas</strong>: 名称から「UX」の文字が外れ、デザイナーだけでなくプロダクト開発チーム全体のためのツールという位置づけが明確化されました。Box 2(ビジネス成果)にはOKRの考え方が明示的に組み込まれ、Box 4には「ジョブ・トゥ・ビー・ダン」の視点が追加されるなど、プロンプトがより具体的になっています。</li>
+          <li><strong>Lean Strategy Canvas</strong>: Lean Product Canvasに取り組む前段階として、チームの目標・障害・戦略(どの市場で戦うか、どう勝つか)・OKRを整理するための、新設された補助ツールです。</li>
+        </ul>
+
+        <p>書籍そのものは第3版のLean UX Canvasをベースに解説されているため、初学者はまず本ガイドで説明した8ボックスのCanvasで基礎を学び、その後Jeff Gothelf氏の公式ブログで最新版の内容を確認するとよいでしょう(URLは参考文献セクションに記載)。</p>
+      </section>
+
+      <!-- ===================== 11. Getting Started Checklist ===================== -->
+      <section id="getting-started-checklist">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" />SECTION 11</div>
+        <h2>はじめてのLean UX: 実践チェックリスト</h2>
+
+        <p>これからLean UXをチームに導入する初学者向けに、最初の一歩を数値化したチェックリストです。</p>
+
+        <ol>
+          <li>デザイナー・エンジニア・プロダクトマネージャーを含む3〜6名程度の小さなクロスファンクショナルチームを編成する</li>
+          <li>取り組む対象について、1〜2時間のワークショップでLean UX Canvasの8ボックスを埋める</li>
+          <li>Box 6で仮説を1文にまとめ、Box 7で最もリスクの高い前提を1つ選ぶ</li>
+          <li>Box 8で「最小限の作業量で学べる実験」を1つ決め、1〜2週間以内に実施できる規模に抑える</li>
+          <li>実験を実施し、定性・定量の両方でフィードバックを集める</li>
+          <li>得られた学びをチームで共有し、Canvasを更新する</li>
+          <li>スクラムを使っている場合は、次のスプリントプランニングにこの学びを反映させる</li>
+          <li>このサイクルを、成果物のリリースが終わった後も継続的に回し続ける</li>
+        </ol>
+      </section>
+
+      <!-- ===================== 12. Common Pitfalls ===================== -->
+      <section id="common-pitfalls">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" />SECTION 12</div>
+        <h2>よくある落とし穴(アンチパターン)</h2>
+
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Lean UX実践のよくある落とし穴と避け方">
+          <table>
+            <thead><tr><th>落とし穴</th><th>何が起きるか</th><th>避け方</th></tr></thead>
+            <tbody>
+              <tr><td>Canvasをチェックリストとして機械的に埋める</td><td>対話が生まれず、形だけの成果物になる</td><td>各ボックスを「議論のきっかけ」として使い、意見が割れた箇所こそ深掘りする</td></tr>
+              <tr><td>学習方法(Box 8)が曖昧なまま進める</td><td>「ユーザーの声を聞く」だけでは誰が何をすべきか分からない</td><td>対象者・人数・期間・手法まで具体的に書く</td></tr>
+              <tr><td>デザイナーだけでワークショップを実施する</td><td>エンジニアやPMの前提とズレたまま進んでしまう</td><td>クロスファンクショナルなメンバー全員を巻き込む</td></tr>
+              <tr><td>MVPをいきなり本実装で作ろうとする</td><td>学びを得る前に多くの工数を投じてしまう</td><td>真実の曲線に沿って、安価な検証手法から段階的に進める</td></tr>
+              <tr><td>ドキュメントを極端に省略、または過剰に作り込む</td><td>情報が失われるか、逆に誰も読まない資料の山になる</td><td>「誰が」「何のために」読むのかを基準に、必要十分な粒度で残す</td></tr>
+              <tr><td>検証を伴わずに実装だけを回す</td><td>検証されていない機能が量産される</td><td>完了の定義は Increment の品質基準として維持しつつ、発見トラックの学習成果を独立した指標として追跡する</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================== 13. Summary ===================== -->
+      <section id="summary">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" />SECTION 13</div>
+        <h2>まとめ</h2>
+
+        <p>Lean UXは、特定のツールや帳票のことではなく、「アウトプットではなくアウトカムを追いかける」「仮説を立てて検証する」「チーム全員で協働する」という考え方そのものです。Lean UX Canvasはその考え方を実践に落とし込むための優れたファシリテーションツールであり、8つのボックスを順に埋めていくことで、初学者でも迷わずワークショップを始められます。仮説の書き方、MVPの設計、デザインスタジオ、デュアルトラック・アジャイルといった具体的な手法を組み合わせることで、チームは小さく速く学び続けるプロダクト開発のリズムを作ることができます。</p>
+      </section>
+
+      <!-- ===================== 14. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" />SECTION 14</div>
+        <h2>参考文献・出典</h2>
+
+        <p>本ガイドの作成にあたり、以下の情報源を参照しました(すべて2026年8月時点でアクセス可能なものです)。著者・版元が発信した<strong>一次情報源</strong>と、第三者による<strong>解説・二次情報源</strong>を区別して掲載します。</p>
+
+        <h3>一次情報源</h3>
+
+        <div class="ref-group">
+          <h4>O'Reilly Media</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">Lean UX, 3rd Edition(書籍本体・目次・章内容) ― ユーザー指定の一次情報源</span><a class="ref-url" href="https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/" target="_blank" rel="noopener">https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/</a></li>
+            <li><span class="ref-name">Lean UX, 3rd Edition ― Box 8: MVPs and Experiments(章プレビュー)</span><a class="ref-url" href="https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/ch12.html" target="_blank" rel="noopener">https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/ch12.html</a></li>
+            <li><span class="ref-name">Lean UX, 3rd Edition ― Box 6: Hypotheses(章プレビュー)</span><a class="ref-url" href="https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/ch10.html" target="_blank" rel="noopener">https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/ch10.html</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>Jeff Gothelf(著者公式サイト)</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">The Lean Product Canvas(2024年11月、Canvasの進化について)</span><a class="ref-url" href="https://jeffgothelf.com/blog/the-lean-product-canvas/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/the-lean-product-canvas/</a></li>
+            <li><span class="ref-name">What's new in the latest edition of Lean UX?(第3版の変更点)</span><a class="ref-url" href="https://jeffgothelf.com/blog/whats-new-lean-ux-book-3rd-edition/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/whats-new-lean-ux-book-3rd-edition/</a></li>
+            <li><span class="ref-name">How to Use the Lean UX Canvas</span><a class="ref-url" href="https://jeffgothelf.com/blog/how-to-use-the-lean-ux-canvas/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/how-to-use-the-lean-ux-canvas/</a></li>
+            <li><span class="ref-name">Lean UX Canvas V2</span><a class="ref-url" href="https://jeffgothelf.com/blog/leanuxcanvas-v2/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/leanuxcanvas-v2/</a></li>
+            <li><span class="ref-name">Lean UX Canvas(初版の解説)</span><a class="ref-url" href="https://jeffgothelf.com/blog/leanuxcanvas/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/leanuxcanvas/</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>Nielsen Norman Group</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">What is Lean UX?(動画・解説)</span><a class="ref-url" href="https://www.nngroup.com/videos/lean-ux/" target="_blank" rel="noopener">https://www.nngroup.com/videos/lean-ux/</a></li>
+            <li><span class="ref-name">Lean UX &amp; Agile: Study Guide</span><a class="ref-url" href="https://www.nngroup.com/articles/lean-ux-agile-study-guide/" target="_blank" rel="noopener">https://www.nngroup.com/articles/lean-ux-agile-study-guide/</a></li>
+            <li><span class="ref-name">Lean UX &amp; Agile Glossary</span><a class="ref-url" href="https://www.nngroup.com/articles/agile-glossary/" target="_blank" rel="noopener">https://www.nngroup.com/articles/agile-glossary/</a></li>
+            <li><span class="ref-name">Agile Development Projects and Usability</span><a class="ref-url" href="https://www.nngroup.com/articles/agile-development-and-usability/" target="_blank" rel="noopener">https://www.nngroup.com/articles/agile-development-and-usability/</a></li>
+            <li><span class="ref-name">Lean UX Documentation for Tracking and Communicating in Agile</span><a class="ref-url" href="https://www.nngroup.com/articles/lean-agile-documentation/" target="_blank" rel="noopener">https://www.nngroup.com/articles/lean-agile-documentation/</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>その他(著者関連の公式情報)</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">Sense &amp; Respond Learning(Gothelf氏の教育事業) ― Facilitating the Lean UX Canvas: A Workshop Guide for Agile Coaches</span><a class="ref-url" href="https://www.senseandrespond.co/blog/lean-ux-canvas-workshop-guide" target="_blank" rel="noopener">https://www.senseandrespond.co/blog/lean-ux-canvas-workshop-guide</a></li>
+            <li><span class="ref-name">Lean UX Book(公式書籍サイト) ― 推薦の声・概要</span><a class="ref-url" href="https://leanuxbook.com/" target="_blank" rel="noopener">https://leanuxbook.com/</a></li>
+            <li><span class="ref-name">AgileData.io ― Jeff Gothelf インタビュー: Lean UX and Sense and Respond</span><a class="ref-url" href="https://agiledata.io/podcast/no-nonsense-agile-podcast/jeff-gothelf-lean-ux-and-sense-and-respond/" target="_blank" rel="noopener">https://agiledata.io/podcast/no-nonsense-agile-podcast/jeff-gothelf-lean-ux-and-sense-and-respond/</a></li>
+          </ul>
+        </div>
+
+        <h3>解説・二次情報源</h3>
+
+        <div class="ref-group">
+          <h4>Interaction Design Foundation</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">What is Lean UX?(2026年更新版) ― 第三者による解説記事</span><a class="ref-url" href="https://ixdf.org/literature/topics/lean-ux" target="_blank" rel="noopener">https://ixdf.org/literature/topics/lean-ux</a></li>
+          </ul>
+        </div>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
+          <p>本ガイド内の引用はすべて要約・意訳であり、原文からの逐語的な転載は行っていません。詳細な原文表現を確認したい場合は、上記URL、特にO'Reillyの書籍原文をご参照ください。</p>
+        </div>
+      </section>
+
+      <footer>
+        Lean UX および Lean UX Canvas は、Jeff Gothelf 氏・Josh Seiden 氏の著作物およびその考え方に基づく概念です。本ページは学習目的で内容を独自にまとめた非公式ガイドであり、Jeff Gothelf 氏、Josh Seiden 氏、O'Reilly Media、Nielsen Norman Group とは関係ありません。最終更新: 2026年8月。
+      </footer>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+/* 装飾のみ。図解の幅・配置は MermaidDiagram.vue の責務（再実装禁止） */
+
+.layout {
+  display: block;
+}
+
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin: 2px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+}
+
+.sidebar-nav a :deep(.icon) {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
+
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active :deep(.icon) {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(.icon) {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul, ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong, th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Diagram containers ===================== */
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.mermaid-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
+}
+
+.diagram-error {
+  color: var(--color-plum);
+  font-size: 16px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--color-paper-sunken);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sidebar {
+    transition: none;
+  }
+}
+</style>
