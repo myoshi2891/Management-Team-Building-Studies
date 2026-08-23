@@ -348,6 +348,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 参考文献の見出し `h4` → `h3` 昇格 | `出典一覧` を `h3` へ変更（原本 HTML も追随修正） | `h2` から `h4` へのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため |
 | ガイドカタログ登録 | `app/utils/guide-catalog.ts` の `GUIDES` 配列へ `to: "/your-first-60-days-as-a-leader"`, `categoryId: "engineering-leadership"`, `navLabel: "最初の60日間"`, `accent: "forest"` として登録 | サイト登録契約 N-1〜N-3 に従い、ナビゲーション・ホームカードへ自動連携 |
 | 原本アーカイブ移動 | `Your-first-60-days-as-a-leader.html` / `.md` を `archive/Your-first-60-days-as-a-leader/` 配下へ移動 | 移行完了原本の集約管理 |
+
 ### 30. Debugging Teams 完全ガイド（`debugging-teams-guide.vue`）での記録
 
 | 項目 | 内容 | 理由 |
@@ -355,6 +356,18 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | ガイドカタログ登録 | `app/utils/guide-catalog.ts` の `GUIDES` 配列へ `to: "/debugging-teams-guide"`, `categoryId: "team-building"`, `navLabel: "Debugging Teams"`, `accent: "plum"` として登録 | サイト登録契約 N-1〜N-3 に従い、ナビゲーション・ホームカードへ自動連携 |
 | 原本アーカイブ移動 | `Debugging-teams-guide.html` / `.md` を `archive/Debugging-teams-guide/` 配下へ移動 | 移行完了原本の集約管理 |
 | 照合監査のパス | `npm run audit:debugging-teams` を追加し **exit 0**（差分 0 件）を確認 | 全文・見出し・図解・コールアウト・表の完全移植を検証 |
+
+### 31. アクセシビリティ・事実記述のレビュー指摘対応（2026-08-23）での記録
+
+| 項目 | 内容 | 理由 |
+|---|---|---|
+| 静的 HTML 7 本の a11y 実装を統一 | skip-link / `aria-current="location"` / Escape でのサイドバー閉じ / 装飾アイコンの `aria-hidden="true"` / `renderAllDiagrams()` の `.catch` を、公開中のトップレベル HTML 全 7 本へ横展開 | 生成時期によって実装が 4 パターンに分裂していた。`md-to-html` の雛形更新が既存ページへ遡及していなかったため |
+| `archive/` は改修対象外 | 上記 a11y 改修を `archive/` 配下の原本には適用しない | `archive/*.html` は全 `audit:*` のゲート原本であり、原本を「改善」すると Nuxt 版との差分が転写漏れとして誤検知される。a11y は公開層（Nuxt 共有コンポーネント）で担保する |
+| CSM 再受験ポリシーの事実修正 | 「コース修了から90日以内・2回まで」→「最初のウェルカムメール受信日から90日以内は受験費用込みで2回まで。超過分は1回につき25米ドル」に統一 | 期限の起点が誤りで、かつ「2回で受験機会が尽きる」と誤読させる記述だった。`Scrum-events-csm-guide.html` の記述を正とした |
+| 上記に伴う原本の同時修正 | `archive/Csm-certified-scrummaster-guide/` の `Csm-scrum-theory-guide` / `Csm-scrum-team-3-accountabilities`（`.html` / `.md`）と対応する `app/pages/*.vue` を同一文言で修正 | 原本照合監査は段落・表の本文まで照合するため、**本文の事実修正は原本と Nuxt 版を同時に直さないと監査が意味を失う**（a11y 属性は照合対象外なので公開層のみで完結する） |
+| `archive/` が未追跡である点の注意 | `.gitignore:49` に `/archive/` があり、上記の原本修正は**コミットされない** | 別環境で pristine な原本を持つ場合、`audit:csm-theory` / `audit:csm-team` が差分ありと判定される。原本の保管場所へ同じ 2 件の修正を反映する必要がある |
+| `csm-scrum-theory-guide.vue` の転写ズレ修正 | 経験主義の3本柱を「循環する連鎖」→「一方通行の連鎖」（原本の文言）へ修正 | セッション開始時点から `audit:csm-theory` が red だった既存の移行漏れ。Scrum Guide 上も「透明性→検査→適応」の方向性のある連鎖であり、言い換えが事実誤りを生んでいた |
+| SEO メタの完全一致契約 | `tests/support/page-contract.ts` に任意の `seoTitle` / `seoDescription` を追加し、`debugging-teams-guide` / `leadership-challenge-workbook-guide` / `lean-ux-beginner-guide` の 3 本で全文凍結 | 従来の `seoTitleFragments`（部分一致）は語順・副題の欠落を素通ししていた。残り 24 本は未凍結のため、順次 ratchet する |
 
 ## 次回セッションでの再開プロンプト
 
@@ -406,5 +419,3 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 
 ベースラインテスト数: ユニット 703 + E2E 13
 ```
-
-
