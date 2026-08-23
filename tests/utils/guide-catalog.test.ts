@@ -50,6 +50,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", navLabel: "最初の60日間" },
       { to: "/debugging-teams-guide", categoryId: "team-building", navLabel: "Debugging Teams" },
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", navLabel: "Managing Humans" },
+      { to: "/peopleware-guide", categoryId: "team-building", navLabel: "Peopleware" },
     ]);
   });
 
@@ -87,7 +88,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies", "Lean UX 入門", "Debugging Teams"],
+        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies", "Lean UX 入門", "Debugging Teams", "Peopleware"],
       },
     ]);
   });

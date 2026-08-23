@@ -345,6 +345,16 @@ export const GUIDES = [
     icon: "tabler:users-group",
     accent: "plum",
   },
+  {
+    to: "/peopleware-guide",
+    categoryId: "team-building",
+    navLabel: "Peopleware",
+    title: "『Peopleware: Productive Projects and Teams』完全ガイド",
+    description: "Tom DeMarcoとTim Listerの名著『Peopleware Productive Projects and Teams』を初学者向けにステップバイステップで解説。核心テーゼ、6部構成、チーミサイド、Coding War Gamesのデータ、著名開発者の言及までを図解と表で整理した実践ガイド。",
+    meta: "14セクション",
+    icon: "tabler:users-group",
+    accent: "indigo",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {

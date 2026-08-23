@@ -1158,6 +1158,17 @@
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class B,C,E box;`,
+    bookPartsOverview: `flowchart TB
+    P1["Part I 人的資源のマネジメント 失敗の社会学的原因を診断する"]:::hub --> P2["Part II オフィス環境 フローを守る空間を設計する"]
+    P2 --> P3["Part III 適切な人材 採用 リーダーシップ 定着"]
+    P3 --> P4["Part IV 生産的なチームを育てる ジェリングとチーミサイド"]
+    P4 --> P5["Part V 肥沃な土壌 会議 変化 組織学習"]
+    P5 --> P6["Part VI ここで働くのは楽しいはず 秩序と自由裁量の両立"]
+    
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class P2,P3,P4,P5 box;`,
     flowInterruption: `flowchart TB
     A1["作業に没入し始める"] --> A2["電話 チャットや声かけで割り込まれる"]
     A2 --> A3["集中状態フローが中断する"]
@@ -1204,17 +1215,6 @@
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class S1,S2,S3,S4,S5,S6,S7 box;`,
-    bookPartsOverview: `flowchart TB
-    P1["Part I 人的資源のマネジメント 失敗の社会学的原因を診断する"]:::hub --> P2["Part II オフィス環境 フローを守る空間を設計する"]
-    P2 --> P3["Part III 適切な人材 採用 リーダーシップ 定着"]
-    P3 --> P4["Part IV 生産的なチームを育てる ジェリングとチーミサイド"]
-    P4 --> P5["Part V 肥沃な土壌 会議 変化 組織学習"]
-    P5 --> P6["Part VI ここで働くのは楽しいはず 秩序と自由裁量の両立"]
-    
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class P2,P3,P4,P5 box;`,
   };
 
   function extendViewBoxHeight(svgEl, extra) {
