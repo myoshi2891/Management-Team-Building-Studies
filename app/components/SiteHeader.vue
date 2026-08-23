@@ -252,18 +252,43 @@ watch(() => route.path, () => {
             <Icon class="nav-chevron" name="tabler:chevron-down" aria-hidden="true" />
           </button>
 
-          <ul :id="`nav-panel-${group.category.id}`" class="nav-dropdown">
-            <li v-for="guide in group.guides" :key="guide.to">
-              <NuxtLink
-                :class="{ current: isCurrent(guide.to) }"
-                :to="guide.to"
-                :aria-current="isCurrent(guide.to) ? 'page' : undefined"
+          <!--
+            パネルはシリーズ（カタログの GUIDE_SERIES）ごとのカラムに分ける。
+            data-columns は DOM 契約としての可視化、--nav-panel-columns が実際のグリッド列数。
+            どちらも seriesGroups.length から導出しており、手で数を書かない。
+          -->
+          <div
+            :id="`nav-panel-${group.category.id}`"
+            class="nav-dropdown"
+            :data-columns="group.seriesGroups.length"
+            :style="{ '--nav-panel-columns': group.seriesGroups.length }"
+          >
+            <div
+              v-for="column in group.seriesGroups"
+              :key="column.series?.id ?? '_unassigned'"
+              class="nav-series"
+            >
+              <p
+                v-if="column.series"
+                :id="`nav-series-${column.series.id}`"
+                class="nav-series-label"
               >
-                <Icon :name="guide.icon" aria-hidden="true" />
-                <span>{{ guide.navLabel }}</span>
-              </NuxtLink>
-            </li>
-          </ul>
+                {{ column.series.navLabel }}
+              </p>
+              <ul :aria-labelledby="column.series ? `nav-series-${column.series.id}` : undefined">
+                <li v-for="guide in column.guides" :key="guide.to">
+                  <NuxtLink
+                    :class="{ current: isCurrent(guide.to) }"
+                    :to="guide.to"
+                    :aria-current="isCurrent(guide.to) ? 'page' : undefined"
+                  >
+                    <Icon :name="guide.icon" aria-hidden="true" />
+                    <span>{{ guide.navLabel }}</span>
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -319,9 +344,15 @@ watch(() => route.path, () => {
 .global-brand-copy strong { font-family: var(--font-display); font-size: 16px; letter-spacing: 0.01em; }
 .global-brand-copy small { margin-top: 5px; color: var(--color-ink-faint); font-size: 8px; font-weight: 700; letter-spacing: 0.18em; }
 
-nav { height: 100%; display: flex; align-items: stretch; }
+/*
+ * パネルの配置基準は .nav-category ではなく nav。
+ * カラムが増えたパネルを項目基準（left: 0）で出すと、右寄りのカテゴリーで
+ * ビューポート右端をはみ出す。ナビ自体がヘッダー右端にあるため、
+ * ナビ基準の右揃えなら JS の位置計算なしで全カテゴリーが画面内に収まる。
+ */
+nav { position: relative; height: 100%; display: flex; align-items: stretch; }
 
-.nav-category { position: relative; display: flex; align-items: stretch; }
+.nav-category { display: flex; align-items: stretch; }
 
 .global-nav-link {
   position: relative;
@@ -370,12 +401,15 @@ nav { height: 100%; display: flex; align-items: stretch; }
 .nav-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
+  left: auto;
   z-index: 10;
-  min-width: 244px;
+  display: grid;
+  grid-template-columns: repeat(var(--nav-panel-columns, 1), minmax(196px, 1fr));
+  column-gap: 8px;
+  max-width: min(760px, calc(100vw - 32px));
   margin: 0;
   padding: 8px;
-  list-style: none;
   border: 1px solid var(--color-border);
   background: var(--color-paper-raised);
   box-shadow: 0 18px 44px rgba(31, 44, 87, 0.14);
@@ -385,11 +419,30 @@ nav { height: 100%; display: flex; align-items: stretch; }
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
 }
 
+.nav-series { min-width: 0; }
+.nav-series + .nav-series { padding-left: 8px; border-left: 1px solid var(--color-border); }
+.nav-series ul { margin: 0; padding: 0; list-style: none; }
+
+.nav-series-label {
+  margin: 0;
+  padding: 8px 12px 6px;
+  color: var(--color-ink-faint);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
 .nav-category.open .nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
+
+/*
+ * パネルはナビ基準の右揃えでトリガーの真下に来るとは限らないため、
+ * 開いている間はトリガー側に金色の下線を出して、どの項目のパネルかを示す。
+ */
+.nav-category.open .nav-category-trigger::after { transform: scaleX(1); }
 
 .nav-dropdown a {
   display: flex;
@@ -423,9 +476,10 @@ nav { height: 100%; display: flex; align-items: stretch; }
 .nav-toggle svg { width: 20px; height: 20px; }
 
 /*
- * カテゴリー集約により、横に並ぶのはホーム + 4 カテゴリーの計 5 項目に固定された。
- * ガイドが増えてもこの数は変わらないため、旧実装のようなリンク数ベースの
- * ブレークポイント再計算は不要になった。
+ * 横に並ぶのはホーム + 4 カテゴリーの計 5 項目に固定（カテゴリー集約）。
+ * 縦方向はシリーズカラムへの分割（メガメニュー）で吸収するため、
+ * ガイドが増えてもブレークポイントの再計算は不要。
+ * カラムが増える方向の上限は .nav-dropdown の max-width が担保する。
  */
 @media (max-width: 1040px) {
   .global-header-inner { width: calc(100% - 24px); gap: 16px; }
@@ -479,11 +533,11 @@ nav { height: 100%; display: flex; align-items: stretch; }
 
   .nav-category-trigger .nav-chevron { margin-left: auto; }
 
-  /* アコーディオンなので絶対配置ではなく通常フローに戻す。 */
+  /* アコーディオンなので絶対配置ではなく通常フローに戻し、カラムも縦積みにする。 */
   .nav-dropdown {
     position: static;
     display: none;
-    min-width: 0;
+    max-width: none;
     padding: 0;
     border: 0;
     background: var(--color-paper-sunken);
@@ -495,6 +549,15 @@ nav { height: 100%; display: flex; align-items: stretch; }
   }
 
   .nav-category.open .nav-dropdown { display: block; }
+
+  /* 縦積みなので区切りは左罫ではなく上罫。 */
+  .nav-series + .nav-series {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav-series-label { padding: 12px 24px 2px; }
   .nav-dropdown a { padding: 11px 24px 11px 44px; white-space: normal; }
 }
 
