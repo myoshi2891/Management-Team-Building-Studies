@@ -44,6 +44,32 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
     .toBeGreaterThanOrEqual(headerBox.y + headerBox.height - 2);
 });
 
+test("デスクトップ: どの幅・どのカテゴリーでもパネルがビューポート内に収まる", async ({ page }) => {
+  /*
+   * シリーズカラム化でパネルが横に広がったため、項目基準（left: 0）のままだと
+   * 右寄りのカテゴリーで画面外へはみ出す。パネルの配置基準は nav の右端であり、
+   * これは CSS だけで決まるので jsdom のユニットテストでは検証できない。
+   */
+  for (const width of [1440, 1040]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+
+    for (const id of CATEGORY_IDS) {
+      const trigger = page.locator(`#nav-trigger-${id}`);
+      await trigger.hover();
+      const panel = page.locator(`#nav-panel-${id}`);
+      await expect(panel).toBeVisible();
+
+      const box = (await panel.boundingBox())!;
+      expect(box.x, `${id} @${width}px が左へはみ出している`).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width, `${id} @${width}px が右へはみ出している`).toBeLessThanOrEqual(width);
+      // 1 カラムに潰れていないこと（グリッドの列数指定が失われた場合の検知）。
+      const columns = Number(await panel.getAttribute("data-columns"));
+      expect(box.width).toBeGreaterThanOrEqual(196 * columns);
+    }
+  }
+});
+
 test("デスクトップ: Escape で閉じてトリガーへフォーカスが戻る", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
@@ -97,7 +123,8 @@ test("モバイル幅: リンクをタップすると遷移してナビが閉じ
   await page.locator("#nav-trigger-team-building").click();
   await page.locator("#nav-panel-team-building a").first().click();
 
-  await expect(page).toHaveURL(/\/dynamic-reteaming-guide$/);
+  // カタログの並べ替えにより、チームビルディングの先頭は「チーム文化」シリーズの Team Geek。
+  await expect(page).toHaveURL(/\/team-geek-guide$/);
   await expect(page.locator("#global-nav")).toBeHidden();
 });
 
