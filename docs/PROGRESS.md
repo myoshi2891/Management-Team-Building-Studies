@@ -484,7 +484,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/peopleware-guide.vue（Peopleware 完全ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
-  - SiteHeader.vue（全ページ共通グローバルナビ。カテゴリー別ドロップダウン + モバイルはアコーディオン）
+  - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
   - ユニットテスト 764 件
   - test / typecheck / lint はいずれも 2026-08-23 時点で ✔（実測）
