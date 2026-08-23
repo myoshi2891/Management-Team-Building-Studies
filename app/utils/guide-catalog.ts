@@ -335,6 +335,16 @@ export const GUIDES = [
     icon: "tabler:bug",
     accent: "plum",
   },
+  {
+    to: "/managing-humans-best-practices-guide",
+    categoryId: "engineering-management",
+    navLabel: "Managing Humans",
+    title: "『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド",
+    description: "Michael Lopp著『Managing Humans』(第4版)を初心者向けに解説する実践ガイド。1on1、会議運営、意思決定、危機対応をMermaid図解とともに紹介します。",
+    meta: "11セクション",
+    icon: "tabler:users-group",
+    accent: "plum",
+  },
 ] as const satisfies readonly Guide[];
 
 export type GuideGroup = {

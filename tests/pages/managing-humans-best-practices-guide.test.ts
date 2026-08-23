@@ -136,6 +136,7 @@ C7 -->|"はい"| C8["振り返りを行い再発防止策を残す"]
 
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class C1 hub;
 class C2,C3,C4,C5,C6,C7 box;
 class C8 done;`,
@@ -150,6 +151,7 @@ S7 --> S8["Step 8 『ノー』と言える文化と多様なキャリアパス�
 
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class S1 hub;
 class S2,S3,S4,S5,S6,S7 box;
 class S8 done;`,

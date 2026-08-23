@@ -119,6 +119,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-97-things-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
+      "/managing-humans-best-practices-guide",
       "/engineering-team-leadership-guide",
       "/engineering-executive-playbook",
       "/leadership-practices-guide",
@@ -131,7 +132,6 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/team-topologies-guide",
       "/lean-ux-beginner-guide",
       "/debugging-teams-guide",
-      "/managing-humans-best-practices-guide",
     ]);
   });
 
