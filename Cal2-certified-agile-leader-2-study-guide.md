@@ -107,7 +107,7 @@ Sinekの主張の核心は、多くの組織が「What（何をしているか�
 > - バリューは抽象的なスローガンにせず、「対立する2つの選択肢のうちどちらを選ぶか」を判断できる具体的な行動基準として書く（例：「スピードよりも品質を優先する」）
 > - リーダー自身が戦略を語るときは、常にWhyから始める。チームが変化に納得して協力するかどうかは、Whatの説明だけでは決まらない
 > - ミッション・ビジョン・バリューは一度策定して終わりにせず、組織構造や評価制度（後述のGalbraith Star Model参照）と定期的に整合性を確認する
-
+>
 > **ソース**
 > - [Start With Why: Simon Sinek's Golden Circle Theory Explained](https://upraise.io/blog/golden-circle-framework/)
 > - [How Simon Sinek's Golden Circle Can Transform Your Business](https://www.cesarritzcolleges.edu/en/news/simon-sinek-golden-circle/)
@@ -133,7 +133,7 @@ CAL 1第4章では、組織のアジリティを評価する枠組みとしてBu
 > - 年次戦略レビューだけでなく、四半期・月次などの短いサイクルで戦略の前提を見直す機会を設ける
 > - 戦略を伝える際は「何をするか」だけでなく「なぜそれが今のビジネス環境で重要か」を必ずセットで説明する
 > - 現場チームが戦略の意図を理解しているかを、指示の復唱ではなく「この状況ならどう判断するか」という具体的なシナリオで確認する
-
+>
 > **ソース**
 > - [CAL 2™ 公式ページ（組織戦略とアジリティの記述）](https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2)
 > - Business Agility Instituteおよびアウトカム思考については CAL 1 第4章「アジャイル組織のリード」を参照
@@ -185,7 +185,7 @@ VSMでは、各工程にかかる「処理時間（Cycle Time）」と、工程�
 > - 組織構造を見直す前に、まず現状のバリューストリームを一度実際にマッピングし、待ち時間がどの引き継ぎ地点（部門間・チーム間）で発生しているかを特定する
 > - リードタイムのうち処理時間が占める割合（フロー効率）を定点観測の指標にする。組織変更の効果は、この比率の改善で検証できる
 > - チーム構造の再設計（Team TopologiesやConway's Lawの観点。CAL 1第4章参照）は、バリューストリーム上のボトルネックを解消する目的で行う。構造変更が目的化しないようにする
-
+>
 > **ソース**
 > - [Galbraith Star Model | Org Design & Operating Model](https://umbrex.com/resources/frameworks/organization-frameworks/galbraith-star-model/)
 > - [Developing an Organizational Design that Works: The Galbraith Star Model](https://flevy.com/blog/developing-an-organizational-design-that-works-the-galbraith-star-model/)
@@ -229,7 +229,7 @@ Bridgesが強調するのは、「New Beginningはスケジュール通りには
 > - Neutral Zone（中立圏）にいる期間は、短期的な目標・こまめなコミュニケーション・実験を歓迎する姿勢によって、混乱を前向きな模索へ転換する
 > - Neutral Zoneの最中に、無関係な追加の変更を重ねない。人はすでに変化への対応で消耗しているため、変更の重ね掛けは移行期間を不必要に長引かせる
 > - 変革の進捗をマイルストーンだけでなく、チームがEnding／Neutral Zone／New Beginningのどの段階にいるかという「人の移行状態」でも把握する
-
+>
 > **ソース**
 > - [Bridges' Transition Model Explained: Endings, Neutral Zone and New Beginnings](https://www.peoplestudypro.com/blog/bridges-transition-model-explained)
 > - [What is Bridges' Transition Model? | Umbrex](https://umbrex.com/resources/change-management-frameworks/what-is-bridges-transition-model/)
@@ -257,7 +257,7 @@ Bridgesが強調するのは、「New Beginningはスケジュール通りには
 > - コミュニケーションは一度で終わらせず、少なくとも週次・月次などのケイデンス（一定の頻度）で継続する。人は同じメッセージを何度も聞いて初めて本気度を信じる
 > - 変革が停滞したときは、まず「組織全体の設計」ではなく「特定の個人・チームがADKARのどの段階でつまずいているか」を診断する。組織レベルの施策と個人レベルの診断は両輪で回す
 > - Quick Winsは変革の本質的な目的からずれないものを選ぶ。目立つが本筋と無関係な成果は、かえって変革への信頼を損なう
-
+>
 > **ソース**
 > - [CAL 2™ 公式ページ（変革を導くツールの記述）](https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2)
 > - Kotterの8段階変革プロセス・ADKARモデルの詳細については CAL 1 第4章「アジャイル組織のリード」を参照
@@ -294,7 +294,7 @@ Kegan & Laheyが強調するのは、column 4の「大きな仮定」は本人�
 > - Column 4の「大きな仮定」を、事実ではなく検証可能な仮説として扱い、リスクの小さい実験（Small Safe Test）で確かめる
 > - リーダー自身がこのマップを率直に共有することで、チームメンバーにも「変われないのは怠慢ではなく、正当な内的葛藤である」という心理的安全性のある土壌を作る
 > - 成長を阻む障壁は多くの場合、能力ではなく無意識の自己防衛にあるという前提に立ち、精神論での叱咤激励に頼らない
-
+>
 > **ソース**
 > - [Immunity to Change - Mindtools](https://www.mindtools.com/a4l75hx/immunity-to-change/)
 > - [Immunity to Change - Humanizing Work](https://www.humanizingwork.com/immunity-to-change/)
@@ -324,7 +324,7 @@ SLIIの核心は、「唯一絶対の正しいリーダーシップスタイル�
 > - D2（学習中で意欲が下がりがち）のメンバーへの対応は特に見落とされがちである。能力がついてきたからと支援を減らすと、意欲低下期にちょうど孤立させてしまう
 > - 委任（Delegating）は「能力があるから任せる」だけでなく、「そのタスクへの意欲・コミットメントも高いか」を必ず併せて確認してから行う（第11章のRAPID／権限委譲も参照）
 > - 自分自身の「デフォルトのリーダーシップスタイル」に自覚的になる。多くのリーダーは慣れたスタイル（例えば常にDirecting）に偏りがちで、相手の開発レベルの変化に合わせてスタイルを切り替えられていないことが多い
-
+>
 > **ソース**
 > - [Situational Leadership Model by Hersey and Blanchard - Toolshero](https://www.toolshero.com/leadership/situational-leadership-hersey-blanchard/)
 > - [Hersey–Blanchard Situational Leadership | Umbrex](https://umbrex.com/resources/frameworks/organization-frameworks/hersey-blanchard-situational-leadership-model/)
@@ -365,7 +365,7 @@ flowchart TB
 > - 「私はあなたを打ち負かしたいのではなく、一緒に良い結果を探したい」という共通の目的を、対立が生じた時点で明示的に言葉にする
 > - 自分の感情が高ぶってきたと感じたら、事実（何が起きたか）と自分が作った物語（それをどう解釈したか）を意識的に切り分ける
 > - 戦略の意図を伝える会話では、結論を一方的に告げるのではなく、相手の見解を先に尋ね、対話（Dialogue）として進める。CAL 1第3章のThomas-Kilmann対立モードにおける「協調（Collaborating）」の姿勢と一致する
-
+>
 > **ソース**
 > - [Crucial Conversations, by Grenny, Patterson, et al.](https://evansamek.substack.com/p/crucial-conversations-by-grenny-patterson)
 > - [Book Summary - Crucial Conversations (Kerry Patterson)](https://readingraphics.com/book-summary-crucial-conversations/)
@@ -395,7 +395,7 @@ CAL 2の学習目標は「フィードバックを与える（Delivering）」�
 > - 指摘が「性格への断定」に聞こえていないか確認する。人格ではなく、具体的な行動とその影響について話す（CAL 1第3章のSBIフィードバックモデル：Situation-Behavior-Impactと組み合わせて使うと効果的）
 > - 「気を遣いすぎて何も言わない（Ruinous Empathy）」に陥っていないか、日頃から自問する。優しさのつもりの沈黙は、相手の成長機会を奪っている場合がある
 > - フィードバックは可能な限りその場・対面で、具体的に、双方向の会話として行う
-
+>
 > **ソース**
 > - [Our Approach: Kim Scott's Feedback Framework](https://www.radicalcandor.com/our-approach)
 > - [What is Radical Candor? Learn the Basic Principles In 6 Minutes](https://kimmalonescott.medium.com/what-is-radical-candor-learn-the-basic-principles-in-6-minutes-50391b3ad76a)
@@ -426,7 +426,7 @@ CAL 2の学習目標には「リーダーが人をマネジメントする際に
 > - 部下との1on1では、指導内容そのものより先に「このメンバーは今、どの開発レベル（D1〜D4）にあるか」を見極めることに時間を使う
 > - チームの機能不全が疑われる場合は、個人の能力の問題と決めつける前に、心理的安全性やチームの構造（Team Topologies）に原因がないかを確認する
 > - 難しい人材課題に直面したときほど、単発の対処ではなく「これはImmunity to Changeの問題か、Situational Leadershipのミスマッチか、それとも対立のエスカレーションか」と一度立ち止まって分類する
-
+>
 > **ソース**
 > - [CAL 2™ 公式ページ（人のマネジメント課題の記述）](https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2)
 > - Five DysfunctionsおよびGoogleプロジェクト・アリストテレスについては CAL 1 第3章「アジャイルチームのリード」を参照
@@ -466,7 +466,7 @@ flowchart LR
 > - Decide（決定者）は原則として1人、多くても少人数の明確な機関に絞る。「みんなで決める」という建前は、実際には誰も責任を取らない結果につながりやすい
 > - Agree（合意）の役割を持つ人には、拒否できる条件（何についての拒否権か）を事前に明確に伝えておく。無制限の拒否権は意思決定を停滞させる
 > - チーム内の日々の権限委譲にはDelegation Poker（CAL 1第3章参照）、部門横断の複雑な意思決定にはRAPIDというように、意思決定の粒度に応じてツールを使い分ける
-
+>
 > **ソース**
 > - [Bain's RAPID® Framework - Mindtools](https://www.mindtools.com/av8ceid/bains-rapid-framework/)
 > - [Bain RAPID Decision Framework | Governance & Accountability](https://umbrex.com/resources/frameworks/organization-frameworks/bain-rapid-decision-framework/)
