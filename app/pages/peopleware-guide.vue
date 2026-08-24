@@ -255,14 +255,14 @@ const DIAGRAM_ACTION_ROADMAP = `flowchart TB
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" aria-hidden="true" />
-          本ガイドは教育・学習支援を目的とした非公式の解説記事です。原著の要約・翻訳・図解であり、原文の転載ではありません。詳細で正確な内容は必ず<a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">原著 Peopleware Productive Projects and Teams, Third Edition</a>をご参照ください。
+          本ページは教育・学習支援を目的とした非公式の解説ログです。正確な内容は必ず<a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">原著 Peopleware Productive Projects and Teams, Third Edition</a>をご参照ください。
         </div>
       </header>
 
       <div class="callout note" data-variant="note" data-testid="callout">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
         <p><strong>原著情報</strong> 原著: Peopleware Productive Projects and Teams, Third Edition / 著者: Tom DeMarco, Tim Lister (Addison-Wesley Professional, 2013年) / 参照: <a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">O'Reilly掲載ページ</a></p>
-        <p><strong>この記事の読み方</strong> このガイドは、ソフトウェア開発のマネジメントを学び始めた方に向けて、名著『Peopleware』の要点を<strong>ステップバイステップ</strong>で解説するものです。原著は272ページ・全39章という短めのエッセイ集ですが、扱っているテーマは多岐にわたります。そこで本ガイドでは、原著の6部構成(Part I〜VI)を軸に、初学者がつまずきやすい概念を図解・表・具体例つきで整理しました。</p>
+        <p><strong>この記事について</strong> 本ページは学習支援を目的とした非公式の解説ログです。原著の内容・結論を正しく把握するには必ず原著をお読みください。</p>
         <ul>
           <li>各セクションの末尾に「実践のポイント」を置き、明日から使えるチェックリストにしています。</li>
           <li>巻末に、著名な開発者・著者による言及を含む参考ソースのURLをまとめています。</li>
