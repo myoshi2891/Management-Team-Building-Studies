@@ -100,7 +100,7 @@ useSeoMeta({
           <div class="guide-card guide-card-coming">
             <div class="coming-icon"><Icon name="tabler:plus" aria-hidden="true" /></div>
             <p class="guide-category">MORE TO COME</p>
-            <h4>学びの領域を<br>拡張していきます</h4>
+            <h3>学びの領域を<br>拡張していきます</h3>
             <p>チームビルディング、組織設計、リーダーシップなどのガイドを順次追加予定です。</p>
           </div>
         </div>
@@ -227,7 +227,7 @@ useSeoMeta({
 .guide-card-coming { padding: 31px 23px; display: flex; flex-direction: column; justify-content: center; background: transparent; border-style: dashed; }
 .coming-icon { width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: 36px; border: 1px solid var(--color-border-strong); border-radius: 50%; color: var(--color-ink-faint); }
 .coming-icon svg { width: 18px; }
-.guide-card-coming h4 { font-size: 19px; }
+.guide-card-coming h3 { font-size: 19px; }
 .guide-card-coming > p:last-child { margin: 0; color: var(--color-ink-faint); font-size: 12px; line-height: 1.8; }
 
 .approach-section { display: grid; grid-template-columns: minmax(270px, 0.75fr) minmax(0, 1.25fr); gap: 100px; padding-block: 105px; border-top: 1px solid var(--color-border); }
