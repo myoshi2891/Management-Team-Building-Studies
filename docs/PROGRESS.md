@@ -487,7 +487,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
   - ユニットテスト 764 件
-  - test / typecheck / lint はいずれも 2026-08-23 時点で ✔（実測）
+  - test / typecheck / lint はいずれも 2026-08-24 時点で ✔（実測）
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 28 本 exit 0 パス
 
 ベースラインテスト数: ユニット 764 + E2E 15
