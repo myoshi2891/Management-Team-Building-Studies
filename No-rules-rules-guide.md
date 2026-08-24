@@ -1,5 +1,6 @@
 # 『NO RULES RULES(ノー・ルールズ)』完全ガイド
-### ― Netflixの型破りな企業文化を初学者向けにステップバイステップで解説 ―
+
+## ― Netflixの型破りな企業文化を初学者向けにステップバイステップで解説 ―
 
 > 原著: *No Rules Rules: Netflix and the Culture of Reinvention*（2020年刊）
 > 著者: リード・ヘイスティングス（Netflix共同創業者・会長。原著刊行時は共同CEO）／エリン・メイヤー（INSEAD教授、『異文化理解力』著者）
