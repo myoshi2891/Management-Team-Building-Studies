@@ -2,7 +2,7 @@
 
 # 4. Leading Agile Organizations（アジャイル組織のリード）
 
-> 本ガイドは Scrum Alliance の Certified Agile Leader 1（CAL 1™）の4つの学習領域のうち、最終章にあたる「4. Leading Agile Organizations（アジャイル組織のリード）」を初学者向けに解説するものです。ASCII図解は使用せず、フローチャートは Mermaid、図解・比較表は Markdown 記法で統一しています。
+> 本ページは Scrum Alliance の Certified Agile Leader 1（CAL 1™）の4つの学習領域のうち、最終章「4. Leading Agile Organizations（アジャイル組織のリード）」に関する非公式の学習ログです。正確な情報は必ず公式資料をご確認ください。フローチャートは Mermaid、図解・比較表は Markdown 記法で統一しています。
 >
 > 公式コース情報: [Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance](https://www.scrumalliance.org/get-certified/agile-leader/cal-1)
 
