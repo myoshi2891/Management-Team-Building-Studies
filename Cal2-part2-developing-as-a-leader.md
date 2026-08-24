@@ -4,7 +4,7 @@
 
 > 本ガイドは Scrum Alliance 公式ページ（[CAL 2 - Certified Agile Leader 2](https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2)）に掲載されている公式カリキュラムの **Part 2「Developing as a Leader」** を、初学者向けにステップバイステップで詳しく解説するものです。
 >
-> CAL2 の公式カリキュラムは2部構成で、Part 1「Organizational Strategy and Delivery」は別ファイル（`Cal2-part1-organizational-strategy-and-delivery.md`）で扱っています。本ガイドはその続編にあたり、CAL1（4章構成）と CAL2 Part1 で学んだ内容を土台に、**「組織を動かす前に、まず自分自身がどう成長し、どう振る舞うリーダーであるか」** を扱います。
+> CAL2 の公式カリキュラムは2部構成で、Part 1「Organizational Strategy and Delivery」は別ファイル（[Cal2-part1-organizational-strategy-and-delivery.md](./Cal2-part1-organizational-strategy-and-delivery.md)）で扱っています。本ガイドはその続編にあたり、CAL1（4章構成）と CAL2 Part1 で学んだ内容を土台に、**「組織を動かす前に、まず自分自身がどう成長し、どう振る舞うリーダーであるか」** を扱います。
 >
 > 公式サイトの説明によれば、CAL2 全体は次の3領域を学びます：**Organizational structure and design（組織構造と設計）**、**Value and metrics（価値とメトリクス）**、そして本ガイドが扱う **Leadership competencies（リーダーシップコンピテンシー）** ＝「自分自身のリーダーシップ開発に焦点を当て、人々をエンパワーし、チームダイナミクスを改善し、組織の成果を達成できるようになること」です。
 
@@ -127,7 +127,7 @@ flowchart TB
 - Dweck, C. (2006). *Mindset: The New Psychology of Success*. Random House.
 - Harvard Business School Online — [Growth Mindset vs. Fixed Mindset: What's the Difference?](https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset)
 - MindTools — [Dweck's Fixed and Growth Mindsets](https://www.mindtools.com/asbakxx/dwecks-fixed-and-growth-mindsets/)
-- Kegan, R., & Lahey, L. L. (2009). *Immunity to Change*. Harvard Business Press.（詳細は `Cal2-part1-organizational-strategy-and-delivery.md` を参照）
+- Kegan, R., & Lahey, L. L. (2009). *Immunity to Change*. Harvard Business Press.（詳細は [Cal2-part1-organizational-strategy-and-delivery.md](./Cal2-part1-organizational-strategy-and-delivery.md) を参照）
 
 ---
 
@@ -510,23 +510,22 @@ RAPID は次の5つの役割の頭文字です（[出典: Bain & Company 公式]
 ### 2.6.3 図解：RAPID の役割と実行フロー
 
 ```mermaid
-flowchart LR
-    A["意思決定が必要な課題"] --> R["Recommend<br/>推奨案を作成する役割"]
-    R --> I["Input<br/>幅広く意見・情報を収集"]
-    I --> AG["Agree<br/>限定的な拒否権を持つ役割"]
-    AG --> D["Decide<br/>最終決定を下す唯一の役割<br/>(Who has the D?)"]
-    D --> P["Perform<br/>決定を実行する役割"]
-    P --> RV["決定のレビュー<br/>次サイクルへの学びの反映"]
-    RV -.-> A
+graph TD
+    I["Input<br/>幅広く意見・情報を収集"]
+    R["Recommend<br/>推奨案を作成する役割"]
+    AG["Agree<br/>限定的な拒否権を持つ役割"]
+    D["Decide<br/>最終決定を下す唯一の役割<br/>(Who has the D?)"]
+    P["Perform<br/>決定を実行する役割"]
 
-    classDef start fill:#22304a,stroke:#5b7fb5,color:#e6ecf5
+    I -->|情報提供| R
+    R -.->|提案を参照| AG
+    R -.->|提案を参照| D
+    D -->|実行依頼| P
+
     classDef role fill:#2a3a1f,stroke:#7ea34d,color:#e9f0e0
     classDef decide fill:#3a331f,stroke:#c0a24d,color:#f0ecdf
-    classDef review fill:#33264a,stroke:#8a6bbf,color:#ece5f5
-    class A start
     class R,I,AG,P role
     class D decide
-    class RV review
 ```
 
 ### 2.6.4 ベストプラクティス
@@ -636,4 +635,4 @@ Part 1「Organizational Strategy and Delivery」が **組織の外側の構造�
 
 ---
 
-*本ガイドは CAL2 Part 1（`Cal2-part1-organizational-strategy-and-delivery.md`）および CAL1 全4章の学習内容を前提としています。CAL2 の受講にあたっては、必ず Scrum Alliance 公式サイトの最新情報および認定トレーナーが提供する公式カリキュラムを一次情報源としてご確認ください。*
+*本ガイドは CAL2 Part 1（[Cal2-part1-organizational-strategy-and-delivery.md](./Cal2-part1-organizational-strategy-and-delivery.md)）および CAL1 全4章の学習内容を前提としています。CAL2 の受講にあたっては、必ず Scrum Alliance 公式サイトの最新情報および認定トレーナーが提供する公式カリキュラムを一次情報源としてご確認ください。*

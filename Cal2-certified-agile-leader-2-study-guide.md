@@ -444,11 +444,17 @@ CAL 2の学習目標には「リーダーが人をマネジメントする際に
 Paul RogersとMarcia Blenko（Bain & Company）が2006年にHarvard Business Reviewで発表した「RAPID®」フレームワークは、複雑で複数の部門・関係者が絡む意思決定において、5つの役割を明確に割り当てることで停滞を防ぐ手法です。
 
 ```mermaid
-flowchart LR
-    I["Input<br/>意思決定に必要な情報・専門知識を提供する"] --> R["Recommend<br/>選択肢を分析し、提案をまとめる"]
-    R --> A["Agree<br/>提案に対し合意または拒否権を行使する"]
-    A --> D["Decide<br/>最終的な意思決定を下す"]
-    D --> P["Perform<br/>決定を実行に移す"]
+graph TD
+    I["Input<br/>意思決定に必要な情報・専門知識を提供する"]
+    R["Recommend<br/>選択肢を分析し、提案をまとめる"]
+    A["Agree<br/>提案に対し合意または拒否権を行使する"]
+    D["Decide<br/>最終的な意思決定を下す"]
+    P["Perform<br/>決定を実行に移す"]
+
+    I -->|情報提供| R
+    D -->|実行依頼| P
+    R -.->|提案を参照| A
+    R -.->|提案を参照| D
 ```
 
 | 役割 | 内容 |
