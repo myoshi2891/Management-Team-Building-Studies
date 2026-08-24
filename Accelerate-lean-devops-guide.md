@@ -3,7 +3,7 @@
 > 原著: *Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations*
 > 著者: Dr. Nicole Forsgren / Jez Humble / Gene Kim（IT Revolution Press, 2018年）
 
-本ガイドは、ソフトウェアデリバリのパフォーマンスに関する史上もっとも影響力のある研究書のひとつ『Accelerate』の内容を、初めてDevOpsやLean開発に触れる方にもわかりやすいよう、ステップバイステップのベストプラクティスとして再構成したものです。あわせて、原著刊行（2018年）以降にDORA（DevOps Research and Assessment）チームが継続してきた年次調査「State of DevOps Report」の最新動向（2025年のAI支援開発に関する調査を含む）も反映しています。
+本ページは、ソフトウェアデリバリのパフォーマンス研究書『Accelerate』を学ぶための非公式の解説ログです。正確な内容は必ず原著をご確認ください。あわせて、原著刊行（2018年）以降にDORA（DevOps Research and Assessment）チームが継続してきた年次調査「State of DevOps Report」の最新動向（2025年のAI支援開発に関する調査を含む）も参照しています。
 
 ---
 
