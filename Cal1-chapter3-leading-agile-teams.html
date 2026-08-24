@@ -73,6 +73,14 @@
   a:hover { text-decoration: underline; }
   a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
 
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
+
   img, svg { max-width: 100%; }
 
   .layout {
@@ -587,6 +595,8 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
@@ -622,7 +632,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum Alliance公式 CAL1™ 学習ガイド シリーズ・第3章</div>
@@ -1408,8 +1418,12 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1432,10 +1446,26 @@
         if (wasOpen) toggle.focus();
       });
     });
+    // Escape キーで開いている目次を閉じ、フォーカスをトグルボタンに戻す
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape") return;
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
+    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });
