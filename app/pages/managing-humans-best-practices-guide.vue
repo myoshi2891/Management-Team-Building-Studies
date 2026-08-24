@@ -644,14 +644,14 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
         </div>
 
         <ol class="step-list">
-          <li><div class="step-num">1</div><div class="step-body"><div class="step-title">全メンバーと週次30分の1on1を固定枠で設定する</div><div class="step-desc">対応する章: The Update, the Vent, and the Disaster</div></div></li>
-          <li><div class="step-num">2</div><div class="step-body"><div class="step-title">すべての会議にアジェンダを用意し、進行役として時間を管理する</div><div class="step-desc">対応する章: How to Run a Meeting</div></div></li>
-          <li><div class="step-num">3</div><div class="step-body"><div class="step-title">誰が安定志向で誰が変革志向かを意識してタスクを割り振る</div><div class="step-desc">対応する章: Stables and Volatiles</div></div></li>
-          <li><div class="step-num">4</div><div class="step-body"><div class="step-title">議論が停滞したら「決める・伝える・個別に説明する」の順で決定する</div><div class="step-desc">対応する章: Dissecting the Mandate</div></div></li>
-          <li><div class="step-num">5</div><div class="step-body"><div class="step-title">自分だけが知っている情報を溜め込まず共有する</div><div class="step-desc">対応する章: Information Starvation</div></div></li>
-          <li><div class="step-num">6</div><div class="step-body"><div class="step-title">障害・炎上時はWar Roomを立て、役割分担と発信を徹底する</div><div class="step-desc">対応する章: When the Sky Falls</div></div></li>
-          <li><div class="step-num">7</div><div class="step-body"><div class="step-title">開発環境に触れ続け、エンジニアの言葉で会話できる状態を保つ</div><div class="step-desc">対応する章: An Engineering Mindset</div></div></li>
-          <li><div class="step-num">8</div><div class="step-body"><div class="step-title">反対意見を歓迎し、役職に依存しない成長パスを用意する</div><div class="step-desc">対応する章: Titles Are Toxic / Saying No</div></div></li>
+          <li><div class="step-num">1</div><div class="step-body"><div class="step-title" data-testid="step-tag">全メンバーと週次30分の1on1を固定枠で設定する</div><div class="step-desc">対応する章: The Update, the Vent, and the Disaster</div></div></li>
+          <li><div class="step-num">2</div><div class="step-body"><div class="step-title" data-testid="step-tag">すべての会議にアジェンダを用意し、進行役として時間を管理する</div><div class="step-desc">対応する章: How to Run a Meeting</div></div></li>
+          <li><div class="step-num">3</div><div class="step-body"><div class="step-title" data-testid="step-tag">誰が安定志向で誰が変革志向かを意識してタスクを割り振る</div><div class="step-desc">対応する章: Stables and Volatiles</div></div></li>
+          <li><div class="step-num">4</div><div class="step-body"><div class="step-title" data-testid="step-tag">議論が停滞したら「決める・伝える・個別に説明する」の順で決定する</div><div class="step-desc">対応する章: Dissecting the Mandate</div></div></li>
+          <li><div class="step-num">5</div><div class="step-body"><div class="step-title" data-testid="step-tag">自分だけが知っている情報を溜め込まず共有する</div><div class="step-desc">対応する章: Information Starvation</div></div></li>
+          <li><div class="step-num">6</div><div class="step-body"><div class="step-title" data-testid="step-tag">障害・炎上時はWar Roomを立て、役割分担と発信を徹底する</div><div class="step-desc">対応する章: When the Sky Falls</div></div></li>
+          <li><div class="step-num">7</div><div class="step-body"><div class="step-title" data-testid="step-tag">開発環境に触れ続け、エンジニアの言葉で会話できる状態を保つ</div><div class="step-desc">対応する章: An Engineering Mindset</div></div></li>
+          <li><div class="step-num">8</div><div class="step-body"><div class="step-title" data-testid="step-tag">反対意見を歓迎し、役職に依存しない成長パスを用意する</div><div class="step-desc">対応する章: Titles Are Toxic / Saying No</div></div></li>
         </ol>
       </section>
 

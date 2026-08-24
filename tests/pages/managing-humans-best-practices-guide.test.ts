@@ -224,7 +224,16 @@ const EXPECTED_CALLOUT_LABELS = {
   },
 } as const;
 
-const EXPECTED_STEP_TAGS: readonly string[] = [] as const;
+const EXPECTED_STEP_TAGS: readonly string[] = [
+  "全メンバーと週次30分の1on1を固定枠で設定する",
+  "すべての会議にアジェンダを用意し、進行役として時間を管理する",
+  "誰が安定志向で誰が変革志向かを意識してタスクを割り振る",
+  "議論が停滞したら「決める・伝える・個別に説明する」の順で決定する",
+  "自分だけが知っている情報を溜め込まず共有する",
+  "障害・炎上時はWar Roomを立て、役割分担と発信を徹底する",
+  "開発環境に触れ続け、エンジニアの言葉で会話できる状態を保つ",
+  "反対意見を歓迎し、役職に依存しない成長パスを用意する",
+] as const;
 
 defineSourceParityContract({
   suiteName: "pages/managing-humans-best-practices-guide.vue",
