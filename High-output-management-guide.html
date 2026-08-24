@@ -584,9 +584,30 @@
     html { scroll-behavior: auto; }
     .sidebar { transition: none; }
   }
+
+  /* ===================== Skip link ===================== */
+  /* 通常は視覚的に隠し、キーボードフォーカス時のみ本文左上に現れる */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 1000;
+    padding: 12px 20px;
+    background: var(--color-plum);
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 0 0 6px 0;
+  }
+
+  .skip-link:focus {
+    left: 0;
+  }
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">本文へスキップ</a>
 
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
@@ -630,7 +651,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" tabindex="-1">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award"></i>SILICON VALLEY'S MANAGEMENT BIBLE</div>
@@ -1417,7 +1438,15 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
+    renderAllDiagrams().catch(function (err) {
+      // 図ごとの try/catch より前（mermaid.initialize 等）で失敗した場合、
+      // 全コンテナが「読み込み中」のまま残るため、ここでエラー表示へ差し替える。
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid render failed:", err);
+    });
     setupSidebarHighlight();
     setupMobileToggle();
   });
