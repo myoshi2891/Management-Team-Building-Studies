@@ -1,9 +1,10 @@
 # Certified Agile Leader® 2 (CAL 2™) 学習ガイド
+
 ## Part 2: Developing as a Leader（リーダーとしての成長）
 
 > 本ガイドは Scrum Alliance 公式ページ（[CAL 2 - Certified Agile Leader 2](https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2)）に掲載されている公式カリキュラムの **Part 2「Developing as a Leader」** を、初学者向けにステップバイステップで詳しく解説するものです。
 >
-> CAL2 の公式カリキュラムは2部構成で、Part 1「Organizational Strategy and Delivery」は別ファイル（`CAL2_Part1_Organizational_Strategy_and_Delivery.md`）で扱っています。本ガイドはその続編にあたり、CAL1（4章構成）と CAL2 Part1 で学んだ内容を土台に、**「組織を動かす前に、まず自分自身がどう成長し、どう振る舞うリーダーであるか」** を扱います。
+> CAL2 の公式カリキュラムは2部構成で、Part 1「Organizational Strategy and Delivery」は別ファイル（`Cal2-part1-organizational-strategy-and-delivery.md`）で扱っています。本ガイドはその続編にあたり、CAL1（4章構成）と CAL2 Part1 で学んだ内容を土台に、**「組織を動かす前に、まず自分自身がどう成長し、どう振る舞うリーダーであるか」** を扱います。
 >
 > 公式サイトの説明によれば、CAL2 全体は次の3領域を学びます：**Organizational structure and design（組織構造と設計）**、**Value and metrics（価値とメトリクス）**、そして本ガイドが扱う **Leadership competencies（リーダーシップコンピテンシー）** ＝「自分自身のリーダーシップ開発に焦点を当て、人々をエンパワーし、チームダイナミクスを改善し、組織の成果を達成できるようになること」です。
 
@@ -126,7 +127,7 @@ flowchart TB
 - Dweck, C. (2006). *Mindset: The New Psychology of Success*. Random House.
 - Harvard Business School Online — [Growth Mindset vs. Fixed Mindset: What's the Difference?](https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset)
 - MindTools — [Dweck's Fixed and Growth Mindsets](https://www.mindtools.com/asbakxx/dwecks-fixed-and-growth-mindsets/)
-- Kegan, R., & Lahey, L. L. (2009). *Immunity to Change*. Harvard Business Press.（詳細は `CAL2_Part1_Organizational_Strategy_and_Delivery.md` を参照）
+- Kegan, R., & Lahey, L. L. (2009). *Immunity to Change*. Harvard Business Press.（詳細は `Cal2-part1-organizational-strategy-and-delivery.md` を参照）
 
 ---
 
@@ -635,4 +636,4 @@ Part 1「Organizational Strategy and Delivery」が **組織の外側の構造�
 
 ---
 
-*本ガイドは CAL2 Part 1（`CAL2_Part1_Organizational_Strategy_and_Delivery.md`）および CAL1 全4章の学習内容を前提としています。CAL2 の受講にあたっては、必ず Scrum Alliance 公式サイトの最新情報および認定トレーナーが提供する公式カリキュラムを一次情報源としてご確認ください。*
+*本ガイドは CAL2 Part 1（`Cal2-part1-organizational-strategy-and-delivery.md`）および CAL1 全4章の学習内容を前提としています。CAL2 の受講にあたっては、必ず Scrum Alliance 公式サイトの最新情報および認定トレーナーが提供する公式カリキュラムを一次情報源としてご確認ください。*
