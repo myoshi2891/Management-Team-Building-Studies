@@ -59,9 +59,9 @@
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
 | `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（7 件・ガイド定義の SSoT） |
-| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（18 件・カテゴリー別ドロップダウン + フォーカス退避）+ `tests/app.test.ts`（1 件） |
+| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（21 件・カテゴリー別ドロップダウン + フォーカス退避）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
-| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 9 件（メディアクエリ依存の挙動。jsdom では再現不能） |
+| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 11 件（メディアクエリ依存の挙動。jsdom では再現不能） |
 
 ## 技術スタック（2026-08-16 時点の npm 実測値）
 
