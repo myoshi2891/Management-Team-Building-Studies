@@ -407,4 +407,4 @@ flowchart TB
 
 ---
 
-*本ガイドは上記の一次・二次情報源をもとに2026年8月23日時点の情報で作成した要約・解説であり、原著『High Output Management』の翻訳や逐語的な引用ではありません。正確な内容は必ず原著（Andrew S. Grove, *High Output Management*, Vintage Books）をご参照ください。*
+*本ページは上記の一次・二次情報源を参照した学習支援ログです。原著の正確な内容は必ず原著（Andrew S. Grove, *High Output Management*, Vintage Books）をご確認ください。*
