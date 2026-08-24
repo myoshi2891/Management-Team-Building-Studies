@@ -480,7 +480,7 @@ RAPID は次の5つの役割の頭文字です（[出典: Bain & Company 公式]
 - **I**nput（入力）：意見・情報を提供する役割
 - **D**ecide（決定）：最終決定を下し、組織にコミットさせる役割（"Who has the D?"）
 
-なお、頭字語の順序は R-A-P-I-D ですが、実際の運用フローは **R（推奨） → I（入力収集） → A（合意） → D（決定） → P（実行）** の順で進むことが一般的です（[出典: MindTools](https://www.mindtools.com/av8ceid/bains-rapid-framework/)）。
+なお、R-A-P-I-D は実行順序ではなく**役割の頭字語**です。Recommend（推奨）・Input（入力）・Agree（合意）・Decide（決定）・Perform（実行）のそれぞれを誰が担うかを明確にすることが目的で、実際にどの役割がいつ動くかは意思決定ごとに異なります（[出典: MindTools](https://www.mindtools.com/av8ceid/bains-rapid-framework/)）。
 
 このフレームワークは、CAL1 Chapter 3 で学んだ **Management 3.0 の Delegation Poker**（7段階の権限移譲レベル：Tell → Sell → Consult → Agree → Advise → Inquire → Delegate）と補完関係にあります。RAPID が「特定の意思決定における役割分担」を扱うのに対し、Delegation Poker は「継続的な業務領域における権限委譲の度合い」を扱います。
 
