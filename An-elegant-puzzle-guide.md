@@ -46,7 +46,7 @@ Will Larson の『An Elegant Puzzle』は、この状況に対して「エンジ
 
 ## 著者と本の全体像
 
-Will Larson は Yahoo、Digg、Uber、Stripe、Calm、そして現在は Carta で、エンジニアリングリーダー・CTO としてキャリアを積んできた人物です。日本の JET プログラムで英語教師として1年間過ごした経験もあります。本書のほかに『Staff Engineer: Leadership Beyond the Management Track』や『The Engineering Executive's Primer』、『Crafting Engineering Strategy』なども執筆しています。
+Will Larson は Yahoo、Digg、Uber、Stripe、Calm、Carta でエンジニアリングリーダー・CTO としてキャリアを積み、現在は Imprint の CTO を務めています。日本の JET プログラムで英語教師として1年間過ごした経験もあります。本書のほかに『Staff Engineer: Leadership Beyond the Management Track』や『The Engineering Executive's Primer』、『Crafting Engineering Strategy』なども執筆しています。
 
 本書は大きく5つのセクション（**組織／道具箱／アプローチ／文化／キャリア**）と、参考資料をまとめた付録から構成されています。
 
