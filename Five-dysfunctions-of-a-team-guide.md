@@ -1,4 +1,5 @@
 # 『あなたのチームは、機能してますか？』完全ガイド
+
 ## The Five Dysfunctions of a Team ― 初学者のためのステップバイステップ実践ガイド
 
 > 原著: *The Five Dysfunctions of a Team: A Leadership Fable*（Patrick M. Lencioni著, Jossey-Bass, 2002年）
