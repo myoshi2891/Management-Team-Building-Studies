@@ -757,7 +757,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
   .sidebar-toggle {
     display: none;
     position: fixed;
-    top: 16px;
+    top: calc(var(--global-nav-height) + 16px);
     left: 16px;
     z-index: 30;
     background: var(--color-paper-raised);
