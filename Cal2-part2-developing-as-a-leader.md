@@ -45,7 +45,7 @@ Scrum Alliance の公式ページでは、CAL2 のコースは次の2セクシ�
 5. Understand challenges leaders face when managing people and approaches to overcoming those challenges（リーダーが人材マネジメントで直面する課題とその克服アプローチを理解する）
 6. Discover how collaborative leaders handle delegation and decision-making（コラボレーティブなリーダーがどのように権限移譲と意思決定を扱うかを知る）
 
-> **補足**：詳細な学習目標（Learning Objectives）は Scrum Alliance が [Google Drive上のPDF](https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view?usp=drive_link) として公開していますが、これはトレーナー・受講者向けの内部資料であり、認定コース受講前に内容が変更される可能性があります。本ガイドは公式Webページの記述と、各フレームワークの一次情報源（原著・提唱組織の公式サイト）に基づいて構成しています。
+> **補足**：詳細な学習目標（Learning Objectives）は Scrum Alliance が [Google Drive上のPDF](https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view?usp=drive_link) として公開しています。ただし改訂される可能性があるため、受講前に最新版を確認してください。本ガイドは公式Webページの記述と、各フレームワークの一次情報源（原著・提唱組織の公式サイト）に基づいて構成しています。
 
 ### 0.2 このガイドの読み方
 
