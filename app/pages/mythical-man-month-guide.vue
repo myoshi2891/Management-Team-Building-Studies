@@ -200,7 +200,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
     <!-- ===================== Main Content ===================== -->
     <main id="main-content" class="main-content" tabindex="-1">
       <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-book-2" aria-hidden="true"></i>書籍解説ガイド</div>
+      <div class="hero-eyebrow"><i class="ti ti-book-2" aria-hidden="true"/>書籍解説ガイド</div>
       <h1>『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集</h1>
       <p class="hero-lede">
         このガイドは、ソフトウェア工学史上もっとも引用される古典『人月の神話(The Mythical Man-Month)』を、初めて読む方でも実務にすぐ応用できるように、内容は 2026年8月19日時点までの公開情報をウェブ検索し、著名な国際的開発者(Joel Spolsky、apenwarr こと Avery Pennarun、Mark Seemann、Adrian Colyer ほか)の言及も参照して作成しました。出典 URL は末尾の「参考文献」に一覧化しています。
@@ -214,14 +214,14 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle" aria-hidden="true"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"/>
         原著: <em>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</em> / Frederick P. Brooks, Jr. (Addison-Wesley Professional) ・ 参照元: <a href="https://www.oreilly.com/library/view/mythical-man-month-the/0201835959/" target="_blank" rel="noopener">O'Reilly 書誌ページ</a>
       </div>
     </div>
 
     <!-- ===================== 1. About the Book ===================== -->
     <section id="about-the-book">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-book-2" aria-hidden="true"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-book-2" aria-hidden="true"/>SECTION 01</div>
       <h2>この本について</h2>
 
       <p>Fred Brooks(フレデリック・P・ブルックス・ジュニア)は、IBM System/360 ファミリーおよびその基本ソフトウェアである OS/360 の開発プロジェクトマネージャーを務めた人物です。1975年に出版された本書は、当時としては史上最大規模だったこのソフトウェアプロジェクトでの実体験―スケジュール遅延、人員追加による混乱、概念の統一性の崩壊―を率直に振り返ったエッセイ集です。</p>
@@ -243,7 +243,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 2. Brooks's Law ===================== -->
     <section id="brooks-law">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-scale" aria-hidden="true"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-scale" aria-hidden="true"/>SECTION 02</div>
       <h2>核心: ブルックスの法則</h2>
 
       <p>本書のタイトルにもなっている中心命題は「人月(man-month)」という単位そのものが神話であるという指摘です。人月とは「1人が1か月で行える作業量」という仮想的な単位ですが、Brooks は、これを使って人と時間を機械的に交換できると考えることが根本的な誤りだと論じました。</p>
@@ -251,7 +251,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
       <p>その帰結が、今日「ブルックスの法則」として知られる一節です。</p>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p>「遅れているソフトウェアプロジェクトへの人員追加は、そのプロジェクトをさらに遅らせる」</p>
       </div>
 
@@ -274,7 +274,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 3. Why More People Doesn't Help ===================== -->
     <section id="why-more-people-doesnt-help">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-users" aria-hidden="true"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-users" aria-hidden="true"/>SECTION 03</div>
       <h2>なぜ人を増やしても早くならないのか</h2>
 
       <h3>3.1 コミュニケーション経路の急増</h3>
@@ -316,7 +316,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 4. Chapter Map ===================== -->
     <section id="chapter-map">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"/>SECTION 04</div>
       <h2>章立てマップ(全19章 + エピローグ)</h2>
 
       <p>20周年記念版(Anniversary Edition)の目次に基づく全体像です。</p>
@@ -352,7 +352,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 5. Step by Step Best Practices ===================== -->
     <section id="step-by-step-best-practices">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route" aria-hidden="true"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route" aria-hidden="true"/>SECTION 05</div>
       <h2>ステップ・バイ・ステップ ベストプラクティス</h2>
 
       <p>以下は本書のエッセンスを、実務で使える10のステップに落とし込んだものです。</p>
@@ -429,7 +429,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
       <p>第11章の初版では、この考えが次のように「捨てる前提で作れ」という形で述べられていました。</p>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p>「パイロット版を作って捨てるかどうかを議論する必要はない。あなたはどのみちそれをやることになる。だから最初からそのつもりで計画せよ」</p>
       </div>
 
@@ -480,7 +480,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 6. Myth vs Reality ===================== -->
     <section id="myth-vs-reality">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-swords" aria-hidden="true"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-swords" aria-hidden="true"/>SECTION 06</div>
       <h2>神話 vs 現実: 比較表</h2>
 
       <div class="table-wrap">
@@ -501,7 +501,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 7. Developer Perspectives ===================== -->
     <section id="developer-perspectives">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-quote" aria-hidden="true"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-quote" aria-hidden="true"/>SECTION 07</div>
       <h2>著名な開発者たちはどう評価しているか</h2>
 
       <h3>Joel Spolsky(Stack Overflow 共同創業者・元CEO、Fog Creek Software 創業者)</h3>
@@ -519,7 +519,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 8. Modern Implications ===================== -->
     <section id="modern-implications">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" aria-hidden="true"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" aria-hidden="true"/>SECTION 08</div>
       <h2>現代(アジャイル / DevOps / AI時代)への示唆</h2>
 
       <ul>
@@ -531,7 +531,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 9. Summary ===================== -->
     <section id="summary">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"></i>SECTION 09</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"/>SECTION 09</div>
       <h2>まとめ</h2>
 
       <p>『人月の神話』が半世紀以上にわたり読み継がれている理由は、扱っているのが特定の技術やツールではなく、<strong>人間が集団でものを作るときに普遍的に直面する力学</strong>だからです。</p>
@@ -548,7 +548,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
     <!-- ===================== 10. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 10</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true"/>SECTION 10</div>
       <h2>参考文献</h2>
 
       <p>以下は本ガイド作成にあたって参照した情報源です(2026年8月19日時点でアクセス確認済み)。</p>
@@ -576,7 +576,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
       </div>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p>本ガイドは上記情報源を要約・言い換えて作成したものであり、原文からの長文引用は行っていません。詳細な内容については、必ず原著および各リンク先の一次情報をご確認ください。</p>
       </div>
     </section>
