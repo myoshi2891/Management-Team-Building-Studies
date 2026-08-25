@@ -68,6 +68,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
       { to: "/engineering-manager-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM 入門" },
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },
+      { to: "/mythical-man-month-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "人月の神話" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "チームリード術" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "リーダーの作法" },
       { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "最初の60日間" },
@@ -140,7 +141,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-management",
-        guides: ["EM キャリアパス", "EM 入門", "Managing Humans"],
+        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話"],
       },
       {
         id: "engineering-leadership",
@@ -173,7 +174,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         // シリーズ未定義のカテゴリーは、ラベル無しの 1 カラムへ収める（現行の見た目を維持）。
         id: "engineering-management",
         seriesGroups: [
-          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans"] },
+          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話"] },
         ],
       },
       {

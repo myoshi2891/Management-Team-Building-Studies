@@ -145,6 +145,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-plum",
       },
       {
+        title: "『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/mythical-man-month-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアリングチームのリード術 完全ガイド",
         category: "FIRST LEADERSHIP",
         href: "/engineering-team-leadership-guide",
@@ -240,7 +246,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
       { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "13 ガイド", cards: 13 },
-      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "3 ガイド", cards: 3 },
+      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "6 ガイド", cards: 6 },
     ]);

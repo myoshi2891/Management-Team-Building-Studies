@@ -91,6 +91,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
       { label: "EM 入門", href: "/engineering-manager-guide" },
       { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
+      { label: "人月の神話", href: "/mythical-man-month-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
@@ -162,6 +163,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "EM キャリアパス", href: "/engineering-management-career-path" },
           { label: "EM 入門", href: "/engineering-manager-guide" },
           { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
+          { label: "人月の神話", href: "/mythical-man-month-guide" },
         ],
       },
     ]);
@@ -253,6 +255,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/managing-humans-best-practices-guide",
+      "/mythical-man-month-guide",
       "/engineering-team-leadership-guide",
       "/leadership-practices-guide",
       "/your-first-60-days-as-a-leader",
@@ -334,6 +337,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
