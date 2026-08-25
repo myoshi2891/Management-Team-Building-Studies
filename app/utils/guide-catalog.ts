@@ -325,6 +325,18 @@ export const GUIDES = [
     accent: "plum",
   },
   {
+    to: "/mythical-man-month-guide",
+    categoryId: "engineering-management",
+    // engineering-management はシリーズ未定義（1 カラム表示）。
+    seriesId: undefined,
+    navLabel: "人月の神話",
+    title: "『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集",
+    description: "Frederick P. Brooks, Jr.著『人月の神話(The Mythical Man-Month)』を初学者向けに解説する実践ガイド。ブルックスの法則、外科手術チーム、第二システム症候群、銀の弾丸などの主要概念を10ステップのベストプラクティスとMermaid図解で紹介する。",
+    meta: "10セクション",
+    icon: "tabler:book",
+    accent: "indigo",
+  },
+  {
     to: "/engineering-team-leadership-guide",
     categoryId: "engineering-leadership",
     seriesId: "first-leadership",
