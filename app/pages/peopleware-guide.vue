@@ -136,6 +136,7 @@ const DIAGRAM_ACTION_ROADMAP = `flowchart TB
 
 <template>
   <div class="layout">
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
     <button
       id="sidebarToggle"
       ref="sidebarToggle"
@@ -238,7 +239,7 @@ const DIAGRAM_ACTION_ROADMAP = `flowchart TB
     </nav>
 
     <!-- ===================== Main content ===================== -->
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" tabindex="-1">
       <header class="hero">
         <div class="hero-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />ソフトウェア工学の名著</div>
         <h1>『Peopleware: Productive Projects and Teams』完全ガイド</h1>
@@ -772,6 +773,32 @@ const DIAGRAM_ACTION_ROADMAP = `flowchart TB
 /* ===================== Layout & Base ===================== */
 .layout {
   display: block;
+}
+
+/*
+ * キーボード操作でサイドバー TOC を飛ばして本文へ移動するための導線。
+ * 通常は画面外へ退避し、フォーカス時のみ表示する。
+ * 固定グローバルナビ（z-index:100 / --global-nav-height）の直下に出す。
+ */
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 0;
+  z-index: 110;
+  background: var(--color-paper-raised);
+  color: var(--color-indigo);
+  padding: 12px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 0 0 8px 0;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: var(--global-nav-height);
+}
+
+.main-content:focus {
+  outline: none;
 }
 
 img, svg { max-width: 100%; }

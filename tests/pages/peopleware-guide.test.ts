@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi } from "vitest";
-import { defineSourceParityContract } from "../support/page-contract";
+import { describe, expect, it, vi } from "vitest";
+import { createMountPage, defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/peopleware-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -224,4 +224,27 @@ defineSourceParityContract({
   seoTitle: "『Peopleware』完全ガイド | ソフトウェア開発チームのための実践知",
   seoDescription:
     "Tom DeMarcoとTim Listerの名著『Peopleware Productive Projects and Teams』を初学者向けにステップバイステップで解説。核心テーゼ、6部構成、チーミサイド、Coding War Gamesのデータ、著名開発者の言及までを図解と表で整理した実践ガイド。",
+});
+
+// 原本 HTML のスキップリンク（`<a href="#main-content" class="skip-link">本文へスキップ</a>`）は
+// 移行時に落ちていた。キーボード利用者が TOC を飛ばして本文へ移動できることを固定する。
+describe("pages/peopleware-guide.vue — アクセシビリティ契約 (A)", () => {
+  const mountPage = createMountPage(Page);
+
+  it("A-1: 先頭のフォーカス可能要素が本文へのスキップリンクである", () => {
+    const wrapper = mountPage();
+    const skipLink = wrapper.find("a.skip-link");
+
+    expect(skipLink.exists()).toBe(true);
+    expect(skipLink.attributes("href")).toBe("#main-content");
+    expect(skipLink.text()).toBe("本文へスキップ");
+    expect(wrapper.element.firstElementChild).toBe(skipLink.element);
+  });
+
+  it("A-2: スキップリンクの着地点 main が tabindex=\"-1\" でフォーカスを受け取る", () => {
+    const main = mountPage().find("main#main-content");
+
+    expect(main.exists()).toBe(true);
+    expect(main.attributes("tabindex")).toBe("-1");
+  });
 });

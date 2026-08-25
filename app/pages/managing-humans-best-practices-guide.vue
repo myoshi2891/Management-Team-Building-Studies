@@ -174,6 +174,7 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
 
 <template>
   <div class="layout">
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
     <button
       id="sidebarToggle"
       ref="sidebarToggle"
@@ -222,7 +223,7 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
     </nav>
 
     <!-- ===================== Main Content ===================== -->
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" tabindex="-1">
       <div class="hero">
         <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />書籍解説ガイド</div>
         <h1>『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド</h1>
@@ -765,6 +766,32 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
 <style scoped>
 .layout {
   display: block;
+}
+
+/*
+ * キーボード操作でサイドバー TOC を飛ばして本文へ移動するための導線。
+ * 通常は画面外へ退避し、フォーカス時のみ表示する。
+ * 固定グローバルナビ（z-index:100 / --global-nav-height）の直下に出す。
+ */
+.skip-link {
+  position: fixed;
+  top: -48px;
+  left: 0;
+  z-index: 110;
+  background: var(--color-paper-raised);
+  color: var(--color-indigo);
+  padding: 12px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 0 0 8px 0;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: var(--global-nav-height);
+}
+
+.main-content:focus {
+  outline: none;
 }
 
 .sidebar {

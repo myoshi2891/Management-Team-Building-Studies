@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi } from "vitest";
-import { defineSourceParityContract } from "../support/page-contract";
+import { describe, expect, it, vi } from "vitest";
+import { createMountPage, defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/managing-humans-best-practices-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -255,4 +255,27 @@ defineSourceParityContract({
   seoTitleFragments: ["Managing Humans", "完全ガイド"],
   seoTitle: "Managing Humans 完全ガイド | ソフトウェアエンジニアリングマネージャーのためのベストプラクティス",
   seoDescription: "Michael Lopp著『Managing Humans』(第4版)を初心者向けに解説する実践ガイド。1on1、会議運営、意思決定、危機対応をMermaid図解とともに紹介します。",
+});
+
+// 原本 HTML のスキップリンク（`<a href="#main-content" class="skip-link">本文へスキップ</a>`）は
+// 移行時に落ちていた。キーボード利用者が TOC を飛ばして本文へ移動できることを固定する。
+describe("pages/managing-humans-best-practices-guide.vue — アクセシビリティ契約 (A)", () => {
+  const mountPage = createMountPage(Page);
+
+  it("A-1: 先頭のフォーカス可能要素が本文へのスキップリンクである", () => {
+    const wrapper = mountPage();
+    const skipLink = wrapper.find("a.skip-link");
+
+    expect(skipLink.exists()).toBe(true);
+    expect(skipLink.attributes("href")).toBe("#main-content");
+    expect(skipLink.text()).toBe("本文へスキップ");
+    expect(wrapper.element.firstElementChild).toBe(skipLink.element);
+  });
+
+  it("A-2: スキップリンクの着地点 main が tabindex=\"-1\" でフォーカスを受け取る", () => {
+    const main = mountPage().find("main#main-content");
+
+    expect(main.exists()).toBe(true);
+    expect(main.attributes("tabindex")).toBe("-1");
+  });
 });
