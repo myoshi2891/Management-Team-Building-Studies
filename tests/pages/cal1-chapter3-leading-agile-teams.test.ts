@@ -262,9 +262,9 @@ describe("pages/cal1-chapter3-leading-agile-teams.vue — 個別要素契約", (
 
   it("ヒーローセクションの要素を正しく描画する", () => {
     const wrapper = mountPage();
-    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance CAL 1 学習領域3");
+    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance公式 CAL 1™ 学習ガイド シリーズ・第3章");
     expect(wrapper.find(".hero-lede").text()).toContain("CAL 1");
     expect(wrapper.findAll(".stat-card")).toHaveLength(4);
-    expect(wrapper.find(".disclaimer-box").text()).toContain("非公式の学習ガイド");
+    expect(wrapper.find(".disclaimer-box").text()).toContain("非公式の解説資料");
   });
 });

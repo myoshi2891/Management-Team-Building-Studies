@@ -271,6 +271,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-97-things-guide",
       "/cal1-certified-agile-leader-1-guide",
       "/the-case-for-agile-leadership",
+      "/cal1-chapter3-leading-agile-teams",
       "/cal2-part1-organizational-strategy-and-delivery",
       "/cal2-certified-agile-leader-2-study-guide",
       "/engineering-management-career-path",
@@ -360,6 +361,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

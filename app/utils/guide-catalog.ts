@@ -322,6 +322,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/cal1-chapter3-leading-agile-teams",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL1 第3章",
+    title: "第3章:アジャイルチームのリード(Leading Agile Teams)",
+    description: "Scrum Alliance Certified Agile Leader 1(CAL 1)の学習目標領域「3. Leading Agile Teams」を、サーバントリーダーシップ・タックマンモデル・心理的安全性・Lencioniの5つの機能不全・Delegation Pokerなど9つのフレームワークで初学者向けに解説する学習ガイド。",
+    meta: "12セクション",
+    icon: "tabler:users-group",
+    accent: "gold",
+  },
+  {
     to: "/cal2-part1-organizational-strategy-and-delivery",
     categoryId: "project-management",
     seriesId: "scrum",
