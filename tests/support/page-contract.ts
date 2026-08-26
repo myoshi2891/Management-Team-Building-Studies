@@ -143,7 +143,7 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
       expect(missing).toEqual([]);
     });
 
-    it("S-4: 文書内の全 id が一意で、TOC のアンカーが実在の見出しを指す", () => {
+    it("S-4: 文書内の全 id が一意で、ページ内アンカーが既存の id に解決できる", () => {
       const wrapper = mountPage();
       const ids = wrapper.findAll("[id]").map((el) => el.attributes("id"));
 
