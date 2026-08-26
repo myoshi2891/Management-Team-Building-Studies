@@ -558,7 +558,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 監査スクリプト | — | `npm run audit:cal1-guide` | **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `Cal1-certified-agile-leader-1-guide.html` / `.md` を `archive/Cal1-certified-agile-leader-1-guide/` 配下へ移動 | 移行完了・原本の集約管理 | — |
 
-### §46. Cal1-chapter3-leading-agile-teams（第3章:アジャイルチームのリード）
+### §43. Cal1-chapter3-leading-agile-teams（第3章:アジャイルチームのリード）
 
 - **原本**: `archive/Cal1-chapter3-leading-agile-teams/Cal1-chapter3-leading-agile-teams.html`
 - **移行先**: `app/pages/cal1-chapter3-leading-agile-teams.vue`
@@ -574,14 +574,14 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 外部リンク | 13 種類（計 14 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
 | カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: project-management`, `series: scrum`, `accent: gold` |
 | 監査スクリプト | — | `npm run audit:cal1-ch3` | **exit 0**（全要素一致） |
-| 原本アーカイブ移動 | `Cal1-chapter3-leading-agile-teams.html` / `.md` を `archive/Cal1-chapter3-leading-agile-teams/` 配下へ移動 | 移行完了原本の集約管理 |
+| 原本アーカイブ移動 | `Cal1-chapter3-leading-agile-teams.html` / `.md` を `archive/Cal1-chapter3-leading-agile-teams/` 配下へ移動 | `app/pages/cal1-chapter3-leading-agile-teams.vue` | 移行完了原本の集約管理 |
 
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: db4531b
+コードコミット HEAD: 5a35a59
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
@@ -633,10 +633,10 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 988 件
+  - ユニットテスト 1035 件
   - test / typecheck / lint はいずれも 2026-08-26 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 37 本 exit 0 パス
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 39 本 exit 0 パス
 
-ベースラインテスト数: ユニット 988 + E2E 15
+ベースラインテスト数: ユニット 1035 + E2E 15
 ```
 
