@@ -127,6 +127,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-forest",
       },
       {
+        title: "アジャイルリーダーシップの必要性を理解する",
+        category: "SCRUM / CSM",
+        href: "/the-case-for-agile-leadership",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",
