@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `0980527` — refactor(no-rules-rules): register audit script and verify types and lint（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `2bd1f99` — feat(mythical-man-month): wrap disclaimer box text in div and ensure source parity（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクションとグローバルナビのメガメニューの両方が自動で追随する。**`seriesId` は省略不可**） |
 | ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-26 実測） |
-| テスト数 | **890** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 16 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 8 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 24 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + No Rules Rules guide page 25）+ **15** E2E（capm 4 + site-header 11）— これがベースライン |
+| テスト数 | **892** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 16 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 8 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + No Rules Rules guide page 25）+ **15** E2E（capm 4 + site-header 11）— これがベースライン |
 | 原本照合監査 | ✔ **全 33 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
@@ -49,7 +49,7 @@
 | `archive/Debugging-teams-guide/Debugging-teams-guide.html` | `app/pages/debugging-teams-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Managing-humans-best-practices-guide/Managing-humans-best-practices-guide.html` | `app/pages/managing-humans-best-practices-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Peopleware/Peopleware.html` | `app/pages/peopleware-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
-| `Mythical-man-month-guide.html` | `app/pages/mythical-man-month-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Mythical-man-month-guide/Mythical-man-month-guide.html` | `app/pages/mythical-man-month-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Radical-candor-guide/Radical-candor-guide.html` | `app/pages/radical-candor-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/The-Case-for-Agile-Leadership/The-Case-for-Agile-Leadership.html` | `app/pages/the-case-for-agile-leadership.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/No-rules-rules-guide/No-rules-rules-guide.html` | `app/pages/no-rules-rules-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
@@ -445,7 +445,11 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 
 ### 37. 『人月の神話』完全ガイド（`mythical-man-month-guide.vue`）の Nuxt 移植
 
-`Mythical-man-month-guide.html`（Frederick P. Brooks, Jr.著『人月の神話(The Mythical Man-Month)』の解説ガイド）を `app/pages/mythical-man-month-guide.vue` へ忠実に移植した。
+- **原本**: `archive/Mythical-man-month-guide/Mythical-man-month-guide.html`
+- **原本 Markdown**: `archive/Mythical-man-month-guide/Mythical-man-month-guide.md`
+- **移行先**: `app/pages/mythical-man-month-guide.vue`
+- **契約テスト**: `tests/pages/mythical-man-month-guide.test.ts`（26 件・S-1〜S-4, C-1〜C-6, D-1, D-2, Q-2, Q-3, A-1, A-2, ページ固有契約）
+- **照合結果**: `npm run audit:mythical-man-month` → **exit 0**（全要素一致）
 
 | 観点 | 原本 | 移植後 | 備考 |
 |---|---|---|---|
