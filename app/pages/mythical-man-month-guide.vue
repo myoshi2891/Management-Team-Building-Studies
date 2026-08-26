@@ -850,7 +850,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
   section {
     margin: 72px 0;
-    scroll-margin-top: calc(var(--global-nav-height) + 32px);
+    scroll-margin-top: var(--global-nav-height);
   }
 
   section:first-of-type { margin-top: 0; }
