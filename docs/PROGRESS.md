@@ -49,7 +49,7 @@
 | `archive/Managing-humans-best-practices-guide/Managing-humans-best-practices-guide.html` | `app/pages/managing-humans-best-practices-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Peopleware/Peopleware.html` | `app/pages/peopleware-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `Mythical-man-month-guide.html` | `app/pages/mythical-man-month-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
-| `Radical-candor-guide.html` | `app/pages/radical-candor-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Radical-candor-guide/Radical-candor-guide.html` | `app/pages/radical-candor-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -456,8 +456,8 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 
 ### 38. Radical Candor 完全ガイド（`radical-candor-guide.vue`）の Nuxt 移植
 
-- **原本**: `Radical-candor-guide.html`
-- **原本 Markdown**: `Radical-candor-guide.md`
+- **原本**: `archive/Radical-candor-guide/Radical-candor-guide.html`
+- **原本 Markdown**: `archive/Radical-candor-guide/Radical-candor-guide.md`
 - **移行先**: `app/pages/radical-candor-guide.vue`
 - **契約テスト**: `tests/pages/radical-candor-guide.test.ts`（25 件・S-1〜S-4, C-1〜C-6, D-1〜D-3, D-5, Q-2, Q-3, A-1, A-2）
 - **照合結果**: `npm run audit:radical-candor` → **exit 0**（全要素一致）
