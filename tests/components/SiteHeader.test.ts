@@ -88,6 +88,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
       { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
+      { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -156,6 +157,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
           { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
+          { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
         ],
       },
     ]);
@@ -262,6 +264,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-events-csm-guide",
       "/scrum-97-things-guide",
       "/the-case-for-agile-leadership",
+      "/cal2-part1-organizational-strategy-and-delivery",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/managing-humans-best-practices-guide",
@@ -349,6 +352,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
