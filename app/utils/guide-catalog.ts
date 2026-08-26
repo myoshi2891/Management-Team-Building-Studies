@@ -322,6 +322,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/cal2-certified-agile-leader-2-study-guide",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL2 完全ガイド",
+    title: "Certified Agile Leader® 2 (CAL 2™) 学習ガイド",
+    description: "Scrum Alliance Certified Agile Leader 2 (CAL 2) の学習目標に基づき、組織戦略・チェンジマネジメント・リーダーシップ成長の主要フレームワークをステップバイステップで解説する非公式学習ガイドです。",
+    meta: "14セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     // engineering-management はシリーズ未定義（1 カラム表示）。

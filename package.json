@@ -45,6 +45,7 @@
     "audit:radical-candor": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Radical-candor-guide/Radical-candor-guide.html app/pages/radical-candor-guide.vue",
     "audit:cal1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/The-Case-for-Agile-Leadership/The-Case-for-Agile-Leadership.html app/pages/the-case-for-agile-leadership.vue",
     "audit:cal2-p1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Cal2-part1-organizational-strategy-and-delivery.html app/pages/cal2-part1-organizational-strategy-and-delivery.vue",
+    "audit:cal2": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Cal2-certified-agile-leader-2-study-guide.html app/pages/cal2-certified-agile-leader-2-study-guide.vue",
     "audit:scrum-events": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-events-csm-guide/Scrum-events-csm-guide.html app/pages/scrum-events-csm-guide.vue",
     "audit:no-rules-rules": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/No-rules-rules-guide/No-rules-rules-guide.html app/pages/no-rules-rules-guide.vue"
   },

@@ -11,7 +11,7 @@ const { seoMeta } = vi.hoisted(() => ({ seoMeta: vi.fn() }));
 mockNuxtImport("useSeoMeta", () => seoMeta);
 
 const EXPECTED_H1 = [
-  "Certified Agile Leader® 2 (CAL 2TM) 学習ガイド",
+  "Certified Agile Leader® 2 (CAL 2™) 学習ガイド",
 ] as const;
 
 const EXPECTED_H2 = [
@@ -294,9 +294,9 @@ describe("pages/cal2-certified-agile-leader-2-study-guide.vue — 個別要素�
 
   it("ヒーローセクションの要素を正しく描画する", () => {
     const wrapper = mountPage();
-    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance CAL 2 非公式学習ガイド");
-    expect(wrapper.find(".hero-lede").text()).toContain("組織戦略の実行とリーダー自身の成長");
+    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance Agile Leader Track");
+    expect(wrapper.find(".hero-lede").text()).toContain("Scrum Alliance公式サイト");
     expect(wrapper.findAll(".stat-card")).toHaveLength(4);
-    expect(wrapper.find(".disclaimer-box").text()).toContain("非公式の学習ガイド");
+    expect(wrapper.find(".disclaimer-box").text()).toContain("非公式の解説資料");
   });
 });
