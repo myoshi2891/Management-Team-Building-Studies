@@ -41,7 +41,7 @@
     "audit:debugging-teams": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Debugging-teams-guide/Debugging-teams-guide.html app/pages/debugging-teams-guide.vue",
     "audit:managing-humans": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Managing-humans-best-practices-guide/Managing-humans-best-practices-guide.html app/pages/managing-humans-best-practices-guide.vue",
     "audit:peopleware": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Peopleware/Peopleware.html app/pages/peopleware-guide.vue",
-    "audit:mythical-man-month": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Mythical-man-month-guide.html app/pages/mythical-man-month-guide.vue",
+    "audit:mythical-man-month": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Mythical-man-month-guide/Mythical-man-month-guide.html app/pages/mythical-man-month-guide.vue",
     "audit:radical-candor": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Radical-candor-guide/Radical-candor-guide.html app/pages/radical-candor-guide.vue",
     "audit:cal1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/The-Case-for-Agile-Leadership/The-Case-for-Agile-Leadership.html app/pages/the-case-for-agile-leadership.vue",
     "audit:scrum-events": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-events-csm-guide/Scrum-events-csm-guide.html app/pages/scrum-events-csm-guide.vue",
