@@ -109,6 +109,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "Debugging Teams", href: "/debugging-teams-guide" },
       { label: "Peopleware", href: "/peopleware-guide" },
       { label: "Radical Candor", href: "/radical-candor-guide" },
+      { label: "No Rules Rules", href: "/no-rules-rules-guide" },
       { label: "Team Topologies", href: "/team-topologies-guide" },
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
       { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
@@ -204,6 +205,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "Debugging Teams", href: "/debugging-teams-guide" },
           { label: "Peopleware", href: "/peopleware-guide" },
           { label: "Radical Candor", href: "/radical-candor-guide" },
+          { label: "No Rules Rules", href: "/no-rules-rules-guide" },
         ],
       },
       {
@@ -275,6 +277,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/debugging-teams-guide",
       "/peopleware-guide",
       "/radical-candor-guide",
+      "/no-rules-rules-guide",
       "/team-topologies-guide",
       "/dynamic-reteaming-guide",
       "/lean-ux-beginner-guide",
@@ -346,6 +349,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

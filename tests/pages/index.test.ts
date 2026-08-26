@@ -229,6 +229,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "『NO RULES RULES』完全ガイド",
+        category: "TEAM CULTURE",
+        href: "/no-rules-rules-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Team Topologies 実践ガイド",
         category: "TEAM DESIGN",
         href: "/team-topologies-guide",
@@ -266,7 +272,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "15 ガイド", cards: 15 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
-      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "7 ガイド", cards: 7 },
+      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "8 ガイド", cards: 8 },
     ]);
   });
 
