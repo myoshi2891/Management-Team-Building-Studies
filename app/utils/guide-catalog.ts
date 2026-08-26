@@ -447,6 +447,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/radical-candor-guide",
+    categoryId: "team-building",
+    seriesId: "team-culture",
+    navLabel: "Radical Candor",
+    title: "Radical Candor 完全ガイド ― 初学者のための実践フレームワーク",
+    description: "Kim Scott著『Radical Candor』の核となるフレームワークを、HIP・CORE・GSDホイールなどの実践ツールとともに初学者向けに解説するガイド。",
+    meta: "16セクション",
+    icon: "tabler:message-2",
+    accent: "gold",
+  },
+  {
     to: "/team-topologies-guide",
     categoryId: "team-building",
     seriesId: "team-design",
