@@ -1571,8 +1571,13 @@
         var link = linkMap[entry.target.id];
         if (!link) return;
         if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          // 視覚的な .active と支援技術向けの aria-current を同じ 1 リンクに揃える。
+          navLinks.forEach(function (l) {
+            l.classList.remove("active");
+            l.removeAttribute("aria-current");
+          });
           link.classList.add("active");
+          link.setAttribute("aria-current", "location");
         }
       });
     }, { rootMargin: "-20% 0px -70% 0px" });
@@ -1595,6 +1600,17 @@
         if (wasOpen) toggle.focus();
       });
     });
+    // Escape でサイドバーを閉じ、フォーカスをトグルボタンへ戻す。
+    // 閉じたサイドバーは visibility: hidden になるため、フォーカスを退避しないと body へ落ちる。
+    function closeOnEscape(event) {
+      if (event.key !== "Escape" && event.key !== "Esc") return;
+      if (!sidebar.classList.contains("open")) return;
+      sidebar.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    }
+    sidebar.addEventListener("keydown", closeOnEscape);
+    toggle.addEventListener("keydown", closeOnEscape);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
