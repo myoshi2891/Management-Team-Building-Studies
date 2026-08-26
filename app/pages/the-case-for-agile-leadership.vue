@@ -142,7 +142,7 @@ class Cert done;`;
       class="sidebar-toggle"
       aria-label="目次を開閉する"
       aria-controls="sidebar"
-      :aria-expanded="String(sidebarOpen)"
+      :aria-expanded="sidebarOpen"
       @click="sidebarOpen = !sidebarOpen"
     >
       <i class="ti ti-menu-2" />
