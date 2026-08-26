@@ -1,0 +1,1365 @@
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "about-this-guide",
+  "mission-vision-values",
+  "strategy-and-agility",
+  "structure-and-value-delivery",
+  "change-management-misconceptions",
+  "tools-for-leading-change",
+  "summary-and-references",
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "CAL 2 Part 1: 組織戦略とデリバリー 完全ガイド | Organizational Strategy and Delivery",
+  description:
+    "Certified Agile Leader 2 (CAL 2) Part 1「Organizational Strategy and Delivery」を初学者向けに解説する非公式スタディガイド。Golden Circle、Galbraith Star Model、Team Topologies、Immunity to Change、Kotter/ADKAR/Bridgesなどのフレームワークを図解付きで紹介します。",
+});
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+  pie1: "#C7D1EA",
+  pie2: "#AEDBD6",
+  pie3: "#F0D9A6",
+  pie4: "#E7C0D0",
+  pieOpacity: "1",
+  pieStrokeColor: "#FFFFFF",
+  pieStrokeWidth: "2px",
+  pieOuterStrokeWidth: "1px",
+  pieOuterStrokeColor: "#DFE3EA",
+  pieSectionTextColor: "#161B26",
+  pieLegendTextColor: "#161B26",
+  pieTitleTextColor: "#161B26",
+};
+
+const DIAGRAM_CURRICULUM_MAP = `flowchart TD
+    CAL2["Certified Agile Leader 2"]
+    P1["Part 1: Organizational Strategy and Delivery(本ガイドの範囲)"]
+    P2["Part 2: Developing as a Leader(別ガイドで解説)"]
+    CAL2 --> P1
+    CAL2 --> P2
+    P1 --> T1["1. Mission, Vision, and Values"]
+    P1 --> T2["2. Organizational Strategy and Agility"]
+    P1 --> T3["3. Organizational Structure and Customer Value Delivery"]
+    P1 --> T4["4. Change Management Misconceptions"]
+    P1 --> T5["5. Tools for Leading Change"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class CAL2 hub;
+    class P1 done;
+    class P2,T1,T2,T3,T4,T5 box;`;
+
+const DIAGRAM_GOLDEN_CIRCLE = `flowchart TB
+    subgraph GC["Golden Circle - 3層構造"]
+        direction TB
+        WHY["Why: 核心的な目的・信念 なぜこの組織/チームは存在するのか"]
+        HOW["How: 差別化する方法 どのような独自のやり方で実現するのか"]
+        WHAT["What: 提供する製品/サービス 具体的に何を提供しているのか"]
+        WHY --> HOW --> WHAT
+    end
+    NOTE["インスパイアするリーダーはWhyから語り始め 多くの組織はWhatから語り始める(逆方向)"]
+    GC -.-> NOTE
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class WHY hub;
+    class HOW box;
+    class WHAT done;
+    class NOTE box;`;
+
+const DIAGRAM_STAR_MODEL = `flowchart TD
+    STRAT["Strategy 戦略: 方向性・提供価値・競争優位の源泉"]
+    STRAT --> STRUCT["Structure 構造: 意思決定権限の所在"]
+    STRAT --> PROC["Processes プロセス: 情報の流れ・調整の仕組み"]
+    STRAT --> REW["Rewards 報酬: 行動を動機づける仕組み"]
+    STRAT --> PPL["People 人材: 採用・育成・スキル開発の方針"]
+
+    STRUCT <-.->|"整合が必要"| PROC
+    PROC <-.->|"整合が必要"| REW
+    REW <-.->|"整合が必要"| PPL
+    PPL <-.->|"整合が必要"| STRUCT
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class STRAT hub;
+    class STRUCT,PROC,REW,PPL box;`;
+
+const DIAGRAM_CONWAYS_LAW = `flowchart LR
+    ORG["組織のコミュニケーション構造(部門・チームの分かれ方)"]
+    SYS["システム/プロダクトの構造(モジュール・APIの分かれ方)"]
+
+    ORG -->|"Conway's Law 組織構造がシステム構造を規定する"| SYS
+    SYS -.->|"Inverse Conway Maneuver 望ましいアーキテクチャに合わせて組織を再設計する"| ORG
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class ORG hub;
+    class SYS done;`;
+
+const DIAGRAM_TEAM_TOPOLOGIES = `flowchart TB
+    SA["Stream-aligned team(顧客への価値提供の主体)"]
+    PF["Platform team X-as-a-Serviceで支援"]
+    EN["Enabling team Collaborationで一時的に支援"]
+    CS["Complicated-subsystem team X-as-a-Serviceで専門機能を提供"]
+
+    PF -->|"セルフサービスAPI/内部プロダクト"| SA
+    EN -->|"一時的な伴走・能力移転"| SA
+    CS -->|"高度専門機能の提供"| SA
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class SA hub;
+    class PF,EN,CS box;`;
+
+const DIAGRAM_VALUE_STREAM_MAP = `flowchart LR
+    REQ["顧客からのリクエスト発生"] --> A["工程A(処理時間+待ち時間)"]
+    A --> B["工程B(処理時間+待ち時間)"]
+    B --> C["工程C(処理時間+待ち時間)"]
+    C --> VAL["顧客への価値提供"]
+
+    A -.->|"非付加価値(待ち・承認待ち等)"| WASTE1["ムダの特定"]
+    B -.->|"非付加価値"| WASTE2["ムダの特定"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class REQ hub;
+    class VAL done;
+    class A,B,C,WASTE1,WASTE2 box;`;
+
+const DIAGRAM_IMMUNITY_MAP = `flowchart LR
+    C1["1. 改善目標 本当に達成したいこと"]
+    C2["2. 阻害行動 やっている/やっていないこと"]
+    C3["3. 隠れた競合コミットメント 無意識に守っているもの"]
+    C4["4. 大きな思い込み その根拠となる無意識の前提"]
+
+    C1 --> C2 --> C3 --> C4
+    C4 -.->|"検証すると多くは思い込みに過ぎないとわかる"| C1
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class C1 hub;
+    class C2,C3,C4 box;`;
+
+const DIAGRAM_KOTTER_STEPS = `flowchart TD
+    K1["1. 危機意識を高める"] --> K2["2. 推進チームを結成する"]
+    K2 --> K3["3. 戦略的ビジョンを形成する"]
+    K3 --> K4["4. ビジョンを伝達する"]
+    K4 --> K5["5. 行動の障壁を取り除く"]
+    K5 --> K6["6. 短期的な成果を生み出す"]
+    K6 --> K7["7. 勢いを維持する"]
+    K7 --> K8["8. 変革を文化に定着させる"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class K1 hub;
+    class K8 done;
+    class K2,K3,K4,K5,K6,K7 box;`;
+
+const DIAGRAM_ADKAR_MODEL = `flowchart LR
+    A["Awareness 変化の必要性の認識"] --> D["Desire 参加・支持する意欲"]
+    D --> K["Knowledge 変化の仕方の知識"]
+    K --> AB["Ability 新しい行動を実践する能力"]
+    AB --> R["Reinforcement 定着のための強化"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A hub;
+    class R done;
+    class D,K,AB box;`;
+
+const DIAGRAM_BRIDGES_MODEL = `flowchart LR
+    E["Ending 終わり・喪失・手放す"] --> N["Neutral Zone 中間期の混乱・模索"]
+    N --> B["New Beginning 新しいアイデンティティ・意欲の回復"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class E hub;
+    class B done;
+    class N box;`;
+
+const DIAGRAM_CHANGE_TIMELINE = `flowchart TB
+    subgraph TIMELINE["変革の時間軸に3モデルを重ねる"]
+        direction LR
+        S1["Kotter Step1-2 危機意識/推進チーム"] --> S2["Kotter Step3-4 ビジョン形成/伝達"]
+        S2 --> S3["Kotter Step5-6 障壁除去/短期成果"]
+        S3 --> S4["Kotter Step7-8 勢い維持/文化定着"]
+    end
+    A2["ADKAR: Awareness/Desire"] -.->|"対応"| S1
+    A3["ADKAR: Knowledge/Ability"] -.->|"対応"| S3
+    A4["ADKAR: Reinforcement"] -.->|"対応"| S4
+    B2["Bridges: Ending"] -.->|"対応"| S1
+    B3["Bridges: Neutral Zone"] -.->|"対応"| S3
+    B4["Bridges: New Beginning"] -.->|"対応"| S4
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class S1 hub;
+    class S4 done;
+    class S2,S3,A2,A3,A4,B2,B3,B4 box;`;
+
+const DIAGRAM_PART1_OVERVIEW = `flowchart LR
+    MVV["1. Mission Vision Values 組織はなぜ存在するか"] --> STRAT["2. Strategy and Agility 戦略と組織要素の整合"]
+    STRAT --> STRUCT["3. Structure and Value Delivery 組織構造と価値提供"]
+    STRUCT --> MISC["4. Change Misconceptions 変革の誤解を解く"]
+    MISC --> TOOLS["5. Tools for Leading Change 変革を実行するツール"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class MVV hub;
+    class TOOLS done;
+    class STRAT,STRUCT,MISC box;`;
+</script>
+
+<template>
+  <div class="guide-page">
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="String(sidebarOpen)"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <i class="ti ti-menu-2" />
+    </button>
+
+    <div class="layout">
+      <!-- ===================== Sidebar ===================== -->
+      <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4" />
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1" />
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">CAL 2 Part 1</div>
+            <div class="brand-subtitle">組織戦略とデリバリー</div>
+          </div>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li>
+            <a
+              href="#about-this-guide"
+              :class="{ active: activeId === 'about-this-guide' }"
+              :aria-current="activeId === 'about-this-guide' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-certificate" />このガイドについて
+            </a>
+          </li>
+          <li>
+            <a
+              href="#mission-vision-values"
+              :class="{ active: activeId === 'mission-vision-values' }"
+              :aria-current="activeId === 'mission-vision-values' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-target" />1. ミッション・ビジョン・バリュー
+            </a>
+          </li>
+          <li>
+            <a
+              href="#strategy-and-agility"
+              :class="{ active: activeId === 'strategy-and-agility' }"
+              :aria-current="activeId === 'strategy-and-agility' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-compass" />2. 組織戦略とアジリティ
+            </a>
+          </li>
+          <li>
+            <a
+              href="#structure-and-value-delivery"
+              :class="{ active: activeId === 'structure-and-value-delivery' }"
+              :aria-current="activeId === 'structure-and-value-delivery' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-sitemap" />3. 組織構造と顧客価値提供
+            </a>
+          </li>
+          <li>
+            <a
+              href="#change-management-misconceptions"
+              :class="{ active: activeId === 'change-management-misconceptions' }"
+              :aria-current="activeId === 'change-management-misconceptions' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-refresh" />4. チェンジマネジメントとその誤解
+            </a>
+          </li>
+          <li>
+            <a
+              href="#tools-for-leading-change"
+              :class="{ active: activeId === 'tools-for-leading-change' }"
+              :aria-current="activeId === 'tools-for-leading-change' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-tools" />5. 変革をリードするためのツール
+            </a>
+          </li>
+          <li>
+            <a
+              href="#summary-and-references"
+              :class="{ active: activeId === 'summary-and-references' }"
+              :aria-current="activeId === 'summary-and-references' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
+              <i class="ti ti-flag-3" />まとめと参考文献一覧
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ===================== Main content ===================== -->
+      <main id="main-content" class="main-content" tabindex="-1">
+        <div class="hero">
+          <div class="hero-eyebrow"><i class="ti ti-award" />Scrum Alliance CAL 2 非公式スタディガイド</div>
+          <h1>Certified Agile Leader® 2 (CAL 2™) スタディガイド</h1>
+          <p class="hero-lede">
+            Part 1: 組織戦略とデリバリー (Organizational Strategy and Delivery)
+          </p>
+
+          <div class="stat-row">
+            <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">Part 1の学習トピック</div></div>
+            <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">Mermaid図解</div></div>
+            <div class="stat-card"><div class="stat-number">24</div><div class="stat-label">参照ソースURL</div></div>
+            <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">変革リード・フレームワーク</div></div>
+          </div>
+
+          <div class="disclaimer-box">
+            <i class="ti ti-info-circle" />
+            本ガイドは、Scrum Alliance公式サイトの<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Certified Agile Leader 2 (CAL 2) ページ</a>に基づき、CAL 2カリキュラムの Part 1「Organizational Strategy and Delivery」を初学者向けに独自に解説した非公式のスタディガイドです。公式カリキュラム文の逐語的な転載ではなく、関連する経営学・組織論のフレームワークを参照しながら筆者の言葉で再構成しています。CAL 2は<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">CAL 1</a>の修了が前提条件であり、本ガイドもCAL1スタディガイドシリーズ(The Case for Agile Leadership / Agile Leadership in Action / Leading Agile Teams / Leading Agile Organizations)の続編という位置づけです。
+          </div>
+        </div>
+
+        <!-- ===================== 0. About This Guide ===================== -->
+        <section id="about-this-guide">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" />SECTION 01</div>
+          <h2>このガイドについて</h2>
+
+          <p>CAL 2は「CAL 1で学んだアジャイルリーダーシップの原則を、組織戦略・デリバリー・自己成長にどう応用するか」を扱う上級コースです。公式カリキュラムは2つのセクションで構成されています。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_CURRICULUM_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">CAL 2カリキュラムの全体構成(本ガイドはPart 1を扱う)</div>
+          </div>
+
+          <p>Part 1は大きく「組織はなぜ・どこへ向かうのか(ミッション/ビジョン/戦略)」「組織はどう作られていれば価値を届けられるのか(構造・デリバリー)」「組織をどう変えていくのか(チェンジマネジメント)」という3つの問いに沿って進みます。各トピックは以下の共通フォーマットで解説します。</p>
+
+          <ul>
+            <li><strong>概要:</strong> 何を学ぶトピックか</li>
+            <li><strong>ステップバイステップ解説:</strong> 初学者向けに順を追った理解</li>
+            <li><strong>図解:</strong> Mermaidによるフローチャート</li>
+            <li><strong>ベストプラクティス:</strong> 実務での適用ポイント</li>
+            <li><strong>参考ソース:</strong> 一次情報源のURL</li>
+          </ul>
+        </section>
+
+        <!-- ===================== 1. Mission, Vision, and Values ===================== -->
+        <section id="mission-vision-values">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-target" />SECTION 02</div>
+          <h2>1. ミッション・ビジョン・バリュー (Mission, Vision, and Values)</h2>
+
+          <h3>概要</h3>
+          <p>このトピックでは、ミッション(存在意義)・ビジョン(目指す未来像)・バリュー(行動の拠り所となる価値観)が組織の成功にどうプラスにもマイナスにも作用しうるかを学びます。CAL 2ではこれを、リーダーが自分自身と組織の「Why(なぜ)」を明確にし、それをチームに浸透させる力として位置づけています。この考え方を体系立てて説明する代表的なフレームワークが、リーダーシップ専門家 Simon Sinek が提唱した<strong>Golden Circle(ゴールデンサークル)</strong>です。</p>
+
+          <h3>ステップバイステップ解説</h3>
+
+          <h4>ステップ1: ミッション・ビジョン・バリューを区別する</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>要素</th><th>問いかけ</th><th>時間軸</th><th>具体例のイメージ</th></tr></thead>
+              <tbody>
+                <tr><td>ミッション (Mission)</td><td>なぜ私たちは存在するのか</td><td>現在・恒久的</td><td>「顧客の業務を単純化する」</td></tr>
+                <tr><td>ビジョン (Vision)</td><td>私たちはどこへ向かうのか</td><td>将来・目指す状態</td><td>「業界標準のプラットフォームになる」</td></tr>
+                <tr><td>バリュー (Values)</td><td>私たちはどう行動するのか</td><td>常時・判断基準</td><td>「透明性」「顧客第一」など</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>ステップ2: Golden Circle でWhy・How・Whatを整理する</h4>
+          <p>Sinekは、真に人を鼓舞するリーダーや組織は「What(何をするか)」からではなく「Why(なぜするか)」から発想し、伝えていると説明しています。彼はこれを「Why、How、What」と名付け、優れたリーダーや組織はすべて同じように考え、行動し、コミュニケーションしており、それは他の大多数と正反対のパターンだと述べています。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_GOLDEN_CIRCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Golden Circle の3層構造(Why → How → What の順で語るのがインスパイアするリーダーの特徴)</div>
+          </div>
+
+          <p>多くの組織は「何を作っているか(What)」から説明を始め、一部だけが「どうやって(How)」まで語り、「なぜ(Why)」を明確に語れる組織はごくわずかだとSinekは指摘しています。彼によれば、人はある組織が「何をするか」を理由に選ぶのではなく「なぜそれをするか」に共感して選ぶのであり、「何をするか」は「何を信じているか」の証明に過ぎません。</p>
+
+          <h4>ステップ3: 組織レベルで実装する</h4>
+          <p>Golden Circleを組織に導入する際は、次の順序で進めるとよいとされています。</p>
+          <ol>
+            <li>Whyを発見する: 経営陣とメンバーを巻き込み、組織が存在する根本的な理由を言語化する</li>
+            <li>Howを定義する: Whyを実現するための独自の戦略・アプローチ・強みを特定する</li>
+            <li>Whatを明確にする: 提供する製品・サービスがWhyと矛盾なく整合していることを確認する</li>
+          </ol>
+
+          <h4>ステップ4: ポジティブ/ネガティブ両方の影響を理解する</h4>
+          <p>ミッション・ビジョン・バリューは、明確で行動に落とし込まれていれば意思決定の速度や一体感を高めますが、「額縁に飾られているだけ」で日々の意思決定や評価制度と結びついていない場合は、むしろ社員の不信感やシニシズムを生む逆効果になり得ます。CAL 2ではこの「言行不一致(Values-Behavior Gap)」のリスクを認識することが重要なポイントです。</p>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+            <ul>
+              <li><strong>Whyから逆算して評価制度・採用基準を設計する:</strong> ミッション・バリューを壁に貼るだけでなく、人事評価や意思決定の基準に組み込む</li>
+              <li><strong>リーダー自身がWhyを体現する:</strong> リーダーの言動がバリューと矛盾すると、ミッション・ビジョンそのものへの信頼が失われる</li>
+              <li><strong>Whyは一度作って終わりにしない:</strong> 事業環境の変化に応じて定期的に見直し、チームと対話しながら再確認する</li>
+              <li><strong>採用は「Whatができるか」だけでなく「Whyに共感できるか」で見る:</strong> Sinekは、単に仕事ができるという理由だけで採用した人は報酬のために働くが、自分たちの信念に共感して採用された人は情熱を持って働くと述べています</li>
+              <li><strong>理想と現実のギャップを測定する:</strong> 社員サーベイなどで「バリューが実際の意思決定に反映されているか」を定期的に確認する</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+            <ul>
+              <li><a href="https://simonsinek.com/golden-circle" target="_blank" rel="noopener">Simon Sinek公式サイト「The Golden Circle」</a></li>
+              <li><a href="https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action" target="_blank" rel="noopener">TED Talk「How great leaders inspire action」</a></li>
+              <li><a href="https://simonsinek.com/books/start-with-why" target="_blank" rel="noopener">書籍『Start with Why: How Great Leaders Inspire Everyone to Take Action』紹介ページ</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================== 2. Organizational Strategy and Agility ===================== -->
+        <section id="strategy-and-agility">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-compass" />SECTION 03</div>
+          <h2>2. 組織戦略とアジリティ (Organizational Strategy and Agility)</h2>
+
+          <h3>概要</h3>
+          <p>このトピックでは、組織の戦略が「変化の激しい環境下でどれだけ迅速に適応できるか(アジリティ)」にどう影響するかを学びます。CAL1で扱った Business Agility Institute の各ドメインやSAFeのOrganizational Agilityコンピテンシー(既存のCAL1ガイド参照)を土台に、CAL 2ではより実務的に「戦略とその他の組織要素をどう整合させるか」を扱います。ここで中心となるフレームワークが、組織設計理論の第一人者 Jay Galbraith が考案した<strong>Star Model(スターモデル)</strong>です。</p>
+
+          <h3>ステップバイステップ解説</h3>
+
+          <h4>ステップ1: 戦略とアジリティの関係を理解する</h4>
+          <p>戦略は「何を目指し、どの市場・顧客に、どんな価値を提供するか」という長期的な方向性を定めるものです。Galbraith Star Modelにおいて戦略は方向性を決定する要素と位置づけられ、伝統的にStar Modelの5つの要素の中で最初に取り組むべき要素とされています。戦略が曖昧だと、組織のどの部分をアジャイルにすべきかも定まらず、部分的な「アジャイルのふりごと(Agile Theater)」に陥りやすくなります。</p>
+
+          <h4>ステップ2: Star Modelの5つの構成要素を理解する</h4>
+          <p>Galbraith Star Modelの5つのカテゴリは、戦略(Strategy)・構造(Structure)・プロセス(Processes)・報酬(Rewards)・人材(People)であり、これらすべてが理想的な組織パフォーマンスのために互いに整合している必要があります。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_STAR_MODEL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Galbraith Star Model の5要素(戦略を起点に4要素すべてが相互に整合する必要がある)</div>
+          </div>
+
+          <p>この5つの要素は「レバー」であり、組織設計者がこれらを操作・調整することで組織の振る舞いを形作ることができます。重要なのは、新しい行動を組織に求めるならば単に組織図を書き換えるだけでは不十分だという点で、業務の組み立て方・意思決定の流れ方・評価と報酬の対象・育成するスキルといった「文脈」そのものを変えることで、望ましい行動が自然に選ばれるようにする必要があります。</p>
+
+          <h4>ステップ3: 各要素を診断する</h4>
+          <p>リーダーは自組織について、以下のような問いを立てて5要素の整合性を診断できます。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>要素</th><th>診断の問い</th></tr></thead>
+              <tbody>
+                <tr><td>Strategy</td><td>提供価値・対象市場・競争優位の源泉は明確か</td></tr>
+                <tr><td>Structure</td><td>意思決定権限は、実際に顧客に近い場所にあるか</td></tr>
+                <tr><td>Processes</td><td>部門横断の情報伝達・調整はスムーズか、どこで滞留するか</td></tr>
+                <tr><td>Rewards</td><td>評価・昇進の基準は、戦略が求める行動と一致しているか</td></tr>
+                <tr><td>People</td><td>必要なスキルを持つ人材を採用・育成できているか</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>ステップ4: アジリティ向上のための戦略的示唆を導く</h4>
+          <p>5要素のうち1つだけを変えても組織は変わりません。たとえば「アジャイルな組織構造」を導入しても、報酬制度が個人の年次目標達成のみを評価する仕組みのままであれば、チームは協働よりも個人成果を優先し続けます。CAL 2のリーダーは、構造変更を提案する際に必ず報酬・プロセス・人材面への波及も合わせて検討する視点を持つことが求められます。</p>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+            <ul>
+              <li><strong>戦略から着手する:</strong> 構造改革の前に、まず戦略(何を・誰に・どう提供するか)を明文化し関係者で合意する</li>
+              <li><strong>5要素セットで変更を計画する:</strong> 構造だけ、報酬だけといった部分最適な変更は避け、変更が他の要素に及ぼす影響を事前に洗い出す</li>
+              <li><strong>McKinsey 7Sなど関連モデルと併用する:</strong> Galbraith Star Modelは5要素とシンプルだが、ハード要素とソフト要素の両方の整合を確認したい場合はMcKinsey 7-Sモデル(CAL1ガイド参照)と併用すると効果的です</li>
+              <li><strong>定期的な棚卸しを行う:</strong> 市場環境や戦略が変化した際は、5要素すべてを再点検するタイミングを組織カレンダーに組み込む</li>
+              <li><strong>過度な複雑化を避ける:</strong> 5要素を一斉に変えようとすると実装が複雑化し、リソースを消耗するリスクがあるため、優先順位をつけて段階的に進める</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+            <ul>
+              <li><a href="https://jaygalbraith.com/services/star-model/" target="_blank" rel="noopener">Jay Galbraith公式サイト「Star Model」</a></li>
+              <li><a href="https://www.toolshero.com/management/jay-galbraiths-star-model/" target="_blank" rel="noopener">Toolshero「Galbraith Star Model」</a></li>
+              <li><a href="https://strategicmanagementinsight.com/tools/galbraiths-star-model-explained/" target="_blank" rel="noopener">Strategic Management Insight「Galbraith's Star Model Explained in Depth」</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================== 3. Organizational Structure and Customer Value Delivery ===================== -->
+        <section id="structure-and-value-delivery">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-sitemap" />SECTION 04</div>
+          <h2>3. 組織構造と顧客価値提供 (Organizational Structure and Customer Value Delivery)</h2>
+
+          <h3>概要</h3>
+          <p>組織の「形」は、それが生み出すシステムやプロダクトの「形」に直接影響します。このトピックでは、組織構造がどのように顧客への価値提供を助けたり妨げたりするかを、<strong>Conway's Law(コンウェイの法則)</strong>、<strong>Team Topologies</strong>、<strong>Value Stream Mapping</strong>という3つのレンズから学びます。</p>
+
+          <h3>ステップバイステップ解説</h3>
+
+          <h4>ステップ1: Conway's Lawを理解する</h4>
+          <p>Conway's Lawとは、システムを設計する組織はその組織のコミュニケーション構造の複製であるようなデザインを生み出すことを強いられる、という原則で、コンピュータ科学者Melvin Conwayによって提唱され、1968年に雑誌『Datamation』で発表されました。これは製品が機能するためには、その構成部品の作者・設計者同士がコミュニケーションを取り、部品間の互換性を確保する必要があるという理屈に基づいており、結果として技術的なシステム構造は、それを生み出した組織の中でコミュニケーションが難しい社会的な境界線を反映することになります。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_CONWAYS_LAW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Conway's Law と Inverse Conway Maneuver の関係</div>
+          </div>
+
+          <p>組織構造が部門間の協働を促進しない場合、生まれるソフトウェアはその分断を反映します。例えばフロントエンド・バックエンド・テストの各チームが孤立して動いていれば、プロダクトは統合の悪い疎結合なモジュールの集合になりがちです。これを逆手に取り、望むアーキテクチャに合わせてチーム構造を意図的に設計し直すアプローチは「Inverse Conway Maneuver(逆コンウェイ作戦)」と呼ばれます。</p>
+
+          <h4>ステップ2: Team Topologiesの4チームタイプを理解する</h4>
+          <p>Matthew SkeltonとManuel Paisが提唱した Team Topologies は、Conway's Lawを逆手に取って組織を設計するための実践的なパターン言語です。組織内のすべてのチームは、ストリームアラインドチーム(Stream-aligned team)・プラットフォームチーム(Platform team)・イネーブリングチーム(Enabling team)・複雑サブシステムチーム(Complicated-subsystem team)という4つの基本タイプのいずれかに当てはまるとされています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>チームタイプ</th><th>役割</th><th>目安の比率</th></tr></thead>
+              <tbody>
+                <tr><td>Stream-aligned team</td><td>単一の価値の流れ(プロダクト/サービス/顧客ジャーニー)にエンドツーエンドで責任を持つ主要チーム</td><td>組織全体の60〜80%</td></tr>
+                <tr><td>Platform team</td><td>セルフサービスのAPI・ツール・サービスを「内部プロダクト」として提供し、ストリームアラインドチームの認知負荷を下げる</td><td>状況による</td></tr>
+                <tr><td>Enabling team</td><td>他チームが技術的課題を克服し、ベストプラクティスを採用し能力を高めるのを支援する。支援は一時的なものであり、対象チームの自立を目指す</td><td>5〜15%程度</td></tr>
+                <tr><td>Complicated-subsystem team</td><td>高度で専門的なドメイン知識を要する複雑なサブシステムに特化して責任を持つ</td><td>少数</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>これら4タイプに加えて、協働(Collaboration)・X-as-a-Service・ファシリテーション(Facilitating)という3つのチーム間インタラクションモードが定義されています。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_TEAM_TOPOLOGIES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Team Topologies の4チームタイプと、Stream-aligned teamを支援する関係性</div>
+          </div>
+
+          <h4>ステップ3: Value Stream Mapping(VSM)で顧客への流れを可視化する</h4>
+          <p>バリューストリームとは、顧客のニーズに応えるためにチームや組織が取る一連の活動のことであり、Value Stream Mappingはそれを可視化・分析・改善するプロセスです。各工程を顧客視点で価値を生む(Value-Adding)か価値を生まない(Non-Value-Adding)かに分類し、この外部視点によって組織側の思い込みではなく顧客ニーズに沿った改善を可能にします。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_VALUE_STREAM_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Value Stream Mapping の基本形(工程ごとに処理時間・待ち時間・ムダを可視化する)</div>
+          </div>
+
+          <h4>ステップ4: 3つの視点を組み合わせて組織を評価する</h4>
+          <p>CAL 2のリーダーは、次の順序で自組織を評価するとよいでしょう。</p>
+          <ol>
+            <li>Value Stream Mappingで顧客への価値の流れを可視化し、ボトルネックを特定する</li>
+            <li>そのボトルネックが技術的な問題か、チーム間の連携(組織構造)の問題かをConway's Lawの視点で分析する</li>
+            <li>Team Topologiesの4タイプを使って、価値の流れに沿ってチームを再編成する</li>
+          </ol>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+            <ul>
+              <li><strong>チームをコンポーネントではなく価値の流れで区切る:</strong> 「DB担当チーム」のような技術コンポーネント単位ではなく、顧客に価値を届けるストリーム単位でチームを構成する</li>
+              <li><strong>Platform teamは「最小限の実行可能なプラットフォーム(Thinnest Viable Platform)」を意識する:</strong> 必要以上に厚いプラットフォームを作らず、Wikiページ1枚で足りるならそれで十分とし、開発者体験を第一に考える</li>
+              <li><strong>Enabling teamの支援は必ず「卒業」を前提にする:</strong> 支援対象チームが自立したら次のチームへ移る、恒久的な依存関係を作らない</li>
+              <li><strong>Inverse Conway Maneuverを意図的に使う:</strong> 望ましいアーキテクチャがあるなら、先にそれに合わせてチーム編成を変える</li>
+              <li><strong>VSMは一度で終わらせず継続的に更新する:</strong> 市場や需要の変化に応じて定期的にマップを見直すことで、組織の俊敏性と適応力を維持する</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+            <ul>
+              <li><a href="https://en.wikipedia.org/wiki/Conway%27s_law" target="_blank" rel="noopener">Wikipedia「Conway's law」</a></li>
+              <li><a href="https://teamtopologies.com/key-concepts" target="_blank" rel="noopener">Team Topologies公式サイト「Key concepts」</a></li>
+              <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html" target="_blank" rel="noopener">AWS DevOps Guidance「Organize teams into distinct topology types」</a></li>
+              <li><a href="https://www.atlassian.com/agile/value-stream-management" target="_blank" rel="noopener">Atlassian「What is Value Stream Management」</a></li>
+              <li><a href="https://www.planview.com/resources/guide/what-is-value-stream-mapping/" target="_blank" rel="noopener">Planview「What is Value Stream Mapping?」</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================== 4. Change Management and Its Misconceptions ===================== -->
+        <section id="change-management-misconceptions">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" />SECTION 05</div>
+          <h2>4. チェンジマネジメントとその誤解 (Change Management and Its Misconceptions)</h2>
+
+          <h3>概要</h3>
+          <p>このトピックでは、変革を主導するリーダーが陥りやすい誤解を明らかにし、なぜ「人は変化に抵抗する」という単純化された理解だけでは変革が失敗するのかを学びます。理論的な裏付けとして、Robert KeganとLisa Laheyが提唱した<strong>Immunity to Change(変化への免疫)</strong>モデルを扱います。</p>
+
+          <h3>ステップバイステップ解説</h3>
+
+          <h4>ステップ1: よくある誤解を認識する</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>よくある誤解</th><th>実際のところ</th></tr></thead>
+              <tbody>
+                <tr><td>人は本質的に変化に抵抗する</td><td>「抵抗」に見える反応の裏には、変化への関与や納得の機会が不足しているという構造的な問題があることが多い</td></tr>
+                <tr><td>チェンジマネジメントは特定部門(HRなど)の仕事だ</td><td>チェンジマネジメントは部門ではなくリーダーシップのスキルであり、単一部門に任せると変革のスピードが落ちたり定着しなかったりするリスクがある</td></tr>
+                <tr><td>発表すれば変化は起きる</td><td>公式な発表さえすれば人々は自然と新しい構造や関係性に適応すると考えがちだが、個人的な関係性・慣れ・未知への恐れが根強い心理的な抵抗を生む</td></tr>
+                <tr><td>コミュニケーションさえ増やせば十分だ</td><td>コミュニケーションは重要だが、それだけでは不十分であり、ステークホルダー関与・トレーニング・抵抗マネジメントを含む包括的な戦略が必要</td></tr>
+                <tr><td>実装が終われば変革は完了する</td><td>変革は実装後も継続的な評価と調整を必要とするプロセスであり、リリースをもって終了するわけではない</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>ステップ2: 「抵抗」の裏にある心理的メカニズムを理解する</h4>
+          <p>なぜ人は頭では変化に賛成していても、実際の行動は変わらないのでしょうか。Kegan と Lahey は、これを意志や能力の欠如ではなく、<strong>Immunity to Change(変化への免疫)</strong>という無意識の自己防衛システムで説明しています。変化の失敗の多くは意志力・リソース・情報の不足ではなく、望ましい変化に積極的に反する働きをする隠れた心理的コミットメントによって引き起こされるとされ、これらは怠慢や反抗の表れではなく、アイデンティティ・安定性・有能さへの脅威と本人が感じるものから自分を守る「内なる免疫システム」だと説明されています。</p>
+
+          <h4>ステップ3: 4カラムの「Immunity Map」で可視化する</h4>
+          <p>Immunity Mapは4つのカラムから構成されます。1列目は本人が本当に達成したいと望んでいる目標、2列目はその目標を妨げている実際の行動(やっていること/やっていないこと)、3列目はその自己矛盾した行動を支えている隠れたコミットメント、4列目はそのコミットメントの土台にある「大きな思い込み(Big Assumption)」です。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_IMMUNITY_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Kegan &amp; Lahey の4カラム Immunity Map</div>
+          </div>
+
+          <p>Kegan自身はこの状態を「アクセルを踏みながらブレーキも踏んでいるようなもの」と表現しており、この隠れたブレーキを可視化しない限り、いくら気合や意志力で変わろうとしても遠くへは進めません。</p>
+
+          <h4>ステップ4: リーダーとして誤解を解消する行動を取る</h4>
+          <ol>
+            <li>「抵抗」という言葉でメンバーの反応を一括りにせず、その背後にある個別の懸念や競合コミットメントを尋ねる</li>
+            <li>チェンジマネジメントを自部門の課題として「自分ごと化」し、HRや変革チームに丸投げしない</li>
+            <li>発表・アナウンスをゴールではなくスタートと捉え、定着までの継続的なフォローを計画する</li>
+            <li>大きな変革の前に、キーパーソンとImmunity Mapを一緒に作成し、隠れた前提を言語化する場を設ける</li>
+          </ol>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+            <ul>
+              <li><strong>「抵抗」を敵視しない:</strong> 抵抗がどこから来ているかを理解し、抵抗している側の立場に立ってみることが変化管理の出発点になる</li>
+              <li><strong>変革を全リーダーの継続的な責務にする:</strong> 変化を主導する責任を一部署に閉じ込めず、現場に一番近いリーダー自身がチームを導けるようにする</li>
+              <li><strong>思い込みは「テスト」できる形に落とし込む:</strong> Immunity Mapで洗い出した大きな思い込みを、小さく安全に検証できるアクションに変換する</li>
+              <li><strong>感情面への配慮を戦略に組み込む:</strong> 論理的な説明だけでなく、失うものへの共感を示すコミュニケーションを設計する</li>
+              <li><strong>完了地点を「実装」ではなく「定着」に置く:</strong> 変革プロジェクトのゴールをリリース日ではなく、行動が習慣化した状態に設定する</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+            <ul>
+              <li><a href="https://www.cio.com/article/3836602/4-steps-to-debunk-the-change-resistance-myth.html" target="_blank" rel="noopener">CIO.com「4 steps to debunk the change resistance myth」</a></li>
+              <li><a href="https://www.mnp.ca/en/insights/directory/three-misconceptions-about-change-management-and-how-to-get-past-them" target="_blank" rel="noopener">MNP「Three misconceptions about change management」</a></li>
+              <li><a href="https://www.mindtools.com/a4l75hx/immunity-to-change/" target="_blank" rel="noopener">MindTools「Immunity to Change」</a></li>
+              <li><a href="https://www.humanizingwork.com/immunity-to-change/" target="_blank" rel="noopener">Humanizing Work「Immunity to Change」</a></li>
+              <li><a href="https://bcltraining.com/learning-library/immunity-to-change-model/" target="_blank" rel="noopener">BCL Learning Library「Immunity to Change Model」</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================== 5. Tools for Leading Change ===================== -->
+        <section id="tools-for-leading-change">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-tools" />SECTION 06</div>
+          <h2>5. 変革をリードするためのツール (Tools for Leading Change)</h2>
+
+          <h3>概要</h3>
+          <p>前トピックで「なぜ変化は難しいのか」を理解した上で、このトピックでは実際に変革を推進するための代表的なツール・フレームワークを学びます。CAL 2で扱う3つの主要フレームワークは、それぞれ異なる視点から変革を捉えています。<strong>Kotterの8ステップ</strong>は組織レベルの変革プロセス、<strong>ADKAR</strong>は個人レベルの変化の積み上げ、<strong>Bridgesの移行モデル</strong>は変化に伴う心理的な移行過程に焦点を当てます。</p>
+
+          <h3>ステップバイステップ解説</h3>
+
+          <h4>ステップ1: Kotterの8ステップ・プロセスを理解する</h4>
+          <p>Kotterの変革モデルの8ステップは、危機意識を高める・強力な推進チームを結成する・戦略的なビジョンを形成する・ビジョンを伝達する・行動の障壁を取り除く・短期的な成果を生み出す・勢いを維持する・変革を組織文化に定着させる、という順序で構成されています。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_KOTTER_STEPS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Kotterの8ステップ・プロセス</div>
+          </div>
+
+          <p>このモデルは1995年のHarvard Business Review論文と1996年の書籍『Leading Change』で発表されたもので、変革が失敗する事例の分析から生まれています。危機意識の欠如・推進チームの不在・ビジョンの欠如や独占・早すぎる勝利宣言といった、繰り返し観察された失敗パターンを裏返す形で8つのステップが組み立てられています。</p>
+
+          <h4>ステップ2: Prosci ADKARモデルを理解する</h4>
+          <p>Prosci ADKARモデルは、個人を中心に据えた実践的な変革管理フレームワークであり、変化が定着するために一人ひとりが通過すべき5つの要素(Awareness=変化の必要性の認識、Desire=参加し支持する意欲、Knowledge=変化の仕方に関する知識、Ability=新しいスキルや行動を適用する能力、Reinforcement=成果を持続させる強化)を定義しています。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_ADKAR_MODEL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Prosci ADKARモデルの5要素</div>
+          </div>
+
+          <p>ADKARの重要な原則は「バリアポイント」であり、進捗は最も不足している要素によって制限されます。あるグループにDesireが不足しているなら、いくらKnowledgeの研修を積んでも効果はありません。実務者はまずどの要素がボトルネックになっているかを診断してから、対応する施策を打つ必要があります。</p>
+
+          <h4>ステップ3: Bridgesの移行モデル(Transition Model)を理解する</h4>
+          <p>Bridgesの移行モデルは、変化を経験する人間の心理的な旅路に焦点を当て、Ending(終わらせる・手放す)・Neutral Zone(中間の混乱期)・New Beginning(新たな始まり)という3段階で構成されています。William Bridgesは「Change(変化)」を外的・状況的な出来事、「Transition(移行)」を内的・心理的なプロセスとして明確に区別しており、変化は人に対して起こるものであるのに対し、移行は人の内側で起こるものだとしています。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_BRIDGES_MODEL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Bridgesの移行モデル(Ending → Neutral Zone → New Beginning)</div>
+          </div>
+
+          <p>リーダーが陥りやすい失敗は、Endingの段階を飛ばしていきなりNew Beginningへ移行しようとすることであり、これは抵抗・苦痛・部分的にしか効果のない変革につながりやすいとされています。一方でNeutral Zoneは不快な段階である一方、大きな創造性・革新・刷新の機会にもなり得るため、リーダーはこの時期こそ丁寧な伴走を行うべきとされています。</p>
+
+          <h4>ステップ4: 3つのフレームワークを組み合わせて使う</h4>
+          <p>これら3つは競合するものではなく、互いに補完し合う関係にあります。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>フレームワーク</th><th>焦点</th><th>単位</th><th>主な問い</th></tr></thead>
+              <tbody>
+                <tr><td>Kotterの8ステップ</td><td>組織の変革プロセス全体の順序</td><td>組織</td><td>変革をどんな順序で進めるか</td></tr>
+                <tr><td>ADKAR</td><td>個人が変化を受け入れるまでの積み上げ</td><td>個人</td><td>どこで足踏みしている人が多いか</td></tr>
+                <tr><td>Bridgesの移行モデル</td><td>変化に伴う心理的な移行過程</td><td>個人の内面</td><td>今どの心理段階にいるか、何を手放す必要があるか</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>実務では、Kotterで変革の全体シーケンスを設計し、ADKARで個人・グループごとの導入状況を診断し、Bridgesで感情面のケアを行うという組み合わせがよく用いられます。</p>
+
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_CHANGE_TIMELINE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">変革の時間軸に Kotter・ADKAR・Bridges の3モデルを重ねた統合ビュー</div>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+            <ul>
+              <li><strong>単一フレームワークに固執しない:</strong> 組織構造のシーケンス(Kotter)、個人の受容状況(ADKAR)、感情の移行(Bridges)を目的に応じて使い分ける</li>
+              <li><strong>バリアポイントを診断してから施策を打つ:</strong> ADKARで「今どこで詰まっているか」を確認せずに研修(Knowledge施策)ばかり増やすのは非効率</li>
+              <li><strong>Endingを飛ばさない:</strong> 新しい体制の説明に急ぐ前に、失われるもの・変わるものを明確に認め、喪失感をケアする時間を取る</li>
+              <li><strong>短期的な成果(Kotter Step 6)を意図的に設計する:</strong> 早期の小さな成功を可視化し、勢いを維持する</li>
+              <li><strong>文化への定着(Kotter Step 8, ADKAR Reinforcement)を計画に組み込む:</strong> 変革プロジェクトの「完了」を、評価制度やルーティンに組み込まれた時点と定義する</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+            <ul>
+              <li><a href="https://www.kotterinc.com/methodology/8-steps/" target="_blank" rel="noopener">Kotter Inc.公式サイト「The 8-Step Process for Leading Change」</a></li>
+              <li><a href="https://mutomorro.com/tools/kotters-8-step-change-model" target="_blank" rel="noopener">Mutomorro「Kotter's 8 Step Change Model」</a></li>
+              <li><a href="https://www.prosci.com/methodology/adkar" target="_blank" rel="noopener">Prosci公式サイト「The Prosci ADKAR Model」</a></li>
+              <li><a href="https://umbrex.com/resources/frameworks/organization-frameworks/prosci-adkar-model-awareness-desire-knowledge-ability-reinforcement/" target="_blank" rel="noopener">Umbrex「Prosci ADKAR Model」</a></li>
+              <li><a href="https://wmbridges.com/about/what-is-transition/" target="_blank" rel="noopener">William Bridges Associates公式サイト「What is Transition?」</a></li>
+              <li><a href="https://whichframework.org/frameworks/bridges-transition-model.html" target="_blank" rel="noopener">Which Framework「Bridges' Transition Model」</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ===================== 6. Summary and References ===================== -->
+        <section id="summary-and-references">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" />SECTION 07</div>
+          <h2>まとめと参考文献一覧</h2>
+
+          <h3>Part 1の全体像</h3>
+          <div class="diagram-card mermaid-wrap">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_PART1_OVERVIEW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">Part 1を貫く5トピックの流れ</div>
+          </div>
+
+          <p>Part 1を貫く流れは、「組織はなぜ存在し、どこへ向かうのか(1)」を明確にし、「その戦略を実現できるよう組織の各要素を整合させ(2)」、「顧客への価値提供を最大化する構造に設計し(3)」、「そこへ至る変革を、誤解に陥らず(4)、適切なツールを使って(5)導く」という一連のリーダーシップの流れです。CAL 2 Part 2「Developing as a Leader」では、この組織レベルの話から個人のリーダーシップ開発(自己成長の壁、パーソナライズされたリーダーシップスタイル、困難な会話、フィードバック、委任と意思決定)へと視点が移ります。</p>
+
+          <h3>参考文献一覧 (URL)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>トピック</th><th>ソース</th><th>URL</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>CAL2公式カリキュラム</td><td>Scrum Alliance</td><td><a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">scrumalliance.org</a></td></tr>
+                <tr><td>2</td><td>CAL1(前提資格)</td><td>Scrum Alliance</td><td><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">scrumalliance.org</a></td></tr>
+                <tr><td>3</td><td>Golden Circle</td><td>Simon Sinek公式</td><td><a href="https://simonsinek.com/golden-circle" target="_blank" rel="noopener">simonsinek.com</a></td></tr>
+                <tr><td>4</td><td>Start with Why (TED Talk)</td><td>TED</td><td><a href="https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action" target="_blank" rel="noopener">ted.com</a></td></tr>
+                <tr><td>5</td><td>Start with Why (書籍)</td><td>Simon Sinek公式</td><td><a href="https://simonsinek.com/books/start-with-why" target="_blank" rel="noopener">simonsinek.com</a></td></tr>
+                <tr><td>6</td><td>Star Model</td><td>Jay Galbraith公式</td><td><a href="https://jaygalbraith.com/services/star-model/" target="_blank" rel="noopener">jaygalbraith.com</a></td></tr>
+                <tr><td>7</td><td>Star Model 解説</td><td>Toolshero</td><td><a href="https://www.toolshero.com/management/jay-galbraiths-star-model/" target="_blank" rel="noopener">toolshero.com</a></td></tr>
+                <tr><td>8</td><td>Star Model 詳細解説</td><td>Strategic Management Insight</td><td><a href="https://strategicmanagementinsight.com/tools/galbraiths-star-model-explained/" target="_blank" rel="noopener">strategicmanagementinsight.com</a></td></tr>
+                <tr><td>9</td><td>Conway's Law</td><td>Wikipedia</td><td><a href="https://en.wikipedia.org/wiki/Conway%27s_law" target="_blank" rel="noopener">en.wikipedia.org</a></td></tr>
+                <tr><td>10</td><td>Team Topologies Key Concepts</td><td>Team Topologies公式</td><td><a href="https://teamtopologies.com/key-concepts" target="_blank" rel="noopener">teamtopologies.com</a></td></tr>
+                <tr><td>11</td><td>Team Topologies 組織設計適用</td><td>AWS DevOps Guidance</td><td><a href="https://docs.aws.amazon.com/wellarchitected/latest/devops-guidance/oa.std.1-organize-teams-into-distinct-topology-types-to-optimize-the-value-stream.html" target="_blank" rel="noopener">docs.aws.amazon.com</a></td></tr>
+                <tr><td>12</td><td>Value Stream Management</td><td>Atlassian</td><td><a href="https://www.atlassian.com/agile/value-stream-management" target="_blank" rel="noopener">atlassian.com</a></td></tr>
+                <tr><td>13</td><td>Value Stream Mapping ガイド</td><td>Planview</td><td><a href="https://www.planview.com/resources/guide/what-is-value-stream-mapping/" target="_blank" rel="noopener">planview.com</a></td></tr>
+                <tr><td>14</td><td>チェンジマネジメントの誤解</td><td>CIO.com</td><td><a href="https://www.cio.com/article/3836602/4-steps-to-debunk-the-change-resistance-myth.html" target="_blank" rel="noopener">cio.com</a></td></tr>
+                <tr><td>15</td><td>チェンジマネジメントの誤解</td><td>MNP</td><td><a href="https://www.mnp.ca/en/insights/directory/three-misconceptions-about-change-management-and-how-to-get-past-them" target="_blank" rel="noopener">mnp.ca</a></td></tr>
+                <tr><td>16</td><td>Immunity to Change</td><td>MindTools</td><td><a href="https://www.mindtools.com/a4l75hx/immunity-to-change/" target="_blank" rel="noopener">mindtools.com</a></td></tr>
+                <tr><td>17</td><td>Immunity to Change 解説</td><td>Humanizing Work</td><td><a href="https://www.humanizingwork.com/immunity-to-change/" target="_blank" rel="noopener">humanizingwork.com</a></td></tr>
+                <tr><td>18</td><td>Immunity to Change Model</td><td>BCL Learning Library</td><td><a href="https://bcltraining.com/learning-library/immunity-to-change-model/" target="_blank" rel="noopener">bcltraining.com</a></td></tr>
+                <tr><td>19</td><td>Kotterの8ステップ</td><td>Kotter Inc.公式</td><td><a href="https://www.kotterinc.com/methodology/8-steps/" target="_blank" rel="noopener">kotterinc.com</a></td></tr>
+                <tr><td>20</td><td>Kotterの8ステップ 詳細</td><td>Mutomorro</td><td><a href="https://mutomorro.com/tools/kotters-8-step-change-model" target="_blank" rel="noopener">mutomorro.com</a></td></tr>
+                <tr><td>21</td><td>ADKARモデル</td><td>Prosci公式</td><td><a href="https://www.prosci.com/methodology/adkar" target="_blank" rel="noopener">prosci.com</a></td></tr>
+                <tr><td>22</td><td>ADKARモデル 詳細解説</td><td>Umbrex</td><td><a href="https://umbrex.com/resources/frameworks/organization-frameworks/prosci-adkar-model-awareness-desire-knowledge-ability-reinforcement/" target="_blank" rel="noopener">umbrex.com</a></td></tr>
+                <tr><td>23</td><td>Bridgesの移行モデル</td><td>William Bridges Associates公式</td><td><a href="https://wmbridges.com/about/what-is-transition/" target="_blank" rel="noopener">wmbridges.com</a></td></tr>
+                <tr><td>24</td><td>Bridgesの移行モデル 解説</td><td>Which Framework</td><td><a href="https://whichframework.org/frameworks/bridges-transition-model.html" target="_blank" rel="noopener">whichframework.org</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout note" data-testid="callout" data-variant="note">
+            <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+            <p>本ガイドはCAL 2の学習を補助する非公式資料です。正式な学習目標(Learning Objectives)や試験範囲は、認定トレーナーが提供する公式コースおよびScrum Alliance公式サイトを必ず確認してください。</p>
+          </div>
+        </section>
+
+        <footer>
+          Certified Agile Leader®、CAL®は Scrum Alliance, Inc. の登録商標です。本ページはその学習を補助する非公式の解説資料であり、Scrum Allianceによる公式資料ではありません。正式な学習目標(Learning Objectives)や試験範囲は、認定トレーナーが提供する公式コースおよび<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>を必ず確認してください。
+        </footer>
+      </main>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.guide-page {
+  min-height: 100vh;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-indigo);
+  color: var(--color-paper-raised);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  z-index: 100;
+  border-radius: 0 0 4px 0;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav li {
+  margin: 2px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+
+.sidebar-nav a i {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
+
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active i {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow i {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 16px;
+  line-height: 1.75;
+}
+
+ul,
+ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong,
+th strong {
+  color: var(--color-ink);
+}
+
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 24px;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .sidebar {
+    transition: none;
+  }
+}
+</style>

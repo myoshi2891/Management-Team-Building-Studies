@@ -311,6 +311,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/cal2-part1-organizational-strategy-and-delivery",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL2 Part 1",
+    title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
+    description: "Certified Agile Leader 2 (CAL 2) Part 1「Organizational Strategy and Delivery」を初学者向けに解説する非公式スタディガイド。Golden Circle、Galbraith Star Model、Team Topologies、Immunity to Change、Kotter/ADKAR/Bridgesなどのフレームワークを図解付きで紹介します。",
+    meta: "7セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     // engineering-management はシリーズ未定義（1 カラム表示）。
