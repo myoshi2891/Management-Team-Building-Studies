@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { describe, expect, it, vi } from "vitest";
-import { createMountPage, defineSourceParityContract } from "../support/page-contract";
+import { describe, vi } from "vitest";
+import { defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/agile-leadership-in-action.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -170,8 +170,6 @@ const EXPECTED_SECTION_EYEBROWS = [
   "SECTION 08",
   "SECTION 09",
 ] as const;
-
-const mountPage = createMountPage(Page);
 
 describe("pages/agile-leadership-in-action.vue — 原本照合・契約テスト", () => {
   defineSourceParityContract({
