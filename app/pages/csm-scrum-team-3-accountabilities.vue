@@ -249,7 +249,9 @@ const DIAGRAM_EMPIRICAL_CYCLE = `flowchart LR
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" />
-            本ガイドはCSM学習目標(2022年1月版)と2020年版Scrum Guideの一次情報に基づいて作成された非公式の学習補助資料です。正式な認定にはScrum AllianceのLicensed Training Partnerが提供する公式<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">CSM講座</a>の受講が必要です。
+            <div>
+              本ガイドはCSM学習目標(2022年1月版)と2020年版Scrum Guideの一次情報に基づいて作成された非公式の学習補助資料です。正式な認定にはScrum AllianceのLicensed Training Partnerが提供する公式<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">CSM講座</a>の受講が必要です。
+            </div>
           </div>
         </div>
 
@@ -982,22 +984,31 @@ const DIAGRAM_EMPIRICAL_CYCLE = `flowchart LR
 }
 
 .disclaimer-box {
-  border: 1px solid var(--color-info-border);
-  background: var(--color-info-bg);
-  color: var(--color-info-text);
+  background: var(--color-gold-tint);
+  border: 1px solid #E6D0A6;
+  color: #614311;
   border-radius: 10px;
   padding: 16px 20px;
   font-size: 16px;
   margin-top: 28px;
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 12px;
+  line-height: 1.6;
 }
 
+.disclaimer-box :deep(svg),
 .disclaimer-box :deep(.iconify) {
   flex: none;
   font-size: 20px;
-  margin-top: 2px;
+  color: var(--color-gold);
+  margin-top: 3px;
+}
+
+.disclaimer-box a {
+  color: #5C3D0E;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 section {
