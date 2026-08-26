@@ -192,7 +192,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <div class="layout">
 <!-- ===================== Sidebar ===================== -->
-  <nav id="sidebar" class="sidebar" aria-label="目次">
+  <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
     <div class="sidebar-brand">
       <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
