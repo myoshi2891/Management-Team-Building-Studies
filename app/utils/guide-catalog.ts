@@ -278,6 +278,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/scrum-events-csm-guide",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CSM スクラムイベント",
+    title: "Scrum Events 完全ガイド",
+    description: "Scrum Alliance CSM認定試験対策として、Scrumの5つのイベント(Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)を初学者向けにステップバイステップで解説する完全ガイド。",
+    meta: "15セクション",
+    icon: "tabler:calendar-event",
+    accent: "gold",
+  },
+  {
     to: "/scrum-97-things-guide",
     categoryId: "project-management",
     seriesId: "scrum",
