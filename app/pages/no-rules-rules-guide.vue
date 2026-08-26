@@ -775,10 +775,6 @@ class S1,S2,S3,S4,S5,S6 box;`;
 </template>
 
 <style scoped>
-:root {
-  --sidebar-width: 288px;
-}
-
 .skip-link {
   position: absolute;
   top: -48px;
@@ -792,7 +788,7 @@ class S1,S2,S3,S4,S5,S6 box;`;
   transition: top 0.15s ease;
 }
 .skip-link:focus {
-  top: 0;
+  top: var(--global-nav-height);
 }
 
 .layout {
