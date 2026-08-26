@@ -121,6 +121,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Scrum Artifacts と Commitments 完全ガイド",
+        category: "SCRUM / CSM",
+        href: "/csm-scrum-artifacts-and-commitments",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Scrum Events 完全ガイド",
         category: "SCRUM / CSM",
         href: "/scrum-events-csm-guide",

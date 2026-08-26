@@ -64,6 +64,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 完全ガイド" },
       { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 3つのアカウンタビリティ" },
       { to: "/csm-scrum-theory-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM Scrum理論" },
+      { to: "/csm-scrum-artifacts-and-commitments", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM アーティファクト" },
       { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM スクラムイベント" },
       { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "スクラム 97の知恵" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 完全ガイド" },
