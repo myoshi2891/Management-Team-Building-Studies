@@ -69,6 +69,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "スクラム 97の知恵" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第1章" },
+      { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第2章" },
       { to: "/cal1-chapter3-leading-agile-teams", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第3章" },
       { to: "/cal2-part1-organizational-strategy-and-delivery", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL2 Part 1" },
       { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL2 完全ガイド" },

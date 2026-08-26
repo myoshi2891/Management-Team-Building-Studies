@@ -353,6 +353,7 @@ test("recognizes every allowed Mermaid diagram declaration including pie", () =>
 		"journey\ntitle Trip",
 		"timeline\ntitle History",
 		'pie title Share\n"A" : 1',
+		"quadrantChart\nquadrant-1 A",
 	];
 	const source = charts
 		.map((chart) => `<div class="mermaid">${chart}</div>`)
@@ -396,6 +397,7 @@ test("recognizes every diagram type when preceded by a single block directive", 
 		"journey\ntitle Trip",
 		"timeline\ntitle History",
 		'pie title Share\n"A" : 1',
+		"quadrantChart\nquadrant-1 A",
 	];
 	assert.equal(MERMAID_DIAGRAM_TYPES.length, charts.length);
 	for (const chart of charts) {
@@ -416,6 +418,7 @@ test("recognizes every diagram type when preceded by a leading line comment", ()
 		"journey\ntitle Trip",
 		"timeline\ntitle History",
 		'pie title Share\n"A" : 1',
+		"quadrantChart\nquadrant-1 A",
 	];
 	for (const chart of charts) {
 		assert.match(`%% この図の説明コメント\n${chart}`, MERMAID_DIAGRAM_DECLARATION);

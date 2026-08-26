@@ -151,6 +151,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "実践におけるリーダーシップ(Agile Leadership in Action)",
+        category: "SCRUM / CSM",
+        href: "/agile-leadership-in-action",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "第3章:アジャイルチームのリード(Leading Agile Teams)",
         category: "SCRUM / CSM",
         href: "/cal1-chapter3-leading-agile-teams",
