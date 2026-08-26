@@ -1084,7 +1084,7 @@ td strong, th strong {
   margin-bottom: 28px;
 }
 
-.ref-group h4 {
+.ref-group h3 {
   margin-top: 0;
 }
 
