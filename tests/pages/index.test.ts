@@ -121,6 +121,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Scrum Events 完全ガイド",
+        category: "SCRUM / CSM",
+        href: "/scrum-events-csm-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
         category: "SCRUM / CSM",
         href: "/scrum-97-things-guide",
@@ -257,7 +263,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "14 ガイド", cards: 14 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "15 ガイド", cards: 15 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "7 ガイド", cards: 7 },

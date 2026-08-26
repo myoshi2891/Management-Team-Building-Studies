@@ -85,6 +85,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
       { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
       { label: "CSM Scrum理論", href: "/csm-scrum-theory-guide" },
+      { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
       { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
     ]);
@@ -151,6 +152,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
           { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
           { label: "CSM Scrum理論", href: "/csm-scrum-theory-guide" },
+          { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
           { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
         ],
@@ -255,6 +257,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/csm-certified-scrummaster-guide",
       "/csm-scrum-team-3-accountabilities",
       "/csm-scrum-theory-guide",
+      "/scrum-events-csm-guide",
       "/scrum-97-things-guide",
       "/the-case-for-agile-leadership",
       "/engineering-management-career-path",
@@ -343,6 +346,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

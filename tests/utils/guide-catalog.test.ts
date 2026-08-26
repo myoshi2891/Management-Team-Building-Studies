@@ -64,6 +64,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 完全ガイド" },
       { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 3つのアカウンタビリティ" },
       { to: "/csm-scrum-theory-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM Scrum理論" },
+      { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM スクラムイベント" },
       { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "スクラム 97の知恵" },
       { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第1章" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
@@ -139,7 +140,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "スクラム 97の知恵", "CAL1 第1章"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM スクラムイベント", "スクラム 97の知恵", "CAL1 第1章"],
       },
       {
         id: "engineering-management",
@@ -169,7 +170,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
           { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
-          { seriesId: "scrum", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "スクラム 97の知恵", "CAL1 第1章"] },
+          { seriesId: "scrum", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM スクラムイベント", "スクラム 97の知恵", "CAL1 第1章"] },
         ],
       },
       {
