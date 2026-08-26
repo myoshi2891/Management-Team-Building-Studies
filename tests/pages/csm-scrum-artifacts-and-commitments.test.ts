@@ -50,15 +50,13 @@ const EXPECTED_H3 = [
   "4-4. コミットメント:完成の定義(Definition of Done)",
   "4-5. 完成の定義 と 受け入れ基準(Acceptance Criteria)の違い",
   "4-6. ベストプラクティス:完成の定義の作り方",
-] as const;
-
-const EXPECTED_H4 = [
   "Scrum Guides(公式)",
   "Scrum Alliance",
   "Scrum.org",
   "その他の一次情報",
 ] as const;
 
+const EXPECTED_H4 = [] as const;
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
 

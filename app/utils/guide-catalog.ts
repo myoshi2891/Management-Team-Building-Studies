@@ -278,6 +278,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csm-scrum-artifacts-and-commitments",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CSM アーティファクト",
+    title: "Scrum Artifacts と Commitments 完全ガイド",
+    description: "Certified ScrumMaster(CSM)取得を目指す初学者向けに、Scrumの3つのアーティファクト(Product Backlog / Sprint Backlog / Increment)と3つのコミットメント(Product Goal / Sprint Goal / Definition of Done)をステップバイステップで解説する学習ガイド。",
+    meta: "10セクション",
+    icon: "tabler:box",
+    accent: "gold",
+  },
+  {
     to: "/scrum-events-csm-guide",
     categoryId: "project-management",
     seriesId: "scrum",
