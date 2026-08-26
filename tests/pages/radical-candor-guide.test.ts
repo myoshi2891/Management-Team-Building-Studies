@@ -65,7 +65,7 @@ const EXPECTED_MERMAID_SOURCES = [
     F --> G["In Person: 対面かビデオ通話で伝える"]
     G --> H["批判は個別に, 称賛はチームの前で伝える"]
     H --> I["COREの型で内容を構造化する"]
-    I --> J["Context, Observation, Result, nExt stEpsの順に話す"]
+    I --> J["Context, Observation, Result, Next Stepsの順に話す"]
     J --> K["相手の反応を見て伝わり方を確認する"]
     K --> L{"意図した通りに伝わったか"}
     L -->|"Yes"| M["感謝を伝え次のアクションをフォローする"]

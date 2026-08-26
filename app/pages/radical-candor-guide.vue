@@ -85,7 +85,7 @@ const DIAGRAM_PRACTICE_FLOW = `flowchart TB
     F --> G["In Person: 対面かビデオ通話で伝える"]
     G --> H["批判は個別に, 称賛はチームの前で伝える"]
     H --> I["COREの型で内容を構造化する"]
-    I --> J["Context, Observation, Result, nExt stEpsの順に話す"]
+    I --> J["Context, Observation, Result, Next Stepsの順に話す"]
     J --> K["相手の反応を見て伝わり方を確認する"]
     K --> L{"意図した通りに伝わったか"}
     L -->|"Yes"| M["感謝を伝え次のアクションをフォローする"]
@@ -297,12 +297,12 @@ const DIAGRAM_ADOPTION_ROADMAP = `flowchart TB
                 <tr><td>Context</td><td>具体的な状況を示す(いつ、どこで起きたことか)</td></tr>
                 <tr><td>Observation</td><td>実際に何を見た・聞いたかを、解釈を交えず客観的に描写する</td></tr>
                 <tr><td>Result</td><td>その行動が引き起こした、最も重要な結果や影響を伝える</td></tr>
-                <tr><td>nExt stEps</td><td>次に何をすべきか、あるいは何を一緒に考えたいかを明確にする</td></tr>
+                <tr><td>Next Steps</td><td>次に何をすべきか、あるいは何を一緒に考えたいかを明確にする</td></tr>
               </tbody>
             </table>
           </div>
 
-          <p>例えば「発表がうまくいっていなかった」と漠然と伝えるのではなく、「先週の定例会で(Context)、資料の途中で口ごもる場面が何度かあり(Observation)、聞き手が要点をつかみにくそうにしていた(Result)。次回までに一度リハーサルに付き合おうか(nExt stEps)」のように組み立てると、相手が受け取りやすく、行動にもつながりやすくなります。</p>
+          <p>例えば「発表がうまくいっていなかった」と漠然と伝えるのではなく、「先週の定例会で(Context)、資料の途中で口ごもる場面が何度かあり(Observation)、聞き手が要点をつかみにくそうにしていた(Result)。次回までに一度リハーサルに付き合おうか(Next Steps)」のように組み立てると、相手が受け取りやすく、行動にもつながりやすくなります。</p>
         </section>
 
         <section id="practice-flow">
