@@ -293,7 +293,9 @@ useSeoMeta({
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" aria-hidden="true" />
-            このページは学習支援を目的とした非公式の解説資料です。Scrum GuideおよびScrum Allianceの一次情報を要約・解説したものであり、公式教材ではありません。正確な定義・最新の試験情報は必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>でご確認ください。
+            <div>
+              このページは学習支援を目的とした非公式の解説資料です。Scrum GuideおよびScrum Allianceの一次情報を要約・解説したものであり、公式教材ではありません。正確な定義・最新の試験情報は必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>でご確認ください。
+            </div>
           </div>
         </div>
 
@@ -1078,21 +1080,30 @@ useSeoMeta({
 }
 
 .disclaimer-box {
-  border: 1px solid var(--color-info-border);
-  background: var(--color-info-bg);
-  color: var(--color-info-text);
+  background: var(--color-gold-tint);
+  border: 1px solid #E6D0A6;
+  color: #614311;
   border-radius: 10px;
   padding: 16px 20px;
   font-size: 16px;
   margin-top: 28px;
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: flex-start;
+  line-height: 1.6;
 }
 
 .disclaimer-box :deep(svg) {
+  font-size: 20px;
+  color: var(--color-gold);
   flex: none;
-  margin-top: 4px;
+  margin-top: 3px;
+}
+
+.disclaimer-box a {
+  color: #5C3D0E;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 section {
