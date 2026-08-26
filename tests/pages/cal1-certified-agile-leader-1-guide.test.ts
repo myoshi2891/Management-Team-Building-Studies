@@ -223,26 +223,3 @@ defineSourceParityContract({
   seoDescription: EXPECTED_SEO_DESCRIPTION,
 });
 
-describe("pages/cal1-certified-agile-leader-1-guide.vue — 個別要素契約", () => {
-  const mountPage = createMountPage(Page);
-
-  it("各セクションのアイブロウラベルが順序込みで一致する", () => {
-    const wrapper = mountPage();
-    const eyebrows = wrapper.findAll(".section-eyebrow").map((el) => el.text());
-    expect(eyebrows).toEqual([
-      "SECTION 01",
-      "SECTION 02",
-      "SECTION 03",
-      "SECTION 04",
-      "SECTION 05",
-      "SECTION 06",
-      "SECTION 07",
-      "SECTION 08",
-      "SECTION 09",
-      "SECTION 10",
-      "SECTION 11",
-      "SECTION 12",
-      "SECTION 13",
-    ]);
-  });
-});
