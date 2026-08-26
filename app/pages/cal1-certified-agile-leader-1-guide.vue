@@ -746,7 +746,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
     padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
     transition: top 0.15s ease;
   }
-  .skip-link:focus { top: 0; }
+  .skip-link:focus { top: var(--global-nav-height); }
   img, svg { max-width: 100%; }
 
   .layout {
@@ -844,7 +844,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
   .sidebar-toggle {
     display: none;
     position: fixed;
-    top: 16px;
+    top: var(--global-nav-height);
     left: 16px;
     z-index: 30;
     background: var(--color-paper-raised);
@@ -936,7 +936,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
   section {
     margin: 72px 0;
-    scroll-margin-top: 32px;
+    scroll-margin-top: calc(var(--global-nav-height) + 32px);
   }
 
   section:first-of-type { margin-top: 0; }
