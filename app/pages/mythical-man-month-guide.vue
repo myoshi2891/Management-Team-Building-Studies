@@ -215,7 +215,9 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
       <div class="disclaimer-box">
         <Icon name="tabler:info-circle" aria-hidden="true" />
-        原著: <em>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</em> / Frederick P. Brooks, Jr. (Addison-Wesley Professional) ・ 参照元: <a href="https://www.oreilly.com/library/view/mythical-man-month-the/0201835959/" target="_blank" rel="noopener">O'Reilly 書誌ページ</a>
+        <div>
+          原著: <em>The Mythical Man-Month: Essays on Software Engineering, Anniversary Edition</em> / Frederick P. Brooks, Jr. (Addison-Wesley Professional) ・ 参照元: <a href="https://www.oreilly.com/library/view/mythical-man-month-the/0201835959/" target="_blank" rel="noopener">O'Reilly 書誌ページ</a>
+        </div>
       </div>
     </div>
 
@@ -846,11 +848,20 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
     padding: 16px 20px;
     font-size: 16px;
     margin-top: 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .disclaimer-box :deep(.iconify) {
+    font-size: 20px;
+    flex: none;
+    margin-top: 2px;
   }
 
   section {
     margin: 72px 0;
-    scroll-margin-top: var(--global-nav-height);
+    scroll-margin-top: calc(var(--global-nav-height) + 32px);
   }
 
   section:first-of-type { margin-top: 0; }
