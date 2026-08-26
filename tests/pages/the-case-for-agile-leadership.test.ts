@@ -37,11 +37,10 @@ const EXPECTED_H3 = [
   "4.2 チームを信頼する",
   "4.3 実験を奨励する文化を支援する",
   "4.4 スキル開発を提唱する",
-] as const;
-
-const EXPECTED_H4 = [
   "出典一覧",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
@@ -159,14 +158,14 @@ const EXPECTED_SECTION_EYEBROWS = [
 ] as const;
 
 const EXPECTED_CALLOUT_VARIANTS = {
-  practice: 6,
-  source: 5,
+  practice: 7,
+  source: 6,
   note: 4,
 } as const;
 
 const EXPECTED_CALLOUT_LABELS = {
-  practice: { ベストプラクティス: 6 },
-  source: { ソース: 5 },
+  practice: { ベストプラクティス: 7 },
+  source: { ソース: 6 },
   note: { 補足: 4 },
 } as const;
 

@@ -1,0 +1,1193 @@
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "cal1-overview",
+  "why-agile-leadership",
+  "mindset-shift",
+  "leadership-agility-model",
+  "four-agile-leader-behaviors",
+  "cal1-course-structure",
+  "step-by-step-roadmap",
+  "understanding-checklist",
+  "summary",
+  "references",
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "CAL1® 第1章ガイド | The Case for Agile Leadership",
+  description:
+    "Certified Agile Leader® 1(CAL1)の学習領域1「The Case for Agile Leadership」を初学者向けにステップバイステップで解説する非公式ガイド。VUCA環境の背景、リーダーシップ・アジリティモデル、アジャイルリーダーの4つの行動とベストプラクティスを解説します。",
+});
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+  pie1: "#C7D1EA",
+  pie2: "#AEDBD6",
+  pie3: "#F0D9A6",
+  pie4: "#E7C0D0",
+  pieOpacity: "1",
+  pieStrokeColor: "#FFFFFF",
+  pieStrokeWidth: "2px",
+  pieOuterStrokeWidth: "1px",
+  pieOuterStrokeColor: "#DFE3EA",
+  pieSectionTextColor: "#161B26",
+  pieLegendTextColor: "#161B26",
+  pieTitleTextColor: "#161B26",
+};
+
+const DIAGRAM_LEARNING_AREAS_OVERVIEW = `flowchart TB
+    S["CAL1 4つの学習領域"] --> M1["1 The Case for Agile Leadership 本ガイドの範囲"]
+    S --> M2["2 Agile Leadership in Action"]
+    S --> M3["3 Leading Agile Teams"]
+    S --> M4["4 Leading Agile Organizations"]
+    M1 -.->|"土台になる"| M2
+    M2 -.->|"土台になる"| M3
+    M3 -.->|"土台になる"| M4
+
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class S hub;
+class M1,M2,M3,M4 box;`;
+
+const DIAGRAM_VUCA_TO_AGILE_FLOW = `flowchart TB
+    A["VUCAな事業環境"] --> B["変動性・不確実性・複雑性・曖昧性の増大"]
+    B --> C["従来型 指揮命令型 リーダーシップの限界"]
+    C --> D["トップダウンの意思決定"]
+    C --> E["長期計画への過度な依存"]
+    C --> F["統制中心の管理"]
+    D --> G["変化への対応遅延"]
+    E --> G
+    F --> G
+    G --> H["アジャイルリーダーシップへの転換"]
+    H --> I["自己組織化チームの支援"]
+    H --> J["継続的な学習と適応"]
+    H --> K["信頼に基づく権限移譲"]
+
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class H done;
+class B,C,D,E,F,G,I,J,K box;`;
+
+const DIAGRAM_LEADERSHIP_AGILITY_STAGES = `flowchart LR
+    A["Expert Leader 専門性で貢献する"] --> B["Achiever Leader 成果と戦略で導く"]
+    B --> C["Catalyst Leader ビジョンと参加型意思決定"]
+    C -.-> D["Co-Creator と Synergist 到達者はごく少数"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C box;
+class D done;`;
+
+const DIAGRAM_FOUR_BEHAVIORS_OUTCOME = `flowchart TB
+    L["アジャイルリーダー"] --> B1["変化と不確実性をナビゲートする"]
+    L --> B2["チームを信頼する"]
+    L --> B3["実験を奨励する文化を支援する"]
+    L --> B4["スキル開発を提唱する"]
+    B1 --> O["組織のレジリエンスと成果向上"]
+    B2 --> O
+    B3 --> O
+    B4 --> O
+
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class L hub;
+class B1,B2,B3,B4 box;
+class O done;`;
+
+const DIAGRAM_COURSE_FLOW_DAYS = `flowchart TB
+    Pre["事前学習 約1時間の事前課題"] --> D1["Day1 自己内省と自分のリーダーシップスタイル"]
+    D1 --> D2["Day2 チームとカルチャーの構築"]
+    D2 --> D3["変革のリーダーシップとチェンジモデル"]
+    D3 --> Cert["コース参加により認定バッジを取得 試験なし"]
+
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Pre hub;
+class D1,D2,D3 box;
+class Cert done;`;
+</script>
+
+<template>
+  <div class="layout">
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
+
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="String(sidebarOpen)"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <i class="ti ti-menu-2" />
+    </button>
+
+    <!-- ===================== Sidebar ===================== -->
+    <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
+      <div class="sidebar-brand">
+        <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4" />
+          <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1" />
+          <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="brand-text">
+          <div class="brand-title">CAL1&reg; 学習ガイド</div>
+          <div class="brand-subtitle">第1章: The Case for Agile Leadership</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li class="nav-group-label">第1章の内容</li>
+        <li>
+          <a href="#cal1-overview" :class="{ active: activeId === 'cal1-overview' }" :aria-current="activeId === 'cal1-overview' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-certificate" />0. CAL1全体像
+          </a>
+        </li>
+        <li>
+          <a href="#why-agile-leadership" :class="{ active: activeId === 'why-agile-leadership' }" :aria-current="activeId === 'why-agile-leadership' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-git-branch" />1. なぜ今必要か
+          </a>
+        </li>
+        <li>
+          <a href="#mindset-shift" :class="{ active: activeId === 'mindset-shift' }" :aria-current="activeId === 'mindset-shift' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-refresh" />2. マインドセットシフト
+          </a>
+        </li>
+        <li>
+          <a href="#leadership-agility-model" :class="{ active: activeId === 'leadership-agility-model' }" :aria-current="activeId === 'leadership-agility-model' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-timeline" />3. リーダーシップ・アジリティ
+          </a>
+        </li>
+        <li>
+          <a href="#four-agile-leader-behaviors" :class="{ active: activeId === 'four-agile-leader-behaviors' }" :aria-current="activeId === 'four-agile-leader-behaviors' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-list-check" />4. 4つの重要な行動
+          </a>
+        </li>
+        <li>
+          <a href="#cal1-course-structure" :class="{ active: activeId === 'cal1-course-structure' }" :aria-current="activeId === 'cal1-course-structure' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-calendar-event" />5. コースの構成
+          </a>
+        </li>
+        <li>
+          <a href="#step-by-step-roadmap" :class="{ active: activeId === 'step-by-step-roadmap' }" :aria-current="activeId === 'step-by-step-roadmap' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-route" />6. 学習ロードマップ
+          </a>
+        </li>
+        <li>
+          <a href="#understanding-checklist" :class="{ active: activeId === 'understanding-checklist' }" :aria-current="activeId === 'understanding-checklist' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-clipboard-check" />7. 理解度チェック
+          </a>
+        </li>
+        <li>
+          <a href="#summary" :class="{ active: activeId === 'summary' }" :aria-current="activeId === 'summary' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-flag-3" />8. まとめ
+          </a>
+        </li>
+        <li>
+          <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
+            <i class="ti ti-link" />9. 参考文献
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ===================== Main content ===================== -->
+    <main id="main-content" class="main-content" tabindex="-1">
+      <div class="hero">
+        <div class="hero-eyebrow"><i class="ti ti-award" />Scrum Alliance CAL1 第1章</div>
+        <h1>アジャイルリーダーシップの必要性を理解する</h1>
+        <p class="hero-lede">
+          対象: Certified Agile Leader&reg; 1(CAL 1&trade;)の学習を始める初学者。本ページの位置づけ: CAL1が定める4つの学習領域のうち「領域1: The Case for Agile Leadership」に関する非公式の学習ログです。正確な内容は必ず公式資料をご確認ください。図解方針: ASCIIアートは使用せず、フローチャートはすべてMermaid、表はすべてMarkdown由来の構造で構成しています。
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-number">16時間</div><div class="stat-label">ライブ学習の合計時間</div></div>
+          <div class="stat-card"><div class="stat-number">4領域</div><div class="stat-label">CAL1の学習領域数</div></div>
+          <div class="stat-card"><div class="stat-number">試験なし</div><div class="stat-label">出席型で認定バッジを取得</div></div>
+          <div class="stat-card"><div class="stat-number">2年間</div><div class="stat-label">認定の有効期間</div></div>
+        </div>
+
+        <div class="disclaimer-box">
+          <i class="ti ti-info-circle" />
+          本ガイドは教育・学習支援を目的とした非公式の解説資料です。コースの日程構成や事前課題の有無は認定トレーナーごとに異なる場合があります。受講前に必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>で最新情報をご確認ください。
+        </div>
+      </div>
+
+      <!-- ===================== 0. CAL1 Overview ===================== -->
+      <section id="cal1-overview">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" />SECTION 01</div>
+        <h2>まずCAL1全体の中での位置づけを把握する</h2>
+
+        <p>CAL1は、Scrum Allianceが認定する「アジャイルリーダー」向けの資格で、学習内容は4つの領域(Learning Objective Areas)に分かれています。第1章はその入り口にあたる領域で、残り3領域を学ぶための土台となる考え方を扱います。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学習領域</th><th>内容の要約</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1. The Case for Agile Leadership(本ガイドの範囲)</strong></td><td>アジャイルリーダーシップが必要とされる理由と、求められるマインドセットの転換を理解する</td></tr>
+              <tr><td>2. Agile Leadership in Action</td><td>リーダーシップフレームワークを実践に応用し、自分自身の効果性とチームの能力を高める</td></tr>
+              <tr><td>3. Leading Agile Teams</td><td>高パフォーマンスチームを構築・維持し、部門横断のコラボレーションを促す技術を学ぶ</td></tr>
+              <tr><td>4. Leading Agile Organizations</td><td>文化・組織構造・リーダーシップの相互作用を理解し、組織の変革を導く</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-container">
+            <div class="mermaid-wrap">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_LEARNING_AREAS_OVERVIEW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+          </div>
+          <div class="diagram-caption">CAL1の4つの学習領域と、その土台となる第1章の位置づけ</div>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <p>CAL1には試験がありません。認定バッジを得るには、合計16時間程度(通常2〜3日間)のライブ研修(対面またはオンライン)に参加し、積極的に取り組むことが条件です。事前知識の前提条件は特にありませんが、アジャイル・スクラムの基礎を知っていると理解が深まります。</p>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ</a></li>
+            <li><a href="https://www.pm-partners.com.au/course/certified-agile-leader/" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1) | PM-Partners(学習領域の4分類を掲載)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 1. Why Agile Leadership ===================== -->
+      <section id="why-agile-leadership">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch" />SECTION 02</div>
+        <h2>なぜ今「アジャイルリーダーシップ」が必要なのか</h2>
+
+        <h3>1.1 VUCAな事業環境という背景</h3>
+        <p>現代のビジネス環境は、Volatility(変動性)・Uncertainty(不確実性)・Complexity(複雑性)・Ambiguity(曖昧性)、いわゆる「VUCA」の度合いが年々高まっています。市場の変化速度、消費者の嗜好の移り変わり、パンデミックのような予測不能な出来事など、あらかじめ完全に計画しきることができない状況が常態化しています。</p>
+        <p>Scrum Allianceは、こうした環境下では「確実なのは不確実性そのものである」と表現し、リーダーが変化と不確実性を前提に意思決定する姿勢へ移行する必要があると述べています。</p>
+
+        <h3>1.2 従来型リーダーシップの限界</h3>
+        <p>従来の指揮命令型(command-and-control)のマネジメントスタイルは、比較的安定した環境では機能してきました。しかし、変化の速い競争環境では、次のような限界が表面化します。</p>
+        <ul>
+          <li>トップダウンの意思決定に時間がかかり、現場の変化に追いつけない</li>
+          <li>長期の詳細計画に固執し、計画からのズレを「失敗」として扱ってしまう</li>
+          <li>管理者が統制の中心になることで、現場の自律的な判断や創意工夫が抑制される</li>
+        </ul>
+
+        <h3>1.3 伝統的リーダーシップとアジャイルリーダーシップの対比</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>伝統的リーダーシップ</th><th>アジャイルリーダーシップ</th></tr></thead>
+            <tbody>
+              <tr><td>計画の扱い</td><td>年次の固定計画に沿って進める</td><td>四半期程度の短いサイクルで見直しながら進める</td></tr>
+              <tr><td>意思決定</td><td>リーダーに権限が集中する</td><td>現場のチームに権限を委譲し、自己組織化を支援する</td></tr>
+              <tr><td>変化への態度</td><td>計画からの逸脱を避けるべきリスクと捉える</td><td>変化を前提とし、素早く方向転換することを歓迎する</td></tr>
+              <tr><td>失敗の扱い</td><td>失敗は責任追及の対象になりやすい</td><td>小さな失敗を許容し、学びに変える文化を育てる</td></tr>
+              <tr><td>リーダーの役割</td><td>指示を出し、進捗を管理する</td><td>ビジョンを共有し、チームの成長を支援する</td></tr>
+              <tr><td>フィードバック</td><td>定期評価など低頻度</td><td>頻繁な対話とふりかえりによる高頻度なフィードバック</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-container">
+            <div class="mermaid-wrap">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_VUCA_TO_AGILE_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+          </div>
+          <div class="diagram-caption">VUCAな環境が従来型リーダーシップの限界を露呈させ、アジャイルリーダーシップへの転換を促す流れ</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>まずは自組織の意思決定プロセスを棚卸しし、「どの決定に、どれくらいの時間がかかっているか」を可視化することから始める</li>
+            <li>年次計画を廃止するのではなく、四半期単位のゴールに長期の方向性を紐づけ、短いサイクルで見直す運用に変えていく</li>
+            <li>「計画通りに進んだか」ではなく「顧客・市場の変化に対応できたか」を評価軸に加える</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <ul>
+            <li><a href="https://resources.scrumalliance.org/Article/makes-agile-leader" target="_blank" rel="noopener">What Makes You an Agile Leader? | Scrum Alliance</a></li>
+            <li><a href="https://agilemanifesto.org/" target="_blank" rel="noopener">Agile Manifesto(アジャイル的な価値観の基礎として推奨されている一次情報)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 2. Mindset Shift ===================== -->
+      <section id="mindset-shift">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" />SECTION 03</div>
+        <h2>アジャイルリーダーとは何か: 求められるマインドセットシフト</h2>
+
+        <p>Scrum Allianceの公式学習目標によれば、CAL1を通じて次のような視点の転換(マインドセットシフト)が期待されています。それぞれが「本章で扱う項目」にあたるため、1つずつ詳しく見ていきます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>マインドセットシフトの項目</th><th>転換前(伝統的な前提)</th><th>転換後(アジャイルな前提)</th></tr></thead>
+            <tbody>
+              <tr><td>何がリーダーを「アジャイル」にするのか</td><td>権威・専門知識で導く</td><td>自己認識と適応力で導く</td></tr>
+              <tr><td>アジャイルリーダーシップが重要な理由とタイミング</td><td>常時ではなく危機発生時だけ意識する</td><td>平時から継続的に実践する経営の前提とする</td></tr>
+              <tr><td>変革(チェンジ)とトランスフォーメーションの導き方</td><td>一度きりの大規模プロジェクトとして扱う</td><td>継続的な学習プロセスとして扱う</td></tr>
+              <tr><td>ビジネス全体へのアジャイル原則の適用</td><td>ソフトウェア開発チームに限定する</td><td>人事・財務・経営企画など全部門に応用する</td></tr>
+              <tr><td>組織文化が与える影響</td><td>文化は所与のもので変えられない</td><td>文化はリーダーの行動によって形づくられる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <p>ここで扱う「アジャイル原則」は、もともとソフトウェア開発向けに書かれたAgile Manifesto(アジャイルソフトウェア開発宣言)に由来しますが、現在ではその価値観と原則が業種を問わず幅広い専門職に実践されています。CAL1の受講にあたり、アジャイルに馴染みがない場合はこの宣言に目を通しておくことが推奨されています。</p>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ(学習目標の一覧)</a></li>
+            <li><a href="https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view" target="_blank" rel="noopener">CAL 1™ Learning Objectives(Scrum Alliance公開資料)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 3. Leadership Agility Model ===================== -->
+      <section id="leadership-agility-model">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-timeline" />SECTION 04</div>
+        <h2>なぜマインドセットの転換が必要なのか: リーダーシップ・アジリティ発展モデル</h2>
+
+        <p>「なぜアジャイルリーダーシップが必要か」を裏づける理論的な柱として、CALプログラムの設計には、Bill JoinerとStephen Josephsによる書籍『Leadership Agility(邦題なし、2006年刊)』の発展段階モデルが取り入れられています。CALプログラム自体も、2015〜2016年にかけてPete Behrens氏らScrum Alliance関係者によって設計されており、この理論を土台の一つとしています。</p>
+
+        <h3>3.1 モデルの全体像: 5段階のリーダーシップ発展</h3>
+        <p>Joiner &amp; Josephsは、リーダーの発達段階を5段階(Expert / Achiever / Catalyst / Co-Creator / Synergist)に整理しました。CAL1では、実務上ほとんどのリーダーに当てはまる最初の3段階(Expert・Achiever・Catalyst)に焦点を当てて学びます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>段階</th><th>特徴</th><th>意思決定のスタイル</th></tr></thead>
+            <tbody>
+              <tr><td>Expert Leader</td><td>自分の専門性・技術的な正しさを拠りどころにする、管理者というより「上級担当者」に近い</td><td>自分の専門知識に基づき指示する</td></tr>
+              <tr><td>Achiever Leader</td><td>明確な目標設定と成果達成を重視し、戦略的に組織を動かす、いわゆる古典的な「マネジメント」の完成形</td><td>目標達成のために計画し、統制する</td></tr>
+              <tr><td>Catalyst Leader</td><td>ビジョンを描き、他者を巻き込む参加型の意思決定を行う。ここから「ポスト・ヒーロー型」のリーダーシップが始まる</td><td>ビジョンを共有し、チームと共に意思決定する</td></tr>
+              <tr><td>Co-Creator(発展段階)</td><td>対等な関係性の中で共に新しい価値を創造する</td><td>集合的な意思決定を主導する</td></tr>
+              <tr><td>Synergist(発展段階)</td><td>組織を超えた大きな文脈で影響力を発揮する(到達者はごく少数で、Joiner &amp; Josephs の調査では約1%とされる)</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-container">
+            <div class="mermaid-wrap">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_LEADERSHIP_AGILITY_STAGES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+          </div>
+          <div class="diagram-caption">Expert からAchiever、Catalyst へと進むリーダーシップの発展段階</div>
+        </div>
+
+        <h3>3.2 なぜこのモデルが「アジャイルリーダーシップの必要性」の根拠になるのか</h3>
+        <p>Expert・Achiever段階のリーダーシップは、タスク志向・結果志向であり、安定した環境では有効に機能します。しかし、変化が速く複雑な環境で組織全体を導くには、Catalyst段階以降に見られる「ビジョンの共有」「権限の分散」「集合知の活用」が不可欠になります。CAL1第1章は、この発展段階を自覚することが、アジャイルリーダーへの第一歩であると位置づけています。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>自分の意思決定を振り返り、「専門知識で押し切っていないか(Expert)」「目標達成だけを追っていないか(Achiever)」を定期的にセルフチェックする</li>
+            <li>一足飛びにCatalyst段階を目指すのではなく、今の段階での強みを保ちながら、小さな場面から権限移譲やビジョン共有を試す</li>
+            <li>360度フィードバックなど第三者からの評価を取り入れ、自己認識と他者評価のギャップを把握する</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <ul>
+            <li><a href="https://www.researchgate.net/publication/23318406_Leadership_agility" target="_blank" rel="noopener">Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change(William B. Joiner, Stephen A. Josephs, 2006)</a></li>
+            <li><a href="https://www.agileleadershipjourney.com/leadership-journey/leadership-agility" target="_blank" rel="noopener">What is Leadership Agility? | Agile Leadership Journey(5段階モデルの解説)</a></li>
+            <li><a href="https://www.infoq.com/news/2016/08/certified-agile-leadership" target="_blank" rel="noopener">Certified Agile Leadership Program Announced | InfoQ(CALプログラムの設計背景)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 4. Four Agile Leader Behaviors ===================== -->
+      <section id="four-agile-leader-behaviors">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" />SECTION 05</div>
+        <h2>アジャイルリーダーの4つの重要な行動(ベストプラクティス集)</h2>
+
+        <p>Scrum Allianceは、アジャイルリーダーに共通して見られる代表的な行動を4つに整理しています。これらは「アジャイルリーダーシップとは具体的に何をすることか」という問いへの実践的な答えであり、CAL1第1章の理解を行動レベルに落とし込むうえで重要な項目です。</p>
+
+        <div class="diagram-card">
+          <div class="diagram-container">
+            <div class="mermaid-wrap">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_FOUR_BEHAVIORS_OUTCOME" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+          </div>
+          <div class="diagram-caption">アジャイルリーダーに共通する4つの行動と、それらがもたらす組織的な成果</div>
+        </div>
+
+        <h3>4.1 変化と不確実性をナビゲートする</h3>
+        <p>市場や競合、消費者行動は予測しづらく変化し続けます。アジャイルリーダーは、あらかじめ立てた計画に固執せず、必要に応じて計画を柔軟に組み替える姿勢を持ちます。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>チームには「四半期先まで」の計画を、長期目標と紐づけた形で持たせる。その際、計画は状況に応じて変わりうることをステークホルダーにも明確に伝える</li>
+            <li>四半期計画を1〜2週間ごとにステークホルダーと見直し、市場状況や顧客からのフィードバックに基づいて修正する場を設ける</li>
+            <li>チームに「作業内容を素早く修正してよい」という裁量を与える</li>
+          </ul>
+        </div>
+
+        <h3>4.2 チームを信頼する</h3>
+        <p>アジャイルチームは、複雑な問題を自律的に解決し、迅速に方向転換できる能力を持っています。アジャイルリーダーは、意思決定・問題解決・フィードバックへの対応をチームに委ねる文化を組織に根づかせる役割を担います。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>スプリントゴールなど、チームが自ら設定した目標に集中できるよう支援する</li>
+            <li>部下に求める成果の「基準」を明確に伝えたうえで、進め方は本人たちに任せる</li>
+            <li>マイクロマネジメントを避け、進捗確認の頻度と粒度を最小限にとどめる</li>
+          </ul>
+        </div>
+
+        <h3>4.3 実験を奨励する文化を支援する</h3>
+        <p>イノベーションは、失敗が許容される文化の中で生まれます。アジャイルリーダーは、すべての実験が成功するとは限らないという前提に立ち、失敗を罰しない仕組みをつくります。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>リスクの低いプロジェクトから実験を始められるようにする</li>
+            <li>小さく安価な実験からスタートし、成果が出た場合にのみ規模を拡大する(コストとリスクの抑制)</li>
+            <li>実験がうまくいかなかった場合は、チームで結果を振り返り、次の打ち手を一緒に考える場を必ず設ける</li>
+          </ul>
+        </div>
+
+        <h3>4.4 スキル開発を提唱する</h3>
+        <p>アジャイルリーダーは、自らのチームが専門性を高め続けられるよう、コーチングやメンタリング、成長機会の提供に力を注ぎます。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>自分に知見がある領域については、定期的な1on1コーチングの機会を設ける</li>
+            <li>本来の職務範囲を超えた挑戦を認め、越境的な学びを後押しする</li>
+            <li>スキルアップや新しい学習のための研修機会を継続的に提供する</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <ul>
+            <li><a href="https://resources.scrumalliance.org/Article/makes-agile-leader" target="_blank" rel="noopener">What Makes You an Agile Leader? | Scrum Alliance(4つの行動の一次情報)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 5. CAL1 Course Structure ===================== -->
+      <section id="cal1-course-structure">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-calendar-event" />SECTION 06</div>
+        <h2>CAL1コースの構成を理解する(実務情報)</h2>
+
+        <p>第1章の内容がコース全体でどう展開されるかを知っておくと、学習の見通しが立てやすくなります。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>提供形式</td><td>ライブ研修(対面またはオンライン)、Scrum Alliance認定トレーナーが提供</td></tr>
+              <tr><td>所要時間</td><td>トレーナーとの合計16時間程度のライブ学習(多くは2〜3日構成)</td></tr>
+              <tr><td>事前学習 ※</td><td>開始2週間前を目安に配布される事前課題(所要時間の目安: 約1時間)</td></tr>
+              <tr><td>教材 ※</td><td>参加者向けワークブックが提供される</td></tr>
+              <tr><td>認定条件</td><td>試験はなく、合計16時間のコースに出席し積極的に参加することで認定バッジを取得</td></tr>
+              <tr><td>前提条件</td><td>必須の前提条件はないが、アジャイル・スクラムの基礎知識があると望ましい</td></tr>
+              <tr><td>有効期間</td><td>認定は2年間有効で、更新にはScrum Education Units(SEU)の取得が必要</td></tr>
+              <tr><td>次のステップ</td><td>CAL1修了後、より発展的な内容を扱うCAL2に進むことができる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <p><strong>※ 注記: 全CAL1コース共通の要件と、提供元ごとに異なる運営情報の区別。</strong>Scrum Allianceが全CAL1コース共通として定めているのは、<strong>合計16時間のライブ学習</strong>・<strong>試験なしの出席型認定</strong>・<strong>必須の前提条件なし</strong>・<strong>認定の2年間有効期間とSEUによる更新</strong>である。一方、<strong>事前学習の有無・分量、教材(ワークブック)の提供、Day 1とDay 2の日程構成</strong>は認定トレーナー・研修提供元ごとに異なる。上表の※付き項目と下図は<strong>PM-Partnersの提供例</strong>であり、全コース共通の要件ではない。受講前に各提供元の案内を確認すること。</p>
+        </div>
+
+        <div class="diagram-card">
+          <div class="diagram-container">
+            <div class="mermaid-wrap">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_COURSE_FLOW_DAYS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+                <template #fallback>
+                  <div class="diagram-loading">図を読み込み中...</div>
+                </template>
+              </ClientOnly>
+            </div>
+          </div>
+          <div class="diagram-caption">CAL1コースの2日間の流れ(PM-Partnersの提供例)</div>
+        </div>
+
+        <p>コースの内容構成をもう少し詳しく見ると、次のような流れになっています(以下はPM-Partnersの提供例であり、日程配分や扱う順序はトレーナーにより異なる)。</p>
+        <ul>
+          <li><strong>Day 1:</strong>自己内省が中心。自分自身の価値観・信念、そして自分がリーダーとしてどのように振る舞っているか("show up" しているか)を見つめ直し、アジャイルチームを支援するための行動やスキルを養う</li>
+          <li><strong>Day 2:</strong>高パフォーマンスなチームの構築と維持に焦点が移る。アジャイルと親和性の高い組織文化の土台、そしてアジャイルな環境に適応させるべきプロセス・ポリシー・ガバナンスのあり方を扱う</li>
+          <li><strong>締めくくり:</strong>変革(チェンジ)のリーディングについて深掘りし、さまざまなチェンジモデルや、アジャイルトランスフォーメーションにおける課題について議論する</li>
+        </ul>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <p>CAL1は「Scrum masters(スクラムマスター)」「Leaders(リーダー)」「Managers(マネージャー)」「Senior directors(シニアディレクター)」「C-suite executives(経営幹部)」「Coaches and consultants(コーチ・コンサルタント)」など、人を率いる、または率いたいと考えるすべての人を対象としています。</p>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ</a></li>
+            <li><a href="https://www.pm-partners.com.au/course/certified-agile-leader/" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1) | PM-Partners(Day1とDay2の内容構成)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 6. Step-by-Step Roadmap ===================== -->
+      <section id="step-by-step-roadmap">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route" />SECTION 07</div>
+        <h2>初学者向け: 第1章をステップバイステップで学ぶロードマップ</h2>
+
+        <p>CAL1第1章の内容を体系立てて自分のものにするための学習ステップです。順番に取り組むことを推奨します。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ステップ</th><th>やること</th><th>目的</th></tr></thead>
+            <tbody>
+              <tr><td>Step 1</td><td>アジャイルに馴染みがない場合はAgile Manifestoに目を通す</td><td>アジャイルな価値観・原則の共通言語を持つ</td></tr>
+              <tr><td>Step 2</td><td>「1.3 伝統的リーダーシップとアジャイルリーダーシップの対比」表を使い、自組織の現状に印をつける</td><td>自分の組織がどちら寄りかを可視化する</td></tr>
+              <tr><td>Step 3</td><td>「3.1 リーダーシップ・アジリティ発展モデル」を参照し、自分がExpert・Achiever・Catalystのどの傾向が強いか内省する</td><td>自己認識を高め、成長の方向性を定める</td></tr>
+              <tr><td>Step 4</td><td>「4. アジャイルリーダーの4つの重要な行動」のベストプラクティスから、今すぐ試せるものを1つ選ぶ</td><td>学びを小さな行動に変換する</td></tr>
+              <tr><td>Step 5</td><td>選んだ行動を、低リスクな場面(例: 1つのチーム、1つのプロジェクト)で試してみる</td><td>実験を通じて学習する(4.3の実践)</td></tr>
+              <tr><td>Step 6</td><td>実践後にチームとふりかえりを行い、うまくいった点・いかなかった点を共有する</td><td>学びを次のサイクルに反映する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <ul>
+            <li>一度にすべての行動を変えようとせず、まずは1つの行動に絞って小さく始める</li>
+            <li>学んだ内容を自分の言葉でチームに説明してみることで、理解の抜け漏れに気づきやすくなる</li>
+            <li>CAL1コースの事前課題(Pre-course work)は、本章の内容を実務に接続する良い機会なので早めに着手する</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 7. Understanding Checklist ===================== -->
+      <section id="understanding-checklist">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-check" />SECTION 08</div>
+        <h2>理解度チェックリスト</h2>
+
+        <p>次の問いに自分の言葉で答えられれば、第1章の要点を押さえられています。</p>
+        <ul>
+          <li>なぜ現代のビジネス環境において、従来型の指揮命令型リーダーシップだけでは不十分なのか説明できるか</li>
+          <li>伝統的リーダーシップとアジャイルリーダーシップの違いを、計画・意思決定・失敗への向き合い方の観点から説明できるか</li>
+          <li>Expert・Achiever・Catalystという3つのリーダーシップ段階の違いを、自分の言葉で説明できるか</li>
+          <li>アジャイルリーダーに共通する4つの行動(変化への対応・信頼・実験文化・スキル開発)を、それぞれ具体例とともに挙げられるか</li>
+          <li>CAL1コースの全体構成(Day1・Day2・認定条件)を説明できるか</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 8. Summary ===================== -->
+      <section id="summary">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" />SECTION 09</div>
+        <h2>まとめ</h2>
+
+        <ul>
+          <li>アジャイルリーダーシップは、VUCAな環境で組織が生き残り、成長し続けるために必要とされている</li>
+          <li>従来の指揮命令型リーダーシップは、変化への対応速度・現場の自律性という点で限界がある</li>
+          <li>Joiner &amp; Josephsのリーダーシップ・アジリティモデル(Expert → Achiever → Catalyst)は、アジャイルリーダーシップが目指す成長の方向性を示す理論的な裏づけになっている</li>
+          <li>アジャイルリーダーの実践は、「変化への対応」「信頼」「実験文化」「スキル開発」という4つの具体的な行動に集約できる</li>
+          <li>CAL1第1章はマインドセットの土台であり、以降の領域2〜4(フレームワークの実践、チームづくり、組織づくり)の学習を支える</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 9. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" />SECTION 10</div>
+        <h2>参考文献・ソース一覧</h2>
+
+        <div class="ref-group">
+          <h3>出典一覧</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">Certified Agile Leader® 1 (CAL 1™) — Scrum Alliance 公式ページ</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/agile-leader/cal-1</a></li>
+            <li><span class="ref-name">CAL 1™ Learning Objectives — Scrum Alliance公開資料</span><a class="ref-url" href="https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view" target="_blank" rel="noopener">https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view</a></li>
+            <li><span class="ref-name">Certified Agile Leader® 1 (CAL 1) — PM-Partners(学習領域4分類とDay1・Day2構成)</span><a class="ref-url" href="https://www.pm-partners.com.au/course/certified-agile-leader/" target="_blank" rel="noopener">https://www.pm-partners.com.au/course/certified-agile-leader/</a></li>
+            <li><span class="ref-name">What Makes You an Agile Leader? — Scrum Alliance</span><a class="ref-url" href="https://resources.scrumalliance.org/Article/makes-agile-leader" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/makes-agile-leader</a></li>
+            <li><span class="ref-name">Agile Manifesto(アジャイルソフトウェア開発宣言) — Kent Beckほか16名(署名者はKent Beckを含む計17名)</span><a class="ref-url" href="https://agilemanifesto.org/" target="_blank" rel="noopener">https://agilemanifesto.org/</a></li>
+            <li><span class="ref-name">Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change(Joiner &amp; Josephs, 2006) — ResearchGate</span><a class="ref-url" href="https://www.researchgate.net/publication/23318406_Leadership_agility" target="_blank" rel="noopener">https://www.researchgate.net/publication/23318406_Leadership_agility</a></li>
+            <li><span class="ref-name">What is Leadership Agility? — Agile Leadership Journey</span><a class="ref-url" href="https://www.agileleadershipjourney.com/leadership-journey/leadership-agility" target="_blank" rel="noopener">https://www.agileleadershipjourney.com/leadership-journey/leadership-agility</a></li>
+            <li><span class="ref-name">Certified Agile Leadership Program Announced — InfoQ(CALプログラムの設計背景)</span><a class="ref-url" href="https://www.infoq.com/news/2016/08/certified-agile-leadership" target="_blank" rel="noopener">https://www.infoq.com/news/2016/08/certified-agile-leadership</a></li>
+            <li><span class="ref-name">Certified Agile Leadership — InfoQ(日本語版インタビュー、Pete Behrens氏)</span><a class="ref-url" href="https://www.infoq.com/jp/news/2016/10/certified-agile-leadership" target="_blank" rel="noopener">https://www.infoq.com/jp/news/2016/10/certified-agile-leadership</a></li>
+            <li><span class="ref-name">Skills in the New World of Work Report 2023(資格保有者への給与プレミアムに関する調査) — Scrum Alliance / Business Agility Institute</span><a class="ref-url" href="https://6606649.fs1.hubspotusercontent-na1.net/hubfs/6606649/Skills%20in%20the%20New%20World%20of%20Work%20Report%202023.pdf" target="_blank" rel="noopener">https://6606649.fs1.hubspotusercontent-na1.net/hubfs/6606649/Skills%20in%20the%20New%20World%20of%20Work%20Report%202023.pdf</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        Certified Agile Leader&reg;、CAL 1&trade; は Scrum Alliance の登録商標です。本ページは Scrum Alliance の公式資料ではなく、教育・学習支援を目的とした非公式の解説ガイドです。内容の正確性には注意を払っていますが、最新の受講条件・料金・カリキュラムは必ず公式サイトでご確認ください。最終更新: 2026年8月23日
+      </footer>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+.layout {
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 0;
+  z-index: 40;
+  background: var(--color-paper-raised);
+  color: var(--color-indigo);
+  padding: 12px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 0 0 8px 0;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
+
+.sidebar-nav .nav-group-label:first-child {
+  margin-top: 0;
+}
+
+.sidebar-nav li {
+  margin: 2px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+
+.sidebar-nav a i {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
+
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active i {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow i {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul,
+ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong,
+th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Diagram containers ===================== */
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+}
+
+.mermaid-wrap {
+  width: 100%;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}
+</style>

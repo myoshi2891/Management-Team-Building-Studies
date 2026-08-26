@@ -289,6 +289,17 @@ export const GUIDES = [
     accent: "forest",
   },
   {
+    to: "/the-case-for-agile-leadership",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL1 第1章",
+    title: "アジャイルリーダーシップの必要性を理解する",
+    description: "Certified Agile Leader® 1(CAL1)の学習領域1「The Case for Agile Leadership」を初学者向けにステップバイステップで解説する非公式ガイド。VUCA環境の背景、リーダーシップ・アジリティモデル、アジャイルリーダーの4つの行動とベストプラクティスを解説します。",
+    meta: "10セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     // engineering-management はシリーズ未定義（1 カラム表示）。
