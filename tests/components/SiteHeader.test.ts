@@ -89,6 +89,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
       { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
+      { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -158,6 +159,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
           { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
           { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
+          { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
         ],
       },
     ]);
@@ -265,6 +267,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-97-things-guide",
       "/the-case-for-agile-leadership",
       "/cal2-part1-organizational-strategy-and-delivery",
+      "/cal2-certified-agile-leader-2-study-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/managing-humans-best-practices-guide",
@@ -352,6 +355,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
