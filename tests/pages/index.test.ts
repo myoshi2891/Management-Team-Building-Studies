@@ -133,6 +133,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-forest",
       },
       {
+        title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
+        category: "SCRUM / CSM",
+        href: "/cal1-certified-agile-leader-1-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "アジャイルリーダーシップの必要性を理解する",
         category: "SCRUM / CSM",
         href: "/the-case-for-agile-leadership",
@@ -281,7 +287,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "17 ガイド", cards: 17 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "18 ガイド", cards: 18 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "8 ガイド", cards: 8 },
