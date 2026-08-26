@@ -767,7 +767,8 @@ class Cert done;`;
   text-decoration: none;
 }
 
-.sidebar-nav a i {
+.sidebar-nav a svg,
+.sidebar-nav a span {
   font-size: 17px;
   color: var(--color-ink-faint);
   flex: none;
@@ -786,7 +787,8 @@ class Cert done;`;
   border-left: 2px solid var(--color-indigo);
 }
 
-.sidebar-nav a.active i {
+.sidebar-nav a.active svg,
+.sidebar-nav a.active span {
   color: var(--color-indigo);
 }
 
