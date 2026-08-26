@@ -140,59 +140,114 @@ class S1,S2,S3,S4,S5,S6 box;`;
           </div>
         </div>
 
-        <ul class="sidebar-nav">
+        <ul class="sidebar-nav" @keydown.escape="closeSidebar">
           <li>
-            <a href="#book-background" :class="{ active: activeId === 'book-background' }" @click="closeSidebar">
+            <a
+              href="#book-background"
+              :class="{ active: activeId === 'book-background' }"
+              :aria-current="activeId === 'book-background' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:book-2" aria-hidden="true" />1. この本の背景と著者
             </a>
           </li>
           <li>
-            <a href="#netflix-cycle" :class="{ active: activeId === 'netflix-cycle' }" @click="closeSidebar">
+            <a
+              href="#netflix-cycle"
+              :class="{ active: activeId === 'netflix-cycle' }"
+              :aria-current="activeId === 'netflix-cycle' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:refresh" aria-hidden="true" />2. Netflixサイクル
             </a>
           </li>
           <li>
-            <a href="#talent-density" :class="{ active: activeId === 'talent-density' }" @click="closeSidebar">
+            <a
+              href="#talent-density"
+              :class="{ active: activeId === 'talent-density' }"
+              :aria-current="activeId === 'talent-density' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:users" aria-hidden="true" />3. タレント・デンシティ
             </a>
           </li>
           <li>
-            <a href="#candor" :class="{ active: activeId === 'candor' }" @click="closeSidebar">
+            <a
+              href="#candor"
+              :class="{ active: activeId === 'candor' }"
+              :aria-current="activeId === 'candor' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:message-circle" aria-hidden="true" />4. 率直さ（キャンダー）
             </a>
           </li>
           <li>
-            <a href="#reduce-controls" :class="{ active: activeId === 'reduce-controls' }" @click="closeSidebar">
+            <a
+              href="#reduce-controls"
+              :class="{ active: activeId === 'reduce-controls' }"
+              :aria-current="activeId === 'reduce-controls' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:adjustments" aria-hidden="true" />5. コントロールを減らす
             </a>
           </li>
           <li>
-            <a href="#chapter-overview" :class="{ active: activeId === 'chapter-overview' }" @click="closeSidebar">
+            <a
+              href="#chapter-overview"
+              :class="{ active: activeId === 'chapter-overview' }"
+              :aria-current="activeId === 'chapter-overview' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:list-check" aria-hidden="true" />6. チャプター早見表
             </a>
           </li>
           <li>
-            <a href="#engineering-application" :class="{ active: activeId === 'engineering-application' }" @click="closeSidebar">
+            <a
+              href="#engineering-application"
+              :class="{ active: activeId === 'engineering-application' }"
+              :aria-current="activeId === 'engineering-application' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:code" aria-hidden="true" />7. 開発チームへの応用
             </a>
           </li>
           <li>
-            <a href="#cautions" :class="{ active: activeId === 'cautions' }" @click="closeSidebar">
+            <a
+              href="#cautions"
+              :class="{ active: activeId === 'cautions' }"
+              :aria-current="activeId === 'cautions' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:alert-triangle" aria-hidden="true" />8. 注意点・批判的視点
             </a>
           </li>
           <li>
-            <a href="#developer-voices" :class="{ active: activeId === 'developer-voices' }" @click="closeSidebar">
+            <a
+              href="#developer-voices"
+              :class="{ active: activeId === 'developer-voices' }"
+              :aria-current="activeId === 'developer-voices' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:quote" aria-hidden="true" />9. 開発者・エンジニアの声
             </a>
           </li>
           <li>
-            <a href="#summary" :class="{ active: activeId === 'summary' }" @click="closeSidebar">
+            <a
+              href="#summary"
+              :class="{ active: activeId === 'summary' }"
+              :aria-current="activeId === 'summary' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:flag-3" aria-hidden="true" />10. まとめ
             </a>
           </li>
           <li>
-            <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+            <a
+              href="#references"
+              :class="{ active: activeId === 'references' }"
+              :aria-current="activeId === 'references' ? 'location' : undefined"
+              @click="closeSidebar"
+            >
               <Icon name="tabler:link" aria-hidden="true" />11. 参考文献
             </a>
           </li>
