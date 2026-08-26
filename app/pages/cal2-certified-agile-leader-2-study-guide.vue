@@ -981,7 +981,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
   scroll-margin-top: calc(var(--global-nav-height) + 32px);
 }
 
-  .skip-link:focus { top: 0; }
+  .skip-link:focus { top: var(--global-nav-height); }
 
   .layout {
     display: block;
@@ -1079,7 +1079,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
   .sidebar-toggle {
     display: none;
     position: fixed;
-    top: 16px;
+    top: var(--global-nav-height);
     left: 16px;
     z-index: 30;
     background: var(--color-paper-raised);
@@ -1172,7 +1172,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
   section {
     margin: 72px 0;
-    scroll-margin-top: 32px;
+    scroll-margin-top: calc(var(--global-nav-height) + 32px);
   }
 
   section:first-of-type { margin-top: 0; }
