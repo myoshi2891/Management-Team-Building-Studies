@@ -921,7 +921,7 @@ const DIAGRAM_PART1_OVERVIEW = `flowchart LR
 }
 
 .skip-link:focus {
-  top: 0;
+  top: var(--global-nav-height);
 }
 
 .sidebar {
