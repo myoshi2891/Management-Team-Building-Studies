@@ -145,6 +145,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "第3章:アジャイルチームのリード(Leading Agile Teams)",
+        category: "SCRUM / CSM",
+        href: "/cal1-chapter3-leading-agile-teams",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
         category: "SCRUM / CSM",
         href: "/cal2-part1-organizational-strategy-and-delivery",
@@ -287,7 +293,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "18 ガイド", cards: 18 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "19 ガイド", cards: 19 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "8 ガイド", cards: 8 },

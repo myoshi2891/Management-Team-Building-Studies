@@ -89,6 +89,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
       { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
+      { label: "CAL1 第3章", href: "/cal1-chapter3-leading-agile-teams" },
       { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
       { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
     ]);
@@ -160,6 +161,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
           { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
           { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
+          { label: "CAL1 第3章", href: "/cal1-chapter3-leading-agile-teams" },
           { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
           { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
         ],
