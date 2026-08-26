@@ -192,7 +192,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <div class="layout">
 <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
+  <nav id="sidebar" class="sidebar" aria-label="目次">
     <div class="sidebar-brand">
       <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
@@ -206,32 +206,32 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#about-cal2" :class="{ active: activeId === 'about-cal2' }" @click="closeSidebar"><i class="ti ti-certificate"></i>このガイドについて</a></li>
+      <li><a href="#about-cal2" :class="{ active: activeId === 'about-cal2' }" @click="closeSidebar"><i class="ti ti-certificate"/>このガイドについて</a></li>
       <li class="nav-group-label">Part 1: 組織戦略とデリバリー</li>
-      <li><a href="#mission-vision-values" :class="{ active: activeId === 'mission-vision-values' }" @click="closeSidebar"><i class="ti ti-target"></i>1. ミッション・ビジョン・バリュー</a></li>
-      <li><a href="#strategy-and-agility" :class="{ active: activeId === 'strategy-and-agility' }" @click="closeSidebar"><i class="ti ti-git-branch"></i>2. 組織戦略とアジリティ</a></li>
-      <li><a href="#structure-and-value-delivery" :class="{ active: activeId === 'structure-and-value-delivery' }" @click="closeSidebar"><i class="ti ti-building-bank"></i>3. 組織構造と顧客価値提供</a></li>
-      <li><a href="#change-misconceptions" :class="{ active: activeId === 'change-misconceptions' }" @click="closeSidebar"><i class="ti ti-refresh"></i>4. チェンジマネジメントの誤解とツール</a></li>
-      <li><a href="#leading-change-tools" :class="{ active: activeId === 'leading-change-tools' }" @click="closeSidebar"><i class="ti ti-route"></i>5. 変革を導くためのツール</a></li>
+      <li><a href="#mission-vision-values" :class="{ active: activeId === 'mission-vision-values' }" @click="closeSidebar"><i class="ti ti-target"/>1. ミッション・ビジョン・バリュー</a></li>
+      <li><a href="#strategy-and-agility" :class="{ active: activeId === 'strategy-and-agility' }" @click="closeSidebar"><i class="ti ti-git-branch"/>2. 組織戦略とアジリティ</a></li>
+      <li><a href="#structure-and-value-delivery" :class="{ active: activeId === 'structure-and-value-delivery' }" @click="closeSidebar"><i class="ti ti-building-bank"/>3. 組織構造と顧客価値提供</a></li>
+      <li><a href="#change-misconceptions" :class="{ active: activeId === 'change-misconceptions' }" @click="closeSidebar"><i class="ti ti-refresh"/>4. チェンジマネジメントの誤解とツール</a></li>
+      <li><a href="#leading-change-tools" :class="{ active: activeId === 'leading-change-tools' }" @click="closeSidebar"><i class="ti ti-route"/>5. 変革を導くためのツール</a></li>
       <li class="nav-group-label">Part 2: リーダーとしての成長</li>
-      <li><a href="#immunity-to-change" :class="{ active: activeId === 'immunity-to-change' }" @click="closeSidebar"><i class="ti ti-shield-check"></i>6. 個人の成長を阻む障壁</a></li>
-      <li><a href="#situational-leadership" :class="{ active: activeId === 'situational-leadership' }" @click="closeSidebar"><i class="ti ti-compass"></i>7. 自分らしいリーダーシップ</a></li>
-      <li><a href="#crucial-conversations" :class="{ active: activeId === 'crucial-conversations' }" @click="closeSidebar"><i class="ti ti-message-circle"></i>8. 困難な会話での戦略伝達</a></li>
-      <li><a href="#radical-candor" :class="{ active: activeId === 'radical-candor' }" @click="closeSidebar"><i class="ti ti-messages"></i>9. フィードバックの提供と受領</a></li>
-      <li><a href="#managing-people-challenges" :class="{ active: activeId === 'managing-people-challenges' }" @click="closeSidebar"><i class="ti ti-users"></i>10. 人をマネジメントする課題</a></li>
-      <li><a href="#rapid-decision-making" :class="{ active: activeId === 'rapid-decision-making' }" @click="closeSidebar"><i class="ti ti-scale"></i>11. 権限委譲と意思決定</a></li>
+      <li><a href="#immunity-to-change" :class="{ active: activeId === 'immunity-to-change' }" @click="closeSidebar"><i class="ti ti-shield-check"/>6. 個人の成長を阻む障壁</a></li>
+      <li><a href="#situational-leadership" :class="{ active: activeId === 'situational-leadership' }" @click="closeSidebar"><i class="ti ti-compass"/>7. 自分らしいリーダーシップ</a></li>
+      <li><a href="#crucial-conversations" :class="{ active: activeId === 'crucial-conversations' }" @click="closeSidebar"><i class="ti ti-message-circle"/>8. 困難な会話での戦略伝達</a></li>
+      <li><a href="#radical-candor" :class="{ active: activeId === 'radical-candor' }" @click="closeSidebar"><i class="ti ti-messages"/>9. フィードバックの提供と受領</a></li>
+      <li><a href="#managing-people-challenges" :class="{ active: activeId === 'managing-people-challenges' }" @click="closeSidebar"><i class="ti ti-users"/>10. 人をマネジメントする課題</a></li>
+      <li><a href="#rapid-decision-making" :class="{ active: activeId === 'rapid-decision-making' }" @click="closeSidebar"><i class="ti ti-scale"/>11. 権限委譲と意思決定</a></li>
       <li class="nav-group-label">まとめ</li>
-      <li><a href="#framework-summary" :class="{ active: activeId === 'framework-summary' }" @click="closeSidebar"><i class="ti ti-flag-3"></i>フレームワーク対応表</a></li>
-      <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><i class="ti ti-link"></i>参考文献・出典一覧</a></li>
+      <li><a href="#framework-summary" :class="{ active: activeId === 'framework-summary' }" @click="closeSidebar"><i class="ti ti-flag-3"/>フレームワーク対応表</a></li>
+      <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><i class="ti ti-link"/>参考文献・出典一覧</a></li>
 
     </ul>
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content" id="main-content" tabindex="-1">
+  <main id="main-content" class="main-content" tabindex="-1">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum Alliance Agile Leader Track</div>
+      <div class="hero-eyebrow"><i class="ti ti-award"/>Scrum Alliance Agile Leader Track</div>
       <h1>Certified Agile Leader® 2 (CAL 2™) 学習ガイド</h1>
       <p class="hero-lede">
         本ガイドは、Scrum Alliance公式サイト「<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Certified Agile Leader 2 - CAL 2 training from Scrum Alliance</a>」に掲載されているLearning Objectives(学習目標)の構成に基づき、初学者が独学でも理解できるよう、各項目の背景理論とベストプラクティスを段階的に解説するものです。
@@ -246,14 +246,14 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
+        <i class="ti ti-info-circle"/>
         本ガイドは教育・学習支援を目的とした非公式の解説資料です。CAL 2の認定要件や最新のカリキュラムは変更される場合があるため、必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>で最新情報をご確認ください。
       </div>
     </div>
 
     <!-- ===================== 00. About CAL 2 ===================== -->
     <section id="about-cal2">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 00</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate"/>SECTION 00</div>
       <h2>このガイドについて</h2>
 
       <h3>CAL 2 とは何か</h3>
@@ -261,7 +261,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>公式サイトでは、CAL 2は「複雑で変化の激しいビジネス環境でリーダーシップ能力を高めたいすべての人」を対象とした上級プログラムと説明されています。CAL 1が「なぜアジャイルリーダーシップが必要か」という土台を作るのに対し、CAL 2は「その土台を日々の戦略実行や目標達成にどう接続するか」を扱う点が特徴です。</p>
 
       <div class="callout note" data-testid="callout" data-variant="note">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle"/>補足</div>
         <p>本ガイドは以前作成したCAL 1学習ガイドシリーズ(4つの学習目標領域: 1. アジャイルリーダーシップの必要性、2. 実践におけるアジャイルリーダーシップ、3. アジャイルチームのリード、4. アジャイル組織のリード)の続編にあたります。CAL 1で扱ったフレームワーク(ADKAR、Kotterの8段階プロセス、Delegation Poker、SBIフィードバックモデル、Five Dysfunctions、Team Topologies、Conway's Law、Thomas-Kilmann対立モードなど)は本ガイドでは前提知識として簡潔に振り返るにとどめ、CAL 2で新たに登場する視点に重点を置いて解説します。該当箇所には「CAL 1参照」と明記します。</p>
       </div>
 
@@ -280,7 +280,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2™ 公式ページ</a></li>
           <li><a href="https://support.scrumalliance.org/hc/en-us/articles/24643517272219-Certified-Agile-Leader-1-CAL-1-and-Certified-Agile-Leader-2-CAL-2-Refactor-Frequently-Asked-Questions" target="_blank" rel="noopener">CAL 1™・CAL 2™ 再編に関するFAQ(Scrum Alliance Help Center)</a></li>
@@ -307,7 +307,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </ul>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2™ 公式ページ</a></li>
         </ul>
@@ -316,7 +316,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 01. Mission Vision Values ===================== -->
     <section id="mission-vision-values">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-target"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-target"/>SECTION 01</div>
       <h2>ミッション・ビジョン・バリュー</h2>
 
       <p>Part 1は、「アジャイルリーダーはチームの外側にある組織全体の設計や戦略にどう向き合うべきか」を扱う領域です。ミッション・ビジョン・バリューの明確化から、組織構造の設計、そして変革の推進までを一貫した流れとして学びます。</p>
@@ -352,7 +352,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>Sinekの主張の核心は、多くの組織が「What(何をしているか)」から説明を始めてしまうのに対し、人や顧客を本当に動かすのは「Why(なぜそれをしているか)」であるという点です。Whyは脳科学的には感情や意思決定を司る大脳辺縁系に、Whatは論理的思考を司る新皮質に対応するとされ、Whyから語ることで人の行動やロイヤルティを引き出しやすくなると説明されています。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>ミッション・ビジョン・バリューを策定する際は、必ず「Why → How → What」の順で言語化し、Whatだけが先行していないか確認する</li>
           <li>バリューは抽象的なスローガンにせず、「対立する2つの選択肢のうちどちらを選ぶか」を判断できる具体的な行動基準として書く(例: 「スピードよりも品質を優先する」)</li>
@@ -362,7 +362,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://upraise.io/blog/golden-circle-framework/" target="_blank" rel="noopener">Start With Why: Simon Sinek's Golden Circle Theory Explained</a></li>
           <li><a href="https://www.cesarritzcolleges.edu/en/news/simon-sinek-golden-circle/" target="_blank" rel="noopener">How Simon Sinek's Golden Circle Can Transform Your Business</a></li>
@@ -373,7 +373,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 02. Strategy and Agility ===================== -->
     <section id="strategy-and-agility">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch"/>SECTION 02</div>
       <h2>組織戦略とアジリティ</h2>
 
       <h3>戦略とアジリティの関係</h3>
@@ -388,7 +388,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </ul>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>年次戦略レビューだけでなく、四半期・月次などの短いサイクルで戦略の前提を見直す機会を設ける</li>
           <li>戦略を伝える際は「何をするか」だけでなく「なぜそれが今のビジネス環境で重要か」を必ずセットで説明する</li>
@@ -397,7 +397,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2™ 公式ページ(組織戦略とアジリティの記述)</a></li>
           <li>Business Agility Instituteおよびアウトカム思考については CAL 1 第4章「アジャイル組織のリード」を参照</li>
@@ -407,7 +407,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 03. Structure and Value Delivery ===================== -->
     <section id="structure-and-value-delivery">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-building-bank"/>SECTION 03</div>
       <h2>組織構造と顧客価値提供</h2>
 
       <h3>なぜ構造が価値提供を左右するのか</h3>
@@ -428,7 +428,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>Star Modelの要点は、「組織図(Structure)だけを描き直しても、評価制度(Rewards)や意思決定プロセス(Process)が旧来のままなら、組織は元の振る舞いに戻ってしまう」という点です。人はどうしても組織図の変更に注目しがちですが、それは地位や権力に直結するためであり、実際にはプロセス・報酬・人材という残り3要素まで含めて一貫させて初めて、行動の変化が定着します。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>組織再編を検討する際は、Structureだけでなく必ずProcess・Rewards・Peopleの3点も同時にレビューする</li>
           <li>「新しい構造にしたのに行動が変わらない」場合は、評価制度(何を褒め、何を昇進させているか)が旧来の構造を暗に支持していないか確認する</li>
@@ -451,7 +451,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>VSMでは、各工程にかかる「処理時間(Cycle Time)」と、工程間で発生する「待ち時間」を含めた「リードタイム(Lead Time)」を可視化します。多くの組織では、実際に価値を生み出す処理時間はリードタイム全体のごく一部にすぎず、大半は承認待ちや部門間の引き継ぎといった非付加価値時間で占められていることが明らかになります。この「処理時間 ÷ リードタイム」の比率はフロー効率(Flow Efficiency)と呼ばれ、組織構造そのもの(部門をまたぐ承認プロセスなど)がボトルネックになっているケースが少なくありません。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>組織構造を見直す前に、まず現状のバリューストリームを一度実際にマッピングし、待ち時間がどの引き継ぎ地点(部門間・チーム間)で発生しているかを特定する</li>
           <li>リードタイムのうち処理時間が占める割合(フロー効率)を定点観測の指標にする。組織変更の効果は、この比率の改善で検証できる</li>
@@ -460,7 +460,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://umbrex.com/resources/frameworks/organization-frameworks/galbraith-star-model/" target="_blank" rel="noopener">Galbraith Star Model | Org Design & Operating Model</a></li>
           <li><a href="https://flevy.com/blog/developing-an-organizational-design-that-works-the-galbraith-star-model/" target="_blank" rel="noopener">Developing an Organizational Design that Works: The Galbraith Star Model</a></li>
@@ -473,7 +473,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 04. Change Management Misconceptions ===================== -->
     <section id="change-misconceptions">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh"/>SECTION 04</div>
       <h2>チェンジマネジメントの誤解とツール</h2>
 
       <h3>よくある誤解</h3>
@@ -512,7 +512,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>Bridgesが強調するのは、「New Beginningはスケジュール通りには訪れない」という点です。新しい始まりは、人が内面的に準備が整ったときに自然に生まれるものであり、リーダーが号令をかけて強制的に発生させることはできません。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>変革の発表時には、必ず「何が終わるのか」を明確かつ具体的に伝える。曖昧な終わりの提示は、いつまでも過去にしがみつく原因になる</li>
           <li>Neutral Zone(中立圏)にいる期間は、短期的な目標・こまめなコミュニケーション・実験を歓迎する姿勢によって、混乱を前向きな模索へ転換する</li>
@@ -522,7 +522,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.peoplestudypro.com/blog/bridges-transition-model-explained" target="_blank" rel="noopener">Bridges' Transition Model Explained: Endings, Neutral Zone and New Beginnings</a></li>
           <li><a href="https://umbrex.com/resources/change-management-frameworks/what-is-bridges-transition-model/" target="_blank" rel="noopener">What is Bridges' Transition Model? | Umbrex</a></li>
@@ -534,7 +534,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 05. Leading Change Tools ===================== -->
     <section id="leading-change-tools">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route"/>SECTION 05</div>
       <h2>変革を導くためのツール</h2>
 
       <h3>誤解を踏まえた実践ツール</h3>
@@ -554,7 +554,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>変革着手前に必ずステークホルダーマッピングを行い、「誰が最も影響力を持ち、かつ最も抵抗しそうか」を事前に把握しておく</li>
           <li>コミュニケーションは一度で終わらせず、少なくとも週次・月次などのケイデンス(一定の頻度)で継続する。人は同じメッセージを何度も聞いて初めて本気度を信じる</li>
@@ -564,7 +564,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2™ 公式ページ(変革を導くツールの記述)</a></li>
           <li>Kotterの8段階変革プロセス・ADKARモデルの詳細については CAL 1 第4章「アジャイル組織のリード」を参照</li>
@@ -574,7 +574,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 06. Immunity to Change ===================== -->
     <section id="immunity-to-change">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-shield-check"/>SECTION 06</div>
       <h2>個人の成長を阻む障壁を乗り越える</h2>
 
       <p>Part 2は視点を組織から個人へと移し、「アジャイルリーダー自身がどう成長し、どう人と向き合うか」を扱う領域です。公式ページでは、この領域の学習目標として「個人の成長を阻む障壁の克服」「自分らしいリーダーシップアプローチの確立」「困難な会話での戦略伝達」「フィードバックの授受」「人のマネジメントにおける課題」「権限委譲と意思決定」の6点が挙げられています。</p>
@@ -601,7 +601,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>Kegan & Laheyが強調するのは、column 4の「大きな仮定」は本人にとって疑いようのない事実のように感じられているが、実際には一度も検証されたことがない思い込みにすぎない、という点です。この仮定を小さな安全な実験を通じて検証していくことで、初めて行動が変わり始めます。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>行動を変えたいのに変えられないと感じたら、まず「自分は何に対して無意識にコミットしているのか(Column 3)」を書き出してみる</li>
           <li>Column 4の「大きな仮定」を、事実ではなく検証可能な仮説として扱い、リスクの小さい実験(Small Safe Test)で確かめる</li>
@@ -611,7 +611,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.mindtools.com/a4l75hx/immunity-to-change/" target="_blank" rel="noopener">Immunity to Change - Mindtools</a></li>
           <li><a href="https://www.humanizingwork.com/immunity-to-change/" target="_blank" rel="noopener">Immunity to Change - Humanizing Work</a></li>
@@ -622,7 +622,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 07. Situational Leadership ===================== -->
     <section id="situational-leadership">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-compass"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-compass"/>SECTION 07</div>
       <h2>自分らしいリーダーシップアプローチの確立</h2>
 
       <h3>唯一の正解のリーダーシップスタイルは存在しない</h3>
@@ -644,7 +644,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>部下やチームメンバーに一律の「自分のリーダーシップスタイル」を当てはめるのではなく、タスクごとに相手の開発レベルを見極めてからスタイルを選ぶ</li>
           <li>D2(学習中で意欲が下がりがち)のメンバーへの対応は特に見落とされがちである。能力がついてきたからと支援を減らすと、意欲低下期にちょうど孤立させてしまう</li>
@@ -654,7 +654,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.toolshero.com/leadership/situational-leadership-hersey-blanchard/" target="_blank" rel="noopener">Situational Leadership Model by Hersey and Blanchard - Toolshero</a></li>
           <li><a href="https://umbrex.com/resources/frameworks/organization-frameworks/hersey-blanchard-situational-leadership-model/" target="_blank" rel="noopener">Hersey-Blanchard Situational Leadership | Umbrex</a></li>
@@ -666,7 +666,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 08. Crucial Conversations ===================== -->
     <section id="crucial-conversations">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-message-circle"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-message-circle"/>SECTION 08</div>
       <h2>困難な会話での戦略伝達</h2>
 
       <h3>「クルーシャル・カンバセーション」とは</h3>
@@ -692,7 +692,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>対話を継続するための鍵は「安全性(Safety)」です。相手が「この人は自分を尊重しているか」「この人と自分は共通の目的を持っているか」に不安を感じた瞬間、対話は沈黙か攻撃に切り替わります。安全性を取り戻すには、いったん本題を離れて共通の目的(Mutual Purpose)と相互の敬意(Mutual Respect)を明確にし直すことが有効だとされます。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>会話の最中に相手の態度が急に変わった(黙り込む・皮肉を言い始める等)場合は、内容の議論をいったん止め、安全性が失われていないかを確認する</li>
           <li>「私はあなたを打ち負かしたいのではなく、一緒に良い結果を探したい」という共通の目的を、対立が生じた時点で明示的に言葉にする</li>
@@ -702,7 +702,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://evansamek.substack.com/p/crucial-conversations-by-grenny-patterson" target="_blank" rel="noopener">Crucial Conversations, by Grenny, Patterson, et al.</a></li>
           <li><a href="https://readingraphics.com/book-summary-crucial-conversations/" target="_blank" rel="noopener">Book Summary - Crucial Conversations (Kerry Patterson)</a></li>
@@ -713,7 +713,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 09. Radical Candor ===================== -->
     <section id="radical-candor">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-messages"></i>SECTION 09</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-messages"/>SECTION 09</div>
       <h2>フィードバックの提供と受領</h2>
 
       <h3>Radical Candor(ラディカル・キャンダー)</h3>
@@ -721,7 +721,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
       <div class="table-wrap">
         <table>
-          <thead><tr><th></th><th>Challenge Directly(率直に指摘する)が低い</th><th>Challenge Directly(率直に指摘する)が高い</th></tr></thead>
+          <thead><tr><th/><th>Challenge Directly(率直に指摘する)が低い</th><th>Challenge Directly(率直に指摘する)が高い</th></tr></thead>
           <tbody>
             <tr><td><strong>Care Personally(個人的に気遣う)が高い</strong></td><td>Ruinous Empathy(破滅的な共感): 気遣うあまり、必要な指摘をしない</td><td>Radical Candor(理想の状態): 気遣いながら率直に伝える</td></tr>
             <tr><td><strong>Care Personally(個人的に気遣う)が低い</strong></td><td>Manipulative Insincerity(操作的な不誠実): 気遣いも指摘もない</td><td>Obnoxious Aggression(攻撃的な無神経さ): 気遣いなく率直さだけをぶつける</td></tr>
@@ -735,7 +735,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>CAL 2の学習目標は「フィードバックを与える(Delivering)」だけでなく「受け取る(Receiving)」ことも含んでいます。Radical Candorの実践では、まず自分から積極的にフィードバックを求める(Solicit Feedback)ことが推奨されます。「自分がやめるべきこと、続けるべきことは何か」を先に尋ねる姿勢を見せることで、相手も安心してフィードバックを口にしやすくなります。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>フィードバックを伝える前に、まず自分から「私に対するフィードバックはある?」と尋ね、フィードバックを求める文化の手本を自ら示す</li>
           <li>指摘が「性格への断定」に聞こえていないか確認する。人格ではなく、具体的な行動とその影響について話す(CAL 1第3章のSBIフィードバックモデル: Situation-Behavior-Impactと組み合わせて使うと効果的)</li>
@@ -745,7 +745,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.radicalcandor.com/our-approach" target="_blank" rel="noopener">Our Approach: Kim Scott's Feedback Framework</a></li>
           <li><a href="https://kimmalonescott.medium.com/what-is-radical-candor-learn-the-basic-principles-in-6-minutes-50391b3ad76a" target="_blank" rel="noopener">What is Radical Candor? Learn the Basic Principles In 6 Minutes</a></li>
@@ -757,7 +757,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 10. Managing People Challenges ===================== -->
     <section id="managing-people-challenges">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-users"></i>SECTION 10</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-users"/>SECTION 10</div>
       <h2>人をマネジメントする上での課題</h2>
 
       <h3>リーダーが直面する典型的な課題</h3>
@@ -780,7 +780,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>この領域で最も重要な姿勢は、「万能の管理手法」を探すのをやめることです。人のマネジメントにおける課題の多くは、単一のテクニックの欠如ではなく、状況診断(誰が・どのタスクで・どんな感情状態にあるか)の不足から生じます。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>部下との1on1では、指導内容そのものより先に「このメンバーは今、どの開発レベル(D1〜D4)にあるか」を見極めることに時間を使う</li>
           <li>チームの機能不全が疑われる場合は、個人の能力の問題と決めつける前に、心理的安全性やチームの構造(Team Topologies)に原因がないかを確認する</li>
@@ -789,7 +789,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2™ 公式ページ(人のマネジメント課題の記述)</a></li>
           <li>Five DysfunctionsおよびGoogleプロジェクト・アリストテレスについては CAL 1 第3章「アジャイルチームのリード」を参照</li>
@@ -799,7 +799,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 11. RAPID Decision Making ===================== -->
     <section id="rapid-decision-making">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-scale"></i>SECTION 11</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-scale"/>SECTION 11</div>
       <h2>権限委譲と意思決定</h2>
 
       <h3>なぜ意思決定の停滞が起きるのか</h3>
@@ -833,7 +833,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <p>RAPIDは実行順序を定めたプロセスではなく、意思決定に関わる5つの役割を切り分けるための枠組みです。Input(情報提供)・Recommend(提案)・Agree(合意)・Decide(決定)・Perform(実行)は担い手を明確にするための区分であり、どの役割がいつ動くかは意思決定の性質によって変わります(提案と情報提供が何度も往復することもあります)。RAPIDの最大の価値は、<strong>「Decide(最終決定者)」を必ず1つに絞ること</strong>と、<strong>「Agree(限定的拒否権)」と「Input(単なる助言)」を明確に区別すること</strong>にあります。これにより、「全員が決めようとして誰も決まらない」状態と、「誰も決めずに漂流する」状態の両方を防ぎます。</p>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb"/>ベストプラクティス</div>
         <ul>
           <li>複雑な意思決定に着手する前に、必ず5つの役割(RAPID)を明文化し、誰がどの役割かをドキュメント化してから議論を始める</li>
           <li>Decide(決定者)は原則として1人、多くても少人数の明確な機関に絞る。「みんなで決める」という建前は、実際には誰も責任を取らない結果につながりやすい</li>
@@ -843,7 +843,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://www.mindtools.com/av8ceid/bains-rapid-framework/" target="_blank" rel="noopener">Bain's RAPID® Framework - Mindtools</a></li>
           <li><a href="https://umbrex.com/resources/frameworks/organization-frameworks/bain-rapid-decision-framework/" target="_blank" rel="noopener">Bain RAPID Decision Framework | Governance & Accountability</a></li>
@@ -855,7 +855,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 12. Framework Summary ===================== -->
     <section id="framework-summary">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 12</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3"/>SECTION 12</div>
       <h2>まとめ: CAL 2 学習目標とフレームワーク対応表</h2>
 
       <div class="table-wrap">
@@ -880,7 +880,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
     <!-- ===================== 13. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link"></i>SECTION 13</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link"/>SECTION 13</div>
       <h2>参考文献・出典一覧</h2>
 
       <div class="ref-group">
@@ -962,7 +962,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </div>
 
       <div class="callout note" data-testid="callout" data-variant="note">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle"/>補足</div>
         <p>本ガイドで「CAL 1参照」と記載した項目(ADKAR、Kotterの8段階変革プロセス、Delegation Poker、SBIフィードバックモデル、Five Dysfunctions、Team Topologies、Conway's Law、Thomas-Kilmann対立モード、Business Agility Institute、心理的安全性、サーバントリーダーシップなど)の詳細な解説は、既存のCAL 1学習ガイド(4章構成)を参照してください。CAL 2は、それらの基礎知識の上に「組織戦略への接続」と「リーダー自身の成長」という新しい層を積み上げる構成になっています。</p>
       </div>
     </section>
