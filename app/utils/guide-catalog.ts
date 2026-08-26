@@ -480,6 +480,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/no-rules-rules-guide",
+    categoryId: "team-building",
+    seriesId: "team-culture",
+    navLabel: "No Rules Rules",
+    title: "『NO RULES RULES』完全ガイド",
+    description: "Reed HastingsとErin Meyer著『No Rules Rules』を初学者向けに要約。タレント・デンシティ、率直なフィードバック、コントロールの撤廃という3つの原則と、ソフトウェア開発チームへの応用ステップをMermaid図解と表で解説します。",
+    meta: "11セクション",
+    icon: "tabler:refresh",
+    accent: "indigo",
+  },
+  {
     to: "/team-topologies-guide",
     categoryId: "team-building",
     seriesId: "team-design",
