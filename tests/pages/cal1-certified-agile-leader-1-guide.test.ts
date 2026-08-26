@@ -147,29 +147,84 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://scrumguides.org/",
 ] as const;
 
-const mountPage = createMountPage(Page);
+const EXPECTED_TOC_IDS = [
+  "what-is-cal1",
+  "track-position",
+  "certification-steps",
+  "learning-objectives",
+  "course-structure",
+  "who-should-attend",
+  "cal1-vs-cal2",
+  "trainer-quality",
+  "renewal-seu",
+  "learning-roadmap",
+  "faq",
+  "best-practices-summary",
+  "references",
+] as const;
 
-describe("pages/cal1-certified-agile-leader-1-guide.vue — 原本照合契約", () => {
-  defineSourceParityContract({
-    mountPage,
-    expectedH1: EXPECTED_H1,
-    expectedH2: EXPECTED_H2,
-    expectedH3: EXPECTED_H3,
-    expectedH4: EXPECTED_H4,
-    expectedH5: EXPECTED_H5,
-    expectedH6: EXPECTED_H6,
-    expectedMermaidSources: EXPECTED_MERMAID_SOURCES,
-    expectedExternalUrls: EXPECTED_EXTERNAL_URLS,
-    seoTitle: "CAL 1® 認定資格 完全ガイド | Certified Agile Leader 1 とは",
-    seoDescription: "Scrum Alliance Certified Agile Leader 1 (CAL 1) の公式情報にもとづく、初学者向けの学習ガイド。4つの学習目標領域、認定取得の流れ、資格更新(SEU)の仕組みをMermaid図解と出典付きで解説。",
-    calloutTotal: 4,
-    calloutCounts: { note: 4 },
-    calloutLabels: ["補足", "補足", "補足", "補足"],
-    expectedSectionEyebrowCount: 13,
-    expectedTableCount: 18,
-    expectedTableRowCount: 98,
-    getSeoMetaCalls: () => seoMeta.mock.calls,
-  });
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+  "SECTION 11",
+  "SECTION 12",
+  "SECTION 13",
+] as const;
+
+const EXPECTED_CALLOUT_VARIANTS = {
+  note: 4,
+} as const;
+
+const EXPECTED_CALLOUT_LABELS = {
+  note: { 補足: 4 },
+} as const;
+
+const EXPECTED_STEP_TAGS = [] as const;
+
+const EXPECTED_SEO_TITLE =
+  "CAL 1® 認定資格 完全ガイド | Certified Agile Leader 1 とは";
+
+const EXPECTED_SEO_DESCRIPTION =
+  "Scrum Alliance Certified Agile Leader 1 (CAL 1) の公式情報にもとづく、初学者向けの学習ガイド。4つの学習目標領域、認定取得の流れ、資格更新(SEU)の仕組みをMermaid図解と出典付きで解説。";
+
+const EXPECTED_SEO_TITLE_FRAGMENTS = [
+  "CAL 1",
+  "Certified Agile Leader",
+  "完全ガイド",
+] as const;
+
+defineSourceParityContract({
+  suiteName: "pages/cal1-certified-agile-leader-1-guide.vue",
+  page: Page,
+  seoMeta,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: EXPECTED_STEP_TAGS,
+  seoTitleFragments: EXPECTED_SEO_TITLE_FRAGMENTS,
+  seoTitle: EXPECTED_SEO_TITLE,
+  seoDescription: EXPECTED_SEO_DESCRIPTION,
+});
+
+describe("pages/cal1-certified-agile-leader-1-guide.vue — 個別要素契約", () => {
+  const mountPage = createMountPage(Page);
 
   it("各セクションのアイブロウラベルが順序込みで一致する", () => {
     const wrapper = mountPage();

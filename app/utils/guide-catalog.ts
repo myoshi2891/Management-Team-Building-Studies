@@ -300,6 +300,17 @@ export const GUIDES = [
     accent: "forest",
   },
   {
+    to: "/cal1-certified-agile-leader-1-guide",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL1 完全ガイド",
+    title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
+    description: "Scrum Alliance Certified Agile Leader 1 (CAL 1) の公式情報にもとづく、初学者向けの学習ガイド。4つの学習目標領域、認定取得の流れ、資格更新(SEU)の仕組みをMermaid図解と出典付きで解説。",
+    meta: "13セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/the-case-for-agile-leadership",
     categoryId: "project-management",
     seriesId: "scrum",
