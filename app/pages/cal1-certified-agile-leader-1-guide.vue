@@ -171,25 +171,25 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="#what-is-cal1" :class="{ active: activeId === 'what-is-cal1' }" @click="closeSidebar" ><i class="ti ti-certificate" aria-hidden="true"></i>CAL 1とは</a></li>
-      <li><a href="#track-position" :class="{ active: activeId === 'track-position' }" @click="closeSidebar"><i class="ti ti-git-branch" aria-hidden="true"></i>資格制度上の位置づけ</a></li>
-      <li><a href="#certification-steps" :class="{ active: activeId === 'certification-steps' }" @click="closeSidebar"><i class="ti ti-route" aria-hidden="true"></i>認定取得までの流れ</a></li>
-      <li><a href="#learning-objectives" :class="{ active: activeId === 'learning-objectives' }" @click="closeSidebar"><i class="ti ti-list-check" aria-hidden="true"></i>4つの学習目標領域</a></li>
-      <li><a href="#course-structure" :class="{ active: activeId === 'course-structure' }" @click="closeSidebar"><i class="ti ti-calendar-event" aria-hidden="true"></i>コース構成(Day1/Day2)</a></li>
-      <li><a href="#who-should-attend" :class="{ active: activeId === 'who-should-attend' }" @click="closeSidebar"><i class="ti ti-clipboard-check" aria-hidden="true"></i>受講対象者</a></li>
-      <li><a href="#cal1-vs-cal2" :class="{ active: activeId === 'cal1-vs-cal2' }" @click="closeSidebar"><i class="ti ti-timeline" aria-hidden="true"></i>CAL1とCAL2の比較</a></li>
-      <li><a href="#trainer-quality" :class="{ active: activeId === 'trainer-quality' }" @click="closeSidebar"><i class="ti ti-building-bank" aria-hidden="true"></i>講師の品質基準</a></li>
-      <li><a href="#renewal-seu" :class="{ active: activeId === 'renewal-seu' }" @click="closeSidebar"><i class="ti ti-refresh" aria-hidden="true"></i>資格更新とSEU</a></li>
-      <li><a href="#learning-roadmap" :class="{ active: activeId === 'learning-roadmap' }" @click="closeSidebar"><i class="ti ti-map-2" aria-hidden="true"></i>学習ロードマップ</a></li>
-      <li><a href="#faq" :class="{ active: activeId === 'faq' }" @click="closeSidebar"><i class="ti ti-clipboard-text" aria-hidden="true"></i>よくある誤解(FAQ)</a></li>
-      <li><a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar"><i class="ti ti-flag-3" aria-hidden="true"></i>ベストプラクティスまとめ</a></li>
-      <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><i class="ti ti-link" aria-hidden="true"></i>参考文献・ソース</a></li>
+      <li><a href="#what-is-cal1" :class="{ active: activeId === 'what-is-cal1' }" @click="closeSidebar" ><i class="ti ti-certificate" aria-hidden="true"/>CAL 1とは</a></li>
+      <li><a href="#track-position" :class="{ active: activeId === 'track-position' }" @click="closeSidebar"><i class="ti ti-git-branch" aria-hidden="true"/>資格制度上の位置づけ</a></li>
+      <li><a href="#certification-steps" :class="{ active: activeId === 'certification-steps' }" @click="closeSidebar"><i class="ti ti-route" aria-hidden="true"/>認定取得までの流れ</a></li>
+      <li><a href="#learning-objectives" :class="{ active: activeId === 'learning-objectives' }" @click="closeSidebar"><i class="ti ti-list-check" aria-hidden="true"/>4つの学習目標領域</a></li>
+      <li><a href="#course-structure" :class="{ active: activeId === 'course-structure' }" @click="closeSidebar"><i class="ti ti-calendar-event" aria-hidden="true"/>コース構成(Day1/Day2)</a></li>
+      <li><a href="#who-should-attend" :class="{ active: activeId === 'who-should-attend' }" @click="closeSidebar"><i class="ti ti-clipboard-check" aria-hidden="true"/>受講対象者</a></li>
+      <li><a href="#cal1-vs-cal2" :class="{ active: activeId === 'cal1-vs-cal2' }" @click="closeSidebar"><i class="ti ti-timeline" aria-hidden="true"/>CAL1とCAL2の比較</a></li>
+      <li><a href="#trainer-quality" :class="{ active: activeId === 'trainer-quality' }" @click="closeSidebar"><i class="ti ti-building-bank" aria-hidden="true"/>講師の品質基準</a></li>
+      <li><a href="#renewal-seu" :class="{ active: activeId === 'renewal-seu' }" @click="closeSidebar"><i class="ti ti-refresh" aria-hidden="true"/>資格更新とSEU</a></li>
+      <li><a href="#learning-roadmap" :class="{ active: activeId === 'learning-roadmap' }" @click="closeSidebar"><i class="ti ti-map-2" aria-hidden="true"/>学習ロードマップ</a></li>
+      <li><a href="#faq" :class="{ active: activeId === 'faq' }" @click="closeSidebar"><i class="ti ti-clipboard-text" aria-hidden="true"/>よくある誤解(FAQ)</a></li>
+      <li><a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar"><i class="ti ti-flag-3" aria-hidden="true"/>ベストプラクティスまとめ</a></li>
+      <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><i class="ti ti-link" aria-hidden="true"/>参考文献・ソース</a></li>
     </ul>
       </nav>
 
       <main id="main-content" class="main-content" tabindex="-1">
         <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true"></i>Scrum Alliance® 公式情報にもとづく非公式ガイド</div>
+      <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true"/>Scrum Alliance® 公式情報にもとづく非公式ガイド</div>
       <h1>Certified Agile Leader® 1 (CAL 1™) 完全ガイド</h1>
       <p class="hero-lede">
         初学者向けステップバイステップ解説
@@ -203,14 +203,14 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle" aria-hidden="true"></i>
+        <i class="ti ti-info-circle" aria-hidden="true"/>
         <p style="margin-bottom:10px;"><strong>対象読者:</strong> これから CAL 1 の受講を検討している方、アジャイルリーダーシップという概念に初めて触れる方</p><p style="margin-bottom:0;"><strong>本ガイドの立ち位置:</strong> 第1〜3章は Scrum Alliance 公式サイトおよびトレーニング提供元の公開情報に基づく事実整理です。第4章の「ベストプラクティス」は、公式に明記されている4つの学習領域(Learning Objectives)の名称・範囲を土台にしつつ、アジャイルリーダーシップ領域で一般的に参照される実践知(コーチング、チェンジマネジメント、組織文化論など)を組み合わせた実務解説です。両者を混同しないよう、事実部分には出典番号 <code>[n]</code> を付けています。巻末の<a href="#references">「参考文献・ソース一覧」</a>で確認できます。</p>
       </div>
     </div>
 
     <!-- ===================== 01. What is CAL 1 ===================== -->
     <section id="what-is-cal1">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" aria-hidden="true"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" aria-hidden="true"/>SECTION 01</div>
       <h2>CAL 1とは何か(概要)</h2>
 
       <p>Certified Agile Leader® 1 (CAL 1™) は、Scrum Alliance® が提供する「アジャイルリーダーシップ」領域の入門資格です [1]。重要な前提として、<strong>CAL 1には筆記試験・選択式試験が存在しません</strong>。認定は、<strong>16時間のライブ講座への出席と積極的な参加</strong>によって付与されます [1] [7]。これが全コースに共通する要件です。なお、トレーナーによっては事前課題・事後課題が別途課される場合がありますが、これはトレーナーごとの運用であり、Scrum Alliance が全 CAL 1 に共通して定める認定条件ではありません [7]。したがって、いわゆる「出題内容」に該当するものは存在せず、代わりに<strong>Scrum Alliance が公式に定める学習目標(Learning Objectives)</strong>が、コースで扱われる内容の枠組みになります [1]。この学習目標を、トレーニング提供元の一つである PM-Partners のコースページでは4つの領域に整理して紹介しています [7]。本ガイドではこの4領域の整理を軸に、初学者にもわかりやすく解説していきます。</p>
@@ -236,14 +236,14 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
       </div>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p><strong>初学者向けポイント</strong>: 「資格試験に合格する」のではなく「講座に参加してワークを通じて自分のリーダーシップを見つめ直す」タイプの資格です。この点は CSM(Certified ScrumMaster)などの知識試験型資格とは大きく性質が異なります。</p>
       </div>
     </section>
 
     <!-- ===================== 02. Track position ===================== -->
     <section id="track-position">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch" aria-hidden="true"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch" aria-hidden="true"/>SECTION 02</div>
       <h2>資格制度における位置づけ</h2>
 
       <p>CAL 1 は、Scrum Alliance の「Agile Leader トラック」の入口にあたる資格です。2024年、Scrum Alliance は旧来の3階層プログラム(CAL-Essentials / CAL-Teams / CAL-Organizations)を、CAL 1・CAL 2 の2階層に再編しました [8] [9]。</p>
@@ -271,7 +271,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 03. Certification steps ===================== -->
     <section id="certification-steps">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route" aria-hidden="true"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route" aria-hidden="true"/>SECTION 03</div>
       <h2>認定取得までの4ステップ</h2>
 
       <p>Scrum Alliance の公式ページでは、認定取得までの流れを次の4ステップとして案内しています [18]。</p>
@@ -297,7 +297,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 04. Learning objectives ===================== -->
     <section id="learning-objectives">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"/>SECTION 04</div>
       <h2>学習内容: 4つの学習目標領域</h2>
 
       <p>CAL 1 の学習目標(Learning Objectives)は Scrum Alliance が公式に定めていますが [1]、公式サイトでは箇条書きで提示されており、領域としての区分は明記されていません。トレーニング提供元の一つである PM-Partners のコースページでは、この学習目標を<strong>4つの領域</strong>に整理して紹介しています [7]。この4領域は、「個人の内省 → 個人の実践 → チームへの適用 → 組織への適用」という流れで構成されています [7]。なお、この4領域を Day 1 に前半2領域(個人にフォーカス)、Day 2 に後半2領域(チーム・組織にフォーカス)として割り当てる進め方は、トレーニング提供元の一つである PM-Partners が公開しているコース例です [7] [13]。日程配分は Scrum Alliance が全 CAL 1 に共通で定めるものではなく、トレーナーごとに異なります。</p>
@@ -390,7 +390,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 05. Course structure ===================== -->
     <section id="course-structure">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-calendar-event" aria-hidden="true"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-calendar-event" aria-hidden="true"/>SECTION 05</div>
       <h2>コース構成: Day1 / Day2 の流れ</h2>
 
       <p>以下は、トレーニング提供元の一つである PM-Partners が公開している2日間構成の例です [13]。16時間という総時間と、最新版の CAL 1 学習目標(Learning Objectives)への対応は全コース共通ですが、日程への割り振り方はトレーナーごとに異なります [1] [6]。</p>
@@ -415,7 +415,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 06. Who should attend ===================== -->
     <section id="who-should-attend">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true"/>SECTION 06</div>
       <h2>受講対象者とレディネスチェック</h2>
 
       <h3>想定される受講対象者 [1]</h3>
@@ -446,7 +446,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 07. CAL1 vs CAL2 ===================== -->
     <section id="cal1-vs-cal2">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-timeline" aria-hidden="true"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-timeline" aria-hidden="true"/>SECTION 07</div>
       <h2>CAL 1 と CAL 2 の比較</h2>
 
       <div class="diagram-card">
@@ -468,14 +468,14 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
       </div>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p>出典[14]はCAL 2の一トレーナー(認定トレーニングパートナー)が提供するコースの具体例であり、Scrum Alliance公式の学習目標そのものではない点に留意してください。トレーナーごとに扱う演習や深掘りの角度は異なります。</p>
       </div>
     </section>
 
     <!-- ===================== 08. Trainer quality ===================== -->
     <section id="trainer-quality">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-building-bank" aria-hidden="true"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-building-bank" aria-hidden="true"/>SECTION 08</div>
       <h2>講師・トレーニングパートナーの品質基準</h2>
 
       <p>CAL 1 を教える資格を持つのは、Scrum Alliance が認定した<strong>CAL トレーナー(CAL-T)</strong>のみです。Scrum Alliance の公式申請要件によると、CAL トレーナーになるには以下のような条件を満たす必要があります [6]。</p>
@@ -494,14 +494,14 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
       </div>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p><strong>初学者向けポイント</strong>: どのトレーナーの講座を選んでも「最低16時間」「最新版の CAL 1 学習目標(Learning Objectives)への対応」という共通の品質基準は担保されています [1] [6]。一方で、具体的な演習内容やケーススタディはトレーナーごとに個性があるため、トレーナーのバックグラウンド(業界経験、コーチング資格など)を確認して選ぶとよいでしょう [1]。</p>
       </div>
     </section>
 
     <!-- ===================== 09. Renewal and SEU ===================== -->
     <section id="renewal-seu">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" aria-hidden="true"></i>SECTION 09</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" aria-hidden="true"/>SECTION 09</div>
       <h2>資格更新(Renewal)とSEU</h2>
 
       <p>Scrum Alliance の認定資格は、取得後も学び続けることを前提とした「更新制」です。CAL 1 も例外ではなく、<strong>2年ごとに更新が必要</strong>になります [17]。更新の仕組みは<strong>SEU(Scrum Education Unit、Scrum教育単位)</strong>の取得によって成り立っています [27]。</p>
@@ -556,7 +556,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
       <p>経路2では、コース修了時点で<strong>既に保有している資格が自動的に更新</strong>されます。ただし注意点として、<strong>認定コースの受講時間そのものは SEU には算入されません</strong> [27]。つまり「コースを受けて SEU も稼ぐ」という二重取りはできず、経路1と経路2はどちらか一方が適用される関係になります。</p>
 
       <div class="callout note" data-variant="note" data-testid="callout">
-        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+        <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true"/>補足</div>
         <p><strong>注記(旧制度の参考情報)</strong>: 2024年の CAL トラック再編<strong>前</strong>の「Leadership level」区分(CAL-E / CAL-O / CAL-T)では、2年ごとに10 SEU とされていました(第三者情報源より) [25] [28]。これは<strong>現行の CAL 1 には適用されない過去の値</strong>であり、履歴情報としてのみ記載しています。現行の要件は上表のとおりです。</p>
         <p><strong>初学者向けポイント</strong>: 複数の Scrum Alliance 認定を保有している場合、最高位の認定を SEU と更新手数料で更新すると、<strong>それ以外の認定(2つ目以降の認定)</strong>は半分の SEU(かつ追加費用なし)で更新されます [17]。これは上位・下位の関係に限られず、CAL 1 と CSM のように<strong>同じ Foundational レベルの追加資格</strong>も対象になります。更新タイミングをまとめると手続きコストを抑えられます。</p>
       </div>
@@ -564,7 +564,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 10. Learning roadmap ===================== -->
     <section id="learning-roadmap">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-map-2" aria-hidden="true"></i>SECTION 10</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-map-2" aria-hidden="true"/>SECTION 10</div>
       <h2>初学者向け学習ロードマップ</h2>
 
       <div class="diagram-card">
@@ -586,7 +586,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 11. FAQ ===================== -->
     <section id="faq">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-text" aria-hidden="true"></i>SECTION 11</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-text" aria-hidden="true"/>SECTION 11</div>
       <h2>よくある誤解(FAQ)</h2>
 
       <div class="table-wrap">
@@ -608,7 +608,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 12. Best practices summary ===================== -->
     <section id="best-practices-summary">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"></i>SECTION 12</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"/>SECTION 12</div>
       <h2>全体ベストプラクティスまとめ表</h2>
 
       <p>第4章で学習領域ごとに紹介した実務のポイントを、横断的に整理した一覧です。</p>
@@ -628,7 +628,7 @@ class Pre,Pre1,Pre2,During,Post,Post1,Post2,Post3 box;`;
 
     <!-- ===================== 13. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 13</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true"/>SECTION 13</div>
       <h2>参考文献・ソース一覧</h2>
 
       <div class="ref-group">
