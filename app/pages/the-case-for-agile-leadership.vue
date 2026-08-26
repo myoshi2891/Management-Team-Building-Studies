@@ -687,7 +687,7 @@ class Cert done;`;
 }
 
 .skip-link:focus {
-  top: 0;
+  top: var(--global-nav-height);
 }
 
 /* ===================== Sidebar ===================== */
