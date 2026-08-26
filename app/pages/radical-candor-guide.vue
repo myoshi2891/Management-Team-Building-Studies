@@ -908,13 +908,18 @@ td strong, th strong {
 }
 
 /* ===================== Diagram containers ===================== */
-.diagram-card,
-.mermaid-wrap {
+.diagram-card {
   border: 1px solid var(--color-border);
   background: var(--color-paper-raised);
   border-radius: 12px;
   padding: 28px;
   margin: 28px 0;
+}
+
+.mermaid-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .diagram-caption {
