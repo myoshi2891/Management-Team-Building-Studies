@@ -521,6 +521,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | Step List | 6 件（`ol.step-list`） | 同数・完全一致 | 原本のステップリスト構造を 100% 保持 |
 | Table 構成 | 4 件（計 26 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
 | 外部リンク | 13 件（計 14 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
+
 ### 41. Certified Agile Leader® 2 (CAL 2™) 学習ガイド（`cal2-certified-agile-leader-2-study-guide.vue`）の Nuxt 移植
 
 - **原本**: `Cal2-certified-agile-leader-2-study-guide.html`
@@ -555,7 +556,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 外部リンク | 15 種類（計 16 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
 | カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: project-management`, `series: scrum`, `accent: gold` |
 | 監査スクリプト | — | `npm run audit:cal1-guide` | **exit 0**（全要素一致） |
-| 原本アーカイブ移動 | `Cal1-certified-agile-leader-1-guide.html` / `.md` を `archive/Cal1-certified-agile-leader-1-guide/` 配下へ移動 | 移行完了原本の集約管理 |
+| 原本アーカイブ移動 | `Cal1-certified-agile-leader-1-guide.html` / `.md` を `archive/Cal1-certified-agile-leader-1-guide/` 配下へ移動 | 移行完了・原本の集約管理 | — |
 
 ### §46. Cal1-chapter3-leading-agile-teams（第3章:アジャイルチームのリード）
 
