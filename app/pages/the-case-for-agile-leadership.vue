@@ -145,7 +145,7 @@ class Cert done;`;
       :aria-expanded="sidebarOpen"
       @click="sidebarOpen = !sidebarOpen"
     >
-      <i class="ti ti-menu-2" />
+      <Icon name="tabler:menu-2" aria-hidden="true" />
     </button>
 
     <!-- ===================== Sidebar ===================== -->
@@ -166,52 +166,52 @@ class Cert done;`;
         <li class="nav-group-label">第1章の内容</li>
         <li>
           <a href="#cal1-overview" :class="{ active: activeId === 'cal1-overview' }" :aria-current="activeId === 'cal1-overview' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-certificate" />0. CAL1全体像
+            <Icon name="tabler:certificate" aria-hidden="true" />0. CAL1全体像
           </a>
         </li>
         <li>
           <a href="#why-agile-leadership" :class="{ active: activeId === 'why-agile-leadership' }" :aria-current="activeId === 'why-agile-leadership' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-git-branch" />1. なぜ今必要か
+            <Icon name="tabler:git-branch" aria-hidden="true" />1. なぜ今必要か
           </a>
         </li>
         <li>
           <a href="#mindset-shift" :class="{ active: activeId === 'mindset-shift' }" :aria-current="activeId === 'mindset-shift' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-refresh" />2. マインドセットシフト
+            <Icon name="tabler:refresh" aria-hidden="true" />2. マインドセットシフト
           </a>
         </li>
         <li>
           <a href="#leadership-agility-model" :class="{ active: activeId === 'leadership-agility-model' }" :aria-current="activeId === 'leadership-agility-model' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-timeline" />3. リーダーシップ・アジリティ
+            <Icon name="tabler:timeline" aria-hidden="true" />3. リーダーシップ・アジリティ
           </a>
         </li>
         <li>
           <a href="#four-agile-leader-behaviors" :class="{ active: activeId === 'four-agile-leader-behaviors' }" :aria-current="activeId === 'four-agile-leader-behaviors' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-list-check" />4. 4つの重要な行動
+            <Icon name="tabler:list-check" aria-hidden="true" />4. 4つの重要な行動
           </a>
         </li>
         <li>
           <a href="#cal1-course-structure" :class="{ active: activeId === 'cal1-course-structure' }" :aria-current="activeId === 'cal1-course-structure' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-calendar-event" />5. コースの構成
+            <Icon name="tabler:calendar-event" aria-hidden="true" />5. コースの構成
           </a>
         </li>
         <li>
           <a href="#step-by-step-roadmap" :class="{ active: activeId === 'step-by-step-roadmap' }" :aria-current="activeId === 'step-by-step-roadmap' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-route" />6. 学習ロードマップ
+            <Icon name="tabler:route" aria-hidden="true" />6. 学習ロードマップ
           </a>
         </li>
         <li>
           <a href="#understanding-checklist" :class="{ active: activeId === 'understanding-checklist' }" :aria-current="activeId === 'understanding-checklist' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-clipboard-check" />7. 理解度チェック
+            <Icon name="tabler:clipboard-check" aria-hidden="true" />7. 理解度チェック
           </a>
         </li>
         <li>
           <a href="#summary" :class="{ active: activeId === 'summary' }" :aria-current="activeId === 'summary' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-flag-3" />8. まとめ
+            <Icon name="tabler:flag-3" aria-hidden="true" />8. まとめ
           </a>
         </li>
         <li>
           <a href="#references" :class="{ active: activeId === 'references' }" :aria-current="activeId === 'references' ? 'location' : undefined" @click="closeSidebar">
-            <i class="ti ti-link" />9. 参考文献
+            <Icon name="tabler:link" aria-hidden="true" />9. 参考文献
           </a>
         </li>
       </ul>
@@ -220,7 +220,7 @@ class Cert done;`;
     <!-- ===================== Main content ===================== -->
     <main id="main-content" class="main-content" tabindex="-1">
       <div class="hero">
-        <div class="hero-eyebrow"><i class="ti ti-award" />Scrum Alliance CAL1 第1章</div>
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance CAL1 第1章</div>
         <h1>アジャイルリーダーシップの必要性を理解する</h1>
         <p class="hero-lede">
           対象: Certified Agile Leader&reg; 1(CAL 1&trade;)の学習を始める初学者。本ページの位置づけ: CAL1が定める4つの学習領域のうち「領域1: The Case for Agile Leadership」に関する非公式の学習ログです。正確な内容は必ず公式資料をご確認ください。図解方針: ASCIIアートは使用せず、フローチャートはすべてMermaid、表はすべてMarkdown由来の構造で構成しています。
@@ -234,14 +234,14 @@ class Cert done;`;
         </div>
 
         <div class="disclaimer-box">
-          <i class="ti ti-info-circle" />
+          <Icon name="tabler:info-circle" aria-hidden="true" />
           本ガイドは教育・学習支援を目的とした非公式の解説資料です。コースの日程構成や事前課題の有無は認定トレーナーごとに異なる場合があります。受講前に必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>で最新情報をご確認ください。
         </div>
       </div>
 
       <!-- ===================== 0. CAL1 Overview ===================== -->
       <section id="cal1-overview">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" />SECTION 01</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
         <h2>まずCAL1全体の中での位置づけを把握する</h2>
 
         <p>CAL1は、Scrum Allianceが認定する「アジャイルリーダー」向けの資格で、学習内容は4つの領域(Learning Objective Areas)に分かれています。第1章はその入り口にあたる領域で、残り3領域を学ぶための土台となる考え方を扱います。</p>
@@ -273,12 +273,12 @@ class Cert done;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p>CAL1には試験がありません。認定バッジを得るには、合計16時間程度(通常2〜3日間)のライブ研修(対面またはオンライン)に参加し、積極的に取り組むことが条件です。事前知識の前提条件は特にありませんが、アジャイル・スクラムの基礎を知っていると理解が深まります。</p>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ</a></li>
             <li><a href="https://www.pm-partners.com.au/course/certified-agile-leader/" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1) | PM-Partners(学習領域の4分類を掲載)</a></li>
@@ -288,7 +288,7 @@ class Cert done;`;
 
       <!-- ===================== 1. Why Agile Leadership ===================== -->
       <section id="why-agile-leadership">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch" />SECTION 02</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 02</div>
         <h2>なぜ今「アジャイルリーダーシップ」が必要なのか</h2>
 
         <h3>1.1 VUCAな事業環境という背景</h3>
@@ -333,7 +333,7 @@ class Cert done;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>まずは自組織の意思決定プロセスを棚卸しし、「どの決定に、どれくらいの時間がかかっているか」を可視化することから始める</li>
             <li>年次計画を廃止するのではなく、四半期単位のゴールに長期の方向性を紐づけ、短いサイクルで見直す運用に変えていく</li>
@@ -342,7 +342,7 @@ class Cert done;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://resources.scrumalliance.org/Article/makes-agile-leader" target="_blank" rel="noopener">What Makes You an Agile Leader? | Scrum Alliance</a></li>
             <li><a href="https://agilemanifesto.org/" target="_blank" rel="noopener">Agile Manifesto(アジャイル的な価値観の基礎として推奨されている一次情報)</a></li>
@@ -352,7 +352,7 @@ class Cert done;`;
 
       <!-- ===================== 2. Mindset Shift ===================== -->
       <section id="mindset-shift">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-refresh" />SECTION 03</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 03</div>
         <h2>アジャイルリーダーとは何か: 求められるマインドセットシフト</h2>
 
         <p>Scrum Allianceの公式学習目標によれば、CAL1を通じて次のような視点の転換(マインドセットシフト)が期待されています。それぞれが「本章で扱う項目」にあたるため、1つずつ詳しく見ていきます。</p>
@@ -371,12 +371,12 @@ class Cert done;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p>ここで扱う「アジャイル原則」は、もともとソフトウェア開発向けに書かれたAgile Manifesto(アジャイルソフトウェア開発宣言)に由来しますが、現在ではその価値観と原則が業種を問わず幅広い専門職に実践されています。CAL1の受講にあたり、アジャイルに馴染みがない場合はこの宣言に目を通しておくことが推奨されています。</p>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ(学習目標の一覧)</a></li>
             <li><a href="https://drive.google.com/file/d/1LpDNidfA_r6J2wFvgRhIWfPw_wEnqjiO/view" target="_blank" rel="noopener">CAL 1™ Learning Objectives(Scrum Alliance公開資料)</a></li>
@@ -386,7 +386,7 @@ class Cert done;`;
 
       <!-- ===================== 3. Leadership Agility Model ===================== -->
       <section id="leadership-agility-model">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-timeline" />SECTION 04</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 04</div>
         <h2>なぜマインドセットの転換が必要なのか: リーダーシップ・アジリティ発展モデル</h2>
 
         <p>「なぜアジャイルリーダーシップが必要か」を裏づける理論的な柱として、CALプログラムの設計には、Bill JoinerとStephen Josephsによる書籍『Leadership Agility(邦題なし、2006年刊)』の発展段階モデルが取り入れられています。CALプログラム自体も、2015〜2016年にかけてPete Behrens氏らScrum Alliance関係者によって設計されており、この理論を土台の一つとしています。</p>
@@ -425,7 +425,7 @@ class Cert done;`;
         <p>Expert・Achiever段階のリーダーシップは、タスク志向・結果志向であり、安定した環境では有効に機能します。しかし、変化が速く複雑な環境で組織全体を導くには、Catalyst段階以降に見られる「ビジョンの共有」「権限の分散」「集合知の活用」が不可欠になります。CAL1第1章は、この発展段階を自覚することが、アジャイルリーダーへの第一歩であると位置づけています。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>自分の意思決定を振り返り、「専門知識で押し切っていないか(Expert)」「目標達成だけを追っていないか(Achiever)」を定期的にセルフチェックする</li>
             <li>一足飛びにCatalyst段階を目指すのではなく、今の段階での強みを保ちながら、小さな場面から権限移譲やビジョン共有を試す</li>
@@ -434,7 +434,7 @@ class Cert done;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.researchgate.net/publication/23318406_Leadership_agility" target="_blank" rel="noopener">Leadership Agility: Five Levels of Mastery for Anticipating and Initiating Change(William B. Joiner, Stephen A. Josephs, 2006)</a></li>
             <li><a href="https://www.agileleadershipjourney.com/leadership-journey/leadership-agility" target="_blank" rel="noopener">What is Leadership Agility? | Agile Leadership Journey(5段階モデルの解説)</a></li>
@@ -445,7 +445,7 @@ class Cert done;`;
 
       <!-- ===================== 4. Four Agile Leader Behaviors ===================== -->
       <section id="four-agile-leader-behaviors">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" />SECTION 05</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 05</div>
         <h2>アジャイルリーダーの4つの重要な行動(ベストプラクティス集)</h2>
 
         <p>Scrum Allianceは、アジャイルリーダーに共通して見られる代表的な行動を4つに整理しています。これらは「アジャイルリーダーシップとは具体的に何をすることか」という問いへの実践的な答えであり、CAL1第1章の理解を行動レベルに落とし込むうえで重要な項目です。</p>
@@ -467,7 +467,7 @@ class Cert done;`;
         <h3>4.1 変化と不確実性をナビゲートする</h3>
         <p>市場や競合、消費者行動は予測しづらく変化し続けます。アジャイルリーダーは、あらかじめ立てた計画に固執せず、必要に応じて計画を柔軟に組み替える姿勢を持ちます。</p>
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>チームには「四半期先まで」の計画を、長期目標と紐づけた形で持たせる。その際、計画は状況に応じて変わりうることをステークホルダーにも明確に伝える</li>
             <li>四半期計画を1〜2週間ごとにステークホルダーと見直し、市場状況や顧客からのフィードバックに基づいて修正する場を設ける</li>
@@ -478,7 +478,7 @@ class Cert done;`;
         <h3>4.2 チームを信頼する</h3>
         <p>アジャイルチームは、複雑な問題を自律的に解決し、迅速に方向転換できる能力を持っています。アジャイルリーダーは、意思決定・問題解決・フィードバックへの対応をチームに委ねる文化を組織に根づかせる役割を担います。</p>
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>スプリントゴールなど、チームが自ら設定した目標に集中できるよう支援する</li>
             <li>部下に求める成果の「基準」を明確に伝えたうえで、進め方は本人たちに任せる</li>
@@ -489,7 +489,7 @@ class Cert done;`;
         <h3>4.3 実験を奨励する文化を支援する</h3>
         <p>イノベーションは、失敗が許容される文化の中で生まれます。アジャイルリーダーは、すべての実験が成功するとは限らないという前提に立ち、失敗を罰しない仕組みをつくります。</p>
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>リスクの低いプロジェクトから実験を始められるようにする</li>
             <li>小さく安価な実験からスタートし、成果が出た場合にのみ規模を拡大する(コストとリスクの抑制)</li>
@@ -500,7 +500,7 @@ class Cert done;`;
         <h3>4.4 スキル開発を提唱する</h3>
         <p>アジャイルリーダーは、自らのチームが専門性を高め続けられるよう、コーチングやメンタリング、成長機会の提供に力を注ぎます。</p>
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>自分に知見がある領域については、定期的な1on1コーチングの機会を設ける</li>
             <li>本来の職務範囲を超えた挑戦を認め、越境的な学びを後押しする</li>
@@ -509,7 +509,7 @@ class Cert done;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://resources.scrumalliance.org/Article/makes-agile-leader" target="_blank" rel="noopener">What Makes You an Agile Leader? | Scrum Alliance(4つの行動の一次情報)</a></li>
           </ul>
@@ -518,7 +518,7 @@ class Cert done;`;
 
       <!-- ===================== 5. CAL1 Course Structure ===================== -->
       <section id="cal1-course-structure">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-calendar-event" />SECTION 06</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:calendar-event" aria-hidden="true" />SECTION 06</div>
         <h2>CAL1コースの構成を理解する(実務情報)</h2>
 
         <p>第1章の内容がコース全体でどう展開されるかを知っておくと、学習の見通しが立てやすくなります。</p>
@@ -540,7 +540,7 @@ class Cert done;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p><strong>※ 注記: 全CAL1コース共通の要件と、提供元ごとに異なる運営情報の区別。</strong>Scrum Allianceが全CAL1コース共通として定めているのは、<strong>合計16時間のライブ学習</strong>・<strong>試験なしの出席型認定</strong>・<strong>必須の前提条件なし</strong>・<strong>認定の2年間有効期間とSEUによる更新</strong>である。一方、<strong>事前学習の有無・分量、教材(ワークブック)の提供、Day 1とDay 2の日程構成</strong>は認定トレーナー・研修提供元ごとに異なる。上表の※付き項目と下図は<strong>PM-Partnersの提供例</strong>であり、全コース共通の要件ではない。受講前に各提供元の案内を確認すること。</p>
         </div>
 
@@ -566,12 +566,12 @@ class Cert done;`;
         </ul>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p>CAL1は「Scrum masters(スクラムマスター)」「Leaders(リーダー)」「Managers(マネージャー)」「Senior directors(シニアディレクター)」「C-suite executives(経営幹部)」「Coaches and consultants(コーチ・コンサルタント)」など、人を率いる、または率いたいと考えるすべての人を対象としています。</p>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1™) | Scrum Alliance 公式ページ</a></li>
             <li><a href="https://www.pm-partners.com.au/course/certified-agile-leader/" target="_blank" rel="noopener">Certified Agile Leader® 1 (CAL 1) | PM-Partners(Day1とDay2の内容構成)</a></li>
@@ -581,7 +581,7 @@ class Cert done;`;
 
       <!-- ===================== 6. Step-by-Step Roadmap ===================== -->
       <section id="step-by-step-roadmap">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-route" />SECTION 07</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 07</div>
         <h2>初学者向け: 第1章をステップバイステップで学ぶロードマップ</h2>
 
         <p>CAL1第1章の内容を体系立てて自分のものにするための学習ステップです。順番に取り組むことを推奨します。</p>
@@ -601,7 +601,7 @@ class Cert done;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li>一度にすべての行動を変えようとせず、まずは1つの行動に絞って小さく始める</li>
             <li>学んだ内容を自分の言葉でチームに説明してみることで、理解の抜け漏れに気づきやすくなる</li>
@@ -612,7 +612,7 @@ class Cert done;`;
 
       <!-- ===================== 7. Understanding Checklist ===================== -->
       <section id="understanding-checklist">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-check" />SECTION 08</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 08</div>
         <h2>理解度チェックリスト</h2>
 
         <p>次の問いに自分の言葉で答えられれば、第1章の要点を押さえられています。</p>
@@ -627,7 +627,7 @@ class Cert done;`;
 
       <!-- ===================== 8. Summary ===================== -->
       <section id="summary">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" />SECTION 09</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 09</div>
         <h2>まとめ</h2>
 
         <ul>
@@ -641,7 +641,7 @@ class Cert done;`;
 
       <!-- ===================== 9. References ===================== -->
       <section id="references">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" />SECTION 10</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 10</div>
         <h2>参考文献・ソース一覧</h2>
 
         <div class="ref-group">
