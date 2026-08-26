@@ -44,7 +44,8 @@
     "audit:mythical-man-month": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Mythical-man-month-guide.html app/pages/mythical-man-month-guide.vue",
     "audit:radical-candor": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Radical-candor-guide/Radical-candor-guide.html app/pages/radical-candor-guide.vue",
     "audit:cal1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/The-Case-for-Agile-Leadership/The-Case-for-Agile-Leadership.html app/pages/the-case-for-agile-leadership.vue",
-    "audit:scrum-events": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-events-csm-guide/Scrum-events-csm-guide.html app/pages/scrum-events-csm-guide.vue"
+    "audit:scrum-events": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-events-csm-guide/Scrum-events-csm-guide.html app/pages/scrum-events-csm-guide.vue",
+    "audit:no-rules-rules": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs No-rules-rules-guide.html app/pages/no-rules-rules-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
