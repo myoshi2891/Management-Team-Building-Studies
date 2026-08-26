@@ -150,18 +150,13 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
       expect(ids.filter((id) => !id)).toEqual([]);
       expect(new Set(ids).size).toBe(ids.length);
 
-      const headingIds = new Set(
-        wrapper
-          .findAll("h2, h3")
-          .map((el) => el.attributes("id") || el.element.closest("section")?.id)
-          .filter((id): id is string => Boolean(id)),
-      );
+      const allIds = new Set(ids);
       // スキップリンクは見出しではなく main#main-content を指すため対象外
       // （着地点の検証は各ページの A-1 / A-2 契約で行う）。
       const unresolved = wrapper
         .findAll("a[href^='#']:not(.skip-link)")
         .map((el) => (el.attributes("href") ?? "").slice(1))
-        .filter((id) => !headingIds.has(id));
+        .filter((id) => !allIds.has(id));
       expect(unresolved).toEqual([]);
     });
   });

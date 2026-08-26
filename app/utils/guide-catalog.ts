@@ -333,6 +333,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/agile-leadership-in-action",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL1 第2章",
+    title: "実践におけるリーダーシップ(Agile Leadership in Action)",
+    description: "Scrum Alliance CAL1(Certified Agile Leader 1)のドメイン2「Agile Leadership in Action」を初学者向けに解説。SLII・Leadership Agility・Servant Leadershipなどのフレームワーク、GROWモデルによるコーチング、SBIフィードバック、心理的安全性をMermaid図解と表で整理し、出典URLを明記。",
+    meta: "10セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/cal1-chapter3-leading-agile-teams",
     categoryId: "project-management",
     seriesId: "scrum",

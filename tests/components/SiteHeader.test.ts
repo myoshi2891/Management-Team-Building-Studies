@@ -276,6 +276,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-97-things-guide",
       "/cal1-certified-agile-leader-1-guide",
       "/the-case-for-agile-leadership",
+      "/agile-leadership-in-action",
       "/cal1-chapter3-leading-agile-teams",
       "/cal2-part1-organizational-strategy-and-delivery",
       "/cal2-certified-agile-leader-2-study-guide",
