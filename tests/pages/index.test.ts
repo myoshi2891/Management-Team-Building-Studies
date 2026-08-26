@@ -211,6 +211,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Radical Candor 完全ガイド ― 初学者のための実践フレームワーク",
+        category: "TEAM CULTURE",
+        href: "/radical-candor-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Team Topologies 実践ガイド",
         category: "TEAM DESIGN",
         href: "/team-topologies-guide",
@@ -248,7 +254,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "13 ガイド", cards: 13 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
-      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "6 ガイド", cards: 6 },
+      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "7 ガイド", cards: 7 },
     ]);
   });
 
