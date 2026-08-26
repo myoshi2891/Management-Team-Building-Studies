@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド | Certified Agile Leader 2</title>
+<meta name="description" content="Certified Agile Leader 2 (CAL2) Part 2「Developing as a Leader」を初学者向けに解説。Growth Mindset、Situational Leadership II、Crucial Conversations、Radical Candor、Leadership Pipeline、RAPIDなど6つのフレームワークをステップバイステップで学ぶ学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">CAL2 Part 2 ガイド</div>
+        <div class="brand-subtitle">Developing as a Leader</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#guide-overview"><i class="ti ti-certificate"></i>本ガイドの位置づけ</a></li>
+      <li><a href="#overcoming-growth-obstacles"><i class="ti ti-seedling"></i>2.1 成長の障壁</a></li>
+      <li><a href="#personalized-leadership-approach"><i class="ti ti-compass"></i>2.2 リーダーシップスタイル</a></li>
+      <li><a href="#difficult-conversations"><i class="ti ti-messages"></i>2.3 困難な対話</a></li>
+      <li><a href="#giving-receiving-feedback"><i class="ti ti-message-dots"></i>2.4 フィードバック</a></li>
+      <li><a href="#managing-people-challenges"><i class="ti ti-users"></i>2.5 メンバーマネジメント</a></li>
+      <li><a href="#delegation-decision-making"><i class="ti ti-scale"></i>2.6 権限移譲と意思決定</a></li>
+      <li><a href="#framework-integration-summary"><i class="ti ti-flag-3"></i>まとめ</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・ソース一覧</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum Alliance公式カリキュラムに基づく解説</div>
+      <h1>CAL2 Part 2: リーダーとしての成長(Developing as a Leader)</h1>
+      <p class="hero-lede">
+        本ガイドは Scrum Alliance 公式ページ(CAL 2 - Certified Agile Leader 2)に掲載されている公式カリキュラムの Part 2「Developing as a Leader」を、初学者向けにステップバイステップで詳しく解説するものです。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Part 2 の学習目標</div></div>
+        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">解説する中心フレームワーク</div></div>
+        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">掲載Mermaid図解</div></div>
+        <div class="stat-card"><div class="stat-number">19</div><div class="stat-label">参照した一次情報源URL</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは教育・学習支援を目的とした非公式の解説資料です。CAL2 Part 1(別ファイルのCAL2 Part 1ガイド)およびCAL1 全4章の学習内容を前提としています。受講にあたっては、必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>および認定トレーナーが提供する公式カリキュラムで最新情報をご確認ください。
+      </div>
+    </div>
+
+    <!-- ===================== 00. Guide Overview ===================== -->
+    <section id="guide-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>本ガイドの位置づけと学習目標</h2>
+
+      <p>本ガイドは Scrum Alliance 公式ページ(<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2 - Certified Agile Leader 2</a>)に掲載されている公式カリキュラムの<strong>Part 2「Developing as a Leader」</strong>を、初学者向けにステップバイステップで詳しく解説するものです。</p>
+
+      <p>CAL2 の公式カリキュラムは2部構成で、Part 1「Organizational Strategy and Delivery」は別ファイル(CAL2 Part 1 ガイド)で扱っています。本ガイドはその続編にあたり、CAL1(4章構成)と CAL2 Part1 で学んだ内容を土台に、<strong>「組織を動かす前に、まず自分自身がどう成長し、どう振る舞うリーダーであるか」</strong>を扱います。</p>
+
+      <p>公式サイトの説明によれば、CAL2 全体は次の3領域を学びます: <strong>Organizational structure and design(組織構造と設計)</strong>、<strong>Value and metrics(価値とメトリクス)</strong>、そして本ガイドが扱う<strong>Leadership competencies(リーダーシップコンピテンシー)</strong>=「自分自身のリーダーシップ開発に焦点を当て、人々をエンパワーし、チームダイナミクスを改善し、組織の成果を達成できるようになること」です。</p>
+
+      <h3>CAL2 公式カリキュラムにおける Part 2 の位置づけ</h3>
+
+      <p>Scrum Alliance の公式ページでは、CAL2 のコースは次の2セクションで構成されると明記されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>セクション</th><th>主題</th><th>本ガイドでの扱い</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Part 1: Organizational Strategy and Delivery</td><td>ミッション・ビジョン・価値観、組織戦略とアジリティ、組織構造と顧客価値提供、チェンジマネジメントの誤解、変革を導くツール</td><td>別ファイルで解説済み</td></tr>
+            <tr><td><strong>Part 2: Developing as a Leader</strong></td><td><strong>個人の成長、パーソナライズされたリーダーシップ、困難な対話、フィードバック、人材マネジメントの課題、権限移譲と意思決定</strong></td><td><strong>本ガイドで解説</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>公式サイトの記載を要約すると、Part 2 の学習項目は次の6つです(<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">出典: Scrum Alliance CAL2 公式ページ</a>)。</p>
+
+      <ol>
+        <li>Overcome common obstacles to personal growth(個人の成長を阻む一般的な障壁を克服する)</li>
+        <li>Develop your personalized leadership approach(自分自身のリーダーシップアプローチを開発する)</li>
+        <li>Communicate strategies during difficult conversations(困難な対話における伝え方の戦略)</li>
+        <li>Deliver and receive feedback(フィードバックを与え、受け取る)</li>
+        <li>Understand challenges leaders face when managing people and approaches to overcoming those challenges(リーダーが人材マネジメントで直面する課題とその克服アプローチを理解する)</li>
+        <li>Discover how collaborative leaders handle delegation and decision-making(コラボレーティブなリーダーがどのように権限移譲と意思決定を扱うかを知る)</li>
+      </ol>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>詳細な学習目標(Learning Objectives)は Scrum Alliance が<a href="https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view?usp=drive_link" target="_blank" rel="noopener">Google Drive上のPDF</a>として公開しています。ただし改訂される可能性があるため、受講前に最新版を確認してください。本ガイドは公式Webページの記述と、各フレームワークの一次情報源(原著・提唱組織の公式サイト)に基づいて構成しています。</p>
+      </div>
+
+      <h3>このガイドの読み方</h3>
+
+      <p>CAL1 で学んだ「チームを率いる(Leading Agile Teams)」「組織を率いる(Leading Agile Organizations)」というスキルは、あくまで<strong>他者や組織に向けた</strong>リーダーシップでした。CAL2 Part 2 はその前提として、<strong>リーダー自身の内面的な成長・スタイル・対話力・判断力</strong>を扱います。各セクションは以下の共通フォーマットで構成されています。</p>
+
+      <ul>
+        <li><strong>概要:</strong>何を学ぶか、なぜ重要か</li>
+        <li><strong>ステップバイステップ解説:</strong>実務でどう使うか</li>
+        <li><strong>図解(Mermaid):</strong>構造を可視化</li>
+        <li><strong>ベストプラクティス:</strong>現場での適用のコツ</li>
+        <li><strong>参考文献・ソース:</strong>一次情報源へのリンク</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 01. Overcoming Obstacles to Growth ===================== -->
+    <section id="overcoming-growth-obstacles">
+      <div class="section-eyebrow"><i class="ti ti-seedling"></i>SECTION 02</div>
+      <h2>2.1 個人の成長を阻む障壁を乗り越える(Overcoming Obstacles to Growth)</h2>
+
+      <p>アジャイルリーダーは、他者の成長を支援する前に、自分自身がどのように学び、失敗から回復し、挑戦し続けるかを理解している必要があります。CAL2 Part 2 の最初のテーマは、<strong>自分の成長を止めているのは何か</strong>を明らかにすることです。</p>
+
+      <p>ここで中核となるのが、スタンフォード大学の心理学者<strong>Carol Dweck</strong>が提唱した<strong>Growth Mindset(成長マインドセット)</strong>と<strong>Fixed Mindset(固定マインドセット)</strong>の概念です。Dweck の研究によれば、人は「能力や知性は生まれつき固定されている」と考える固定マインドセットか、「能力や知性は努力によって伸ばせる」と考える成長マインドセットのどちらかの傾向を持ち、これが挑戦への向き合い方、失敗からの立ち直り方、そして最終的な成果に大きな影響を与えます(<a href="https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset" target="_blank" rel="noopener">出典: Harvard Business School Online</a>)。</p>
+
+      <p>また、CAL2 Part 1 で学んだ<strong>Kegan &amp; Lahey の Immunity to Change(変化への免疫)</strong>の考え方もここで再登場します。「変わりたいのに変われない」のは意志の弱さではなく、変化を妨げる<strong>無意識の裏の目標(competing commitment)</strong>が存在するからだ、という視点は、組織変革だけでなく個人の成長にもそのまま当てはまります。</p>
+
+      <h3>ステップバイステップ解説</h3>
+      <ol class="step-list">
+        <li><div class="step-num">1</div><div class="step-body"><div class="step-title">自分のデフォルトの反応パターンに気づく</div><div class="step-desc">困難な課題、批判、他者の成功を目にしたときに、自分がどう反応しがちかを観察します。「これは自分には向いていない」「才能がある人にはかなわない」といった思考が浮かぶなら、それは固定マインドセットのシグナルです。</div></div></li>
+        <li><div class="step-num">2</div><div class="step-body"><div class="step-title">トリガーとなる場面を特定する</div><div class="step-desc">固定マインドセットが顔を出しやすい具体的な状況(例: 新しい技術領域への挑戦、公開の場でのフィードバック、自分より若いメンバーの活躍)をリストアップします。</div></div></li>
+        <li><div class="step-num">3</div><div class="step-body"><div class="step-title">"Not Yet"(まだできていないだけ)という言葉を導入する</div><div class="step-desc">「私にはこれができない」を「私にはこれが<strong>まだ</strong>できていない」に置き換える練習をします。これは単なる言葉遊びではなく、失敗を「固定された能力の証明」ではなく「学習の途中経過」として再解釈するための思考の型です。</div></div></li>
+        <li><div class="step-num">4</div><div class="step-body"><div class="step-title">Immunity to Change マップで裏の目標を可視化する(CAL2 Part1 参照)</div><div class="step-desc">「成長したい」という改善目標に対して、実際には無意識にそれを妨げる行動を取っていないか、その裏にどんな「裏の目標」と「強力な思い込み」があるかを書き出します。例えば「もっと権限移譲したい」という目標の裏に「自分が手を離すと信頼を失う」という思い込みが隠れているケースなどです。</div></div></li>
+        <li><div class="step-num">5</div><div class="step-body"><div class="step-title">小さな実験から始める</div><div class="step-desc">マインドセットを変えるのは一夜では不可能です。リスクの低い場面で「まだできていないことに挑戦する」小さな実験を重ね、結果を観察します。</div></div></li>
+        <li><div class="step-num">6</div><div class="step-body"><div class="step-title">フィードバックループを作り、振り返る</div><div class="step-desc">実験の結果を定期的に振り返り、何が学べたか、次にどう調整するかを言語化する習慣を持ちます。これは 2.4 で扱うフィードバック文化とも密接に関係します。</div></div></li>
+      </ol>
+
+      <h3>図解: Fixed Mindset と Growth Mindset の分岐</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="growthMindsetCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">課題や失敗への解釈が、固定マインドセットと成長マインドセットのどちらの循環を強化するかを示す図</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>努力・プロセスを称賛し、固定的な能力を称賛しない。</strong>「頭がいいね」ではなく「粘り強く試行錯誤したね」と伝える。これはメンバーへのフィードバックにも、自分自身への内的対話にも当てはまります。</li>
+          <li><strong>失敗を「データ」として扱う言語を組織に導入する。</strong>CAL1 で学んだ心理的安全性(Google Project Aristotle)の土台の上に、失敗を学習機会として扱う語彙(例: ふりかえりでの「実験」「仮説」という言葉遣い)を根付かせる。</li>
+          <li><strong>"Not Yet" を自分とチームの両方に適用する。</strong>個人の成長だけでなく、チームの能力開発の会話でも使う。</li>
+          <li><strong>Immunity to Change マップを定期的に見直す。</strong>一度書いて終わりにせず、四半期ごとなど定期的に「裏の目標」が変化していないか確認する。</li>
+          <li><strong>リーダー自身が弱さ・学習過程を見せる(Model vulnerability)。</strong>リーダーが「まだ学んでいる最中だ」と率直に語ることで、メンバーも安心して挑戦できる文化が生まれます。</li>
+          <li><strong>小さく安全な実験から始める。</strong>いきなり大きな挑戦をするのではなく、失敗してもリスクの低い場で新しい行動を試す。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><span class="ref-name">Dweck, C. (2006). Mindset: The New Psychology of Success. Random House.</span></li>
+          <li><a href="https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset" target="_blank" rel="noopener">Harvard Business School Online — Growth Mindset vs. Fixed Mindset: What's the Difference?</a></li>
+          <li><a href="https://www.mindtools.com/asbakxx/dwecks-fixed-and-growth-mindsets/" target="_blank" rel="noopener">MindTools — Dweck's Fixed and Growth Mindsets</a></li>
+          <li><span class="ref-name">Kegan, R., &amp; Lahey, L. L. (2009). Immunity to Change. Harvard Business Press.(詳細はCAL2 Part 1 ガイドを参照)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 02. Personalized Leadership Approach ===================== -->
+    <section id="personalized-leadership-approach">
+      <div class="section-eyebrow"><i class="ti ti-compass"></i>SECTION 03</div>
+      <h2>2.2 自分自身のリーダーシップスタイルを確立する(Developing a Personalized Leadership Approach)</h2>
+
+      <p>「唯一の正しいリーダーシップスタイル」は存在しません。CAL2 Part 2 のこのテーマでは、<strong>状況(部下の発達段階)に応じてスタイルを切り替える</strong>という考え方を中心に学びます。ここで使う代表的な2つのフレームワークが、<strong>Situational Leadership II(SLII)</strong>(Paul Hersey と Ken Blanchard が開発し、その後 Blanchard が発展させたモデル)と、<strong>Daniel Goleman の Six Leadership Styles(6つのリーダーシップスタイル)</strong>です。</p>
+
+      <p>SLII は、部下の「発達段階(Development Level)」を診断し、それに応じて「指示」と「支援」の配分を変えるという考え方です。Ken Blanchard Companies の公式解説によれば、この考え方の根底には「人は成長したい・成長できると信じている」という前提があり、唯一最良のリーダーシップスタイルは存在しないとされています(<a href="https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership" target="_blank" rel="noopener">出典: Blanchard 公式</a>)。</p>
+
+      <p>一方 Goleman は、感情的知性(Emotional Intelligence)研究に基づき、リーダーが使い分けるべき<strong>6つのスタイル</strong>(Coercive/Commanding、Authoritative/Visionary、Affiliative、Democratic、Pacesetting、Coaching)を提示しました。3,000人超の管理職の調査から、最も効果的なリーダーは1つのスタイルに固執せず、状況に応じて複数のスタイルを使い分けていることが分かっています(<a href="https://hbr.org/2000/03/leadership-that-gets-results" target="_blank" rel="noopener">出典: HBR "Leadership That Gets Results"</a>)。</p>
+
+      <h3>ステップバイステップ解説</h3>
+      <ol class="step-list">
+        <li><div class="step-num">1</div><div class="step-body"><div class="step-title">自分のデフォルトスタイルへの自己認識を持つ</div><div class="step-desc">まず、自分が無意識に頼りがちなリーダーシップスタイル(Goleman の6分類のどれに近いか)を把握します。</div></div></li>
+        <li><div class="step-num">2</div><div class="step-body"><div class="step-title">タスクごとに部下の発達段階(D-Level)を診断する</div><div class="step-desc">SLII では、部下は「人」としてではなく「特定のタスク・目標に対して」発達段階が異なると考えます。診断軸は「Competence(能力)」と「Commitment(コミットメント・意欲)」の2つです。D1: Enthusiastic Beginner(低い能力・高いコミットメント)、D2: Disillusioned Learner(一定の能力があるが、コミットメントが低下)、D3: Capable but Cautious Performer(能力はあるが、自信やコミットメントが不安定)、D4: Self-Reliant Achiever(高い能力・高いコミットメント)の4段階です。</div></div></li>
+        <li><div class="step-num">3</div><div class="step-body"><div class="step-title">発達段階に対応するリーダーシップスタイルを選ぶ</div><div class="step-desc">S1: Directing(指示型、高指示・低支援、D1に対応)、S2: Coaching(コーチ型、高指示・高支援、D2に対応)、S3: Supporting(支援型、低指示・高支援、D3に対応)、S4: Delegating(委任型、低指示・低支援、D4に対応)の4スタイルを使い分けます。</div></div></li>
+        <li><div class="step-num">4</div><div class="step-body"><div class="step-title">Goleman の6スタイルを状況の温度感に応じて切り替える</div><div class="step-desc">Coercive/Commanding(危機対応など即時の服従が必要な場面。多用すると組織の雰囲気を著しく悪化させる)、Authoritative/Visionary(方向性を示し「一緒に来てほしい」と伝える。最も一貫してポジティブな効果を持つ)、Affiliative(人を最優先し、信頼関係とチームの調和を作る)、Democratic(合意形成を通じてコミットメントを引き出す)、Pacesetting(自ら高い基準を示し追随を求める。多用すると疲弊を招きやすい)、Coaching(長期的な成長支援に焦点を当てる)の6つです。</div></div></li>
+        <li><div class="step-num">5</div><div class="step-body"><div class="step-title">同一人物でもタスクによってスタイルを変える</div><div class="step-desc">ベテランメンバーでも、未経験の新領域に挑戦するときは D1〜D2 になり得ます。「あの人はいつも自立している」という固定観念を捨て、タスクごとに再診断します。</div></div></li>
+        <li><div class="step-num">6</div><div class="step-body"><div class="step-title">継続的にキャリブレーション(再調整)する</div><div class="step-desc">1on1などの場で、部下自身が今どのレベルにいると感じているかを一緒に確認し、リーダー側の認識とズレがないかすり合わせます。</div></div></li>
+      </ol>
+
+      <h3>図解: 発達段階とリーダーシップスタイルのマッチング</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="developmentLevelMapping"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">SLIIにおける部下の発達段階(D1〜D4)と、それぞれに対応するリーダーシップスタイル(S1〜S4)の対応関係を示す図</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「人」ではなく「タスク」に対して発達段階を診断する。</strong>同じ人でもタスクごとにD-Levelは変わります。</li>
+          <li><strong>Goleman の6スタイルを週単位で複数使い分ける。</strong>研究上、最も高い成果を出すリーダーは1つのスタイルに依存していません。</li>
+          <li><strong>Coercive/Pacesetting は短期・限定的に。</strong>組織の雰囲気に負の影響を与えやすいため、危機対応や専門性の高いチームへの限定利用にとどめる。</li>
+          <li><strong>Visionary(Authoritative)・Coaching・Affiliative・Democratic を基本の主軸にする。</strong>長期的な組織風土への好影響が確認されているスタイル群です。</li>
+          <li><strong>定期的にD-Levelのすり合わせを行う。</strong>1on1で「このタスクについて、今どのくらい自信がありますか」と直接尋ねる。</li>
+          <li><strong>自分の「快適ゾーン」を自覚する。</strong>無意識に頼りがちなスタイルを自覚し、意図的に他のスタイルも練習する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership" target="_blank" rel="noopener">Blanchard 公式 — A Situational Approach to Leadership | Blanchard's SLII</a></li>
+          <li><a href="https://situational.com/blog/the-history-of-the-situational-leadership-framework/" target="_blank" rel="noopener">The Center for Leadership Studies — The History of the Situational Leadership Framework</a></li>
+          <li><a href="https://hbr.org/2000/03/leadership-that-gets-results" target="_blank" rel="noopener">Harvard Business Review — Leadership That Gets Results(Daniel Goleman, 2000)</a></li>
+          <li><span class="ref-name">Hersey, P., &amp; Blanchard, K. (1982). Management of Organizational Behavior: Utilizing Human Resources.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 03. Difficult Conversations ===================== -->
+    <section id="difficult-conversations">
+      <div class="section-eyebrow"><i class="ti ti-messages"></i>SECTION 04</div>
+      <h2>2.3 困難な対話を乗りこなす(Difficult Conversations)</h2>
+
+      <p>リーダーシップの実務において最も避けられがちなのが「困難な対話」です。CAL2 Part 2 では、これを体系的に扱うフレームワークとして<strong>Crucial Conversations</strong>(Kerry Patterson、Joseph Grenny、Ron McMillan、Al Switzler らによって開発され、現在は Crucial Learning 社が提供)を用います。</p>
+
+      <p>Crucial Conversations は「クルーシャル(決定的)な対話」を「<strong>利害関係が大きく(stakes are high)、意見が対立し(opinions vary)、感情が強く動く(emotions run strong)</strong>会話」と定義します(<a href="https://www.manager-tools.com/forums/crucial-conversations" target="_blank" rel="noopener">出典: Manager Tools による要約</a>)。このフレームワークの核心は、<strong>対話の質がそのまま人生・キャリア・組織の成果の質を決める</strong>という前提のもと、感情が高ぶった状況でも「対話(dialogue)」を維持し続けるための具体的なスキルセットを提供する点にあります。</p>
+
+      <h3>ステップバイステップ解説</h3>
+      <p>Crucial Conversations の手法は、大きく「対話に入る前の準備」と「対話中の実践」に分かれます。</p>
+      <ol class="step-list">
+        <li><div class="step-num">1</div><div class="step-body"><div class="step-title">Start with Heart(自分の本心から始める)</div><div class="step-desc">対話に入る前に「自分は本当は何を望んでいるのか」「相手・関係性・自分自身にとって何を望んでいるのか」を明確にします。「相手を言い負かしたい」という衝動と「良い結果を得たい」という本当の目的を混同しないようにします。</div></div></li>
+        <li><div class="step-num">2</div><div class="step-body"><div class="step-title">Learn to Look(兆候に気づく)</div><div class="step-desc">会話が「クルーシャル」な状態に入った兆候(沈黙: 話すのをやめる / 防御的になる、または暴力: 相手を圧倒しようとする・感情的に攻撃する)を、自分自身とその場全体の両方で観察します。</div></div></li>
+        <li><div class="step-num">3</div><div class="step-body"><div class="step-title">Make It Safe(安全を作る)</div><div class="step-desc">対話が脱線し始めたら、内容そのものより先に「心理的安全」を回復させます。Mutual Purpose(共通の目的)とMutual Respect(相互の敬意)が失われていないかを確認し、必要であれば一旦本題から離れて安全を再構築します。</div></div></li>
+        <li><div class="step-num">4</div><div class="step-body"><div class="step-title">Master My Stories(自分のストーリーを制御する)</div><div class="step-desc">人は事実を観察した瞬間に、無意識に「解釈(ストーリー)」を付け加えます。「彼は私を無視した」という解釈と、「彼は会議中に3回私の発言に応答しなかった」という事実を意識的に切り分けます。</div></div></li>
+        <li><div class="step-num">5</div><div class="step-body"><div class="step-title">STATE My Path(自分の考えを伝える)</div><div class="step-desc">自分の見解を安全に伝えるための頭字語です。Share your facts(事実を共有する)、Tell your story(自分の解釈を伝える)、Ask for others' paths(相手の見解を尋ねる)、Talk tentatively(断定せず、暫定的に話す)、Encourage testing(反論を歓迎する)の5つで構成されます。</div></div></li>
+        <li><div class="step-num">6</div><div class="step-body"><div class="step-title">Explore Others' Paths(相手の見解を引き出す)</div><div class="step-desc">AMPP(Ask: 尋ねる、Mirror: 感情を映し返す、Paraphrase: 言い換えて確認する、Prime: 呼び水を出す)を使って、相手が安心して本音を話せるようにします。</div></div></li>
+        <li><div class="step-num">7</div><div class="step-body"><div class="step-title">Move to Action(行動へつなげる)</div><div class="step-desc">対話の最後に「誰が」「何を」「いつまでに」行うかを明確にし、フォローアップの方法を合意します(2.6 の RAPID の Perform とも接続します)。</div></div></li>
+      </ol>
+
+      <h3>図解: Crucial Conversations のダイアログサイクル</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="crucialConversationsCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">安全性の確認を起点に、事実とストーリーの分離から行動の合意へと至るCrucial Conversationsの対話サイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>クルーシャルな対話を早期に認識する。</strong>利害・意見の相違・感情の強さの3条件が揃った瞬間に、通常の会話モードから切り替える。</li>
+          <li><strong>自分の中の沈黙・暴力のシグナルに気づく。</strong>話すのをやめる / 皮肉を言う / 相手を説得しようと圧をかける、といった自分の癖を事前に把握しておく。</li>
+          <li><strong>事実とストーリーを分けてから話す。</strong>感情的になる前に「観察できた事実は何か」を一度書き出す習慣をつける。</li>
+          <li><strong>断定的な言い方を避ける。</strong>「あなたは〜だ」ではなく「私には〜のように見えたのですが、どうでしたか」と暫定的に話す。</li>
+          <li><strong>Pool of Shared Meaning を先に作ってから結論を出す。</strong>結論を急がず、双方の情報・見解が出揃うまで対話を続ける。</li>
+          <li><strong>対話の最後は必ず行動の合意で締める。</strong>「良い話し合いだった」で終わらせず、具体的な次のアクションと期限を確認する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><span class="ref-name">Patterson, K., Grenny, J., McMillan, R., Switzler, A., &amp; Gregory, E. (2021). Crucial Conversations: Tools for Talking When Stakes Are High(3rd ed.). McGraw-Hill.</span></li>
+          <li><a href="https://cruciallearning.com/books/crucial-conversations-book/" target="_blank" rel="noopener">Crucial Learning 公式 — Crucial Conversations Free Book Resources</a></li>
+          <li><a href="https://www.cruciallearning.com/blog/" target="_blank" rel="noopener">Crucial Learning 公式ブログ</a></li>
+          <li><a href="https://www.manager-tools.com/forums/crucial-conversations" target="_blank" rel="noopener">Manager Tools — Crucial Conversations(書籍要約)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 04. Giving and Receiving Feedback ===================== -->
+    <section id="giving-receiving-feedback">
+      <div class="section-eyebrow"><i class="ti ti-message-dots"></i>SECTION 05</div>
+      <h2>2.4 フィードバックを与え、受け取る(Giving and Receiving Feedback)</h2>
+
+      <p>CAL1 の Chapter 3 では、<strong>CCL(Center for Creative Leadership)の SBI(Situation-Behavior-Impact)モデル</strong>を学びました。CAL2 Part 2 ではこれをさらに発展させ、<strong>Kim Scott の Radical Candor(ラディカル・キャンダー)</strong>というフィードバックの「姿勢・文化」に関するフレームワークと組み合わせます。</p>
+
+      <p>Radical Candor は、フィードバックを<strong>Care Personally(相手を個人として気にかける)</strong>と<strong>Challenge Directly(率直に挑戦する・指摘する)</strong>という2つの軸で捉える2×2モデルです。この2軸が共に高い状態が「Radical Candor」であり、そこから外れると次の3つの機能不全パターンに陥ります(<a href="https://www.radicalcandor.com/our-approach" target="_blank" rel="noopener">出典: Radical Candor 公式</a>)。Care は高いが Challenge が低い<strong>Ruinous Empathy(破滅的な共感)</strong>は優しさのつもりが相手の成長機会を奪うパターンで、多くのマネージャーが最も陥りやすいとされます。Challenge は高いが Care が低い<strong>Obnoxious Aggression(不快な攻撃性)</strong>は率直だが人間味に欠け、Care も Challenge も低い<strong>Manipulative Insincerity(操作的な不誠実)</strong>は最も破壊的なパターンです。</p>
+
+      <p>また CCL は SBI モデルをさらに拡張し、<strong>SBI-I(Situation-Behavior-Impact-Intent)</strong>として「相手の意図(Intent)」を尋ねるステップを追加したモデルも提唱しています(<a href="https://www.ccl.org/articles/leading-effectively-articles/closing-the-gap-between-intent-vs-impact-sbii/" target="_blank" rel="noopener">出典: CCL 公式</a>)。これは、行動の「影響(Impact)」と相手の「意図(Intent)」の間にギャップがある場合に特に有効です。</p>
+
+      <h3>ステップバイステップ解説</h3>
+      <ol class="step-list">
+        <li><div class="step-num">1</div><div class="step-body"><div class="step-title">Care Personally と Challenge Directly の両軸を理解する</div><div class="step-desc">「優しいこと」と「率直であること」は対立するものではなく、両方を同時に満たすことがゴールだと理解します。</div></div></li>
+        <li><div class="step-num">2</div><div class="step-body"><div class="step-title">自分がどの象限に陥りやすいかを自己診断する</div><div class="step-desc">多くの新任マネージャーは、対立を避けるためにRuinous Empathy(気を遣いすぎて言うべきことを言わない)に陥りがちです。自分の癖を自覚します。</div></div></li>
+        <li><div class="step-num">3</div><div class="step-body"><div class="step-title">フィードバックは「求める」ことから始める(Solicit before you give)</div><div class="step-desc">いきなり指摘するのではなく、まず自分から「他にできること、やめるべきことはありますか」といった go-to question で率先してフィードバックを求め、信頼関係の土台を作ります。</div></div></li>
+        <li><div class="step-num">4</div><div class="step-body"><div class="step-title">SBI(-I)モデルで具体的に伝える(CAL1 Chapter 3 参照)</div><div class="step-desc">Situation(いつ、どこで起きたことか)、Behavior(観察された具体的な行動。解釈・評価を含めない)、Impact(その行動が与えた影響)を伝え、拡張として「その時、何を意図していましたか」とIntentを尋ね、ImpactとIntentのギャップを埋める対話に発展させます。</div></div></li>
+        <li><div class="step-num">5</div><div class="step-body"><div class="step-title">公開の場と個別の場を使い分ける</div><div class="step-desc">称賛は適切であれば公開の場でも構いませんが、改善に関するフィードバックは基本的に個別に、タイムリーに行います。</div></div></li>
+        <li><div class="step-num">6</div><div class="step-body"><div class="step-title">フィードバックを受け取る側の作法を身につける</div><div class="step-desc">防御的にならず、まず「ありがとう」と受け止め、咀嚼する時間を取ってから反応します。リーダー自身がこの姿勢を見せることが、組織のフィードバック文化を作ります。</div></div></li>
+        <li><div class="step-num">7</div><div class="step-body"><div class="step-title">1on1などの定常的な場に組み込み、年次評価だけに頼らない</div><div class="step-desc">フィードバックを特別なイベントではなく、日常的な習慣として定着させます。</div></div></li>
+      </ol>
+
+      <h3>図解: Radical Candor の2軸マトリクス</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="radicalCandorMatrix"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Care PersonallyとChallenge Directlyの2軸から生まれる4つのフィードバックパターンを示す図(左下から時計回りにManipulative Insincerity、Obnoxious Aggression、Radical Candor、Ruinous Empathy)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>与える前に、求める。</strong>自分からフィードバックを求める姿勢を見せることで、心理的なハードルを下げる。</li>
+          <li><strong>Ruinous Empathy を「優しさ」と混同しない。</strong>言うべきことを言わないのは、短期的には優しく見えても長期的には相手の成長を妨げます。</li>
+          <li><strong>SBI-I で「意図」まで踏み込む。</strong>特に相手をよく知らない場合や、行動の意図が曖昧な場合はIntentを尋ねるステップを省略しない。</li>
+          <li><strong>タイムリーに、具体的に。</strong>数週間前の出来事を漠然と伝えるのではなく、直近の具体的な状況を扱う。</li>
+          <li><strong>称賛にも同じ構造を使う。</strong>SBI(-I)は改善のためだけでなく、具体的で説得力のある称賛にも使えます。</li>
+          <li><strong>フィードバックを文化として定着させる。</strong>単発のイベントではなく、1on1やふりかえりなど定常的な場に組み込む。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><span class="ref-name">Scott, K. (2017). Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity. St. Martin's Press.</span></li>
+          <li><a href="https://www.radicalcandor.com/our-approach" target="_blank" rel="noopener">Radical Candor 公式 — Our Approach: Kim Scott's Feedback Framework</a></li>
+          <li><a href="https://www.radicalcandor.com/blog/what-is-radical-candor" target="_blank" rel="noopener">Radical Candor 公式ブログ — What is Radical Candor?</a></li>
+          <li><a href="https://www.ccl.org/articles/leading-effectively-articles/sbi-feedback-model-a-quick-win-to-improve-talent-conversations-development/" target="_blank" rel="noopener">Center for Creative Leadership(CCL) — SBI Feedback Model &amp; Talent Development Conversations</a></li>
+          <li><a href="https://www.ccl.org/articles/leading-effectively-articles/closing-the-gap-between-intent-vs-impact-sbii/" target="_blank" rel="noopener">Center for Creative Leadership(CCL) — Use SBI to Inquire About Intent</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 05. Challenges of Managing People ===================== -->
+    <section id="managing-people-challenges">
+      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 06</div>
+      <h2>2.5 メンバーマネジメントの課題を乗り越える(Challenges of Managing People)</h2>
+
+      <p>CAL2 Part 2 のこのテーマは、「なぜ人材マネジメントはこれほど難しいのか」を構造的に理解することを目的とします。ここで有用なのが、Ram Charan・Stephen Drotter・James Noel による<strong>The Leadership Pipeline(リーダーシップ・パイプライン)</strong>モデルです。このモデルは、リーダーがキャリアを通じて経験する<strong>6つの移行(Passage)</strong>を定義しており、その最初の移行こそが多くのアジャイルリーダーが直面する壁です。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>Passage One: Managing Self to Managing Others(自己管理から他者管理へ)</strong> — 個人としての成果で評価されてきた人が、初めて「他者を通じて成果を出す」責任を負う移行です。MindTools の解説によれば、これは6つの移行の中でも最も根本的な価値観の転換を要求するとされます(<a href="https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/" target="_blank" rel="noopener">出典: MindTools</a>)。</p>
+      </div>
+
+      <p>この移行がうまくいかない典型例が、<strong>「Superdoer(スーパー実務者)症候群」</strong>——マネージャーになっても自分でタスクを抱え込み続けてしまう状態——です。O'Reilly に収録されている書籍原文の要約でも、「新任マネージャーにとって最も難しいのは、自分自身の力ではなく他者を通じて成果を出す責任を負うことだ」と明記されています(<a href="https://www.oreilly.com/library/view/the-leadership-pipeline/9780787951726/ch02.html" target="_blank" rel="noopener">出典: O'Reilly</a>)。</p>
+
+      <h3>ステップバイステップ解説</h3>
+      <ol class="step-list">
+        <li><div class="step-num">1</div><div class="step-body"><div class="step-title">Passage One の本質を理解する: 3つの転換軸</div><div class="step-desc">Leadership Pipeline モデルでは、各移行を「Skills(スキル)」「Time Application(時間の使い方)」「Work Values(仕事の価値観)」の3軸で捉えます。Managing Self から Managing Others への移行では、計画・委任・コーチング・進捗管理・人選といった管理スキルを新たに獲得し(Skills)、自分の実務に使う時間を減らして部下の支援・調整に使う時間を増やし(Time Application)、「自分の専門性で成果を出す」ことの価値づけから「部下を通じて成果を出す」ことへの価値づけへ転換します(Work Values)。</div></div></li>
+        <li><div class="step-num">2</div><div class="step-body"><div class="step-title">Superdoer 症候群を自覚する</div><div class="step-desc">忙しいとき、自分でやった方が早いと感じて実務を抱え込んでいないかを振り返ります。これは2.6の権限移譲の失敗とも直結します。</div></div></li>
+        <li><div class="step-num">3</div><div class="step-body"><div class="step-title">元同僚をマネジメントする難しさに対処する</div><div class="step-desc">チーム内から昇進した場合、かつての同僚との関係性の再定義が必要です。早い段階で「役割が変わったこと」「今後どう協働したいか」を率直に対話します(2.3のクルーシャル・カンバセーションのスキルが活きる場面です)。</div></div></li>
+        <li><div class="step-num">4</div><div class="step-body"><div class="step-title">パフォーマンスが低いメンバーへの対応</div><div class="step-desc">期待値の明確化からSBI(-I)による具体的なフィードバック(2.4)、改善計画の合意、進捗のモニタリングという段階を踏みます。問題を先送りにせず、早期に率直な対話(2.3)を行うことが重要です。</div></div></li>
+        <li><div class="step-num">5</div><div class="step-body"><div class="step-title">多様なメンバーへの適応</div><div class="step-desc">世代、リモート / ハイブリッドの働き方、文化的背景の違いなど、画一的なマネジメントが通用しない状況が増えています。SLII(2.2)の「発達段階に応じたスタイル」という考え方は、こうした多様性への対応にも応用できます。</div></div></li>
+        <li><div class="step-num">6</div><div class="step-body"><div class="step-title">自分の時間配分を「実務者」から「イネーブラー」へシフトする</div><div class="step-desc">カレンダーを見直し、メンバーの育成・障害の除去・調整に使う時間を意図的に確保します。</div></div></li>
+      </ol>
+
+      <h3>図解: Managing Self から Managing Others への転換</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="managingSelfToOthers"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Skills・Time Application・Work Valuesの3軸の転換を経て、典型的な落とし穴を乗り越えFirst-Time Managerとして機能するまでのプロセス</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「自分でやった方が早い」という衝動を疑う。</strong>短期的な効率よりも、長期的なチームの能力構築を優先する。</li>
+          <li><strong>昇進直後に元同僚との関係を率直に対話する。</strong>曖昧なまま放置すると、後々の困難な対話(2.3)のコストが増大します。</li>
+          <li><strong>低パフォーマンスへの対応は早期・具体的に。</strong>期待値のズレを放置せず、SBI(-I)(2.4)で具体的に伝える。</li>
+          <li><strong>自分の時間の使い方を定期的に棚卸しする。</strong>カレンダーを見て「実務」と「他者支援」の比率を確認する。</li>
+          <li><strong>画一的なマネジメントを避ける。</strong>SLII(2.2)の考え方を応用し、メンバーごと・タスクごとに関わり方を変える。</li>
+          <li><strong>社会的契約(Social Contract)を意識的に築く。</strong>部下・上司・関連部署との間で、信頼に基づく開かれた対話ができる関係を意図的に構築する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><span class="ref-name">Charan, R., Drotter, S., &amp; Noel, J. (2001, rev. 2011). The Leadership Pipeline: How to Build the Leadership-Powered Company. Jossey-Bass.</span></li>
+          <li><a href="https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/" target="_blank" rel="noopener">MindTools — The Leadership Pipeline Model</a></li>
+          <li><a href="https://www.oreilly.com/library/view/the-leadership-pipeline/9780787951726/ch02.html" target="_blank" rel="noopener">O'Reilly — The Leadership Pipeline, Chapter 2 抜粋</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 06. Delegation and Decision-Making ===================== -->
+    <section id="delegation-decision-making">
+      <div class="section-eyebrow"><i class="ti ti-scale"></i>SECTION 07</div>
+      <h2>2.6 権限移譲と意思決定(Delegation and Decision-Making)</h2>
+
+      <p>CAL2 Part 2 の最後のテーマは、コラボレーティブなリーダーがどのように権限を移譲し、意思決定を行うかです。ここで中心となるのが、Bain &amp; Company の Paul Rogers と Marcia Blenko が開発した<strong>RAPID フレームワーク</strong>です。</p>
+
+      <p>RAPID は、複雑で複数部門にまたがる意思決定において「誰が何の役割を担うのか」を明確にするための語彙(vocabulary)です。Bain 公式によれば、意思決定の役割が明確な組織は、そうでない組織に比べて業績成長率が3倍以上高いという調査結果もあります(<a href="https://www.bain.com/insights/to-speed-up-rapid-adoption-slow-down/" target="_blank" rel="noopener">出典: Bain &amp; Company</a>)。</p>
+
+      <p>RAPID は次の5つの役割の頭文字です(<a href="https://www.bain.com/insights/rapid-decision-making/" target="_blank" rel="noopener">出典: Bain &amp; Company 公式</a>)。<strong>Recommend(推奨)</strong>: 選択肢を検討し、明確な推奨案を提示する役割。<strong>Agree(合意)</strong>: 限定的な拒否権(veto)を持つ役割。<strong>Perform(実行)</strong>: 決定を実行に移す役割。<strong>Input(入力)</strong>: 意見・情報を提供する役割。<strong>Decide(決定)</strong>: 最終決定を下し、組織にコミットさせる役割("Who has the D?")。</p>
+
+      <p>なお、R-A-P-I-D は実行順序ではなく<strong>役割の頭字語</strong>です。Recommend(推奨)・Input(入力)・Agree(合意)・Decide(決定)・Perform(実行)のそれぞれを誰が担うかを明確にすることが目的で、実際にどの役割がいつ動くかは意思決定ごとに異なります(<a href="https://www.mindtools.com/av8ceid/bains-rapid-framework/" target="_blank" rel="noopener">出典: MindTools</a>)。</p>
+
+      <p>このフレームワークは、CAL1 Chapter 3 で学んだ<strong>Management 3.0 の Delegation Poker</strong>(7段階の権限移譲レベル: Tell → Sell → Consult → Agree → Advise → Inquire → Delegate)と補完関係にあります。RAPID が「特定の意思決定における役割分担」を扱うのに対し、Delegation Poker は「継続的な業務領域における権限委譲の度合い」を扱います。</p>
+
+      <h3>ステップバイステップ解説</h3>
+      <ol class="step-list">
+        <li><div class="step-num">1</div><div class="step-body"><div class="step-title">RAPID を使うべき意思決定かどうかを見極める</div><div class="step-desc">RAPID は複雑・多部門にまたがる意思決定に向いています。単純で時間的制約の強い意思決定にRAPIDのような形式張ったプロセスを適用すると、かえって遅延を招きます。</div></div></li>
+        <li><div class="step-num">2</div><div class="step-body"><div class="step-title">5つの役割を具体的な人・チームに割り当てる</div><div class="step-desc">誰がRecommendするか、誰からInputを集めるか、誰がAgree(拒否権)を持つか、誰がDecideするか、誰がPerformするかを、決定の前に明文化します。</div></div></li>
+        <li><div class="step-num">3</div><div class="step-body"><div class="step-title">Decider("D")を1人に絞る</div><div class="step-desc">複数人が「決定者」を自認している状態が、意思決定の停滞の最大の原因です。Bainのコンサルタントが繰り返し強調する"Who has the D?"という問いを常に持ちます。</div></div></li>
+        <li><div class="step-num">4</div><div class="step-body"><div class="step-title">Agree(拒否権)を持つ人数を絞り、基準を明確にする</div><div class="step-desc">拒否権を持つ人が多すぎると、実質的に「全員一致」を要求することになり、意思決定が機能しなくなります。拒否権の行使基準も事前に明確にしておきます。</div></div></li>
+        <li><div class="step-num">5</div><div class="step-body"><div class="step-title">Input は広く集めるが、Recommend の質に反映させる</div><div class="step-desc">Recommend担当者は、Agree役に諮る前に幅広くInputを集め、それを推奨案に反映させます。</div></div></li>
+        <li><div class="step-num">6</div><div class="step-body"><div class="step-title">Delegation Poker で継続的な権限委譲レベルを調整する(CAL1 Chapter 3 参照)</div><div class="step-desc">特定の意思決定の外側にある、日常的な業務領域については、Management 3.0の7段階モデルでチームごとに委譲レベルを合意します。これは2.2のSLIIの発達段階診断とも接続します——発達段階が高いメンバー・チームほど、より高い委譲レベル(Delegateに近い側)が適切になります。</div></div></li>
+        <li><div class="step-num">7</div><div class="step-body"><div class="step-title">決定後にレビューし、次の意思決定サイクルに学びを反映する</div><div class="step-desc">RAPIDの役割分担がうまく機能したか、Deciderが実際に決定できたか、Perform側が実行しやすい決定だったかを振り返ります。</div></div></li>
+      </ol>
+
+      <h3>図解: RAPID の役割と実行フロー</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="rapidFramework"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Inputの収集からRecommend、Agree、唯一の決定者であるDecide、そしてPerformへとつながるRAPIDの役割関係</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>Decider は常に1人に絞る。</strong>複数の「決定者」が存在する状態を放置しない。</li>
+          <li><strong>Agree(拒否権)は少数・明確な基準で運用する。</strong>全員が拒否権を持つ状態は、実質的な意思決定の麻痺を招きます。</li>
+          <li><strong>RAPID は複雑・重要な意思決定にのみ使う。</strong>単純な決定にまで適用すると、プロセスそのものが負担になります。</li>
+          <li><strong>Recommend の前に Input を十分に集める。</strong>拒否されるリスクを減らすため、Agree役に諮る前に幅広い意見を反映させる。</li>
+          <li><strong>委譲レベルは発達段階に応じて調整する。</strong>SLII(2.2)の診断結果と、Delegation Poker(CAL1 Chapter 3)の段階を連動させる。</li>
+          <li><strong>決定後に必ずレビューする。</strong>役割分担がうまく機能したかを振り返り、次の意思決定の質を高める。</li>
+          <li><strong>導入は一度の説明で終わらせない。</strong>Bain自身が指摘する通り、RAPIDの定着には反復的なトレーニングと実践が必要です。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><span class="ref-name">Rogers, P., &amp; Blenko, M. (2006). "Who Has the D? How Clear Decision Roles Enhance Organizational Performance." Harvard Business Review, 84(1), 52-61.</span></li>
+          <li><span class="ref-name">Blenko, M. W., Mankins, M. C., &amp; Rogers, P. (2010). Decide &amp; Deliver: 5 Steps to Breakthrough Performance in Your Organization. Harvard Business Press.</span></li>
+          <li><a href="https://www.bain.com/insights/rapid-decision-making/" target="_blank" rel="noopener">Bain &amp; Company 公式 — RAPID Decision Making Framework</a></li>
+          <li><a href="https://www.bain.com/insights/to-speed-up-rapid-adoption-slow-down/" target="_blank" rel="noopener">Bain &amp; Company 公式 — To Speed Up RAPID Adoption, Slow Down</a></li>
+          <li><a href="https://www.mindtools.com/av8ceid/bains-rapid-framework/" target="_blank" rel="noopener">MindTools — Bain's RAPID Framework</a></li>
+          <li><span class="ref-name">Management 3.0 Delegation Poker(詳細はCAL1 Chapter 3 ガイドを参照)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 07. Framework Integration Summary ===================== -->
+    <section id="framework-integration-summary">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 08</div>
+      <h2>まとめ: Part 2 フレームワーク統合マップ</h2>
+
+      <p>Part 2 の6つのテーマは独立したものではなく、互いに補強し合う関係にあります。以下は各テーマの中心フレームワークと、その相互関係を整理した表です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>#</th><th>テーマ</th><th>中心フレームワーク</th><th>主な出典</th><th>他テーマとの接続</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2.1</td><td>個人の成長の障壁</td><td>Growth Mindset(Dweck)</td><td><a href="https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset" target="_blank" rel="noopener">HBS</a></td><td>Immunity to Change(Part1) / フィードバックを受け取る姿勢(2.4)</td></tr>
+            <tr><td>2.2</td><td>パーソナライズされたリーダーシップ</td><td>Situational Leadership II / Goleman 6 Styles</td><td><a href="https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership" target="_blank" rel="noopener">Blanchard</a> / <a href="https://hbr.org/2000/03/leadership-that-gets-results" target="_blank" rel="noopener">HBR</a></td><td>発達段階の診断は2.5・2.6の委譲レベル判断にも応用</td></tr>
+            <tr><td>2.3</td><td>困難な対話</td><td>Crucial Conversations</td><td><a href="https://cruciallearning.com/books/crucial-conversations-book/" target="_blank" rel="noopener">Crucial Learning</a></td><td>低パフォーマンス対応(2.5) / フィードバック対話(2.4)の土台スキル</td></tr>
+            <tr><td>2.4</td><td>フィードバック</td><td>Radical Candor / SBI(-I)</td><td><a href="https://www.radicalcandor.com/our-approach" target="_blank" rel="noopener">Radical Candor</a> / <a href="https://www.ccl.org/articles/leading-effectively-articles/sbi-feedback-model-a-quick-win-to-improve-talent-conversations-development/" target="_blank" rel="noopener">CCL</a></td><td>CAL1 Ch3 の SBI モデルの発展形</td></tr>
+            <tr><td>2.5</td><td>メンバーマネジメントの課題</td><td>Leadership Pipeline(Passage One)</td><td><a href="https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/" target="_blank" rel="noopener">MindTools</a></td><td>SLII(2.2)の応用 / 権限移譲(2.6)の失敗原因(Superdoer症候群)</td></tr>
+            <tr><td>2.6</td><td>権限移譲と意思決定</td><td>RAPID(Bain)</td><td><a href="https://www.bain.com/insights/rapid-decision-making/" target="_blank" rel="noopener">Bain &amp; Company</a></td><td>Delegation Poker(CAL1 Ch3) / SLII(2.2)の発達段階と連動</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>統合的な視点</h3>
+
+      <p>Part 1「Organizational Strategy and Delivery」が<strong>組織の外側の構造・戦略</strong>を扱ったのに対し、Part 2「Developing as a Leader」は<strong>リーダー自身の内面と対人スキル</strong>を扱います。両者を統合すると、次のような一貫したストーリーが見えてきます。</p>
+
+      <ol>
+        <li>リーダー自身が成長マインドセット(2.1)を持たなければ、組織の変化への免疫(Part1)を乗り越える説得力が持てない。</li>
+        <li>状況に応じたリーダーシップスタイル(2.2)を身につけていなければ、組織構造の変革(Part1)を推進するための対人的な柔軟性が不足する。</li>
+        <li>困難な対話(2.3)とフィードバック(2.4)のスキルがなければ、変革やパフォーマンス管理の実行段階(2.5)でつまずく。</li>
+        <li>権限移譲と意思決定の仕組み(2.6)がなければ、組織の意思決定速度(Part1のバリューストリーム)は改善しない。</li>
+      </ol>
+    </section>
+
+    <!-- ===================== 08. Glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 09</div>
+      <h2>用語集</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Growth Mindset / Fixed Mindset</div><div class="g-def">Carol Dweck が提唱した、能力は伸ばせると信じる「成長マインドセット」と、能力は固定的だと信じる「固定マインドセット」の対比概念</div></div>
+        <div class="glossary-item"><div class="g-term">SLII(Situational Leadership II)</div><div class="g-def">Ken Blanchard 発の、部下の発達段階に応じてリーダーシップスタイル(指示・コーチ・支援・委任)を変えるモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Development Level(D1〜D4)</div><div class="g-def">SLIIにおける部下の発達段階。Competence(能力)とCommitment(コミットメント)の組み合わせで診断する</div></div>
+        <div class="glossary-item"><div class="g-term">Goleman's Six Leadership Styles</div><div class="g-def">Daniel Goleman が提示した6つのリーダーシップスタイル(Coercive、Authoritative、Affiliative、Democratic、Pacesetting、Coaching)</div></div>
+        <div class="glossary-item"><div class="g-term">Crucial Conversation</div><div class="g-def">利害関係が大きく、意見が対立し、感情が強く動く対話。Patterson らが定義した概念</div></div>
+        <div class="glossary-item"><div class="g-term">Pool of Shared Meaning</div><div class="g-def">Crucial Conversations における、対話を通じて双方の情報・見解が共有された状態を指す概念</div></div>
+        <div class="glossary-item"><div class="g-term">Radical Candor</div><div class="g-def">Kim Scott が提唱した、Care Personally(個人的に気にかける)とChallenge Directly(率直に指摘する)の2軸フィードバックモデル</div></div>
+        <div class="glossary-item"><div class="g-term">SBI / SBI-I</div><div class="g-def">Center for Creative Leadership(CCL)が開発した、Situation-Behavior-Impact(-Intent)に基づく具体的フィードバック手法</div></div>
+        <div class="glossary-item"><div class="g-term">Leadership Pipeline</div><div class="g-def">Charan・Drotter・Noel によるリーダーの6つのキャリア移行(Passage)モデル</div></div>
+        <div class="glossary-item"><div class="g-term">Passage One</div><div class="g-def">Leadership Pipeline における最初の移行「Managing Self to Managing Others」</div></div>
+        <div class="glossary-item"><div class="g-term">RAPID</div><div class="g-def">Bain &amp; Company が開発した意思決定の役割分担フレームワーク(Recommend, Agree, Perform, Input, Decide)</div></div>
+        <div class="glossary-item"><div class="g-term">Delegation Poker</div><div class="g-def">Management 3.0 における7段階の権限委譲レベルモデル(詳細はCAL1 Chapter 3)</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== 09. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 10</div>
+      <h2>参考文献・ソース一覧</h2>
+
+      <div class="ref-group">
+        <h4>公式カリキュラム</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Scrum Alliance — Certified Agile Leader 2(CAL 2)公式ページ</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2</a></li>
+          <li><span class="ref-name">Scrum Alliance — CAL 2 Learning Objectives(PDF)</span><a class="ref-url" href="https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view?usp=drive_link" target="_blank" rel="noopener">https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>2.1 個人の成長の障壁</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Harvard Business School Online — Growth Mindset vs. Fixed Mindset: What's the Difference?</span><a class="ref-url" href="https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset" target="_blank" rel="noopener">https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset</a></li>
+          <li><span class="ref-name">MindTools — Dweck's Fixed and Growth Mindsets</span><a class="ref-url" href="https://www.mindtools.com/asbakxx/dwecks-fixed-and-growth-mindsets/" target="_blank" rel="noopener">https://www.mindtools.com/asbakxx/dwecks-fixed-and-growth-mindsets/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>2.2 パーソナライズされたリーダーシップ</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Blanchard 公式 — A Situational Approach to Leadership</span><a class="ref-url" href="https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership" target="_blank" rel="noopener">https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership</a></li>
+          <li><span class="ref-name">The Center for Leadership Studies — The History of the Situational Leadership Framework</span><a class="ref-url" href="https://situational.com/blog/the-history-of-the-situational-leadership-framework/" target="_blank" rel="noopener">https://situational.com/blog/the-history-of-the-situational-leadership-framework/</a></li>
+          <li><span class="ref-name">Harvard Business Review — Leadership That Gets Results(Daniel Goleman, 2000)</span><a class="ref-url" href="https://hbr.org/2000/03/leadership-that-gets-results" target="_blank" rel="noopener">https://hbr.org/2000/03/leadership-that-gets-results</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>2.3 困難な対話</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Crucial Learning 公式 — Crucial Conversations Free Book Resources</span><a class="ref-url" href="https://cruciallearning.com/books/crucial-conversations-book/" target="_blank" rel="noopener">https://cruciallearning.com/books/crucial-conversations-book/</a></li>
+          <li><span class="ref-name">Crucial Learning 公式ブログ</span><a class="ref-url" href="https://www.cruciallearning.com/blog/" target="_blank" rel="noopener">https://www.cruciallearning.com/blog/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>2.4 フィードバック</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Radical Candor 公式 — Our Approach: Kim Scott's Feedback Framework</span><a class="ref-url" href="https://www.radicalcandor.com/our-approach" target="_blank" rel="noopener">https://www.radicalcandor.com/our-approach</a></li>
+          <li><span class="ref-name">Radical Candor 公式ブログ — What is Radical Candor?</span><a class="ref-url" href="https://www.radicalcandor.com/blog/what-is-radical-candor" target="_blank" rel="noopener">https://www.radicalcandor.com/blog/what-is-radical-candor</a></li>
+          <li><span class="ref-name">Center for Creative Leadership — SBI Feedback Model</span><a class="ref-url" href="https://www.ccl.org/articles/leading-effectively-articles/sbi-feedback-model-a-quick-win-to-improve-talent-conversations-development/" target="_blank" rel="noopener">https://www.ccl.org/articles/leading-effectively-articles/sbi-feedback-model-a-quick-win-to-improve-talent-conversations-development/</a></li>
+          <li><span class="ref-name">Center for Creative Leadership — SBI-I: Inquiring About Intent</span><a class="ref-url" href="https://www.ccl.org/articles/leading-effectively-articles/closing-the-gap-between-intent-vs-impact-sbii/" target="_blank" rel="noopener">https://www.ccl.org/articles/leading-effectively-articles/closing-the-gap-between-intent-vs-impact-sbii/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>2.5 メンバーマネジメントの課題</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">MindTools — The Leadership Pipeline Model</span><a class="ref-url" href="https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/" target="_blank" rel="noopener">https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/</a></li>
+          <li><span class="ref-name">O'Reilly — The Leadership Pipeline, Chapter 2 抜粋</span><a class="ref-url" href="https://www.oreilly.com/library/view/the-leadership-pipeline/9780787951726/ch02.html" target="_blank" rel="noopener">https://www.oreilly.com/library/view/the-leadership-pipeline/9780787951726/ch02.html</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>2.6 権限移譲と意思決定</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Bain &amp; Company 公式 — RAPID Decision Making Framework</span><a class="ref-url" href="https://www.bain.com/insights/rapid-decision-making/" target="_blank" rel="noopener">https://www.bain.com/insights/rapid-decision-making/</a></li>
+          <li><span class="ref-name">Bain &amp; Company 公式 — To Speed Up RAPID Adoption, Slow Down</span><a class="ref-url" href="https://www.bain.com/insights/to-speed-up-rapid-adoption-slow-down/" target="_blank" rel="noopener">https://www.bain.com/insights/to-speed-up-rapid-adoption-slow-down/</a></li>
+          <li><span class="ref-name">MindTools — Bain's RAPID Framework</span><a class="ref-url" href="https://www.mindtools.com/av8ceid/bains-rapid-framework/" target="_blank" rel="noopener">https://www.mindtools.com/av8ceid/bains-rapid-framework/</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+
+    <footer>
+      本ガイドは CAL2 Part 1(別ファイルのCAL2 Part 1ガイド)および CAL1 全4章の学習内容を前提としています。CAL2 の受講にあたっては、必ず <a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>の最新情報および認定トレーナーが提供する公式カリキュラムを一次情報源としてご確認ください。<br>
+      Certified Agile Leader、CAL、Scrum Alliance は Scrum Alliance, Inc. の登録商標です。本ガイドは同社と提携・承認された公式資料ではありません。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    growthMindsetCycle: `flowchart TB
+    A["課題 失敗 批判に直面する"] --> B{"どちらの信念で解釈するか"}
+    B -->|"Fixed Mindset"| C["能力や知性は固定的だと信じる"]
+    C --> D["失敗を自分の限界の証明と解釈する"]
+    D --> E["挑戦を避け 防御的になる"]
+    E --> F["成長が停滞し 同じ壁に繰り返しぶつかる"]
+    F -.->|"時間経過"| A
+    B -->|"Growth Mindset"| G["能力や知性は努力で伸ばせると信じる"]
+    G --> H["失敗を学習のためのデータと解釈する"]
+    H --> I["結果よりも努力とプロセスに焦点を当てる"]
+    I --> J["新しい挑戦に取り組み 能力が拡張される"]
+    J -.->|"時間経過"| A
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A,B hub;
+    class C,D,E,F box;
+    class G,H,I,J done;`,
+
+    developmentLevelMapping: `flowchart LR
+    subgraph D["部下の発達段階 SLII Development Level"]
+        D1["D1 Enthusiastic Beginner 低い能力 高いコミットメント"]
+        D2["D2 Disillusioned Learner 一定の能力 低下したコミットメント"]
+        D3["D3 Capable but Cautious Performer 高い能力 不安定なコミットメント"]
+        D4["D4 Self-Reliant Achiever 高い能力 高いコミットメント"]
+    end
+    subgraph S["対応するリーダーシップスタイル SLII"]
+        S1["S1 Directing 高指示 低支援"]
+        S2["S2 Coaching 高指示 高支援"]
+        S3["S3 Supporting 低指示 高支援"]
+        S4["S4 Delegating 低指示 低支援"]
+    end
+    D1 --> S1
+    D2 --> S2
+    D3 --> S3
+    D4 --> S4
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class D1,D2,D3,D4 box;
+    class S1,S2,S3,S4 done;`,
+
+    crucialConversationsCycle: `flowchart TB
+    A["Start with Heart 自分が本当に望む結果を明確にする"] --> B["Learn to Look 沈黙 暴力の兆候に気づく"]
+    B --> C{"安全性は保たれているか"}
+    C -->|"No"| D["Make It Safe 共通の目的と相互の敬意を回復する"]
+    D --> B
+    C -->|"Yes"| E["Master My Stories 事実と解釈を切り分ける"]
+    E --> F["STATE My Path 事実 解釈 質問 暫定的に 反論歓迎"]
+    F --> G["Explore Others' Paths AMPPで相手の見解を引き出す"]
+    G --> H["Pool of Shared Meaning 共有された意味のプールを形成する"]
+    H --> I["Move to Action 誰が 何を いつまでに合意する"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A hub;
+    class B,C,D,E,F,G box;
+    class H,I done;`,
+
+    radicalCandorMatrix: `flowchart TB
+    subgraph Row1["Challenge Directly 高い"]
+        direction LR
+        Q2["Obnoxious Aggression 不快な攻撃性 Care低 Challenge高"]
+        Q1["Radical Candor ラディカル・キャンダー Care高 Challenge高 目指す状態"]
+    end
+    subgraph Row2["Challenge Directly 低い"]
+        direction LR
+        Q3["Manipulative Insincerity 操作的な不誠実 Care低 Challenge低"]
+        Q4["Ruinous Empathy 破滅的な共感 Care高 Challenge低 陥りやすい罠"]
+    end
+    Row2 --> Row1
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class Q1 done;
+    class Q2,Q3 box;
+    class Q4 hub;`,
+
+    managingSelfToOthers: `flowchart TB
+    A["Individual Contributor 個人の専門性で成果を出す"] --> B{"Passage One Managing Self to Managing Others"}
+    B --> C["Skills の転換 計画 委任 コーチング 人選"]
+    B --> D["Time Application の転換 実務時間から部下支援 調整時間へ"]
+    B --> E["Work Values の転換 自分の成果から部下を通じた成果へ"]
+    C --> F["First-Time Manager 他者を通じて成果を出す"]
+    D --> F
+    E --> F
+    F --> G{"典型的な落とし穴"}
+    G --> H["Superdoer症候群 実務を抱え込み続ける"]
+    G --> I["元同僚との関係の再定義不足"]
+    G --> J["低パフォーマンスへの対応の先送り"]
+    H --> K["意図的な権限移譲と時間配分の見直し"]
+    I --> K
+    J --> K
+    K --> F
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A,C,D,E,H,I,J box;
+    class B,G hub;
+    class F,K done;`,
+
+    rapidFramework: `graph TD
+    I["Input 幅広く意見 情報を収集"]
+    R["Recommend 推奨案を作成する役割"]
+    AG["Agree 限定的な拒否権を持つ役割"]
+    D["Decide 最終決定を下す唯一の役割 Who has the D"]
+    P["Perform 決定を実行する役割"]
+
+    I -->|"情報提供"| R
+    R -.->|"提案を参照"| AG
+    R -.->|"提案を参照"| D
+    D -->|"実行依頼"| P
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class R,I,AG,P box;
+    class D hub;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
