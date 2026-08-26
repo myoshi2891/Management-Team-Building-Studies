@@ -36,92 +36,93 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
   });
 
   it("公開中ガイドを内容・順序・遷移先まで固定する", () => {
+    // category はカテゴリー表記ではなくシリーズ表記（セクション見出しとの重複を避ける）。
     const wrapper = mountPage();
     const cards = wrapper.findAll("[data-testid='guide-card']");
 
     // accent は `guide-card-<accent>` クラスとして要素に出る。CSS 側に対応する
     // `--card-accent` 定義が無い accent（例: gold）を検知するため要素クラスも固定する。
     expect(cards.map((card) => ({
-      title: card.get("h3").text(),
+      title: card.get("h4").text(),
       category: card.get(".guide-category").text(),
       href: card.get("a").attributes("href"),
       accentClass: card.classes().find((name) => name.startsWith("guide-card-")),
     }))).toEqual([
       {
         title: "CAPM® 認定資格 完全ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "CAPM",
         href: "/capm",
         accentClass: "guide-card-indigo",
       },
       {
         title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
-        category: "PROJECT MANAGEMENT",
+        category: "CAPM",
         href: "/certified-associate-in-project-management-domain1",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAPM® ドメイン2: 予測型・計画重視の手法",
-        category: "PROJECT MANAGEMENT",
+        category: "CAPM",
         href: "/certified-associate-in-project-management-domain2",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAPM® ドメイン3: アジャイルフレームワーク/方法論",
-        category: "PROJECT MANAGEMENT",
+        category: "CAPM",
         href: "/capm-domain3-agile-frameworks-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAPM® ドメイン4: ビジネス分析フレームワーク",
-        category: "PROJECT MANAGEMENT",
+        category: "CAPM",
         href: "/capm-domain4-business-analysis-frameworks",
         accentClass: "guide-card-gold",
       },
       {
         title: "PMP® 認定試験 完全攻略ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "PMP",
         href: "/pmp-certification-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "PMP® Domain I: People 完全攻略ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "PMP",
         href: "/pmp-domain1-people-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "PMP® Domain II: Process 完全解説ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "PMP",
         href: "/pmp-domain2-process-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "PMP® Domain III: Business Environment 徹底解説ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "PMP",
         href: "/pmp-domain3-business-environment-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "Certified ScrumMaster®(CSM®)完全ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "SCRUM / CSM",
         href: "/csm-certified-scrummaster-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "Scrum Team とは何か ― 3つのアカウンタビリティ徹底解説",
-        category: "PROJECT MANAGEMENT",
+        category: "SCRUM / CSM",
         href: "/csm-scrum-team-3-accountabilities",
         accentClass: "guide-card-gold",
       },
       {
         title: "Scrum理論の基礎(Scrum Theory) ― CSM®試験対応 初学者向け完全ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "SCRUM / CSM",
         href: "/csm-scrum-theory-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
-        category: "PROJECT MANAGEMENT",
+        category: "SCRUM / CSM",
         href: "/scrum-97-things-guide",
         accentClass: "guide-card-forest",
       },
@@ -132,84 +133,131 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-forest",
       },
       {
-        title: "エンジニアリングチームのリード術 完全ガイド",
-        category: "ENGINEERING LEADERSHIP",
-        href: "/engineering-team-leadership-guide",
-        accentClass: "guide-card-plum",
-      },
-      {
         title: "エンジニアリングマネージャー入門完全ガイド",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-manager-guide",
         accentClass: "guide-card-indigo",
       },
       {
-        title: "ダイナミック・リチーミング実践ガイド",
-        category: "TEAM BUILDING",
-        href: "/dynamic-reteaming-guide",
-        accentClass: "guide-card-forest",
+        title: "『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/managing-humans-best-practices-guide",
+        accentClass: "guide-card-plum",
       },
       {
-        title: "エンジニアリング統括責任者の手引き",
-        category: "ENGINEERING LEADERSHIP",
-        href: "/engineering-executive-playbook",
-        accentClass: "guide-card-gold",
+        title: "『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/mythical-man-month-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "エンジニアリングチームのリード術 完全ガイド",
+        category: "FIRST LEADERSHIP",
+        href: "/engineering-team-leadership-guide",
+        accentClass: "guide-card-plum",
       },
       {
         title: "リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド",
-        category: "ENGINEERING LEADERSHIP",
+        category: "FIRST LEADERSHIP",
         href: "/leadership-practices-guide",
         accentClass: "guide-card-gold",
       },
       {
-        title: "Team Geek ― Googleのギークたちはいかにしてチームを作るのか",
-        category: "TEAM BUILDING",
-        href: "/team-geek-guide",
-        accentClass: "guide-card-plum",
-      },
-      {
-        title: "Team Topologies 実践ガイド",
-        category: "TEAM BUILDING",
-        href: "/team-topologies-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "開発者とアーキテクトのためのコミュニケーションガイド",
-        category: "ENGINEERING LEADERSHIP",
-        href: "/developer-architect-communication-guide",
-        accentClass: "guide-card-forest",
-      },
-      {
-        title: "Elastic Leadership 実践ガイド",
-        category: "ENGINEERING LEADERSHIP",
-        href: "/elastic-leadership-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "The Leadership Challenge Workbook 完全ガイド",
-        category: "ENGINEERING LEADERSHIP",
-        href: "/leadership-challenge-workbook-guide",
-        accentClass: "guide-card-plum",
-      },
-      {
-        title: "Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門",
-        category: "TEAM BUILDING",
-        href: "/lean-ux-beginner-guide",
-        accentClass: "guide-card-forest",
-      },
-      {
         title: "リーダーとしての最初の60日間",
-        category: "ENGINEERING LEADERSHIP",
+        category: "FIRST LEADERSHIP",
         href: "/your-first-60-days-as-a-leader",
         accentClass: "guide-card-forest",
       },
       {
+        title: "The Leadership Challenge Workbook 完全ガイド",
+        category: "FIRST LEADERSHIP",
+        href: "/leadership-challenge-workbook-guide",
+        accentClass: "guide-card-plum",
+      },
+      {
+        title: "エンジニアリング統括責任者の手引き",
+        category: "ORG & SCALE",
+        href: "/engineering-executive-playbook",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Elastic Leadership 実践ガイド",
+        category: "ORG & SCALE",
+        href: "/elastic-leadership-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "開発者とアーキテクトのためのコミュニケーションガイド",
+        category: "ORG & SCALE",
+        href: "/developer-architect-communication-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "Team Geek ― Googleのギークたちはいかにしてチームを作るのか",
+        category: "TEAM CULTURE",
+        href: "/team-geek-guide",
+        accentClass: "guide-card-plum",
+      },
+      {
         title: "Debugging Teams 完全ガイド ― チームの人間関係を「デバッグ」するベストプラクティス",
-        category: "TEAM BUILDING",
+        category: "TEAM CULTURE",
         href: "/debugging-teams-guide",
         accentClass: "guide-card-plum",
       },
+      {
+        title: "『Peopleware: Productive Projects and Teams』完全ガイド",
+        category: "TEAM CULTURE",
+        href: "/peopleware-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Team Topologies 実践ガイド",
+        category: "TEAM DESIGN",
+        href: "/team-topologies-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "ダイナミック・リチーミング実践ガイド",
+        category: "TEAM DESIGN",
+        href: "/dynamic-reteaming-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門",
+        category: "TEAM DESIGN",
+        href: "/lean-ux-beginner-guide",
+        accentClass: "guide-card-forest",
+      },
     ]);
+  });
+
+  it("ガイドをカテゴリーセクションへ分けて見出し・件数まで固定する", () => {
+    /*
+     * 30 枚近いカードを区切り無しで流すと、どこまでが何の領域か読み取れない。
+     * セクションの並びはナビのカテゴリー順と一致していなければならないため、
+     * 見出しと件数を順序込みで固定する。
+     */
+    const sections = mountPage().findAll("[data-testid='guide-category-section']");
+
+    expect(sections.map((section) => ({
+      kicker: section.get(".section-kicker").text(),
+      title: section.get("h3").text(),
+      count: section.get("[data-testid='guide-category-count']").text(),
+      cards: section.findAll("[data-testid='guide-card']").length,
+    }))).toEqual([
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "13 ガイド", cards: 13 },
+      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
+      { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
+      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "6 ガイド", cards: 6 },
+    ]);
+  });
+
+  it("MORE TO COME のカードはセクションの外に 1 つだけ置く", () => {
+    // 各セクション末尾に複製すると、同じ案内が 4 回並ぶ。
+    const wrapper = mountPage();
+
+    expect(wrapper.findAll(".guide-card-coming")).toHaveLength(1);
+    expect(wrapper.findAll("[data-testid='guide-category-section'] .guide-card-coming")).toHaveLength(0);
   });
 
   it("使用中のアクセントクラスすべてに --card-accent とアイコン配色を定義している", () => {
@@ -264,6 +312,17 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     expect(wrapper.findAll("h2").map((heading) => heading.text())).toEqual([
       "公開中のガイド",
       "知識を、現場で使える形へ",
+    ]);
+    // カテゴリーセクション、MORE TO COMEカード、学習テーマが h3。カードの見出しはその下の h4。
+    expect(wrapper.findAll("h3").map((heading) => heading.text())).toEqual([
+      "プロジェクトマネジメント",
+      "エンジニアリングマネジメント",
+      "リーダーシップ",
+      "チームビルディング",
+      "学びの領域を拡張していきます",
+      "体系的に理解する",
+      "実務の判断に活かす",
+      "次のキャリアを描く",
     ]);
     expect(wrapper.get("footer nav").attributes("aria-label")).toBe("フッターナビゲーション");
   });

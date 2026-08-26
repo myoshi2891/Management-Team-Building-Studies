@@ -360,17 +360,28 @@ sticky なサイドバー・TOC・見出しアンカーは、必ずこの変数�
 
 | 登録先 | 配列 | 追加する内容 |
 |---|---|---|
-| `app/utils/guide-catalog.ts` | `GUIDES` | `to` / `categoryId` / `navLabel`（ナビの短縮名） / `title` / `description` / `meta` / `icon` / `accent` |
+| `app/utils/guide-catalog.ts` | `GUIDES` | `to` / `categoryId` / `seriesId` / `navLabel`（ナビの短縮名） / `title` / `description` / `meta` / `icon` / `accent` |
 
 `categoryId` は `GUIDE_CATEGORIES` に存在する値でなければ型検査で落ちる。
 新しいカテゴリーが必要な場合は `GUIDE_CATEGORIES` に `id` / `navLabel` / `cardLabel` / `icon` を追加する。
+
+`seriesId` は `GUIDE_SERIES`（カテゴリー内の小見出し）に存在する値で、**省略できない**。
+シリーズを持たないカテゴリー（現在は `engineering-management` のみ）では `undefined` を明示する。
+
+- シリーズを持つカテゴリーで `undefined` にすると、ナビにラベルの無いカラムとして黙って現れる。
+  型では防げないため `tests/utils/guide-catalog.test.ts` の契約テストで落とす。
+- 挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守る。この並びが崩れると
+  `seriesGroups` の平坦化が `guides` と一致しなくなり、ナビとホームの並び順が食い違う。
+- 新しいシリーズが必要な場合は `GUIDE_SERIES` に `id` / `categoryId` / `navLabel` / `cardLabel` を
+  追加する。**アイコンは持たせない**（`.ts` へアイコン名を増やすほど、`clientBundle.scan` の
+  設定変更で本番だけ空白になる事故域が広がるため）。
 
 - `to` は `app/pages/<slug>.vue` から決まるルートと**厳密に一致**させる（`.html` を付けない）。
 - `icon` は `tabler:*` を使う。`@nuxt/icon` の `clientBundle.scan` がビルド時に走査するため、
   文字列を動的組み立てにすると静的生成で欠落する。**リテラルで書く**。
 - `meta`（例: `"15セクション"`）は原本の実数を書く。推測値を書かない。
 - `navLabel` は原本のタイトルそのままではなく短縮名でよいが、
-  `tests/components/SiteHeader.test.ts` の期待値と完全一致させる。
+  `tests/components/SiteHeader.test.ts` の期待値（シリーズカラム契約を含む）と完全一致させる。
 
 登録後に `bun run test tests/utils/guide-catalog.test.ts tests/pages/index.test.ts tests/components/SiteHeader.test.ts`
 が Green になることを確認する。

@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { GUIDES, GUIDE_CATEGORIES, groupGuidesByCategory } from "~/utils/guide-catalog";
+import {
+  GUIDES,
+  GUIDE_CATEGORIES,
+  GUIDE_SERIES,
+  groupGuidesByCategory,
+  seriesCardLabel,
+  seriesNavLabel,
+} from "~/utils/guide-catalog";
 
 describe("utils/guide-catalog — ガイド定義の単一の真実の源", () => {
   it("カテゴリーを順序・表示ラベルまで完全一致で固定する", () => {
@@ -15,40 +22,66 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     ]);
   });
 
-  it("公開ガイドを順序・遷移先・カテゴリー・ナビ表記まで完全一致で固定する", () => {
-    // 並び順はホームのカード配置（tests/pages/index.test.ts）と同一でなければならない。
+  it("シリーズを順序・所属カテゴリー・表示ラベルまで完全一致で固定する", () => {
+    // 並び順がそのままメガメニューのカラム順・ホームのセクション内の並び順になる。
+    expect(GUIDE_SERIES.map((series) => ({
+      id: series.id,
+      categoryId: series.categoryId,
+      navLabel: series.navLabel,
+      cardLabel: series.cardLabel,
+    }))).toEqual([
+      { id: "capm", categoryId: "project-management", navLabel: "CAPM", cardLabel: "CAPM" },
+      { id: "pmp", categoryId: "project-management", navLabel: "PMP", cardLabel: "PMP" },
+      { id: "scrum", categoryId: "project-management", navLabel: "Scrum / CSM", cardLabel: "SCRUM / CSM" },
+      { id: "first-leadership", categoryId: "engineering-leadership", navLabel: "はじめてのリード", cardLabel: "FIRST LEADERSHIP" },
+      { id: "exec-scale", categoryId: "engineering-leadership", navLabel: "組織・スケール", cardLabel: "ORG & SCALE" },
+      { id: "team-culture", categoryId: "team-building", navLabel: "チーム文化", cardLabel: "TEAM CULTURE" },
+      { id: "team-design", categoryId: "team-building", navLabel: "チーム設計・変革", cardLabel: "TEAM DESIGN" },
+    ]);
+  });
+
+  it("公開ガイドを順序・遷移先・カテゴリー・シリーズ・ナビ表記まで完全一致で固定する", () => {
+    /*
+     * 並び順は「カテゴリー順（GUIDE_CATEGORIES）→ シリーズ順（GUIDE_SERIES）→ 定義順」。
+     * この不変条件により groupGuidesByCategory() の seriesGroups を平坦化した結果が
+     * guides と一致し、ナビ・ホームの DOM 順とカタログの順序が二重管理にならない。
+     */
     expect(GUIDES.map((guide) => ({
       to: guide.to,
       categoryId: guide.categoryId,
+      seriesId: guide.seriesId,
       navLabel: guide.navLabel,
     }))).toEqual([
-      { to: "/capm", categoryId: "project-management", navLabel: "CAPM 完全ガイド" },
-      { to: "/certified-associate-in-project-management-domain1", categoryId: "project-management", navLabel: "CAPM ドメイン1" },
-      { to: "/certified-associate-in-project-management-domain2", categoryId: "project-management", navLabel: "CAPM ドメイン2" },
-      { to: "/capm-domain3-agile-frameworks-guide", categoryId: "project-management", navLabel: "CAPM ドメイン3" },
-      { to: "/capm-domain4-business-analysis-frameworks", categoryId: "project-management", navLabel: "CAPM ドメイン4" },
-      { to: "/pmp-certification-guide", categoryId: "project-management", navLabel: "PMP 完全攻略" },
-      { to: "/pmp-domain1-people-guide", categoryId: "project-management", navLabel: "PMP ドメイン1" },
-      { to: "/pmp-domain2-process-guide", categoryId: "project-management", navLabel: "PMP ドメイン2" },
-      { to: "/pmp-domain3-business-environment-guide", categoryId: "project-management", navLabel: "PMP ドメイン3" },
-      { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", navLabel: "CSM 完全ガイド" },
-      { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", navLabel: "CSM 3つのアカウンタビリティ" },
-      { to: "/csm-scrum-theory-guide", categoryId: "project-management", navLabel: "CSM Scrum理論" },
-      { to: "/scrum-97-things-guide", categoryId: "project-management", navLabel: "スクラム 97の知恵" },
-      { to: "/engineering-management-career-path", categoryId: "engineering-management", navLabel: "EM キャリアパス" },
-      { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", navLabel: "チームリード術" },
-      { to: "/engineering-manager-guide", categoryId: "engineering-management", navLabel: "EM 入門" },
-      { to: "/dynamic-reteaming-guide", categoryId: "team-building", navLabel: "ダイナミック・リチーミング" },
-      { to: "/engineering-executive-playbook", categoryId: "engineering-leadership", navLabel: "統括責任者の手引き" },
-      { to: "/leadership-practices-guide", categoryId: "engineering-leadership", navLabel: "リーダーの作法" },
-      { to: "/team-geek-guide", categoryId: "team-building", navLabel: "Team Geek" },
-      { to: "/team-topologies-guide", categoryId: "team-building", navLabel: "Team Topologies" },
-      { to: "/developer-architect-communication-guide", categoryId: "engineering-leadership", navLabel: "開発者・アーキテクト" },
-      { to: "/elastic-leadership-guide", categoryId: "engineering-leadership", navLabel: "Elastic Leadership" },
-      { to: "/leadership-challenge-workbook-guide", categoryId: "engineering-leadership", navLabel: "Leadership Challenge" },
-      { to: "/lean-ux-beginner-guide", categoryId: "team-building", navLabel: "Lean UX 入門" },
-      { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", navLabel: "最初の60日間" },
-      { to: "/debugging-teams-guide", categoryId: "team-building", navLabel: "Debugging Teams" },
+      { to: "/capm", categoryId: "project-management", seriesId: "capm", navLabel: "CAPM 完全ガイド" },
+      { to: "/certified-associate-in-project-management-domain1", categoryId: "project-management", seriesId: "capm", navLabel: "CAPM ドメイン1" },
+      { to: "/certified-associate-in-project-management-domain2", categoryId: "project-management", seriesId: "capm", navLabel: "CAPM ドメイン2" },
+      { to: "/capm-domain3-agile-frameworks-guide", categoryId: "project-management", seriesId: "capm", navLabel: "CAPM ドメイン3" },
+      { to: "/capm-domain4-business-analysis-frameworks", categoryId: "project-management", seriesId: "capm", navLabel: "CAPM ドメイン4" },
+      { to: "/pmp-certification-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP 完全攻略" },
+      { to: "/pmp-domain1-people-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP ドメイン1" },
+      { to: "/pmp-domain2-process-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP ドメイン2" },
+      { to: "/pmp-domain3-business-environment-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP ドメイン3" },
+      { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 完全ガイド" },
+      { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 3つのアカウンタビリティ" },
+      { to: "/csm-scrum-theory-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM Scrum理論" },
+      { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "スクラム 97の知恵" },
+      { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
+      { to: "/engineering-manager-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM 入門" },
+      { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },
+      { to: "/mythical-man-month-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "人月の神話" },
+      { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "チームリード術" },
+      { to: "/leadership-practices-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "リーダーの作法" },
+      { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "最初の60日間" },
+      { to: "/leadership-challenge-workbook-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "Leadership Challenge" },
+      { to: "/engineering-executive-playbook", categoryId: "engineering-leadership", seriesId: "exec-scale", navLabel: "統括責任者の手引き" },
+      { to: "/elastic-leadership-guide", categoryId: "engineering-leadership", seriesId: "exec-scale", navLabel: "Elastic Leadership" },
+      { to: "/developer-architect-communication-guide", categoryId: "engineering-leadership", seriesId: "exec-scale", navLabel: "開発者・アーキテクト" },
+      { to: "/team-geek-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Team Geek" },
+      { to: "/debugging-teams-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Debugging Teams" },
+      { to: "/peopleware-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Peopleware" },
+      { to: "/team-topologies-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Team Topologies" },
+      { to: "/dynamic-reteaming-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "ダイナミック・リチーミング" },
+      { to: "/lean-ux-beginner-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Lean UX 入門" },
     ]);
   });
 
@@ -59,6 +92,36 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     const orphans = GUIDES.filter((guide) => !categoryIds.includes(guide.categoryId));
 
     expect(orphans.map((guide) => guide.to)).toEqual([]);
+  });
+
+  it("すべてのシリーズが実在するカテゴリーに属する", () => {
+    const categoryIds = GUIDE_CATEGORIES.map((category) => category.id);
+    const orphans = GUIDE_SERIES.filter((series) => !categoryIds.includes(series.categoryId));
+
+    expect(orphans.map((series) => series.id)).toEqual([]);
+  });
+
+  it("ガイドのシリーズは同一カテゴリーのものだけを指す（カテゴリー跨ぎ禁止）", () => {
+    // カテゴリー跨ぎのシリーズ指定はグルーピングでガイドを消し、ナビから到達不能にする。
+    const seriesCategory = new Map<string, string>(GUIDE_SERIES.map((series) => [series.id, series.categoryId]));
+    const mismatched = GUIDES.filter(
+      (guide) => guide.seriesId !== undefined && seriesCategory.get(guide.seriesId) !== guide.categoryId,
+    );
+
+    expect(mismatched.map((guide) => guide.to)).toEqual([]);
+  });
+
+  it("シリーズを持つカテゴリーでは、全ガイドがいずれかのシリーズに属する", () => {
+    /*
+     * seriesId の指定漏れは「ラベルの無いカラム」としてナビに黙って現れる。
+     * 見た目が壊れないぶん気づきにくいため、カタログ自身の契約として落とす。
+     */
+    const categoriesWithSeries = new Set<string>(GUIDE_SERIES.map((series) => series.categoryId));
+    const unassigned = GUIDES.filter(
+      (guide) => categoriesWithSeries.has(guide.categoryId) && guide.seriesId === undefined,
+    );
+
+    expect(unassigned.map((guide) => guide.to)).toEqual([]);
   });
 
   it("遷移先が重複しない", () => {
@@ -78,17 +141,65 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-management",
-        guides: ["EM キャリアパス", "EM 入門"],
+        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話"],
       },
       {
         id: "engineering-leadership",
-        guides: ["チームリード術", "統括責任者の手引き", "リーダーの作法", "開発者・アーキテクト", "Elastic Leadership", "Leadership Challenge", "最初の60日間"],
+        guides: ["チームリード術", "リーダーの作法", "最初の60日間", "Leadership Challenge", "統括責任者の手引き", "Elastic Leadership", "開発者・アーキテクト"],
       },
       {
         id: "team-building",
-        guides: ["ダイナミック・リチーミング", "Team Geek", "Team Topologies", "Lean UX 入門", "Debugging Teams"],
+        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
       },
     ]);
+  });
+
+  it("カテゴリー内をシリーズ順・シリーズ内定義順でグルーピングする", () => {
+    expect(groupGuidesByCategory().map((group) => ({
+      id: group.category.id,
+      seriesGroups: group.seriesGroups.map((seriesGroup) => ({
+        seriesId: seriesGroup.series?.id ?? null,
+        guides: seriesGroup.guides.map((guide) => guide.navLabel),
+      })),
+    }))).toEqual([
+      {
+        id: "project-management",
+        seriesGroups: [
+          { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
+          { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
+          { seriesId: "scrum", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "スクラム 97の知恵"] },
+        ],
+      },
+      {
+        // シリーズ未定義のカテゴリーは、ラベル無しの 1 カラムへ収める（現行の見た目を維持）。
+        id: "engineering-management",
+        seriesGroups: [
+          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話"] },
+        ],
+      },
+      {
+        id: "engineering-leadership",
+        seriesGroups: [
+          { seriesId: "first-leadership", guides: ["チームリード術", "リーダーの作法", "最初の60日間", "Leadership Challenge"] },
+          { seriesId: "exec-scale", guides: ["統括責任者の手引き", "Elastic Leadership", "開発者・アーキテクト"] },
+        ],
+      },
+      {
+        id: "team-building",
+        seriesGroups: [
+          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware"] },
+          { seriesId: "team-design", guides: ["Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"] },
+        ],
+      },
+    ]);
+  });
+
+  it("seriesGroups を平坦化すると guides と順序込みで一致する", () => {
+    // 片方だけを見て並べ替えると、ナビ（シリーズ順）とホーム（定義順）が食い違う。
+    for (const group of groupGuidesByCategory()) {
+      expect(group.seriesGroups.flatMap((seriesGroup) => seriesGroup.guides.map((guide) => guide.to)))
+        .toEqual(group.guides.map((guide) => guide.to));
+    }
   });
 
   it("グルーピングが全ガイドを漏れなく含む", () => {
@@ -99,5 +210,24 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
 
   it("空のカテゴリーを作らない（ナビに空ドロップダウンを出さないため）", () => {
     expect(groupGuidesByCategory().filter((group) => group.guides.length === 0)).toEqual([]);
+  });
+
+  it("空のシリーズカラムを作らない（ナビに空カラムを出さないため）", () => {
+    const emptyColumns = groupGuidesByCategory()
+      .flatMap((group) => group.seriesGroups)
+      .filter((seriesGroup) => seriesGroup.guides.length === 0);
+
+    expect(emptyColumns).toEqual([]);
+  });
+
+  it("シリーズの表示ラベルを ID から引ける", () => {
+    expect(seriesNavLabel("scrum")).toBe("Scrum / CSM");
+    expect(seriesCardLabel("scrum")).toBe("SCRUM / CSM");
+  });
+
+  it("未定義のシリーズ ID は握りつぶさず例外にする", () => {
+    // 型で防げない経路（外部データ・キャストの誤り）で黙って空文字を返さないこと。
+    expect(() => seriesNavLabel("unknown" as never)).toThrow("未定義のガイドシリーズ: unknown");
+    expect(() => seriesCardLabel("unknown" as never)).toThrow("未定義のガイドシリーズ: unknown");
   });
 });

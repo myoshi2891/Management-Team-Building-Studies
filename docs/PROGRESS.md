@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-23)
+(最終更新日: 2026-08-25)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `96a5325` — refactor(debugging-teams): archive source files and update audit script（本ファイルのコミットより前のコード側コミット） |
-| 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのカードとグローバルナビの両方が自動で追随する） |
-| ビルド状態 | `npm run test` ✔ / `npm run typecheck` ✔ / `npm run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-23 実測） |
-| テスト数 | **703** ユニット（MermaidDiagram 11 + SiteHeader 18 + useActiveHeading 9 + guide-catalog 7 + mermaid プラグイン 3 + app 1 + home 6 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23）+ **13** E2E（capm 4 + site-header 9）— これがベースライン |
-| 原本照合監査 | ✔ **全 26 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| コードコミット HEAD | `75f4dc0` — refactor(mythical-man-month): clean up styles and verify type check（本ファイルのコミットより前のコード側コミット） |
+| 次の作業 | 保守・新規ガイドの追加（登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクションとグローバルナビのメガメニューの両方が自動で追随する。**`seriesId` は省略不可**） |
+| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-25 実測） |
+| テスト数 | **792** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 16 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 8 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 24）+ **15** E2E（capm 4 + site-header 11）— これがベースライン |
+| 原本照合監査 | ✔ **全 29 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -46,6 +46,9 @@
 | `archive/Lean-ux-beginner-guide/Lean-ux-beginner-guide.html` | `app/pages/lean-ux-beginner-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Your-first-60-days-as-a-leader/Your-first-60-days-as-a-leader.html` | `app/pages/your-first-60-days-as-a-leader.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Debugging-teams-guide/Debugging-teams-guide.html` | `app/pages/debugging-teams-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Managing-humans-best-practices-guide/Managing-humans-best-practices-guide.html` | `app/pages/managing-humans-best-practices-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Peopleware/Peopleware.html` | `app/pages/peopleware-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `Mythical-man-month-guide.html` | `app/pages/mythical-man-month-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -56,10 +59,10 @@
 | `app/plugins/mermaid.client.ts` | ✅ 完了 | `tests/plugins/mermaid.client.test.ts`（3 件・初期化設定の契約）+ 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
-| `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（7 件・ガイド定義の SSoT） |
-| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（18 件・カテゴリー別ドロップダウン + フォーカス退避）+ `tests/app.test.ts`（1 件） |
+| `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（16 件・ガイド定義の SSoT） |
+| `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（21 件・シリーズベース カラム型メガメニュー + フォーカス退避）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
-| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 9 件（メディアクエリ依存の挙動。jsdom では再現不能） |
+| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 11 件（メディアクエリ依存の挙動。jsdom では再現不能） |
 
 ## 技術スタック（2026-08-16 時点の npm 実測値）
 
@@ -382,15 +385,85 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 3本柱の「一方通行」記述を再修正 | §31 で原本文言に合わせた「一方通行の連鎖」を、「各反復のなかで透明性 → 検査 → 適応と一方向に進み、適応の結果が次の透明性へ戻る」へ変更。`app/pages/csm-scrum-theory-guide.vue` と `archive/` 原本を同時修正 | 方向性は正しいが「一方通行」は反復ごとの循環を否定してしまう。原本も同時に直したので `audit:csm-theory` は Green のまま |
 | `audit:lead-challenge` のソース未追跡は未対応 | `archive/Leadership-challenge-workbook-guide/*.html` はクリーンチェックアウトに存在しない | `.gitignore:49` の `/archive/` により全 `audit:*` スクリプトが同じ性質を持つ。1 本だけ追跡対象にすると不整合になるため、`/archive/` の方針変更としてユーザー判断を仰ぐ |
 
+### 34. Managing Humans ガイド（`Managing-humans-best-practices-guide.html`）の Nuxt 移植
+
+`Managing-humans-best-practices-guide.html`（Michael Lopp著『Managing Humans』第4版の解説ガイド）を `app/pages/managing-humans-best-practices-guide.vue` へ忠実に移植した。
+
+| 観点 | 原本 | 移植後 | 備考 |
+|---|---|---|---|
+| 見出し構造 | h1 × 1, h2 × 11, h3 × 10, h4/h5/h6 × 0 | 同数・完全一致 | 見出し階層スキップなし（Q-3 充足） |
+| Mermaid 図解 | 7 本（`bookStructureMap`, `oneOnOneTriage`, `meetingFlow`, `mandateFlow`, `stablesVolatilesCycle`, `crisisResponse`, `beginnerStepsFlow`） | 同数・完全一致 | `<ClientOnly>` + `MermaidDiagram` + `.mermaid-wrap`（C-6a〜C-6e 充足） |
+| Callout 構成 | 20 件（`source`: 14, `note`: 1, `practice`: 5） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
+| Table 構成 | 10 件（計 83 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
+| 外部リンク | 18 件（計 19 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
+| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: engineering-management`, `accent: plum` |
+| 監査スクリプト | — | `npm run audit:managing-humans` | **exit 0**（全要素一致） |
+
+### 35. Peopleware ガイド（`Peopleware.html`）の Nuxt 移植
+
+`Peopleware.html`（Tom DeMarco, Tim Lister著『Peopleware: Productive Projects and Teams』第3版の解説ガイド）を `app/pages/peopleware-guide.vue` へ忠実に移植した。
+
+| 観点 | 原本 | 移植後 | 備考 |
+|---|---|---|---|
+| 見出し構造 | h1 × 1, h2 × 14, h3 × 28, h4/h5/h6 × 0 | 同数・完全一致 | 見出し階層スキップなし（Q-3 充足） |
+| Mermaid 図解 | 5 本（`coreThesis`, `bookPartsOverview`, `flowInterruption`, `teamicideVsJelling`, `actionRoadmap`） | 同数・完全一致 | `<ClientOnly>` + `MermaidDiagram` + `.mermaid-wrap`（C-6a〜C-6e 充足） |
+| Callout 構成 | 16 件（`source`: 3, `note`: 2, `practice`: 11） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
+| Table 構成 | 6 件（計 42 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
+| 外部リンク | 16 件（計 23 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
+| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: team-building`, `accent: indigo` |
+| 監査スクリプト | — | `npm run audit:peopleware` | **exit 0**（全要素一致） |
+
+### 36. グローバルナビのメガメニュー化とホームのセクション化（2026-08-23）
+
+§12 のカテゴリー集約は**横方向**のスケールを解決したが、縦方向は未解決だった
+（プロジェクトマネジメント 13 件 = 1 カラム 13 行 ≒ 520px でノート PC の縦解像度をはみ出す）。
+カタログへシリーズ階層を 1 段追加し、ナビはカラム分割、ホームはセクション分割へ移行した。
+
+| 変更 | 内容 |
+|---|---|
+| カタログ | `GUIDE_SERIES` を追加（CAPM / PMP / Scrum・CSM / はじめてのリード / 組織・スケール / チーム文化 / チーム設計・変革）。`Guide.seriesId` は**省略不可**で、シリーズを持たないカテゴリーは `undefined` を明示 |
+| 並び順 | `GUIDES` を「カテゴリー順 → シリーズ順 → 定義順」へ並べ替え。`seriesGroups` の平坦化が `guides` と一致し、ナビとホームで順序を二重管理しない |
+| ナビ | `#nav-panel-<id>` を `<ul>` から `<div>`（グリッド）へ。配置基準は `.nav-category`（`position: relative`）のままで、パネルはトリガーの左端に揃える（`left: 0`）。カラムが増えて内枠の右端をはみ出す場合のみ、はみ出し分だけ左へ退避する（`--nav-panel-shift` を JS が実測して設定。内枠の左端は超えない）。開いているトリガーには金色の下線を出して対応を示す |
+| ホーム | カード一覧をカテゴリーセクションへ。セクション見出し `h3` / カード見出し `h4`。カード上の英語表記はシリーズ表記（セクション見出しとの重複回避） |
+
+判断の記録:
+
+- **シリーズにアイコンを持たせない。** `.ts` へアイコン名を増やすほど
+  `nuxt.config.ts` の `icon.clientBundle.scan.globInclude` 依存が広がり、
+  dev では再現しない「本番だけアイコンが空白」の事故域が広がるため。
+- **シリーズを開閉可能にしない。** 状態を `openCategoryId` の 1 本に保つことで、
+  フォーカス退避・Escape・タブ順除外の既存契約に手を入れずに済む。
+- **e2e のパネル開閉を冪等な再試行へ変更。** SSG された HTML はボタンが押せる状態で
+  先に描画されるため、`goto()` 直後の `focus()+Enter` / `hover()` は Vue のリスナーが
+  付く前に発火しうる。実測で 30 回中 1 回の flaky を観測した。
+  `#__nuxt` に `data-v-app` は付与されないため、ハイドレーション内部フラグには依存していない。
+- ページ本体は無改変。原本照合監査は**全 28 本 exit 0** を再確認済み。
+
+### 37. 『人月の神話』完全ガイド（`mythical-man-month-guide.vue`）の Nuxt 移植
+
+`Mythical-man-month-guide.html`（Frederick P. Brooks, Jr.著『人月の神話(The Mythical Man-Month)』の解説ガイド）を `app/pages/mythical-man-month-guide.vue` へ忠実に移植した。
+
+| 観点 | 原本 | 移植後 | 備考 |
+|---|---|---|---|
+| 見出し構造 | h1 × 1, h2 × 10, h3 × 18, h4/h5/h6 × 0 | 同数・完全一致 | 見出し階層スキップなし（Q-3 充足） |
+| Mermaid 図解 | 6 本（`ibmTimeline`, `viciousCycle`, `stepRoadmap`, `surgicalTeam`, `secondSystemEffect`, `complexityTree`） | 同数・完全一致 | `<ClientOnly>` + `MermaidDiagram` + `.mermaid-wrap`（C-6a〜C-6e 充足） |
+| Callout 構成 | 3 件（すべて `note`） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
+| Table 構成 | 4 件（計 41 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
+| 外部リンク | 18 件 | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
+| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: engineering-management`, `accent: indigo` |
+| 監査スクリプト | — | `npm run audit:mythical-man-month` | **exit 0**（全要素一致） |
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 96a5325
+コードコミット HEAD: 75f4dc0
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
-  ホームのカードとグローバルナビのドロップダウンが自動で追随する（契約 N-1〜N-3）。
+  ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
+  seriesId は省略不可。シリーズを持たないカテゴリー（engineering-management のみ）は
+  undefined を明示する。挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守ること。
   tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
   tests/components/SiteHeader.test.ts の期待値配列を先に更新して Red を作ること
 
@@ -422,13 +495,16 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/lean-ux-beginner-guide.vue（Lean UX 実践ガイド）
   - app/pages/your-first-60-days-as-a-leader.vue（リーダーとしての最初の60日間 完全ガイド）
   - app/pages/debugging-teams-guide.vue（Debugging Teams 完全ガイド）
+  - app/pages/managing-humans-best-practices-guide.vue（Managing Humans 完全ガイド）
+  - app/pages/peopleware-guide.vue（Peopleware 完全ガイド）
+  - app/pages/mythical-man-month-guide.vue（人月の神話 完全ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
-  - SiteHeader.vue（全ページ共通グローバルナビ。カテゴリー別ドロップダウン + モバイルはアコーディオン）
+  - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 703 件
-  - test / typecheck / lint はいずれも 2026-08-23 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 26 本 exit 0 パス
+  - ユニットテスト 792 件
+  - test / typecheck / lint はいずれも 2026-08-25 時点で ✔（実測）
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 29 本 exit 0 パス
 
-ベースラインテスト数: ユニット 703 + E2E 13
+ベースラインテスト数: ユニット 792 + E2E 15
 ```

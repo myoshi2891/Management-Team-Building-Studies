@@ -661,7 +661,6 @@
       <p><strong>原著情報</strong> 原著: Peopleware Productive Projects and Teams, Third Edition / 著者: Tom DeMarco, Tim Lister (Addison-Wesley Professional, 2013年) / 参照: <a href="https://www.oreilly.com/library/view/peopleware-productive-projects/9780133440706/" target="_blank" rel="noopener">O'Reilly掲載ページ</a></p>
       <p><strong>この記事の読み方</strong> このガイドは、ソフトウェア開発のマネジメントを学び始めた方に向けて、名著『Peopleware』の要点を<strong>ステップバイステップ</strong>で解説するものです。原著は272ページ・全39章という短めのエッセイ集ですが、扱っているテーマは多岐にわたります。そこで本ガイドでは、原著の6部構成(Part I〜VI)を軸に、初学者がつまずきやすい概念を図解・表・具体例つきで整理しました。</p>
       <ul>
-        <li>図解はすべて<strong>Mermaid</strong>で記述しています(ASCII図は使用していません)。</li>
         <li>各セクションの末尾に「実践のポイント」を置き、明日から使えるチェックリストにしています。</li>
         <li>巻末に、著名な開発者・著者による言及を含む参考ソースのURLをまとめています。</li>
       </ul>
@@ -1158,6 +1157,17 @@
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class B,C,E box;`,
+    bookPartsOverview: `flowchart TB
+    P1["Part I 人的資源のマネジメント 失敗の社会学的原因を診断する"]:::hub --> P2["Part II オフィス環境 フローを守る空間を設計する"]
+    P2 --> P3["Part III 適切な人材 採用 リーダーシップ 定着"]
+    P3 --> P4["Part IV 生産的なチームを育てる ジェリングとチーミサイド"]
+    P4 --> P5["Part V 肥沃な土壌 会議 変化 組織学習"]
+    P5 --> P6["Part VI ここで働くのは楽しいはず 秩序と自由裁量の両立"]
+    
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class P2,P3,P4,P5 box;`,
     flowInterruption: `flowchart TB
     A1["作業に没入し始める"] --> A2["電話 チャットや声かけで割り込まれる"]
     A2 --> A3["集中状態フローが中断する"]
@@ -1204,17 +1214,6 @@
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class S1,S2,S3,S4,S5,S6,S7 box;`,
-    bookPartsOverview: `flowchart TB
-    P1["Part I 人的資源のマネジメント 失敗の社会学的原因を診断する"]:::hub --> P2["Part II オフィス環境 フローを守る空間を設計する"]
-    P2 --> P3["Part III 適切な人材 採用 リーダーシップ 定着"]
-    P3 --> P4["Part IV 生産的なチームを育てる ジェリングとチーミサイド"]
-    P4 --> P5["Part V 肥沃な土壌 会議 変化 組織学習"]
-    P5 --> P6["Part VI ここで働くのは楽しいはず 秩序と自由裁量の両立"]
-    
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class P2,P3,P4,P5 box;`,
   };
 
   function extendViewBoxHeight(svgEl, extra) {

@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test, type Page } from "@playwright/test";
 
 /*
  * グローバルナビのスモーク。
@@ -19,6 +19,41 @@ const CATEGORY_IDS = [
 
 const MOBILE = { width: 375, height: 720 };
 
+/*
+ * キーボード（Enter）でドロップダウンを開く。
+ *
+ * SSG された HTML はボタンが押せる状態で先に描画されるため、goto() 直後に
+ * focus() → keyboard.press() を送ると Vue のリスナーが付く前のネイティブ click になり、
+ * パネルが開かないままタイムアウトする。再試行の効かない一発勝負の操作なので flaky になる。
+ *
+ * aria-expanded を見てから押すことで再試行を冪等にする（開いているものを閉じない）。
+ * ハイドレーション完了の内部フラグには依存しない。
+ */
+/*
+ * hover でドロップダウンを開く。keyboard 版と同じハイドレーション競合があるため、
+ * 一度マウスを外してから当て直す形で再試行する（hover は一度当てただけでは
+ * リスナーが付いた後に mouseenter が再発火しない）。
+ */
+async function openWithHover(page: Page, triggerId: string): Promise<void> {
+  const panel = page.locator(`#nav-panel-${triggerId}`);
+  await expect(async () => {
+    await page.mouse.move(0, 0);
+    await page.locator(`#nav-trigger-${triggerId}`).hover();
+    await expect(panel).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+}
+
+async function openWithKeyboard(page: Page, triggerId: string): Promise<void> {
+  const trigger = page.locator(`#nav-trigger-${triggerId}`);
+  await expect(async () => {
+    await trigger.focus();
+    if (await trigger.getAttribute("aria-expanded") === "false") {
+      await page.keyboard.press("Enter");
+    }
+    await expect(page.locator(`#nav-panel-${triggerId}`)).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+}
+
 test("デスクトップ: hover でドロップダウンが開き、現在のページを含むカテゴリーを示す", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/capm");
@@ -29,8 +64,7 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
   await expect(trigger).toHaveClass(/current/);
   await expect(panel).toBeHidden();
 
-  await trigger.hover();
-  await expect(panel).toBeVisible();
+  await openWithHover(page, "project-management");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   await expect(panel.locator("a.current")).toHaveAttribute("href", "/capm");
 
@@ -44,6 +78,76 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
     .toBeGreaterThanOrEqual(headerBox.y + headerBox.height - 2);
 });
 
+test("デスクトップ: パネルはトリガー基準に出て、はみ出す分だけ内枠へ退避する", async ({ page }) => {
+  /*
+   * パネルはトリガーの左端に揃える。右がヘッダー内枠を超える場合だけ、超えた分を左へ退避する。
+   *
+   * 「常にナビ右端揃え」にすると、はみ出しは消えるがパネルがどの項目のものか読めなくなる
+   * （実測でエンジニアリングマネジメントはトリガー右端よりさらに 134px 右に出ていた）。
+   * 逆に「常にトリガー左端」だとリーダーシップ・チームビルディングが画面外へ出る。
+   * したがって「トリガー基準」と「内枠に収まる」の両方を同時に固定する必要がある。
+   *
+   * 位置は CSS とレイアウト実測で決まるため jsdom のユニットテストでは検証できない。
+   */
+  for (const width of [1440, 1240, 1040]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    const container = (await page.locator(".global-header-inner").boundingBox())!;
+
+    for (const id of CATEGORY_IDS) {
+      await openWithHover(page, id);
+      const panel = page.locator(`#nav-panel-${id}`);
+      const trigger = (await page.locator(`#nav-trigger-${id}`).boundingBox())!;
+      const box = (await panel.boundingBox())!;
+      const where = `${id} @${width}px`;
+
+      // 内枠からはみ出さない
+      expect(box.x, `${where} が内枠の左へはみ出している`).toBeGreaterThanOrEqual(container.x - 0.5);
+      expect(box.x + box.width, `${where} が内枠の右へはみ出している`)
+        .toBeLessThanOrEqual(container.x + container.width + 0.5);
+
+      // トリガーより右から始まらない（別の項目の下に出ない）
+      expect(box.x, `${where} がトリガーより右から始まっている`).toBeLessThanOrEqual(trigger.x + 0.5);
+
+      // 退避していないならトリガー左端に一致し、退避しているなら内枠右端に接する
+      const alignedToTrigger = Math.abs(box.x - trigger.x) <= 0.5;
+      const clampedToContainer = Math.abs(box.x + box.width - (container.x + container.width)) <= 0.5;
+      expect(alignedToTrigger || clampedToContainer, `${where} がトリガー基準でも内枠右端でもない`).toBe(true);
+    }
+  }
+});
+
+test("デスクトップ: パネル内のアイコンが潰れず、ラベルがカラムに収まる", async ({ page }) => {
+  /*
+   * カラム幅が最長ラベルより狭いと、svg が flex で圧縮され（実測 17px → 15px）
+   * テキストがカラムの縁まで張り出す。幅の充足は実レイアウトでしか判定できない。
+   */
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  for (const id of CATEGORY_IDS) {
+    await openWithHover(page, id);
+    const squeezed = await page.locator(`#nav-panel-${id}`).evaluate((el) =>
+      [...el.querySelectorAll("a")]
+        .map((link) => {
+          const icon = link.querySelector("svg")!;
+          const label = link.querySelector("span")!;
+          const range = document.createRange();
+          range.selectNodeContents(label);
+          return {
+            text: label.textContent?.trim() ?? "",
+            iconWidth: Math.round(icon.getBoundingClientRect().width),
+            labelWidth: Math.round(label.getBoundingClientRect().width),
+            textWidth: Math.ceil(range.getBoundingClientRect().width),
+          };
+        })
+        .filter((link) => link.iconWidth !== 17 || link.textWidth > link.labelWidth + 1),
+    );
+
+    expect(squeezed, `${id} に潰れたリンクがある`).toEqual([]);
+  }
+});
+
 test("デスクトップ: Escape で閉じてトリガーへフォーカスが戻る", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
@@ -51,9 +155,7 @@ test("デスクトップ: Escape で閉じてトリガーへフォーカスが�
   const trigger = page.locator("#nav-trigger-engineering-leadership");
   const panel = page.locator("#nav-panel-engineering-leadership");
 
-  await trigger.focus();
-  await page.keyboard.press("Enter");
-  await expect(panel).toBeVisible();
+  await openWithKeyboard(page, "engineering-leadership");
 
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();
@@ -97,7 +199,8 @@ test("モバイル幅: リンクをタップすると遷移してナビが閉じ
   await page.locator("#nav-trigger-team-building").click();
   await page.locator("#nav-panel-team-building a").first().click();
 
-  await expect(page).toHaveURL(/\/dynamic-reteaming-guide$/);
+  // カタログの並べ替えにより、チームビルディングの先頭は「チーム文化」シリーズの Team Geek。
+  await expect(page).toHaveURL(/\/team-geek-guide$/);
   await expect(page.locator("#global-nav")).toBeHidden();
 });
 
@@ -165,9 +268,7 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   const panel = page.locator("#nav-panel-engineering-management");
 
   // キーボードで開く（フォーカスがナビ内に入る）
-  await trigger.focus();
-  await page.keyboard.press("Enter");
-  await expect(panel).toBeVisible();
+  await openWithKeyboard(page, "engineering-management");
 
   // パネル内のリンクにフォーカスを当ててから外側クリック。
   // クリック先は必ず <main> にする。`locator("main, body")` は CSS セレクタリストを

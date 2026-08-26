@@ -216,7 +216,7 @@ const DIAGRAM_USER_PHASES = `flowchart LR
           </li>
           <li>
             <a href="#hrt-foundation" :class="{ active: activeId === 'hrt-foundation' }" :aria-current="activeId === 'hrt-foundation' ? 'true' : undefined" @click="closeSidebar">
-              <Icon name="tabler:handshake" aria-hidden="true" />HRTという土台
+              <Icon name="tabler:heart-handshake" aria-hidden="true" />HRTという土台
             </a>
           </li>
           <li>
@@ -344,7 +344,7 @@ const DIAGRAM_USER_PHASES = `flowchart LR
 
         <!-- ===================== 03. HRT foundation ===================== -->
         <section id="hrt-foundation">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:handshake" aria-hidden="true" />SECTION 03</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:heart-handshake" aria-hidden="true" />SECTION 03</div>
           <h2>すべての土台となるHRT (謙虚さ・尊敬・信頼)</h2>
 
           <p>本書全体を貫く中心思想が <strong>HRT</strong> = <strong>Humility (謙虚さ)・Respect (尊敬)・Trust (信頼)</strong> の3本柱だ。著者らは「ソフトウェア開発における社会的な対立のほとんどは、この3つのいずれか、あるいは全部が欠けていることに起因する」と述べている。</p>

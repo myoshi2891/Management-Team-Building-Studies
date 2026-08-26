@@ -43,6 +43,17 @@ const panelLinks = (wrapper: ReturnType<typeof mountHeader>, categoryId: string)
     href: link.attributes("href"),
   }));
 
+/**
+ * 指定カテゴリーのシリーズカラム。
+ * 見出し・見出しとの a11y 紐付け・所属リンクをカラム単位で取り出す。
+ */
+const seriesColumns = (wrapper: ReturnType<typeof mountHeader>, categoryId: string) =>
+  wrapper.get(`#nav-panel-${categoryId}`).findAll(".nav-series").map((column) => ({
+    label: column.find(".nav-series-label").exists() ? column.get(".nav-series-label").text() : null,
+    labelledBy: column.get("ul").attributes("aria-labelledby") ?? null,
+    links: column.findAll("a").map((link) => ({ label: link.text(), href: link.attributes("href") })),
+  }));
+
 describe("SiteHeader — カテゴリー別ドロップダウンナビゲーション", () => {
   it("ホームリンクとカテゴリートリガーを正しい順序で表示する", () => {
     const wrapper = mountHeader();
@@ -79,23 +90,148 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
       { label: "EM 入門", href: "/engineering-manager-guide" },
+      { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
+      { label: "人月の神話", href: "/mythical-man-month-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
-      { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
       { label: "リーダーの作法", href: "/leadership-practices-guide" },
-      { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
-      { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
-      { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
       { label: "最初の60日間", href: "/your-first-60-days-as-a-leader" },
+      { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
+      { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
+      { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
+      { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
     ]);
     expect(panelLinks(wrapper, "team-building")).toEqual([
-      { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
       { label: "Team Geek", href: "/team-geek-guide" },
-      { label: "Team Topologies", href: "/team-topologies-guide" },
-      { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
       { label: "Debugging Teams", href: "/debugging-teams-guide" },
+      { label: "Peopleware", href: "/peopleware-guide" },
+      { label: "Team Topologies", href: "/team-topologies-guide" },
+      { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
+      { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
     ]);
+  });
+
+  it("ドロップダウンをシリーズカラムへ分割する（見出し・a11y 紐付け・所属リンク）", () => {
+    /*
+     * カラム分割はドロップダウンが縦に伸び続けるのを防ぐための構造。
+     * 見出しだけ・件数だけの検証では、ガイドが別カラムへ紛れ込んでも通ってしまうため、
+     * 見出しと所属リンクを 1 つの構造として順序込みで固定する。
+     */
+    const wrapper = mountHeader();
+
+    expect(seriesColumns(wrapper, "project-management")).toEqual([
+      {
+        label: "CAPM",
+        labelledBy: "nav-series-capm",
+        links: [
+          { label: "CAPM 完全ガイド", href: "/capm" },
+          { label: "CAPM ドメイン1", href: "/certified-associate-in-project-management-domain1" },
+          { label: "CAPM ドメイン2", href: "/certified-associate-in-project-management-domain2" },
+          { label: "CAPM ドメイン3", href: "/capm-domain3-agile-frameworks-guide" },
+          { label: "CAPM ドメイン4", href: "/capm-domain4-business-analysis-frameworks" },
+        ],
+      },
+      {
+        label: "PMP",
+        labelledBy: "nav-series-pmp",
+        links: [
+          { label: "PMP 完全攻略", href: "/pmp-certification-guide" },
+          { label: "PMP ドメイン1", href: "/pmp-domain1-people-guide" },
+          { label: "PMP ドメイン2", href: "/pmp-domain2-process-guide" },
+          { label: "PMP ドメイン3", href: "/pmp-domain3-business-environment-guide" },
+        ],
+      },
+      {
+        label: "Scrum / CSM",
+        labelledBy: "nav-series-scrum",
+        links: [
+          { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
+          { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
+          { label: "CSM Scrum理論", href: "/csm-scrum-theory-guide" },
+          { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
+        ],
+      },
+    ]);
+
+    // シリーズ未定義のカテゴリーは、見出しの無い 1 カラム（分割前と同じ見た目）。
+    expect(seriesColumns(wrapper, "engineering-management")).toEqual([
+      {
+        label: null,
+        labelledBy: null,
+        links: [
+          { label: "EM キャリアパス", href: "/engineering-management-career-path" },
+          { label: "EM 入門", href: "/engineering-manager-guide" },
+          { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
+          { label: "人月の神話", href: "/mythical-man-month-guide" },
+        ],
+      },
+    ]);
+
+    expect(seriesColumns(wrapper, "engineering-leadership")).toEqual([
+      {
+        label: "はじめてのリード",
+        labelledBy: "nav-series-first-leadership",
+        links: [
+          { label: "チームリード術", href: "/engineering-team-leadership-guide" },
+          { label: "リーダーの作法", href: "/leadership-practices-guide" },
+          { label: "最初の60日間", href: "/your-first-60-days-as-a-leader" },
+          { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
+        ],
+      },
+      {
+        label: "組織・スケール",
+        labelledBy: "nav-series-exec-scale",
+        links: [
+          { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
+          { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
+          { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
+        ],
+      },
+    ]);
+
+    expect(seriesColumns(wrapper, "team-building")).toEqual([
+      {
+        label: "チーム文化",
+        labelledBy: "nav-series-team-culture",
+        links: [
+          { label: "Team Geek", href: "/team-geek-guide" },
+          { label: "Debugging Teams", href: "/debugging-teams-guide" },
+          { label: "Peopleware", href: "/peopleware-guide" },
+        ],
+      },
+      {
+        label: "チーム設計・変革",
+        labelledBy: "nav-series-team-design",
+        links: [
+          { label: "Team Topologies", href: "/team-topologies-guide" },
+          { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
+          { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
+        ],
+      },
+    ]);
+  });
+
+  it("パネルのカラム数を data-columns として CSS へ渡す", () => {
+    // グリッドの列数は CSS 側で var(--nav-panel-columns) として使う。
+    // 属性が欠けると全カラムが 1 列に潰れるため、DOM 契約として固定する。
+    const wrapper = mountHeader();
+
+    expect(wrapper.findAll(".nav-dropdown").map((panel) => ({
+      id: panel.attributes("id"),
+      columns: panel.attributes("data-columns"),
+    }))).toEqual([
+      { id: "nav-panel-project-management", columns: "3" },
+      { id: "nav-panel-engineering-management", columns: "1" },
+      { id: "nav-panel-engineering-leadership", columns: "2" },
+      { id: "nav-panel-team-building", columns: "2" },
+    ]);
+  });
+
+  it("シリーズ見出しの id が重複しない（aria-labelledby の指し先が一意）", () => {
+    const ids = mountHeader().findAll(".nav-series-label").map((label) => label.attributes("id"));
+
+    expect(ids).toEqual([...new Set(ids)]);
   });
 
   it("すべての公開ガイドへ到達できる（登録漏れの検知）", () => {
@@ -118,18 +254,21 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-97-things-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
+      "/managing-humans-best-practices-guide",
+      "/mythical-man-month-guide",
       "/engineering-team-leadership-guide",
-      "/engineering-executive-playbook",
       "/leadership-practices-guide",
-      "/developer-architect-communication-guide",
-      "/elastic-leadership-guide",
-      "/leadership-challenge-workbook-guide",
       "/your-first-60-days-as-a-leader",
-      "/dynamic-reteaming-guide",
+      "/leadership-challenge-workbook-guide",
+      "/engineering-executive-playbook",
+      "/elastic-leadership-guide",
+      "/developer-architect-communication-guide",
       "/team-geek-guide",
-      "/team-topologies-guide",
-      "/lean-ux-beginner-guide",
       "/debugging-teams-guide",
+      "/peopleware-guide",
+      "/team-topologies-guide",
+      "/dynamic-reteaming-guide",
+      "/lean-ux-beginner-guide",
     ]);
   });
 
@@ -198,6 +337,9 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
+      undefined,
+      undefined,
       undefined,
       undefined,
       undefined,
