@@ -111,7 +111,7 @@ useSeoMeta({
     </button>
 
     <div class="layout">
-      <!-- ===================== Sidebar ===================== -->
+      <!-- ===================== サイドバー ===================== -->
       <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
         <div class="sidebar-brand">
           <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -179,7 +179,7 @@ useSeoMeta({
         </ul>
       </nav>
 
-      <!-- ===================== Main content ===================== -->
+      <!-- ===================== メインコンテンツ ===================== -->
       <main id="main-content" class="main-content">
         <div class="hero">
           <div class="hero-eyebrow">
@@ -203,7 +203,7 @@ useSeoMeta({
           </div>
         </div>
 
-        <!-- ===================== 0. CSM Exam Overview ===================== -->
+        <!-- ===================== 0. CSM 試験概要 ===================== -->
         <section id="exam-overview">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" aria-hidden="true" />SECTION 01</div>
           <h2>Step 0. このガイドについて / CSM試験の基礎知識</h2>
@@ -227,7 +227,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 1. Artifacts and Commitments Overview ===================== -->
+        <!-- ===================== 1. 作成物とコミットメント概要 ===================== -->
         <section id="artifacts-commitments-overview">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-building-bank" aria-hidden="true" />SECTION 02</div>
           <h2>Step 1. アーティファクトとコミットメントの全体像</h2>
@@ -278,7 +278,7 @@ useSeoMeta({
           <p>この図が示す通り、3つのアーティファクトは一方通行の書類ではなく、スプリントを回すたびに互いを更新し合う循環構造になっています。プロダクトバックログから選ばれた項目がスプリントバックログになり、開発者の作業を経てインクリメントが生まれ、スプリントレビューでの気づきが再びプロダクトバックログに反映されます。</p>
         </section>
 
-        <!-- ===================== 2. Product Backlog and Product Goal ===================== -->
+        <!-- ===================== 2. プロダクトバックログとプロダクトゴール ===================== -->
         <section id="product-backlog">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-text" aria-hidden="true" />SECTION 03</div>
           <h2>Step 2. プロダクトバックログ(Product Backlog)とプロダクトゴール(Product Goal)</h2>
@@ -362,7 +362,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 3. Sprint Backlog and Sprint Goal ===================== -->
+        <!-- ===================== 3. スプリントバックログとスプリントゴール ===================== -->
         <section id="sprint-backlog">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-timeline" aria-hidden="true" />SECTION 04</div>
           <h2>Step 3. スプリントバックログ(Sprint Backlog)とスプリントゴール(Sprint Goal)</h2>
@@ -438,7 +438,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 4. Increment and Definition of Done ===================== -->
+        <!-- ===================== 4. インクリメントと完成の定義 ===================== -->
         <section id="increment-definition-of-done">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-clipboard-check" aria-hidden="true" />SECTION 05</div>
           <h2>Step 4. インクリメント(Increment)と完成の定義(Definition of Done)</h2>
@@ -525,7 +525,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 5. Events and Inspection Points ===================== -->
+        <!-- ===================== 5. イベントと検査ポイント ===================== -->
         <section id="inspection-points">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-calendar-event" aria-hidden="true" />SECTION 06</div>
           <h2>Step 5. イベントとアーティファクトの検査ポイント</h2>
@@ -556,7 +556,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 6. Vision, Goal, Sprint Goal Hierarchy ===================== -->
+        <!-- ===================== 6. ビジョン・ゴール・スプリントゴール階層 ===================== -->
         <section id="goal-hierarchy">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch" aria-hidden="true" />SECTION 07</div>
           <h2>Step 6. プロダクトビジョン・プロダクトゴール・スプリントゴールの階層構造</h2>
@@ -585,7 +585,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 7. Common Misconceptions ===================== -->
+        <!-- ===================== 7. よくある誤解 ===================== -->
         <section id="common-misconceptions">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true" />SECTION 08</div>
           <h2>Step 7. よくある誤解とCSM試験のひっかけポイント</h2>
@@ -607,7 +607,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== 8. CSM Learning Objectives Checklist ===================== -->
+        <!-- ===================== 8. CSM 学習目標チェックリスト ===================== -->
         <section id="learning-objectives-checklist">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-map-2" aria-hidden="true" />SECTION 09</div>
           <h2>Step 8. CSM Learning Objectives との対応チェックリスト</h2>
@@ -635,7 +635,7 @@ useSeoMeta({
           </div>
         </section>
 
-        <!-- ===================== References ===================== -->
+        <!-- ===================== 参考文献 ===================== -->
         <section id="references">
           <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true" />SECTION 10</div>
           <h2>参考文献・ソース一覧</h2>
