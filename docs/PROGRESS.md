@@ -59,8 +59,8 @@
 | `archive/Cal1-certified-agile-leader-1-guide/Cal1-certified-agile-leader-1-guide.html` | `app/pages/cal1-certified-agile-leader-1-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Cal1-chapter3-leading-agile-teams/Cal1-chapter3-leading-agile-teams.html` | `app/pages/cal1-chapter3-leading-agile-teams.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Cal1-chapter4-leading-agile-organizations/Cal1-chapter4-leading-agile-organizations.html` | `app/pages/cal1-chapter4-leading-agile-organizations.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
-| `Cal2-part1-organizational-strategy-and-delivery.html` | `app/pages/cal2-part1-organizational-strategy-and-delivery.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
-| `Cal2-certified-agile-leader-2-study-guide.html` | `app/pages/cal2-certified-agile-leader-2-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Cal2-part1-organizational-strategy-and-delivery/Cal2-part1-organizational-strategy-and-delivery.html` | `app/pages/cal2-part1-organizational-strategy-and-delivery.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Cal2-certified-agile-leader-2-study-guide/Cal2-certified-agile-leader-2-study-guide.html` | `app/pages/cal2-certified-agile-leader-2-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/No-rules-rules-guide/No-rules-rules-guide.html` | `app/pages/no-rules-rules-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Five-dysfunctions-of-a-team-guide/Five-dysfunctions-of-a-team-guide.html` | `app/pages/five-dysfunctions-of-a-team-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Ai-driven-project-management-guide/Ai-driven-project-management-guide.html` | `app/pages/ai-driven-project-management-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
@@ -598,7 +598,8 @@ ut-label"` 付与（D-1, D-2 充足） |
 
 ### 41. Certified Agile Leader® 2 (CAL 2™) 学習ガイド（`cal2-certified-agile-leader-2-study-guide.vue`）の Nuxt 移植
 
-- **原本**: `Cal2-certified-agile-leader-2-study-guide.html`
+- **原本**: `archive/Cal2-certified-agile-leader-2-study-guide/Cal2-certified-agile-leader-2-study-guide.html`
+- **原本 Markdown**: `archive/Cal2-certified-agile-leader-2-study-guide/Cal2-certified-agile-leader-2-study-guide.md`
 - **移行先**: `app/pages/cal2-certified-agile-leader-2-study-guide.vue`
 - **契約テスト**: `tests/pages/cal2-certified-agile-leader-2-study-guide.test.ts`（24 件・S-1〜S-4, C-1〜C-6, D-1, D-2, D-5a, Q-2, Q-3, 個別要素契約）
 - **照合結果**: `npm run audit:cal2` → **exit 0**（全要素一致）
