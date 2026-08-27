@@ -133,7 +133,13 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
-        title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
+        title: "Scrum Master Core Competencies 完全解説ガイド",
+        category: "SCRUM / CSM",
+        href: "/csm-scrum-master-core-competencies",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "スクラム 97の知恵",
         category: "SCRUM / CSM",
         href: "/scrum-97-things-guide",
         accentClass: "guide-card-forest",
@@ -329,7 +335,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "23 ガイド", cards: 23 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "24 ガイド", cards: 24 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "5 ガイド", cards: 5 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "9 ガイド", cards: 9 },
