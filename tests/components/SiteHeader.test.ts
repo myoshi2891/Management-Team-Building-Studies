@@ -158,8 +158,8 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
         ],
       },
       {
-        label: "Scrum / CSM",
-        labelledBy: "nav-series-scrum",
+        label: "CSM / Scrum",
+        labelledBy: "nav-series-csm",
         links: [
           { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
           { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
@@ -168,6 +168,12 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
           { label: "CSM コアコンピテンシー", href: "/csm-scrum-master-core-competencies" },
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
+        ],
+      },
+      {
+        label: "CAL 1・2",
+        labelledBy: "nav-series-cal",
+        links: [
           { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
           { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
           { label: "CAL1 第2章", href: "/agile-leadership-in-action" },

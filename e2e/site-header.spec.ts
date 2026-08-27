@@ -117,6 +117,43 @@ test("デスクトップ: パネルはトリガー基準に出て、はみ出す
   }
 });
 
+/*
+ * ドロップダウンを「開いた状態」の縦方向の契約。
+ *
+ * シリーズカラムは縦の肥大化を吸収するための構造だが、1 カラムへガイドが集中すると
+ * その吸収が効かなくなる（実測: scrum シリーズが 14 件へ膨らみ、パネル全高が約 600px に達した）。
+ * カラムあたりの件数上限は tests/utils/guide-catalog.test.ts が分類の契約として固定するが、
+ * 「実際に描いたら画面を覆うか」は実レイアウトでしか判定できないため、ここで実測する。
+ *
+ * 縦が最も厳しい常用構成として 1280x720 を使う。
+ */
+test("デスクトップ: どのパネルを開いても縦にビューポートを覆わない", async ({ page }) => {
+  const viewport = { width: 1280, height: 720 };
+  await page.setViewportSize(viewport);
+  await page.goto("/");
+
+  const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
+  const available = viewport.height - headerBox.height;
+
+  for (const id of CATEGORY_IDS) {
+    await openWithHover(page, id);
+
+    const panel = page.locator(`#nav-panel-${id}`);
+    // 開いた直後は translateY(-6px) → 0 のトランジション中。高さは変わらないが、
+    // 位置と同様に落ち着いてから測るほうが将来の変更に強い。
+    await expect
+      .poll(async () => (await panel.boundingBox())!.height, {
+        message: `${id} のパネル高さが取得できない`,
+      })
+      .toBeLessThanOrEqual(available);
+
+    // 下端がビューポート内に収まる（ヘッダー直下から開くため、高さが収まれば下端も収まる）。
+    const box = (await panel.boundingBox())!;
+    expect(box.y + box.height, `${id} のパネル下端が画面外へ出ている`)
+      .toBeLessThanOrEqual(viewport.height);
+  }
+});
+
 test("デスクトップ: パネル内のアイコンが潰れず、ラベルがカラムに収まる", async ({ page }) => {
   /*
    * カラム幅が最長ラベルより狭いと、svg が flex で圧縮され（実測 17px → 15px）
