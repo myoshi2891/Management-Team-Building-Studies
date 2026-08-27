@@ -463,7 +463,7 @@ flowchart TB
 | 意思決定のタイミング | プロジェクト初期にまとめて決定 | 必要になった時点で、最新の情報を基に決定(Last Responsible Moment) |
 | 変更への態度 | 変更は「設計の失敗」とみなされがち | 変更は前提であり、リファクタリングで吸収する |
 | 前提知識 | ドメインと要件を十分理解している必要がある | 実装しながら理解を深めていける |
-| リスク | 誤った前提に基づく設計への投資が無駄になるリスク | 場当たり的な設計の�Ag積によるアーキテクチャ崩壊のリスク |
+| リスク | 誤った前提に基づく設計への投資が無駄になるリスク | 場当たり的な設計の蓄積によるアーキテクチャ崩壊のリスク |
 
 **ベストプラクティス**
 - 「すべてを創発に委ねる」のではなく、変更コストが非常に高い決定(データベースの選定、外部システムとの契約、セキュリティモデルなど)は事前に検討し、変更コストの低い決定(クラス内部の構造など)は創発に任せるというハイブリッドが実務的である。
@@ -633,7 +633,7 @@ flowchart TB
 
 > [出典]
 > - Martin Fowler, "Bliki: TechnicalDebtQuadrant"<br>https://martinfowler.com/bliki/TechnicalDebtQuadrant.html
-> - Ward Cunninghamによる技術的負債の比喩の一般的解説(Martin Fowler, "Bliki: TechnicalDebt" にて要約)<br>https://martinfowler.com/bliki/TechnicalDebtQuadrant.html
+> - Ward Cunninghamによる技術的負債の比喩の一般的解説(Martin Fowler, "Bliki: TechnicalDebt" にて要約)<br>https://martinfowler.com/bliki/TechnicalDebt.html
 
 ---
 

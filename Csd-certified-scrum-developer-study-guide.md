@@ -354,7 +354,7 @@ flowchart LR
 ```
 
 > **ベストプラクティス**: Doneの定義は一度決めたら終わりではなく、チームの能力向上や組織標準の変化に応じて徐々に厳格化していく。複数チームが同じプロダクトに取り組む場合は、Doneの定義を共有・統一する。
-
+>
 > **ソース**: 本章全体はScrum Alliance「CSD Learning Objectives」カテゴリ1、およびThe Scrum Guideの該当箇所に基づきます。
 
 ---
@@ -419,7 +419,7 @@ flowchart LR
 **説明**: これもApplicationレベルの目標で、「共に作る（Co-create）」ことを実演します。個々人が担当箇所を分担して最後に結合するのではなく、設計段階から実装、テストまでを協働で進めるスタイルを指します。
 
 > **ベストプラクティス**: 実装前に短い「クイックデザインセッション」をチームで行い、インターフェースや責務分担について合意してから着手すると、後工程での手戻りが減る。
-
+>
 > **ソース**: 本章はScrum Alliance「CSD Learning Objectives」カテゴリ2に基づきます。
 
 ---
@@ -463,7 +463,7 @@ flowchart TB
 > **ベストプラクティス**
 > - アーキテクチャドキュメントを一度作って終わりにせず、実装から得られた知見を反映して継続的に更新する。
 > - 「将来使うかもしれない」機能を先回りして作り込む（過剰設計）を避け、YAGNI（You Aren't Gonna Need It）の原則を意識する。
-
+>
 > **ソース**: 本章はScrum Alliance「CSD Learning Objectives」カテゴリ3に基づきます。関連する実務知見はScrum Allianceのリソースライブラリ記事「Software Architecture in Scrum」でも紹介されています（巻末参照）。
 
 ---
@@ -503,7 +503,7 @@ flowchart LR
 > **ベストプラクティス**
 > - リファクタリング専用の「特別なスプリント」を設けるのではなく、日々の開発サイクルの中に小さく組み込む（ボーイスカウトルール: 「来た時よりも美しく」）。
 > - テストが存在しないレガシーコードに対しては、まず「特性化テスト（Characterization Test）」で現在の振る舞いを固定してからリファクタリングに着手する。
-
+>
 > **ソース**: 本章の定義はMartin Fowler「Refactoring」（refactoring.com）およびAgile Allianceグロッサリーの定義と一致します（巻末参照）。
 
 ---
@@ -573,7 +573,7 @@ flowchart LR
 | 決定的である | 同じ条件では常に同じ結果を返す（Flakyでない） |
 
 > **補足**: TDDを補完する考え方として、ビジネス側にも理解しやすい形でテストを記述する**BDD（Behavior-Driven Development）**や、顧客と一緒に受け入れ基準を先に定義する**ATDD（Acceptance Test-Driven Development）**もアジャイルテストの重要な発展形です。
-
+>
 > **ソース**: 本章はScrum Alliance「CSD Learning Objectives」カテゴリ5、およびKent Beck「Extreme Programming Explained」のテストファーストに関する記述、Agile Allianceグロッサリー（TDD／Unit Test／Mock Objects／ATDD／BDD）に基づきます（巻末参照）。
 
 ---
@@ -632,7 +632,7 @@ flowchart LR
 > - パイプラインの実行時間を短く保つ（目安として数分以内）。遅いパイプラインは「後で確認すればいい」という後回しの温床になる。
 > - テストが失敗した状態のビルドを放置しない文化（Stop the Line）をチームで合意しておく。
 > - 継続的インテグレーションの先には、自動で本番環境への配布まで行う**継続的デプロイメント（Continuous Deployment）**という発展形もある。
-
+>
 > **ソース**: 本章はScrum Alliance「CSD Learning Objectives」カテゴリ6、Agile Allianceグロッサリー（Continuous Integration／Automated Build／Continuous Deployment）に基づきます（巻末参照）。
 
 ---
@@ -719,7 +719,7 @@ flowchart TB
 | 追加の認定コースを受講する | まとまった時間分のSEUが認められる |
 
 > 実際のSEU算定基準は活動カテゴリごとに定められています。最新の基準は巻末のSEU公式ページで確認してください。
-
+>
 > **ベストプラクティス**: A-CSDやCSP-Dを見据えている場合、CSD取得直後から「どのプラクティスをどの程度実務に定着させたか」を振り返りとして記録しておくと、上位資格の申請時に実務経験の証跡として活用しやすい。
 
 ---

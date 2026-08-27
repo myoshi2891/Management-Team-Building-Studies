@@ -1,5 +1,6 @@
 # Certified Agile Facilitator (CAF) 学習ガイド
-### 初学者向け ステップバイステップ解説 + ベストプラクティス集
+
+初学者向け ステップバイステップ解説 + ベストプラクティス集
 
 > 本ガイドは Scrum Alliance が提供する **Certified Agile Facilitator (CAF)** 認定コースの公式ページおよび公式リソースライブラリの記事、そしてファシリテーション分野で世界的に参照されている一次資料（IAF、Sam Kaner、Roger Schwarz、Bruce Tuckman、Amy Edmondson、Liberating Structures、Agile Coaching Institute 等）をもとに、初学者が体系的に学べるよう構成した非公式の学習補助資料です。各章末に「ベストプラクティス」と「ソース」を明記していますので、一次情報に当たりたい場合はリンク先を参照してください。
 
@@ -48,12 +49,12 @@ CAFは「会議の進め方」のようなテクニックだけを教えるコ�
 | 実務への接続 | 受講後、自分の実際のファシリテーション計画をどう改善するか検討する |
 
 > **ベストプラクティス:** CAFを「メソッドのカタログ」として消費しようとしないこと。公式ページが繰り返し使っている単語は "mindset"（マインドセット）です。技法を覚える前に、まず「自分はプロセスの支援者であり、結果の当事者ではない」という立ち位置を内面化することが、学習効果を最大化します。
-
+>
 > **ソース:** [Certified Agile Facilitator (CAF) - Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/certified-agile-facilitator)
 
 ### 1.2 名称に関する補足（重要）
 
-Scrum AllianceのResource Library記事（後述）では、CAFの発展形として **Agile Coaching Skills - Certified Facilitator (ACS-CF)** という新コース（Agile Coaching Essentials トラックの一部）が案内されています。これは、Scrum AllianceがCASP（Certified Agile Scaling Practitioner）を "Certified Agile Skills - Scaling 1 (CAS-S1)" のようなバッジ体系に再編してきた流れと同様、認定ラインナップが継続的に見直されていることを示しています。受講を検討する際は、必ず公式ページで最新のコース名称とバッジ名を確認してください。
+Scrum AllianceのResource Library記事（後述）には、CAFの**旧名称**である **Agile Coaching Skills - Certified Facilitator (ACS-CF)**（Agile Coaching Essentials トラックの一部）への言及が残っています。ACS-CFはCAFの後継コースではなく、コース内容・学習目標・受講要件を維持したまま名称が改称されたものです（公式のコース検索でもCAFのコースは `ctyp=AcsCf` というコードで絞り込まれます）。CASP（Certified Agile Scaling Practitioner）が "Certified Agile Skills - Scaling 1 (CAS-S1)" としても案内されているのと同様、認定ラインナップの名称は継続的に見直されています。受講を検討する際は、必ず公式ページで最新のコース名称とバッジ名を確認してください。
 
 > **ソース:** [Why Facilitation Skills Are Important - Scrum Alliance Resource Library](https://resources.scrumalliance.org/article/facilitation-skills-important)（ACS-CFへの言及あり）
 
@@ -88,7 +89,7 @@ flowchart TB
 ```
 
 > **ベストプラクティス:** 自分が「意思決定に利害関係を持つ立場」（例：その会議の結果次第で自分の評価やプロジェクトの行方が変わる）にある場合、自分自身がファシリテーターを兼務することは避け、可能であれば別の人にファシリテーターを依頼しましょう。CAFが繰り返し強調する「中立性」は、単なる態度の問題ではなく、構造的な利益相反の回避でもあります。
-
+>
 > **ソース:**
 > - [Certified Agile Facilitator (CAF) - Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/certified-agile-facilitator)
 > - Schwarz, R. (1994). *The Skilled Facilitator*. Jossey-Bass. （全文プレビュー: [digitalcommons.usu.edu/advance/257](https://digitalcommons.usu.edu/advance/257)）
@@ -125,7 +126,7 @@ flowchart LR
 ```
 
 > **ベストプラクティス:** スクラムマスターは「ファシリテーションはスクラムマスターの仕事の一部」と思われがちですが、公式リソース記事は「ファシリテーションはスクラムマスターに限らず、あらゆるアジャイルロールが磨くべきスキルである」と明言しています。プロダクトオーナーや開発者であっても、レビューやレトロスペクティブを主導する場面ではファシリテーションスキルが直接活きます。
-
+>
 > **ソース:** [Certified Agile Facilitator (CAF) - Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/certified-agile-facilitator)、[Why Facilitation Skills Are Important](https://resources.scrumalliance.org/article/facilitation-skills-important)
 
 ---
@@ -157,7 +158,7 @@ Scrum Alliance公式記事「Why Facilitation Skills Are Important」は、フ�
 | 脱線を本題に戻す | 関係ない会話や横道を修正する |
 
 > **ベストプラクティス:** 「グループはコンテンツ（議題の中身）の専門家であり、ファシリテーターはプロセス（進め方）の専門家である」という役割分担を、会議の冒頭で参加者に明示的に伝えましょう。これにより、ファシリテーターが議論の内容に口を出さないことへの参加者の違和感を事前に解消できます。
-
+>
 > **ソース:** [Why Facilitation Skills Are Important](https://resources.scrumalliance.org/article/facilitation-skills-important)
 
 ### 4.2 学習目標②：中立なファシリテーターのマインドセットを実践する
@@ -233,7 +234,7 @@ flowchart TB
 | 目的の共通理解がない | チームがバラバラの方向を向く |
 
 > **ベストプラクティス:** ファシリテーター自身がその議題に強い意見を持っている場合、「今日は私はファシリテーター役に徹し、内容についての意見は別の機会（または別の参加者として）に述べます」と冒頭で宣言しましょう。役割の切り替えを明示することで、無意識の誘導（結果への肩入れ）を防げます。
-
+>
 > **ソース:** [Why Facilitation Skills Are Important](https://resources.scrumalliance.org/article/facilitation-skills-important)
 
 ---
@@ -260,7 +261,7 @@ flowchart LR
 | Adjourning（散会期） | チーム解散・目的達成後の区切り | 振り返りと功績の承認の場を作る |
 
 > **ベストプラクティス:** チームが「Storming」段階にいるのに、ファシリテーターが「Performing」段階向けの軽いファシリテーション（口出しを最小限にするなど）をしてしまうと、対立が未処理のまま放置され、チームが同じ問題を繰り返します。逆に「Performing」段階のチームに「Forming」段階向けの過度に構造化されたプロセスを持ち込むと、チームの自律性を阻害し不満を招きます。ファシリテーションの手法は、今チームがどの段階にいるかに合わせて調整する必要があります。
-
+>
 > **ソース:**
 > - Tuckman, B. W. (1965). "Developmental sequence in small groups." *Psychological Bulletin*, 63(6), 384–399.
 > - Tuckman, B. W., & Jensen, M. A. C. (1977). "Stages of small-group development revisited." *Group & Organization Studies*, 2(4), 419–427.
@@ -290,7 +291,7 @@ flowchart TB
 ```
 
 > **ベストプラクティス:** 心理的安全性は「一度作れば終わり」の状態ではなく、ファシリテーターが毎回のセッションで再構築する必要がある一時的な状態です。具体的な手法として、Scrum Alliance公式記事は「参加者に発言者の言葉をパラフレーズ（言い換えて反復）させる」ことを提案しています。これにより、発言が正しく届いたことを話し手が確認でき、聞き手側も注意深く聞く姿勢が強化されます。
-
+>
 > **ソース:**
 > - Edmondson, A. C. (1999). "Psychological Safety and Learning Behavior in Work Teams." *Administrative Science Quarterly*, 44(2), 350–383.
 > - [Amy C. Edmondson - Harvard Business School 教員ページ](https://www.hbs.edu/faculty/Pages/profile.aspx?facId=6451)
@@ -329,7 +330,7 @@ flowchart TB
 | 拒否権を行使する | この提案には賛成できない、進めさせない |
 
 > **ベストプラクティス:** Groan Zone（うめきゾーン）は「ファシリテーションが失敗している兆候」ではなく、「質の高い合意に向かうために通過が必要な正常なプロセス」です。チームがここで沈黙したり苛立ったりしても、ファシリテーターが焦って早期に多数決へ持ち込むと、表面的な合意（false consensus）に終わり、後で同じ対立が再燃します。Gradients of Agreementのようなツールで「どこにギャップがあるか」を可視化し、うめきゾーンを意図的に通過させましょう。
-
+>
 > **ソース:**
 > - Kaner, S., Lind, L., Toldi, C., Fisk, S., & Berger, D. *Facilitator's Guide to Participatory Decision-Making* (3rd ed.). Jossey-Bass/Wiley.
 > - 書評（モデルの図解あり）: [Book Review: Facilitator's Guide to Participatory Decision Making - InfoQ](https://www.infoq.com/articles/facilitators-guide-book-review/)
@@ -367,7 +368,7 @@ facilitation実務でよく使われるグラウンドルール（Ground Rules�
 | 次のステップを一緒に設計する | 対立の解消を「勝ち負け」ではなく「共同作業」にする |
 
 > **ベストプラクティス:** グラウンドルールは対立が起きてから提示するのではなく、セッションの冒頭で「もし意見が割れたら、私たちはこのルールで話し合います」と事前に合意しておきましょう。対立の渦中で新しいルールを持ち出すと、特定の立場を有利にするための恣意的な介入だと受け取られるリスクがあります。
-
+>
 > **ソース:**
 > - 公式記事の対立に関する記述: [Why Facilitation Skills Are Important](https://resources.scrumalliance.org/article/facilitation-skills-important)
 > - グラウンドルールの一覧: Schwarz, R. (1994). *The Skilled Facilitator*. Jossey-Bass.（要約: [Penn State Extension - Facilitation Tools and Strategies](https://aese.psu.edu/research/centers/cecd/engagement-toolbox/facilitation/facilitation-tools/tools-and-strategies)）
@@ -412,7 +413,7 @@ flowchart TB
 ```
 
 > **ベストプラクティス（NOSTUESOルールの詳細）:** 誰かが発言した後、次に自然発生的に発言者が現れない場合は、発言者自身に「次に話してほしい人を指名してもらう」運用にします。ただし各参加者には「パスする権利」も保証します。この2つのルールの組み合わせにより、発言力の偏りを構造的に是正しつつ、強制的な発言を避けられます。
-
+>
 > **ソース:** [10 Tips for Hosting Fun, Effective Virtual Meetings - Scrum Alliance Resource Library](https://resources.scrumalliance.org/article/10-tips-for-hosting-fun-effective-virtual-meetings)（著者: Ram Srinivasan / Innovagility.com、寄稿: Gene Gendel）
 
 ---
@@ -470,7 +471,7 @@ flowchart LR
 - [ ] 次回のセッション設計にその学びを反映する仕組みがあるか
 
 > **ベストプラクティス:** CAFの公式FAQは「受講後、実際のファシリテーション計画をどう改善するか判断する機会がある」と述べています。これは、ファシリテーションが座学で完結するスキルではなく、実際のセッションでの実践と振り返りのサイクルを回すことで熟達するスキルであることを示しています。1回のセッションごとに簡単な自己レビュー（うまくいったこと1つ、次に変えること1つ）を記録する習慣が効果的です。
-
+>
 > **ソース:** [Certified Agile Facilitator (CAF) - Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/certified-agile-facilitator)（FAQ: "Will I get a chance to practice facilitation?"）
 
 ---
@@ -519,7 +520,7 @@ flowchart TB
 ```
 
 > **ベストプラクティス:** 技法は「知っている数」で評価されるものではありません。CAFの学習目標が「マインドセット」を先に置いているのはこのためです。1つの技法（例えばORID）を深く使いこなせる方が、10個の技法を表面的に知っているより実務では役立ちます。まずは自分のチームでよく使う場面（レトロスペクティブなら ORID、大人数会議なら Liberating Structures）に1つずつ技法を定着させましょう。
-
+>
 > **ソース:**
 > - ORID: Stanfield, R. B. (2000). *The Art of Focused Conversation*. Institute of Cultural Affairs. 概説: [PMC論文 - Utilizing the focused conversation method](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6518626/)
 > - Liberating Structures: [公式サイト liberatingstructures.com](http://www.liberatingstructures.com/)、Lipmanowicz, H., & McCandless, K. *The Surprising Power of Liberating Structures*.
@@ -553,7 +554,7 @@ flowchart TB
 | Coaching（プロフェッショナルコーチング） | 相手自身の気づき・答えを引き出す | 中立に近いが、対象は個人であり「グループのプロセス」ではなく「個人の思考」に向く |
 
 > **ベストプラクティス:** 1つのセッションの中で無自覚にスタンスを切り替えてしまうと、参加者は混乱します（例：ファシリテーターのはずが急に「私はこう思う」とTeachingモードに入る）。スタンスを切り替える必要がある場合は、「ここからは少し私の意見も共有していいですか？（Teachingモードに入ります）」のように明示的に宣言し、終わったら再び中立なFacilitatingモードに戻ることを伝えましょう。
-
+>
 > **ソース:**
 > - [Lyssa Adkins and Michael Spayd on the Role of the Agile Coach - InfoQ](https://www.infoq.com/agile_techniques/interviews/72)
 > - Adkins, L. (2010). *Coaching Agile Teams*. Addison-Wesley.
@@ -586,7 +587,7 @@ flowchart TB
 - 公式コース検索: [Find a course - Scrum Alliance](https://www.scrumalliance.org/courses-events/search?ctyp=AcsCf)
 - 公式学習目標PDF（要サインイン）: [CAF Learning Objectives](https://drive.google.com/file/d/1sOGykvoYGYJIxtuV6WwHGUW8CRe6RUH0/view)
 - Scrum Education Units（SEU）制度の説明: [Scrum Education Units - Scrum Alliance](https://www.scrumalliance.org/get-certified/scrum-education-units)
-- 関連する後継コース: Agile Coaching Skills - Certified Facilitator (ACS-CF)（Agile Coaching Essentials トラックの一部）
+- 旧名称: Agile Coaching Skills - Certified Facilitator (ACS-CF)（Agile Coaching Essentials トラックの一部。コース内容・学習目標・要件はCAFに引き継がれている）
 - 関連リソース記事（公式ページから直接リンクされているもの）:
   - [Why Facilitation Skills Are Important](https://resources.scrumalliance.org/article/facilitation-skills-important)
   - [Remote Facilitation（動画）](https://resources.scrumalliance.org/video/remote-facilitation)
@@ -600,6 +601,7 @@ flowchart TB
 ## 16. 参考文献・出典一覧
 
 ### Scrum Alliance 公式ソース
+
 - [Certified Agile Facilitator (CAF) - Scrum Alliance 公式ページ](https://www.scrumalliance.org/get-certified/certified-agile-facilitator)
 - [CAF Learning Objectives（PDF、要サインイン）](https://drive.google.com/file/d/1sOGykvoYGYJIxtuV6WwHGUW8CRe6RUH0/view)
 - [Why Facilitation Skills Are Important](https://resources.scrumalliance.org/article/facilitation-skills-important)
@@ -609,6 +611,7 @@ flowchart TB
 - [Scrum Education Units (SEU)](https://www.scrumalliance.org/get-certified/scrum-education-units)
 
 ### 学術・専門文献
+
 - Schwarz, R. (1994). *The Skilled Facilitator: A Comprehensive Resource for Consultants, Facilitators, Managers, Trainers, and Coaches*. Jossey-Bass.（[全文プレビュー](https://digitalcommons.usu.edu/advance/257)）
 - Tuckman, B. W. (1965). "Developmental sequence in small groups." *Psychological Bulletin*, 63(6), 384–399.
 - Tuckman, B. W., & Jensen, M. A. C. (1977). "Stages of small-group development revisited." *Group & Organization Studies*, 2(4), 419–427.
@@ -619,10 +622,12 @@ flowchart TB
 - Adkins, L. (2010). *Coaching Agile Teams: A Companion for ScrumMasters, Agile Coaches, and Project Managers in Transition*. Addison-Wesley.
 
 ### 専門機関・団体
+
 - [International Association of Facilitators (IAF)](https://www.iaf-world.org/) — ファシリテーターの国際的な専門団体。Certified Professional Facilitator (CPF) 認定を保有。
 - [Liberating Structures 公式サイト](http://www.liberatingstructures.com/)
 
 ### 二次的な解説記事（一次資料の裏付けとして）
+
 - [Book Review: Facilitator's Guide to Participatory Decision Making - InfoQ](https://www.infoq.com/articles/facilitators-guide-book-review/)
 - [Gradients of agreement scale - Wikipedia](https://en.wikipedia.org/wiki/Gradients_of_agreement_scale)
 - [Tuckman's stages of group development - Wikipedia](https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development)
