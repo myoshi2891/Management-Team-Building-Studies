@@ -175,6 +175,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "AI駆動プロジェクトマネジメント実践ガイド",
+        category: "AI-PM",
+        href: "/ai-driven-project-management-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",

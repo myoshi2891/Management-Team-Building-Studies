@@ -94,6 +94,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CAL1 第3章", href: "/cal1-chapter3-leading-agile-teams" },
       { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
       { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
+      { label: "AI-PM 実践ガイド", href: "/ai-driven-project-management-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -172,6 +173,13 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
         ],
       },
+      {
+        label: "AI-PM",
+        labelledBy: "nav-series-ai-pm",
+        links: [
+          { label: "AI-PM 実践ガイド", href: "/ai-driven-project-management-guide" },
+        ],
+      },
     ]);
 
     // シリーズ未定義のカテゴリーは、見出しの無い 1 カラム（分割前と同じ見た目）。
@@ -245,7 +253,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       id: panel.attributes("id"),
       columns: panel.attributes("data-columns"),
     }))).toEqual([
-      { id: "nav-panel-project-management", columns: "3" },
+      { id: "nav-panel-project-management", columns: "4" },
       { id: "nav-panel-engineering-management", columns: "1" },
       { id: "nav-panel-engineering-leadership", columns: "2" },
       { id: "nav-panel-team-building", columns: "2" },
@@ -284,6 +292,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/cal1-chapter3-leading-agile-teams",
       "/cal2-part1-organizational-strategy-and-delivery",
       "/cal2-certified-agile-leader-2-study-guide",
+      "/ai-driven-project-management-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/managing-humans-best-practices-guide",
