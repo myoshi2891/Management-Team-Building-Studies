@@ -569,6 +569,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/five-dysfunctions-of-a-team-guide",
+    categoryId: "team-building",
+    seriesId: "team-culture",
+    navLabel: "5つの機能不全",
+    title: "『あなたのチームは、機能してますか？』完全ガイド",
+    description: "Patrick Lencioni著『The Five Dysfunctions of a Team』を初学者向けに解説。5つの機能不全のピラミッド構造とステップバイステップの実践ガイド、エンジニアリングチームでの応用例を紹介します。",
+    meta: "11セクション",
+    icon: "tabler:users-group",
+    accent: "indigo",
+  },
+  {
     to: "/team-topologies-guide",
     categoryId: "team-building",
     seriesId: "team-design",

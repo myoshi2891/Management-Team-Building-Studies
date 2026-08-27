@@ -90,6 +90,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/peopleware-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Peopleware" },
       { to: "/radical-candor-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Radical Candor" },
       { to: "/no-rules-rules-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "No Rules Rules" },
+      { to: "/five-dysfunctions-of-a-team-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "5つの機能不全" },
       { to: "/team-topologies-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Team Topologies" },
       { to: "/dynamic-reteaming-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "ダイナミック・リチーミング" },
       { to: "/lean-ux-beginner-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Lean UX 入門" },
@@ -160,7 +161,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
+        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "5つの機能不全", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
       },
     ]);
   });
@@ -198,7 +199,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       {
         id: "team-building",
         seriesGroups: [
-          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules"] },
+          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "5つの機能不全"] },
           { seriesId: "team-design", guides: ["Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"] },
         ],
       },
