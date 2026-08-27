@@ -67,10 +67,21 @@ export const GUIDE_SERIES = [
     cardLabel: "PMP",
   },
   {
-    id: "scrum",
+    id: "csm",
     categoryId: "project-management",
-    navLabel: "Scrum / CSM",
-    cardLabel: "SCRUM / CSM",
+    navLabel: "CSM / Scrum",
+    cardLabel: "CSM / SCRUM",
+  },
+  {
+    /*
+     * CAL は CSM と同じ Scrum Alliance の認定だが、対象読者（チーム ↔ 組織リーダー）が
+     * 異なるため独立したシリーズにする。1 カラムへ束ねると 14 件になり、
+     * カラム分割による縦方向の吸収が効かなくなる。
+     */
+    id: "cal",
+    categoryId: "project-management",
+    navLabel: "CAL 1・2",
+    cardLabel: "CAL 1 & 2",
   },
   {
     id: "ai-pm",
@@ -253,7 +264,7 @@ export const GUIDES = [
   {
     to: "/csm-certified-scrummaster-guide",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "CSM 完全ガイド",
     title: "Certified ScrumMaster®(CSM®)完全ガイド",
     description: "Scrum Alliance公式のLearning ObjectivesとScrum Guideに基づき、CSM資格の出題範囲・ベストプラクティス・試験対策を初学者向けに解説する完全ガイドです。",
@@ -264,7 +275,7 @@ export const GUIDES = [
   {
     to: "/csm-scrum-team-3-accountabilities",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "CSM 3つのアカウンタビリティ",
     title: "Scrum Team とは何か ― 3つのアカウンタビリティ徹底解説",
     description: "Certified ScrumMaster(CSM)学習ガイド。Scrum Guide 2020とCSM Learning Objectivesに基づき、Product Owner・Scrum Master・Developersの3つのアカウンタビリティを初学者向けに解説。",
@@ -275,7 +286,7 @@ export const GUIDES = [
   {
     to: "/csm-scrum-theory-guide",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "CSM Scrum理論",
     title: "Scrum理論の基礎(Scrum Theory) ― CSM®試験対応 初学者向け完全ガイド",
     description: "Scrum Alliance Certified ScrumMaster(CSM)のScrum Foundations Learning Objectives「Scrum Theory」(LO1.1-1.7)を、Scrum Guide 2020とScrum Alliance公式資料に基づき初学者向けに解説する完全ガイド。",
@@ -286,7 +297,7 @@ export const GUIDES = [
   {
     to: "/csm-scrum-artifacts-and-commitments",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "CSM アーティファクト",
     title: "Scrum Artifacts と Commitments 完全ガイド",
     description: "Certified ScrumMaster(CSM)取得を目指す初学者向けに、Scrumの3つのアーティファクト(Product Backlog / Sprint Backlog / Increment)と3つのコミットメント(Product Goal / Sprint Goal / Definition of Done)をステップバイステップで解説する学習ガイド。",
@@ -297,7 +308,7 @@ export const GUIDES = [
   {
     to: "/scrum-events-csm-guide",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "CSM スクラムイベント",
     title: "Scrum Events 完全ガイド",
     description: "Scrum Alliance CSM認定試験対策として、Scrumの5つのイベント(Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective)を初学者向けにステップバイステップで解説する完全ガイド。",
@@ -308,7 +319,7 @@ export const GUIDES = [
   {
     to: "/csm-scrum-master-core-competencies",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "CSM コアコンピテンシー",
     title: "Scrum Master Core Competencies 完全解説ガイド",
     description: "Scrum Alliance の Certified ScrumMaster(CSM)認定における Scrum Master Core Competencies(Facilitation・Teaching・Mentoring・Coaching)と、Scrum Team・Product Owner・組織へのサービスを、公式Learning Objectivesに基づき初学者向けに解説する非公式学習ガイド",
@@ -319,7 +330,7 @@ export const GUIDES = [
   {
     to: "/scrum-97-things-guide",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "csm",
     navLabel: "スクラム 97の知恵",
     title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
     description: "O'Reilly「97 Things Every Scrum Practitioner Should Know」の10パート構成に学び、公式Scrum Guideと国際的な実践者の知見をもとにスクラムのベストプラクティスをステップバイステップで解説する初学者向けガイド。",
@@ -330,7 +341,7 @@ export const GUIDES = [
   {
     to: "/cal1-certified-agile-leader-1-guide",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL1 完全ガイド",
     title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
     description: "Scrum Alliance Certified Agile Leader 1 (CAL 1) の公式情報にもとづく、初学者向けの学習ガイド。4つの学習目標領域、認定取得の流れ、資格更新(SEU)の仕組みをMermaid図解と出典付きで解説。",
@@ -341,7 +352,7 @@ export const GUIDES = [
   {
     to: "/the-case-for-agile-leadership",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL1 第1章",
     title: "アジャイルリーダーシップの必要性を理解する",
     description: "Certified Agile Leader® 1(CAL1)の学習領域1「The Case for Agile Leadership」を初学者向けにステップバイステップで解説する非公式ガイド。VUCA環境の背景、リーダーシップ・アジリティモデル、アジャイルリーダーの4つの行動とベストプラクティスを解説します。",
@@ -352,7 +363,7 @@ export const GUIDES = [
   {
     to: "/agile-leadership-in-action",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL1 第2章",
     title: "実践におけるリーダーシップ(Agile Leadership in Action)",
     description: "Scrum Alliance CAL1(Certified Agile Leader 1)のドメイン2「Agile Leadership in Action」を初学者向けに解説。SLII・Leadership Agility・Servant Leadershipなどのフレームワーク、GROWモデルによるコーチング、SBIフィードバック、心理的安全性をMermaid図解と表で整理し、出典URLを明記。",
@@ -363,7 +374,7 @@ export const GUIDES = [
   {
     to: "/cal1-chapter3-leading-agile-teams",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL1 第3章",
     title: "第3章:アジャイルチームのリード(Leading Agile Teams)",
     description: "Scrum Alliance Certified Agile Leader 1(CAL 1)の学習目標領域「3. Leading Agile Teams」を、サーバントリーダーシップ・タックマンモデル・心理的安全性・Lencioniの5つの機能不全・Delegation Pokerなど9つのフレームワークで初学者向けに解説する学習ガイド。",
@@ -374,7 +385,7 @@ export const GUIDES = [
   {
     to: "/cal1-chapter4-leading-agile-organizations",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL1 第4章",
     title: "第4章: Leading Agile Organizations(アジャイル組織のリード)",
     description: "Scrum Alliance Certified Agile Leader® 1(CAL 1™)の学習領域「Leading Agile Organizations」を初学者向けに解説する非公式ガイド。組織アジリティ、Cynefin、組織文化、Team Topologies、チェンジマネジメント、スケーリングを網羅。",
@@ -385,7 +396,7 @@ export const GUIDES = [
   {
     to: "/cal2-part1-organizational-strategy-and-delivery",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL2 Part 1",
     title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
     description: "Certified Agile Leader 2 (CAL 2) Part 1「Organizational Strategy and Delivery」を初学者向けに解説する非公式スタディガイド。Golden Circle、Galbraith Star Model、Team Topologies、Immunity to Change、Kotter/ADKAR/Bridgesなどのフレームワークを図解付きで紹介します。",
@@ -396,7 +407,7 @@ export const GUIDES = [
   {
     to: "/cal2-certified-agile-leader-2-study-guide",
     categoryId: "project-management",
-    seriesId: "scrum",
+    seriesId: "cal",
     navLabel: "CAL2 完全ガイド",
     title: "Certified Agile Leader® 2 (CAL 2™) 学習ガイド",
     description: "Scrum Alliance Certified Agile Leader 2 (CAL 2) の学習目標に基づき、組織戦略・チェンジマネジメント・リーダーシップ成長の主要フレームワークをステップバイステップで解説する非公式学習ガイドです。",
