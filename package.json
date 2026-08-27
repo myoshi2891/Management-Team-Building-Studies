@@ -53,7 +53,7 @@
     "audit:scrum-events": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-events-csm-guide/Scrum-events-csm-guide.html app/pages/scrum-events-csm-guide.vue",
     "audit:no-rules-rules": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/No-rules-rules-guide/No-rules-rules-guide.html app/pages/no-rules-rules-guide.vue",
     "audit:high-output-management": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/High-output-management-guide/High-output-management-guide.html app/pages/high-output-management-guide.vue",
-    "audit:five-dysfunctions": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Five-dysfunctions-of-a-team-guide.html app/pages/five-dysfunctions-of-a-team-guide.vue"
+    "audit:five-dysfunctions": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Five-dysfunctions-of-a-team-guide/Five-dysfunctions-of-a-team-guide.html app/pages/five-dysfunctions-of-a-team-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
