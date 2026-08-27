@@ -263,7 +263,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       id: panel.attributes("id"),
       columns: panel.attributes("data-columns"),
     }))).toEqual([
-      { id: "nav-panel-project-management", columns: "4" },
+      { id: "nav-panel-project-management", columns: "5" },
       { id: "nav-panel-engineering-management", columns: "1" },
       { id: "nav-panel-engineering-leadership", columns: "2" },
       { id: "nav-panel-team-building", columns: "2" },
