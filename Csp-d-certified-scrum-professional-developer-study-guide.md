@@ -40,9 +40,9 @@ CSD（基礎）→ A-CSD（応用）→ **CSP-D（プロフェッショナル）
 
 ```mermaid
 flowchart LR
-    A["CSD\nCertified Scrum Developer\n(基礎: Lean/Agile/Scrum, XP実践)"] --> B["A-CSD\nAdvanced Certified Scrum Developer\n(応用: 継続的デリバリー, DORA)"]
-    B --> C["CSP-D\nCertified Scrum Professional - Developer\n(プロフェッショナル: 技術的卓越性の伝播, リーダーシップ)"]
-    C --> D["CSD Trainer\n(Scrum Alliance 承認の CSD トレーナー)\nトレーナーとして教える側へ"]
+    A["CSD<br/>Certified Scrum Developer<br/>(基礎: Lean/Agile/Scrum, XP実践)"] --> B["A-CSD<br/>Advanced Certified Scrum Developer<br/>(応用: 継続的デリバリー, DORA)"]
+    B --> C["CSP-D<br/>Certified Scrum Professional - Developer<br/>(プロフェッショナル: 技術的卓越性の伝播, リーダーシップ)"]
+    C --> D["CSD Trainer<br/>(Scrum Alliance 承認の CSD トレーナー)<br/>トレーナーとして教える側へ"]
 
     style A fill:#1f2a44,stroke:#7c9eff,color:#ffffff
     style B fill:#1f2a44,stroke:#7c9eff,color:#ffffff
@@ -99,13 +99,13 @@ Scrum Alliance 公式ページに記載されている CSP-D の要件は以下�
 
 ```mermaid
 flowchart TB
-    A["A-CSD 資格を保有\n(有効/失効問わず)"] --> B["24か月以上の\nScrum開発者実務経験を証明\n(過去5年以内)"]
-    B --> C["認定教育機関(REP)の\nCSP-D対応コースを受講"]
-    C --> D["事前/事後課題を含む\n全コンポーネントを完了"]
-    D --> E["CSP-D 認定取得\n(A-CSDも自動更新)"]
-    E --> F["Comparative Agility\nプレミアム購読が付与"]
-    E --> G["2年ごとに\nSEU 40単位で更新"]
-    G --> H["CSD Trainer(トレーナー)\nへのステップアップも可能"]
+    A["A-CSD 資格を保有<br/>(有効/失効問わず)"] --> B["24か月以上の<br/>Scrum開発者実務経験を証明<br/>(過去5年以内)"]
+    B --> C["認定教育機関(REP)の<br/>CSP-D対応コースを受講"]
+    C --> D["事前/事後課題を含む<br/>全コンポーネントを完了"]
+    D --> E["CSP-D 認定取得<br/>(A-CSDも自動更新)"]
+    E --> F["Comparative Agility<br/>プレミアム購読が付与"]
+    E --> G["2年ごとに<br/>SEU 40単位で更新"]
+    G --> H["CSD Trainer(トレーナー)<br/>へのステップアップも可能"]
 
     style E fill:#2a3a5c,stroke:#ffd166,color:#ffffff
 ```
@@ -125,11 +125,11 @@ CSD・A-CSD と同様、CSP-D の学習目標も Bloom's Taxonomy（ブルーム
 
 ```mermaid
 flowchart TB
-    K["1. Knowledge\n知識: 用語や事実を覚えている"] --> C2["2. Comprehension\n理解: 自分の言葉で説明できる"]
-    C2 --> A["3. Application\n応用: 実際の状況に適用できる"]
-    A --> An["4. Analysis\n分析: 要素に分解し関係性を見出せる"]
-    An --> S["5. Synthesis\n統合: 新しいものを創り出せる"]
-    S --> E["6. Evaluation\n評価: 基準に基づいて判断できる"]
+    K["1. Knowledge<br/>知識: 用語や事実を覚えている"] --> C2["2. Comprehension<br/>理解: 自分の言葉で説明できる"]
+    C2 --> A["3. Application<br/>応用: 実際の状況に適用できる"]
+    A --> An["4. Analysis<br/>分析: 要素に分解し関係性を見出せる"]
+    An --> S["5. Synthesis<br/>統合: 新しいものを創り出せる"]
+    S --> E["6. Evaluation<br/>評価: 基準に基づいて判断できる"]
 
     style S fill:#2a3a5c,stroke:#ffd166,color:#ffffff
     style E fill:#2a3a5c,stroke:#ffd166,color:#ffffff
@@ -158,25 +158,25 @@ CSP-D の公式 Learning Objectives（2021年8月版）は、以下の**5つの�
 
 ```mermaid
 flowchart TB
-    subgraph C1["1. Enabling a Culture of\nTechnical Excellence (1.1-1.5)"]
+    subgraph C1["1. Enabling a Culture of<br/>Technical Excellence (1.1-1.5)"]
         direction TB
-        c1a["技術的卓越性の文化を\n複数チームに広げる"]
+        c1a["技術的卓越性の文化を<br/>複数チームに広げる"]
     end
-    subgraph C2["2. Catalyzing High-Performing\nTechnology Organizations (2.1-2.10)"]
+    subgraph C2["2. Catalyzing High-Performing<br/>Technology Organizations (2.1-2.10)"]
         direction TB
-        c2a["アーキテクチャ・レガシー刷新・\nCI/CD・テストで組織力を高める"]
+        c2a["アーキテクチャ・レガシー刷新・<br/>CI/CD・テストで組織力を高める"]
     end
-    subgraph C3["3. Facilitating Environments for\na Shared Understanding (3.1-3.3)"]
+    subgraph C3["3. Facilitating Environments for<br/>a Shared Understanding (3.1-3.3)"]
         direction TB
-        c3a["コミュニティと実験で\n共通理解を作る"]
+        c3a["コミュニティと実験で<br/>共通理解を作る"]
     end
-    subgraph C4["4. Guiding Scrum Teams to\nLearn and Grow (4.1-4.2)"]
+    subgraph C4["4. Guiding Scrum Teams to<br/>Learn and Grow (4.1-4.2)"]
         direction TB
-        c4a["チームの学習フォーマットを\n設計・実演する"]
+        c4a["チームの学習フォーマットを<br/>設計・実演する"]
     end
-    subgraph C5["5. Developing Self as an\nAgile Leader (5.1-5.4)"]
+    subgraph C5["5. Developing Self as an<br/>Agile Leader (5.1-5.4)"]
         direction TB
-        c5a["権威に頼らないリーダーシップを\n自ら体現する"]
+        c5a["権威に頼らないリーダーシップを<br/>自ら体現する"]
     end
 
     C1 --> C2 --> C3 --> C4 --> C5
@@ -248,10 +248,10 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    A["現状の課題認識を\nチームと共有"] --> B["ゴールと成功指標を\n合意する"]
-    B --> C["関わり方\n(頻度・役割・境界線)を\n明文化する"]
-    C --> D["合意書として\n両者がレビュー"]
-    D --> E["定期的な\n振り返りで見直す"]
+    A["現状の課題認識を<br/>チームと共有"] --> B["ゴールと成功指標を<br/>合意する"]
+    B --> C["関わり方<br/>(頻度・役割・境界線)を<br/>明文化する"]
+    C --> D["合意書として<br/>両者がレビュー"]
+    D --> E["定期的な<br/>振り返りで見直す"]
 ```
 
 **コーチングアグリーメントに含めるべき項目の例**
@@ -312,10 +312,10 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    A["ビジネス/技術要件の変化"] --> B["Fitness Function\n(適応度関数)で\nアーキテクチャ特性を自動検証"]
+    A["ビジネス/技術要件の変化"] --> B["Fitness Function<br/>(適応度関数)で<br/>アーキテクチャ特性を自動検証"]
     B --> C{"基準を満たすか?"}
-    C -->|Yes| D["安全にデプロイ\n/進化を継続"]
-    C -->|No| E["フィードバックを受けて\nアーキテクチャを調整"]
+    C -->|Yes| D["安全にデプロイ<br/>/進化を継続"]
+    C -->|No| E["フィードバックを受けて<br/>アーキテクチャを調整"]
     E --> B
 ```
 
@@ -369,8 +369,8 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    A["レガシーシステム\n(モノリス)"] -->|新機能はここに実装| B["新サービス/モジュール"]
-    A -->|徐々にトラフィックを移行| C["ルーティング層\n(Facade/Proxy)"]
+    A["レガシーシステム<br/>(モノリス)"] -->|新機能はここに実装| B["新サービス/モジュール"]
+    A -->|徐々にトラフィックを移行| C["ルーティング層<br/>(Facade/Proxy)"]
     C --> B
     C -.->|残存機能は徐々に縮小| A
 ```
@@ -409,11 +409,11 @@ A-CSD で学んだ CI の基礎を、**組織横断で標準化されたパイ�
 ```mermaid
 flowchart LR
     A["コードコミット"] --> B["自動ビルド"]
-    B --> C["静的解析\n(Lint/セキュリティスキャン)"]
-    C --> D["自動テスト\n(単体/契約/結合)"]
+    B --> C["静的解析<br/>(Lint/セキュリティスキャン)"]
+    C --> D["自動テスト<br/>(単体/契約/結合)"]
     D --> E["アーティファクト生成"]
-    E --> F["Fitness Function\n検証"]
-    F --> G["デプロイ\n(段階的リリース)"]
+    E --> F["Fitness Function<br/>検証"]
+    F --> G["デプロイ<br/>(段階的リリース)"]
 ```
 
 | CI パイプラインの側面 | 内容 |
@@ -446,10 +446,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A["Consumer\n(呼び出し側)"] -->|"期待する契約を\nテストとして定義"| B["契約ファイル\n(Contract)"]
+    A["Consumer<br/>(呼び出し側)"] -->|"期待する契約を<br/>テストとして定義"| B["契約ファイル<br/>(Contract)"]
     B -->|共有| C["契約ブローカー"]
-    C -->|検証| D["Provider\n(提供側)"]
-    D -->|"CIで契約に\n違反していないか自動検証"| C
+    C -->|検証| D["Provider<br/>(提供側)"]
+    D -->|"CIで契約に<br/>違反していないか自動検証"| C
 ```
 
 > 出典: [Pact - Contract Testing Tool](https://pact.io/)、[Consumer-Driven Contracts - Martin Fowler](https://martinfowler.com/articles/consumerDrivenContracts.html)
@@ -475,10 +475,10 @@ CSP-D の Program Team には、ハードウェア領域でアジャイル/CI �
 
 ```mermaid
 flowchart TB
-    A["継続的インテグレーションの思想\n(小さく統合し、早く検証する)"] --> B["ハードウェア開発\n(頻繁な試作・統合テスト)"]
-    A --> C["Infrastructure as Code\n(インフラ変更の自動検証)"]
-    A --> D["Documentation as Code\n(ドキュメントのCI/CD)"]
-    A --> E["マーケティング/コンテンツ\n(継続的な仮説検証と統合)"]
+    A["継続的インテグレーションの思想<br/>(小さく統合し、早く検証する)"] --> B["ハードウェア開発<br/>(頻繁な試作・統合テスト)"]
+    A --> C["Infrastructure as Code<br/>(インフラ変更の自動検証)"]
+    A --> D["Documentation as Code<br/>(ドキュメントのCI/CD)"]
+    A --> E["マーケティング/コンテンツ<br/>(継続的な仮説検証と統合)"]
 ```
 
 | 領域 | CI 的な適用例 |
@@ -504,9 +504,9 @@ Community of Practice（実践共同体）は、Etienne Wenger が提唱した�
 
 ```mermaid
 flowchart LR
-    A["共通の関心を持つ\n開発者が集まる"] --> B["定期的な交流\n(勉強会/ペアリング)"]
-    B --> C["暗黙知が\n形式知化される"]
-    C --> D["チームを超えた\n標準/ベストプラクティスが育つ"]
+    A["共通の関心を持つ<br/>開発者が集まる"] --> B["定期的な交流<br/>(勉強会/ペアリング)"]
+    B --> C["暗黙知が<br/>形式知化される"]
+    C --> D["チームを超えた<br/>標準/ベストプラクティスが育つ"]
     D --> A
 ```
 
@@ -537,8 +537,8 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    A["仮説を立てる\n(Build)"] --> B["最小限の実装で検証\n(Measure)"]
-    B --> C["データから学ぶ\n(Learn)"]
+    A["仮説を立てる<br/>(Build)"] --> B["最小限の実装で検証<br/>(Measure)"]
+    B --> C["データから学ぶ<br/>(Learn)"]
     C -->|仮説を更新| A
 ```
 
@@ -577,10 +577,10 @@ Build-Measure-Learn のフィードバックループ（リーン・スタート
 
 ```mermaid
 flowchart TB
-    A["学習目標を定義\n(何を身につけたいか)"] --> B["フォーマットを選定\n(ワークショップ/ADR輪読/Kata等)"]
-    B --> C["セッションを設計\n(時間配分/進行台本)"]
+    A["学習目標を定義<br/>(何を身につけたいか)"] --> B["フォーマットを選定<br/>(ワークショップ/ADR輪読/Kata等)"]
+    B --> C["セッションを設計<br/>(時間配分/進行台本)"]
     C --> D["実施とファシリテーション"]
-    D --> E["振り返りと\n次回への改善"]
+    D --> E["振り返りと<br/>次回への改善"]
 ```
 
 **ベストプラクティス**: 学習セッションは「一度きりのイベント」ではなく、レトロスペクティブと同様に**定例化**し、毎回少しずつ改善するプロセスとして運営すると定着しやすくなります。
@@ -605,8 +605,8 @@ Ronald Heifetz（ハーバード・ケネディスクール）が提唱する **
 
 ```mermaid
 flowchart LR
-    A["Technical Problem\n(既知の手順で解決可能)"] -->|"権威による\n指示で対応"| B["Leading / Authority"]
-    C["Adaptive Challenge\n(答えが存在しない/価値観の対立を伴う)"] -->|"権威に頼らず\n対話と実験で対応"| D["Demonstrating Leadership"]
+    A["Technical Problem<br/>(既知の手順で解決可能)"] -->|"権威による<br/>指示で対応"| B["Leading / Authority"]
+    C["Adaptive Challenge<br/>(答えが存在しない/価値観の対立を伴う)"] -->|"権威に頼らず<br/>対話と実験で対応"| D["Demonstrating Leadership"]
 ```
 
 > 出典: [Ronald Heifetz - Harvard Kennedy School](https://www.hks.harvard.edu/faculty/ronald-heifetz)、[Leadership Without Easy Answers - Ronald Heifetz](https://www.hup.harvard.edu/books/9780674518582)
@@ -656,7 +656,7 @@ flowchart LR
     A["アイデア/要求"] --> B["設計"]
     B --> C["実装"]
     C --> D["テスト"]
-    D --> E["デプロイ承認\n(待ち時間が発生しやすい)"]
+    D --> E["デプロイ承認<br/>(待ち時間が発生しやすい)"]
     E --> F["本番リリース"]
     F --> G["顧客への価値提供"]
 ```
@@ -763,9 +763,9 @@ CSP-D 取得者には **Comparative Agility®** のプレミアム購読が特�
 
 ```mermaid
 flowchart LR
-    A["CSP-D 取得"] --> B["CSD Trainer 申請への足がかりを得る\n(トレーナーになるための重要な節目)"]
-    B --> C["Scrum Alliance の\nトレーナー選考プロセス"]
-    C --> D["CSD Trainer\n(Scrum Alliance 承認の CSD トレーナー)"]
+    A["CSP-D 取得"] --> B["CSD Trainer 申請への足がかりを得る<br/>(トレーナーになるための重要な節目)"]
+    B --> C["Scrum Alliance の<br/>トレーナー選考プロセス"]
+    C --> D["CSD Trainer<br/>(Scrum Alliance 承認の CSD トレーナー)"]
 ```
 
 公式ページには「CSP-D 認定を受けることは、CSD トレーナーになりたい場合の重要なマイルストーンである」と明記されています。技術力とリーダーシップの両輪を備えた CSP-D は、次世代の開発者を育てる CSD Trainer への自然なステップアップとなります（CSD トレーナーの申請経路・要件は Scrum Alliance のトレーナー申請ページを正とします）。

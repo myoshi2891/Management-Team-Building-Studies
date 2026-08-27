@@ -79,9 +79,9 @@ Scrum Guideにおいて、Product Ownerはスクラムチーム（Product Owner�
 
 ```mermaid
 flowchart LR
-    A["Scrum Foundations\n共通の基礎知識"] --> B["CSPO\nCertified Scrum\nProduct Owner"]
-    B --> C["A-CSPO\nAdvanced Certified\nScrum Product Owner"]
-    C --> D["CSP-PO\nCertified Scrum\nProfessional - Product Owner"]
+    A["Scrum Foundations<br/>共通の基礎知識"] --> B["CSPO<br/>Certified Scrum<br/>Product Owner"]
+    B --> C["A-CSPO<br/>Advanced Certified<br/>Scrum Product Owner"]
+    C --> D["CSP-PO<br/>Certified Scrum<br/>Professional - Product Owner"]
     B -.前提資格として自動更新に寄与.-> C
     C -.前提資格として自動更新に寄与.-> D
 
@@ -131,11 +131,11 @@ CSPO Learning Objectivesの各項目は、すべて「このコースを無事�
 
 ```mermaid
 flowchart TD
-    K["Knowledge 知識\nDefine / Name / List"] --> C["Comprehension 理解\nDescribe / Discuss / Recognize"]
-    C --> AP["Application 応用\nApply / Demonstrate / Illustrate"]
-    AP --> AN["Analysis 分析\nCompare / Contrast / Distinguish"]
-    AN --> S["Synthesis 統合\nCreate / Prepare / Organize"]
-    S --> E["Evaluation 評価\nMeasure / Assess / Evaluate"]
+    K["Knowledge 知識<br/>Define / Name / List"] --> C["Comprehension 理解<br/>Describe / Discuss / Recognize"]
+    C --> AP["Application 応用<br/>Apply / Demonstrate / Illustrate"]
+    AP --> AN["Analysis 分析<br/>Compare / Contrast / Distinguish"]
+    AN --> S["Synthesis 統合<br/>Create / Prepare / Organize"]
+    S --> E["Evaluation 評価<br/>Measure / Assess / Evaluate"]
 
     classDef low fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef mid fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -178,8 +178,8 @@ Scrumは**経験主義（Empiricism）**とリーン思考に基づいていま�
 
 ```mermaid
 flowchart LR
-    T["Transparency\n透明性"] --> I["Inspection\n検査"]
-    I --> A["Adaptation\n適応"]
+    T["Transparency<br/>透明性"] --> I["Inspection<br/>検査"]
+    I --> A["Adaptation<br/>適応"]
     A -.フィードバックを反映.-> T
 
     classDef pillar fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -225,9 +225,9 @@ Scrum Team（スクラムチーム）は、1人のScrum Master、1人のProduct 
 
 ```mermaid
 flowchart TD
-    PO["Product Owner\n価値の最大化に責任"] --> PB["Product Backlog\nを管理"]
-    SM["Scrum Master\nScrumの実践を確立"] --> Team["Scrum Team全体を支援"]
-    DEV["Developers\nIncrementの作成に責任"] --> INC["Sprintごとにusableな\nIncrementを作成"]
+    PO["Product Owner<br/>価値の最大化に責任"] --> PB["Product Backlog<br/>を管理"]
+    SM["Scrum Master<br/>Scrumの実践を確立"] --> Team["Scrum Team全体を支援"]
+    DEV["Developers<br/>Incrementの作成に責任"] --> INC["Sprintごとにusableな<br/>Incrementを作成"]
     PB --> DEV
     Team --> PO
     Team --> DEV
@@ -259,10 +259,10 @@ Sprintは、他のすべてのスクラムイベントを包含する「コン�
 
 ```mermaid
 flowchart LR
-    SP["Sprint Planning\n最大8時間/1か月Sprint"] --> DS["Daily Scrum\n15分/毎日"]
+    SP["Sprint Planning<br/>最大8時間/1か月Sprint"] --> DS["Daily Scrum<br/>15分/毎日"]
     DS --> DS
-    DS --> SR["Sprint Review\n最大4時間/1か月Sprint"]
-    SR --> RETRO["Sprint Retrospective\n最大3時間/1か月Sprint"]
+    DS --> SR["Sprint Review<br/>最大4時間/1か月Sprint"]
+    SR --> RETRO["Sprint Retrospective<br/>最大3時間/1か月Sprint"]
     RETRO -.次のSprintへ.-> SP
 
     classDef ev fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -311,14 +311,14 @@ Scrumには3つの作成物（Artifact）があり、それぞれに「コミッ
 | Artifact | 目的 | コミットメント | 主な属性 |
 |---|---|---|---|
 | Product Backlog | プロダクトを改善するために必要なものの、創発的（emergent）で順序付けられたリスト | Product Goal | 単一のソース・オブ・トゥルース、常に変化しうる、透明・可視・理解可能 |
-| Sprint Backlog | Sprintで達成すべきことの計画 | Sprint Goal | Developersが所有、Sprint中にリアルタイムで更新される、少なくとも1つの改善アクションを含む |
+| Sprint Backlog | Sprintで達成すべきことの計画 | Sprint Goal | Sprint Goal（なぜ）・選択したProduct Backlog Item（何を）・Incrementを届けるための実行可能な計画（どうやって）で構成される、Developersが所有、Sprint中にリアルタイムで更新される |
 | Increment | Product Goalへの具体的な足がかり | Definition of Done | 追加的（additive）、検証済み、使用可能（usable） |
 
 ```mermaid
 flowchart TD
-    PG["Product Goal\nProduct Backlogのコミットメント"] --> PB["Product Backlog"]
-    SG["Sprint Goal\nSprint Backlogのコミットメント"] --> SB["Sprint Backlog"]
-    DOD["Definition of Done\nIncrementのコミットメント"] --> INC["Increment"]
+    PG["Product Goal<br/>Product Backlogのコミットメント"] --> PB["Product Backlog"]
+    SG["Sprint Goal<br/>Sprint Backlogのコミットメント"] --> SB["Sprint Backlog"]
+    DOD["Definition of Done<br/>Incrementのコミットメント"] --> INC["Increment"]
     PB -->|Sprint Planningで選択| SB
     SB -->|Developersが作業| INC
     INC -->|検査結果を反映| PB
@@ -373,7 +373,7 @@ flowchart TB
         PO2 --> TeamC["Scrum Team C"]
     end
     subgraph D3["設計3:階層型(Chief PO配下)"]
-        CPO["Chief Product Owner /\nProduct Manager"] --> APO1["Area PO 1"]
+        CPO["Chief Product Owner /<br/>Product Manager"] --> APO1["Area PO 1"]
         CPO --> APO2["Area PO 2"]
         APO1 --> TeamX["Scrum Team X"]
         APO2 --> TeamY["Scrum Team Y"]
@@ -487,11 +487,11 @@ POの権限（Authority）はScrum Guideに明記された「アカウンタビ�
 
 ```mermaid
 flowchart TD
-    V["Product Vision\n長期的・野心的な「なぜ」\n(非公式・戦略レイヤー)"] --> G1["Product Goal #1\n測定可能な中期目標"]
-    G1 --> G2["Product Goal #2\n達成後に更新される次の目標"]
+    V["Product Vision<br/>長期的・野心的な「なぜ」<br/>(非公式・戦略レイヤー)"] --> G1["Product Goal #1<br/>測定可能な中期目標"]
+    G1 --> G2["Product Goal #2<br/>達成後に更新される次の目標"]
     G2 --> G3["Product Goal #3"]
-    G1 -.支える.-> PB1["Product Backlog\nの内容・順序"]
-    G2 -.支える.-> PB2["Product Backlog\nの内容・順序"]
+    G1 -.支える.-> PB1["Product Backlog<br/>の内容・順序"]
+    G2 -.支える.-> PB2["Product Backlog<br/>の内容・順序"]
 
     classDef vision fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef goal fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -576,8 +576,8 @@ flowchart LR
         DA --> R["Rules"]
     end
     subgraph A2["アプローチ2:Story Mapping / Walking Skeleton"]
-        Map["ユーザーの旅を\n横軸に並べる"] --> Slice["各工程を薄く\n垂直にスライス"]
-        Slice --> Walk["エンドツーエンドで\n動く最小構成"]
+        Map["ユーザーの旅を<br/>横軸に並べる"] --> Slice["各工程を薄く<br/>垂直にスライス"]
+        Slice --> Walk["エンドツーエンドで<br/>動く最小構成"]
     end
 
     classDef a fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -690,9 +690,9 @@ POはSprintの計画・レビューといった「配送」の仕事に加え、
 
 ```mermaid
 flowchart LR
-    H["仮説を立てる\n(Product Goalの前提)"] --> Sprint["短いSprintで\n検証可能な増分を作る"]
-    Sprint --> Review["Sprint Reviewで\n検査(Inspection)"]
-    Review --> Learn["学びをProduct Backlogに\n適応(Adaptation)"]
+    H["仮説を立てる<br/>(Product Goalの前提)"] --> Sprint["短いSprintで<br/>検証可能な増分を作る"]
+    Sprint --> Review["Sprint Reviewで<br/>検査(Inspection)"]
+    Review --> Learn["学びをProduct Backlogに<br/>適応(Adaptation)"]
     Learn -.次の仮説へ.-> H
 
     classDef s fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -731,8 +731,8 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    Output["Output(アウトプット)\n作った機能・出荷したIncrement"] --> Outcome["Outcome(アウトカム)\n顧客・事業の行動や\n状態の変化"]
-    Outcome --> Impact["Impact(インパクト)\n長期的な事業・社会への効果"]
+    Output["Output(アウトプット)<br/>作った機能・出荷したIncrement"] --> Outcome["Outcome(アウトカム)<br/>顧客・事業の行動や<br/>状態の変化"]
+    Outcome --> Impact["Impact(インパクト)<br/>長期的な事業・社会への効果"]
 
     classDef o fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class Output,Outcome,Impact o
@@ -843,7 +843,7 @@ flowchart LR
     Raw["粗いアイデア・要望"] --> Split["大きなItemを分割"]
     Split --> Detail["受け入れ基準・詳細を追加"]
     Detail --> Estimate["相対見積り"]
-    Estimate --> Order["価値・リスクに基づき\n順序を見直す"]
+    Estimate --> Order["価値・リスクに基づき<br/>順序を見直す"]
     Order -.継続的に繰り返す.-> Raw
 
     classDef r fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -920,11 +920,11 @@ CSPOを取得した後、上位資格である**A-CSPO（Advanced Certified Scru
 
 ```mermaid
 flowchart TD
-    CSPO["CSPO取得\n2年ごとにSEU提出で更新"] --> Path1["A-CSPOに進む"]
+    CSPO["CSPO取得<br/>2年ごとにSEU提出で更新"] --> Path1["A-CSPOに進む"]
     CSPO --> Path2["CSPOのまま更新し続ける"]
-    Path1 --> ACSPO["A-CSPO取得\n→CSPOも自動更新"]
+    Path1 --> ACSPO["A-CSPO取得<br/>→CSPOも自動更新"]
     ACSPO --> Path3["CSP-PO® に進む"]
-    Path3 --> CSPPO["CSP-PO取得\n→CSPO・A-CSPOも自動更新"]
+    Path3 --> CSPPO["CSP-PO取得<br/>→CSPO・A-CSPOも自動更新"]
 
     classDef n fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class CSPO,ACSPO,CSPPO n
@@ -992,12 +992,12 @@ CSPO学習目標は、大きく5つのカテゴリ（Product Owner Core Competen
 
 ```mermaid
 flowchart TD
-    F["Scrum Foundations\n理論・チーム・イベント・作成物"] --> C1["Category 1\nPO Core Competencies"]
-    F --> C2["Category 2\nGoal Setting and Planning"]
-    F --> C3["Category 3\nUnderstanding Customers and Users"]
-    F --> C4["Category 4\nValidating Product Assumptions"]
-    F --> C5["Category 5\nWorking with the Product Backlog"]
-    C1 --> Goal["価値を最大化する\nProduct Owner"]
+    F["Scrum Foundations<br/>理論・チーム・イベント・作成物"] --> C1["Category 1<br/>PO Core Competencies"]
+    F --> C2["Category 2<br/>Goal Setting and Planning"]
+    F --> C3["Category 3<br/>Understanding Customers and Users"]
+    F --> C4["Category 4<br/>Validating Product Assumptions"]
+    F --> C5["Category 5<br/>Working with the Product Backlog"]
+    C1 --> Goal["価値を最大化する<br/>Product Owner"]
     C2 --> Goal
     C3 --> Goal
     C4 --> Goal

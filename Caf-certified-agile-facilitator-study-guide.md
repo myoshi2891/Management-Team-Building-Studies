@@ -523,7 +523,7 @@ flowchart TB
 >
 > **ソース:**
 > - ORID: Stanfield, R. B. (2000). *The Art of Focused Conversation*. Institute of Cultural Affairs. 概説: [PMC論文 - Utilizing the focused conversation method](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6518626/)
-> - Liberating Structures: [公式サイト liberatingstructures.com](http://www.liberatingstructures.com/)、Lipmanowicz, H., & McCandless, K. *The Surprising Power of Liberating Structures*.
+> - Liberating Structures: [公式サイト liberatingstructures.com](https://www.liberatingstructures.com/)、Lipmanowicz, H., & McCandless, K. *The Surprising Power of Liberating Structures*.
 > - 国際的なファシリテーター専門団体: [International Association of Facilitators (IAF)](https://www.iaf-world.org/)
 
 ---
@@ -624,7 +624,7 @@ flowchart TB
 ### 専門機関・団体
 
 - [International Association of Facilitators (IAF)](https://www.iaf-world.org/) — ファシリテーターの国際的な専門団体。Certified Professional Facilitator (CPF) 認定を保有。
-- [Liberating Structures 公式サイト](http://www.liberatingstructures.com/)
+- [Liberating Structures 公式サイト](https://www.liberatingstructures.com/)
 
 ### 二次的な解説記事（一次資料の裏付けとして）
 
