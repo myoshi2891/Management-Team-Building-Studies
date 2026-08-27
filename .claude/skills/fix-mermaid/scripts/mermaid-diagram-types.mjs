@@ -10,6 +10,7 @@ export const MERMAID_DIAGRAM_TYPES = [
 	"journey",
 	"timeline",
 	"pie",
+	"quadrantChart",
 ];
 
 export const MERMAID_DIAGRAM_DECLARATION = new RegExp(

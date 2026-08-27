@@ -64,7 +64,15 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 完全ガイド" },
       { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 3つのアカウンタビリティ" },
       { to: "/csm-scrum-theory-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM Scrum理論" },
+      { to: "/csm-scrum-artifacts-and-commitments", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM アーティファクト" },
+      { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM スクラムイベント" },
       { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "スクラム 97の知恵" },
+      { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 完全ガイド" },
+      { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第1章" },
+      { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第2章" },
+      { to: "/cal1-chapter3-leading-agile-teams", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第3章" },
+      { to: "/cal2-part1-organizational-strategy-and-delivery", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL2 Part 1" },
+      { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL2 完全ガイド" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
       { to: "/engineering-manager-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM 入門" },
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },
@@ -79,6 +87,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/team-geek-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Team Geek" },
       { to: "/debugging-teams-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Debugging Teams" },
       { to: "/peopleware-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Peopleware" },
+      { to: "/radical-candor-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Radical Candor" },
+      { to: "/no-rules-rules-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "No Rules Rules" },
       { to: "/team-topologies-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Team Topologies" },
       { to: "/dynamic-reteaming-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "ダイナミック・リチーミング" },
       { to: "/lean-ux-beginner-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Lean UX 入門" },
@@ -137,7 +147,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "スクラム 97の知恵"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "スクラム 97の知恵", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL2 Part 1", "CAL2 完全ガイド"],
       },
       {
         id: "engineering-management",
@@ -149,7 +159,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
+        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
       },
     ]);
   });
@@ -167,7 +177,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
           { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
-          { seriesId: "scrum", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "スクラム 97の知恵"] },
+          { seriesId: "scrum", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "スクラム 97の知恵", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL2 Part 1", "CAL2 完全ガイド"] },
         ],
       },
       {
@@ -187,7 +197,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       {
         id: "team-building",
         seriesGroups: [
-          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware"] },
+          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules"] },
           { seriesId: "team-design", guides: ["Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"] },
         ],
       },

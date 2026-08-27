@@ -224,7 +224,9 @@ useSeoMeta({
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" />
-            本ガイドはスクラム初学者向けの教育・学習支援を目的とした非公式の解説記事です。書籍本文の引用・複製は行っておらず、章立て構成のみを学習の地図として使用しています。スクラムの公式な定義は<a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">公式Scrum Guide</a>を、書籍そのものは<a href="https://www.oreilly.com/library/view/97-things-every/9781492073833/" target="_blank" rel="noopener">O'Reillyの書誌ページ</a>を必ずご確認ください。
+            <div>
+              本ガイドはスクラム初学者向けの教育・学習支援を目的とした非公式の解説記事です。書籍本文の引用・複製は行っておらず、章立て構成のみを学習の地図として使用しています。スクラムの公式な定義は<a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">公式Scrum Guide</a>を、書籍そのものは<a href="https://www.oreilly.com/library/view/97-things-every/9781492073833/" target="_blank" rel="noopener">O'Reillyの書誌ページ</a>を必ずご確認ください。
+            </div>
           </div>
         </div>
 
@@ -1389,22 +1391,31 @@ useSeoMeta({
 }
 
 .disclaimer-box {
-  border: 1px solid var(--color-info-border);
-  background: var(--color-info-bg);
-  color: var(--color-info-text);
+  background: var(--color-gold-tint);
+  border: 1px solid #E6D0A6;
+  color: #614311;
   border-radius: 10px;
   padding: 16px 20px;
   font-size: 16px;
   margin-top: 28px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: flex-start;
+  line-height: 1.6;
 }
 
+.disclaimer-box :deep(svg),
 .disclaimer-box :deep(.icon) {
   font-size: 20px;
+  color: var(--color-gold);
   flex: none;
-  margin-top: 2px;
+  margin-top: 3px;
+}
+
+.disclaimer-box a {
+  color: #5C3D0E;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 section {

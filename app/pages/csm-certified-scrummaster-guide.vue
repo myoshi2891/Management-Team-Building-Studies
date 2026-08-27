@@ -286,7 +286,9 @@ class TEAM,PO,ORG box;`;
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" />
-            本ガイドは執筆時点(2026年8月)で確認できた公式情報に基づいています。試験形式・料金・更新要件等はScrum Allianceにより変更される可能性があるため、受験前には必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">公式ページ</a>で最新情報をご確認ください。
+            <div>
+              本ガイドは執筆時点(2026年8月)で確認できた公式情報に基づいています。試験形式・料金・更新要件等はScrum Allianceにより変更される可能性があるため、受験前には必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">公式ページ</a>で最新情報をご確認ください。
+            </div>
           </div>
         </div>
 
@@ -1227,22 +1229,28 @@ class TEAM,PO,ORG box;`;
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  background: var(--color-paper-sunken);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 14px 18px;
-  margin-top: 24px;
+  background: var(--color-gold-tint);
+  border: 1px solid #E6D0A6;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-top: 28px;
   font-size: 16px;
-  color: var(--color-ink-soft);
+  color: #614311;
   line-height: 1.6;
 }
 
 .disclaimer-box :deep(svg),
 .disclaimer-box :deep(.iconify) {
-  font-size: 18px;
+  font-size: 20px;
   color: var(--color-gold);
   flex: none;
-  margin-top: 2px;
+  margin-top: 3px;
+}
+
+.disclaimer-box a {
+  color: #5C3D0E;
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 /* ===================== Sections ===================== */

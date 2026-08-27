@@ -202,7 +202,9 @@ useSeoMeta({
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" />
-            本ガイドは学習支援を目的とした非公式の解説資料であり、Scrum Alliance®による公式教材ではありません。試験の出題範囲・受験資格・料金などの最新情報は必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>でご確認ください。
+            <div>
+              本ガイドは学習支援を目的とした非公式の解説資料であり、Scrum Alliance®による公式教材ではありません。試験の出題範囲・受験資格・料金などの最新情報は必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>でご確認ください。
+            </div>
           </div>
         </div>
 
@@ -939,19 +941,23 @@ h1 {
   font-size: 16px;
   color: #7A5318;
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: flex-start;
+  line-height: 1.6;
 }
 
+.disclaimer-box :deep(svg),
 .disclaimer-box :deep(.icon),
 .disclaimer-box i {
   font-size: 20px;
+  color: var(--color-gold);
   flex: none;
-  margin-top: 2px;
+  margin-top: 3px;
 }
 
 .disclaimer-box a {
   color: #5C3D0E;
+  font-weight: 600;
   text-decoration: underline;
 }
 

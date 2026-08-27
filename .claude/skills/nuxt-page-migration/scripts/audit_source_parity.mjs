@@ -914,6 +914,13 @@ function compare(source, page) {
           !consumedPageHeadings.has(index) && pageHeading.level === 1 && matchKey(pageHeading.text) === key
       );
     }
+    // 原本の h4 を移植先の h3 に昇格するケース（アクセシビリティ階層スキップ是正）も許可する。
+    if (pageIndex === -1 && sourceHeading.level === 4) {
+      pageIndex = page.headings.findIndex(
+        (pageHeading, index) =>
+          !consumedPageHeadings.has(index) && pageHeading.level === 3 && matchKey(pageHeading.text) === key
+      );
+    }
     if (pageIndex === -1) return true;
     consumedPageHeadings.add(pageIndex);
     return false;

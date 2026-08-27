@@ -121,10 +121,58 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Scrum Artifacts と Commitments 完全ガイド",
+        category: "SCRUM / CSM",
+        href: "/csm-scrum-artifacts-and-commitments",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Scrum Events 完全ガイド",
+        category: "SCRUM / CSM",
+        href: "/scrum-events-csm-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
         category: "SCRUM / CSM",
         href: "/scrum-97-things-guide",
         accentClass: "guide-card-forest",
+      },
+      {
+        title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
+        category: "SCRUM / CSM",
+        href: "/cal1-certified-agile-leader-1-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "アジャイルリーダーシップの必要性を理解する",
+        category: "SCRUM / CSM",
+        href: "/the-case-for-agile-leadership",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "実践におけるリーダーシップ(Agile Leadership in Action)",
+        category: "SCRUM / CSM",
+        href: "/agile-leadership-in-action",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "第3章:アジャイルチームのリード(Leading Agile Teams)",
+        category: "SCRUM / CSM",
+        href: "/cal1-chapter3-leading-agile-teams",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
+        category: "SCRUM / CSM",
+        href: "/cal2-part1-organizational-strategy-and-delivery",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Certified Agile Leader® 2 (CAL 2™) 学習ガイド",
+        category: "SCRUM / CSM",
+        href: "/cal2-certified-agile-leader-2-study-guide",
+        accentClass: "guide-card-gold",
       },
       {
         title: "エンジニアのためのマネジメントキャリアパス",
@@ -211,6 +259,18 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Radical Candor 完全ガイド ― 初学者のための実践フレームワーク",
+        category: "TEAM CULTURE",
+        href: "/radical-candor-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "『NO RULES RULES』完全ガイド",
+        category: "TEAM CULTURE",
+        href: "/no-rules-rules-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Team Topologies 実践ガイド",
         category: "TEAM DESIGN",
         href: "/team-topologies-guide",
@@ -245,10 +305,10 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "13 ガイド", cards: 13 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "21 ガイド", cards: 21 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
-      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "6 ガイド", cards: 6 },
+      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "8 ガイド", cards: 8 },
     ]);
   });
 

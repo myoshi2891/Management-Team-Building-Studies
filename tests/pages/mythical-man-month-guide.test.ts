@@ -255,3 +255,23 @@ describe("pages/mythical-man-month-guide.vue — ページ固有契約", () => {
     expect(focusSpy).toHaveBeenCalledOnce();
   });
 });
+
+describe("pages/mythical-man-month-guide.vue — アクセシビリティ契約 (A)", () => {
+  it("A-1: 先頭のフォーカス可能要素が本文へのスキップリンクである", () => {
+    const wrapper = mountPage();
+    const skipLink = wrapper.find("a.skip-link");
+
+    expect(skipLink.exists()).toBe(true);
+    expect(skipLink.attributes("href")).toBe("#main-content");
+    expect(skipLink.text()).toBe("本文へスキップ");
+    expect(wrapper.element.firstElementChild).toBe(skipLink.element);
+  });
+
+  it("A-2: スキップリンクの着地点 main が tabindex=\"-1\" でフォーカスを受け取る", () => {
+    const main = mountPage().find("main#main-content");
+
+    expect(main.exists()).toBe(true);
+    expect(main.attributes("tabindex")).toBe("-1");
+  });
+});
+
