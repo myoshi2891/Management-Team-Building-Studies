@@ -392,92 +392,23 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | 項目 | 内容 | 理由 |
 |---|---|---|
 | a11y 横展開の取りこぼし 2 本を補完 | `Agile-Leadership-in-Action.html` / `Ai-driven-project-management-guide.html` に skip-link・`id="main-content"`・装飾アイコンの `aria-hidden="true"`（43 件 / 33 件）・Escape でのサイドバー閉じ・`aria-current="location"`・`renderAllDiagrams().catch` を追加 | §31 は「全 7 本へ横展開」と記録していたが、この 2 本は未適用のままだった。`Peopleware.html` / `Cal1-certified-agile-leader-1-guide.html` を正典テンプレートとして文言まで一致させた |
-| `renderAllDiagrams()` の未処理 rejection | `mermaid.initialize()` は図ごとの `try/catch` の外にあり、初### §45. 『あなたのチームは、機能してますか？』完全ガイド（`five-dysfunctions-of-a-team-guide.vue`）の Nuxt 移植
+| `renderAllDiagrams()` の未処理 rejection | `mermaid.initialize()` は図ごとの `try/catch` の外にあり、初期化が失敗すると Promise 全体が reject して全図がローディング表示のまま残る | 呼び出し側の `.catch` で `DIAGRAMS` の全キーを走査し `diagram-error` 表示へ差し替える。サイレント失敗を可視のエラーに変える |
+| CAL1「4領域」の帰属を統一 | 「Scrum Alliance が4領域に整理」という断定を、`Cal1-chapter3-leading-agile-teams.md` / `The-Case-for-Agile-Leadership.md` / `Agile-Leadership-in-Action.md` / `.html` で「トレーニング提供元の公開分類にならって整理」へ修正 | `Cal1-certified-agile-leader-1-guide.md:99` 自身が「公式サイトでは領域区分は明記されていない／4領域は PM-Partners の整理」と書いており、リポジトリ内で矛盾していた |
+| PM-Partners の認定ステータス断定を削除 | 「認定トレーニングパートナー PM-Partners」→「トレーニング提供元の一つである PM-Partners」に統一（`.md` / `.html` 各 4 箇所）。`Cal1-chapter3` の 2 日間・16 時間構成も PM-Partners の公開例として明示 | Scrum Alliance の認定パートナー登録を裏づける一次情報がない。断定を外す方向の保守的な修正 |
+| 共通の品質基準の表現 | 「4つの学習領域のカバー」→「最新版の CAL 1 学習目標(Learning Objectives)への対応」 | 全コース共通なのは学習目標への対応であり、4領域という区分ではない |
+| CAL1 の更新ルートを追記 | `The-Case-for-Agile-Leadership.md` の有効期間欄に、通常ルート（SEU + 更新料）と自動更新ルート（Scrum Alliance 認定コースの新規修了で SEU・更新料とも不要）を併記 | 従来は SEU のみに言及し、更新料と自動更新ルートが欠落していた |
+| 3本柱の「一方通行」記述を再修正 | §31 で原本文言に合わせた「一方通行の連鎖」を、「各反復のなかで透明性 → 検査 → 適応と一方向に進み、適応の結果が次の透明性へ戻る」へ変更。`app/pages/csm-scrum-theory-guide.vue` と `archive/` 原本を同時修正 | 方向性は正しいが「一方通行」は反復ごとの循環を否定してしまう。原本も同時に直したので `audit:csm-theory` は Green のまま |
+| `audit:lead-challenge` のソース未追跡は未対応 | `archive/Leadership-challenge-workbook-guide/*.html` はクリーンチェックアウトに存在しない | `.gitignore:49` の `/archive/` により全 `audit:*` スクリプトが同じ性質を持つ。1 本だけ追跡対象にすると不整合になるため、`/archive/` の方針変更としてユーザー判断を仰ぐ |
 
-- **原本**: `archive/Five-dysfunctions-of-a-team-guide/Five-dysfunctions-of-a-team-guide.html`
-- **原本 Markdown**: `archive/Five-dysfunctions-of-a-team-guide/Five-dysfunctions-of-a-team-guide.md`
-- **移行先**: `app/pages/five-dysfunctions-of-a-team-guide.vue`
-- **契約テスト**: `tests/pages/five-dysfunctions-of-a-team-guide.test.ts`（25 件・S-1〜S-4, C-1〜C-6, D-1, D-2, D-5a, Q-2, Q-3, 個別要素契約）
-- **照合結果**: `npm run audit:five-dysfunctions` → **exit 0**（全要素一致）
+### 34. Managing Humans ガイド（`Managing-humans-best-practices-guide.html`）の Nuxt 移植
 
-| 観点 | 原本 | Nuxt ページ | 差分の理由・契約 |
+`Managing-humans-best-practices-guide.html`（Michael Lopp著『Managing Humans』第4版の解説ガイド）を `app/pages/managing-humans-best-practices-guide.vue` へ忠実に移植した。
+
+| 観点 | 原本 | 移植後 | 備考 |
 |---|---|---|---|
-| 見出し構造 | h1 × 1, h2 × 11, h3 × 9 (h4から昇格3件含む), h4 × 5, h5/h6 × 0 | 完全一致 | 参考文献セクションの小見出し `h4` 3 件（`書誌・原典情報`, `エンジニアリングリーダーからの実践知見`, `比較・批判的視点`）を `<h3>` に昇格（`h2` からのレベルスキップは a11y 不具合であり、品質契約 Q-3 を満たすため原本 HTML も追随修正） |
-| 図解 (Mermaid) | 2 本（`dysfunctionPyramid`, `practiceCycle`） | 同一（Vue SFC 定数化） | `<ClientOnly>` + `MermaidDiagram` で描画（C-6a〜C-6e 充足） |
-| Callout 構成 | 1 件（`note: 1`） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
-| Table 構成 | 9 件（計 56 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
-| 外部リンク | 10 種類（計 11 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
-| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: team-building`, `series: team-culture`, `accent: indigo` |
-| 監査スクリプト | — | `npm run audit:five-dysfunctions` | **exit 0**（全要素一致） |
-| 原本アーカイブ移動 | `Five-dysfunctions-of-a-team-guide.html` / `.md` を `archive/Five-dysfunctions-of-a-team-guide/` 配下へ移動 | 移行完了・原本の集約管理 | — |
-
-## 次回セッションでの再開プロンプト
-
-```text
-Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
-
-コードコミット HEAD: e7cceaf
-次の作業: 保守・新規ガイドの追加
-  新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
-  ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
-  seriesId は省略不可。シリーズを持たないカテゴリー（engineering-management のみ）は
-  undefined を明示する。挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守ること。
-  tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
-  tests/components/SiteHeader.test.ts の固定契約も追随更新する。
-
-完了済み:
-  - app/pages/capm.vue（CAPM ガイド）
-  - app/pages/certified-associate-in-project-management-domain1.vue（CAPM ドメイン1 ガイド）
-  - app/pages/certified-associate-in-project-management-domain2.vue（CAPM ドメイン2 ガイド）
-  - app/pages/capm-domain3-agile-frameworks-guide.vue（CAPM ドメイン3 ガイド）
-  - app/pages/capm-domain4-business-analysis-frameworks.vue（CAPM ドメイン4 ガイド）
-  - app/pages/engineering-management-career-path.vue（EM キャリアパス ガイド）
-  - app/pages/engineering-team-leadership-guide.vue（エンジニアリングチームリード術 ガイド）
-  - app/pages/engineering-manager-guide.vue（エンジニアリングマネージャー入門完全ガイド）
-  - app/pages/dynamic-reteaming-guide.vue（ダイナミック・リチーミング実践ガイド）
-  - app/pages/engineering-executive-playbook.vue（エンジニアリング統括責任者の手引き ガイド）
-  - app/pages/leadership-practices-guide.vue（リーダーの作法ガイド）
-  - app/pages/developer-architect-communication-guide.vue（開発者とアーキテクトのためのコミュニケーションガイド）
-  - app/pages/elastic-leadership-guide.vue（Elastic Leadership 実践ガイド）
-  - app/pages/pmp-certification-guide.vue（PMP認定試験完全攻略ガイド）
-  - app/pages/pmp-domain1-people-guide.vue（PMP Domain I: People 完全攻略ガイド）
-  - app/pages/pmp-domain2-process-guide.vue（PMP Domain II: Process 完全解説ガイド）
-  - app/pages/pmp-domain3-business-environment-guide.vue（PMP Domain III: Business Environment 徹底解説ガイド）
-  - app/pages/team-geek-guide.vue（Team Geek 完全ガイド）
-  - app/pages/team-topologies-guide.vue（Team Topologies 実践ガイド）
-  - app/pages/csm-certified-scrummaster-guide.vue（CSM 完全ガイド）
-  - app/pages/csm-scrum-team-3-accountabilities.vue（CSM 3つのアカウンタビリティ解説ガイド）
-  - app/pages/csm-scrum-theory-guide.vue（CSM Scrum理論の基礎 完全ガイド）
-  - app/pages/scrum-events-csm-guide.vue（CSM スクラムイベント 完全ガイド）
-  - app/pages/scrum-97-things-guide.vue（スクラム実践者が知るべきベストプラクティス97 完全ガイド）
-  - app/pages/leadership-challenge-workbook-guide.vue（The Leadership Challenge Workbook 完全ガイド）
-  - app/pages/lean-ux-beginner-guide.vue（Lean UX 実践ガイド）
-  - app/pages/your-first-60-days-as-a-leader.vue（リーダーとしての最初の60日間 完全ガイド）
-  - app/pages/debugging-teams-guide.vue（Debugging Teams 完全ガイド）
-  - app/pages/managing-humans-best-practices-guide.vue（Managing Humans 完全ガイド）
-  - app/pages/peopleware-guide.vue（Peopleware 完全ガイド）
-  - app/pages/mythical-man-month-guide.vue（人月の神話 完全ガイド）
-  - app/pages/high-output-management-guide.vue（HIGH OUTPUT MANAGEMENT 完全ガイド）
-  - app/pages/radical-candor-guide.vue（Radical Candor 完全ガイド）
-  - app/pages/the-case-for-agile-leadership.vue（アジャイルリーダーシップの必要性を理解する ガイド）
-  - app/pages/agile-leadership-in-action.vue（実践におけるリーダーシップ(Agile Leadership in Action) ガイド）
-  - app/pages/cal1-certified-agile-leader-1-guide.vue（CAL 1 完全ガイド）
-  - app/pages/cal1-chapter3-leading-agile-teams.vue（CAL 1 第3章:アジャイルチームのリード ガイド）
-  - app/pages/cal2-part1-organizational-strategy-and-delivery.vue（CAL 2 Part 1 スタディガイド）
-  - app/pages/cal2-certified-agile-leader-2-study-guide.vue（CAL 2 学習ガイド）
-  - app/pages/no-rules-rules-guide.vue（『NO RULES RULES』完全ガイド）
-  - app/pages/five-dysfunctions-of-a-team-guide.vue（『あなたのチームは、機能してますか？』完全ガイド）
-  - app/pages/index.vue（学習ライブラリ型ホーム）
-  - app/utils/guide-catalog.ts（ガイド定義の SSoT）
-  - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
-  - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1084 件
-  - test / typecheck / lint はいずれも 2026-08-27 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 41 本 exit 0 パス
-
-ベースラインテスト数: ユニット 1084 + E2E 15
-```
-ut-label"` 付与（D-1, D-2 充足） |
+| 見出し構造 | h1 × 1, h2 × 11, h3 × 10, h4/h5/h6 × 0 | 同数・完全一致 | 見出し階層スキップなし（Q-3 充足） |
+| Mermaid 図解 | 7 本（`bookStructureMap`, `oneOnOneTriage`, `meetingFlow`, `mandateFlow`, `stablesVolatilesCycle`, `crisisResponse`, `beginnerStepsFlow`） | 同数・完全一致 | `<ClientOnly>` + `MermaidDiagram` + `.mermaid-wrap`（C-6a〜C-6e 充足） |
+| Callout 構成 | 20 件（`source`: 14, `note`: 1, `practice`: 5） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
 | Table 構成 | 10 件（計 83 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
 | 外部リンク | 18 件（計 19 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
 | カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: engineering-management`, `accent: plum` |
@@ -852,8 +783,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - MermaidDiagram.vue / useActiveHeading.ts
   - ユニットテスト 1157 件 / E2E 20 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - test / typecheck / lint はいずれも 2026-08-27 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 43 本 exit 0 パス
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 44 本 exit 0 パス
 
 ベースラインテスト数: ユニット 1157 + E2E 20
 ```
-
