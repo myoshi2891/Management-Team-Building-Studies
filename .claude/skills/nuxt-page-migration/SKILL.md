@@ -349,6 +349,46 @@ sticky なサイドバー・TOC・見出しアンカーは、必ずこの変数�
 
 これを書かないと、TOC が固定ヘッダーの下へ潜り込み、アンカー遷移で見出しが隠れる。
 
+**ディスクレーマー（`.disclaimer-box`）の標準規約**:
+原本 HTML の `hero` 直下にある原著・教育注記ボックス（`.disclaimer-box`）は、アイコンとテキストを `display: flex;` で横並びに配置する。
+その際、**`<Icon ... />` 以降のテキスト全体を必ず `<span>...</span>` でラップする**。
+ラップしない場合、直下のテキストノードや `<em>`・`<a>` タグが個別の Flex Item として扱われ、文章がぶつ切りで横一列に並ぶ表示崩れが発生する。
+
+```html
+<div class="disclaimer-box">
+  <Icon name="tabler:info-circle" aria-hidden="true" />
+  <span>原著: <em>タイトル</em>（著者名著, 出版社, 年）。本ガイドは…<a href="…" target="_blank" rel="noopener">詳細リンク</a>でご確認いただけます。</span>
+</div>
+```
+
+```css
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+```
+※注意: `.disclaimer-box :deep(span)` と書くと、テキストの `<span>` にまで `flex: none` や `font-size: 20px` が適用されるため、必ず `.disclaimer-box > span { flex: 1; }` と記述する。
+
 **監査スクリプトの前提**: 本文のインベントリは `<template>` ブロックのみを対象とする。
 `<script setup>` に書いた文字列は本文として数えられない。逆に、Mermaid の
 `:chart="NAME"` バインドは `<script setup>` の `const NAME = \`…\`` を解決して照合される。
@@ -477,6 +517,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | サイドバー TOC がグローバルヘッダーの下に潜る / アンカー遷移で見出しが隠れる | sticky の `top` と `scroll-margin-top` が固定ヘッダー分を退避していない | `--global-nav-height` を使う（§5 Step 2 の 3 行）。数値のハードコード禁止 |
 | 新ページが完成しているのにサイト上から到達できない | `guide-catalog.ts` の `GUIDES` は原本に無いため、原本照合監査では検知されない | N-1〜N-3 契約で固定する（§5 Step 1 / Step 2.5） |
 | ナビ・カードのアイコンが静的生成後だけ消える | `@nuxt/icon` の `clientBundle.scan` はソース中のリテラルしか走査しない | `icon` 名は動的組み立てにせずリテラルで書き、`bun run test:e2e` で確認する |
+| ディスクレーマー（`.disclaimer-box`）内のテキストがぶつ切りで横一列に崩れる | `.disclaimer-box` に `display: flex;` を適用しているが、テキストを `<span>` でラップしていないため直下のテキストや `<em>`・`<a>` が個別の flex item になる | `<Icon ... />` 以降のテキスト全体を `<span>...</span>` で囲み、CSS で `.disclaimer-box > span { flex: 1; }` を指定する |
 
 ## 7. Constraints（禁止事項）
 
