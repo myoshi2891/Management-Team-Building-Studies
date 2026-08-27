@@ -283,3 +283,51 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   await expect(panel).toBeHidden();
   await expect(trigger).toBeFocused();
 });
+
+/*
+ * デスクトップ幅での横スクロール禁止。
+ *
+ * 既存の 320px 版はモバイルレイアウトしか通らない。モバイルではドロップダウンが
+ * `position: static` のアコーディオンに切り替わるため、デスクトップ固有の事故
+ * ——「閉じたパネルが visibility:hidden でレイアウトを占有したまま右へはみ出す」——
+ * をすり抜けていた（実測: 1440px 幅で全ページが 212px はみ出していた）。
+ *
+ * パネルはヘッダーの中にあるので、ページ本文を持たないホームでも再現する。
+ * ガイドページも併せて見るのは、本文（表・図・コードブロック）由来のはみ出しを
+ * 同じ契約で塞ぐため。
+ */
+const NO_H_SCROLL_PATHS = ["/", "/capm", "/the-case-for-agile-leadership"] as const;
+
+for (const path of NO_H_SCROLL_PATHS) {
+  test(`デスクトップ 1440px: ${path} が横にはみ出さない`, async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto(path);
+    // ハイドレーション後にパネルの退避量が入るため、確定してから測る。
+    await expect(page.locator("[data-testid='nav-category-trigger']").first()).toBeVisible();
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, `${path} が ${overflow}px 横にはみ出している`).toBeLessThanOrEqual(0);
+  });
+}
+
+test("デスクトップ: ドロップダウンを開いても横にはみ出さず、パネル全体が見えている", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  // 右端のカテゴリーが最もはみ出しやすい。
+  const lastId = CATEGORY_IDS[CATEGORY_IDS.length - 1];
+  await openWithHover(page, lastId);
+
+  const panel = page.locator(`#nav-panel-${lastId}`);
+  const box = (await panel.boundingBox())!;
+  // ヘッダーの overflow-x: clip で切り取られていないこと（右端が viewport 内）。
+  expect(box.x).toBeGreaterThanOrEqual(0);
+  expect(box.x + box.width).toBeLessThanOrEqual(1440);
+
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  );
+  expect(overflow).toBeLessThanOrEqual(0);
+});
