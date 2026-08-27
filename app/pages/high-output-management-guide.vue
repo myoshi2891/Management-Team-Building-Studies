@@ -1,0 +1,1346 @@
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "introduction",
+  "why-praised",
+  "three-pillars",
+  "production-principles",
+  "manager-output",
+  "leverage",
+  "meetings",
+  "hybrid-org",
+  "okr",
+  "trm",
+  "training",
+  "performance-review",
+  "modern-relevance",
+  "checklist",
+  "summary",
+  "references",
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "HIGH OUTPUT MANAGEMENT 完全ガイド | 初学者のためのステップバイステップ実践入門",
+  description:
+    "アンディ・グローブ著『HIGH OUTPUT MANAGEMENT』を初学者向けに解説。朝食工場モデル、レバレッジ、OKR、タスク別成熟度(TRM)など主要概念をMermaid図と表でステップバイステップに整理し、参照ソースURLも掲載。",
+});
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+  pie1: "#C7D1EA",
+  pie2: "#AEDBD6",
+  pie3: "#F0D9A6",
+  pie4: "#E7C0D0",
+  pieOpacity: "1",
+  pieStrokeColor: "#FFFFFF",
+  pieStrokeWidth: "2px",
+  pieOuterStrokeWidth: "1px",
+  pieOuterStrokeColor: "#DFE3EA",
+  pieSectionTextColor: "#161B26",
+  pieLegendTextColor: "#161B26",
+  pieTitleTextColor: "#161B26",
+};
+
+const DIAGRAM_THREE_PILLARS = `flowchart TB
+    ROOT["High Output Management 3つの柱"]
+    ROOT --> P1["1 生産の原理 Production Principles"]
+    ROOT --> P2["2 マネジャーのレバレッジ Managerial Leverage"]
+    ROOT --> P3["3 チーム・個人のピークパフォーマンス Team and Peak Performance"]
+
+    P1 --> P1a["朝食工場モデル"]
+    P1 --> P1b["ボトルネックと品質管理"]
+    P1 --> P1c["良い指標の設計"]
+    P1a ~~~ P1b ~~~ P1c
+
+    P2 --> P2a["アウトプット=自組織+影響組織の産出"]
+    P2 --> P2b["高レバレッジ活動への集中"]
+    P2 --> P2c["ミーティングという媒体の活用"]
+    P2a ~~~ P2b ~~~ P2c
+
+    P3 --> P3a["タスク別成熟度TRM"]
+    P3 --> P3b["訓練と動機付け"]
+    P3 --> P3c["評価とパフォーマンスレビュー"]
+    P3a ~~~ P3b ~~~ P3c
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class ROOT hub;
+    class P1,P2,P3,P1a,P1b,P1c,P2a,P2b,P2c,P3a,P3b,P3c box;`;
+
+const DIAGRAM_BREAKFAST_FACTORY_FLOW = `flowchart LR
+    A["受注 卵・トースト・コーヒー"] --> B["律速段階を特定 ゆで卵=3分"]
+    B --> C["他工程を律速段階に合わせて逆算 トースト・コーヒーの開始タイミング"]
+    C --> D["中間検査 品質を工程内でチェック"]
+    D --> E["同時提供 アウトプット"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A,B,C,D box;
+    class E done;`;
+
+const DIAGRAM_LEVERAGE_MAP = `flowchart TB
+    L["マネジャーの活動"] --> POS["正のレバレッジ"]
+    L --> NEG["負のレバレッジ"]
+
+    POS --> POS1["質の高い1on1"]
+    POS --> POS2["準備された研修"]
+    POS --> POS3["的確な意思決定の共有"]
+    POS1 ~~~ POS2 ~~~ POS3
+
+    NEG --> NEG1["過度な介入 マイクロマネジメント"]
+    NEG --> NEG2["準備不足の会議"]
+    NEG --> NEG3["委任した仕事への不必要な差し戻し"]
+    NEG1 ~~~ NEG2 ~~~ NEG3
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class L hub;
+    class POS,POS1,POS2,POS3 done;
+    class NEG,NEG1,NEG2,NEG3 box;`;
+
+const DIAGRAM_MEETING_DECISION = `flowchart TB
+    M["ミーティングを招集する"] --> Q{"目的は何か"}
+    Q -->|"定例的な情報共有・関係構築"| PROC["プロセス指向型 例 1on1・定例会"]
+    Q -->|"特定の課題解決・意思決定"| MISS["ミッション指向型 例 臨時の意思決定会議"]
+    PROC --> PROC1["アジェンダは部下側が用意"]
+    MISS --> MISS1["終了条件を明確にする"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class M,Q hub;
+    class PROC,MISS,PROC1,MISS1 box;`;
+
+const DIAGRAM_HYBRID_ORG = `flowchart TB
+    F["ファンクショナル組織 専門性・規模の経済"]
+    MI["ミッション指向型組織 俊敏性・現場適応力"]
+    F --> H["ハイブリッド組織 グローブの法則"]
+    MI --> H
+    H --> D["デュアルレポーティング 機能軸とミッション軸の両方に報告"]
+    D --> R["資源配分と対立解消が最重要のマネジメント課題になる"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class F,MI box;
+    class H hub;
+    class D,R done;`;
+
+const DIAGRAM_OKR_HISTORY = `flowchart TB
+    D1["1954年 ピーター・ドラッカー 目標管理MBOを提唱"]
+    D1 --> G["1970年代 アンディ・グローブ インテルでMBOを改良しiMBOとして導入 Operation Crushなどで活用"]
+    G --> J["1975年 ジョン・ドーア インテル在籍中にグローブの研修でOKRを学ぶ"]
+    J --> K["1980年 ドーア Kleiner Perkinsへ移籍"]
+    K --> GO["1999年 ドーアがGoogle創業者ラリー・ペイジとセルゲイ・ブリンにOKRを紹介"]
+    GO --> SP["2000年代以降 LinkedIn・Twitter・Airbnb・Dropbox等へ拡大"]
+    SP --> B["2018年 ドーア著Measure What Mattersで世界的に普及"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class D1,G,J,K box;
+    class GO hub;
+    class SP,B done;`;
+
+const DIAGRAM_TRM_STYLES = `flowchart TB
+    T1["TRMが低い 新しいタスクへの着手時"] --> S1["構造的・指示的スタイル 詳細な指示と密な進捗確認"]
+    T2["TRMが中程度 基本を習得した段階"] --> S2["対話的スタイル 方針の共有と定期的なチェックイン"]
+    T3["TRMが高い タスクに習熟した段階"] --> S3["委任的スタイル 最小限の監督で裁量を大きく渡す"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class T1,T2,T3 box;
+    class S1 box;
+    class S2 hub;
+    class S3 done;`;
+</script>
+
+<template>
+  <div class="guide-container">
+    <a href="#main-content" class="skip-link">メインコンテンツへスキップ</a>
+
+    <button
+      id="sidebarToggle"
+      ref="sidebarToggle"
+      class="sidebar-toggle"
+      aria-label="目次を開閉"
+      :aria-expanded="String(sidebarOpen)"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" />
+    </button>
+
+    <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }">
+      <div class="sidebar-brand">
+        <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4" />
+          <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1" />
+          <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="brand-text">
+          <div class="brand-title">High Output Management</div>
+          <div class="brand-subtitle">実践ガイド</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li class="nav-group-label">イントロダクション</li>
+        <li><a href="#introduction" :class="{ active: activeId === 'introduction' }" @click="closeSidebar"><Icon name="tabler:user" />はじめに</a></li>
+        <li><a href="#why-praised" :class="{ active: activeId === 'why-praised' }" @click="closeSidebar"><Icon name="tabler:quote" />評価される理由</a></li>
+        <li><a href="#three-pillars" :class="{ active: activeId === 'three-pillars' }" @click="closeSidebar"><Icon name="tabler:sitemap" />全体構造(3つの柱)</a></li>
+        <li class="nav-group-label">9ステップで学ぶ実践フレームワーク</li>
+        <li><a href="#production-principles" :class="{ active: activeId === 'production-principles' }" @click="closeSidebar"><Icon name="tabler:egg" />ステップ1 生産の原理</a></li>
+        <li><a href="#manager-output" :class="{ active: activeId === 'manager-output' }" @click="closeSidebar"><Icon name="tabler:target" />ステップ2 アウトプットの定義</a></li>
+        <li><a href="#leverage" :class="{ active: activeId === 'leverage' }" @click="closeSidebar"><Icon name="tabler:scale" />ステップ3 レバレッジ</a></li>
+        <li><a href="#meetings" :class="{ active: activeId === 'meetings' }" @click="closeSidebar"><Icon name="tabler:message-circle" />ステップ4 ミーティング活用</a></li>
+        <li><a href="#hybrid-org" :class="{ active: activeId === 'hybrid-org' }" @click="closeSidebar"><Icon name="tabler:building-bank" />ステップ5 組織設計</a></li>
+        <li><a href="#okr" :class="{ active: activeId === 'okr' }" @click="closeSidebar"><Icon name="tabler:flag-3" />ステップ6 OKR</a></li>
+        <li><a href="#trm" :class="{ active: activeId === 'trm' }" @click="closeSidebar"><Icon name="tabler:users" />ステップ7 タスク別成熟度</a></li>
+        <li><a href="#training" :class="{ active: activeId === 'training' }" @click="closeSidebar"><Icon name="tabler:school" />ステップ8 訓練と動機付け</a></li>
+        <li><a href="#performance-review" :class="{ active: activeId === 'performance-review' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" />ステップ9 評価とレビュー</a></li>
+        <li class="nav-group-label">総括</li>
+        <li><a href="#modern-relevance" :class="{ active: activeId === 'modern-relevance' }" @click="closeSidebar"><Icon name="tabler:refresh" />現代における意義</a></li>
+        <li><a href="#checklist" :class="{ active: activeId === 'checklist' }" @click="closeSidebar"><Icon name="tabler:list-check" />実践チェックリスト</a></li>
+        <li><a href="#summary" :class="{ active: activeId === 'summary' }" @click="closeSidebar"><Icon name="tabler:trophy" />まとめ</a></li>
+        <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" />参考文献</a></li>
+      </ul>
+    </nav>
+
+    <main id="main-content" class="main-content" tabindex="-1">
+      <div class="hero">
+        <div class="hero-eyebrow"><Icon name="tabler:award" />SILICON VALLEY'S MANAGEMENT BIBLE</div>
+        <h1>HIGH OUTPUT MANAGEMENT 完全ガイド</h1>
+        <p class="hero-lede">
+          著者アンディ・グローブ(Andy Grove)がインテルを率いた経験から生み出した、シリコンバレーで読み継がれるマネジメントの名著を、初学者向けにステップバイステップで解説します。
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-number">1983年</div><div class="stat-label">初版刊行(2015年に新版)</div></div>
+          <div class="stat-card"><div class="stat-number">9</div><div class="stat-label">実践ステップ</div></div>
+          <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Mermaid図解</div></div>
+          <div class="stat-card"><div class="stat-number">23</div><div class="stat-label">参照ソースURL</div></div>
+        </div>
+
+        <div class="disclaimer-box">
+          <Icon name="tabler:info-circle" />
+          本ガイドは書籍『High Output Management』の教育目的の非公式解説・要約です。原著の正確な内容は必ず原著(Andrew S. Grove, <em>High Output Management</em>, Vintage Books)をご確認ください。書誌情報は<a href="https://en.wikipedia.org/wiki/High_Output_Management" target="_blank" rel="noopener">Wikipedia</a>でも参照できます。
+        </div>
+      </div>
+
+      <!-- ===================== 01. Introduction ===================== -->
+      <section id="introduction">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:user" />SECTION 01</div>
+        <h2>はじめに ― 著者アンディ・グローブとこの本について</h2>
+
+        <p><strong>アンドリュー・S・グローブ(Andy Grove、1936-2016)</strong>は、ハンガリー・ブダペスト生まれ。ナチス占領下のハンガリーとソ連による弾圧を生き延び、1956年のハンガリー動乱の際に単身アメリカへ亡命しました。ニューヨーク市立大学(CCNY)で化学工学の学士号を、1963年にカリフォルニア大学バークレー校で化学工学の博士号を取得しています。フェアチャイルドセミコンダクターを経て1968年にインテルの創業に参画し、社員番号3番として入社。1979年に社長、1987年にCEO、1997年には会長に就任しました。同年、Time誌の「今年の人」にも選出されています。2016年3月21日、カリフォルニア州ロスアルトスで逝去しました。</p>
+
+        <p>本書は1983年に初版が刊行されました。当時はベストセラーリストに載ることはありませんでしたが、その後シリコンバレーで読み継がれる「カルト的名著」となりました。1995年の改訂では、グローブ自身がグローバリゼーションと電子メールによる情報革命について新たな序文を加え、2015年版ではAndreessen Horowitz共同創業者のベン・ホロウィッツが新しい序文を執筆しています。</p>
+
+        <p>対象読者は、原著のサブタイトルにもあるとおり「組織の中で忘れられがちな存在」であるミドルマネジャーですが、実際には新任リーダーから起業家、CEOまで幅広い層に読まれています。本ガイドでは、初めてこの本に触れる方でも実務にそのまま活かせるよう、原著の主要コンセプトをステップ形式で整理し、Mermaid図と表で視覚的に解説します。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://en.wikipedia.org/wiki/Andrew_Grove" target="_blank" rel="noopener">Andrew Grove | Wikipedia</a></li>
+            <li><a href="https://californiamuseum.org/inductee/andrew-s-grove/" target="_blank" rel="noopener">Andrew S. Grove | California Museum</a></li>
+            <li><a href="https://computerhistory.org/blog/remembering-andy-s-grove/" target="_blank" rel="noopener">Remembering Andy S. Grove | Computer History Museum</a></li>
+            <li><a href="https://digitaldefynd.com/IQ/famous-berkeley-alumni/" target="_blank" rel="noopener">100 Famous UC Berkeley Alumni | DigitalDefynd</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 02. Why Praised ===================== -->
+      <section id="why-praised">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:quote" />SECTION 02</div>
+        <h2>本書が「シリコンバレーのバイブル」と呼ばれる理由</h2>
+
+        <p>本書は経営学者ではなく、実際にインテルを率いた経営トップ自身によって書かれた点が当時としては異例でした。この実務家としての説得力ゆえに、多くの著名な経営者・投資家・エンジニアリングリーダーから支持を集めています。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>人物</th><th>立場</th><th>コメントの要旨</th></tr></thead>
+            <tbody>
+              <tr><td>ベン・ホロウィッツ(Ben Horowitz)</td><td>a16z共同創業者、2015年版の序文執筆者</td><td>グローブを「今まで出会った中で最高の教師」と呼び、本書を高く評価</td></tr>
+              <tr><td>マーク・ザッカーバーグ(Mark Zuckerberg)</td><td>Meta CEO</td><td>自身のマネジメントスタイル形成に大きな影響を与えた一冊として言及</td></tr>
+              <tr><td>マーク・アンドリーセン(Marc Andreessen)</td><td>a16z共同創業者</td><td>グローブを「シリコンバレーそのものを体現する人物」と評価</td></tr>
+              <tr><td>ビル・キャンベル(Bill Campbell)</td><td>元Apple取締役、元Intuit CEO</td><td>「すべての起業家とマネジャーが読み理解すべき聖典」と形容</td></tr>
+              <tr><td>ジョン・ドーア(John Doerr)</td><td>Kleiner Perkins会長、元インテル社員</td><td>本書が生んだOKRの仕組みを直接インテルで学び、後にGoogleへ導入</td></tr>
+              <tr><td>ジュリー・ジュオ(Julie Zhuo)</td><td>元Meta副社長(プロダクトデザイン)</td><td>「簡潔で分かりやすく、良いマネジメントの本質を突いている」と評価</td></tr>
+              <tr><td>ブライアン・チェスキー(Brian Chesky)</td><td>Airbnb共同創業者・CEO</td><td>マネジメント技術を学ぶ際の主要な参考書として繰り返し言及</td></tr>
+              <tr><td>GitLab(オールリモート企業)</td><td>企業事例</td><td>全社のマネジメント制度・1on1文化の設計思想の土台として採用</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>このように、単なる懐かしの名著ではなく、<strong>現在進行系で実務に使われ続けているフレームワーク</strong>であることが、本書が「初学者が最初に読むべき経営書」として推奨され続ける理由です。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://a16z.com/andy/" target="_blank" rel="noopener">Andy | Andreessen Horowitz</a></li>
+            <li><a href="https://theceolibrary.com/high-output-management-3809.html" target="_blank" rel="noopener">High Output Management | The CEO Library</a></li>
+            <li><a href="https://handbook.gitlab.com/handbook/leadership/high-output-management" target="_blank" rel="noopener">High Output Management | GitLab Handbook</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 03. Three Pillars ===================== -->
+      <section id="three-pillars">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:sitemap" />SECTION 03</div>
+        <h2>全体構造 ― 3つの柱</h2>
+
+        <p>グローブは本書を大きく3つのテーマで構成しています。まずは全体像をつかみましょう。</p>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_THREE_PILLARS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">HIGH OUTPUT MANAGEMENTを構成する3つの柱と、それぞれの主要トピック</div>
+          </div>
+        </div>
+
+        <p>この3つの柱――<strong>生産としてのマネジメント</strong>、<strong>レバレッジとしてのマネジメント</strong>、<strong>人を活かすマネジメント</strong>――は互いに独立したものではなく、以降のステップで見ていくように一つの実践体系としてつながっています。</p>
+      </section>
+
+      <!-- ===================== 04. Production Principles (Step 1) ===================== -->
+      <section id="production-principles">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:egg" />SECTION 04</div>
+        <h2>ステップ1: 生産の基本原則を理解する ― 「朝食工場」モデル</h2>
+
+        <p>グローブは本書の冒頭近くを、マネジメントの話ではなく「生産」の話に費やします。象徴的に使われるのが、<strong>3分間のゆで卵・トースト・コーヒーを同時に出す朝食店(=朝食工場)</strong>という思考実験です。</p>
+
+        <p>このたとえの狙いは、「知識労働のような形のないアウトプットも、実は工場の生産プロセスと同じ構造で捉えられる」ということを体感させることにあります。</p>
+
+        <h3>律速段階(限定ステップ)を見極める</h3>
+
+        <p>複数の工程が並行して進むとき、全体の所要時間を決めるのは<strong>もっとも時間のかかる工程</strong>です。朝食工場の例では、コーヒーはすぐ沸き、トーストは1分で焼けますが、卵をゆでるのには3分かかります。したがって生産計画全体は卵の茹で時間を基準に組み立てる必要があります。この「もっとも長く、もっとも重要な工程」を起点に、逆算して他の工程を設計する考え方は、ソフトウェア開発のクリティカルパスや、ボトルネック分析と同じ発想です。</p>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_BREAKFAST_FACTORY_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">朝食工場モデルにおける律速段階を起点とした生産フロー</div>
+          </div>
+        </div>
+
+        <h3>品質管理の考え方</h3>
+
+        <p>グローブは検査を3種類に分類します。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>検査の種類</th><th>タイミング</th><th>特徴</th></tr></thead>
+            <tbody>
+              <tr><td>受入検査</td><td>原材料の入荷時</td><td>卵が腐っていないか、割れていないかを確認</td></tr>
+              <tr><td>工程内検査</td><td>生産の途中</td><td>破壊検査より非破壊検査(温度計での確認など)を優先</td></tr>
+              <tr><td>出荷前検査</td><td>完成時</td><td>最終確認だが、手遅れになりやすいため他の検査を重視</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>さらに、監視の頻度は「直近の品質実績」に応じて調整すべきだとされます(variable inspection=変動検査)。品質が安定していれば検査頻度を下げ、不安定なら上げる、という動的な運用です。</p>
+
+        <h3>良い指標を持つ</h3>
+
+        <p>生産活動を管理するには、測定可能な指標が不可欠です。グローブは以下の5種類の指標を朝食工場の例で挙げています。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>指標</th><th>何を測るか</th></tr></thead>
+            <tbody>
+              <tr><td>販売予測</td><td>その日どれだけ売る計画か(アウトプットの需要)</td></tr>
+              <tr><td>原材料在庫</td><td>予測を満たすだけの材料があるか</td></tr>
+              <tr><td>人員</td><td>予測を満たすだけの人手が確保できているか</td></tr>
+              <tr><td>設備の状態</td><td>機材の故障で生産が止まらないか</td></tr>
+              <tr><td>品質指標</td><td>クレームログなど、評判を損なう問題が起きていないか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>重要なのは「<strong>ペアで指標を持つ</strong>」という考え方です。ある指標だけを注視すると、その指標を改善しようとする行動に偏り、別の副作用を見落とします。たとえば在庫水準だけを下げようとすると、需要変動に対応できず欠品を招きます。効果と反作用を同時に測る「対の指標」を設計することで、過剰反応を防げます。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://medium.com/@iantien/top-takeaways-from-andy-grove-s-high-output-management-2e0ecfb1ea63" target="_blank" rel="noopener">Top Takeaways from Andy Grove's High Output Management | Ian Tien</a></li>
+            <li><a href="https://tyastunggal.com/p/high-output-management-by-andy-grove" target="_blank" rel="noopener">High Output Management by Andy Grove | Abi Tyas Tunggal</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 05. Manager Output (Step 2) ===================== -->
+      <section id="manager-output">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" />SECTION 05</div>
+        <h2>ステップ2: マネジャーの「アウトプット」を再定義する</h2>
+
+        <p>本書のもっとも有名な一文がこれです。</p>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
+          <p><strong>マネジャーのアウトプット = 自分の組織のアウトプット + 自分が影響を及ぼす隣接組織のアウトプット</strong></p>
+        </div>
+
+        <p>これは、個人としてどれだけ多くのタスクをこなしたかではなく、<strong>自分がマネジメントする(あるいは影響を与える)チーム全体が生み出した成果</strong>でマネジャーを評価すべきだという定義です。</p>
+
+        <p>サッカーやアメリカンフットボールの監督にたとえると分かりやすいでしょう。監督自身がボールを蹴ったり投げたりするわけではありませんが、その采配によってチーム全体の勝敗が決まります。マネジャーの価値も同様に、個人の作業量ではなく「チームが生み出した結果」で測られるべきだ、というのがグローブの主張です。</p>
+
+        <p>GitLabのようなフルリモート企業でも、この定義はマネジメント制度設計の土台として採用されています。マネジャーはチームを導いて成果を出すことを求められ、そのためにレバレッジの高い活動を選び取ることが仕事の核だとされています。</p>
+      </section>
+
+      <!-- ===================== 06. Leverage (Step 3) ===================== -->
+      <section id="leverage">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:scale" />SECTION 06</div>
+        <h2>ステップ3: レバレッジ(テコの原理)に集中する</h2>
+
+        <p>マネジャーの1日は、会議・報告・意思決定・雑談など多様な活動で埋まりますが、それぞれの活動が生み出す成果は等しくありません。グローブはこれを<strong>レバレッジ(テコの原理)</strong>という概念で説明します。</p>
+
+        <p><code>アウトプット = Σ ( Lᵢ × Aᵢ )</code></p>
+
+        <p>Lはある活動の持つレバレッジ(テコの効き)、Aはその活動に費やした時間や量を表します。つまり、マネジャーの成果を高める方法は「もっと働くこと」ではなく、<strong>同じ時間でより高いレバレッジを持つ活動を選ぶこと</strong>にあります。</p>
+
+        <h3>高レバレッジ活動の3分類</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>種類</th><th>内容</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>① 多人数への影響</td><td>一人の行動が多くの人に影響を与える</td><td>全社会議での方針発表、共通ツールの導入</td></tr>
+              <tr><td>② 長期間にわたる影響</td><td>一度の働きかけが長く効果を持続する</td><td>適切なタイミングでのコーチング、優れた研修の設計</td></tr>
+              <tr><td>③ 固有情報の伝達</td><td>ある人だけが持つ知識・情報が多くの人の仕事に影響する</td><td>製品仕様の決定、価格戦略の共有</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>一方で、レバレッジは<strong>負にもなり得る</strong>点に注意が必要です。マネジャーが部下の仕事に過度に介入する「マイクロマネジメント」は、一見丁寧な指導に見えても、部下の主体性を奪い、かえって組織全体の出力を下げてしまいます。同様に、準備不足のまま会議に臨むことも、参加者全員の時間を無駄にする負のレバレッジ行為です。</p>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_LEVERAGE_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">マネジャーの活動を正のレバレッジと負のレバレッジに仕分けする</div>
+          </div>
+        </div>
+
+        <p>委任(デリゲーション)もレバレッジを高める重要な手段ですが、「任せて放置する」ことではありません。次のステップ7で扱う<strong>タスク別成熟度(TRM)</strong>に応じて、モニタリングの度合いを調整することが求められます。</p>
+      </section>
+
+      <!-- ===================== 07. Meetings (Step 4) ===================== -->
+      <section id="meetings">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:message-circle" />SECTION 07</div>
+        <h2>ステップ4: ミーティングを「マネジメントの媒体」として使いこなす</h2>
+
+        <p>多くのマネジャーは会議を「本来の仕事の邪魔をするもの」と捉えがちですが、グローブの主張は正反対です。<strong>会議こそがマネジメントという仕事が実際に遂行される「媒体」である</strong>という考え方です。情報収集、意思決定、部下への影響力の行使――これらはすべて何らかの会議やその場での対話を通じて行われるからです。</p>
+
+        <h3>会議の2分類</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>種別</th><th>頻度</th><th>目的</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>プロセス指向型ミーティング</td><td>定期開催</td><td>知識・情報の共有、関係構築</td><td>1on1、スタッフミーティング、業務レビュー</td></tr>
+              <tr><td>ミッション指向型ミーティング</td><td>随時開催</td><td>特定の問題解決、意思決定</td><td>障害対応会議、企画のすり合わせ</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_MEETING_DECISION" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">会議を招集するときにまず目的で種別を見極める</div>
+          </div>
+        </div>
+
+        <h3>1on1ミーティングを最大のレバレッジ源にする</h3>
+
+        <p>グローブは1on1を「もっともレバレッジの高いミーティング」と位置付けています。ポイントは以下の通りです。</p>
+
+        <ul>
+          <li>アジェンダは上司ではなく<strong>部下自身が用意する</strong></li>
+          <li>話す内容は「現在の課題」「今後の計画」「懸念していること」の3点を中心に据える</li>
+          <li>頻度は部下のタスク別成熟度(TRM、ステップ7で解説)に応じて調整する。経験の浅い部下ほど頻繁に</li>
+        </ul>
+
+        <p>イギリスのFinancial Timesでテクノロジーリーダーを務めたアナ・シップマンは、この本を読んで1on1の価値観と、適正な会議時間についての自身の見方が大きく変わったと述べています。ベン・ホロウィッツも、マネジャーの仕事の多くは1on1における傾聴にあると強調しています。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://www.annashipman.co.uk/jfdi/high-output-management.html" target="_blank" rel="noopener">High output management | Anna Shipman (JFDI)</a></li>
+            <li><a href="https://getlighthouse.com/blog/high-output-management/" target="_blank" rel="noopener">Andy Grove's High Output Management approach to 1 on 1s | Lighthouse</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 08. Hybrid Organization (Step 5) ===================== -->
+      <section id="hybrid-org">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" />SECTION 08</div>
+        <h2>ステップ5: 意思決定と組織設計 ― ハイブリッド組織とグローブの法則</h2>
+
+        <h3>知識のパワーと地位のパワー</h3>
+
+        <p>変化の速い知識産業では、組織図上の「地位によるパワー」と、実務に精通した人が持つ「知識によるパワー」が一致しないことが増えていきます。グローブはこの乖離を早くから指摘し、意思決定の質を保つには、地位に関係なく知識を持つ人の声を意思決定プロセスに組み込む必要があると論じました。</p>
+
+        <h3>ファンクショナル組織とミッション指向型組織</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>組織形態</th><th>強み</th><th>弱み</th></tr></thead>
+            <tbody>
+              <tr><td>ファンクショナル組織(機能別組織)</td><td>専門性の集約による高いレバレッジ、規模の経済</td><td>意思決定が中央集権的で遅くなりがち</td></tr>
+              <tr><td>ミッション指向型組織(事業別組織)</td><td>環境変化への迅速な対応、現場に近い意思決定</td><td>機能の重複によるコスト増、専門性の分散</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>グローブの法則</h3>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" />補足</div>
+          <p>共通の事業目的を持つ大規模組織は、最終的に必ず「ハイブリッド組織」に行き着く。</p>
+        </div>
+
+        <p>これがグローブの法則です。ファンクショナル組織の効率性とミッション指向型組織の俊敏性、その両方を得ようとすると、必然的に両者を組み合わせた<strong>ハイブリッド(マトリクス)型組織</strong>に収斂していく、という経験則です。</p>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_HYBRID_ORG" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">ファンクショナル組織とミッション指向型組織がハイブリッド組織へ収斂する過程</div>
+          </div>
+        </div>
+
+        <p>ハイブリッド組織を機能させる鍵は、機能別チームとミッション別チームの間で<strong>資源配分とタイムリーな対立解消</strong>を行う仕組みを持つことです。これは現在の「マトリクス組織」や、デザイン・エンジニアリング・プロダクトが横断的に連携する現代のプロダクト組織にも通じる考え方です。</p>
+      </section>
+
+      <!-- ===================== 09. OKR (Step 6) ===================== -->
+      <section id="okr">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" />SECTION 09</div>
+        <h2>ステップ6: OKR(目標と主要な結果)を実践する</h2>
+
+        <p>本書のもう一つの大きな遺産が、<strong>OKR(Objectives and Key Results)</strong>の原型です。現在Googleをはじめ多くのテック企業が採用しているこの目標管理手法は、実は本書で紹介された「インテル式目標管理(iMBO)」がルーツです。</p>
+
+        <h3>OKRの系譜</h3>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_OKR_HISTORY" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">ドラッカーのMBOからグローブのiMBO、ドーアを経てGoogleへ広がったOKRの系譜</div>
+          </div>
+        </div>
+
+        <p>ジョン・ドーアは1999年、Google社員がわずか40名程度だった頃、卓球台を囲んで自身のOKRの使い方をメタ的な実例として提示しながらこの手法を紹介したというエピソードが広く知られています。それ以来、OKRはGoogleの企業文化に深く組み込まれ、その後LinkedIn・Airbnb・Dropbox・Uberなど数多くの企業に広がりました。</p>
+
+        <h3>OKRの基本構造</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>要素</th><th>問いかけ</th><th>特徴</th></tr></thead>
+            <tbody>
+              <tr><td>Objective(目標)</td><td>「どこに向かいたいか」</td><td>定性的で野心的、覚えやすい表現</td></tr>
+              <tr><td>Key Results(主要な結果)</td><td>「そこに向かっているかをどう測るか」</td><td>定量的で測定可能、通常2〜5個</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>グローブが重視したのは、目標を<strong>ストレッチ(背伸びした)目標</strong>として設定することです。100%達成を前提とせず、70%の達成度でも十分な前進とみなせるような、野心的な水準を狙うという発想が、OKRを単なる従来のノルマ管理と一線を画すものにしています。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://www.tability.io/odt/articles/a-complete-okr-history-from-intel-to-the-modern-workplace" target="_blank" rel="noopener">Who invented OKRs? A complete OKR history | Tability</a></li>
+            <li><a href="https://www.betterworks.com/magazine/keys-okr-success-qa-john-doerr" target="_blank" rel="noopener">John Doerr on OKRs: Original Interview | Betterworks</a></li>
+            <li><a href="https://hbr.org/2018/05/how-vc-john-doerr-sets-and-achieves-goals" target="_blank" rel="noopener">How VC John Doerr Sets (and Achieves) Goals | Harvard Business Review</a></li>
+            <li><a href="https://stripe.com/fr-be/guides/atlas/ama-john-doerr" target="_blank" rel="noopener">AMA with John Doerr | Stripe</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 10. TRM (Step 7) ===================== -->
+      <section id="trm">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" />SECTION 10</div>
+        <h2>ステップ7: タスク別成熟度(TRM)でマネジメントスタイルを変える</h2>
+
+        <p>グローブは「良い」「悪い」といったマネジメントスタイルの優劣を絶対視しません。工学出身らしく、<strong>課題に応じて適切な道具を選ぶべき</strong>という立場を取ります。その判断基準となるのが<strong>タスク関連成熟度(Task-Relevant Maturity, TRM)</strong>です。</p>
+
+        <p>TRMは「その人の人格的な成熟度」ではなく、<strong>特定のタスクに対する経験・スキル・意欲の高さ</strong>を指します。同じ人でも、タスクが変われば成熟度は変わります。</p>
+
+        <h3>TRMに応じたマネジメントスタイル</h3>
+
+        <div class="mermaid-wrap">
+          <div class="diagram-card">
+            <div class="diagram-container">
+              <ClientOnly>
+                <MermaidDiagram :chart="DIAGRAM_TRM_STYLES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+              </ClientOnly>
+            </div>
+            <div class="diagram-caption">タスク関連成熟度の段階に応じて使い分けるマネジメントスタイル</div>
+          </div>
+        </div>
+
+        <p>本書で紹介される有名な例が、優秀なフィールドセールス担当者がマネジャーに昇進したケースです。彼は営業というタスクに関してはTRMが非常に高かったものの、マネジメントという新しいタスクに関してはTRMが低い状態でした。適切なコーチングがないまま昇進した結果、彼は新しい役割で苦戦することになります。</p>
+
+        <p>この考え方は現在も広く引用されています。Andreessen Horowitzのブログでは、幹部社員であっても新しい業務領域ではTRMが低くなり得るため、状況によっては経営幹部に対しても細かい関与(マイクロマネジメント)が正当化される場合があると論じています。同社の別の記事でも、グローブの経営者としての姿勢が「アンディ・グローブ的属性」として、CEOとしての力量の一つのモデルとして参照されています。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://a16z.com/on-micromanagement/" target="_blank" rel="noopener">On Micromanagement | Andreessen Horowitz</a></li>
+            <li><a href="https://a16z.com/notes-on-leadership/" target="_blank" rel="noopener">Notes on Leadership | Andreessen Horowitz</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 11. Training (Step 8) ===================== -->
+      <section id="training">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:school" />SECTION 11</div>
+        <h2>ステップ8: 人を育てる ― 訓練と動機付け</h2>
+
+        <p>本書の最終章は「なぜ訓練は上司の仕事なのか(Why Training Is the Boss's Job)」というタイトルです。グローブはここで、<strong>訓練(トレーニング)はマネジャーが行い得る最も高レバレッジな活動の一つ</strong>だと結論づけています。一度の質の高い研修は、それを受けた全員の生産性を長期間にわたって押し上げるからです。</p>
+
+        <p>知識労働の現場では「優秀な人材だから訓練は不要」という思い込みが起きがちですが、グローブはこれを明確に否定します。単純な業務であっても訓練不足の従業員に顧客が苛立つのだから、複雑な業務であればなおさら訓練の欠如は致命的だ、という論理です。</p>
+
+        <h3>モチベーションと「運動場としての職場」</h3>
+
+        <p>グローブは職場を運動場(playing field)に、部下をアスリートにたとえます。アスリートが自己ベストの更新を目指すように、部下にも「限界まで自分の力を発揮したい」という内発的な動機を引き出す環境を用意することが、マネジャーの重要な役割だとされます。これは外的な報酬(extrinsic motivation)だけでなく、達成感や成長実感といった内発的動機(intrinsic motivation)を重視する考え方です。</p>
+      </section>
+
+      <!-- ===================== 12. Performance Review (Step 9) ===================== -->
+      <section id="performance-review">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" />SECTION 12</div>
+        <h2>ステップ9: 評価とパフォーマンスレビュー</h2>
+
+        <p>グローブは、パフォーマンスレビュー(人事評価面談)を「マネジャーが提供できる、もっとも重要なタスク関連フィードバックの形」と位置付けています。目的は2つあります。</p>
+
+        <ol>
+          <li>改善すべきスキルを明確にすること</li>
+          <li>動機付けを強化すること</li>
+        </ol>
+
+        <p>評価面談で心がけるべき原則として、しばしば「<strong>3つのL</strong>」として要約されます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>原則</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>Level(対等に)</td><td>部下を見下ろすのではなく、対等な立場で率直に語る</td></tr>
+              <tr><td>Listen(聴く)</td><td>一方的な通告ではなく、部下の受け止め方や意見を聴く</td></tr>
+              <tr><td>Leave yourself out(自分を脇に置く)</td><td>自分自身のキャリアや経験と比較して評価しない</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>マネジャーは部下の仕事ぶりを「観察して記録する」だけの存在ではなく、<strong>判断を下す責任</strong>を負っています。評価を曖昧にせず、はっきりとした基準で判断することが、部下の成長機会を守ることにつながるとグローブは説きます。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://tylerdevries.com/book-summaries/high-output-management/" target="_blank" rel="noopener">High Output Management by Andrew Grove: Book Summary | Tyler DeVries</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 13. Modern Relevance ===================== -->
+      <section id="modern-relevance">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" />SECTION 13</div>
+        <h2>現代(2020年代後半)における意義</h2>
+
+        <p>出版から40年以上が経過した現在も、本書のフレームワークは色褪せていません。</p>
+
+        <ul>
+          <li><strong>OKRの浸透。</strong>Googleでの成功を起点に、OKRは現在も世界中のテクノロジー企業の標準的な目標管理手法として使われ続けています。</li>
+          <li><strong>エンジニアリングリーダーシップ界隈での参照。</strong>Stripe・Uber・Calmなどでエンジニアリング組織を率いたウィル・ラーソン(Will Larson、著書『An Elegant Puzzle』)は、自身のポッドキャストの中で、本書が定義した「ノウハウ・マネジャー(know-how manager)」―― 正式な部下を持たずとも知識で他者の仕事に影響を与える存在 ―― という概念に言及しています。</li>
+          <li><strong>フルリモート企業のマネジメント制度の基盤。</strong>GitLabは自社ハンドブックの中で、本書を「お気に入りの一冊」とし、1on1文化やノーマトリクス組織の設計思想の土台としていることを明記しています。</li>
+          <li><strong>マイクロマネジメント論の再解釈。</strong>a16zは、TRMの概念を使って「幹部社員への一時的な深い関与は、必ずしも悪いマイクロマネジメントではない」という現代的な議論を展開しています。</li>
+          <li><strong>技術書評ブログでの継続的な言及。</strong>Anna Shipman、Luca Rossi(TRMの要約)、Ian Tien(Mattermost共同創業者、スタンフォードでグローブのTA経験者)など、実務家による書評・要約が今も書かれ続けています。</li>
+        </ul>
+
+        <p>このように、本書は単なる歴史的名著ではなく、<strong>現在進行系でシリコンバレーのマネジメント実務に組み込まれ続けているフレームワーク</strong>だと言えます。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>
+          <ul>
+            <li><a href="https://podcast.staffeng.com/season-1/will-larson-calm/" target="_blank" rel="noopener">Will Larson (Calm) | StaffEng Podcast</a></li>
+            <li><a href="https://blog.mocoso.co.uk/links/leadership/" target="_blank" rel="noopener">Recommended links about engineering leadership | Joel Chippindale</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 14. Checklist ===================== -->
+      <section id="checklist">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" />SECTION 14</div>
+        <h2>実践チェックリスト</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>チェック項目</th><th>確認内容</th></tr></thead>
+            <tbody>
+              <tr><td>自分のアウトプットを定義したか</td><td>個人の作業量ではなく、チーム+影響範囲の成果で自分の価値を語れるか</td></tr>
+              <tr><td>律速段階を把握しているか</td><td>チームのプロセスにおいて、もっとも時間のかかる・重要な工程はどこか</td></tr>
+              <tr><td>対の指標を設計しているか</td><td>ある指標を追うことで生じる副作用を測る指標もセットで持っているか</td></tr>
+              <tr><td>高レバレッジ活動に時間を割いているか</td><td>1日の活動を振り返り、正のレバレッジと負のレバレッジを仕分けできるか</td></tr>
+              <tr><td>1on1のアジェンダを部下に委ねているか</td><td>部下自身が課題・計画・懸念を持ち込む場になっているか</td></tr>
+              <tr><td>会議の種類を意識しているか</td><td>プロセス指向とミッション指向を区別し、目的なき会議を減らせているか</td></tr>
+              <tr><td>TRMに応じて委任の度合いを調整しているか</td><td>部下ごと・タスクごとに指示の密度を変えているか</td></tr>
+              <tr><td>OKRのObjectiveとKey Resultsを分けて書けているか</td><td>定性的な目標と定量的な成果指標が混同されていないか</td></tr>
+              <tr><td>訓練を「自分の仕事」として位置付けているか</td><td>研修や育成をHR任せにせず、自らの高レバレッジ活動として実行しているか</td></tr>
+              <tr><td>評価面談で3つのLを意識しているか</td><td>対等に、聴く姿勢で、自分を基準にせず評価できているか</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===================== 15. Summary ===================== -->
+      <section id="summary">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:trophy" />SECTION 15</div>
+        <h2>まとめ</h2>
+
+        <p>『HIGH OUTPUT MANAGEMENT』は、マネジメントという曖昧になりがちな仕事を、<strong>生産システムとして構造化して捉え直す</strong>という一貫した視点を持つ本です。</p>
+
+        <ul>
+          <li>マネジャーの成果は個人の作業量ではなく、<strong>自組織+影響範囲のアウトプット</strong>で測る</li>
+          <li>すべての活動には<strong>レバレッジ(テコの効き)</strong>があり、高レバレッジな活動を選び取ることが成果を左右する</li>
+          <li>会議は無駄ではなく、<strong>マネジメントという仕事が実行される媒体</strong>である</li>
+          <li>組織は最終的に<strong>ハイブリッド型</strong>に収斂し、資源配分と対立解消が中心課題になる</li>
+          <li>目標管理は<strong>OKR</strong>という形で体系化され、Googleを経て世界中に広まった</li>
+          <li>部下への関わり方は、その人の<strong>タスク別成熟度(TRM)</strong>に応じて調整すべきである</li>
+          <li><strong>訓練</strong>は人事部の仕事ではなく、マネジャー自身のもっとも高レバレッジな仕事である</li>
+        </ul>
+
+        <p>これらは特別な理論というより、著者自身がインテルという巨大企業を率いる中で試行錯誤して磨いた「現場の知恵」の集積です。だからこそ、40年以上経った今もエンジニアリング組織のリーダーたちに読まれ続けているのだといえるでしょう。</p>
+      </section>
+
+      <!-- ===================== 16. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" />SECTION 16</div>
+        <h2>参考文献</h2>
+
+        <div class="ref-group">
+          <h3>著者・書籍の基本情報</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">High Output Management | Wikipedia</span><a class="ref-url" href="https://en.wikipedia.org/wiki/High_Output_Management" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/High_Output_Management</a></li>
+            <li><span class="ref-name">Andrew Grove | Wikipedia</span><a class="ref-url" href="https://en.wikipedia.org/wiki/Andrew_Grove" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Andrew_Grove</a></li>
+            <li><span class="ref-name">Andrew S. Grove | California Museum</span><a class="ref-url" href="https://californiamuseum.org/inductee/andrew-s-grove/" target="_blank" rel="noopener">https://californiamuseum.org/inductee/andrew-s-grove/</a></li>
+            <li><span class="ref-name">Remembering Andy S. Grove | Computer History Museum</span><a class="ref-url" href="https://computerhistory.org/blog/remembering-andy-s-grove/" target="_blank" rel="noopener">https://computerhistory.org/blog/remembering-andy-s-grove/</a></li>
+            <li><span class="ref-name">100 Famous UC Berkeley Alumni | DigitalDefynd</span><a class="ref-url" href="https://digitaldefynd.com/IQ/famous-berkeley-alumni/" target="_blank" rel="noopener">https://digitaldefynd.com/IQ/famous-berkeley-alumni/</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>経営者・著名開発者による評価</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">Andy | Andreessen Horowitz(ベン・ホロウィッツによる序文の再掲)</span><a class="ref-url" href="https://a16z.com/andy/" target="_blank" rel="noopener">https://a16z.com/andy/</a></li>
+            <li><span class="ref-name">Andy. Introduction to High Output Management, by Ben Horowitz | Medium</span><a class="ref-url" href="https://medium.com/software-is-eating-the-world/andy-37e10d4780bc" target="_blank" rel="noopener">https://medium.com/software-is-eating-the-world/andy-37e10d4780bc</a></li>
+            <li><span class="ref-name">On Micromanagement | Andreessen Horowitz</span><a class="ref-url" href="https://a16z.com/on-micromanagement/" target="_blank" rel="noopener">https://a16z.com/on-micromanagement/</a></li>
+            <li><span class="ref-name">Notes on Leadership | Andreessen Horowitz</span><a class="ref-url" href="https://a16z.com/notes-on-leadership/" target="_blank" rel="noopener">https://a16z.com/notes-on-leadership/</a></li>
+            <li><span class="ref-name">High Output Management | GitLab Handbook</span><a class="ref-url" href="https://handbook.gitlab.com/handbook/leadership/high-output-management" target="_blank" rel="noopener">https://handbook.gitlab.com/handbook/leadership/high-output-management</a></li>
+            <li><span class="ref-name">High Output Management | The CEO Library</span><a class="ref-url" href="https://theceolibrary.com/high-output-management-3809.html" target="_blank" rel="noopener">https://theceolibrary.com/high-output-management-3809.html</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>書評・要約ブログ</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">High output management | Anna Shipman (JFDI)</span><a class="ref-url" href="https://www.annashipman.co.uk/jfdi/high-output-management.html" target="_blank" rel="noopener">https://www.annashipman.co.uk/jfdi/high-output-management.html</a></li>
+            <li><span class="ref-name">Top Takeaways from Andy Grove's High Output Management | Ian Tien</span><a class="ref-url" href="https://medium.com/@iantien/top-takeaways-from-andy-grove-s-high-output-management-2e0ecfb1ea63" target="_blank" rel="noopener">https://medium.com/@iantien/top-takeaways-from-andy-grove-s-high-output-management-2e0ecfb1ea63</a></li>
+            <li><span class="ref-name">Andy Grove's High Output Management approach to 1 on 1s | Lighthouse</span><a class="ref-url" href="https://getlighthouse.com/blog/high-output-management/" target="_blank" rel="noopener">https://getlighthouse.com/blog/high-output-management/</a></li>
+            <li><span class="ref-name">High Output Management by Andy Grove | Abi Tyas Tunggal</span><a class="ref-url" href="https://tyastunggal.com/p/high-output-management-by-andy-grove" target="_blank" rel="noopener">https://tyastunggal.com/p/high-output-management-by-andy-grove</a></li>
+            <li><span class="ref-name">High Output Management by Andrew Grove: Book Summary | Tyler DeVries</span><a class="ref-url" href="https://tylerdevries.com/book-summaries/high-output-management/" target="_blank" rel="noopener">https://tylerdevries.com/book-summaries/high-output-management/</a></li>
+            <li><span class="ref-name">High Output Management Book Review | James Ingold</span><a class="ref-url" href="https://jamesingold.com/books/high-output-management" target="_blank" rel="noopener">https://jamesingold.com/books/high-output-management</a></li>
+            <li><span class="ref-name">Recommended links about engineering leadership | Joel Chippindale</span><a class="ref-url" href="https://blog.mocoso.co.uk/links/leadership/" target="_blank" rel="noopener">https://blog.mocoso.co.uk/links/leadership/</a></li>
+            <li><span class="ref-name">Will Larson (Calm) | StaffEng Podcast</span><a class="ref-url" href="https://podcast.staffeng.com/season-1/will-larson-calm/" target="_blank" rel="noopener">https://podcast.staffeng.com/season-1/will-larson-calm/</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>OKRの歴史</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">Who invented OKRs? A complete OKR history from Intel to the AI era | Tability</span><a class="ref-url" href="https://www.tability.io/odt/articles/a-complete-okr-history-from-intel-to-the-modern-workplace" target="_blank" rel="noopener">https://www.tability.io/odt/articles/a-complete-okr-history-from-intel-to-the-modern-workplace</a></li>
+            <li><span class="ref-name">John Doerr on OKRs: Original Interview + Expert Insights | Betterworks</span><a class="ref-url" href="https://www.betterworks.com/magazine/keys-okr-success-qa-john-doerr" target="_blank" rel="noopener">https://www.betterworks.com/magazine/keys-okr-success-qa-john-doerr</a></li>
+            <li><span class="ref-name">How VC John Doerr Sets (and Achieves) Goals | Harvard Business Review</span><a class="ref-url" href="https://hbr.org/2018/05/how-vc-john-doerr-sets-and-achieves-goals" target="_blank" rel="noopener">https://hbr.org/2018/05/how-vc-john-doerr-sets-and-achieves-goals</a></li>
+            <li><span class="ref-name">AMA with John Doerr | Stripe</span><a class="ref-url" href="https://stripe.com/fr-be/guides/atlas/ama-john-doerr" target="_blank" rel="noopener">https://stripe.com/fr-be/guides/atlas/ama-john-doerr</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        本ガイドは学習支援を目的とした非公式の要約です。原著者・出版社とは関係ありません。 <em>High Output Management</em> by Andrew S. Grove (Vintage Books).
+      </footer>
+    </main>
+  </div>
+</template>
+
+<style scoped>
+/* ===================== Layout ===================== */
+.guide-container {
+  display: block;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-indigo);
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
+
+.sidebar-nav .nav-group-label:first-child {
+  margin-top: 0;
+}
+
+.sidebar-nav li {
+  margin: 2px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+
+.sidebar-nav a :deep(.iconify) {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
+
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active :deep(.iconify) {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(.iconify) {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+}
+
+.disclaimer-box :deep(.iconify) {
+  margin-right: 6px;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.section-eyebrow :deep(.iconify) {
+  font-size: 16px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul,
+ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong,
+th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout-title :deep(.iconify) {
+  font-size: 16px;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Diagram containers ===================== */
+.mermaid-wrap {
+  margin: 28px 0;
+}
+
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.diagram-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group :is(h3, h4) {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--color-paper-sunken);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 1024px) {
+  .main-content {
+    margin-left: 0;
+    padding: 40px 32px 80px;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: flex;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 24px 16px 60px;
+  }
+}
+</style>

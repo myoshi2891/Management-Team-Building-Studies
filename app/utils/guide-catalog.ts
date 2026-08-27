@@ -425,6 +425,18 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/high-output-management-guide",
+    categoryId: "engineering-management",
+    // engineering-management はシリーズ未定義（1 カラム表示）。
+    seriesId: undefined,
+    navLabel: "High Output Management",
+    title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
+    description: "アンディ・グローブ著『HIGH OUTPUT MANAGEMENT』を初学者向けに解説。朝食工場モデル、レバレッジ、OKR、タスク別成熟度(TRM)など主要概念をMermaid図と表でステップバイステップに整理し、参照ソースURLも掲載。",
+    meta: "16セクション",
+    icon: "tabler:building-factory-2",
+    accent: "indigo",
+  },
+  {
     to: "/engineering-team-leadership-guide",
     categoryId: "engineering-leadership",
     seriesId: "first-leadership",

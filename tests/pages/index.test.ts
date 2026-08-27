@@ -312,7 +312,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
       { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "21 ガイド", cards: 21 },
-      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "4 ガイド", cards: 4 },
+      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "5 ガイド", cards: 5 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "8 ガイド", cards: 8 },
     ]);
