@@ -139,16 +139,18 @@ test("デスクトップ: どのパネルを開いても縦にビューポート
     await openWithHover(page, id);
 
     const panel = page.locator(`#nav-panel-${id}`);
-    // 開いた直後は translateY(-6px) → 0 のトランジション中。高さは変わらないが、
-    // 位置と同様に落ち着いてから測るほうが将来の変更に強い。
-    await expect
-      .poll(async () => (await panel.boundingBox())!.height, {
-        message: `${id} のパネル高さが取得できない`,
-      })
+    // 開いた直後は translateY(-6px) → 0 のトランジション中で、位置が動いている。
+    // 遷移が終わってから一度だけ測り、高さと下端を同じ実測値で判定する
+    // （二度測ると「高さは安定後・下端は遷移中」という実在しない状態を検証してしまう）。
+    await panel.evaluate((el) =>
+      Promise.all(el.getAnimations().map((a) => a.finished.catch(() => undefined))),
+    );
+
+    const box = (await panel.boundingBox())!;
+    expect(box.height, `${id} のパネル高さがビューポートの残り高さを超えている`)
       .toBeLessThanOrEqual(available);
 
     // 下端がビューポート内に収まる（ヘッダー直下から開くため、高さが収まれば下端も収まる）。
-    const box = (await panel.boundingBox())!;
     expect(box.y + box.height, `${id} のパネル下端が画面外へ出ている`)
       .toBeLessThanOrEqual(viewport.height);
   }
