@@ -184,9 +184,11 @@ const DIAGRAM_TRM_STYLES = `flowchart TB
     <button
       id="sidebarToggle"
       ref="sidebarToggle"
+      type="button"
       class="sidebar-toggle"
       aria-label="目次を開閉"
-      :aria-expanded="String(sidebarOpen)"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
       @click="sidebarOpen = !sidebarOpen"
     >
       <Icon name="tabler:menu-2" />
