@@ -48,6 +48,7 @@
     "audit:cal1-action": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Agile-Leadership-in-Action/Agile-Leadership-in-Action.html app/pages/agile-leadership-in-action.vue",
     "audit:cal1-guide": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Cal1-certified-agile-leader-1-guide/Cal1-certified-agile-leader-1-guide.html app/pages/cal1-certified-agile-leader-1-guide.vue",
     "audit:cal1-ch3": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Cal1-chapter3-leading-agile-teams/Cal1-chapter3-leading-agile-teams.html app/pages/cal1-chapter3-leading-agile-teams.vue",
+    "audit:cal1-ch4": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Cal1-chapter4-leading-agile-organizations/Cal1-chapter4-leading-agile-organizations.html app/pages/cal1-chapter4-leading-agile-organizations.vue",
     "audit:cal2-p1": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Cal2-part1-organizational-strategy-and-delivery.html app/pages/cal2-part1-organizational-strategy-and-delivery.vue",
     "audit:cal2": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Cal2-certified-agile-leader-2-study-guide.html app/pages/cal2-certified-agile-leader-2-study-guide.vue",
     "audit:scrum-events": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scrum-events-csm-guide/Scrum-events-csm-guide.html app/pages/scrum-events-csm-guide.vue",
