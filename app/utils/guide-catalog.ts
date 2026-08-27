@@ -73,6 +73,12 @@ export const GUIDE_SERIES = [
     cardLabel: "SCRUM / CSM",
   },
   {
+    id: "ai-pm",
+    categoryId: "project-management",
+    navLabel: "AI-PM",
+    cardLabel: "AI-PM",
+  },
+  {
     id: "first-leadership",
     categoryId: "engineering-leadership",
     navLabel: "はじめてのリード",
@@ -375,6 +381,17 @@ export const GUIDES = [
     meta: "14セクション",
     icon: "tabler:award",
     accent: "gold",
+  },
+  {
+    to: "/ai-driven-project-management-guide",
+    categoryId: "project-management",
+    seriesId: "ai-pm",
+    navLabel: "AI-PM 実践ガイド",
+    title: "AI駆動プロジェクトマネジメント実践ガイド",
+    description: "PMI AI標準・McKinsey調査・GitHub公式ブログなど一次情報に基づく、AI駆動プロジェクトマネジメント(AI-PM)の初学者向け実践ガイド。導入ロードマップからガバナンス設計、エージェント活用まで解説。",
+    meta: "15セクション",
+    icon: "tabler:robot",
+    accent: "indigo",
   },
   {
     to: "/engineering-management-career-path",
