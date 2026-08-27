@@ -285,33 +285,13 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
 });
 
 /*
- * デスクトップ幅での横スクロール禁止。
+ * ドロップダウンを「開いた状態」の横方向の契約。
  *
- * 既存の 320px 版はモバイルレイアウトしか通らない。モバイルではドロップダウンが
- * `position: static` のアコーディオンに切り替わるため、デスクトップ固有の事故
- * ——「閉じたパネルが visibility:hidden でレイアウトを占有したまま右へはみ出す」——
- * をすり抜けていた（実測: 1440px 幅で全ページが 212px はみ出していた）。
- *
- * パネルはヘッダーの中にあるので、ページ本文を持たないホームでも再現する。
- * ガイドページも併せて見るのは、本文（表・図・コードブロック）由来のはみ出しを
- * 同じ契約で塞ぐため。
+ * 閉じた状態も含めたページ全体の横スクロール禁止は
+ * e2e/no-horizontal-scroll.spec.ts が全ページ x 3 幅で固定している。
+ * ここで見るのはそちらに無い観点——パネルを開いたときに
+ * .global-header の overflow-x: clip で切り取られていないか——だけ。
  */
-const NO_H_SCROLL_PATHS = ["/", "/capm", "/the-case-for-agile-leadership"] as const;
-
-for (const path of NO_H_SCROLL_PATHS) {
-  test(`デスクトップ 1440px: ${path} が横にはみ出さない`, async ({ page }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto(path);
-    // ハイドレーション後にパネルの退避量が入るため、確定してから測る。
-    await expect(page.locator("[data-testid='nav-category-trigger']").first()).toBeVisible();
-
-    const overflow = await page.evaluate(
-      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-    );
-    expect(overflow, `${path} が ${overflow}px 横にはみ出している`).toBeLessThanOrEqual(0);
-  });
-}
-
 test("デスクトップ: どのパネルを開いても切り取られず、横にもはみ出さない", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
@@ -336,34 +316,3 @@ test("デスクトップ: どのパネルを開いても切り取られず、横
   }
 });
 
-/*
- * 本文由来の横スクロール禁止。
- *
- * ヘッダーとは別系統の 2 つの事故を固定する。
- *   - 1024px: サイドバー（288px）が生きたまま `repeat(4, minmax(160px, 1fr))` の
- *     グリッドが本文幅に収まらない。ブレークポイントは 980px にあり、
- *     981〜1150px の帯だけが素通しになっていた。
- *   - 390px: `(Responsible/Accountable/Consulted/Informed)` のような
- *     長いラテン文字トークンが折り返せずに右へ溢れる。
- *
- * ここは SiteHeader の担当外だが、「横スクロールを出さない」という
- * サイト全体の契約として同じ場所で固定するほうが穴が空きにくい。
- */
-const BODY_OVERFLOW_CASES = [
-  { width: 1024, path: "/capm", why: "サイドバー併存時の 4 列グリッド" },
-  { width: 1024, path: "/certified-associate-in-project-management-domain1", why: "同上" },
-  { width: 390, path: "/pmp-domain1-people-guide", why: "長い英語トークンの折り返し" },
-] as const;
-
-for (const { width, path, why } of BODY_OVERFLOW_CASES) {
-  test(`本文: ${width}px の ${path} が横にはみ出さない（${why}）`, async ({ page }) => {
-    await page.setViewportSize({ width, height: 900 });
-    await page.goto(path);
-    await expect(page.locator("main.main-content")).toBeVisible();
-
-    const overflow = await page.evaluate(
-      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-    );
-    expect(overflow, `${path} が ${overflow}px 横にはみ出している`).toBeLessThanOrEqual(0);
-  });
-}
