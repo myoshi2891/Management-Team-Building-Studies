@@ -163,6 +163,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "第4章: Leading Agile Organizations(アジャイル組織のリード)",
+        category: "SCRUM / CSM",
+        href: "/cal1-chapter4-leading-agile-organizations",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
         category: "SCRUM / CSM",
         href: "/cal2-part1-organizational-strategy-and-delivery",
