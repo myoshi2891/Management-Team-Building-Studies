@@ -62,6 +62,16 @@ body {
   font-size: 16px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
+  /*
+   * 日本語本文はどこでも折り返せるが、ラテン文字の連続は 1 単語として扱われ
+   * 既定では分割されない。「(Responsible/Accountable/Consulted/Informed)」のような
+   * 長い原語併記が狭い幅でページごと横スクロールさせていた（実測: 390px 幅で 25px）。
+   *
+   * anywhere ではなく break-word を使う。break-word は min-content 幅を変えないため、
+   * テーブル・グリッド・図解の既存レイアウトを動かさずに、実際に行からはみ出す
+   * 場合だけ分割する。
+   */
+  overflow-wrap: break-word;
 }
 
 a { color: var(--color-indigo); text-decoration: none; }
