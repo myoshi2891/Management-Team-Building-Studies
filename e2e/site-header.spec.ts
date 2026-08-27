@@ -312,22 +312,58 @@ for (const path of NO_H_SCROLL_PATHS) {
   });
 }
 
-test("デスクトップ: ドロップダウンを開いても横にはみ出さず、パネル全体が見えている", async ({ page }) => {
+test("デスクトップ: どのパネルを開いても切り取られず、横にもはみ出さない", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  // 右端のカテゴリーが最もはみ出しやすい。
-  const lastId = CATEGORY_IDS[CATEGORY_IDS.length - 1];
-  await openWithHover(page, lastId);
+  // 右寄りのカテゴリーほどはみ出しやすいが、どれか 1 つを見るだけでは
+  // カタログの並べ替えで検証対象が入れ替わってしまう。全カテゴリーを見る。
+  for (const id of CATEGORY_IDS) {
+    await openWithHover(page, id);
 
-  const panel = page.locator(`#nav-panel-${lastId}`);
-  const box = (await panel.boundingBox())!;
-  // ヘッダーの overflow-x: clip で切り取られていないこと（右端が viewport 内）。
-  expect(box.x).toBeGreaterThanOrEqual(0);
-  expect(box.x + box.width).toBeLessThanOrEqual(1440);
+    const box = await page.locator(`#nav-panel-${id}`).boundingBox();
+    expect(box, `${id} のパネルが描画されていない`).not.toBeNull();
+    if (box === null) continue;
 
-  const overflow = await page.evaluate(
-    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-  );
-  expect(overflow).toBeLessThanOrEqual(0);
+    // ヘッダーの overflow-x: clip で切り取られていないこと（左右とも viewport 内）。
+    expect(box.x, `${id} のパネルが左へはみ出している`).toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width, `${id} のパネルが右へはみ出している`).toBeLessThanOrEqual(1440);
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, `${id} を開くと ${overflow}px 横にはみ出す`).toBeLessThanOrEqual(0);
+  }
 });
+
+/*
+ * 本文由来の横スクロール禁止。
+ *
+ * ヘッダーとは別系統の 2 つの事故を固定する。
+ *   - 1024px: サイドバー（288px）が生きたまま `repeat(4, minmax(160px, 1fr))` の
+ *     グリッドが本文幅に収まらない。ブレークポイントは 980px にあり、
+ *     981〜1150px の帯だけが素通しになっていた。
+ *   - 390px: `(Responsible/Accountable/Consulted/Informed)` のような
+ *     長いラテン文字トークンが折り返せずに右へ溢れる。
+ *
+ * ここは SiteHeader の担当外だが、「横スクロールを出さない」という
+ * サイト全体の契約として同じ場所で固定するほうが穴が空きにくい。
+ */
+const BODY_OVERFLOW_CASES = [
+  { width: 1024, path: "/capm", why: "サイドバー併存時の 4 列グリッド" },
+  { width: 1024, path: "/certified-associate-in-project-management-domain1", why: "同上" },
+  { width: 390, path: "/pmp-domain1-people-guide", why: "長い英語トークンの折り返し" },
+] as const;
+
+for (const { width, path, why } of BODY_OVERFLOW_CASES) {
+  test(`本文: ${width}px の ${path} が横にはみ出さない（${why}）`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto(path);
+    await expect(page.locator("main.main-content")).toBeVisible();
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, `${path} が ${overflow}px 横にはみ出している`).toBeLessThanOrEqual(0);
+  });
+}
