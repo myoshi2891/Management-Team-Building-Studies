@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `3eea332` — refactor(pages): add audit script and verify typecheck/lint for csm-scrum-master-core-competencies（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `2ab5097` — feat(nav): split scrum series into CSM and CAL columns（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（横スクロール禁止は e2e で全幅域を固定済み。§49 参照。登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクションとグローバルナビのメガメニューの両方が自動で追随する。**`seriesId` は省略不可**） |
 | ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-27 実測） |
-| テスト数 | **1155** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 16 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 8 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25）+ **19** E2E（capm 4 + site-header 12 + no-horizontal-scroll 3）— これがベースライン |
+| テスト数 | **1157** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 18 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 8 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25）+ **20** E2E（capm 4 + site-header 13 + no-horizontal-scroll 3）— これがベースライン |
 | 原本照合監査 | ✔ **全 44 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
@@ -757,12 +757,41 @@ ut-label"` 付与（D-1, D-2 充足） |
 CSS のテキストからは決定できない。誤検知だらけのゲートは赤を無視する習慣を生むため撤回した
 （`954a7f2`）。横スクロールは実測でしか判定できない種類の欠陥である。
 
+### §50. グローバルナビの再肥大化解消（scrum シリーズの CSM / CAL 分割 + 上限ガード）
+
+§49 までで「カテゴリー集約 + シリーズカラム化」により一度は解消したナビの肥大化が再発した。
+今回の原因はトップバーではなく**シリーズの粒度**である。`GUIDE_SERIES` の `scrum` に
+14 件（CSM 系 7 + CAL 系 7）が集中し、プロジェクトマネジメントのパネルは 1 カラムだけで
+約 570px、全高で約 600px に達していた（リンク 1 行 ≒ 39px）。
+
+| 変更 | 内容 |
+|---|---|
+| シリーズ再分割 | `scrum`(14) → `csm`(7) / `cal`(7)。`GUIDES` の並び替えは不要だった（CSM 系・CAL 系が既に定義順で連続しており「カテゴリー順 → シリーズ順 → 定義順」の不変条件を満たす） |
+| CSS | **変更なし**。カラム数は `seriesGroups.length` から `--nav-panel-columns` として導出されるため 5 カラムへ自動追随した |
+| 実測結果 | パネル 934 x 391px（変更前は縦 約 600px）。1280x720 でも下端まで 258px の余白。1040px 幅でも内枠に収まり `clampOpenPanel()` の退避は発動しない |
+
+**再肥大化の防ぎ方**（今回の主眼）。同じ劣化が気づかないうちに進むことが問題だったため、
+閾値を機械的に固定した。
+
+- `tests/utils/guide-catalog.test.ts` — 1 シリーズカラムのガイド件数 ≤ **8**、
+  1 カテゴリーのシリーズカラム数 ≤ **5**。超えたカラムを識別子付きの配列で
+  `toEqual([])` する（件数だけの検証は弱い契約として認めない）。
+  閾値 8 は「リンク 8 行 + 見出し ≒ 340px で、固定ヘッダー 72px を引いても
+  720px 高のビューポートに収まる」ことから決めた。
+  超えたときに直すのは**閾値ではなくシリーズの粒度**である。
+- `e2e/site-header.spec.ts` — 1280x720 で全カテゴリーのパネルを開き、
+  `panel.height <= viewport.height - header.height` を実測する。
+  分類の契約（Vitest）だけでは「実際に描いたら画面を覆うか」は判定できない。
+
+閾値 8 が実効性を持つことは Red で確認済み（変更前の `project-management/scrum` が
+14 件で落ちた）。現状に合わせて閾値を 14 にしていれば、書いた瞬間に無意味なテストだった。
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 4d8fb7b
+コードコミット HEAD: 2ab5097
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
@@ -770,6 +799,8 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   undefined を明示する。挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守ること。
   tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
   tests/components/SiteHeader.test.ts の固定契約も追随更新する。
+  1 シリーズカラムは 8 件・1 カテゴリーは 5 カラムが上限（§50）。超えたら
+  閾値ではなくシリーズの粒度を分割し直すこと。
 
 完了済み:
   - app/pages/capm.vue（CAPM ガイド）
@@ -819,10 +850,10 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1131 件 / E2E 19 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
+  - ユニットテスト 1157 件 / E2E 20 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - test / typecheck / lint はいずれも 2026-08-27 時点で ✔（実測）
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 43 本 exit 0 パス
 
-ベースラインテスト数: ユニット 1131 + E2E 19
+ベースラインテスト数: ユニット 1157 + E2E 20
 ```
 
