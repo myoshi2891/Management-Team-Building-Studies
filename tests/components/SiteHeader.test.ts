@@ -100,6 +100,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "EM 入門", href: "/engineering-manager-guide" },
       { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
       { label: "人月の神話", href: "/mythical-man-month-guide" },
+      { label: "High Output Management", href: "/high-output-management-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
       { label: "チームリード術", href: "/engineering-team-leadership-guide" },
@@ -182,6 +183,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "EM 入門", href: "/engineering-manager-guide" },
           { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
           { label: "人月の神話", href: "/mythical-man-month-guide" },
+          { label: "High Output Management", href: "/high-output-management-guide" },
         ],
       },
     ]);

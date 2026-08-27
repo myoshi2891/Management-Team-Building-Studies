@@ -199,6 +199,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/high-output-management-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアリングチームのリード術 完全ガイド",
         category: "FIRST LEADERSHIP",
         href: "/engineering-team-leadership-guide",
