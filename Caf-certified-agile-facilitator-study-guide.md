@@ -623,7 +623,7 @@ flowchart TB
 
 ### 専門機関・団体
 
-- [International Association of Facilitators (IAF)](https://www.iaf-world.org/) — ファシリテーターの国際的な専門団体。Certified Professional Facilitator (CPF) 認定を保有。
+- [International Association of Facilitators (IAF)](https://www.iaf-world.org/) — ファシリテーターの国際的な専門団体。Certified Professional Facilitator (CPF) 認定制度を提供・運営している。
 - [Liberating Structures 公式サイト](https://www.liberatingstructures.com/)
 
 ### 二次的な解説記事（一次資料の裏付けとして）

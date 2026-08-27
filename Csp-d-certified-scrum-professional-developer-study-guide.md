@@ -18,7 +18,7 @@
 6. カテゴリー2（前半）: アーキテクチャ・設計とレガシーシステム
 7. カテゴリー2（後半）: CI/CD とテスト実践
 8. カテゴリー3: Facilitating Environments for a Shared Understanding
-9. カテゴリー4: Guiding Scrum Teams to Learn and Grow
+9. カテゴリー4: Evolving Teams to Develop and Grow
 10. カテゴリー5: Developing Self as an Agile Leader
 11. XP プラクティス統合と CSD → A-CSD → CSP-D の積み上げ構造
 12. ベストプラクティス総合チェックリスト
@@ -86,12 +86,13 @@ flowchart LR
 
 ### 2.1 公式要件
 
-Scrum Alliance 公式ページに記載されている CSP-D の要件は以下の4点です。
+Scrum Alliance 公式ページに記載されている CSP-D の要件は以下の5点です。
 
 1. **A-CSD® 資格を保有していること**（有効・失効いずれでも可。CSP-D 取得時に A-CSD は自動更新される）
 2. **CSP-D 対応の教育プログラムを受講**し、技術的卓越性の実現方法とアジャイルリーダーへの成長手法を学ぶこと
 3. 教育提供者が設計した**すべてのコンポーネント**（事前・事後課題を含む）を完了すること
-4. 過去5年以内に、Scrum 開発者/チームメンバーとしての**実務経験24ヶ月以上**を証明すること
+4. 教育提供者が実施する **CSP-D アセスメント**（試験形式またはクラス内評価形式）に合格すること
+5. 過去5年以内に、Scrum 開発者/チームメンバーとしての**実務経験24ヶ月以上**を証明すること
 
 > 出典: [CSP-D 要件 - Scrum Alliance](https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers)
 
@@ -102,7 +103,8 @@ flowchart TB
     A["A-CSD 資格を保有<br/>(有効/失効問わず)"] --> B["24か月以上の<br/>Scrum開発者実務経験を証明<br/>(過去5年以内)"]
     B --> C["認定教育機関(REP)の<br/>CSP-D対応コースを受講"]
     C --> D["事前/事後課題を含む<br/>全コンポーネントを完了"]
-    D --> E["CSP-D 認定取得<br/>(A-CSDも自動更新)"]
+    D --> D2["CSP-Dアセスメントに合格<br/>(試験またはクラス内評価)"]
+    D2 --> E["CSP-D 認定取得<br/>(A-CSDも自動更新)"]
     E --> F["Comparative Agility<br/>プレミアム購読が付与"]
     E --> G["2年ごとに<br/>SEU 40単位で更新"]
     G --> H["CSD Trainer(トレーナー)<br/>へのステップアップも可能"]
@@ -170,7 +172,7 @@ flowchart TB
         direction TB
         c3a["コミュニティと実験で<br/>共通理解を作る"]
     end
-    subgraph C4["4. Guiding Scrum Teams to<br/>Learn and Grow (4.1-4.2)"]
+    subgraph C4["4. Evolving Teams to<br/>Develop and Grow (4.1-4.2)"]
         direction TB
         c4a["チームの学習フォーマットを<br/>設計・実演する"]
     end
@@ -187,7 +189,7 @@ flowchart TB
 | 1. Enabling a Culture of Technical Excellence | 5 (1.1-1.5) | 技術コーチングで文化をつくる |
 | 2. Catalyzing High-Performing Technology Organizations | 10 (2.1-2.10) | アーキテクチャ・レガシー・CI/CD・テストで組織を強くする |
 | 3. Facilitating Environments for a Shared Understanding | 3 (3.1-3.3) | コミュニティと実験で理解を揃える |
-| 4. Guiding Scrum Teams to Learn and Grow | 2 (4.1-4.2) | 学習フォーマットでチームを育てる |
+| 4. Evolving Teams to Develop and Grow | 2 (4.1-4.2) | 学習フォーマットでチームを育てる |
 | 5. Developing Self as an Agile Leader | 4 (5.1-5.4) | 自分自身がアジャイルリーダーになる |
 
 これらの学習目標は、次の情報源を基盤としています。
@@ -554,7 +556,7 @@ Build-Measure-Learn のフィードバックループ（リーン・スタート
 
 ---
 
-## 第9章: カテゴリー4 - Guiding Scrum Teams to Learn and Grow
+## 第9章: カテゴリー4 - Evolving Teams to Develop and Grow
 
 ### 4.1 アーキテクチャ・設計原則に適した学習フォーマットを3つ以上概説できる
 
@@ -783,7 +785,7 @@ CSP-D は、CSD・A-CSD で培った**個人・チームレベルの技術的卓
 | 1. Enabling a Culture of Technical Excellence | 自分の技術力を、コーチングを通じて他者・他チームに広げる |
 | 2. Catalyzing High-Performing Technology Organizations | アーキテクチャ・レガシー刷新・CI/CD・テストで組織の技術基盤を強くする |
 | 3. Facilitating Environments for a Shared Understanding | コミュニティと実験によって、関係者間の共通理解を作る |
-| 4. Guiding Scrum Teams to Learn and Grow | チームが自ら学び続けられる学習フォーマットを設計・実演する |
+| 4. Evolving Teams to Develop and Grow | チームが自ら学び続けられる学習フォーマットを設計・実演する |
 | 5. Developing Self as an Agile Leader | 権威に頼らず、自分自身がアジャイルリーダーとして成長する |
 
 CSP-D の学習を通じて開発者は、「良いコードを書く人」から「良いコードが自然に生まれる組織文化とリーダーシップを作る人」へと役割を拡張していきます。これは CSD の技術基礎、A-CSD の継続的デリバリー実践の先にある、Developer Track の到達点です。
