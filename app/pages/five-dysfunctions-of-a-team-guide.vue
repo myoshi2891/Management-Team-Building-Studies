@@ -200,7 +200,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" aria-hidden="true" />
-            原著: <em>The Five Dysfunctions of a Team: A Leadership Fable</em>(Patrick M. Lencioni著, Jossey-Bass, 2002年)。本ガイドはソフトウェアエンジニアリング組織やプロジェクトマネジメントの現場での実践を念頭に、初学者向けにモデルの構造・原因・処方箋をステップバイステップで整理した非公式の解説資料です。原著の書誌情報は<a href="https://www.oreilly.com/library/view/the-five-dysfunctions/9780787960759/" target="_blank" rel="noopener">O'Reilly Online Learningの書誌ページ</a>でご確認いただけます。
+            <span>原著: <em>The Five Dysfunctions of a Team: A Leadership Fable</em>(Patrick M. Lencioni著, Jossey-Bass, 2002年)。本ガイドはソフトウェアエンジニアリング組織やプロジェクトマネジメントの現場での実践を念頭に、初学者向けにモデルの構造・原因・処方箋をステップバイステップで整理した非公式の解説資料です。原著の書誌情報は<a href="https://www.oreilly.com/library/view/the-five-dysfunctions/9780787960759/" target="_blank" rel="noopener">O'Reilly Online Learningの書誌ページ</a>でご確認いただけます。</span>
           </div>
         </div>
 
@@ -776,10 +776,14 @@ button:focus-visible {
 }
 
 .disclaimer-box :deep(svg),
-.disclaimer-box :deep(span) {
+.disclaimer-box :deep(.iconify) {
   flex: none;
   font-size: 20px;
   margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 section {
