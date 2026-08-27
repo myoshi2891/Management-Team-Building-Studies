@@ -49,9 +49,6 @@ const EXPECTED_H3 = [
   "アウトプットではなくアウトカムを測る",
   "リーダーの行動そのものが最強の「アーティファクト」",
   "コントローラーではなく、システムの設計者として",
-] as const;
-
-const EXPECTED_H4 = [
   "公式コース情報",
   "組織アジリティ / Business Agility",
   "システム思考 / Cynefin",
@@ -60,6 +57,8 @@ const EXPECTED_H4 = [
   "チェンジマネジメント",
   "スケーリングフレームワーク",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
@@ -279,23 +278,17 @@ const EXPECTED_SECTION_EYEBROWS = [
   "SECTION 11",
 ] as const;
 
-const EXPECTED_CALLOUT_VARIANTS: Readonly<Record<string, number>> = {
+const EXPECTED_CALLOUT_VARIANTS = {
   note: 6,
-  source: 9,
-  practice: 7,
-};
+  source: 10,
+  practice: 9,
+} as const;
 
-const EXPECTED_CALLOUT_LABELS: Readonly<Record<string, Readonly<Record<string, number>>>> = {
-  note: {
-    補足: 6,
-  },
-  source: {
-    ソース: 9,
-  },
-  practice: {
-    ベストプラクティス: 7,
-  },
-};
+const EXPECTED_CALLOUT_LABELS = {
+  note: { 補足: 6 },
+  source: { ソース: 10 },
+  practice: { ベストプラクティス: 9 },
+} as const;
 
 const EXPECTED_SEO_TITLE =
   "CAL 1™ 学習ガイド 第4章 Leading Agile Organizations(アジャイル組織のリード) | 非公式解説";

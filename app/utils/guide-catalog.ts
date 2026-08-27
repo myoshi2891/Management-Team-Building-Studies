@@ -361,6 +361,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/cal1-chapter4-leading-agile-organizations",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CAL1 第4章",
+    title: "第4章: Leading Agile Organizations(アジャイル組織のリード)",
+    description: "Scrum Alliance Certified Agile Leader® 1(CAL 1™)の学習領域「Leading Agile Organizations」を初学者向けに解説する非公式ガイド。組織アジリティ、Cynefin、組織文化、Team Topologies、チェンジマネジメント、スケーリングを網羅。",
+    meta: "12セクション",
+    icon: "tabler:building-bank",
+    accent: "gold",
+  },
+  {
     to: "/cal2-part1-organizational-strategy-and-delivery",
     categoryId: "project-management",
     seriesId: "scrum",
