@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-最終更新: 2026-08-23
+最終更新: 2026-08-27
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -86,7 +86,7 @@ app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 ```bash
 bun run dev          # 開発サーバー
 bun run test         # Vitest 契約テスト（bun test は不可。設定を読まないため）
-bun run test:e2e     # generate + Playwright スモーク（ポート 4173）
+bun run test:e2e     # generate + Playwright スモーク（ポート 4173。横スクロール禁止ゲートを含む）
 bunx nuxi typecheck  # 型検査
 bun run lint         # ESLint
 bun run build        # 本番ビルド
@@ -111,6 +111,12 @@ CAPM・EM キャリアパスの 2 本は移行済み（最新状況は `docs/PRO
 - 新規ページは移行に加えて**ホームとグローバルナビへの登録**が必須（上記 IMPORTANT を参照）
 - 移行の最大のリスクは**転写漏れ**。原本照合監査（`audit_source_parity.mjs`）の
   exit 0 を Green の前提条件とする
+- **どの幅でも横スクロールを出さない**。`e2e/no-horizontal-scroll.spec.ts` が
+  全ページ（`GUIDES` から自動導出）× 1440 / 1024 / 390px を実測し、これも Green の
+  前提条件とする。横スクロールは実測でしか判定できないため静的検査では代替できない
+  （実測: 静的パターン検査は 45 ページ中 35 ページを誤検知した）。
+  `body { overflow-x: hidden }` による隠蔽は禁止。詳細は
+  `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 2「横方向の不変条件」
 - **監査のゲート原本は `.html`**。CAPM では `.md` と `.html` の構造が乖離しており
   （h2 の個数・番号の有無・ステップの再構造化）、`.md` 監査は情報提供として扱う。
   詳細は `docs/PROGRESS.md`「正当な差分の記録」
