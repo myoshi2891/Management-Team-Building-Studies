@@ -139,7 +139,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
-        title: "スクラム 97の知恵",
+        title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
         category: "SCRUM / CSM",
         href: "/scrum-97-things-guide",
         accentClass: "guide-card-forest",

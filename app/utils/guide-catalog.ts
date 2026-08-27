@@ -306,6 +306,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csm-scrum-master-core-competencies",
+    categoryId: "project-management",
+    seriesId: "scrum",
+    navLabel: "CSM コアコンピテンシー",
+    title: "Scrum Master Core Competencies 完全解説ガイド",
+    description: "Scrum Alliance の Certified ScrumMaster(CSM)認定における Scrum Master Core Competencies(Facilitation・Teaching・Mentoring・Coaching)と、Scrum Team・Product Owner・組織へのサービスを、公式Learning Objectivesに基づき初学者向けに解説する非公式学習ガイド",
+    meta: "8セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/scrum-97-things-guide",
     categoryId: "project-management",
     seriesId: "scrum",

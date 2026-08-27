@@ -132,7 +132,7 @@ F --> G["対応状況を継続的に追跡"]
 G --> H["Sprint Retrospectiveで振り返り再発防止"]
 D --> H
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class A,B,C,E,F,G box;
 class D,H done;`,
   `flowchart LR
