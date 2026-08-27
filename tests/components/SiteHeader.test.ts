@@ -117,6 +117,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "Peopleware", href: "/peopleware-guide" },
       { label: "Radical Candor", href: "/radical-candor-guide" },
       { label: "No Rules Rules", href: "/no-rules-rules-guide" },
+      { label: "5つの機能不全", href: "/five-dysfunctions-of-a-team-guide" },
       { label: "Team Topologies", href: "/team-topologies-guide" },
       { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
       { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
@@ -220,6 +221,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "Peopleware", href: "/peopleware-guide" },
           { label: "Radical Candor", href: "/radical-candor-guide" },
           { label: "No Rules Rules", href: "/no-rules-rules-guide" },
+          { label: "5つの機能不全", href: "/five-dysfunctions-of-a-team-guide" },
         ],
       },
       {
@@ -299,6 +301,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/peopleware-guide",
       "/radical-candor-guide",
       "/no-rules-rules-guide",
+      "/five-dysfunctions-of-a-team-guide",
       "/team-topologies-guide",
       "/dynamic-reteaming-guide",
       "/lean-ux-beginner-guide",

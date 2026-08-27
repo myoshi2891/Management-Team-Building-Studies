@@ -277,6 +277,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "『あなたのチームは、機能してますか？』完全ガイド",
+        category: "TEAM CULTURE",
+        href: "/five-dysfunctions-of-a-team-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Team Topologies 実践ガイド",
         category: "TEAM DESIGN",
         href: "/team-topologies-guide",
@@ -314,7 +320,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "21 ガイド", cards: 21 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "5 ガイド", cards: 5 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
-      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "8 ガイド", cards: 8 },
+      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "9 ガイド", cards: 9 },
     ]);
   });
 
