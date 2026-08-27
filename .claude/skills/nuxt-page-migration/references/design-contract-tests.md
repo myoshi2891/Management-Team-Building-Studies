@@ -1,6 +1,6 @@
 # デザイン契約テスト — 実装パターン
 
-(最終更新日: 2026-08-15)
+(最終更新日: 2026-08-27)
 
 **用途**: SKILL.md §5 Step 1 の D-1〜D-5（デザイン契約）を
 自動検知するテストパターンを詳述する。`<style scoped>` は DOM に
@@ -163,6 +163,22 @@ it("D-1: callout の variant が原本にあるものをすべて含む", () => 
 
 **確認方法**: 原本 HTML をブラウザで直接開き、`bun run dev` の Nuxt 版と並べて比較する。
 
+### 逐語転写してはならない唯一の例外: 横方向の幅の制約
+
+原本 HTML は**単一ファイルで完結し、グローバルナビも固定サイドバーも持たない**。
+Nuxt 版はそこへ固定ヘッダー（`--global-nav-height`）とサイドバー（`--sidebar-width` = 288px）が
+加わるため、**同じ CSS でも本文に使える幅が違う**。原本で溢れなかった指定が Nuxt 版では溢れる。
+
+具体的には、原本の `grid-template-columns: repeat(4, minmax(160px, 1fr))` を逐語転写すると、
+サイドバーが生きている 981〜1150px の帯で本文カラムに収まらず、ページごと横スクロールする
+（実測で 5 ページが該当した）。`repeat(auto-fit, minmax(160px, 1fr))` へ読み替える。
+
+配色・字送り・余白は逐語転写の対象のままである。**読み替えるのは幅の制約だけ**であり、
+これは内容の改変ではない。読み替えた箇所は `docs/PROGRESS.md`「正当な差分の記録」へ残す。
+
+横方向の不変条件の一覧は SKILL.md §5 Step 2「横方向の不変条件」、
+機械的ゲートは `e2e/no-horizontal-scroll.spec.ts` を参照。
+
 ---
 
 ## テスト実行コマンド（重要: `bun run test` を使う）
@@ -192,3 +208,4 @@ bun test tests/pages/capm.test.ts
 - `app/pages/capm.vue` — `data-testid` / `data-variant` 付与例
 - `app/assets/css/main.css` — 原本 HTML の `:root` パレット転写
 - `tests/components/MermaidDiagram.test.ts` — 共有コンポーネントの契約テスト
+- `e2e/no-horizontal-scroll.spec.ts` — 横スクロール禁止の実測ゲート（全ページ x 3 幅）
