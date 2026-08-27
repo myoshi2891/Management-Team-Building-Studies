@@ -380,6 +380,13 @@ sticky なサイドバー・TOC・見出しアンカーは、必ずこの変数�
 > 唯一の機械的ゲートは **`e2e/no-horizontal-scroll.spec.ts` の実測**である（§5 Step 5）。
 > 対象ページは `GUIDES` から自動導出されるため、Step 2.5 のカタログ登録を済ませれば
 > 新規ページも自動的にこのゲートに入る。
+>
+> **測る前に Mermaid の描画完了を待つこと。** 図は `<ClientOnly>` + `onMounted` の
+> 非同期描画で、待たずに幅を測ると「まだ図が無い状態」を測ることになり、図が原因の
+> 溢れを取り逃がす（偽 Green）。同 spec の `waitForDiagrams()` は `.mermaid-wrap`
+> （`ClientOnly` の外側にあるため静的生成の HTML に含まれる）の枚数を期待値にして、
+> `svg` または `.diagram-error` が同数そろうまで待つ。図が 0 枚のページでは待たない。
+> 横スクロールを実測する別のテストを足す場合も、同じ待機を必ず入れる。
 
 **ディスクレーマー（`.disclaimer-box`）の標準規約**:
 原本 HTML の `hero` 直下にある原著・教育注記ボックス（`.disclaimer-box`）は、アイコンとテキストを `display: flex;` で横並びに配置する。
