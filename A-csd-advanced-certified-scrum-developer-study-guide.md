@@ -120,7 +120,7 @@ flowchart TD
 ### 2.2 認定の維持(ベストプラクティス)
 
 - **SEU(Scrum Education Units)の記録を習慣化する**: 書籍を読む、ウェビナーを視聴する、カンファレンスに参加するなど、学習機会ごとにSEUを記録しておくと、2年ごとの更新時に慌てずに済みます。
-- **更新は2年サイクル**: A-CSD®は2年ごとに更新が必要です。カレンダーにリマインダーを設定しておくことがベストプラクティスです。
+- **更新は2年サイクル**: A-CSD®は2年ごとに更新が必要です。更新には**SEUの記録の提出と更新料の支払い**の両方が求められるため、カレンダーにリマインダーを設定しておくことがベストプラクティスです。
 
 > [出典]
 > - Scrum Alliance, A-CSD公式ページ「A-CSD requirements」セクション<br>https://www.scrumalliance.org/get-certified/developer-track/advanced-certified-scrum-developer
