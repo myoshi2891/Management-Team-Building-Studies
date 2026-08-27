@@ -54,7 +54,7 @@ CAFは「会議の進め方」のようなテクニックだけを教えるコ�
 
 ### 1.2 名称に関する補足（重要）
 
-Scrum AllianceのResource Library記事（後述）には、CAFの**旧名称**である **Agile Coaching Skills - Certified Facilitator (ACS-CF)**（Agile Coaching Essentials トラックの一部）への言及が残っています。ACS-CFはCAFの後継コースではなく、コース内容・学習目標・受講要件を維持したまま名称が改称されたものです（公式のコース検索でもCAFのコースは `ctyp=AcsCf` というコードで絞り込まれます）。CASP（Certified Agile Scaling Practitioner）が "Certified Agile Skills - Scaling 1 (CAS-S1)" としても案内されているのと同様、認定ラインナップの名称は継続的に見直されています。受講を検討する際は、必ず公式ページで最新のコース名称とバッジ名を確認してください。
+Scrum AllianceのResource Library記事（後述）には、CAFの**旧名称**である **Agile Coaching Skills - Certified Facilitator (ACS-CF)**（Agile Coaching Essentials トラックの一部）への言及が残っています。ACS-CFはCAFの後継コースではなく、コース内容・学習目標・受講要件を維持したまま名称が改称されたものです（公式のコース検索でもCAFのコースは `ctyp=AcsCf` というコードで絞り込まれます）。CASP（Certified Agile Scaling Practitioner）が旧称・旧コース案内では "Certified Agile Skills - Scaling 1 (CAS-S1)" と表記されているのと同様、認定ラインナップの名称は継続的に見直されています。受講を検討する際は、必ず公式ページで最新のコース名称とバッジ名を確認してください。
 
 > **ソース:** [Why Facilitation Skills Are Important - Scrum Alliance Resource Library](https://resources.scrumalliance.org/article/facilitation-skills-important)（ACS-CFへの言及あり）
 
@@ -483,7 +483,7 @@ CAFはマインドセットを重視する一方、実際のセッションを�
 | 技法 | 開発者／出典 | 何に使うか | 概要 |
 |---|---|---|---|
 | ORID（Focused Conversation） | Institute of Cultural Affairs（ICA）Technology of Participation | 振り返り、レトロスペクティブ、経験の意味づけ | Objective（事実）→Reflective（感情反応）→Interpretive（解釈・意味）→Decisional（次の行動）の4段階で問いを設計する |
-| Liberating Structures | Henri Lipmanowicz & Keith McCandless | 大人数の会議、アイデア創出、権力の偏りの是正 | 33種類の「マイクロストラクチャー」（例: 1-2-4-All、TRIZ等）で、少数の声だけが支配する会議を構造的に変える |
+| Liberating Structures | Henri Lipmanowicz & Keith McCandless | 大人数の会議、アイデア創出、権力の偏りの是正 | 43種類の「マイクロストラクチャー」（うち33種類が原典のレパートリー、残りは後年の追加。例: 1-2-4-All、TRIZ等）で、少数の声だけが支配する会議を構造的に変える。最新の一覧は公式カタログで確認する |
 | Diamond of Participation / Gradients of Agreement | Sam Kaner ほか | 意思決定、合意形成 | 第8章参照。発散→うめき→収束のプロセスを可視化する |
 | Ground Rules（グラウンドルール） | Roger Schwarz | 対立予防、議論の質向上 | 第9章参照。具体例で話す、利害に焦点を当てる等 |
 | NOSTUESO | Scrum Alliance（記事内で紹介） | 発言機会の公平な分配 | 第10章参照。全員が1回話すまで誰も2回目を話さない |

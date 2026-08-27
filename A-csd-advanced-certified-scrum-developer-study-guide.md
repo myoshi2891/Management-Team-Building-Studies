@@ -264,7 +264,8 @@ flowchart LR
 **ベストプラクティス**
 - DoDの変更は必ずScrum Team全体(開発者・Product Owner・Scrum Master)で合意する。一方的な追加は形骸化を招く。
 - 新しいDoD項目を追加したら、なぜ追加したのかという背景をチームのワークスペースに記録し、新しいメンバーが経緯を理解できるようにする。
-- 「Story Doneレベル」「Feature Doneレベル」「Release Doneレベル」のように、複数の粒度のDoDを持つことも有効(ブラウザ互換性テストのように毎回は不要なものを分離する)。
+- DoDはIncrementに共通して適用される**単一の定義**として保つ(Scrum Guide 2020)。粒度別に複数のDoDを並べると、どのIncrementが「完成」なのかの判断が分裂する。
+- 毎スプリントでは不要だがリリース時にのみ必要な確認(ブラウザ互換性テストの全マトリクス実行など)は、DoDに混ぜず**リリースチェックリスト**として別に管理する。DoDはあくまで「Incrementが利用可能であるための最低条件」に絞る。
 
 > [出典]
 > - Ken Schwaber & Jeff Sutherland, "The Scrum Guide" (2020)<br>https://scrumguides.org/scrum-guide.html

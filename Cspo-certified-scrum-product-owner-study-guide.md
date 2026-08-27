@@ -43,6 +43,7 @@
 ---
 
 <a id="chapter1"></a>
+
 ## 第1章：CSPOとは何か － Product Owner Trackにおける位置づけ
 
 ### 1.1 CSPOの概要
@@ -123,6 +124,7 @@ CSPOコースは以下のような職種の方に適しています。
 ---
 
 <a id="chapter2"></a>
+
 ## 第2章：Bloom's Taxonomy － 学習目標の読み方
 
 CSPO Learning Objectivesの各項目は、すべて「このコースを無事に修了した学習者は、～できるようになる」という文の後に続く**動詞**から始まります。この動詞は、Bloom's Taxonomy（ブルームの教育目標分類学）の6段階に対応しており、どのレベルの理解を求められているかを示します。
@@ -158,10 +160,10 @@ flowchart TD
 > - 学習目標を読むときは、まず動詞に注目し、「知識として知っていればよいのか」「実際に作れる・評価できる必要があるのか」を区別する。
 > - トレーナーによる練習（ワーク）は、Application以上の動詞（practice, create, illustrate等）を持つ学習目標に対応していることが多いため、コース中は積極的に手を動かす。
 
-
 ---
 
 <a id="chapter3"></a>
+
 ## 第3章：Scrum Foundations® 復習
 
 Scrum Alliance公式のScrum Foundations Learning Objectivesは、CSM・CSPO・CSDの3つの基礎資格すべてに共通する前提知識です。CSPOオファリングでは、コース前またはコース中にこれらがカバーされていることが期待されます。ここではCSPO学習に必要な範囲で要点を整理します。
@@ -346,10 +348,10 @@ Definition of Done（DoD）は、Incrementの品質基準を定義する公式�
 > - PO自身がSprint Goalの言語化に主体的に関わる。Sprint GoalはPBIのリストの寄せ集めではなく「なぜ」を一文で語れる形にする。
 > - 複数チームで1つのProduct Backlogを扱う場合、DoDは最初にチーム横断で合意し、変更時は必ず関係チーム全員に共有する。
 
-
 ---
 
 <a id="chapter4"></a>
+
 ## 第4章：カテゴリ1 － Product Owner Core Competencies（プロダクトオーナーの中核能力）
 
 ここからは、CSPO Learning Objectives本体の5カテゴリを順に解説します。第1カテゴリは、Product Ownerというロールそのものの基盤となる能力群です。
@@ -471,10 +473,10 @@ POの権限（Authority）はScrum Guideに明記された「アカウンタビ�
 > **ベストプラクティス**
 > - 「決めるのはPOだが、決める材料は皆で作る」という姿勢を明示的にチームに伝え、協働と権限のバランスに対する誤解を防ぐ。
 
-
 ---
 
 <a id="chapter5"></a>
+
 ## 第5章：カテゴリ2 － Goal Setting and Planning（ゴール設定と計画）
 
 ### 5.1（LO 2.1）Product VisionとProduct Goalの関係
@@ -590,10 +592,10 @@ flowchart LR
 > **ベストプラクティス**
 > - 「小さいが無意味な増分」にならないよう、分割後も各Itemが独立した価値仮説を持っているかを確認する。
 
-
 ---
 
 <a id="chapter6"></a>
+
 ## 第6章：カテゴリ3 － Understanding Customers and Users（顧客とユーザーの理解）
 
 ### 6.1（LO 3.1）POのプロダクトディスカバリーと検証への組み込み方
@@ -679,6 +681,7 @@ POはSprintの計画・レビューといった「配送」の仕事に加え、
 ---
 
 <a id="chapter7"></a>
+
 ## 第7章：カテゴリ4 － Validating Product Assumptions（プロダクト仮説の検証）
 
 ### 7.1（LO 4.1）Scrumがプロダクト仮説の検証をどう支えるか
@@ -716,10 +719,10 @@ flowchart LR
 > - コストが低い検証から着手し、仮説の確度が上がるにつれて段階的にコストの高い検証へ進める「検証のはしご」を意識する。
 > - 「作ってみないとわからない」という思い込みを疑い、実装前に検証できる方法がないか常に探す。
 
-
 ---
 
 <a id="chapter8"></a>
+
 ## 第8章：カテゴリ5 － Working with the Product Backlog（プロダクトバックログの運用）
 
 ### 8.1（LO 5.1）アウトカムとアウトプットの関係
@@ -857,10 +860,10 @@ flowchart LR
 > **ベストプラクティス**
 > - リファインメントをPOだけの作業にせず、Developersと共同で行う。技術的な実現可能性の議論をこの場で済ませておくことで、Sprint Planningがスムーズになる。
 
-
 ---
 
 <a id="chapter9"></a>
+
 ## 第9章：ベストプラクティス総合チェックリスト
 
 これまでの章で紹介したベストプラクティスを、日々の実務で使えるチェックリストとして再構成しました。
@@ -902,6 +905,7 @@ flowchart LR
 ---
 
 <a id="chapter10"></a>
+
 ## 第10章：認定後のキャリアパスと資格更新（A-CSPO／CSP-PO／SEU）
 
 ### 10.1 資格更新の基本ルール
@@ -930,11 +934,27 @@ flowchart TD
 
 ### 10.3 A-CSPO（Advanced Certified Scrum Product Owner）
 
-A-CSPOは、CSPO取得者が実務経験を積んだ後に目指す上位資格です。一般的な提供形態では、CSPO認定（有効・失効いずれでも可）に加え、直近5年以内にProduct Owner関連の実務経験（目安として12か月程度）を持つことが前提として案内されています（詳細な要件は認定トレーニングパートナーやScrum Alliance公式情報を確認してください）。学習内容は、ステークホルダーコラボレーションのスケーリング、プロダクト戦略・計画の高度化、仮説検証の高度な手法、Product Backlogの高度な優先順位付け・リファインメント技法などが含まれます。
+A-CSPOは、CSPO取得者が実務経験を積んだ後に目指す上位資格です。Scrum Alliance公式ページが定める認定要件は次のとおりで、いずれも必須です。
+
+1. **CSPO認定を保有していること**（有効・失効いずれでも可。A-CSPO取得時にCSPOも自動更新される）
+2. **直近5年以内に、Product Ownerアカウンタビリティに固有の実務経験を12か月以上**保有していることの証明
+3. **Scrum Alliance承認の教育提供者によるA-CSPOコースを受講**すること
+4. 事前・事後課題を含む**コースの全構成要素を修了**すること
+5. **A-CSPOライセンス契約に同意し、Scrum Allianceのメンバープロフィールを完成**させること
+
+取得後は、SEUの獲得と2年ごとの更新によって認定を維持します。学習内容は、ステークホルダーコラボレーションのスケーリング、プロダクト戦略・計画の高度化、仮説検証の高度な手法、Product Backlogの高度な優先順位付け・リファインメント技法などが含まれます。
 
 ### 10.4 CSP®-PO（Certified Scrum Professional® - Product Owner）
 
-CSP-POは、Product Ownerとしての専門性をさらに高めた上位資格で、アジャイルコーチやトレーナーを目指す人にとっても足がかりとなる資格です。A-CSPOやCSPOでの学習・実務経験、SEUの蓄積などを踏まえて申請します（要件の詳細はScrum Alliance公式情報を確認してください）。
+CSP-POは、Product Ownerとしての専門性をさらに高めた上位資格で、アジャイルコーチやトレーナーを目指す人にとっても足がかりとなる資格です。Scrum Alliance公式ページが定める認定要件は次のとおりで、いずれも必須です。
+
+1. **A-CSPO認定を保有していること**（有効・失効いずれでも可。CSP-PO取得時にA-CSPOとCSPOも自動更新される）
+2. **Scrum Alliance承認のCSP-PO教育プログラムを受講**すること
+3. 事前・事後課題を含む**全構成要素を修了**すること
+4. **CSP-POライセンス契約に同意し、Scrum Allianceのメンバープロフィールを完成**させること
+5. **直近5年以内に、Product Ownerのロールに固有の実務経験を24か月以上**保有していることの証明
+
+SEUは認定の**維持（2年ごとの更新）**のための仕組みであり、上記の必須要件を代替するものではありません。
 
 > **ベストプラクティス**
 > - CSPO取得後すぐにA-CSPOを目指すのではなく、まず実務でProduct Backlog運用・ステークホルダー折衝の経験を積み、そこで直面した課題を言語化してからA-CSPOの学習に臨むと定着が良い。
@@ -943,6 +963,7 @@ CSP-POは、Product Ownerとしての専門性をさらに高めた上位資格�
 ---
 
 <a id="chapter11"></a>
+
 ## 第11章：よくある誤解とアンチパターン
 
 CSPO学習者・現場の新任Product Ownerが陥りやすい誤解を整理します。
@@ -964,6 +985,7 @@ CSPO学習者・現場の新任Product Ownerが陥りやすい誤解を整理し
 ---
 
 <a id="chapter12"></a>
+
 ## 第12章：まとめ
 
 CSPO学習目標は、大きく5つのカテゴリ（Product Owner Core Competencies／Goal Setting and Planning／Understanding Customers and Users／Validating Product Assumptions／Working with the Product Backlog）に整理されており、その土台にはScrum Foundationsで扱われるScrum理論・チーム構造・イベント・作成物の理解があります。
@@ -993,10 +1015,10 @@ flowchart TD
 
 CSPO取得はゴールではなく、A-CSPO・CSP-POへと続くProduct Owner Trackの出発点です。日々の実務でここに整理したベストプラクティスを反復しながら、SEUを積み上げて資格を更新し続けることが、プロダクトオーナーとしての継続的な成長につながります。
 
-
 ---
 
 <a id="chapter13"></a>
+
 ## 第13章：参考文献・ソース一覧
 
 本ガイドの内容は、以下の一次情報源に基づいています。学習を深める際は、必ず一次情報源（特にScrum Guideと公式Learning Objectives）を直接参照してください。

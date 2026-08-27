@@ -13,7 +13,7 @@
 3. **ベストプラクティス**
 4. **根拠となる公式ソース URL**
 
-をセットで提供するものです。CASP は Scrum Alliance の公式ページ上では「Certified Agile Skills - Scaling 1 (略称: CAS-Scaling 1 / CASP)」として案内されており、CSM (Certified ScrumMaster) や CAL (Certified Agile Leader) のように詳細な章立てのカリキュラム PDF が一般公開されているわけではありません。公式サイトには "CASP Learning Objectives" という PDF へのリンクがありますが、これは Google ドライブ上でサインインを求められる形式で提供されており、本ガイド作成時点では内容を直接検証できませんでした。そのため本ガイドは、Scrum Alliance が一般公開している **公式コースページ** および **公式リソースライブラリの関連記事(すべて Scrum Alliance 発行)** の内容を一次ソースとして再構成し、業界で広く使われている補助的なフレームワーク・モデル(SAFe、LeSS、Spotify モデル、Team Topologies など)を「パターンの実例」として補足する構成を取っています。
+をセットで提供するものです。CASP は Scrum Alliance の現行の公式認定ページでは **Certified Agile Scaling Practitioner (CASP)** として案内されています(「Certified Agile Skills - Scaling 1 / CAS-Scaling 1 / CAS-S1」は旧称であり、旧コース案内やリソース記事のタイトルに残っています)。CASP は、CSM (Certified ScrumMaster) や CAL (Certified Agile Leader) のように詳細な章立てのカリキュラム PDF が一般公開されているわけではありません。公式サイトには "CASP Learning Objectives" という PDF へのリンクがありますが、これは Google ドライブ上でサインインを求められる形式で提供されており、本ガイド作成時点では内容を直接検証できませんでした。そのため本ガイドは、Scrum Alliance が一般公開している **公式コースページ** および **公式リソースライブラリの関連記事(すべて Scrum Alliance 発行)** の内容を一次ソースとして再構成し、業界で広く使われている補助的なフレームワーク・モデル(SAFe、LeSS、Spotify モデル、Team Topologies など)を「パターンの実例」として補足する構成を取っています。
 
 > **対象読者**: Transformation Lead、People Manager、Leadership、Business Analyst、PMO Lead、Scrum Master、Agile Coach/Consultant、Team Lead など、組織のアジャイルスケーリングに関わるすべての人。
 > **前提条件**: なし(ただしアジャイルの基礎知識があることが推奨されます)。
@@ -41,7 +41,7 @@
 
 ### ステップ1: CASPとは何か
 
-CASP (Certified Agile Scaling Practitioner) は、Scrum Alliance が提供する **Agile Skills-Based Certification(アジャイルスキルベース認定)** の一つで、バッジ名は "Certified Agile Skills - Scaling 1" です。CSM や CSPO のように特定のロール(Scrum Master、Product Owner)を認定するものではなく、「組織がアジャイルの能力を複数チームに拡張する際に必要なスキルと考え方」を認定する、スキル横断型の資格として位置づけられています。
+CASP (Certified Agile Scaling Practitioner) は、Scrum Alliance が提供する **Agile Skills-Based Certification(アジャイルスキルベース認定)** の一つです(旧称は "Certified Agile Skills - Scaling 1 / CAS-S1" で、旧コース案内やバッジ表記に残存する場合があります)。CSM や CSPO のように特定のロール(Scrum Master、Product Owner)を認定するものではなく、「組織がアジャイルの能力を複数チームに拡張する際に必要なスキルと考え方」を認定する、スキル横断型の資格として位置づけられています。
 
 ### ステップ2: 誰のための資格か
 
@@ -535,14 +535,14 @@ flowchart TB
     EN -->|"Facilitating:\n技術/実践を伝授"| S1
     EN -->|"Facilitating:\n技術/実践を伝授"| S2
     S1 -->|"X-as-a-Service:\n専門機能を利用"| CS
-    S1 -.->|"Collaboration:\n発見フェーズのみ一時的に協働"| S2
+    S1 -.->|"Collaboration:\n特定の目的のため期間限定で協働"| S2
 ```
 
 ### ベストプラクティス
 
 - チーム構成を設計する前に、目指すアーキテクチャとコンウェイの法則の関係を明示的に議論する。
 - 4つのチームタイプの中で「ストリーム整合チーム」を組織の標準形として最大化し、その他のチームタイプはそれを支援する位置づけにする。
-- チーム間のインタラクションモードは固定せず、発見フェーズは Collaboration、安定運用フェーズは X-as-a-Service へと意図的に移行させる。
+- チーム間のインタラクションモードは固定せず、目的に応じて意図的に選び直す。Collaboration は発見に限らず、設計・実装・境界の調整など**特定の目的に対する期間限定の協働**として使い、目的を達したら解消する。移行先は X-as-a-Service とは限らず、能力移転が目的なら Facilitating、境界そのものが誤っていたならチーム構成の見直しが妥当な場合もある。
 - マルチサイト環境では、非同期コミュニケーションを前提としたドキュメント基準を早期に整備する。
 - 採用・育成計画に t 字型人材の育成パスを明示的に組み込む。
 

@@ -22,7 +22,7 @@
 10. カテゴリー5: Developing Self as an Agile Leader
 11. XP プラクティス統合と CSD → A-CSD → CSP-D の積み上げ構造
 12. ベストプラクティス総合チェックリスト
-13. 認定後のキャリアパス（SEU・更新・CST-D）
+13. 認定後のキャリアパス（SEU・更新・CSD Trainer）
 14. まとめ
 15. 参考文献・出典一覧
 
@@ -42,7 +42,7 @@ CSD（基礎）→ A-CSD（応用）→ **CSP-D（プロフェッショナル）
 flowchart LR
     A["CSD\nCertified Scrum Developer\n(基礎: Lean/Agile/Scrum, XP実践)"] --> B["A-CSD\nAdvanced Certified Scrum Developer\n(応用: 継続的デリバリー, DORA)"]
     B --> C["CSP-D\nCertified Scrum Professional - Developer\n(プロフェッショナル: 技術的卓越性の伝播, リーダーシップ)"]
-    C --> D["CST-D\nCertified Scrum Trainer - Developer\n(トレーナーとして教える側へ)"]
+    C --> D["CSD Trainer\n(Scrum Alliance 承認の CSD トレーナー)\nトレーナーとして教える側へ"]
 
     style A fill:#1f2a44,stroke:#7c9eff,color:#ffffff
     style B fill:#1f2a44,stroke:#7c9eff,color:#ffffff
@@ -69,7 +69,7 @@ flowchart LR
 | 項目 | CSD | A-CSD | CSP-D |
 |------|-----|-------|-------|
 | レベル | 基礎（Foundation） | 応用（Intermediate） | プロフェッショナル（Advanced/Leadership） |
-| 前提資格 | CSM または Scrum Foundations 相当 | CSD（有効/失効問わず） | A-CSD（有効/失効問わず） |
+| 前提資格 | なし（Scrum Alliance 承認コースの受講が要件） | CSD（有効/失効問わず） | A-CSD（有効/失効問わず） |
 | 焦点 | XP エンジニアリングプラクティスの実践 | 継続的デリバリー・DORA・レガシーコード改善 | 複数チームへの技術文化の伝播、アジャイルリーダーシップ |
 | Bloom's レベルの中心 | Knowledge〜Application | Application〜Analysis | Analysis〜Synthesis〜Evaluation |
 | スコープ | 個人・チーム | チーム〜プロダクト | 複数チーム・組織 |
@@ -105,7 +105,7 @@ flowchart TB
     D --> E["CSP-D 認定取得\n(A-CSDも自動更新)"]
     E --> F["Comparative Agility\nプレミアム購読が付与"]
     E --> G["2年ごとに\nSEU 40単位で更新"]
-    G --> H["CST-D(トレーナー)\nへのステップアップも可能"]
+    G --> H["CSD Trainer(トレーナー)\nへのステップアップも可能"]
 
     style E fill:#2a3a5c,stroke:#ffd166,color:#ffffff
 ```
@@ -671,7 +671,7 @@ flowchart LR
 
 > 出典: [Lean Software Development - Mary & Tom Poppendieck](https://www.poppendieck.com/)、[The Goal - Eliyahu Goldratt（制約理論）](https://www.toc-goldratt.com/en)
 
-**ベストプラクティス（カテゴリー5全体）**: 5つのリーダーシップ系 LO は、いずれも「学んで終わり」にせず、実際の1on1・レトロスペクティブ・バリューストリームマッピングのワークショップという**具体的な場**で実践することで初めて評価可能なスキルになります。
+**ベストプラクティス（カテゴリー5全体）**: 4つのリーダーシップ系 LO は、いずれも「学んで終わり」にせず、実際の1on1・レトロスペクティブ・バリューストリームマッピングのワークショップという**具体的な場**で実践することで初めて評価可能なスキルになります。
 
 ---
 
@@ -745,7 +745,7 @@ flowchart TB
 
 ---
 
-## 第13章: 認定後のキャリアパス（SEU・更新・CST-D）
+## 第13章: 認定後のキャリアパス（SEU・更新・CSD Trainer）
 
 ### 13.1 認定の維持
 
@@ -759,16 +759,16 @@ CSP-D 取得者には **Comparative Agility®** のプレミアム購読が特�
 
 > 出典: [Comparative Agility](https://www.comparativeagility.com/)、[How Does Your Agile Compare to Your Competition? - InfoQ](https://www.infoq.com/news/2010/01/comparative-agility-assessment)
 
-### 13.3 CST-D（トレーナー）への道
+### 13.3 CSD Trainer（トレーナー）への道
 
 ```mermaid
 flowchart LR
-    A["CSP-D 取得"] --> B["CST-D 応募資格を得る\n(トレーナーになるための重要な節目)"]
+    A["CSP-D 取得"] --> B["CSD Trainer 申請への足がかりを得る\n(トレーナーになるための重要な節目)"]
     B --> C["Scrum Alliance の\nトレーナー選考プロセス"]
-    C --> D["CST-D\nCertified Scrum Trainer - Developer"]
+    C --> D["CSD Trainer\n(Scrum Alliance 承認の CSD トレーナー)"]
 ```
 
-公式ページには「CSP-D 認定を受けることは、CSD トレーナーになりたい場合の重要なマイルストーンである」と明記されています。技術力とリーダーシップの両輪を備えた CSP-D は、次世代の開発者を育てる CST-D への自然なステップアップとなります。
+公式ページには「CSP-D 認定を受けることは、CSD トレーナーになりたい場合の重要なマイルストーンである」と明記されています。技術力とリーダーシップの両輪を備えた CSP-D は、次世代の開発者を育てる CSD Trainer への自然なステップアップとなります（CSD トレーナーの申請経路・要件は Scrum Alliance のトレーナー申請ページを正とします）。
 
 > 出典: [CSP-D - Scrum Alliance（"Register for CSP-D today!"セクション）](https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers)
 
