@@ -502,7 +502,7 @@ bun run test:e2e   # generate + スモーク（Mermaid 実描画・アイコン�
 bun run dev        # ブラウザで目視確認（図解・配色・レイアウト）
 
 # 横スクロールだけを素早く確認する（全ページ x 1440 / 1024 / 390px の実測）
-npx playwright test e2e/no-horizontal-scroll.spec.ts
+bun run test:e2e e2e/no-horizontal-scroll.spec.ts
 
 # CSS 変数の未定義参照チェック（配色崩壊の典型原因）
 find app/pages app/components -type f -name '*.vue' -exec grep -ohE 'var\(--[a-z0-9-]+' {} + \
