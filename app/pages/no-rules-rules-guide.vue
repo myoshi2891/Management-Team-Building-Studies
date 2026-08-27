@@ -941,7 +941,7 @@ class S1,S2,S3,S4,S5,S6 box;`;
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
 }
 

@@ -777,7 +777,7 @@ const DIAGRAM_DUAL_TRACK_AGILE = `flowchart TB
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
 }
 
