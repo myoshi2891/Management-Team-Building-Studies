@@ -674,10 +674,12 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 原本は単一ファイル HTML でグローバルナビ（固定ヘッダー + サイドバー併存）を持たないため
 同じ幅域の制約が存在せず、Nuxt 版でのみ必要になった補正である。内容の改変ではない。
 
-**回帰の防ぎ方**: `e2e/no-horizontal-scroll.spec.ts` が、`GUIDES` から導出した
-全ページ x 1440 / 1024 / 390px で
+**回帰の防ぎ方**: `e2e/no-horizontal-scroll.spec.ts` が、`/` と `GUIDES` から導出した
+全ガイドページ x 1440 / 1024 / 390px で
 `document.documentElement.scrollWidth - clientWidth <= 0` を固定する。
-新規ガイドを追加すると自動的に対象になり、カタログ登録漏れも同時に検知できる。
+`GUIDES` に登録すれば自動的に対象になる。
+逆に**未登録のページは巡回対象に入らないため、カタログ登録漏れはこの e2e では検知できない**
+（`app/pages` と `GUIDES` の対応を検査する契約テストは現時点で存在しない）。
 変異テストで有効性を確認済み（`main.css` の `overflow-wrap` を外すと
 390px の回が `/pmp-domain1-people-guide (+25px)` を挙げて落ちる）。
 
