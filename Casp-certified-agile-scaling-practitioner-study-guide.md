@@ -13,7 +13,9 @@
 3. **ベストプラクティス**
 4. **根拠となる公式ソース URL**
 
-をセットで提供するものです。CASP は Scrum Alliance の現行の公式認定ページでは **Certified Agile Scaling Practitioner (CASP)** として案内されています(「Certified Agile Skills - Scaling 1 / CAS-Scaling 1 / CAS-S1」は旧称であり、旧コース案内やリソース記事のタイトルに残っています)。CASP は、CSM (Certified ScrumMaster) や CAL (Certified Agile Leader) のように詳細な章立てのカリキュラム PDF が一般公開されているわけではありません。公式サイトには "CASP Learning Objectives" という PDF へのリンクがありますが、これは Google ドライブ上でサインインを求められる形式で提供されており、本ガイド作成時点では内容を直接検証できませんでした。そのため本ガイドは、Scrum Alliance が一般公開している **公式コースページ** および **公式リソースライブラリの関連記事(すべて Scrum Alliance 発行)** の内容を一次ソースとして再構成し、業界で広く使われている補助的なフレームワーク・モデル(SAFe、LeSS、Spotify モデル、Team Topologies など)を「パターンの実例」として補足する構成を取っています。
+をセットで提供するものです。CASP は Scrum Alliance の現行の公式認定ページでは **Certified Agile Scaling Practitioner (CASP)** として案内されています(「Certified Agile Skills - Scaling 1 / CAS-Scaling 1 / CAS-S1」は CASP の旧称であり、Scrum Alliance の公式サポート記事「Why the CAS-S1 certification was renamed to Certified Agile Scaling Practitioner (CASP)」が改称の事実を明示しています)。カリキュラムの正式な章立ては、旧称時代に Scrum Alliance が一般公開した公式文書 **「CERTIFIED AGILE SKILLS - SCALING 1 Learning Objectives」(September 2023 / Last Updated 10/03/23)** で検証できます。同文書は学習目標を Part One: What is scaling? / Part Two: Using Patterns to Overcome Challenges at Scale / Part Three: Scaling Successfully and Sustainably の 3 部・計 50 項目(1.1–1.19 / 2.1–2.17 / 3.1–3.14)として定義しており、CAS-S1 と CASP は同一認定の旧称・現行名の関係にあるため、これが CASP のカリキュラムに対応する**検証可能な一次ソース**となります(現行の CASP 公式ページからは "CASP Learning Objectives" として Google ドライブ上の PDF がリンクされており、こちらは閲覧にサインインを求められます)。
+
+そのため本ガイドは、この **CAS-S1 Learning Objectives** と **現行の CASP 公式コースページ** を検証・引用の基礎とし、これに **公式リソースライブラリの関連記事(すべて Scrum Alliance 発行)** を加えた一次ソース群から内容を再構成したうえで、業界で広く使われている補助的なフレームワーク・モデル(SAFe、LeSS、Spotify モデル、Team Topologies など)を「パターンの実例」として補足する構成を取っています。
 
 > **対象読者**: Transformation Lead、People Manager、Leadership、Business Analyst、PMO Lead、Scrum Master、Agile Coach/Consultant、Team Lead など、組織のアジャイルスケーリングに関わるすべての人。
 > **前提条件**: なし(ただしアジャイルの基礎知識があることが推奨されます)。
@@ -633,6 +635,9 @@ flowchart LR
 **Scrum Alliance 公式ソース(一次情報)**
 
 - CASP 公式コースページ: https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner
+- CAS-S1(CASP 旧称)Learning Objectives(公式カリキュラム文書。September 2023 / Last Updated 10/03/23): https://www.scrumalliance.org/Media/Certifications/LOs/CAS-S1_Learning_Objectives.pdf
+  - 上記 URL は 2026-08-28 時点で 404 を返すため、内容の確認には Internet Archive の保存版(2024-03-04 取得)を用いました: https://web.archive.org/web/20240304142037/https://www.scrumalliance.org/Media/Certifications/LOs/CAS-S1_Learning_Objectives.pdf
+- CAS-S1 から CASP への改称に関する公式サポート記事: https://support.scrumalliance.org/hc/en-us/articles/27850872167579-Why-the-CAS-S1-certification-was-renamed-to-Certified-Agile-Scaling-Practitioner-CASP
 - "Why Certified Agile Scaling Practitioner Is Not a Framework"(著者: Ahmed Avais): https://resources.scrumalliance.org/Article/cas-scaling-1-framework
 - "Agile Scaling Myths: Beyond Common Misconceptions"(著者: Venkatesh Rajamani): https://resources.scrumalliance.org/Article/agile-scaling-myths-common-misconceptions
 - "When to Scale and When Not to Scale"(著者: Adrian Perreau de Pinninck): https://resources.scrumalliance.org/Article/scale-agile
@@ -653,4 +658,4 @@ flowchart LR
 - Team Topologies 公式サイト: https://teamtopologies.com/
 - コンウェイの法則(Conway's Law)概説(Wikipedia): https://en.wikipedia.org/wiki/Conway%27s_law
 
-> **注記**: CASP の詳細な公式カリキュラム文書("CASP Learning Objectives" PDF)は Google ドライブ上でホストされており、閲覧にサインインが必要なため本ガイド作成時点で内容を直接確認できませんでした。最新の正式なカリキュラム内容については、必ず上記の公式コースページから最新のリンクを確認するか、認定トレーナーが実施する公式コースにご参加ください。
+> **注記**: CASP のカリキュラムは、旧称 CAS-S1 時代に Scrum Alliance が一般公開した公式文書 "CERTIFIED AGILE SKILLS - SCALING 1 Learning Objectives"(September 2023 / Last Updated 10/03/23)で検証できます(配布元 URL は 2026-08-28 時点で 404 のため、上記の Internet Archive 保存版を参照)。一方、現行の CASP 公式ページからリンクされる "CASP Learning Objectives" PDF は Google ドライブ上でホストされ、閲覧にサインインを求められるため、本ガイド作成時点では現行版との差分を直接確認できていません。最新の正式なカリキュラム内容については、必ず公式コースページから最新のリンクを確認するか、認定トレーナーが実施する公式コースにご参加ください。
