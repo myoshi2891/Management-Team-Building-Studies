@@ -654,7 +654,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | Callout 構成 | 25 件（`note: 6`, `source: 10`, `practice: 9`） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
 | Table 構成 | 7 件（計 52 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
 | 外部リンク | 19 種類（計 20 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
-| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: project-management`, `series: scrum`, `accent: gold` |
+| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: project-management`, `series: cal`, `accent: gold` |
 | 監査スクリプト | — | `npm run audit:cal1-ch4` | **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `Cal1-chapter4-leading-agile-organizations.html` / `.md` を `archive/Cal1-chapter4-leading-agile-organizations/` 配下へ移動 | 移行完了・原本の集約管理 | — |
 
