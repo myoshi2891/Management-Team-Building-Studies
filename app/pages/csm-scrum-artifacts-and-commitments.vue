@@ -199,7 +199,7 @@ useSeoMeta({
 
           <div class="disclaimer-box">
             <i class="ti ti-info-circle" aria-hidden="true" />
-            本ガイドは学習支援を目的とした非公式の解説資料です。試験形式・料金・学習目標などの最新情報は、必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>および<a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">The 2020 Scrum Guide公式サイト</a>でご確認ください。
+            <span>本ガイドは学習支援を目的とした非公式の解説資料です。試験形式・料金・学習目標などの最新情報は、必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>および<a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">The 2020 Scrum Guide公式サイト</a>でご確認ください。</span>
           </div>
         </div>
 
@@ -901,6 +901,10 @@ useSeoMeta({
   color: var(--color-ink-faint);
   flex: none;
   margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 /* ===================== Sections & Typography ===================== */

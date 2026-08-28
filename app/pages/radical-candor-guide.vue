@@ -187,7 +187,7 @@ const DIAGRAM_ADOPTION_ROADMAP = `flowchart TB
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" />
-            本ガイドは教育・学習支援を目的とした非公式の解説資料であり、Kim Scott氏またはCandor, Inc.の公式資料ではありません。原著の内容を正確に理解するには、必ず原著をお読みください。最新の情報は<a href="https://www.radicalcandor.com/" target="_blank" rel="noopener">Radical Candor公式サイト</a>でご確認ください。
+            <span>本ガイドは教育・学習支援を目的とした非公式の解説資料であり、Kim Scott氏またはCandor, Inc.の公式資料ではありません。原著の内容を正確に理解するには、必ず原著をお読みください。最新の情報は<a href="https://www.radicalcandor.com/" target="_blank" rel="noopener">Radical Candor公式サイト</a>でご確認ください。</span>
           </div>
         </div>
 
@@ -746,6 +746,10 @@ const DIAGRAM_ADOPTION_ROADMAP = `flowchart TB
   font-size: 20px;
   flex: none;
   margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 section {

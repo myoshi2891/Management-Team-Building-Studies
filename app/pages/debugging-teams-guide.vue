@@ -259,7 +259,7 @@ class X,E,H done;`;
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" aria-hidden="true" />
-          参考にした一次情報・出典のURLは、末尾の「参考文献・出典」にまとめています。本ガイドは筆者による非公式の要約・解説であり、原典の著作権は著者および出版社(O'Reilly Media)に帰属します。
+          <span>参考にした一次情報・出典のURLは、末尾の「参考文献・出典」にまとめています。本ガイドは筆者による非公式の要約・解説であり、原典の著作権は著者および出版社(O'Reilly Media)に帰属します。</span>
         </div>
       </div>
 
@@ -861,6 +861,10 @@ class X,E,H done;`;
   font-size: 20px;
   flex: none;
   margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 section {
