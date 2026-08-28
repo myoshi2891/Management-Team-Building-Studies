@@ -699,7 +699,7 @@ CSDで扱う6カテゴリについて、現場で実践する際のチェック�
 ```mermaid
 flowchart TB
     CSD["CSD取得"] --> Practice["実務でエンジニアリング\nプラクティスを実践"]
-    Practice --> Renew["2年ごとにSEUを提出し\n更新する"]
+    Practice --> Renew["2年ごとにSEUを提出し\n更新手数料を払って更新する"]
     Practice --> Advance["経験を積んで\nA-CSDに挑戦"]
     Advance --> CSPD["さらに経験とSEUを積み\nCSP-Dに挑戦"]
     Renew --> Practice

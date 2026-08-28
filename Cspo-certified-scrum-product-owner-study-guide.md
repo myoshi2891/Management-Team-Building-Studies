@@ -79,7 +79,7 @@ Scrum Guideにおいて、Product Ownerはスクラムチーム（Product Owner�
 
 ```mermaid
 flowchart LR
-    A["Scrum Foundations<br/>共通の基礎知識"] --> B["CSPO<br/>Certified Scrum<br/>Product Owner"]
+    A["Scrum Foundations<br/>推奨される共通の基礎知識"] -.受講前または受講中にカバーが期待される.-> B["CSPO<br/>Certified Scrum<br/>Product Owner"]
     B --> C["A-CSPO<br/>Advanced Certified<br/>Scrum Product Owner"]
     C --> D["CSP-PO<br/>Certified Scrum<br/>Professional - Product Owner"]
     B -.前提資格として自動更新に寄与.-> C

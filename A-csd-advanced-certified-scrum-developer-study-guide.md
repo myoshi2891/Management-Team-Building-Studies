@@ -201,7 +201,7 @@ flowchart LR
 - 「作業中」のステータスを1つにまとめず、"開発中" "レビュー待ち" "レビュー中" "テスト待ち" のように細分化し、どこで滞留しているかを特定する。
 - 可視化は一度で終わらせず、レトロスペクティブのたびに更新する定期的な習慣にする。
 
-> [出典] Scrum Alliance, A-CSD LO 1.1 (2021)。手法の一般的な参照として Kanban Guide for Scrum Teams<br>https://www.scrumalliance.org/ScrumRedesignDEVSite/media/ScrumAllianceMedia/Files%20and%20PDFs/Learning%20Objectives/E_A_CSD_LO_2021.pdf
+> [出典] 手法の一般的な参照として Kanban Guide for Scrum Teams。学習目標の出典は Scrum Alliance, A-CSD LO 1.1 (2021)<br>https://www.scrumalliance.org/ScrumRedesignDEVSite/media/ScrumAllianceMedia/Files%20and%20PDFs/Learning%20Objectives/E_A_CSD_LO_2021.pdf
 
 ### LO 1.2 — 作業システムの改善点を特定するのに役立つ概念を3つ以上説明する [理解]
 
