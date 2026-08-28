@@ -247,7 +247,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
       <div class="disclaimer-box">
         <i class="ti ti-info-circle"/>
-        本ガイドは教育・学習支援を目的とした非公式の解説資料です。CAL 2の認定要件や最新のカリキュラムは変更される場合があるため、必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>で最新情報をご確認ください。
+        <span>本ガイドは教育・学習支援を目的とした非公式の解説資料です。CAL 2の認定要件や最新のカリキュラムは変更される場合があるため、必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Scrum Alliance公式サイト</a>で最新情報をご確認ください。</span>
       </div>
     </div>
 

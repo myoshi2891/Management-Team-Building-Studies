@@ -190,7 +190,7 @@ class F done;`;
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" />
-          本ガイドは、公開されている書籍情報や記事、研究成果をもとにまとめた教育目的の非公式解説資料です。<a href="https://www.oreilly.com/library/view/your-first-60/0642572367008/" target="_blank" rel="noopener">Eric J. McNulty著『Your First 60 Days as a Leader』(O'Reilly)</a>の概要ページを参考にしていますが、会員限定の本文は含んでいません。詳細は参考文献・出典の各リンク先をご確認ください。
+          <span>本ガイドは、公開されている書籍情報や記事、研究成果をもとにまとめた教育目的の非公式解説資料です。<a href="https://www.oreilly.com/library/view/your-first-60/0642572367008/" target="_blank" rel="noopener">Eric J. McNulty著『Your First 60 Days as a Leader』(O'Reilly)</a>の概要ページを参考にしていますが、会員限定の本文は含んでいません。詳細は参考文献・出典の各リンク先をご確認ください。</span>
         </div>
       </div>
 
