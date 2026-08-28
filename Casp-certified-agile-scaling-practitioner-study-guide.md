@@ -635,8 +635,8 @@ flowchart LR
 **Scrum Alliance 公式ソース(一次情報)**
 
 - CASP 公式コースページ: https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner
-- CAS-S1(CASP 旧称)Learning Objectives(公式カリキュラム文書。September 2023 / Last Updated 10/03/23): https://www.scrumalliance.org/Media/Certifications/LOs/CAS-S1_Learning_Objectives.pdf
-  - 上記 URL は 2026-08-28 時点で 404 を返すため、内容の確認には Internet Archive の保存版(2024-03-04 取得)を用いました: https://web.archive.org/web/20240304142037/https://www.scrumalliance.org/Media/Certifications/LOs/CAS-S1_Learning_Objectives.pdf
+- CAS-S1(CASP 旧称)Learning Objectives(公式カリキュラム文書。September 2023 / Last Updated 10/03/23): https://web.archive.org/web/20240304142037/https://www.scrumalliance.org/Media/Certifications/LOs/CAS-S1_Learning_Objectives.pdf
+  - 内容の確認には上記 Internet Archive の保存版(2024-03-04 取得)を用いました。旧配布元 URL(https://www.scrumalliance.org/Media/Certifications/LOs/CAS-S1_Learning_Objectives.pdf)は 2026-08-28 時点で 404 を返します。
 - CAS-S1 から CASP への改称に関する公式サポート記事: https://support.scrumalliance.org/hc/en-us/articles/27850872167579-Why-the-CAS-S1-certification-was-renamed-to-Certified-Agile-Scaling-Practitioner-CASP
 - "Why Certified Agile Scaling Practitioner Is Not a Framework"(著者: Ahmed Avais): https://resources.scrumalliance.org/Article/cas-scaling-1-framework
 - "Agile Scaling Myths: Beyond Common Misconceptions"(著者: Venkatesh Rajamani): https://resources.scrumalliance.org/Article/agile-scaling-myths-common-misconceptions
