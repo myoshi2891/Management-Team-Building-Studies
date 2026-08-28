@@ -195,7 +195,7 @@ const PRACTICE_CYCLE = `flowchart TD
             <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">階層から成るピラミッド構造</div></div>
             <div class="stat-card"><div class="stat-number">2002年</div><div class="stat-label">初版刊行(Jossey-Bass)</div></div>
             <div class="stat-card"><div class="stat-number">240ページ</div><div class="stat-label">原著のボリューム</div></div>
-            <div class="stat-card"><div class="stat-number">10件</div><div class="stat-label">参照した情報源</div></div>
+            <div class="stat-card"><div class="stat-number">12件</div><div class="stat-label">参照した情報源</div></div>
           </div>
 
           <div class="disclaimer-box">
