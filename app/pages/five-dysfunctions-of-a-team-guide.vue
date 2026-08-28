@@ -233,7 +233,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <p>5つの機能不全は次の通りです。</p>
 
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="5つの機能不全モデルの階層一覧">
             <table>
               <thead><tr><th>階層</th><th>機能不全(英語)</th><th>機能不全(日本語)</th></tr></thead>
               <tbody>
@@ -272,7 +272,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <h3>機能不全1: 信頼の欠如(Absence of Trust)</h3>
           <p>チームの土台となる階層です。ここでいう「信頼」は、単に「相手の能力を信頼する」という意味だけでなく、<strong>弱さや失敗を見せても大丈夫だと思える「脆弱性に基づく信頼(vulnerability-based trust)」</strong>を指します。</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="機能不全1「信頼の欠如」の症状・根本原因・克服アクション">
             <table>
               <thead><tr><th>観点</th><th>内容</th></tr></thead>
               <tbody>
@@ -287,7 +287,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <h3>機能不全2: 衝突への恐怖(Fear of Conflict)</h3>
           <p>信頼がないチームは、対立を避け「表面上の調和(artificial harmony)」を選びます。しかしレンシオーニは、健全で情熱的な意見の衝突こそが良い意思決定に不可欠だと強調します。</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="機能不全2「衝突への恐怖」の症状・根本原因・克服アクション">
             <table>
               <thead><tr><th>観点</th><th>内容</th></tr></thead>
               <tbody>
@@ -302,7 +302,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <h3>機能不全3: 積極的関与の不足(Lack of Commitment)</h3>
           <p>ここでの「コミットメント」は「全員一致(コンセンサス)」とは異なります。レンシオーニは、<strong>全員が意見を言い尽くした上で、たとえ自分の意見が通らなくても決定を支持する</strong>状態を目指すべきだとしています。</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="機能不全3「積極的関与の不足」の症状・根本原因・克服アクション">
             <table>
               <thead><tr><th>観点</th><th>内容</th></tr></thead>
               <tbody>
@@ -317,7 +317,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <h3>機能不全4: 説明責任の回避(Avoidance of Accountability)</h3>
           <p>コミットメントが不十分だと、チームメンバーは互いの行動や基準の逸脱を指摘し合うことに消極的になります。</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="機能不全4「説明責任の回避」の症状・根本原因・克服アクション">
             <table>
               <thead><tr><th>観点</th><th>内容</th></tr></thead>
               <tbody>
@@ -332,7 +332,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <h3>機能不全5: 結果への無関心(Inattention to Results)</h3>
           <p>ピラミッドの頂点です。個人の評価・地位・エゴを、チーム全体の集合的な成果よりも優先してしまう状態を指します。</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="機能不全5「結果への無関心」の症状・根本原因・克服アクション">
             <table>
               <thead><tr><th>観点</th><th>内容</th></tr></thead>
               <tbody>
@@ -369,7 +369,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <h4>Step1: チーム診断アンケートを実施する</h4>
           <p>書籍後半には簡易的な自己診断アセスメントが収録されています。各階層について「はい / いいえ」や5段階評価で回答してもらい、匿名で集計します。以下は自作の簡易チェック項目の例です。</p>
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="チーム診断アンケートの簡易チェック項目例">
             <table>
               <thead><tr><th>階層</th><th>診断の問いかけ例</th></tr></thead>
               <tbody>
@@ -411,7 +411,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <p>以下は、これらの実践例を踏まえた、一般的な開発チームの儀式と各階層の対応表です。</p>
 
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="開発チームの儀式と強化できる階層の対応表">
             <table>
               <thead><tr><th>チームの儀式</th><th>主に強化できる階層</th><th>具体例</th></tr></thead>
               <tbody>
@@ -433,7 +433,7 @@ const PRACTICE_CYCLE = `flowchart TD
 
           <p>2012年、Googleは「何が効果的なチームを作るのか」を明らかにするため、社内の180チームを対象に大規模な調査「Project Aristotle」を実施しました。その結果、<strong>心理的安全性(psychological safety)</strong>がチームの成果を左右する最も重要な要素であることが分かりました。これはレンシオーニが提唱する「信頼」の階層と非常に近い概念として、多くの実務家から比較されています。</p>
 
-          <div class="table-wrap">
+          <div class="table-wrap" tabindex="0" role="region" aria-label="5つの機能不全モデルとProject Aristotleの比較">
             <table>
               <thead><tr><th>観点</th><th>レンシオーニの5つの機能不全モデル</th><th>GoogleのProject Aristotle</th></tr></thead>
               <tbody>
