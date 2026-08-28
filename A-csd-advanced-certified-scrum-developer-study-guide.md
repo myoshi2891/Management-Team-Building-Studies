@@ -1066,7 +1066,7 @@ flowchart TB
 ```mermaid
 flowchart LR
     A["A-CSD®取得"] --> B["Scrum Education Units (SEU)<br/>を継続的に蓄積"]
-    B --> C["2年ごとに認定更新"]
+    B --> C["2年ごとに認定更新<br/>(SEUの提出と更新料の支払い)"]
     A --> D["実務経験を重ねる"]
     D --> E["CSP-D®<br/>Certified Scrum Professional - Developer<br/>に挑戦"]
 

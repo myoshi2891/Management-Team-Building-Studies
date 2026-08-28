@@ -82,8 +82,8 @@ flowchart LR
     A["Scrum Foundations<br/>推奨される共通の基礎知識"] -.受講前または受講中にカバーが期待される.-> B["CSPO<br/>Certified Scrum<br/>Product Owner"]
     B --> C["A-CSPO<br/>Advanced Certified<br/>Scrum Product Owner"]
     C --> D["CSP-PO<br/>Certified Scrum<br/>Professional - Product Owner"]
-    B -.前提資格として自動更新に寄与.-> C
-    C -.前提資格として自動更新に寄与.-> D
+    B -.A-CSPOを取得・更新するとCSPOも自動更新.-> C
+    C -.CSP-POを取得・更新するとCSPO・A-CSPOも自動更新.-> D
 
     classDef start fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef mid fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -920,7 +920,7 @@ CSPOを取得した後、上位資格である**A-CSPO（Advanced Certified Scru
 
 ```mermaid
 flowchart TD
-    CSPO["CSPO取得<br/>2年ごとにSEU提出で更新"] --> Path1["A-CSPOに進む"]
+    CSPO["CSPO取得<br/>2年ごとにSEU提出と<br/>更新料の支払いで更新"] --> Path1["A-CSPOに進む"]
     CSPO --> Path2["CSPOのまま更新し続ける"]
     Path1 --> ACSPO["A-CSPO取得<br/>→CSPOも自動更新"]
     ACSPO --> Path3["CSP-PO® に進む"]

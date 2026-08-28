@@ -94,20 +94,22 @@ Scrum Alliance 公式ページに記載されている CSP-D の要件は以下�
 4. 教育提供者が実施する **CSP-D アセスメント**（試験形式またはクラス内評価形式）に合格すること
 5. 過去5年以内に、Scrum 開発者/チームメンバーとしての**実務経験24ヶ月以上**を証明すること
 
-> 出典: [CSP-D 要件 - Scrum Alliance](https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers)
+> 出典: [CSP-D 概要 - Scrum Alliance](https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers)、[Scrum Alliance Help Center（認定要件・アセスメントの取り扱い）](https://support.scrumalliance.org/)
+>
+> 上記5点は、CSP-D 概要ページと Scrum Alliance 公式 Help Center の記載を統合して一覧化したものです。とくに教育提供者が実施するアセスメント（要件4）の扱いは Help Center 側に記載があります。
 
 ### 2.2 認定取得から更新までの流れ
 
 ```mermaid
 flowchart TB
-    A["A-CSD 資格を保有<br/>(有効/失効問わず)"] --> C["認定教育機関(REP)の<br/>CSP-D対応コースを受講"]
+    A["A-CSD 資格を保有<br/>(有効/失効問わず)"] --> C["Scrum Alliance承認トレーナーによる<br/>CSP-D対応コースを受講"]
     B["24か月以上の<br/>Scrum開発者実務経験を証明<br/>(過去5年以内・受講の前後を問わない)"] --> D
     C --> D["事前/事後課題を含む<br/>全コンポーネントを完了"]
     D --> D2["CSP-Dアセスメントに合格<br/>(試験またはクラス内評価)"]
     D2 --> E["CSP-D 認定取得<br/>(A-CSDも自動更新)"]
     E --> F["Comparative Agility<br/>プレミアム購読が付与"]
     E --> G["2年ごとに<br/>SEU 40単位を提出し<br/>更新料を支払って更新"]
-    G --> H["CSD Trainer(トレーナー)<br/>へのステップアップも可能"]
+    E --> H["CSD Trainer(トレーナー)<br/>へのステップアップも可能"]
 
     style E fill:#2a3a5c,stroke:#ffd166,color:#ffffff
 ```
