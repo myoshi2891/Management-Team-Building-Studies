@@ -86,7 +86,7 @@ flowchart LR
 
 ### 2.1 公式要件
 
-Scrum Alliance 公式ページに記載されている CSP-D の要件は以下の5点です。
+CSP-D 概要ページと Scrum Alliance 公式 Help Center に記載されている CSP-D の要件は以下の5点です。
 
 1. **A-CSD® 資格を保有していること**（有効・失効いずれでも可。CSP-D 取得時に A-CSD は自動更新される）
 2. **CSP-D 対応の教育プログラムを受講**し、技術的卓越性の実現方法とアジャイルリーダーへの成長手法を学ぶこと
@@ -94,9 +94,9 @@ Scrum Alliance 公式ページに記載されている CSP-D の要件は以下�
 4. 教育提供者が実施する **CSP-D アセスメント**（試験形式またはクラス内評価形式）に合格すること
 5. 過去5年以内に、Scrum 開発者/チームメンバーとしての**実務経験24ヶ月以上**を証明すること
 
-> 出典: [CSP-D 概要 - Scrum Alliance](https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers)、[Scrum Alliance Help Center（認定要件・アセスメントの取り扱い）](https://support.scrumalliance.org/)
+> 出典: [CSP-D 概要 - Scrum Alliance](https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers)、[How to earn the Certified Scrum Professional - Developer (CSP-D) certification - Scrum Alliance Help Center](https://support.scrumalliance.org/hc/en-us/articles/16963666976667-How-to-earn-the-Certified-Scrum-Professional-Developer-CSP-D-certification)
 >
-> 上記5点は、CSP-D 概要ページと Scrum Alliance 公式 Help Center の記載を統合して一覧化したものです。とくに教育提供者が実施するアセスメント（要件4）の扱いは Help Center 側に記載があります。
+> 上記5点は、CSP-D 概要ページと Scrum Alliance 公式 Help Center の記載を統合して一覧化したものです。とくに教育提供者が実施するアセスメント（要件4）の扱いは、上記 Help Center 記事に記載があります。
 
 ### 2.2 認定取得から更新までの流れ
 
