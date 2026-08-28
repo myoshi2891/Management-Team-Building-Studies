@@ -89,6 +89,8 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.patkua.com/blog/project-aristotle/",
   "https://handbook.gitlab.com/teamops/equal-contributions/",
   "https://www.infoq.com/news/2009/08/agile-five-team-dysfunctions",
+  "https://rework.withgoogle.com/guides/understanding-team-effectiveness/steps/introduction/",
+  "https://journals.sagepub.com/doi/10.2307/2666999",
   "https://www.discprofile.com/fac-sup/fac-tips/model",
   "https://getleda.com/high-performing-teams/frameworks",
   "https://prairieoyster24.substack.com/p/the-five-dysfunctions-of-a-team-a",
