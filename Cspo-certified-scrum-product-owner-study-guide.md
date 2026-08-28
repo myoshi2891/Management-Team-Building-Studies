@@ -48,7 +48,9 @@
 
 ### 1.1 CSPOの概要
 
-Certified Scrum Product Owner®（CSPO®）は、Scrum Allianceが提供するProduct Owner Trackの入門資格です。認定コースは、Certified Scrum Trainer®（CST®）または認定を受けたトレーナーによる対面/ライブオンライン形式で実施され、修了すると2年間のScrum Alliance会員資格とCSPO認定が付与されます。
+Certified Scrum Product Owner®（CSPO®）は、Scrum Allianceが提供するProduct Owner Trackの入門資格です。認定コースは、Certified Scrum Trainer®（CST®）または認定を受けたトレーナーによる対面/ライブオンライン形式で実施されます。
+
+認定はコース修了だけで自動的に付与されるわけではありません。**コースを修了した後、ライセンス契約（License Agreement）に同意し、Scrum Allianceの会員プロフィールを完成させる**ことで、はじめてCSPO認定と2年間のScrum Alliance会員資格が付与されます。この最後の手続きを行わないと認定は有効になりません。
 
 Scrum Alliance公式サイトでは、CSPOコースの狙いを次のように説明しています。
 
