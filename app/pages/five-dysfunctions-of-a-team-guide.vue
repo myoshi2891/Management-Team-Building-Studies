@@ -573,11 +573,16 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
+/*
+ * スキップリンク。
+ * 通常は画面外へ退避し、フォーカス時のみ表示する。
+ * 固定グローバルナビ（z-index:100 / --global-nav-height）の直下に出す。
+ */
 .skip-link {
-  position: absolute;
+  position: fixed;
   top: -48px;
   left: 0;
-  z-index: 40;
+  z-index: 110;
   background: var(--color-paper-raised);
   color: var(--color-indigo);
   padding: 12px 20px;
@@ -586,7 +591,7 @@ button:focus-visible {
   transition: top 0.15s ease;
 }
 .skip-link:focus {
-  top: 0;
+  top: var(--global-nav-height);
 }
 
 .layout {
