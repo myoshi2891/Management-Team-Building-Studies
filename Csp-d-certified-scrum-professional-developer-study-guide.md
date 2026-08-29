@@ -4,7 +4,7 @@
 
 **対象読者**: CSD (Certified Scrum Developer) / A-CSD (Advanced Certified Scrum Developer) を取得済み、またはこれから CSP-D を目指す開発者・テックリード・エンジニアリングマネージャー
 
-**前提知識**: 本ガイドは [[CSD 学習ガイド]] および [[A-CSD 学習ガイド]] で扱った Scrum 基礎・XP プラクティス（TDD、リファクタリング、継続的インテグレーション）を前提とします。CSP-D はそれらの技術スキルを土台に、**複数チームにまたがる技術的卓越性の醸成**と**アジャイルリーダーシップ**を扱う、Developer Track 最上位の認定です。
+**前提知識**: 本ガイドは [CSD 学習ガイド](Csd-certified-scrum-developer-study-guide.md) および [A-CSD 学習ガイド](A-csd-advanced-certified-scrum-developer-study-guide.md) で扱った Scrum 基礎・XP プラクティス（TDD、リファクタリング、継続的インテグレーション）を前提とします。CSP-D はそれらの技術スキルを土台に、**複数チームにまたがる技術的卓越性の醸成**と**アジャイルリーダーシップ**を扱う、Developer Track 最上位の認定です。
 
 ---
 
