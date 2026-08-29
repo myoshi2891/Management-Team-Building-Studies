@@ -361,6 +361,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/casp-certified-agile-scaling-practitioner-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "CASP 完全ガイド",
+    title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
+    description: "Scrum Allianceの Certified Agile Scaling Practitioner(CASP)を初学者向けに解説。定義・失敗要因・原則主導のスケーリング思想・SAFe/LeSS/Spotifyパターン比較・Team Topologiesまで、ステップ解説とMermaid図解、公式ソースURL付きで網羅。",
+    meta: "13セクション",
+    icon: "tabler:topology-star-3",
+    accent: "gold",
+  },
+  {
     to: "/cal1-certified-agile-leader-1-guide",
     categoryId: "project-management",
     seriesId: "cal",
