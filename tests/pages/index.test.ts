@@ -223,6 +223,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "An Elegant Puzzle: Systems of Engineering Management 徹底解説ガイド",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/an-elegant-puzzle-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "エンジニアリングチームのリード術 完全ガイド",
         category: "FIRST LEADERSHIP",
         href: "/engineering-team-leadership-guide",

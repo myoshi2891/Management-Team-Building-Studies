@@ -83,6 +83,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },
       { to: "/mythical-man-month-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "人月の神話" },
       { to: "/high-output-management-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "High Output Management" },
+      { to: "/an-elegant-puzzle-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "An Elegant Puzzle" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "チームリード術" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "リーダーの作法" },
       { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "最初の60日間" },
