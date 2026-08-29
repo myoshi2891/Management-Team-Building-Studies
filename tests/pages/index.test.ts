@@ -157,6 +157,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
+        category: "CSM / SCRUM",
+        href: "/casp-certified-agile-scaling-practitioner-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
         category: "CAL 1 & 2",
         href: "/cal1-certified-agile-leader-1-guide",

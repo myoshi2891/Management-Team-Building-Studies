@@ -91,6 +91,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
       { label: "CAF 完全ガイド", href: "/caf-certified-agile-facilitator-study-guide" },
       { label: "A-CSD 完全ガイド", href: "/a-csd-advanced-certified-scrum-developer-study-guide" },
+      { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
       { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
       { label: "CAL1 第2章", href: "/agile-leadership-in-action" },
@@ -174,6 +175,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
           { label: "CAF 完全ガイド", href: "/caf-certified-agile-facilitator-study-guide" },
           { label: "A-CSD 完全ガイド", href: "/a-csd-advanced-certified-scrum-developer-study-guide" },
+          { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
         ],
       },
       {
@@ -307,6 +309,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-97-things-guide",
       "/caf-certified-agile-facilitator-study-guide",
       "/a-csd-advanced-certified-scrum-developer-study-guide",
+      "/casp-certified-agile-scaling-practitioner-study-guide",
       "/cal1-certified-agile-leader-1-guide",
       "/the-case-for-agile-leadership",
       "/agile-leadership-in-action",
