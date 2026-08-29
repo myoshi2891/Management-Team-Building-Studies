@@ -487,6 +487,18 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/an-elegant-puzzle-guide",
+    categoryId: "engineering-management",
+    // engineering-management はシリーズ未定義（1 カラム表示）。
+    seriesId: undefined,
+    navLabel: "An Elegant Puzzle",
+    title: "An Elegant Puzzle: Systems of Engineering Management 徹底解説ガイド",
+    description: "Will Larson著『An Elegant Puzzle: Systems of Engineering Management』を初学者向けに解説。チームサイジング、4つの状態、ビジョンと戦略、マイグレーション、リオルグなど主要フレームワークをMermaid図とともに紹介。",
+    meta: "11セクション",
+    icon: "tabler:puzzle",
+    accent: "indigo",
+  },
+  {
     to: "/engineering-team-leadership-guide",
     categoryId: "engineering-leadership",
     seriesId: "first-leadership",

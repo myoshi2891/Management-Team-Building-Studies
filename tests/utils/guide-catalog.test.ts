@@ -159,7 +159,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "engineering-management",
-        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management"],
+        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management", "An Elegant Puzzle"],
       },
       {
         id: "engineering-leadership",
@@ -194,7 +194,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         // シリーズ未定義のカテゴリーは、ラベル無しの 1 カラムへ収める（現行の見た目を維持）。
         id: "engineering-management",
         seriesGroups: [
-          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management"] },
+          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management", "An Elegant Puzzle"] },
         ],
       },
       {

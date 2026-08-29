@@ -312,6 +312,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/managing-humans-best-practices-guide",
       "/mythical-man-month-guide",
       "/high-output-management-guide",
+      "/an-elegant-puzzle-guide",
       "/engineering-team-leadership-guide",
       "/leadership-practices-guide",
       "/your-first-60-days-as-a-leader",
@@ -396,6 +397,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

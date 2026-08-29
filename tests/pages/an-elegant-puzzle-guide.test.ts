@@ -43,14 +43,13 @@ const EXPECTED_H3 = [
   "5-1. 採用ファネルを設計する",
   "5-2. パフォーマンスマネジメントとキャリアラダー",
   "5-3. 面接ループを設計する",
-] as const;
-
-const EXPECTED_H4 = [
   "公式・書籍情報",
   "著者本人による一次情報(Irrational Exuberance ブログ)",
   "著名な国際的エンジニア・開発者による書評・解説",
   "その他の実務者による読書メモ・要約(補足参考情報)",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
