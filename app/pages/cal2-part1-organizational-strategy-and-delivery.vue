@@ -368,7 +368,7 @@ const DIAGRAM_PART1_OVERVIEW = `flowchart LR
 
           <div class="disclaimer-box">
             <i class="ti ti-info-circle" />
-            本ガイドは、Scrum Alliance公式サイトの<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Certified Agile Leader 2 (CAL 2) ページ</a>に基づき、CAL 2カリキュラムの Part 1「Organizational Strategy and Delivery」を初学者向けに独自に解説した非公式のスタディガイドです。公式カリキュラム文の逐語的な転載ではなく、関連する経営学・組織論のフレームワークを参照しながら筆者の言葉で再構成しています。CAL 2は<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">CAL 1</a>の修了が前提条件であり、本ガイドもCAL1スタディガイドシリーズ(The Case for Agile Leadership / Agile Leadership in Action / Leading Agile Teams / Leading Agile Organizations)の続編という位置づけです。
+            <span>本ガイドは、Scrum Alliance公式サイトの<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">Certified Agile Leader 2 (CAL 2) ページ</a>に基づき、CAL 2カリキュラムの Part 1「Organizational Strategy and Delivery」を初学者向けに独自に解説した非公式のスタディガイドです。公式カリキュラム文の逐語的な転載ではなく、関連する経営学・組織論のフレームワークを参照しながら筆者の言葉で再構成しています。CAL 2は<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">CAL 1</a>の修了が前提条件であり、本ガイドもCAL1スタディガイドシリーズ(The Case for Agile Leadership / Agile Leadership in Action / Leading Agile Teams / Leading Agile Organizations)の続編という位置づけです。</span>
           </div>
         </div>
 
@@ -1070,7 +1070,7 @@ const DIAGRAM_PART1_OVERVIEW = `flowchart LR
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
 }
 

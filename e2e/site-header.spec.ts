@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { GUIDE_CATEGORIES, type GuideCategoryId } from "../app/utils/guide-catalog";
 
 /*
  * グローバルナビのスモーク。
@@ -10,12 +11,14 @@ import { expect, test, type Page } from "@playwright/test";
  * この経路はここでしか検知できない。
  */
 
-const CATEGORY_IDS = [
-  "project-management",
-  "engineering-management",
-  "engineering-leadership",
-  "team-building",
-] as const;
+/*
+ * 巡回対象のカテゴリーは GUIDE_CATEGORIES（カテゴリー定義の SSoT）から導出する。
+ * ここに固定配列を置くとカテゴリー追加時に二重管理になり、テストは Green のまま
+ * 新カテゴリーのドロップダウンを一度も開かない（＝静かにカバレッジが欠ける）。
+ */
+const CATEGORY_IDS: readonly GuideCategoryId[] = GUIDE_CATEGORIES.map(
+  (category) => category.id,
+);
 
 const MOBILE = { width: 375, height: 720 };
 
@@ -114,6 +117,45 @@ test("デスクトップ: パネルはトリガー基準に出て、はみ出す
       const clampedToContainer = Math.abs(box.x + box.width - (container.x + container.width)) <= 0.5;
       expect(alignedToTrigger || clampedToContainer, `${where} がトリガー基準でも内枠右端でもない`).toBe(true);
     }
+  }
+});
+
+/*
+ * ドロップダウンを「開いた状態」の縦方向の契約。
+ *
+ * シリーズカラムは縦の肥大化を吸収するための構造だが、1 カラムへガイドが集中すると
+ * その吸収が効かなくなる（実測: scrum シリーズが 14 件へ膨らみ、パネル全高が約 600px に達した）。
+ * カラムあたりの件数上限は tests/utils/guide-catalog.test.ts が分類の契約として固定するが、
+ * 「実際に描いたら画面を覆うか」は実レイアウトでしか判定できないため、ここで実測する。
+ *
+ * 縦が最も厳しい常用構成として 1280x720 を使う。
+ */
+test("デスクトップ: どのパネルを開いても縦にビューポートを覆わない", async ({ page }) => {
+  const viewport = { width: 1280, height: 720 };
+  await page.setViewportSize(viewport);
+  await page.goto("/");
+
+  const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
+  const available = viewport.height - headerBox.height;
+
+  for (const id of CATEGORY_IDS) {
+    await openWithHover(page, id);
+
+    const panel = page.locator(`#nav-panel-${id}`);
+    // 開いた直後は translateY(-6px) → 0 のトランジション中で、位置が動いている。
+    // 遷移が終わってから一度だけ測り、高さと下端を同じ実測値で判定する
+    // （二度測ると「高さは安定後・下端は遷移中」という実在しない状態を検証してしまう）。
+    await panel.evaluate((el) =>
+      Promise.all(el.getAnimations().map((a) => a.finished.catch(() => undefined))),
+    );
+
+    const box = (await panel.boundingBox())!;
+    expect(box.height, `${id} のパネル高さがビューポートの残り高さを超えている`)
+      .toBeLessThanOrEqual(available);
+
+    // 下端がビューポート内に収まる（ヘッダー直下から開くため、高さが収まれば下端も収まる）。
+    expect(box.y + box.height, `${id} のパネル下端が画面外へ出ている`)
+      .toBeLessThanOrEqual(viewport.height);
   }
 });
 
@@ -283,3 +325,36 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   await expect(panel).toBeHidden();
   await expect(trigger).toBeFocused();
 });
+
+/*
+ * ドロップダウンを「開いた状態」の横方向の契約。
+ *
+ * 閉じた状態も含めたページ全体の横スクロール禁止は
+ * e2e/no-horizontal-scroll.spec.ts が全ページ x 3 幅で固定している。
+ * ここで見るのはそちらに無い観点——パネルを開いたときに
+ * .global-header の overflow-x: clip で切り取られていないか——だけ。
+ */
+test("デスクトップ: どのパネルを開いても切り取られず、横にもはみ出さない", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  // 右寄りのカテゴリーほどはみ出しやすいが、どれか 1 つを見るだけでは
+  // カタログの並べ替えで検証対象が入れ替わってしまう。全カテゴリーを見る。
+  for (const id of CATEGORY_IDS) {
+    await openWithHover(page, id);
+
+    const box = await page.locator(`#nav-panel-${id}`).boundingBox();
+    expect(box, `${id} のパネルが描画されていない`).not.toBeNull();
+    if (box === null) continue;
+
+    // ヘッダーの overflow-x: clip で切り取られていないこと（左右とも viewport 内）。
+    expect(box.x, `${id} のパネルが左へはみ出している`).toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width, `${id} のパネルが右へはみ出している`).toBeLessThanOrEqual(1440);
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, `${id} を開くと ${overflow}px 横にはみ出す`).toBeLessThanOrEqual(0);
+  }
+});
+

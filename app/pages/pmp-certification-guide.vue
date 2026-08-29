@@ -1773,7 +1773,7 @@ h1 {
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
 }
 
@@ -1873,7 +1873,7 @@ li { margin-bottom: 8px; }
 /* ===================== Domain badge cards ===================== */
 .domain-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 16px;
   margin: 28px 0 8px;
 }

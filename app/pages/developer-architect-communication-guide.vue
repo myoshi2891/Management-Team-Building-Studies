@@ -206,7 +206,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
 
       <div class="disclaimer-box">
         <Icon name="tabler:info-circle" aria-hidden="true" />
-        本ガイドは2026年8月17日時点の公開情報にもとづく教育目的の非公式解説記事です。各引用の正確性については、<a href="#references">参考文献・出典</a>に掲載した原文リンクを必ずご確認ください。
+        <span>本ガイドは2026年8月17日時点の公開情報にもとづく教育目的の非公式解説記事です。各引用の正確性については、<a href="#references">参考文献・出典</a>に掲載した原文リンクを必ずご確認ください。</span>
       </div>
     </div>
 
@@ -783,7 +783,7 @@ const DIAGRAM_SQCA_STRUCTURE = `flowchart TB
 
   .stat-row {
     display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 16px;
   }
 

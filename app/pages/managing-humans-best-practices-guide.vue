@@ -240,7 +240,7 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
 
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" aria-hidden="true" />
-          本ガイドは、Michael Lopp(ペンネーム「Rands」)による書籍 <em>Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager</em>(第4版、Apress)の内容を、初めてマネジメントに触れる方向けに整理・体系化した学習資料です。原著の詳細な文章の引用は最小限に留め、要点を独自の言葉で解説しています。原著を読む際の「地図」としてご活用ください。
+          <span>本ガイドは、Michael Lopp(ペンネーム「Rands」)による書籍 <em>Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager</em>(第4版、Apress)の内容を、初めてマネジメントに触れる方向けに整理・体系化した学習資料です。原著の詳細な文章の引用は最小限に留め、要点を独自の言葉で解説しています。原著を読む際の「地図」としてご活用ください。</span>
         </div>
       </div>
 
@@ -926,7 +926,7 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
 }
 
@@ -962,6 +962,17 @@ const DIAGRAM_BEGINNER_STEPS_FLOW = `flowchart TD
   display: flex;
   gap: 10px;
   align-items: flex-start;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
 }
 
 section {

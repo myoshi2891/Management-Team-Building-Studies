@@ -32,7 +32,9 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       { id: "capm", categoryId: "project-management", navLabel: "CAPM", cardLabel: "CAPM" },
       { id: "pmp", categoryId: "project-management", navLabel: "PMP", cardLabel: "PMP" },
-      { id: "scrum", categoryId: "project-management", navLabel: "Scrum / CSM", cardLabel: "SCRUM / CSM" },
+      { id: "csm", categoryId: "project-management", navLabel: "CSM / Scrum", cardLabel: "CSM / SCRUM" },
+      { id: "cal", categoryId: "project-management", navLabel: "CAL 1・2", cardLabel: "CAL 1 & 2" },
+      { id: "ai-pm", categoryId: "project-management", navLabel: "AI-PM", cardLabel: "AI-PM" },
       { id: "first-leadership", categoryId: "engineering-leadership", navLabel: "はじめてのリード", cardLabel: "FIRST LEADERSHIP" },
       { id: "exec-scale", categoryId: "engineering-leadership", navLabel: "組織・スケール", cardLabel: "ORG & SCALE" },
       { id: "team-culture", categoryId: "team-building", navLabel: "チーム文化", cardLabel: "TEAM CULTURE" },
@@ -61,22 +63,26 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/pmp-domain1-people-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP ドメイン1" },
       { to: "/pmp-domain2-process-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP ドメイン2" },
       { to: "/pmp-domain3-business-environment-guide", categoryId: "project-management", seriesId: "pmp", navLabel: "PMP ドメイン3" },
-      { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 完全ガイド" },
-      { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM 3つのアカウンタビリティ" },
-      { to: "/csm-scrum-theory-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM Scrum理論" },
-      { to: "/csm-scrum-artifacts-and-commitments", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM アーティファクト" },
-      { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CSM スクラムイベント" },
-      { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "スクラム 97の知恵" },
-      { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 完全ガイド" },
-      { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第1章" },
-      { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第2章" },
-      { to: "/cal1-chapter3-leading-agile-teams", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL1 第3章" },
-      { to: "/cal2-part1-organizational-strategy-and-delivery", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL2 Part 1" },
-      { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "scrum", navLabel: "CAL2 完全ガイド" },
+      { to: "/csm-certified-scrummaster-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSM 完全ガイド" },
+      { to: "/csm-scrum-team-3-accountabilities", categoryId: "project-management", seriesId: "csm", navLabel: "CSM 3つのアカウンタビリティ" },
+      { to: "/csm-scrum-theory-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSM Scrum理論" },
+      { to: "/csm-scrum-artifacts-and-commitments", categoryId: "project-management", seriesId: "csm", navLabel: "CSM アーティファクト" },
+      { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSM スクラムイベント" },
+      { to: "/csm-scrum-master-core-competencies", categoryId: "project-management", seriesId: "csm", navLabel: "CSM コアコンピテンシー" },
+      { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "csm", navLabel: "スクラム 97の知恵" },
+      { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 完全ガイド" },
+      { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第1章" },
+      { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第2章" },
+      { to: "/cal1-chapter3-leading-agile-teams", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第3章" },
+      { to: "/cal1-chapter4-leading-agile-organizations", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第4章" },
+      { to: "/cal2-part1-organizational-strategy-and-delivery", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 Part 1" },
+      { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 完全ガイド" },
+      { to: "/ai-driven-project-management-guide", categoryId: "project-management", seriesId: "ai-pm", navLabel: "AI-PM 実践ガイド" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
       { to: "/engineering-manager-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM 入門" },
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },
       { to: "/mythical-man-month-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "人月の神話" },
+      { to: "/high-output-management-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "High Output Management" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "チームリード術" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "リーダーの作法" },
       { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "最初の60日間" },
@@ -89,6 +95,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/peopleware-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Peopleware" },
       { to: "/radical-candor-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "Radical Candor" },
       { to: "/no-rules-rules-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "No Rules Rules" },
+      { to: "/five-dysfunctions-of-a-team-guide", categoryId: "team-building", seriesId: "team-culture", navLabel: "5つの機能不全" },
       { to: "/team-topologies-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Team Topologies" },
       { to: "/dynamic-reteaming-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "ダイナミック・リチーミング" },
       { to: "/lean-ux-beginner-guide", categoryId: "team-building", seriesId: "team-design", navLabel: "Lean UX 入門" },
@@ -147,11 +154,11 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "スクラム 97の知恵", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL2 Part 1", "CAL2 完全ガイド"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
       },
       {
         id: "engineering-management",
-        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話"],
+        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management"],
       },
       {
         id: "engineering-leadership",
@@ -159,7 +166,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       },
       {
         id: "team-building",
-        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
+        guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "5つの機能不全", "Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"],
       },
     ]);
   });
@@ -177,14 +184,16 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
           { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
-          { seriesId: "scrum", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "スクラム 97の知恵", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL2 Part 1", "CAL2 完全ガイド"] },
+          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵"] },
+          { seriesId: "cal", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 完全ガイド"] },
+          { seriesId: "ai-pm", guides: ["AI-PM 実践ガイド"] },
         ],
       },
       {
         // シリーズ未定義のカテゴリーは、ラベル無しの 1 カラムへ収める（現行の見た目を維持）。
         id: "engineering-management",
         seriesGroups: [
-          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話"] },
+          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management"] },
         ],
       },
       {
@@ -197,7 +206,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       {
         id: "team-building",
         seriesGroups: [
-          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules"] },
+          { seriesId: "team-culture", guides: ["Team Geek", "Debugging Teams", "Peopleware", "Radical Candor", "No Rules Rules", "5つの機能不全"] },
           { seriesId: "team-design", guides: ["Team Topologies", "ダイナミック・リチーミング", "Lean UX 入門"] },
         ],
       },
@@ -230,9 +239,47 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     expect(emptyColumns).toEqual([]);
   });
 
+  /*
+   * 1 カラムあたりのガイド件数の上限。
+   *
+   * リンク 1 行 ≒ 39px + シリーズ見出し 28px + パネル余白で、8 行なら約 340px。
+   * 固定ヘッダー（--global-nav-height: 72px）を引いても 720px 高のビューポートに収まる。
+   *
+   * 超えたときに直すのは閾値ではなく**シリーズの粒度**である。カラムを増やす方向で
+   * 分割し直すこと（過去に scrum が 14 件まで膨らみ、パネル全高が約 600px に達した）。
+   * 実描画での高さの担保は e2e/site-header.spec.ts が行う。ここは分類の契約。
+   */
+  const MAX_GUIDES_PER_SERIES_COLUMN = 8;
+
+  /*
+   * 1 カテゴリーあたりのシリーズカラム数の上限。
+   * 1040px ブレークポイントでのヘッダー内枠（約 1016px）にカラムが収まる上限。
+   * 超える場合は、シリーズではなくカテゴリー自体を分ける判断が必要になる。
+   */
+  const MAX_SERIES_COLUMNS_PER_CATEGORY = 5;
+
+  it("1 シリーズカラムのガイド件数が上限を超えない（ドロップダウンの縦の肥大化を防ぐ）", () => {
+    const oversized = groupGuidesByCategory()
+      .flatMap((group) => group.seriesGroups.map((seriesGroup) => ({
+        column: `${group.category.id}/${seriesGroup.series?.id ?? "_unassigned"}`,
+        count: seriesGroup.guides.length,
+      })))
+      .filter((column) => column.count > MAX_GUIDES_PER_SERIES_COLUMN);
+
+    expect(oversized).toEqual([]);
+  });
+
+  it("1 カテゴリーのシリーズカラム数が上限を超えない（ドロップダウンの横の肥大化を防ぐ）", () => {
+    const oversized = groupGuidesByCategory()
+      .map((group) => ({ category: group.category.id, columns: group.seriesGroups.length }))
+      .filter((group) => group.columns > MAX_SERIES_COLUMNS_PER_CATEGORY);
+
+    expect(oversized).toEqual([]);
+  });
+
   it("シリーズの表示ラベルを ID から引ける", () => {
-    expect(seriesNavLabel("scrum")).toBe("Scrum / CSM");
-    expect(seriesCardLabel("scrum")).toBe("SCRUM / CSM");
+    expect(seriesNavLabel("csm")).toBe("CSM / Scrum");
+    expect(seriesCardLabel("csm")).toBe("CSM / SCRUM");
   });
 
   it("未定義のシリーズ ID は握りつぶさず例外にする", () => {

@@ -353,6 +353,22 @@ watch(() => route.path, () => {
   top: 0;
   z-index: 100;
   height: var(--global-nav-height);
+  /*
+   * ドロップダウンは閉じていても visibility:hidden で DOM に残る。visibility は
+   * レイアウトを占有するため、右寄りのカテゴリーのパネルは素の位置（トリガー左端基準）の
+   * ままビューポートを突き抜け、ドキュメント全体に横スクロールを生む
+   * （実測: 1440px 幅で 212px。全ガイドページで同量＝ヘッダー由来）。
+   *
+   * clip は hidden と違いスクロールコンテナを作らないので sticky も
+   * position:absolute な子孫の包含ブロックも壊さない。x 軸だけを clip にし
+   * y 軸を visible に保てる組み合わせは clip/visible だけで、これによって
+   * ヘッダーの下へ開くパネルは切り取られない。
+   *
+   * 開いたパネルは clampOpenPanel() がヘッダー内枠へ退避させるため、
+   * この clip で欠けることはない（e2e で「パネル全体が見えている」を固定）。
+   */
+  overflow-x: clip;
+  overflow-y: visible;
   border-bottom: 1px solid rgba(223, 227, 234, 0.9);
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);

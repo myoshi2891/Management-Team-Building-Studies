@@ -14,6 +14,8 @@ description: >
   - design mismatch: "デザイン違う" / "スタイルがおかしい" / "テーブルヘッダーの色が" /
     "callout の色が" / "コードブロックの色" / "図解の色が違う"
   - site navigation: "ホームにガイドが出ない" / "グローバルナビに追加" / "ヘッダーのリンクが古い"
+  - horizontal overflow: "横スクロール" / "横にスクロールできてしまう" / "右側に無駄な余白" /
+    "画面からはみ出す" / "horizontal scroll" / "page overflows"
   適用対象: 原本照合監査スクリプト、契約テスト（Vitest + Vue Test Utils）、
   Vue SFC の構造、scoped CSS、ClientOnly 経由の Mermaid、本文カラム幅の方針、
   およびガイドカタログ（app/utils/guide-catalog.ts の GUIDES）への登録。
@@ -32,7 +34,7 @@ allowed-tools:
 
 # Nuxt ガイドページ移行・保守スキル
 
-最終更新: 2026-08-15
+最終更新: 2026-08-27
 
 ## エージェント互換（Claude Code / Gemini CLI / その他）
 
@@ -45,7 +47,7 @@ allowed-tools:
 | 起動 | トリガー語句で自動読込 | 下表の語句が出たら、**利用者または担当者が本ファイルを明示的に読む** |
 | 参照ファイル | 必要時に自動で開かれる | §1 と §8 のファイルを**手動で開く**（開かずに推測しない） |
 | ツール | `Read` / `Edit` / `Bash` 等 | 同等の読み書き・シェル実行手段で置き換える。**手順は省略しない** |
-| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`、`bunx nuxi typecheck` は `npm run typecheck`（下記注） |
+| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`（型検査も `npm run typecheck`。下記注） |
 
 > [!IMPORTANT]
 > `npx nuxi` は使わない。バージョン未固定でレジストリから任意の nuxi を取得し、
@@ -61,6 +63,8 @@ allowed-tools:
 - レイアウト: 「図解が左寄せ」「図解を中央寄せ」「コンテンツが左寄り」「本文の幅がバランス悪い」
 - デザイン不一致: 「デザイン違う」「スタイルがおかしい」「テーブルヘッダーの色が」「callout の色が」「図解の色が違う」
 - サイト導線: 「ホームにガイドが出ない」「グローバルナビに追加」「ヘッダーのリンクが古い」
+- 横スクロール: 「横スクロール」「横にスクロールできてしまう」「右側に無駄な余白」「画面からはみ出す」
+  / `horizontal scroll` / `page overflows`
 
 判定はすべて**終了コード**で行う（出力の目視ではなく `echo "exit=$?"` を確認する）。
 エージェント固有機能（スキル自動発火・サブエージェント・進捗トラッカ）が無い場合も、
@@ -91,6 +95,7 @@ allowed-tools:
 | `tests/components/SiteHeader.test.ts` | グローバルナビの契約テスト（順序・`aria-current`） |
 | `tests/app.test.ts` | シェルの契約テスト（ヘッダーの後にページを描画する） |
 | `e2e/capm.spec.ts` | 静的生成成果物へのスモークテスト |
+| `e2e/no-horizontal-scroll.spec.ts` | **全ページ x 3 幅の横スクロール禁止ゲート**（対象は `GUIDES` から自動導出） |
 
 ## 0. このスキルが解決する問題
 
@@ -164,7 +169,7 @@ bun run test:e2e                  # 静的生成成果物へのスモーク（Pl
 
 1. **Red**: 失敗する契約テストを書き、失敗を目で確認してからコミット（`test(...)`）
 2. **Green**: 最小実装 + **原本照合監査 exit 0** を満たしてコミット（`feat(...)`）
-3. **Refactor**: `bun run build` / `bunx nuxi typecheck` を通してコミット（`refactor(...)`）
+3. **Refactor**: `bun run build` / `bun run typecheck` を通してコミット（`refactor(...)`）
 4. **Docs**: `docs/PROGRESS.md` を更新してコミット（`chore(docs): ...`）
 
 **一括コミットは重大な規約違反。**
@@ -349,6 +354,87 @@ sticky なサイドバー・TOC・見出しアンカーは、必ずこの変数�
 
 これを書かないと、TOC が固定ヘッダーの下へ潜り込み、アンカー遷移で見出しが隠れる。
 
+**横方向の不変条件（レスポンシブ幅で溢れさせない）**:
+
+ページは**どの幅でも横スクロールを出してはならない**。縦スクロールと違い、
+横スクロールは読者が本文の右端を見失う（実際に全 45 ページで発生し、右側に
+無駄な余白が伸びる症状として報告された）。
+
+`app/app.vue` が敷くシェルは幅を制限しない。**溢れの発生源はページ側の
+`<style scoped>` とは限らず、共有部品（`app/components/SiteHeader.vue` /
+`app/app.vue`）や全ページ共有の `app/assets/css/main.css` にもあり得る**
+（実例: 閉じたドロップダウンが `visibility:hidden` のまま矩形を占有し、全ページで
+横スクロールを起こした。§6 の落とし穴表を参照）。調査は必ず**分布から**入り
+（§5 Step 5 の表: 全ページ一律なら共有部品、特定ページだけならそのページの scoped CSS）、
+ページ側だけを疑って堂々巡りしない。以下の表はページ側で守る不変条件で、
+いずれも原本 HTML には存在しない Nuxt 版固有の制約であり、
+原本照合監査（構造だけを見る）では検知できない。
+
+| 対象 | やること | 理由 |
+|---|---|---|
+| 表 | `<div class="table-wrap">` で包み、`overflow-x: auto; max-width: 100%;` を与える | 表は列の最小内容幅より狭くならない。本文カラムが狭まる幅域では必ず溢れる。**表を縮めるのではなくラッパーの中だけでスクロールさせる** |
+| 列数固定グリッド | `repeat(<整数>, minmax(<n>px, 1fr))` を避け、`repeat(auto-fit, minmax(<n>px, 1fr))` にする | 列数固定 x px 下限は `<整数> * n + gap * (<整数> - 1)` を下回った時点で必ず溢れる。`auto-fit` は下限を保ったまま列数を可変にする |
+| ブレークポイント | サイドバーが**生きている**幅域を必ず確認する | 既存ページの `@media (max-width: 980px)` はサイドバーを解除する幅。981〜1150px の帯ではサイドバー 288px + 左右 padding 144px が本文から引かれる。ここを見落とすと切り替え幅より上に溢れる帯が残る |
+| 幅の単位 | `100vw` を使わない（`100%` を使う） | `100vw` は縦スクロールバーを含むビューポート幅。スクロールバーが出ている環境では常にその幅ぶん溢れる |
+| 長い英語トークン | 何もしない（基底 CSS が担当） | `app/assets/css/main.css` の `body` が `overflow-wrap: break-word` を持つ。ページ側で `word-break: break-all` を足さない（日本語本文中の英単語が無闇に切れる） |
+| 図解 | 幅・配置を書かない | `MermaidDiagram.vue` が SSoT（`.claude/rules/mermaid-diagram-layout.md`）。`:deep(svg) { width: 100% }` は引き伸ばし、`max-width` の再指定は後処理と競合する |
+
+> [!IMPORTANT]
+> **これらは静的検査でゲート化できない。** ある指定が溢れるかどうかは、サイドバー幅・
+> padding・ブレークポイントの組み合わせで決まり、CSS のテキストからは決定できない
+> （実測: 静的パターン検査は 45 ページ中 35 ページを誤検知し、実測では全て Green だった）。
+> 唯一の機械的ゲートは **`e2e/no-horizontal-scroll.spec.ts` の実測**である（§5 Step 5）。
+> 対象ページは `GUIDES` から自動導出されるため、Step 2.5 のカタログ登録を済ませれば
+> 新規ページも自動的にこのゲートに入る。
+>
+> **測る前に Mermaid の描画完了を待つこと。** 図は `<ClientOnly>` + `onMounted` の
+> 非同期描画で、待たずに幅を測ると「まだ図が無い状態」を測ることになり、図が原因の
+> 溢れを取り逃がす（偽 Green）。同 spec の `waitForDiagrams()` は `.mermaid-wrap`
+> （`ClientOnly` の外側にあるため静的生成の HTML に含まれる）の枚数を期待値にして、
+> `svg` または `.diagram-error` が同数そろうまで待つ。図が 0 枚のページでは待たない。
+> 横スクロールを実測する別のテストを足す場合も、同じ待機を必ず入れる。
+
+**ディスクレーマー（`.disclaimer-box`）の標準規約**:
+原本 HTML の `hero` 直下にある原著・教育注記ボックス（`.disclaimer-box`）は、アイコンとテキストを `display: flex;` で横並びに配置する。
+その際、**`<Icon ... />` 以降のテキスト全体を必ず `<span>...</span>` でラップする**。
+ラップしない場合、直下のテキストノードや `<em>`・`<a>` タグが個別の Flex Item として扱われ、文章がぶつ切りで横一列に並ぶ表示崩れが発生する。
+
+```html
+<div class="disclaimer-box">
+  <Icon name="tabler:info-circle" aria-hidden="true" />
+  <span>原著: <em>タイトル</em>（著者名著, 出版社, 年）。本ガイドは…<a href="…" target="_blank" rel="noopener">詳細リンク</a>でご確認いただけます。</span>
+</div>
+```
+
+```css
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+```
+
+※注意: `.disclaimer-box :deep(span)` と書くと、テキストの `<span>` にまで `flex: none` や `font-size: 20px` が適用されるため、必ず `.disclaimer-box > span { flex: 1; }` と記述する。
+
 **監査スクリプトの前提**: 本文のインベントリは `<template>` ブロックのみを対象とする。
 `<script setup>` に書いた文字列は本文として数えられない。逆に、Mermaid の
 `:chart="NAME"` バインドは `<script setup>` の `const NAME = \`…\`` を解決して照合される。
@@ -422,11 +508,14 @@ CAPM は `package.json` の `audit:capm` スクリプトに登録済み（`bun r
 
 ```bash
 bun run test
-bunx nuxi typecheck
+bun run typecheck
 bun run lint
 bun run build
-bun run test:e2e   # generate + スモーク（Mermaid 実描画・アイコン同梱の検証）
+bun run test:e2e   # generate + スモーク（Mermaid 実描画・アイコン同梱・横スクロール禁止）
 bun run dev        # ブラウザで目視確認（図解・配色・レイアウト）
+
+# 横スクロールだけを素早く確認する（全ページ x 1440 / 1024 / 390px の実測）
+bun run test:e2e e2e/no-horizontal-scroll.spec.ts
 
 # CSS 変数の未定義参照チェック（配色崩壊の典型原因）
 find app/pages app/components -type f -name '*.vue' -exec grep -ohE 'var\(--[a-z0-9-]+' {} + \
@@ -435,6 +524,24 @@ find app/pages app/components -type f -name '*.vue' -exec grep -ohE 'var\(--[a-z
       grep -qE "^[[:space:]]*${v}[[:space:]]*:" app/assets/css/main.css || printf 'UNDEFINED %s\n' "$v"
     done
 ```
+
+> [!IMPORTANT]
+> **`e2e/no-horizontal-scroll.spec.ts` の exit 0 は Green の前提条件**（原本照合監査と同格）。
+> 落ちた場合、出力は溢れたページとその px 量を全件挙げる。**分布が原因を示す**:
+>
+> | 分布 | 原因の在り処 |
+> |---|---|
+> | 全ページが同じ px 量で溢れる | 共通部品（`SiteHeader.vue` / `app.vue` / `main.css`）。ページ側を触っても直らない |
+> | 特定の数ページだけ溢れる | そのページの `<style scoped>`。§5 Step 2「横方向の不変条件」を突き合わせる |
+> | 特定の幅だけ溢れる | ブレークポイントの帯の抜け。切り替え幅の**すぐ上**の幅で確認する |
+>
+> 原因要素の特定は、ブラウザの devtools ではなく実測で行う。`document.querySelectorAll("*")` を
+> 走査して `getBoundingClientRect().right > clientWidth` の要素を集め、**祖先に
+> `overflow-x: visible` 以外を持つものは除外**する（スクロール容器の中身は
+> ドキュメントの `scrollWidth` に効かないため、除外しないと表や図が容疑者として大量に挙がる）。
+> それでも該当要素が無ければ犯人は**テキストノード**である（長いラテン文字トークン）。
+> `document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)` と `Range.getBoundingClientRect()`
+> で走査する。要素の矩形だけを見ていると永久に見つからない。
 
 上記の CSS 変数チェックは、ページ内で定義したローカルなカスタムプロパティ
 （例: `.domain-card.d1 { --d-color: … }`）も「未定義」と報告する。
@@ -459,7 +566,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 4. **原本照合監査を再実行**（保守でも exit 0 を維持する）
 5. ページのタイトル・スラッグ・セクション数を変えた場合は、
    `app/utils/guide-catalog.ts` の `GUIDES` を直す（N-1〜N-3 の期待値も更新する）
-6. `bun run test` / `bunx nuxi typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
+6. `bun run test` / `bun run typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
 
 デザイン不一致（配色・テーブルヘッダー・callout 等）の相談は、
 **原本 HTML の該当箇所を読んでから**直す。推測で色を決めない。
@@ -477,6 +584,10 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | サイドバー TOC がグローバルヘッダーの下に潜る / アンカー遷移で見出しが隠れる | sticky の `top` と `scroll-margin-top` が固定ヘッダー分を退避していない | `--global-nav-height` を使う（§5 Step 2 の 3 行）。数値のハードコード禁止 |
 | 新ページが完成しているのにサイト上から到達できない | `guide-catalog.ts` の `GUIDES` は原本に無いため、原本照合監査では検知されない | N-1〜N-3 契約で固定する（§5 Step 1 / Step 2.5） |
 | ナビ・カードのアイコンが静的生成後だけ消える | `@nuxt/icon` の `clientBundle.scan` はソース中のリテラルしか走査しない | `icon` 名は動的組み立てにせずリテラルで書き、`bun run test:e2e` で確認する |
+| 全ページで右側に無駄な余白が伸び、横スクロールできてしまう | 閉じたドロップダウンが `visibility:hidden` でレイアウトを占有したまま画面外へ突き抜ける。`visibility` は `display:none` と違い矩形が生きる | `.global-header` に `overflow-x: clip; overflow-y: visible`。`hidden` はスクロールコンテナを作り sticky と絶対配置の包含ブロックを壊すので使わない。片軸だけクリップできる組み合わせは `clip`/`visible` だけ |
+| ブレークポイントを設けたのに、特定の幅の帯だけグリッドが溢れる | 切り替え幅（980px）より上に、サイドバー 288px が生きたまま本文が足りない帯（981〜1150px）が残っていた | 列数固定をやめて `repeat(auto-fit, minmax(<n>px, 1fr))` にする。帯を潰すためにブレークポイントを増やす方向へ行かない（また別の帯が空く） |
+| 狭い幅で 1 ページだけ数十 px 溢れ、原因要素が見つからない | 犯人が要素ではなく**テキストノード**（`(Responsible/Accountable/Consulted/Informed)` のような長いラテン文字トークン）。要素の矩形走査では捕まらない | 基底 CSS の `body` に `overflow-wrap: break-word`。`anywhere` は min-content 幅を変えて既存レイアウトを動かすため使わない |
+| ディスクレーマー（`.disclaimer-box`）内のテキストがぶつ切りで横一列に崩れる | `.disclaimer-box` に `display: flex;` を適用しているが、テキストを `<span>` でラップしていないため直下のテキストや `<em>`・`<a>` が個別の flex item になる | `<Icon ... />` 以降のテキスト全体を `<span>...</span>` で囲み、CSS で `.disclaimer-box > span { flex: 1; }` を指定する |
 
 ## 7. Constraints（禁止事項）
 
@@ -503,6 +614,12 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 - 固定ヘッダー分の退避を `72px` 等の数値で直書きすること（`--global-nav-height` を使う）
 - ガイドカタログ（`app/utils/guide-catalog.ts` の `GUIDES`）へ登録しないまま、
   新規ページの移行完了を報告すること
+- 横スクロールを生む指定（列数固定 x px 下限のグリッド / `overflow-x` を持たない表のラッパー /
+  `width: 100vw`）を残すこと
+- `e2e/no-horizontal-scroll.spec.ts` の exit 0 を確認せずに Green コミットすること
+- 横スクロールを `body { overflow-x: hidden }` で塞ぐこと。症状を隠すだけで原因が残り、
+  以後この種の欠陥が**検知不能になる**（クリップしてよいのは、はみ出しの発生源が
+  特定できていて、かつその要素の内側で完結する場合だけ）
 
 ## 8. 関連ファイル
 
@@ -517,6 +634,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 | `app/pages/index.vue` / `tests/pages/index.test.ts` | ホーム（ガイド一覧）の登録先と契約 |
 | `app/components/SiteHeader.vue` / `tests/components/SiteHeader.test.ts` | グローバルナビの登録先と契約 |
 | `app/app.vue` / `tests/app.test.ts` | アプリシェル（ヘッダー + ページ）の描画順契約 |
+| `e2e/no-horizontal-scroll.spec.ts` | 横スクロール禁止の実測ゲート（全ページ x 1440 / 1024 / 390px） |
 | `.claude/rules/tdd-mandatory-cycle.md` | TDD とコミット分割の強制ルール |
 | `.claude/rules/mermaid-diagram-layout.md` | 図解レイアウトの不変条件 |
 | `.claude/skills/fix-mermaid/SKILL.md` | Mermaid の構文・配色・テスト契約 |

@@ -1,637 +1,236 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scrum Master Core Competencies 完全解説ガイド | Certified ScrumMaster(CSM)</title>
-<meta name="description" content="Scrum Alliance の Certified ScrumMaster(CSM)認定における Scrum Master Core Competencies(Facilitation・Teaching・Mentoring・Coaching)と、Scrum Team・Product Owner・組織へのサービスを、公式Learning Objectivesに基づき初学者向けに解説する非公式学習ガイド">
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "csm-overview",
+  "lo-structure",
+  "scrum-master-foundations",
+  "core-competencies",
+  "service-to-team-po-org",
+  "best-practices-summary",
+  "certification-path",
+  "references",
+];
+
+const activeId = useActiveHeading(TOC_IDS);
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+const THEME_VARS = {
+  fontSize: "16px",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+};
+
+const DIAGRAM_CSM_JOURNEY = `flowchart LR
+A["CSMコース受講 16時間"] --> B["Learning Objectivesを網羅"]
+B --> C["オンライン試験 50問 1時間以内"]
+C -->|"37問以上正解"| D["CSM認定取得"]
+C -->|"36問以下"| G["再受験 最初のウェルカムメール受信から90日以内は2回まで受験費用込み 以降は1回25米ドル"]
+G --> C
+D --> E["Scrum Allianceメンバーシップ 2年間"]
+E --> F["SEUを蓄積して更新"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,G box;
+class D,E,F done;`;
+
+const DIAGRAM_LO_STRUCTURE = `flowchart TB
+LO["CSM Learning Objectives"] --> C1["1. Scrum"]
+LO --> C2["2. Scrum Master Core Competencies"]
+LO --> C3["3. Service to the Scrum Team Product Owner and Organization"]
+C1 --> C1a["Scrum Teamのアカウンタビリティ イベント アーティファクトの理解"]
+C2 --> C2a["Facilitationの実践 LO2.1 2.2"]
+C2 --> C2b["Facilitation Teaching Mentoring Coachingの違い LO2.3"]
+C3 --> C3a["Scrum Teamへのサービス"]
+C3 --> C3b["Product Ownerへのサービス"]
+C3 --> C3c["組織へのサービス"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class LO hub;
+class C1,C2,C3,C1a,C2a,C2b,C3a,C3b,C3c box;`;
+
+const DIAGRAM_DECISION_TECHNIQUE_FLOW = `flowchart TD
+Start["グループでの意思決定が必要"] --> Q1{"選択肢は複数あるか"}
+Q1 -->|"はい 複数候補から絞り込みたい"| DV["Dot Voting 候補の絞り込み"]
+Q1 -->|"いいえ 1つの提案への賛否"| Q2{"賛否の温度差も知りたいか"}
+Q2 -->|"はい"| FOF["Fist of Five 合意度の把握"]
+Q2 -->|"いいえ シンプルなYes No"| RV["Roman Voting 賛成反対の一括採決"]
+Start --> Q3{"議論が拡散し収束しない"}
+Q3 -->|"はい"| OTA["1-2-4-All 個人からペア 少人数 全体へ収束"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Start hub;
+class Q1,Q2,Q3 box;
+class DV,FOF,RV,OTA done;`;
+
+const DIAGRAM_ACCF_QUADRANT = `flowchart TB
+subgraph CONTENT["Content 知識を伝える"]
+direction LR
+TEACH["Teaching 教える 一方向に知識を伝達"]
+MENTOR["Mentoring 助言する 自らの経験を伝える"]
+end
+subgraph PROCESS["Process プロセスを支える"]
+direction LR
+FACIL["Facilitating 促進する 中立にプロセスを運営"]
+COACH["Coaching 引き出す 本人やチームの答えを引き出す"]
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class TEACH,MENTOR box;
+class FACIL,COACH done;`;
+
+const DIAGRAM_EIGHT_STANCES = `flowchart TB
+SM["Scrum Master"] --> S1["Servant Leader チームに奉仕するリーダー"]
+SM --> S2["Facilitator 話し合いの場を設計する"]
+SM --> S3["Coach 個人 チーム 組織の成長を引き出す"]
+SM --> S4["Teacher Scrumとアジャイルの原則を教える"]
+SM --> S5["Mentor 自らの経験や知見を伝える"]
+SM --> S6["Manager 障害やプロセス 文化を管理する"]
+SM --> S7["Impediment Remover 障害物を取り除く"]
+SM --> S8["Change Agent 組織文化の変革を推進する"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class SM hub;
+class S1,S2,S3,S4,S5,S6,S7,S8 box;`;
+
+const DIAGRAM_IMPEDIMENT_FLOW = `flowchart TD
+A["チームが障害を報告 または SMが検知"] --> B["障害の性質を分類する"]
+B --> C{"チーム自身で解決可能か"}
+C -->|"はい"| D["チームのSelf Managementを支援するコーチング"]
+C -->|"いいえ 組織的な障害"| E["Impediment Backlogに記録し可視化"]
+E --> F["関係するステークホルダーと連携し交渉 エスカレーション"]
+F --> G["対応状況を継続的に追跡"]
+G --> H["Sprint Retrospectiveで振り返り再発防止"]
+D --> H
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,E,F,G box;
+class D,H done;`;
+
+const DIAGRAM_CERT_PATH = `flowchart LR
+CSM["Certified ScrumMaster CSM 入門"] --> ACSM["Advanced Certified ScrumMaster A-CSM 実践"]
+ACSM --> CSPSM["Certified Scrum Professional ScrumMaster CSP-SM 熟達"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class CSM hub;
+class ACSM box;
+class CSPSM done;`;
+
+useSeoMeta({
+  title: "Scrum Master Core Competencies 完全解説ガイド | Certified ScrumMaster(CSM)",
+  description: "Scrum Alliance の Certified ScrumMaster(CSM)認定における Scrum Master Core Competencies(Facilitation・Teaching・Mentoring・Coaching)と、Scrum Team・Product Owner・組織へのサービスを、公式Learning Objectivesに基づき初学者向けに解説する非公式学習ガイド",
+});
+</script>
+
+<template>
+  <div class="guide-page">
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      :aria-expanded="sidebarOpen"
+      aria-controls="guide-sidebar"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
+    <div class="guide-layout">
+      <!-- ===================== Sidebar ===================== -->
+      <aside
+        id="guide-sidebar"
+        class="sidebar"
+        :class="{ open: sidebarOpen }"
+        aria-label="目次"
+        @keydown.escape="closeSidebar"
+      >
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4" />
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1" />
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">CSM Core Competencies ガイド</div>
+            <div class="brand-subtitle">Scrum Master 完全解説</div>
+          </div>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li>
+            <a href="#csm-overview" :class="{ active: activeId === 'csm-overview' }" @click="closeSidebar">
+              <Icon name="tabler:certificate" aria-hidden="true" />
+              <span>CSM認定の全体像</span>
+            </a>
+          </li>
+          <li>
+            <a href="#lo-structure" :class="{ active: activeId === 'lo-structure' }" @click="closeSidebar">
+              <Icon name="tabler:list-check" aria-hidden="true" />
+              <span>Learning Objectivesの構造</span>
+            </a>
+          </li>
+          <li>
+            <a href="#scrum-master-foundations" :class="{ active: activeId === 'scrum-master-foundations' }" @click="closeSidebar">
+              <Icon name="tabler:building-bank" aria-hidden="true" />
+              <span>Scrum Masterの役割の土台</span>
+            </a>
+          </li>
+          <li>
+            <a href="#core-competencies" :class="{ active: activeId === 'core-competencies' }" @click="closeSidebar">
+              <Icon name="tabler:users-group" aria-hidden="true" />
+              <span>Core Competencies詳解</span>
+            </a>
+          </li>
+          <li>
+            <a href="#service-to-team-po-org" :class="{ active: activeId === 'service-to-team-po-org' }" @click="closeSidebar">
+              <Icon name="tabler:heart-handshake" aria-hidden="true" />
+              <span>チーム/PO/組織へのサービス</span>
+            </a>
+          </li>
+          <li>
+            <a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar">
+              <Icon name="tabler:flag-3" aria-hidden="true" />
+              <span>ベストプラクティス総まとめ</span>
+            </a>
+          </li>
+          <li>
+            <a href="#certification-path" :class="{ active: activeId === 'certification-path' }" @click="closeSidebar">
+              <Icon name="tabler:route" aria-hidden="true" />
+              <span>認定パスとSEU</span>
+            </a>
+          </li>
+          <li>
+            <a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar">
+              <Icon name="tabler:link" aria-hidden="true" />
+              <span>参考文献・出典</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- ===================== Main content ===================== -->
+      <main id="main-content" class="main-content">
 
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
-
-<style>
-  :root {
-    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
-    --color-paper:        #F6F7F9;
-    --color-paper-raised: #FFFFFF;
-    --color-paper-sunken: #EEF0F4;
-
-    --color-ink:          #161B26;
-    --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
-
-    --color-border:       #DFE3EA;
-    --color-border-strong:#C7CDD9;
-
-    --color-indigo:       #2E3F72;
-    --color-indigo-dark:  #1F2C57;
-    --color-indigo-tint:  #EEF1F8;
-
-    --color-gold:         #B8802A;
-    --color-gold-tint:    #FAF1DF;
-
-    --color-forest:       #1B6E6A;
-    --color-forest-tint:  #E7F3F2;
-
-    --color-plum:         #8C3A5C;
-    --color-plum-tint:    #F6EAEF;
-
-    --color-success-bg:    #EAF4EC;
-    --color-success-text:  #2F6B3D;
-    --color-success-border:#BFE0C6;
-
-    --color-info-bg:       #EEF1F8;
-    --color-info-text:     #2E3F72;
-    --color-info-border:   #C7D1EA;
-
-    /* ---- Typography ---- */
-    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-    --sidebar-width: 288px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--color-indigo); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
-
-  .skip-link {
-    position: absolute; top: -48px; left: 0; z-index: 40;
-    background: var(--color-paper-raised); color: var(--color-indigo);
-    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
-    transition: top 0.15s ease;
-  }
-  .skip-link:focus { top: 0; }
-  img, svg { max-width: 100%; }
-
-  .layout {
-    display: block;
-  }
-
-  /* ===================== Sidebar ===================== */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--color-paper-raised);
-    border-right: 1px solid var(--color-border);
-    padding: 32px 24px 40px;
-    z-index: 20;
-  }
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .seal {
-    flex: none;
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-text .brand-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--color-ink);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-text .brand-subtitle {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 2px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar-nav .nav-group-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.06em;
-    margin: 22px 0 8px;
-    padding-left: 12px;
-  }
-
-  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
-
-  .sidebar-nav li { margin: 2px 0; }
-
-  .sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--color-ink-soft);
-    font-size: 16px;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-  }
-
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
-
-  .sidebar-nav a:hover {
-    background: var(--color-indigo-tint);
-    text-decoration: none;
-    color: var(--color-indigo);
-  }
-
-  .sidebar-nav a.active {
-    background: var(--color-indigo-tint);
-    color: var(--color-indigo);
-    font-weight: 600;
-    border-left: 2px solid var(--color-indigo);
-  }
-
-  .sidebar-nav a.active i { color: var(--color-indigo); }
-
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 30;
-    background: var(--color-paper-raised);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  /* ===================== Main content ===================== */
-  .main-content {
-    margin-left: var(--sidebar-width);
-    padding: 56px 72px 120px;
-  }
-
-  .hero {
-    margin-bottom: 56px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  .hero-eyebrow i { font-size: 17px; }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.28;
-    margin: 0 0 16px;
-    color: var(--color-ink);
-  }
-
-  .hero .hero-lede {
-    font-size: 18px;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .stat-card .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--color-indigo);
-    line-height: 1.1;
-  }
-
-  .stat-card .stat-label {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .disclaimer-box {
-    border: 1px solid var(--color-info-border);
-    background: var(--color-info-bg);
-    color: var(--color-info-text);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-size: 16px;
-    margin-top: 28px;
-  }
-
-  section {
-    margin: 72px 0;
-    scroll-margin-top: 32px;
-  }
-
-  section:first-of-type { margin-top: 0; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 29px;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--color-ink);
-    margin: 40px 0 16px;
-  }
-
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-ink);
-    margin: 28px 0 12px;
-  }
-
-  p { margin: 0 0 18px; }
-
-  ul, ol { margin: 0 0 18px; padding-left: 24px; }
-  li { margin-bottom: 8px; }
-
-  strong { font-weight: 600; color: var(--color-ink); }
-
-  em { color: var(--color-ink-soft); }
-
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
-  /* ===================== Tables ===================== */
-  .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  thead th {
-    background: var(--color-paper-sunken);
-    text-align: left;
-    font-weight: 600;
-    color: var(--color-ink);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border-strong);
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-ink-soft);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--color-paper); }
-
-  td strong, th strong { color: var(--color-ink); }
-
-  /* ===================== Callouts ===================== */
-  .callout {
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-indigo);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 28px 0;
-  }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--color-indigo);
-    margin-bottom: 10px;
-  }
-
-  .callout ul { margin-bottom: 0; padding-left: 20px; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .callout.practice { border-left-color: var(--color-gold); }
-  .callout.practice .callout-title { color: var(--color-gold); }
-
-  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
-  .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source a { color: var(--color-forest); font-weight: 500; }
-  .callout.source ul { list-style: none; padding-left: 0; }
-  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
-
-  .callout.note { border-left-color: var(--color-plum); }
-  .callout.note .callout-title { color: var(--color-plum); }
-
-  /* ===================== Diagram containers ===================== */
-  .diagram-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 12px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-
-  .diagram-card .diagram-caption {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 14px;
-    text-align: center;
-  }
-
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
-
-  /* ===================== Glossary ===================== */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-
-  .glossary-item .g-term {
-    font-weight: 600;
-    color: var(--color-indigo);
-    margin-bottom: 4px;
-  }
-
-  .glossary-item .g-def {
-    color: var(--color-ink-soft);
-    font-size: 16px;
-  }
-
-  /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
-  .ref-list { list-style: none; margin: 0; padding: 0; }
-  .ref-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 16px;
-  }
-  .ref-list li:last-child { border-bottom: none; }
-  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
-  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
-
-  footer {
-    margin-top: 96px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-ink-faint);
-    font-size: 16px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
-  /* ===================== Responsive ===================== */
-  @media (max-width: 980px) {
-    .sidebar-toggle { display: flex; }
-    .sidebar {
-      transform: translateX(-100%);
-      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
-      visibility: hidden;
-      transition: transform 0.2s ease, visibility 0.2s ease;
-      box-shadow: none;
-    }
-    .sidebar.open { transform: translateX(0); visibility: visible; }
-    .main-content { margin-left: 0; padding: 88px 24px 100px; }
-    .hero h1 { font-size: 32px; }
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
-    .glossary-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .sidebar { transition: none; }
-  }
-</style>
-</head>
-<body>
-
-<a href="#main-content" class="skip-link">本文へスキップ</a>
-
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2" aria-hidden="true"></i></button>
-
-<div class="layout">
-
-  <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
-    <div class="sidebar-brand">
-      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
-        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
-        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="brand-text">
-        <div class="brand-title">CSM Core Competencies ガイド</div>
-        <div class="brand-subtitle">Scrum Master 完全解説</div>
-      </div>
-    </div>
-
-    <ul class="sidebar-nav">
-      <li><a href="#csm-overview"><i class="ti ti-certificate" aria-hidden="true"></i>CSM認定の全体像</a></li>
-      <li><a href="#lo-structure"><i class="ti ti-list-check" aria-hidden="true"></i>Learning Objectivesの構造</a></li>
-      <li><a href="#scrum-master-foundations"><i class="ti ti-building-bank" aria-hidden="true"></i>Scrum Masterの役割の土台</a></li>
-      <li><a href="#core-competencies"><i class="ti ti-users-group" aria-hidden="true"></i>Core Competencies詳解</a></li>
-      <li><a href="#service-to-team-po-org"><i class="ti ti-heart-handshake" aria-hidden="true"></i>チーム/PO/組織へのサービス</a></li>
-      <li><a href="#best-practices-summary"><i class="ti ti-flag-3" aria-hidden="true"></i>ベストプラクティス総まとめ</a></li>
-      <li><a href="#certification-path"><i class="ti ti-route" aria-hidden="true"></i>認定パスとSEU</a></li>
-      <li><a href="#references"><i class="ti ti-link" aria-hidden="true"></i>参考文献・出典</a></li>
-    </ul>
-  </nav>
-
-  <!-- ===================== Main content ===================== -->
-  <main class="main-content" id="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true"></i>Scrum Alliance CSM 学習ガイド</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance CSM 学習ガイド</div>
       <h1>Scrum Master Core Competencies 完全解説ガイド</h1>
       <p class="hero-lede">
         このガイドは、Scrum Alliance の Certified ScrumMaster(CSM)認定コースで扱われる学習内容のうち、特に Scrum Master Core Competencies(スクラムマスターのコア・コンピテンシー)を中心に、初学者が段階的に理解できるようにまとめた非公式の学習資料です。
@@ -650,21 +249,22 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle" aria-hidden="true"></i>
-        <strong>免責事項:</strong> 本ガイドは Scrum Alliance の公式教材ではなく、公開情報をもとに作成した学習補助資料です。最新かつ正確な情報は必ず各セクションの出典リンク、および<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>を確認してください。
+        <Icon name="tabler:info-circle" aria-hidden="true" />
+        <span><strong>免責事項:</strong> 本ガイドは Scrum Alliance の公式教材ではなく、公開情報をもとに作成した学習補助資料です。最新かつ正確な情報は必ず各セクションの出典リンク、および<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>を確認してください。
+      </span>
       </div>
     </div>
 
     <!-- ===================== 01. CSM Overview ===================== -->
     <section id="csm-overview">
-      <div class="section-eyebrow"><i class="ti ti-certificate" aria-hidden="true"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
       <h2>CSM認定の全体像を掴む</h2>
 
       <h3>1-1. CSMとは何か</h3>
       <p>CSM は Scrum Alliance が提供する Scrum Master トラックの入門認定です。Scrum の全体像(アカウンタビリティ・イベント・アーティファクト)を学びながら、Scrum Master として何を身につけるべきかを、認定トレーナーである Certified Scrum Trainer(CST)が提供するコースを通じて学ぶ形式の認定です。</p>
       <p>CSM コースは、単に Scrum のルールを覚えるものではなく、チームや組織のアジリティを高めるために Scrum Master がどのように振る舞うべきかという「マインドセット」を養うことに重点が置かれています。</p>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Certified ScrumMaster (CSM) Certification - Scrum Alliance</a></li>
         </ul>
@@ -687,8 +287,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Certified ScrumMaster (CSM) Certification - Scrum Alliance(FAQセクション)</a></li>
         </ul>
@@ -696,11 +296,18 @@
 
       <h3>1-3. 認定取得までの流れ</h3>
       <div class="diagram-card">
-        <div class="diagram-container" id="csmJourney"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CSM_JOURNEY" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">CSMコース受講から認定取得・更新までの流れ</div>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>コース中に扱われる Learning Objectives(学習目標)を事前に確認し、コース後の復習チェックリストとして使う</li>
           <li>試験直前ではなく、コース修了後できるだけ早いタイミングで受験する(記憶が新しいうちに)</li>
@@ -711,7 +318,7 @@
 
     <!-- ===================== 02. Learning Objectives Structure ===================== -->
     <section id="lo-structure">
-      <div class="section-eyebrow"><i class="ti ti-list-check" aria-hidden="true"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 02</div>
       <h2>Learning Objectivesの構造を理解する</h2>
 
       <p>CSM の学習内容は、Scrum Alliance が公開している CSM Learning Objectives(学習目標)という公式文書で定義されています。この文書は、CST がコースを設計する際の共通の土台であり、CSM 受験者が「何を学ぶべきか」を知るための一次情報です。</p>
@@ -729,12 +336,19 @@
         </table>
       </div>
       <div class="diagram-card">
-        <div class="diagram-container" id="loStructure"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_LO_STRUCTURE" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">CSM Learning Objectivesの3カテゴリ構造</div>
       </div>
       <p>このガイドでは、特にカテゴリ2「Scrum Master Core Competencies」を中心に据えつつ、それと密接に関わるカテゴリ3「Service to the Scrum Team, Product Owner, and Organization」も併せて詳しく解説します。</p>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF, 2022年1月改訂)</a></li>
         </ul>
@@ -755,15 +369,15 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>学習目標の動詞に注目する。「describe(説明できる)」なら暗記で対応できるが、「demonstrate(実演できる)」なら実際にやってみる練習が必要</li>
           <li>CSM の Core Competencies(LO2.1〜2.3)は describe・demonstrate・discuss という動詞が使われており、単なる暗記ではなく実演・議論できるレベルが求められている点に注意する</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- Bloom's Taxonomyの節</a></li>
         </ul>
@@ -772,15 +386,15 @@
 
     <!-- ===================== 03. Scrum Master Foundations ===================== -->
     <section id="scrum-master-foundations">
-      <div class="section-eyebrow"><i class="ti ti-building-bank" aria-hidden="true"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 03</div>
       <h2>Scrum Masterという役割の土台を固める</h2>
 
       <p>Core Competencies を学ぶ前に、そもそも Scrum Master がどう定義されているかを押さえておきます。CSM Learning Objectives は The Scrum Guide(scrumguides.org)を土台にしているため、まずはこの一次情報を確認します。</p>
 
       <h3>3-1. Scrum Guideにおける定義</h3>
       <p>The Scrum Guide(2020年版)では、Scrum Master は Scrum Team の効果性(effectiveness)に責任を持つアカウンタビリティとして定義されています。有名な一文として、次のように述べられています。</p>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle" aria-hidden="true"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
         <p>"Scrum Masters are true leaders who serve the Scrum Team and the larger organization."<br>— The Scrum Guide</p>
       </div>
       <p>Scrum Master はチームやProduct Owner の代わりに意思決定をする立場ではなく、チームが Scrum の実践を通じて自ら改善していけるよう支援する存在です。具体的には、次のような形でチームに貢献します。</p>
@@ -790,8 +404,8 @@
         <li>チームの進行を妨げる impediment(障害)の除去を主導する</li>
         <li>すべての Scrum Events が前向きかつ生産的に、タイムボックス内で行われるようにする</li>
       </ul>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">The Scrum Guide - scrumguides.org</a></li>
         </ul>
@@ -811,15 +425,15 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>Scrum Master は、これらの価値基準がチームの日々の行動として現れているかを観察し、価値基準から逸脱している兆候(例: Sprint Retrospective での率直な発言が減る)に早めに気づく</li>
           <li>価値基準を「額縁に飾る言葉」にせず、Sprint Retrospective などの場で具体的な行動と結び付けて話題にする</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/about-scrum" target="_blank" rel="noopener">What is Scrum - Scrum values - Scrum Alliance</a></li>
         </ul>
@@ -828,7 +442,7 @@
 
     <!-- ===================== 04. Core Competencies ===================== -->
     <section id="core-competencies">
-      <div class="section-eyebrow"><i class="ti ti-users-group" aria-hidden="true"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 04</div>
       <h2>Scrum Master Core Competenciesを1つずつ理解する</h2>
 
       <p>ここからが本ガイドの中心テーマです。CSM Learning Objectives のカテゴリ2「Scrum Master Core Competencies」は次の3つの学習目標で構成されています。</p>
@@ -842,8 +456,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- 2. Scrum Master Core Competencies</a></li>
         </ul>
@@ -864,8 +478,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>会議の前に「目的」「進め方」「決めること」を明文化したアジェンダを共有する</li>
           <li>ファシリテーターは中立であることを徹底し、自分の意見を言いたいときは「今から Scrum Master としてではなく、一参加者として意見を言います」と役割を明示的に切り替える</li>
@@ -873,8 +487,8 @@
           <li>リモート/ハイブリッドの場では、オンラインホワイトボードなどを使い、参加のハードルを下げる工夫をする</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- LO2.1</a></li>
           <li><a href="https://resources.scrumalliance.org/Collection/seu-resources-scrum-master-core-competencies" target="_blank" rel="noopener">SEU Resources: Scrum Master Core Competencies - Scrum Alliance</a></li>
@@ -895,11 +509,18 @@
         </table>
       </div>
       <div class="diagram-card">
-        <div class="diagram-container" id="decisionTechniqueFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_DECISION_TECHNIQUE_FLOW" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">状況に応じた意思決定ファシリテーション技法の選び方</div>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>Fist of Five で1〜2本しか出ていない参加者がいた場合、その場で無理に多数決に進まず、理由を聞いてから再投票する</li>
           <li>Dot Voting は「1人あたり何票持てるか」を事前に明確にする(候補数の1/3程度が目安とされることが多い)</li>
@@ -907,8 +528,8 @@
           <li>オンライン会議では、投票ツールやチャットのリアクション機能を使って Fist of Five や Roman Voting を代替できる</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/blog/five-ways-build-consensus" target="_blank" rel="noopener">Five Ways to Build Consensus - Scrum.org</a></li>
           <li><a href="https://www.mountaingoatsoftware.com/blog/four-quick-ways-to-gain-or-assess-team-consensus" target="_blank" rel="noopener">Four Quick Ways to Gain or Assess Team Consensus - Mountain Goat Software</a></li>
@@ -939,11 +560,18 @@
         </table>
       </div>
       <div class="diagram-card">
-        <div class="diagram-container" id="accfQuadrant"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ACCF_QUADRANT" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">ACCFモデルによるContent軸とProcess軸の整理</div>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>会話を始める前に「今から自分はどのスタンスを取るか」を自覚する。無意識に Teaching(説教)に偏ると、チームの当事者意識(オーナーシップ)を奪ってしまう</li>
           <li>チームが Scrum の基本ルールを知らない立ち上げ期は Teaching の比重が高くなりやすいが、チームが成熟するにつれて Facilitating や Coaching の比重を増やしていく</li>
@@ -951,8 +579,8 @@
           <li>明確な答えが必要なとき(例: Scrumのルールに関する質問)は Teaching、チーム自身に気づいてほしいとき(例: チームの働き方の改善)は Coaching、というように使い分ける</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- LO2.3</a></li>
           <li><a href="https://www.scrum.org/resources/coaching-agile-teams-companion-scrummasters-agile-coaches-and-project-managers-transition" target="_blank" rel="noopener">Coaching Agile Teams - Lyssa Adkins(Scrum.org掲載)</a></li>
@@ -978,19 +606,26 @@
         </table>
       </div>
       <div class="diagram-card">
-        <div class="diagram-container" id="eightStances"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EIGHT_STANCES" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">Barry Overeemによる8つのスタンス</div>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>8つすべてを常に発揮する必要はない。状況(チームの成熟度、扱う課題の性質)に応じて、どのスタンスが最も適切かを見極める</li>
           <li>自分が得意なスタンス(例: Teaching)に偏りすぎていないか、定期的に振り返る</li>
           <li>新しいチームには Teacher・Facilitator の比重を高め、チームが自走し始めたら Coach・Change Agent の比重を高めるなど、チームのライフサイクルに合わせてスタンスを調整する</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/8-stances-scrum-master" target="_blank" rel="noopener">The 8 Stances of a Scrum Master - Scrum.org</a></li>
         </ul>
@@ -999,7 +634,7 @@
 
     <!-- ===================== 05. Service to Team, PO, Organization ===================== -->
     <section id="service-to-team-po-org">
-      <div class="section-eyebrow"><i class="ti ti-heart-handshake" aria-hidden="true"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:heart-handshake" aria-hidden="true" />SECTION 05</div>
       <h2>Scrum Team・Product Owner・組織へのサービス</h2>
 
       <p>CSM Learning Objectives のカテゴリ3「Service to the Scrum Team, Product Owner, and Organization」は、カテゴリ2で学んだ Core Competencies を実際の現場でどう発揮するかを具体化したものです。ここでは LO3.1〜3.9 の内容を、対象(チーム/PO/組織)ごとに整理します。</p>
@@ -1031,16 +666,16 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>技術的負債を「見えない負債」にしないため、Product Backlog 上で可視化する(専用のラベルやアイコンを使うなど)ことをチームに提案する</li>
           <li>技術的負債の返済作業を毎スプリントの容量に一定割合組み込むよう、Product Owner との対話を促す</li>
           <li>Definition of Done の強度が組織のリスク許容度に見合っているか、定期的にチームと見直す</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- LO3.2, 3.3</a></li>
         </ul>
@@ -1049,11 +684,18 @@
       <h3>5-3. 障害(Impediment)への対応 — LO3.5〜3.7</h3>
       <p>組織的な障害(Organizational Impediment)とは、チーム自身の力だけでは解決できない、部門を超えた課題のことです。例として、部門間の承認プロセスの遅さ、予算編成サイクルとイテレーションのミスマッチ、テスト環境の不足などが挙げられます。</p>
       <div class="diagram-card">
-        <div class="diagram-container" id="impedimentFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_IMPEDIMENT_FLOW" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">障害(Impediment)への対応フロー</div>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>すべての障害をScrum Masterが自分で解決しようとせず、まずチームが自己組織化の力で解決できないかを見極める</li>
           <li>組織的な障害は Impediment Backlog として一覧化し、優先順位・担当・状況を可視化する</li>
@@ -1061,8 +703,8 @@
           <li>根本原因を探るために「なぜなぜ分析(5 Whys)」などの技法を使い、対症療法で終わらせない</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- LO3.5〜3.7</a></li>
         </ul>
@@ -1081,8 +723,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">The 2020 Scrum Guide - scrumguides.org</a></li>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- LO3.4</a></li>
@@ -1103,15 +745,15 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>「Scrum Masterはミニ・プロジェクトマネージャーではない」という誤解を、組織のステークホルダーに丁寧に説明する機会を作る</li>
           <li>権限の委譲が進むにつれて、これまで管理職が担っていた意思決定の一部がチームに移ることを、管理職層にも事前に共有し合意形成する</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">CSM Learning Objectives(PDF)- LO3.8, 3.9</a></li>
         </ul>
@@ -1120,7 +762,7 @@
 
     <!-- ===================== 06. Best Practices Summary ===================== -->
     <section id="best-practices-summary">
-      <div class="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 06</div>
       <h2>ベストプラクティス総まとめ</h2>
 
       <div class="table-wrap">
@@ -1142,25 +784,32 @@
 
     <!-- ===================== 07. Certification Path ===================== -->
     <section id="certification-path">
-      <div class="section-eyebrow"><i class="ti ti-route" aria-hidden="true"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 07</div>
       <h2>学習を深める：認定パスとSEU</h2>
 
       <p>CSM はあくまで Scrum Master トラックの入門認定です。Scrum Alliance では、CSM取得後にさらに専門性を深めるための上位認定が用意されています。</p>
       <div class="diagram-card">
-        <div class="diagram-container" id="certPath"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CERT_PATH" theme="base" :theme-variables="THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">CSMからA-CSM、CSP-SMへの認定パス</div>
       </div>
       <p>A-CSM の Learning Objectives では、CSM のカテゴリ構成をさらに発展させ、「Scrum Master Core Competencies」に加えて「Service to the Scrum Team」「Service to the Product Owner」「Service to the Organization」「Scrum Mastery」がそれぞれ独立したカテゴリとして扱われており、CSM で学んだ土台がより深く展開されます。</p>
       <p>また、Scrum Alliance の認定は「取得して終わり」ではなく、Scrum Education Units(SEU)を継続的に獲得し、2年ごとに更新する仕組みになっています。本ガイドで紹介した Facilitation・Coaching に関する記事や動画も、Scrum Alliance のリソースライブラリでSEU対象コンテンツとして提供されています。</p>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb" aria-hidden="true"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>A-CSM は CSM 取得後であれば受講申し込み自体は可能だが、A-CSM の認定発行には過去5年以内に積んだ12か月以上の Scrum Master としての実務経験の申告が必要になる。受講計画はこの12か月要件を前提に組み立てる</li>
           <li>SEUは資格更新のためだけでなく、学び続ける習慣づくりの仕組みとして活用する</li>
         </ul>
       </div>
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link" aria-hidden="true"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://assets.scrumalliance.org/media/certifications/los/adv_csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">Advanced Certified ScrumMaster (A-CSM) Learning Objectives(PDF)</a></li>
           <li><a href="https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster" target="_blank" rel="noopener">Advanced Certified ScrumMaster (A-CSM) Certification - Scrum Alliance</a></li>
@@ -1170,11 +819,11 @@
 
     <!-- ===================== 08. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link" aria-hidden="true"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 08</div>
       <h2>参考文献・出典</h2>
 
       <div class="ref-group">
-        <h4>Scrum Alliance 公式情報</h4>
+        <h3>Scrum Alliance 公式情報</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Certified ScrumMaster (CSM) Certification - Scrum Alliance</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster</a></li>
           <li><span class="ref-name">CSM Learning Objectives(PDF, 2022年1月改訂)</span><a class="ref-url" href="https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf" target="_blank" rel="noopener">https://www.scrumalliance.org/media/certifications/los/csm_learning_objectives_2022.pdf</a></li>
@@ -1188,7 +837,7 @@
       </div>
 
       <div class="ref-group">
-        <h4>The Scrum Guide / Agile Manifesto</h4>
+        <h3>The Scrum Guide / Agile Manifesto</h3>
         <ul class="ref-list">
           <li><span class="ref-name">The Scrum Guide - scrumguides.org</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
           <li><span class="ref-name">Scrum Guide Revisions - scrumguides.org</span><a class="ref-url" href="https://scrumguides.org/revisions.html" target="_blank" rel="noopener">https://scrumguides.org/revisions.html</a></li>
@@ -1197,7 +846,7 @@
       </div>
 
       <div class="ref-group">
-        <h4>Facilitation・Coaching・Stancesに関する補助資料</h4>
+        <h3>Facilitation・Coaching・Stancesに関する補助資料</h3>
         <ul class="ref-list">
           <li><span class="ref-name">The 8 Stances of a Scrum Master - Scrum.org(Barry Overeem)</span><a class="ref-url" href="https://www.scrum.org/resources/8-stances-scrum-master" target="_blank" rel="noopener">https://www.scrum.org/resources/8-stances-scrum-master</a></li>
           <li><span class="ref-name">Coaching Agile Teams - Lyssa Adkins(Scrum.org掲載)</span><a class="ref-url" href="https://www.scrum.org/resources/coaching-agile-teams-companion-scrummasters-agile-coaches-and-project-managers-transition" target="_blank" rel="noopener">https://www.scrum.org/resources/coaching-agile-teams-companion-scrummasters-agile-coaches-and-project-managers-transition</a></li>
@@ -1212,269 +861,530 @@
       CSM / Certified ScrumMaster は Scrum Alliance の登録商標です。本ページは学習支援を目的とした非公式資料であり、Scrum Alliance とは無関係です。試験の最新の出題範囲・合格基準・費用は変更される可能性があるため、受験前に必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>で最新情報をご確認ください。
     </footer>
 
-  </main>
-</div>
+  
+      </main>
+    </div>
+  </div>
+</template>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
-<script>
-(function () {
-  "use strict";
+<style scoped>
+.guide-page {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  min-height: 100vh;
+}
 
-  var DIAGRAMS = {
-    csmJourney: `flowchart LR
-A["CSMコース受講 16時間"] --> B["Learning Objectivesを網羅"]
-B --> C["オンライン試験 50問 1時間以内"]
-C -->|"37問以上正解"| D["CSM認定取得"]
-C -->|"36問以下"| G["再受験 90日以内に2回目"]
-G --> C
-D --> E["Scrum Allianceメンバーシップ 2年間"]
-E --> F["SEUを蓄積して更新"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,G box;
-class D,E,F done;`,
+.guide-layout {
+  display: block;
+}
 
-    loStructure: `flowchart TB
-LO["CSM Learning Objectives"] --> C1["1. Scrum"]
-LO --> C2["2. Scrum Master Core Competencies"]
-LO --> C3["3. Service to the Scrum Team Product Owner and Organization"]
-C1 --> C1a["Scrum Teamのアカウンタビリティ イベント アーティファクトの理解"]
-C2 --> C2a["Facilitationの実践 LO2.1 2.2"]
-C2 --> C2b["Facilitation Teaching Mentoring Coachingの違い LO2.3"]
-C3 --> C3a["Scrum Teamへのサービス"]
-C3 --> C3b["Product Ownerへのサービス"]
-C3 --> C3c["組織へのサービス"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class LO hub;
-class C1,C2,C3,C1a,C2a,C2b,C3a,C3b,C3c box;`,
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
 
-    decisionTechniqueFlow: `flowchart TD
-Start["グループでの意思決定が必要"] --> Q1{"選択肢は複数あるか"}
-Q1 -->|"はい 複数候補から絞り込みたい"| DV["Dot Voting 候補の絞り込み"]
-Q1 -->|"いいえ 1つの提案への賛否"| Q2{"賛否の温度差も知りたいか"}
-Q2 -->|"はい"| FOF["Fist of Five 合意度の把握"]
-Q2 -->|"いいえ シンプルなYes No"| RV["Roman Voting 賛成反対の一括採決"]
-Start --> Q3{"議論が拡散し収束しない"}
-Q3 -->|"はい"| OTA["1-2-4-All 個人からペア 少人数 全体へ収束"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class Start hub;
-class Q1,Q2,Q3 box;
-class DV,FOF,RV,OTA done;`,
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
 
-    accfQuadrant: `flowchart TB
-subgraph CONTENT["Content 知識を伝える"]
-direction LR
-TEACH["Teaching 教える 一方向に知識を伝達"]
-MENTOR["Mentoring 助言する 自らの経験を伝える"]
-end
-subgraph PROCESS["Process プロセスを支える"]
-direction LR
-FACIL["Facilitating 促進する 中立にプロセスを運営"]
-COACH["Coaching 引き出す 本人やチームの答えを引き出す"]
-end
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class TEACH,MENTOR box;
-class FACIL,COACH done;`,
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
 
-    eightStances: `flowchart TB
-SM["Scrum Master"] --> S1["Servant Leader チームに奉仕するリーダー"]
-SM --> S2["Facilitator 話し合いの場を設計する"]
-SM --> S3["Coach 個人 チーム 組織の成長を引き出す"]
-SM --> S4["Teacher Scrumとアジャイルの原則を教える"]
-SM --> S5["Mentor 自らの経験や知見を伝える"]
-SM --> S6["Manager 障害やプロセス 文化を管理する"]
-SM --> S7["Impediment Remover 障害物を取り除く"]
-SM --> S8["Change Agent 組織文化の変革を推進する"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class SM hub;
-class S1,S2,S3,S4,S5,S6,S7,S8 box;`,
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
 
-    impedimentFlow: `flowchart TD
-A["チームが障害を報告 または SMが検知"] --> B["障害の性質を分類する"]
-B --> C{"チーム自身で解決可能か"}
-C -->|"はい"| D["チームのSelf Managementを支援するコーチング"]
-C -->|"いいえ 組織的な障害"| E["Impediment Backlogに記録し可視化"]
-E --> F["関係するステークホルダーと連携し交渉 エスカレーション"]
-F --> G["対応状況を継続的に追跡"]
-G --> H["Sprint Retrospectiveで振り返り再発防止"]
-D --> H
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,E,F,G box;
-class D,H done;`,
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
 
-    certPath: `flowchart LR
-CSM["Certified ScrumMaster CSM 入門"] --> ACSM["Advanced Certified ScrumMaster A-CSM 実践"]
-ACSM --> CSPSM["Certified Scrum Professional ScrumMaster CSP-SM 熟達"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class CSM hub;
-class ACSM box;
-class CSPSM done;`,
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  };
+.sidebar-nav li {
+  margin: 2px 0;
+}
 
-  function extendViewBoxHeight(svgEl, extra) {
-    var vb = svgEl.getAttribute("viewBox");
-    if (!vb) return;
-    var parts = vb.split(/\s+/).map(Number);
-    if (parts.length !== 4) return;
-    svgEl.style.width = parts[2] + "px";
-    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
+
+.sidebar-nav a :deep(.iconify),
+.sidebar-nav a svg {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
+
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active :deep(.iconify),
+.sidebar-nav a.active svg {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(.iconify),
+.hero-eyebrow svg {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.section-eyebrow :deep(.iconify),
+.section-eyebrow svg {
+  font-size: 16px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul,
+ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong,
+th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout-title :deep(.iconify),
+.callout-title svg {
+  font-size: 17px;
+  flex: none;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Diagram containers ===================== */
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h3 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
   }
 
-  async function renderAllDiagrams() {
-    if (typeof mermaid === "undefined") {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
-      });
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      try { await document.fonts.ready; } catch (e) { /* ignore */ }
-    }
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "strict",
-      theme: "base",
-      themeVariables: {
-        background: "transparent",
-        primaryColor: "#EEF1F8",
-        primaryBorderColor: "#2E3F72",
-        primaryTextColor: "#161B26",
-        lineColor: "#2E3F72",
-        secondaryColor: "#FAF1DF",
-        secondaryBorderColor: "#B8802A",
-        tertiaryColor: "#FFFFFF",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-        fontSize: "16px",
-        pie1: "#C7D1EA",
-        pie2: "#AEDBD6",
-        pie3: "#F0D9A6",
-        pie4: "#E7C0D0",
-        pieOpacity: "1",
-        pieStrokeColor: "#FFFFFF",
-        pieStrokeWidth: "2px",
-        pieOuterStrokeWidth: "1px",
-        pieOuterStrokeColor: "#DFE3EA",
-        pieSectionTextColor: "#161B26",
-        pieLegendTextColor: "#161B26",
-        pieTitleTextColor: "#161B26"
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        nodeSpacing: 45,
-        rankSpacing: 48,
-        curve: "basis"
-      },
-      pie: {
-        useMaxWidth: false
-      }
-    });
-
-    var entries = Object.keys(DIAGRAMS);
-    for (var i = 0; i < entries.length; i++) {
-      var id = entries[i];
-      var container = document.getElementById(id);
-      if (!container) continue;
-      try {
-        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
-        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
-        container.innerHTML = typeof result === "string" ? result : result.svg;
-        var svgEl = container.querySelector("svg");
-        if (svgEl) {
-          svgEl.removeAttribute("width");
-          svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.overflow = "visible";
-          extendViewBoxHeight(svgEl, 15);
-        }
-      } catch (err) {
-        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
-      }
-    }
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
   }
 
-  function setupSidebarHighlight() {
-    var sections = document.querySelectorAll("main section[id]");
-    var navLinks = document.querySelectorAll(".sidebar-nav a");
-    var linkMap = {};
-    navLinks.forEach(function (link) {
-      var href = link.getAttribute("href").replace("#", "");
-      linkMap[href] = link;
-    });
-    if (!("IntersectionObserver" in window)) return;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var link = linkMap[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) {
-            l.classList.remove("active");
-            l.removeAttribute("aria-current");
-          });
-          link.classList.add("active");
-          link.setAttribute("aria-current", "location");
-        }
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    sections.forEach(function (section) { observer.observe(section); });
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
   }
 
-  function setupMobileToggle() {
-    var toggle = document.getElementById("sidebarToggle");
-    var sidebar = document.getElementById("sidebar");
-    if (!toggle || !sidebar) return;
-    toggle.addEventListener("click", function () {
-      var isOpen = sidebar.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        var wasOpen = sidebar.classList.contains("open");
-        sidebar.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
-      });
-    });
-    // Escape キーで開いている目次を閉じ、フォーカスをトグルボタンに戻す
-    document.addEventListener("keydown", function (event) {
-      if (event.key !== "Escape") return;
-      if (!sidebar.classList.contains("open")) return;
-      sidebar.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.focus();
-    });
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    // mermaid.initialize 自体の失敗など、図ごとの try/catch に届かない例外を拾う。
-    // 握りつぶすと全図が「読み込み中」表示のまま残るため、必ずエラー表示へ差し替える。
-    renderAllDiagrams().catch(function (err) {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-      });
-      if (window.console) console.error("Mermaid initialization error:", err);
-    });
-    setupSidebarHighlight();
-    setupMobileToggle();
-  });
-})();
-</script>
-</body>
-</html>
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}
+</style>
