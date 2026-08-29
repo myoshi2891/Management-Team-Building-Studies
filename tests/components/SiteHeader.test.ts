@@ -89,6 +89,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
       { label: "CSM コアコンピテンシー", href: "/csm-scrum-master-core-competencies" },
       { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
+      { label: "CAF 完全ガイド", href: "/caf-certified-agile-facilitator-study-guide" },
       { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
       { label: "CAL1 第2章", href: "/agile-leadership-in-action" },
@@ -169,6 +170,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
           { label: "CSM コアコンピテンシー", href: "/csm-scrum-master-core-competencies" },
           { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
+          { label: "CAF 完全ガイド", href: "/caf-certified-agile-facilitator-study-guide" },
         ],
       },
       {

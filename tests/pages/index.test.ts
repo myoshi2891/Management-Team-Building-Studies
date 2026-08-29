@@ -145,6 +145,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-forest",
       },
       {
+        title: "Certified Agile Facilitator(CAF)学習ガイド",
+        category: "CSM / SCRUM",
+        href: "/caf-certified-agile-facilitator-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
         category: "CAL 1 & 2",
         href: "/cal1-certified-agile-leader-1-guide",

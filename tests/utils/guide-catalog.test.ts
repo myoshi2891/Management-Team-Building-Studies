@@ -70,6 +70,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSM スクラムイベント" },
       { to: "/csm-scrum-master-core-competencies", categoryId: "project-management", seriesId: "csm", navLabel: "CSM コアコンピテンシー" },
       { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "csm", navLabel: "スクラム 97の知恵" },
+      { to: "/caf-certified-agile-facilitator-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CAF 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第1章" },
       { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第2章" },
