@@ -542,7 +542,7 @@ exit 1 は上表の既存乖離が原因であって移行漏れではない。
 | Callout 構成 | 27 件（`practice`: 12, `source`: 13, `note`: 2） | 同数・完全一致 | `data-variant` / `data-testid="callout"` / `data-testid="callout-label"` 付与（D-1, D-2 充足） |
 | Table 構成 | 8 件（計 58 行） | 同数・完全一致 | 原本の表構造を 100% 保持 |
 | 外部リンク | 24 種類（計 25 箇所） | 同数・完全一致 | `target="_blank"` / `rel="noopener"`（C-4, S-3 充足） |
-| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: project-management`, `series: scrum`, `accent: gold` |
+| カタログ登録 | — | `app/utils/guide-catalog.ts` | `category: project-management`, `series: cal`, `accent: gold` |
 | 監査スクリプト | — | `npm run audit:cal2` | **exit 0**（全要素一致） |
 
 ### 42. Certified Agile Leader® 1 (CAL 1™) 完全ガイド（`cal1-certified-agile-leader-1-guide.vue`）の Nuxt 移植
