@@ -748,7 +748,6 @@ const DIAGRAM_HIRING_FUNNEL = `flowchart LR
 .main-content {
   margin-left: 288px;
   padding: 56px 72px 120px;
-  max-width: 1000px;
 }
 
 .hero {
