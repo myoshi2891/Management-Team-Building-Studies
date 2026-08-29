@@ -339,6 +339,17 @@ export const GUIDES = [
     accent: "forest",
   },
   {
+    to: "/caf-certified-agile-facilitator-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "CAF 完全ガイド",
+    title: "Certified Agile Facilitator(CAF)学習ガイド",
+    description: "Scrum Alliance Certified Agile Facilitator(CAF)を初学者向けに解説する非公式学習ガイド。5つの学習目標、中立性の原則、Tuckmanモデル、心理的安全性、Diamond of Participationなどを図解とベストプラクティスつきで詳しく解説します。",
+    meta: "17セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/cal1-certified-agile-leader-1-guide",
     categoryId: "project-management",
     seriesId: "cal",

@@ -57,7 +57,8 @@
     "audit:high-output-management": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/High-output-management-guide/High-output-management-guide.html app/pages/high-output-management-guide.vue",
     "audit:five-dysfunctions": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Five-dysfunctions-of-a-team-guide/Five-dysfunctions-of-a-team-guide.html app/pages/five-dysfunctions-of-a-team-guide.vue",
     "audit:ai-pm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Ai-driven-project-management-guide/Ai-driven-project-management-guide.html app/pages/ai-driven-project-management-guide.vue",
-    "audit:an-elegant-puzzle": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/An-elegant-puzzle-guide/An-elegant-puzzle-guide.html app/pages/an-elegant-puzzle-guide.vue"
+    "audit:an-elegant-puzzle": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/An-elegant-puzzle-guide/An-elegant-puzzle-guide.html app/pages/an-elegant-puzzle-guide.vue",
+    "audit:caf": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Caf-certified-agile-facilitator-study-guide.html app/pages/caf-certified-agile-facilitator-study-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",

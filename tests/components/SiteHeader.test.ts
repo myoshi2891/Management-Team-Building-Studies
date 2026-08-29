@@ -301,6 +301,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/scrum-events-csm-guide",
       "/csm-scrum-master-core-competencies",
       "/scrum-97-things-guide",
+      "/caf-certified-agile-facilitator-study-guide",
       "/cal1-certified-agile-leader-1-guide",
       "/the-case-for-agile-leadership",
       "/agile-leadership-in-action",
@@ -399,6 +400,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
