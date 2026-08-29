@@ -47,7 +47,7 @@ allowed-tools:
 | 起動 | トリガー語句で自動読込 | 下表の語句が出たら、**利用者または担当者が本ファイルを明示的に読む** |
 | 参照ファイル | 必要時に自動で開かれる | §1 と §8 のファイルを**手動で開く**（開かずに推測しない） |
 | ツール | `Read` / `Edit` / `Bash` 等 | 同等の読み書き・シェル実行手段で置き換える。**手順は省略しない** |
-| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`、`bunx nuxi typecheck` は `npm run typecheck`（下記注） |
+| コマンド | `bun run <script>` | `bun` が無ければ `npm run <script>`（型検査も `npm run typecheck`。下記注） |
 
 > [!IMPORTANT]
 > `npx nuxi` は使わない。バージョン未固定でレジストリから任意の nuxi を取得し、
@@ -169,7 +169,7 @@ bun run test:e2e                  # 静的生成成果物へのスモーク（Pl
 
 1. **Red**: 失敗する契約テストを書き、失敗を目で確認してからコミット（`test(...)`）
 2. **Green**: 最小実装 + **原本照合監査 exit 0** を満たしてコミット（`feat(...)`）
-3. **Refactor**: `bun run build` / `bunx nuxi typecheck` を通してコミット（`refactor(...)`）
+3. **Refactor**: `bun run build` / `bun run typecheck` を通してコミット（`refactor(...)`）
 4. **Docs**: `docs/PROGRESS.md` を更新してコミット（`chore(docs): ...`）
 
 **一括コミットは重大な規約違反。**
@@ -508,7 +508,7 @@ CAPM は `package.json` の `audit:capm` スクリプトに登録済み（`bun r
 
 ```bash
 bun run test
-bunx nuxi typecheck
+bun run typecheck
 bun run lint
 bun run build
 bun run test:e2e   # generate + スモーク（Mermaid 実描画・アイコン同梱・横スクロール禁止）
@@ -566,7 +566,7 @@ git diff --cached | grep -E '^\+[^+]' | grep -E '(/Users/|/home/|C:\\Users\\)' |
 4. **原本照合監査を再実行**（保守でも exit 0 を維持する）
 5. ページのタイトル・スラッグ・セクション数を変えた場合は、
    `app/utils/guide-catalog.ts` の `GUIDES` を直す（N-1〜N-3 の期待値も更新する）
-6. `bun run test` / `bunx nuxi typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
+6. `bun run test` / `bun run typecheck` / `bun run lint` / `bun run build` / `bun run test:e2e`
 
 デザイン不一致（配色・テーブルヘッダー・callout 等）の相談は、
 **原本 HTML の該当箇所を読んでから**直す。推測で色を決めない。

@@ -87,7 +87,7 @@ app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 bun run dev          # 開発サーバー
 bun run test         # Vitest 契約テスト（bun test は不可。設定を読まないため）
 bun run test:e2e     # generate + Playwright スモーク（ポート 4173。横スクロール禁止ゲートを含む）
-bunx nuxi typecheck  # 型検査
+bun run typecheck  # 型検査
 bun run lint         # ESLint
 bun run build        # 本番ビルド
 bun run audit:capm   # 原本照合監査（CAPM。exit 0 が Green の前提条件）
@@ -209,7 +209,7 @@ Markdown を編集した場合はあわせて lint を通す。
 npx --yes markdownlint-cli2@0.18.1 "**/*.md" "#node_modules"
 ```
 
-`app/` 配下を編集した場合は、あわせて `bun run test` / `bunx nuxi typecheck` /
+`app/` 配下を編集した場合は、あわせて `bun run test` / `bun run typecheck` /
 `bun run lint` を通す。ページを移行・改修した場合は原本照合監査（`bun run audit:capm` 等）の
 exit 0 と `bun run test:e2e` も確認する。
 
