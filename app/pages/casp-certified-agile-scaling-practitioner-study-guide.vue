@@ -343,7 +343,7 @@ Learn --> P`;
 
         <!-- ===================== 1. About This Guide ===================== -->
         <section id="about-this-guide">
-          <div class="section-eyebrow"><Icon name="tabler:info-circle" aria-hidden="true" />SECTION 01</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:info-circle" aria-hidden="true" />SECTION 01</div>
           <h2>この資料について</h2>
 
           <p>本ガイドは、Scrum Alliance が提供する認定資格 <strong>Certified Agile Scaling Practitioner (CASP)</strong> の学習内容を、初学者にもわかりやすいように章立てし、各トピックについて</p>
@@ -357,7 +357,7 @@ Learn --> P`;
 
           <p>をセットで提供するものです。CASP は Scrum Alliance の公式ページ上では「Certified Agile Skills - Scaling 1(略称: CAS-Scaling 1 / CASP)」として案内されており、CSM (Certified ScrumMaster) や CAL (Certified Agile Leader) のように詳細な章立てのカリキュラム PDF が一般公開されているわけではありません。公式サイトには "CASP Learning Objectives" という PDF へのリンクがありますが、これは Google ドライブ上でサインインを求められる形式で提供されており、本ガイド作成時点では内容を直接検証できませんでした。そのため本ガイドは、Scrum Alliance が一般公開している<strong>公式コースページ</strong>および<strong>公式リソースライブラリの関連記事(すべて Scrum Alliance 発行)</strong>の内容を一次ソースとして再構成し、業界で広く使われている補助的なフレームワーク・モデル(SAFe、LeSS、Spotify モデル、Team Topologies など)を「パターンの実例」として補足する構成を取っています。</p>
 
-          <div class="callout note" data-variant="note">
+          <div class="callout note" data-testid="callout" data-variant="note">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
             <p><strong>対象読者</strong>: Transformation Lead、People Manager、Leadership、Business Analyst、PMO Lead、Scrum Master、Agile Coach/Consultant、Team Lead など、組織のアジャイルスケーリングに関わるすべての人。</p>
             <p><strong>前提条件</strong>: なし(ただしアジャイルの基礎知識があることが推奨されます)。</p>
@@ -366,7 +366,7 @@ Learn --> P`;
 
         <!-- ===================== 2. Overview ===================== -->
         <section id="overview">
-          <div class="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 02</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 02</div>
           <h2>0. CASP資格の全体像</h2>
 
           <ol class="step-list">
@@ -428,7 +428,7 @@ Learn --> P`;
             </li>
           </ol>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>CASP を受講する前に、チームレベルの基礎的なアジャイル/Scrum の実践経験を積んでおく(公式には前提条件はないが、推奨されている)。</li>
@@ -437,7 +437,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">Scrum Alliance 公式 CASP ページ</span><a href="https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner</a></li>
@@ -448,7 +448,7 @@ Learn --> P`;
 
         <!-- ===================== 3. What Is Scaling ===================== -->
         <section id="what-is-scaling">
-          <div class="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 03</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 03</div>
           <h2>1. スケーリングとは何か(定義)</h2>
 
           <ol class="step-list">
@@ -458,7 +458,7 @@ Learn --> P`;
                 <div class="step-title">公式の定義を理解する</div>
                 <div class="step-desc">
                   <p>Scrum Alliance は、スケーリング(Scaling)を次のように定義しています。</p>
-                  <div class="callout note" data-variant="note">
+                  <div class="callout note" data-testid="callout" data-variant="note">
                     <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
                     <p>アジャイルの能力と振る舞いを複数チームに拡張しながら、提供する価値を高めるためのプラクティスとパターンを見出していくこと。組織のスケーリングの目的は、目標を達成し、戦略をより良く実行することにあるべきである。</p>
                   </div>
@@ -502,7 +502,7 @@ Learn --> P`;
             <div class="diagram-caption">単一チームからマルチチームへの拡張</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>スケーリングを「目的」にせず、あくまで「戦略実行とゴール達成の手段」として扱う。</li>
@@ -512,7 +512,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">CASP 公式ページ(スケーリングの定義、学習目標)</span><a href="https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner</a></li>
@@ -523,7 +523,7 @@ Learn --> P`;
 
         <!-- ===================== 4. Scaling Myths ===================== -->
         <section id="scaling-myths">
-          <div class="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 04</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 04</div>
           <h2>2. アジャイルスケーリングにまつわる3つの誤解</h2>
 
           <p>Scrum Alliance のリソースライブラリでは、組織がスケーリングに失敗する背景にある典型的な誤解(Myth)が3つ紹介されています。それぞれを正しく理解することが、CASP の学習の出発点になります。</p>
@@ -569,7 +569,7 @@ Learn --> P`;
             <div class="diagram-caption">誤解と実態の対比</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>チームを増員する前に、既存チームのコラボレーション品質・コミュニケーションの流れ・サイロの有無を点検する。</li>
@@ -579,7 +579,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"Agile Scaling Myths: Beyond Common Misconceptions"</span><a href="https://resources.scrumalliance.org/Article/agile-scaling-myths-common-misconceptions" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/agile-scaling-myths-common-misconceptions</a></li>
@@ -590,7 +590,7 @@ Learn --> P`;
 
         <!-- ===================== 5. Why Scaling Fails ===================== -->
         <section id="why-scaling-fails">
-          <div class="section-eyebrow"><Icon name="tabler:alert-triangle" aria-hidden="true" />SECTION 05</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" aria-hidden="true" />SECTION 05</div>
           <h2>3. スケーリングが失敗する理由</h2>
 
           <p>CASP の学習目標の一つに「なぜアジャイルスケーリングがしばしば失敗するのかを理解する」ことが明記されています。Scrum Alliance の公式コンテンツから読み取れる主な失敗要因を整理します。</p>
@@ -645,7 +645,7 @@ Learn --> P`;
             <div class="diagram-caption">失敗の連鎖</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>スケーリングに着手する前に、チームレベルのアジャイル成熟度(基本セレモニー・価値観の定着度)を評価する。</li>
@@ -655,7 +655,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"When to Scale and When Not to Scale"(失敗要因: ジュニア採用・サイロ・自動化不足)</span><a href="https://resources.scrumalliance.org/Article/scale-agile" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/scale-agile</a></li>
@@ -666,7 +666,7 @@ Learn --> P`;
 
         <!-- ===================== 6. When To Scale ===================== -->
         <section id="when-to-scale">
-          <div class="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 06</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 06</div>
           <h2>4. いつスケールすべきか、いつすべきでないか</h2>
 
           <ol class="step-list">
@@ -725,7 +725,7 @@ Learn --> P`;
             <div class="diagram-caption">スケーリング判断のディシジョンフロー</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>スケーリングの意思決定会議では、必ず「本質的複雑性」と「偶発的複雑性」を分けて議論する。</li>
@@ -735,7 +735,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"When to Scale and When Not to Scale"</span><a href="https://resources.scrumalliance.org/Article/scale-agile" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/scale-agile</a></li>
@@ -746,7 +746,7 @@ Learn --> P`;
 
         <!-- ===================== 7. Principle-Informed Approach ===================== -->
         <section id="principle-informed-approach">
-          <div class="section-eyebrow"><Icon name="tabler:compass" aria-hidden="true" />SECTION 07</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:compass" aria-hidden="true" />SECTION 07</div>
           <h2>5. 原則主導・パターンベースのアプローチ(フレームワーク非依存の思想)</h2>
 
           <p>CASP の最大の特徴は、<strong>特定のスケーリングフレームワーク(SAFe、Spotify モデル等)を教え込む資格ではない</strong>という点です。Scrum Alliance はこれを「Principle-Informed, Framework-Agnostic Course(原則に基づく、フレームワークに依存しないコース)」と明確に位置づけています。</p>
@@ -810,7 +810,7 @@ Learn --> P`;
             <div class="diagram-caption">原則 → パターン → プラクティス → 文脈のループ</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>フレームワークを導入する前に「このフレームワークが解決しようとしている原則的な課題は何か」を言語化する。</li>
@@ -820,7 +820,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"Why Certified Agile Scaling Practitioner Is Not a Framework"</span><a href="https://resources.scrumalliance.org/Article/cas-scaling-1-framework" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/cas-scaling-1-framework</a></li>
@@ -831,7 +831,7 @@ Learn --> P`;
 
         <!-- ===================== 8. Framework Patterns ===================== -->
         <section id="framework-patterns">
-          <div class="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 08</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 08</div>
           <h2>6. 代表的スケーリングフレームワークからパターンを学ぶ</h2>
 
           <p>CASP は特定のフレームワークを推奨するものではありませんが、公式ページでは学習者が<strong>LeSS、SAFe、Spotify モデル、DAD</strong>などのフレームワークに含まれるパターンを認識し、その効果を高める力を養うことが明記されています。ここでは、それぞれのフレームワークが持つ代表的な「パターン」を、原則学習の補助教材として整理します。</p>
@@ -909,7 +909,7 @@ Learn --> P`;
             </table>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>どのフレームワークも「まるごと導入」するのではなく、自組織の課題に直接効くパターンだけを抽出して試す。</li>
@@ -919,7 +919,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"Why Certified Agile Scaling Practitioner Is Not a Framework"(SAFe/Spotify/Scrum@Scale への言及)</span><a href="https://resources.scrumalliance.org/Article/cas-scaling-1-framework" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/cas-scaling-1-framework</a></li>
@@ -935,7 +935,7 @@ Learn --> P`;
 
         <!-- ===================== 9. Scaffolding ===================== -->
         <section id="scaffolding">
-          <div class="section-eyebrow"><Icon name="tabler:building" aria-hidden="true" />SECTION 09</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building" aria-hidden="true" />SECTION 09</div>
           <h2>7. スキャフォールディング(足場)の活用</h2>
 
           <ol class="step-list">
@@ -993,7 +993,7 @@ Learn --> P`;
             <div class="diagram-caption">スキャフォールディングのライフサイクル</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>すべてのスキャフォールディングに「設置目的」と「撤去/見直しの判断基準」をセットで文書化する。</li>
@@ -1003,7 +1003,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"Why Certified Agile Scaling Practitioner Is Not a Framework"(スキャフォールディングの定義)</span><a href="https://resources.scrumalliance.org/Article/cas-scaling-1-framework" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/cas-scaling-1-framework</a></li>
@@ -1014,7 +1014,7 @@ Learn --> P`;
 
         <!-- ===================== 10. Strategic Alignment ===================== -->
         <section id="strategic-alignment">
-          <div class="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 10</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 10</div>
           <h2>8. エンタープライズ戦略とスケーリングの整合</h2>
 
           <ol class="step-list">
@@ -1071,7 +1071,7 @@ Learn --> P`;
             <div class="diagram-caption">戦略のカスケード(段階的な具体化)</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>戦略とチームの日々の作業の間に、必ず「なぜこの作業が戦略に貢献するのか」を説明できる中間レイヤー(ポートフォリオ/プログラム/バリューストリーム)を設ける。</li>
@@ -1081,7 +1081,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">CASP 公式ページ("Align your organizational principles with appropriate scaling patterns" 等の記載)</span><a href="https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner</a></li>
@@ -1092,7 +1092,7 @@ Learn --> P`;
 
         <!-- ===================== 11. Multi-Team Multi-Site ===================== -->
         <section id="multi-team-multi-site">
-          <div class="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 11</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 11</div>
           <h2>9. マルチチーム・マルチサイトのアジャイル製品開発</h2>
 
           <ol class="step-list">
@@ -1158,7 +1158,7 @@ Learn --> P`;
             <div class="diagram-caption">Team Topologies によるチーム間関係</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>チーム構成を設計する前に、目指すアーキテクチャとコンウェイの法則の関係を明示的に議論する。</li>
@@ -1169,7 +1169,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">"When to Scale and When Not to Scale"(t字型人材/クロスファンクショナルチームの重要性)</span><a href="https://resources.scrumalliance.org/Article/scale-agile" target="_blank" rel="noopener">https://resources.scrumalliance.org/Article/scale-agile</a></li>
@@ -1182,7 +1182,7 @@ Learn --> P`;
 
         <!-- ===================== 12. Sustaining Transformation ===================== -->
         <section id="sustaining-transformation">
-          <div class="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 12</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 12</div>
           <h2>10. 持続可能な変革を支える仕組み</h2>
 
           <ol class="step-list">
@@ -1240,7 +1240,7 @@ Learn --> P`;
             <div class="diagram-caption">組織レベルの継続的改善サイクル</div>
           </div>
 
-          <div class="callout practice" data-variant="practice">
+          <div class="callout practice" data-testid="callout" data-variant="practice">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li>組織レベルのレトロスペクティブ(例: 四半期ごとの「スケーリング健全性レビュー」)を定例化する。</li>
@@ -1250,7 +1250,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source">
+          <div class="callout source" data-testid="callout" data-variant="source">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">CASP 公式ページ(持続可能な変革・コミュニティへの言及)</span><a href="https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/certified-agile-scaling-practitioner</a></li>
@@ -1262,7 +1262,7 @@ Learn --> P`;
 
         <!-- ===================== 13. Summary & References ===================== -->
         <section id="summary-references">
-          <div class="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 13</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 13</div>
           <h2>11. まとめ: フレームワーク比較表と参考文献一覧</h2>
 
           <h3>CASP の思想を1枚にまとめる</h3>
@@ -1330,7 +1330,7 @@ Learn --> P`;
             </ul>
           </div>
 
-          <div class="callout note" data-variant="note">
+          <div class="callout note" data-testid="callout" data-variant="note">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
             <p><strong>注記</strong>: CASP の詳細な公式カリキュラム文書("CASP Learning Objectives" PDF)は Google ドライブ上でホストされており、閲覧にサインインが必要なため本ガイド作成時点で内容を直接確認できませんでした。最新の正式なカリキュラム内容については、必ず上記の公式コースページから最新のリンクを確認するか、認定トレーナーが実施する公式コースにご参加ください。</p>
           </div>
