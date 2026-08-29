@@ -758,7 +758,9 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/csm-certified-scrummaster-guide.vue（CSM 完全ガイド）
   - app/pages/csm-scrum-team-3-accountabilities.vue（CSM 3つのアカウンタビリティ解説ガイド）
   - app/pages/csm-scrum-theory-guide.vue（CSM Scrum理論の基礎 完全ガイド）
+  - app/pages/csm-scrum-artifacts-and-commitments.vue（Scrum Artifacts と Commitments 完全ガイド）
   - app/pages/scrum-events-csm-guide.vue（CSM スクラムイベント 完全ガイド）
+  - app/pages/csm-scrum-master-core-competencies.vue（Scrum Master Core Competencies 完全解説ガイド）
   - app/pages/scrum-97-things-guide.vue（スクラム実践者が知るべきベストプラクティス97 完全ガイド）
   - app/pages/leadership-challenge-workbook-guide.vue（The Leadership Challenge Workbook 完全ガイド）
   - app/pages/lean-ux-beginner-guide.vue（Lean UX 実践ガイド）
