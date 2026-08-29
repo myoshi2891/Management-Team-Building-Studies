@@ -416,6 +416,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/cal2-part2-developing-as-a-leader",
+    categoryId: "project-management",
+    seriesId: "cal",
+    navLabel: "CAL2 Part 2",
+    title: "CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド",
+    description: "Certified Agile Leader 2 (CAL2) Part 2「Developing as a Leader」を初学者向けに解説。Growth Mindset、Situational Leadership II、Crucial Conversations、Radical Candor、Leadership Pipeline、RAPIDなど6つのフレームワークをステップバイステップで学ぶ学習ガイド。",
+    meta: "10セクション",
+    icon: "tabler:award",
+    accent: "gold",
+  },
+  {
     to: "/cal2-certified-agile-leader-2-study-guide",
     categoryId: "project-management",
     seriesId: "cal",

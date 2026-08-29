@@ -43,9 +43,6 @@ const EXPECTED_H3 = [
   "ステップバイステップ解説",
   "図解: RAPID の役割と実行フロー",
   "統合的な視点",
-] as const;
-
-const EXPECTED_H4 = [
   "公式カリキュラム",
   "2.1 個人の成長の障壁",
   "2.2 パーソナライズされたリーダーシップ",
@@ -55,6 +52,7 @@ const EXPECTED_H4 = [
   "2.6 権限移譲と意思決定",
 ] as const;
 
+const EXPECTED_H4 = [] as const;
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
 
@@ -179,7 +177,7 @@ const EXPECTED_MERMAID_SOURCES = [
 
 const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2",
-  "https://drive.google.com/file/d/1-kc20bahmyfpwxj8immkxsotxyuxa6mg/view",
+  "https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view?usp=drive_link",
   "https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset",
   "https://www.mindtools.com/asbakxx/dwecks-fixed-and-growth-mindsets",
   "https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership",
@@ -199,44 +197,88 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.mindtools.com/av8ceid/bains-rapid-framework",
 ] as const;
 
-const mountPage = createMountPage(Page);
+const EXPECTED_TOC_IDS = [
+  "guide-overview",
+  "overcoming-growth-obstacles",
+  "personalized-leadership-approach",
+  "difficult-conversations",
+  "giving-receiving-feedback",
+  "managing-people-challenges",
+  "delegation-decision-making",
+  "framework-integration-summary",
+  "glossary",
+  "references",
+] as const;
+
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+] as const;
+
+const EXPECTED_CALLOUT_VARIANTS = {
+  note: 2,
+  practice: 6,
+  source: 6,
+} as const;
+
+const EXPECTED_CALLOUT_LABELS = {
+  note: { 補足: 2 },
+  practice: { ベストプラクティス: 6 },
+  source: { ソース: 6 },
+} as const;
+
+const EXPECTED_STEP_TAGS = [] as const;
+
+const EXPECTED_SEO_TITLE =
+  "CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド | Certified Agile Leader 2";
+
+const EXPECTED_SEO_DESCRIPTION =
+  "Certified Agile Leader 2 (CAL2) Part 2「Developing as a Leader」を初学者向けに解説。Growth Mindset、Situational Leadership II、Crucial Conversations、Radical Candor、Leadership Pipeline、RAPIDなど6つのフレームワークをステップバイステップで学ぶ学習ガイド。";
+
+const EXPECTED_SEO_TITLE_FRAGMENTS = [
+  "CAL2",
+  "Part 2",
+  "Developing as a Leader",
+] as const;
 
 defineSourceParityContract({
-  mountPage,
-  expectedH1: EXPECTED_H1,
-  expectedH2: EXPECTED_H2,
-  expectedH3: EXPECTED_H3,
-  expectedH4: EXPECTED_H4,
-  expectedH5: EXPECTED_H5,
-  expectedH6: EXPECTED_H6,
-  expectedMermaidSources: EXPECTED_MERMAID_SOURCES,
-  expectedExternalUrls: EXPECTED_EXTERNAL_URLS,
+  suiteName: "pages/cal2-part2-developing-as-a-leader.vue",
+  page: Page,
   seoMeta,
-  expectedTitle:
-    "CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド | Certified Agile Leader 2",
-  expectedDescription:
-    "Certified Agile Leader 2 (CAL2) Part 2「Developing as a Leader」を初学者向けに解説。Growth Mindset、Situational Leadership II、Crucial Conversations、Radical Candor、Leadership Pipeline、RAPIDなど6つのフレームワークをステップバイステップで学ぶ学習ガイド。",
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: EXPECTED_STEP_TAGS,
+  seoTitleFragments: EXPECTED_SEO_TITLE_FRAGMENTS,
+  seoTitle: EXPECTED_SEO_TITLE,
+  seoDescription: EXPECTED_SEO_DESCRIPTION,
 });
 
-describe("CAL2 Part 2 ページ固有のデザイン契約", () => {
-  it("D-1: callout が variant ごとに正しい件数で存在する", () => {
-    const wrapper = mountPage();
-    expect(wrapper.findAll('.callout[data-variant="note"]')).toHaveLength(2);
-    expect(wrapper.findAll('.callout[data-variant="practice"]')).toHaveLength(6);
-    expect(wrapper.findAll('.callout[data-variant="source"]')).toHaveLength(6);
-  });
+describe("pages/cal2-part2-developing-as-a-leader.vue — 個別要素契約", () => {
+  const mountPage = createMountPage(Page);
 
-  it("D-2: 全 callout がラベル要素を持つ", () => {
+  it("ヒーローセクションの要素を正しく描画する", () => {
     const wrapper = mountPage();
-    const callouts = wrapper.findAll(".callout");
-    expect(callouts.length).toBe(14);
-    for (const c of callouts) {
-      expect(c.find('[data-testid="callout-label"]').exists()).toBe(true);
-    }
-  });
-
-  it("D-3: 統計カードが4件存在する", () => {
-    const wrapper = mountPage();
+    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance公式カリキュラムに基づく解説");
+    expect(wrapper.find(".hero-lede").text()).toContain("Part 2「Developing as a Leader」");
     expect(wrapper.findAll(".stat-card")).toHaveLength(4);
+    expect(wrapper.find(".disclaimer-box").text()).toContain("非公式の解説資料");
   });
 });
