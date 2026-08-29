@@ -755,7 +755,7 @@ flowchart TB
 
 CSP-D は「取得して終わり」ではなく、2年ごとの更新が必要です。通常の更新経路は、**Scrum Education Units（SEU）40単位の取得・提出と更新料の支払い**です。SEU は書籍を読む、ウェビナーを視聴する、イベントに参加するなど、継続的な学習活動によって蓄積されます。
 
-これに加えて、**認定コースの受講による自動更新**という経路もあります。Scrum Alliance の新しい認定を取得すると、トラックや階層を問わず、保有している他のすべての Scrum Alliance 認定が自動的に更新されます（例: CSP-D を取得すると、同じ開発者トラックの CSD・A-CSD も更新される）。なお、マイクロクレデンシャルは有効期限を持たないため、この自動更新の対象ではありません。したがって SEU の提出だけが唯一の更新方法ではありません。
+これに加えて、**認定コースの受講による自動更新**という経路もあります。Scrum Alliance の認定コースを受講すると、トラックや階層を問わず、保有しているすべての Scrum Alliance 認定が自動的に更新されます。新しい認定を取得する必要はありません（例: 開発者トラックのコースを受講すれば、保有している CSD・A-CSD も更新される）。なお、マイクロクレデンシャルは有効期限を持たないため、この自動更新の対象ではありません。したがって SEU の提出だけが唯一の更新方法ではありません。
 
 > 出典: [Scrum Education Units - Scrum Alliance](https://www.scrumalliance.org/get-certified/scrum-education-units)、[Renewing Certifications - Scrum Alliance](https://www.scrumalliance.org/get-certified/renewing-certifications)
 
