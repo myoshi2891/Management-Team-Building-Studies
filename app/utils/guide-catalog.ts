@@ -350,6 +350,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/a-csd-advanced-certified-scrum-developer-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "A-CSD 完全ガイド",
+    title: "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
+    description: "Scrum Alliance® の Advanced Certified Scrum Developer (A-CSD) Learning Objectives (2021年8月版) に基づき、7カテゴリ・全LOをステップバイステップで解説する学習ガイド。",
+    meta: "15セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/cal1-certified-agile-leader-1-guide",
     categoryId: "project-management",
     seriesId: "cal",

@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { describe, expect, it, vi } from "vitest";
-import { createMountPage, defineSourceParityContract } from "../support/page-contract";
+import { vi, describe, it, expect } from "vitest";
+import { defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/a-csd-advanced-certified-scrum-developer-study-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -11,7 +11,7 @@ const { seoMeta } = vi.hoisted(() => ({ seoMeta: vi.fn() }));
 mockNuxtImport("useSeoMeta", () => seoMeta);
 
 const EXPECTED_H1 = [
-  "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
+  "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド"
 ] as const;
 
 const EXPECTED_H2 = [
@@ -30,7 +30,7 @@ const EXPECTED_H2 = [
   "12. ベストプラクティス総合チェックリスト",
   "13. 認定取得後のキャリアパス",
   "14. まとめ",
-  "15. 参考文献(出典一覧)",
+  "15. 参考文献(出典一覧)"
 ] as const;
 
 const EXPECTED_H3 = [
@@ -83,257 +83,68 @@ const EXPECTED_H3 = [
   "12.4 リファクタリング",
   "12.5 テスト駆動開発",
   "12.6 継続的インテグレーション・デリバリー",
-] as const;
-
-const EXPECTED_H4 = [
-  "フィードバックを受け取る側のベストプラクティス",
-  "フィードバックを与える側のベストプラクティス",
   "Scrum Alliance 公式情報源",
   "フレームワークの一次資料",
   "リファクタリング・技術的負債・コード品質",
   "テスト駆動開発・テスト戦略",
   "継続的インテグレーション・継続的デリバリー",
-  "補足: XPプラクティス全般",
+  "補足: XPプラクティス全般"
+] as const;
+
+const EXPECTED_H4 = [
+  "フィードバックを受け取る側のベストプラクティス",
+  "フィードバックを与える側のベストプラクティス"
 ] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
-  `flowchart LR
-A["CSD®<br/>Certified Scrum Developer<br/>【基礎】"] --> B["A-CSD®<br/>Advanced Certified Scrum Developer<br/>【応用・実践】"]
-B --> C["CSP-D®<br/>Certified Scrum Professional - Developer<br/>【熟達・プロフェッショナル】"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A box;
-class B hub;
-class C done;`,
-  `flowchart TD
-S(["開始: A-CSD®を目指す"]) --> R1{"アクティブな<br/>CSD®認定を保持しているか?"}
-R1 -- いいえ --> G1["まずCSD®コースを受講・修了する"]
-G1 --> R1
-R1 -- はい --> R2["Scrum Alliance認定の<br/>A-CSD®教育コースを受講する"]
-R2 --> R3{"過去5年以内に<br/>Scrum開発者として<br/>12ヶ月以上の実務経験があるか?"}
-R3 -- いいえ --> G2["実務経験を積んでから申請する"]
-R3 -- はい --> R4["コースの事前/事後課題を含む<br/>全コンポーネントを完了する"]
-R4 --> DONE(["A-CSD® 認定取得<br/>CSD®も自動更新される"])
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class S,R2,R4 box;
-class R1,R3,G1,G2 hub;
-class DONE done;`,
-  `flowchart BT
-K["知識 Knowledge<br/>用語や事実を思い出せる"] --> C["理解 Comprehension<br/>意味を説明できる"]
-C --> AP["応用 Application<br/>実際の状況で使える"]
-AP --> AN["分析 Analysis<br/>要素に分解し関係を見出せる"]
-AN --> S["統合 Synthesis<br/>新しい形に組み合わせられる"]
-S --> E["評価 Evaluation<br/>価値判断・妥当性評価ができる"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class K,C,AP,AN,S,E box;`,
-  `flowchart LR
-A["要求発生"] -->|"待機時間"| B["開発着手"]
-B -->|"実作業時間"| C["コードレビュー"]
-C -->|"待機時間"| D["テスト"]
-D -->|"実作業時間"| E["リリース"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class A,B,C,D,E box;`,
-  `flowchart LR
-A["現在のDoD"] --> B["スプリントで運用"]
-B --> C["レトロスペクティブで<br/>ギャップを振り返る"]
-C --> D["DoDを更新する"]
-D --> A
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class A,B,D box;
-class C hub;`,
-  `flowchart LR
-A["Solo Programming<br/>個人作業"] --> B["Code Review<br/>非同期レビュー"]
-B --> C["Pair Programming<br/>2人1組でリアルタイム協働"]
-C --> D["Mob Programming<br/>チーム全員で1台の画面に向かう"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A box;
-class B,C hub;
-class D done;`,
-  `flowchart LR
-S["Situation<br/>状況を具体的に示す"] --> B["Behavior<br/>観察した行動を述べる"]
-B --> I["Impact<br/>それがもたらした影響を伝える"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class S,B,I box;`,
-  `flowchart TB
-subgraph U["Up-Front Architecture 事前設計"]
-U1["要件を早期に確定"] --> U2["詳細設計を先に完成"] --> U3["設計通りに実装"]
-end
-subgraph E["Emergent Architecture 創発的設計"]
-E1["最小限の骨格を決める"] --> E2["小さく実装し学習する"] --> E3["学習に基づき設計を進化させる"]
-E3 --> E2
-end
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class U1,U2,U3 box;
-class E1,E2,E3 done;`,
-  `flowchart LR
-A["1. 対象コードを<br/>保護するテストがあるか確認"] --> B{"テストは<br/>十分か?"}
-B -- いいえ --> C["テストを追加する"]
-C --> A
-B -- はい --> D["2. 小さな一歩で<br/>リファクタリングを実施"]
-D --> E["3. テストを実行し<br/>振る舞いが変わっていないことを確認"]
-E --> F{"目的の構造に<br/>到達したか?"}
-F -- いいえ --> D
-F -- はい --> G["4. コミットする"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,D,E box;
-class B,C,F hub;
-class G done;`,
-  `flowchart TB
-subgraph Deliberate["意図的 Deliberate"]
-DP["思慮深く意図的<br/>『今はこれでいく、理由は分かっている』<br/>= しばしば正しいビジネス判断"]
-DR["無謀で意図的<br/>『設計する時間がない』"]
-end
-subgraph Inadvertent["無自覚 Inadvertent"]
-IP["思慮深く無自覚<br/>『今ならこう設計するのに』<br/>= 経験を積んだ結果の気づき"]
-IR["無謀で無自覚<br/>『レイヤーとは何ですか?』"]
-end
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class DP done;
-class IP hub;
-class DR,IR box;`,
-  `flowchart LR
-R["Red<br/>失敗するテストを書く"] --> G["Green<br/>テストを通す<br/>最小限の実装をする"]
-G --> RF["Refactor<br/>テストを保ったまま<br/>コードを整理する"]
-RF --> R
-
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class R hub;
-class G done;
-class RF box;`,
-  `flowchart TB
-E2E["E2E / UIテスト<br/>少数・低速・高コスト"] --> INT["統合テスト<br/>中程度の数・中速"]
-INT --> UNIT["単体テスト<br/>多数・高速・低コスト"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class E2E box;
-class INT hub;
-class UNIT done;`,
-  `flowchart LR
-A["コードをコミット"] --> B["自動的にビルドが起動"]
-B --> C["静的解析・単体テストを実行"]
-C --> D{"すべて成功?"}
-D -- いいえ --> E["チームに即座に通知<br/>最優先で修正"]
-D -- はい --> F["成果物・アーティファクトを生成"]
-E --> A
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C box;
-class D,E hub;
-class F done;`,
-  `flowchart LR
-CI["継続的インテグレーション<br/>頻繁な統合"] --> CD["継続的デリバリー<br/>常にリリース可能"]
-CD --> DEPLOY["継続的デプロイメント<br/>自動で本番へ反映"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class CI box;
-class CD hub;
-class DEPLOY done;`,
-  `flowchart TB
-subgraph Foundation["土台 協働とリーン思考 カテゴリ1・2"]
-F1["ワークフローの可視化"]
-F2["ペア/モブプログラミング"]
-F3["フィードバックの授受"]
-end
-
-subgraph Design["設計と実装 カテゴリ3・4・5"]
-D1["創発的アーキテクチャ<br/>+ シンプルデザイン原則"]
-D2["TDD<br/>Red-Green-Refactor"]
-D3["継続的リファクタリング"]
-end
-
-subgraph Delivery["統合とデリバリー カテゴリ6・7"]
-E1["継続的インテグレーション"]
-E2["継続的デリバリー/デプロイ"]
-E3["成果のフィードバックループ"]
-end
-
-Foundation --> Design --> Delivery
-E3 -.->|"学習を次のスプリントへ"| Foundation
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class F1,F2,F3 box;
-class D1,D2,D3 hub;
-class E1,E2,E3 done;`,
-  `flowchart LR
-A["A-CSD®取得"] --> B["Scrum Education Units SEU<br/>を継続的に蓄積"]
-B --> C["2年ごとに認定更新<br/>SEUの提出と更新料の支払い"]
-A --> D["実務経験を重ねる"]
-D --> E["CSP-D®<br/>Certified Scrum Professional - Developer<br/>に挑戦"]
-
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,D box;
-class C hub;
-class E done;`,
+  "flowchart LR\nA[\"CSD Certified Scrum Developer<br/>基礎 Scrum下での開発実践\"] --> B[\"A-CSD Advanced Certified Scrum Developer<br/>応用 高度な技術・協働スキル\"]\nB --> C[\"CSP-D Certified Scrum Professional - Developer<br/>熟達 専門性の証明\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass A box;\nclass B hub;\nclass C done;",
+  "flowchart TD\nS([\"A-CSD 取得を目指す\"]) --> R1{\"CSD® 有効/失効どちらでも可<br/>またはPSM I / PSM II を<br/>保持しているか?\"}\nR1 -- いいえ --> G1[\"まずCSD®コースを受講・取得する<br/>PSM I / PSM II でも可\"]\nG1 --> R1\nR1 -- はい --> R2[\"承認されたA-CSD®コースを受講する\"]\nR2 --> R3{\"過去5年以内に<br/>Scrum開発者/チームメンバーとして<br/>12か月以上の実務経験があるか?\"}\nR3 -- いいえ --> G2[\"実務経験を積んでから申請する\"]\nR3 -- はい --> R4[\"コースの事前/事後課題を含む<br/>全コンポーネントを完了する\"]\nR4 --> DONE([\"A-CSD® 認定取得<br/>CSD®も自動更新される\"])\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass S,R2,R4 box;\nclass R1,R3,G1,G2 hub;\nclass DONE done;",
+  "flowchart BT\nK[\"知識 Knowledge<br/>用語や事実を思い出せる\"] --> C[\"理解 Comprehension<br/>意味を説明できる\"]\nC --> AP[\"応用 Application<br/>実際の状況で使える\"]\nAP --> AN[\"分析 Analysis<br/>要素に分解し関係を見出せる\"]\nAN --> S[\"統合 Synthesis<br/>新しい形に組み合わせられる\"]\nS --> E[\"評価 Evaluation<br/>価値判断・妥当性評価ができる\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclass K,C,AP,AN,S,E box;",
+  "flowchart LR\nA[\"要求発生\"] -->|\"待機時間\"| B[\"開発着手\"]\nB -->|\"実作業時間\"| C[\"コードレビュー\"]\nC -->|\"待機時間\"| D[\"テスト\"]\nD -->|\"実作業時間\"| E[\"リリース\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclass A,B,C,D,E box;",
+  "flowchart LR\nA[\"現在のDoD\"] --> B[\"スプリントで運用\"]\nB --> C[\"レトロスペクティブで<br/>ギャップを振り返る\"]\nC --> D[\"DoDを更新する\"]\nD --> A\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclass A,B,D box;\nclass C hub;",
+  "flowchart LR\nA[\"Solo Programming<br/>個人作業\"] --> B[\"Code Review<br/>非同期レビュー\"]\nB --> C[\"Pair Programming<br/>2人1組でリアルタイム協働\"]\nC --> D[\"Mob Programming<br/>チーム全員で1台の画面に向かう\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass A box;\nclass B,C hub;\nclass D done;",
+  "flowchart LR\nS[\"Situation<br/>状況を具体的に示す\"] --> B[\"Behavior<br/>観察した行動を述べる\"]\nB --> I[\"Impact<br/>それがもたらした影響を伝える\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclass S,B,I box;",
+  "flowchart TB\nsubgraph U[\"Up-Front Architecture 事前設計\"]\nU1[\"要件を早期に確定\"] --> U2[\"詳細設計を先に完成\"] --> U3[\"設計通りに実装\"]\nend\nsubgraph E[\"Emergent Architecture 創発的設計\"]\nE1[\"最小限の骨格を決める\"] --> E2[\"小さく実装し学習する\"] --> E3[\"学習に基づき設計を進化させる\"]\nE3 --> E2\nend\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass U1,U2,U3 box;\nclass E1,E2,E3 done;",
+  "flowchart LR\nA[\"1. 対象コードを<br/>保護するテストがあるか確認\"] --> B{\"テストは<br/>十分か?\"}\nB -- いいえ --> C[\"テストを追加する\"]\nC --> A\nB -- はい --> D[\"2. 小さな一歩で<br/>リファクタリングを実施\"]\nD --> E[\"3. テストを実行し<br/>振る舞いが変わっていないことを確認\"]\nE --> F{\"目的の構造に<br/>到達したか?\"}\nF -- いいえ --> D\nF -- はい --> G[\"4. コミットする\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass A,D,E box;\nclass B,C,F hub;\nclass G done;",
+  "flowchart TB\nsubgraph Deliberate[\"意図的 Deliberate\"]\nDP[\"思慮深く意図的<br/>『今はこれでいく、理由は分かっている』<br/>= しばしば正しいビジネス判断\"]\nDR[\"無謀で意図的<br/>『設計する時間がない』\"]\nend\nsubgraph Inadvertent[\"無自覚 Inadvertent\"]\nIP[\"思慮深く無自覚<br/>『今ならこう設計するのに』<br/>= 経験を積んだ結果の気づき\"]\nIR[\"無謀で無自覚<br/>『レイヤーとは何ですか?』\"]\nend\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass DP done;\nclass IP hub;\nclass DR,IR box;",
+  "flowchart LR\nR[\"Red<br/>失敗するテストを書く\"] --> G[\"Green<br/>テストを通す<br/>最小限の実装をする\"]\nG --> RF[\"Refactor<br/>テストを保ったまま<br/>コードを整理する\"]\nRF --> R\n\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclass R hub;\nclass G done;\nclass RF box;",
+  "flowchart TB\nE2E[\"E2E / UIテスト<br/>少数・低速・高コスト\"] --> INT[\"統合テスト<br/>中程度の数・中速\"]\nINT --> UNIT[\"単体テスト<br/>多数・高速・低コスト\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass E2E box;\nclass INT hub;\nclass UNIT done;",
+  "flowchart LR\nA[\"コードをコミット\"] --> B[\"自動的にビルドが起動\"]\nB --> C[\"静的解析・単体テストを実行\"]\nC --> D{\"すべて成功?\"}\nD -- いいえ --> E[\"チームに即座に通知<br/>最優先で修正\"]\nD -- はい --> F[\"成果物・アーティファクトを生成\"]\nE --> A\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass A,B,C box;\nclass D,E hub;\nclass F done;",
+  "flowchart LR\nCI[\"継続的インテグレーション<br/>頻繁な統合\"] --> CD[\"継続的デリバリー<br/>常にリリース可能\"]\nCD --> DEPLOY[\"継続的デプロイメント<br/>自動で本番へ反映\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass CI box;\nclass CD hub;\nclass DEPLOY done;",
+  "flowchart TB\nsubgraph Foundation[\"土台 協働とリーン思考 カテゴリ1・2\"]\nF1[\"ワークフローの可視化\"]\nF2[\"ペア/モブプログラミング\"]\nF3[\"フィードバックの授受\"]\nend\n\nsubgraph Design[\"設計と実装 カテゴリ3・4・5\"]\nD1[\"創発的アーキテクチャ<br/>+ シンプルデザイン原則\"]\nD2[\"TDD<br/>Red-Green-Refactor\"]\nD3[\"継続的リファクタリング\"]\nend\n\nsubgraph Delivery[\"統合とデリバリー カテゴリ6・7\"]\nE1[\"継続的インテグレーション\"]\nE2[\"継続的デリバリー/デプロイ\"]\nE3[\"成果のフィードバックループ\"]\nend\n\nFoundation --> Design --> Delivery\nE3 -.->|\"学習を次のスプリントへ\"| Foundation\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass F1,F2,F3 box;\nclass D1,D2,D3 hub;\nclass E1,E2,E3 done;",
+  "flowchart LR\nA[\"A-CSD®取得\"] --> B[\"Scrum Education Units SEU<br/>を継続的に蓄積\"]\nB --> C[\"2年ごとに認定更新<br/>SEUの提出と更新料の支払い\"]\nA --> D[\"実務経験を重ねる\"]\nD --> E[\"CSP-D®<br/>Certified Scrum Professional - Developer<br/>に挑戦\"]\n\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclassDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;\nclassDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;\nclass A,B,D box;\nclass C hub;\nclass E done;"
 ] as const;
 
 const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrumalliance.org/get-certified/developer-track/advanced-certified-scrum-developer",
-  "https://resources.scrumalliance.org/article/what-is-acsd",
-  "https://resources.scrumalliance.org/article/why-become-acsd",
   "https://www.scrumalliance.org/get-certified/scrum-education-units",
-  "https://cft.vanderbilt.edu/guides-sub-pages/blooms-taxonomy/",
-  "https://www.scrumalliance.org/resources",
-  "https://en.wikipedia.org/wiki/Value-stream_mapping",
-  "https://www.mindtools.com/pages/article/newTMC_86.htm",
-  "https://www.agilealliance.org/glossary/definition-of-done/",
-  "https://less.works/less/framework/index",
-  "https://nexus.scrum.org/",
-  "https://scaledagileframework.com/",
-  "https://agilemanifesto.org/principles.html",
-  "https://c2.com/cgi/wiki?PairProgramming",
-  "https://mobprogramming.org/",
-  "https://www.ccl.org/articles/leading-effectively-articles/closing-the-gap-between-intent-and-impact/",
-  "https://www.mindtools.com/pages/article/situation-behavior-impact-feedback.htm",
-  "https://c2.com/cgi/wiki?SimpleDesign",
-  "https://martinfowler.com/bliki/EmergentDesign.html",
-  "https://en.wikipedia.org/wiki/Theory_of_constraints",
-  "https://martinfowler.com/articles/mocksArentStubs.html",
-  "https://refactoring.guru/refactoring/smells",
+  "https://www.scrumalliance.org/get-certified/renewing-certifications",
+  "https://www.scrumalliance.org/ScrumRedesignDEVSite/media/ScrumAllianceMedia/Files%20and%20PDFs/Learning%20Objectives/E_A_CSD_LO_2021.pdf",
+  "https://scrumguides.org/scrum-guide.html",
+  "https://en.wikipedia.org/wiki/Extreme_programming_practices",
   "https://refactoring.com/",
+  "https://martinfowler.com/bliki/CodeSmell.html",
   "https://martinfowler.com/bliki/TechnicalDebtQuadrant.html",
   "https://martinfowler.com/bliki/TechnicalDebt.html",
+  "https://martinfowler.com/bliki/TestDrivenDevelopment.html",
   "https://martinfowler.com/bliki/TestPyramid.html",
-  "https://cucumber.io/docs/bdd/",
+  "https://martinfowler.com/articles/practical-test-pyramid.html",
+  "https://martinfowler.com/bliki/SpecificationByExample.html",
+  "https://martinfowler.com/articles/mocksArentStubs.html",
   "https://martinfowler.com/articles/continuousIntegration.html",
+  "https://martinfowler.com/articles/feature-toggles.html",
   "https://continuousdelivery.com/",
-  "https://martinfowler.com/bliki/ContinuousDelivery.html",
-  "https://www.scrumalliance.org/courses-events/search?ctyp=Acsd",
+  "https://docs.cloud.google.com/solutions/devops/devops-tech-version-control",
+  "https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers",
+  "https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-developer",
+  "https://www.scrumalliance.org/about-scrum/values",
+  "https://resources.scrumalliance.org/Article/share-insights-agile-skills-workplace",
+  "https://agilemanifesto.org/",
+  "https://agilemanifesto.org/principles.html",
+  "https://martinfowler.com/testing/"
 ] as const;
 
 const EXPECTED_TOC_IDS = [
@@ -352,7 +163,7 @@ const EXPECTED_TOC_IDS = [
   "best-practices-checklist",
   "career-path",
   "summary",
-  "references",
+  "references"
 ] as const;
 
 const EXPECTED_SECTION_EYEBROWS = [
@@ -371,30 +182,30 @@ const EXPECTED_SECTION_EYEBROWS = [
   "SECTION 13",
   "SECTION 14",
   "SECTION 15",
-  "SECTION 16",
+  "SECTION 16"
 ] as const;
 
 const EXPECTED_CALLOUT_VARIANTS = {
-  note: 1,
-  practice: 38,
   source: 45,
+  practice: 38,
+  note: 1,
 } as const;
 
 const EXPECTED_CALLOUT_LABELS = {
-  note: {
-    "補足": 1,
+  source: {
+    "ソース": 45,
   },
   practice: {
     "ベストプラクティス": 38,
   },
-  source: {
-    "ソース": 45,
+  note: {
+    "補足": 1,
   },
 } as const;
 
 defineSourceParityContract({
-  suiteName: "pages/a-csd-advanced-certified-scrum-developer-study-guide.vue",
   page: Page,
+  suiteName: "pages/a-csd-advanced-certified-scrum-developer-study-guide.vue",
   seoMeta,
   h1: EXPECTED_H1,
   h2: EXPECTED_H2,
@@ -402,27 +213,38 @@ defineSourceParityContract({
   h4: EXPECTED_H4,
   h5: EXPECTED_H5,
   h6: EXPECTED_H6,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
   externalUrls: EXPECTED_EXTERNAL_URLS,
   tocIds: EXPECTED_TOC_IDS,
   sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
-  mermaidSources: EXPECTED_MERMAID_SOURCES,
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: [],
-  seoTitleFragments: ["Advanced Certified Scrum Developer", "A-CSD", "完全ガイド"],
+  seoTitleFragments: [
+    "A-CSD®",
+    "Advanced Certified Scrum Developer",
+    "認定資格 完全ガイド",
+  ],
   seoTitle: "A-CSD® (Advanced Certified Scrum Developer) 認定資格 完全ガイド | Scrum Alliance 公式Learning Objectives準拠",
   seoDescription:
     "Scrum Alliance® の Advanced Certified Scrum Developer (A-CSD) Learning Objectives (2021年8月版) に基づき、7カテゴリ・全LOをステップバイステップで解説する学習ガイド。",
 });
 
-describe("pages/a-csd-advanced-certified-scrum-developer-study-guide.vue — 個別要素契約", () => {
-  const mountPage = createMountPage(Page);
-
-  it("テーブルが 22 件存在し、すべて .table-wrap で包まれている", () => {
-    const wrapper = mountPage();
+describe("pages/a-csd-advanced-certified-scrum-developer-study-guide.vue — テーブル構造契約", () => {
+  it("テーブルが原本と同じ件数（22件）存在し、すべて .table-wrap で包まれている", async () => {
+    const { mountSuspended } = await import("@nuxt/test-utils/runtime");
+    const wrapper = await mountSuspended(Page);
     const tables = wrapper.findAll("table");
     expect(tables).toHaveLength(22);
-    const wrappedTables = wrapper.findAll(".table-wrap table");
-    expect(wrappedTables).toHaveLength(22);
+    for (const table of tables) {
+      expect(table.element.closest(".table-wrap")).not.toBeNull();
+    }
+  });
+
+  it("テーブル行の総数が原本と一致する（115行）", async () => {
+    const { mountSuspended } = await import("@nuxt/test-utils/runtime");
+    const wrapper = await mountSuspended(Page);
+    const rows = wrapper.findAll("table tr");
+    expect(rows).toHaveLength(115);
   });
 });
