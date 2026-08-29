@@ -193,7 +193,7 @@ Learn --> P`;
           <li>
             <a
               href="#about-this-guide"
-              :class="{ 'is-active': activeId === 'about-this-guide' }"
+              :class="{ active: activeId === 'about-this-guide' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:info-circle" aria-hidden="true" />この資料について
@@ -202,7 +202,7 @@ Learn --> P`;
           <li>
             <a
               href="#overview"
-              :class="{ 'is-active': activeId === 'overview' }"
+              :class="{ active: activeId === 'overview' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:certificate" aria-hidden="true" />0. CASP資格の全体像
@@ -213,7 +213,7 @@ Learn --> P`;
           <li>
             <a
               href="#what-is-scaling"
-              :class="{ 'is-active': activeId === 'what-is-scaling' }"
+              :class="{ active: activeId === 'what-is-scaling' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:git-branch" aria-hidden="true" />1. スケーリングの定義
@@ -222,7 +222,7 @@ Learn --> P`;
           <li>
             <a
               href="#scaling-myths"
-              :class="{ 'is-active': activeId === 'scaling-myths' }"
+              :class="{ active: activeId === 'scaling-myths' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:list-check" aria-hidden="true" />2. 3つの誤解
@@ -233,7 +233,7 @@ Learn --> P`;
           <li>
             <a
               href="#why-scaling-fails"
-              :class="{ 'is-active': activeId === 'why-scaling-fails' }"
+              :class="{ active: activeId === 'why-scaling-fails' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:alert-triangle" aria-hidden="true" />3. 失敗する理由
@@ -242,7 +242,7 @@ Learn --> P`;
           <li>
             <a
               href="#when-to-scale"
-              :class="{ 'is-active': activeId === 'when-to-scale' }"
+              :class="{ active: activeId === 'when-to-scale' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:clipboard-check" aria-hidden="true" />4. いつスケールすべきか
@@ -253,7 +253,7 @@ Learn --> P`;
           <li>
             <a
               href="#principle-informed-approach"
-              :class="{ 'is-active': activeId === 'principle-informed-approach' }"
+              :class="{ active: activeId === 'principle-informed-approach' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:compass" aria-hidden="true" />5. 原則主導・パターンベース
@@ -262,7 +262,7 @@ Learn --> P`;
           <li>
             <a
               href="#framework-patterns"
-              :class="{ 'is-active': activeId === 'framework-patterns' }"
+              :class="{ active: activeId === 'framework-patterns' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:building-bank" aria-hidden="true" />6. フレームワークのパターン
@@ -271,7 +271,7 @@ Learn --> P`;
           <li>
             <a
               href="#scaffolding"
-              :class="{ 'is-active': activeId === 'scaffolding' }"
+              :class="{ active: activeId === 'scaffolding' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:building" aria-hidden="true" />7. スキャフォールディング
@@ -282,7 +282,7 @@ Learn --> P`;
           <li>
             <a
               href="#strategic-alignment"
-              :class="{ 'is-active': activeId === 'strategic-alignment' }"
+              :class="{ active: activeId === 'strategic-alignment' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:target" aria-hidden="true" />8. 戦略との整合
@@ -291,7 +291,7 @@ Learn --> P`;
           <li>
             <a
               href="#multi-team-multi-site"
-              :class="{ 'is-active': activeId === 'multi-team-multi-site' }"
+              :class="{ active: activeId === 'multi-team-multi-site' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:users-group" aria-hidden="true" />9. マルチチーム・マルチサイト
@@ -302,7 +302,7 @@ Learn --> P`;
           <li>
             <a
               href="#sustaining-transformation"
-              :class="{ 'is-active': activeId === 'sustaining-transformation' }"
+              :class="{ active: activeId === 'sustaining-transformation' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:refresh" aria-hidden="true" />10. 持続可能な変革
@@ -311,7 +311,7 @@ Learn --> P`;
           <li>
             <a
               href="#summary-references"
-              :class="{ 'is-active': activeId === 'summary-references' }"
+              :class="{ active: activeId === 'summary-references' }"
               @click="closeSidebar"
             >
               <Icon name="tabler:flag-3" aria-hidden="true" />11. まとめと参考文献
@@ -1447,6 +1447,7 @@ Learn --> P`;
 }
 
 .sidebar-nav li a:hover,
+.sidebar-nav li a.active,
 .sidebar-nav li a.is-active {
   background: var(--color-indigo-tint);
   color: var(--color-indigo);
