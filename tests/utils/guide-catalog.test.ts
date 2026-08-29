@@ -77,6 +77,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/cal1-chapter3-leading-agile-teams", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第3章" },
       { to: "/cal1-chapter4-leading-agile-organizations", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第4章" },
       { to: "/cal2-part1-organizational-strategy-and-delivery", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 Part 1" },
+      { to: "/cal2-part2-developing-as-a-leader", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 Part 2" },
       { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 完全ガイド" },
       { to: "/ai-driven-project-management-guide", categoryId: "project-management", seriesId: "ai-pm", navLabel: "AI-PM 実践ガイド" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },

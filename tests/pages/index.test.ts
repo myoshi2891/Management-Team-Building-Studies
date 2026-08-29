@@ -187,6 +187,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド",
+        category: "CAL 1 & 2",
+        href: "/cal2-part2-developing-as-a-leader",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 2 (CAL 2™) 学習ガイド",
         category: "CAL 1 & 2",
         href: "/cal2-certified-agile-leader-2-study-guide",
