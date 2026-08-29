@@ -1,4 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
+import { GUIDE_CATEGORIES, type GuideCategoryId } from "../app/utils/guide-catalog";
 
 /*
  * グローバルナビのスモーク。
@@ -10,12 +11,14 @@ import { expect, test, type Page } from "@playwright/test";
  * この経路はここでしか検知できない。
  */
 
-const CATEGORY_IDS = [
-  "project-management",
-  "engineering-management",
-  "engineering-leadership",
-  "team-building",
-] as const;
+/*
+ * 巡回対象のカテゴリーは GUIDE_CATEGORIES（カテゴリー定義の SSoT）から導出する。
+ * ここに固定配列を置くとカテゴリー追加時に二重管理になり、テストは Green のまま
+ * 新カテゴリーのドロップダウンを一度も開かない（＝静かにカバレッジが欠ける）。
+ */
+const CATEGORY_IDS: readonly GuideCategoryId[] = GUIDE_CATEGORIES.map(
+  (category) => category.id,
+);
 
 const MOBILE = { width: 375, height: 720 };
 
