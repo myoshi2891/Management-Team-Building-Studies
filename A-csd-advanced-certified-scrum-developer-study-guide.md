@@ -100,7 +100,7 @@ flowchart TD
     R2 --> R3{"過去5年以内に<br/>Scrum開発者/チームメンバーとして<br/>12か月以上の実務経験があるか?"}
     R3 -- いいえ --> G2["実務経験を積んでから申請する"]
     R3 -- はい --> R4["コースの事前/事後課題を含む<br/>全コンポーネントを完了する"]
-    R4 --> DONE(["A-CSD® 認定取得<br/>(CSD®も自動更新される)"])
+    R4 --> DONE(["A-CSD® 認定取得"])
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
