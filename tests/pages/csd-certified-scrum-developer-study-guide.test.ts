@@ -2,8 +2,8 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi } from "vitest";
-import { defineSourceParityContract } from "../support/page-contract";
+import { describe, expect, it, vi } from "vitest";
+import { createMountPage, defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/csd-certified-scrum-developer-study-guide.vue";
 
 // useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
@@ -71,81 +71,16 @@ const EXPECTED_H3 = [
   "9.2(学習目標6.2)スクラムチームがCIから得られる利益の例",
   "9.3(学習目標6.3)自動化されたビルド・テスト・測定パイプラインの利点",
   "12.1 キャリアパス全体像",
-  "12.2 SEUによる更新の考え方"
-] as const;
-
-const EXPECTED_H4 = [
+  "12.2 SEUによる更新の考え方",
   "一次情報源(Scrum Alliance公式)",
   "一次情報源(フレームワーク・原則)",
   "二次情報源(エンジニアリングプラクティスの解説)"
 ] as const;
 
+const EXPECTED_H4 = [] as const;
+
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
-
-const EXPECTED_EXTERNAL_URLS = [
-  "https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-developer",
-  "https://agilealliance.org/glossary/simple-design",
-  "https://agilealliance.org/glossary/crc-cards/",
-  "https://agilealliance.org/glossary/refactoring/",
-  "https://agilealliance.org/glossary/tdd/",
-  "https://agilealliance.org/glossary/unit-test/",
-  "https://agilealliance.org/glossary/continuous-integration/",
-  "https://agilealliance.org/glossary/pair-programming",
-  "https://agilealliance.org/glossary/collective-ownership/",
-  "https://www.scrumalliance.org/docs/default-source/certification/learning-objectives/csd_learning_objectives_2024.pdf",
-  "https://www.scrumalliance.org/media/certifications/los/scrum_foundations_learning_objectives_2022.pdf",
-  "https://www.scrumalliance.org/get-certified/developer-track/advanced-certified-scrum-developer",
-  "https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers",
-  "https://www.scrumalliance.org/get-certified/scrum-education-units",
-  "https://www.scrumalliance.org/about-scrum/values",
-  "https://resources.scrumalliance.org/article/software-architecture-scrum",
-  "https://scrumguides.org/scrum-guide.html",
-  "https://agilemanifesto.org/",
-  "https://agilemanifesto.org/principles.html",
-  "https://agilealliance.org/agile101/subway-map-to-agile-practices/",
-  "https://agilealliance.org/glossary/continuous-deployment/",
-  "https://agilealliance.org/glossary/pair-programming/",
-  "https://agilealliance.org/glossary/definition-of-done/",
-  "https://agilealliance.org/glossary/backlog-refinement/",
-  "https://refactoring.com/"
-] as const;
-
-const EXPECTED_TOC_IDS = [
-  "about-guide",
-  "what-is-csd",
-  "learning-objectives-structure",
-  "scrum-foundations-review",
-  "category-lean-agile-scrum",
-  "category-collaboration",
-  "category-architecture-design",
-  "category-refactoring",
-  "category-tdd",
-  "category-ci",
-  "xp-integration-map",
-  "best-practices-checklist",
-  "career-path-renewal",
-  "summary",
-  "references"
-] as const;
-
-const EXPECTED_SECTION_EYEBROWS = [
-  "SECTION 01",
-  "SECTION 02",
-  "SECTION 03",
-  "SECTION 04",
-  "SECTION 05",
-  "SECTION 06",
-  "SECTION 07",
-  "SECTION 08",
-  "SECTION 09",
-  "SECTION 10",
-  "SECTION 11",
-  "SECTION 12",
-  "SECTION 13",
-  "SECTION 14",
-  "SECTION 15"
-] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart LR
@@ -293,29 +228,88 @@ const EXPECTED_MERMAID_SOURCES = [
     class CSD,CSPD hub;`
 ] as const;
 
-const EXPECTED_CALLOUT_VARIANTS: Record<string, number> = {
-  note: 4,
-  practice: 15,
-  source: 8,
-};
+const EXPECTED_EXTERNAL_URLS = [
+  "https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-developer",
+  "https://agilealliance.org/glossary/simple-design",
+  "https://agilealliance.org/glossary/crc-cards/",
+  "https://agilealliance.org/glossary/refactoring/",
+  "https://agilealliance.org/glossary/tdd/",
+  "https://agilealliance.org/glossary/unit-test/",
+  "https://agilealliance.org/glossary/continuous-integration/",
+  "https://agilealliance.org/glossary/pair-programming",
+  "https://agilealliance.org/glossary/collective-ownership/",
+  "https://www.scrumalliance.org/docs/default-source/certification/learning-objectives/csd_learning_objectives_2024.pdf",
+  "https://www.scrumalliance.org/media/certifications/los/scrum_foundations_learning_objectives_2022.pdf",
+  "https://www.scrumalliance.org/get-certified/developer-track/advanced-certified-scrum-developer",
+  "https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-professional-for-developers",
+  "https://www.scrumalliance.org/get-certified/scrum-education-units",
+  "https://www.scrumalliance.org/about-scrum/values",
+  "https://resources.scrumalliance.org/article/software-architecture-scrum",
+  "https://scrumguides.org/scrum-guide.html",
+  "https://agilemanifesto.org/",
+  "https://agilemanifesto.org/principles.html",
+  "https://agilealliance.org/agile101/subway-map-to-agile-practices/",
+  "https://agilealliance.org/glossary/continuous-deployment/",
+  "https://agilealliance.org/glossary/pair-programming/",
+  "https://agilealliance.org/glossary/definition-of-done/",
+  "https://agilealliance.org/glossary/backlog-refinement/",
+  "https://refactoring.com/"
+] as const;
 
-const EXPECTED_CALLOUT_LABELS: Record<string, Record<string, number>> = {
-  note: {
-    補足: 4,
-  },
-  practice: {
-    ベストプラクティス: 15,
-  },
-  source: {
-    ソース: 7,
-    ソース補足: 1,
-  },
-};
+const EXPECTED_TOC_IDS = [
+  "about-guide",
+  "what-is-csd",
+  "learning-objectives-structure",
+  "scrum-foundations-review",
+  "category-lean-agile-scrum",
+  "category-collaboration",
+  "category-architecture-design",
+  "category-refactoring",
+  "category-tdd",
+  "category-ci",
+  "xp-integration-map",
+  "best-practices-checklist",
+  "career-path-renewal",
+  "summary",
+  "references"
+] as const;
 
-const EXPECTED_STEP_TAGS: readonly string[] = [];
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+  "SECTION 11",
+  "SECTION 12",
+  "SECTION 13",
+  "SECTION 14",
+  "SECTION 15"
+] as const;
 
-const EXPECTED_SEO_TITLE = "Certified Scrum Developer(CSD) 認定資格 完全ガイド | 初学者向けステップバイステップ解説";
-const EXPECTED_SEO_DESCRIPTION = "Scrum AllianceのCSD Learning Objectivesに基づき、CSD認定の学習目標6カテゴリ(Lean/Agile/Scrum、Collaboration、Architecture、Refactoring、TDD、CI)を初学者向けに解説する完全ガイド。";
+const EXPECTED_CALLOUT_VARIANTS = {
+  "note": 4,
+  "practice": 15,
+  "source": 8
+} as const;
+
+const EXPECTED_CALLOUT_LABELS = {
+  "note": {
+    "補足": 4
+  },
+  "practice": {
+    "ベストプラクティス": 15
+  },
+  "source": {
+    "ソース": 7,
+    "ソース補足": 1
+  }
+} as const;
 
 defineSourceParityContract({
   suiteName: "pages/csd-certified-scrum-developer-study-guide.vue",
@@ -333,9 +327,26 @@ defineSourceParityContract({
   mermaidSources: EXPECTED_MERMAID_SOURCES,
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
-  stepTags: EXPECTED_STEP_TAGS,
-  seoTitleFragments: ["Certified Scrum Developer", "CSD"],
-  seoTitle: EXPECTED_SEO_TITLE,
-  seoDescription: EXPECTED_SEO_DESCRIPTION,
-  allowedHeadingSkips: ["h2 -> h4"],
+  stepTags: [],
+  seoTitleFragments: ["CSD", "Certified Scrum Developer"],
+  seoTitle: "Certified Scrum Developer(CSD) 認定資格 完全ガイド | 初学者向けステップバイステップ解説",
+  seoDescription: "Scrum Alliance Certified Scrum Developer(CSD)認定取得を目指す開発者・エンジニア向けの非公式学習ガイド。6つの学習目標カテゴリ、ブルームの分類法、XPプラクティス、キャリアパスまで網羅的に解説します。",
+});
+
+describe("pages/csd-certified-scrum-developer-study-guide.vue — 個別要素契約", () => {
+  const mountPage = createMountPage(Page);
+
+  it("テーブルが 19 件存在し、すべて .table-wrap で包まれている", () => {
+    const wrapper = mountPage();
+    const tableElements = wrapper.findAll("table");
+    expect(tableElements).toHaveLength(19);
+    const wrappedTables = wrapper.findAll(".table-wrap table");
+    expect(wrappedTables).toHaveLength(19);
+  });
+
+  it("テーブル行の総数が原本と一致する（97行）", () => {
+    const wrapper = mountPage();
+    const rows = wrapper.findAll("table tr");
+    expect(rows).toHaveLength(97);
+  });
 });
