@@ -618,7 +618,7 @@ const DIAGRAM_TRAINER_PATH_FLOW = `flowchart LR
 
       <div class="callout note" data-variant="note" data-testid="callout">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"Upon successful validation of the CSP-D learning objectives, the learner will be able to ..."<br/>(CSP-D の学習目標の達成が確認された時点で、学習者は次のことができるようになる)</p>
+        <p>"Upon successful validation of the CSP-D learning objectives, the learner will be able to ..."<br>(CSP-D の学習目標の達成が確認された時点で、学習者は次のことができるようになる)</p>
       </div>
 
       <div class="diagram-card">
