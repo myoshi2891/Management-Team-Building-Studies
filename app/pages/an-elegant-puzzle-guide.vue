@@ -863,7 +863,7 @@ section {
   margin-bottom: 64px;
 }
 
-:is(h2, h3, h4) {
+:is(h2, h3, h4, section) {
   scroll-margin-top: calc(var(--global-nav-height) + 32px);
 }
 
