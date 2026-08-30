@@ -151,6 +151,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Certified Scrum Developer®(CSD®) 完全学習ガイド",
+        category: "CSM / SCRUM",
+        href: "/csd-certified-scrum-developer-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
         category: "CSM / SCRUM",
         href: "/a-csd-advanced-certified-scrum-developer-study-guide",
