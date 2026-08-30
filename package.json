@@ -62,6 +62,7 @@
     "audit:caf": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Caf-certified-agile-facilitator-study-guide/Caf-certified-agile-facilitator-study-guide.html app/pages/caf-certified-agile-facilitator-study-guide.vue",
     "audit:a-csd": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/A-csd-advanced-certified-scrum-developer-study-guide/A-csd-advanced-certified-scrum-developer-study-guide.html app/pages/a-csd-advanced-certified-scrum-developer-study-guide.vue",
     "audit:csd": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csd-certified-scrum-developer-study-guide/Csd-certified-scrum-developer-study-guide.html app/pages/csd-certified-scrum-developer-study-guide.vue",
+    "audit:csp-d": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csp-d-certified-scrum-professional-developer-study-guide/Csp-d-certified-scrum-professional-developer-study-guide.html app/pages/csp-d-certified-scrum-professional-developer-study-guide.vue",
     "audit:casp": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Casp-certified-agile-scaling-practitioner-study-guide/Casp-certified-agile-scaling-practitioner-study-guide.html app/pages/casp-certified-agile-scaling-practitioner-study-guide.vue"
   },
   "devDependencies": {
