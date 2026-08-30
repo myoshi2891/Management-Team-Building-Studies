@@ -304,7 +304,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       </nav>
 
       <!-- ===================== Main content ===================== -->
-      <main id="main-content" class="main-content">
+      <main id="main-content" class="main-content" tabindex="-1">
         <div class="hero">
           <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true" />Scrum Alliance公式カリキュラムに基づく解説</div>
           <h1>CAL2 Part 2: リーダーとしての成長(Developing as a Leader)</h1>
