@@ -355,7 +355,7 @@ export const GUIDES = [
     seriesId: "csm",
     navLabel: "CSD 完全ガイド",
     title: "Certified Scrum Developer®(CSD®) 完全学習ガイド",
-    description: "Scrum AllianceのCSD Learning Objectivesに基づき、CSD認定の学習目標6カテゴリ(Lean/Agile/Scrum、Collaboration、Architecture、Refactoring、TDD、CI)を初学者向けに解説する完全ガイド。",
+    description: "Scrum Alliance認定 Certified Scrum Developer (CSD) の包括的な学習ガイド。Scrum Foundations、6つの学習目標カテゴリ、ブルームの分類法、XPプラクティス、キャリアパスまで網羅。",
     meta: "15セクション",
     icon: "tabler:certificate",
     accent: "indigo",

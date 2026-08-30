@@ -32,7 +32,7 @@ function closeSidebar(): void {
 useSeoMeta({
   title: "Certified Scrum Developer(CSD) 認定資格 完全ガイド | 初学者向けステップバイステップ解説",
   description:
-    "Scrum AllianceのCSD Learning Objectivesに基づき、CSD認定の学習目標6カテゴリ(Lean/Agile/Scrum、Collaboration、Architecture、Refactoring、TDD、CI)を初学者向けに解説する完全ガイド。",
+    "Scrum Alliance Certified Scrum Developer(CSD)認定取得を目指す開発者・エンジニア向けの非公式学習ガイド。6つの学習目標カテゴリ、ブルームの分類法、XPプラクティス、キャリアパスまで網羅的に解説します。",
 });
 
 const MERMAID_THEME_VARIABLES = {
@@ -210,8 +210,7 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
 </script>
 
 <template>
-  <div class="csd-page">
-    <div class="layout">
+  <div class="layout">
     <button
       ref="sidebarToggle"
       class="sidebar-toggle"
@@ -438,7 +437,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>2.1 ブルームの分類法(Bloom's Taxonomy)</h3>
       <p>CSDの学習目標は、それぞれ「学習者が何をできるようになるか」を示す動詞から始まります。これは教育学における<strong>ブルームの分類法</strong>に基づいており、下位(知識の想起)から上位(判断・評価)へと段階的に思考レベルが上がる構造になっています。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>レベル</th><th>説明</th><th>代表的な動詞(英語)</th></tr></thead>
           <tbody>
@@ -450,7 +448,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>Evaluation(評価)</td><td>判断力を用いて意思決定・問題解決する</td><td>Measure, Assess, Evaluate</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
       <p>各学習目標は「このコースを無事修了した学習者は、〜できるようになる」という文の後に続く形で定義されています。たとえば「define refactoring(リファクタリングを定義できる)」はKnowledgeレベル、「demonstrate working together as one team(ワンチームとして働くことを実演できる)」はApplicationレベル、というように読み解くとコースの意図が理解しやすくなります。</p>
 
@@ -467,7 +464,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       </div>
 
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>カテゴリ</th><th>学習目標数</th><th>主な焦点</th></tr></thead>
           <tbody>
@@ -479,7 +475,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>6. Continuous Integration</td><td>3個(6.1〜6.3)</td><td>CIの定義、自動化パイプラインの利点</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <h3>2.3 Scrum Foundationsとの関係</h3>
@@ -516,7 +511,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
 
       <h3>3.3 Scrum Events and Activities(イベントと活動)</h3>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>イベント</th><th>目的</th><th>最大タイムボックス(1か月スプリントの場合)</th></tr></thead>
           <tbody>
@@ -527,12 +521,10 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
           </tbody>
         </table>
       </div>
-      </div>
       <p>プロダクトバックログリファインメントも重要な活動として位置づけられており、スプリント期間中を通じて継続的に行われます。</p>
 
       <h3>3.4 Scrum Artifacts and Commitments(作成物とコミットメント)</h3>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>作成物</th><th>コミットメント</th><th>役割</th></tr></thead>
           <tbody>
@@ -541,7 +533,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>インクリメント</td><td>Doneの定義</td><td>完成の共通理解を満たした、検査可能な成果物の積み重ね</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
@@ -634,7 +625,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>4.4(学習目標1.4)PBIの属性を理解する</h3>
       <p><strong>説明</strong>: 良いプロダクトバックログアイテムには、共通して見られる属性があります。少なくとも3つ挙げるとすれば、次のようなものが代表的です。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>属性</th><th>説明</th></tr></thead>
           <tbody>
@@ -644,7 +634,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>価値(Value)</td><td>ビジネス上または顧客にとっての価値が示されている</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="callout source" data-testid="callout" data-variant="source">
@@ -681,7 +670,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
 
       <p><strong>透明性を高める要素の例(少なくとも5つ)</strong>:</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>要素</th><th>透明性への貢献</th></tr></thead>
           <tbody>
@@ -692,7 +680,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>受け入れ基準の充足</td><td>プロダクトオーナーの期待との整合が確認できる</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="diagram-card">
@@ -723,7 +710,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>5.1(学習目標2.1)ワーキンググループとチームの違い</h3>
       <p><strong>説明</strong>: 「ワーキンググループ」と「チーム」は似て非なる概念です。少なくとも3つの違いを理解しておくことが求められます。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>観点</th><th>ワーキンググループ</th><th>チーム</th></tr></thead>
           <tbody>
@@ -732,7 +718,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>協働の度合い</td><td>情報共有が中心、作業は個別に進む</td><td>作業そのものを協働で進める</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <h3>5.2(学習目標2.2)効果的なチームの属性</h3>
@@ -754,7 +739,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>5.4(学習目標2.4)開発者が顧客・ユーザーと直接対話する利点</h3>
       <p>少なくとも3つの利点が挙げられます。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>利点</th><th>説明</th></tr></thead>
           <tbody>
@@ -763,7 +747,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>開発者のモチベーション向上</td><td>自分の仕事が誰にどう使われるかを実感できる</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <h3>5.5(学習目標2.5)ステークホルダー・顧客・ユーザーとのコラボレーション方法</h3>
@@ -807,7 +790,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>6.1(学習目標3.1)技術的卓越性の利点</h3>
       <p>少なくとも3つの利点が挙げられます。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>利点</th><th>説明</th></tr></thead>
           <tbody>
@@ -816,7 +798,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>品質と信頼の向上</td><td>欠陥が減り、ステークホルダーからの信頼を得やすくなる</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <h3>6.2(学習目標3.2)アジャイルチームにおける設計プラクティス</h3>
@@ -906,7 +887,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>7.2(学習目標4.2)リファクタリングの利点</h3>
       <p>少なくとも3つの利点が挙げられます。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>利点</th><th>アジャイル開発への貢献</th></tr></thead>
           <tbody>
@@ -915,7 +895,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>技術的負債の抑制</td><td>スプリントを重ねても開発速度が落ちにくくなる</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
@@ -941,7 +920,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <p><strong>説明</strong>: テストファースト(Test-First)とは、プロダクションコードを書く前に、まずそのコードが満たすべき振る舞いを検証する<strong>失敗するテスト</strong>を書くアプローチです。これはTDDの出発点であり、単なるテスト手法ではなく<strong>設計手法</strong>として位置づけられます。</p>
       <p><strong>少なくとも3つの利点</strong>:</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>利点</th><th>説明</th></tr></thead>
           <tbody>
@@ -951,12 +929,10 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
           </tbody>
         </table>
       </div>
-      </div>
 
       <h3>8.2(学習目標5.2)伝統的テストとアジャイルテストの違い</h3>
       <p>少なくとも3つの違いが挙げられます。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>観点</th><th>伝統的テスト</th><th>アジャイルテスト</th></tr></thead>
           <tbody>
@@ -966,7 +942,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>自動化の比重</td><td>手動テストの比重が高い傾向</td><td>自動テストを土台に据える</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <h3>8.3(学習目標5.3)TDDサイクルにおけるリファクタリングの重要性</h3>
@@ -1021,7 +996,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h3>8.4(学習目標5.4)良いアジャイルテストアプローチの質</h3>
       <p>少なくとも3つの質が挙げられます。</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>質</th><th>説明</th></tr></thead>
           <tbody>
@@ -1031,7 +1005,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>決定的である</td><td>同じ条件では常に同じ結果を返す(Flakyでない)</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="callout note" data-testid="callout" data-variant="note">
@@ -1054,7 +1027,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <p><strong>説明</strong>: 継続的インテグレーション(Continuous Integration, CI)とは、<strong>開発者が自分の作業を頻繁に(少なくとも1日に1回以上)共有のメインラインに統合し、その都度自動ビルド・自動テストで検証するプラクティス</strong>です。</p>
       <p><strong>少なくとも3つの利点</strong>:</p>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>利点</th><th>説明</th></tr></thead>
           <tbody>
@@ -1063,7 +1035,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>リリース準備の常態化</td><td>いつでもリリース可能な状態に近いコードベースを維持できる</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <h3>9.2(学習目標6.2)スクラムチームがCIから得られる利益の例</h3>
@@ -1132,7 +1103,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <p>この輪は、どれか一つが欠けると他のプラクティスの効果も弱まる、という相互依存の関係を表しています。</p>
 
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>プラクティス</th><th>このプラクティスを支える理由</th><th>支えられる理由</th></tr></thead>
           <tbody>
@@ -1145,10 +1115,8 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
           </tbody>
         </table>
       </div>
-      </div>
 
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>CSDカテゴリ</th><th>対応するXPプラクティス</th><th>Agile Allianceグロッサリー</th></tr></thead>
           <tbody>
@@ -1159,7 +1127,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>(関連する協働プラクティス)</td><td>Pair Programming, Collective Ownership</td><td><a href="https://agilealliance.org/glossary/pair-programming" target="_blank" rel="noopener">pair-programming</a>, <a href="https://agilealliance.org/glossary/collective-ownership/" target="_blank" rel="noopener">collective-ownership</a></td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
@@ -1176,7 +1143,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <p>CSDで扱う6カテゴリについて、現場で実践する際のチェックリストとして整理しました。</p>
 
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>カテゴリ</th><th>チェック項目</th></tr></thead>
           <tbody>
@@ -1188,7 +1154,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>Continuous Integration</td><td>1日1回以上メインラインに統合しているか / ビルド失敗を放置しない文化があるか</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
     </section>
 
@@ -1210,7 +1175,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
 
       <h3>12.2 SEUによる更新の考え方</h3>
       <div class="table-wrap">
-        <div class="table-wrap">
         <table>
           <thead><tr><th>学習活動の例</th><th>SEU換算の考え方(目安)</th></tr></thead>
           <tbody>
@@ -1219,7 +1183,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
             <tr><td>追加の認定コースを受講する</td><td>まとまった時間分のSEUが認められる</td></tr>
           </tbody>
         </table>
-      </div>
       </div>
 
       <div class="callout note" data-testid="callout" data-variant="note">
@@ -1258,7 +1221,7 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       <h2>参考文献・出典一覧</h2>
 
       <div class="ref-group">
-        <h4>一次情報源(Scrum Alliance公式)</h4>
+        <h3>一次情報源(Scrum Alliance公式)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Certified Scrum Developer(CSD)公式ページ</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-developer" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/developer-track/certified-scrum-developer</a></li>
           <li><span class="ref-name">CSD Learning Objectives(PDF, 2024)</span><a class="ref-url" href="https://www.scrumalliance.org/docs/default-source/certification/learning-objectives/csd_learning_objectives_2024.pdf" target="_blank" rel="noopener">https://www.scrumalliance.org/docs/default-source/certification/learning-objectives/csd_learning_objectives_2024.pdf</a></li>
@@ -1272,7 +1235,7 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       </div>
 
       <div class="ref-group">
-        <h4>一次情報源(フレームワーク・原則)</h4>
+        <h3>一次情報源(フレームワーク・原則)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">The Scrum Guide(Ken Schwaber & Jeff Sutherland, 2020)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
           <li><span class="ref-name">Manifesto for Agile Software Development</span><a class="ref-url" href="https://agilemanifesto.org/" target="_blank" rel="noopener">https://agilemanifesto.org/</a></li>
@@ -1281,7 +1244,7 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       </div>
 
       <div class="ref-group">
-        <h4>二次情報源(エンジニアリングプラクティスの解説)</h4>
+        <h3>二次情報源(エンジニアリングプラクティスの解説)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Agile Alliance: Subway Map to Agile Practices</span><a class="ref-url" href="https://agilealliance.org/agile101/subway-map-to-agile-practices/" target="_blank" rel="noopener">https://agilealliance.org/agile101/subway-map-to-agile-practices/</a></li>
           <li><span class="ref-name">Agile Alliance Glossary: Refactoring</span><a class="ref-url" href="https://agilealliance.org/glossary/refactoring/" target="_blank" rel="noopener">https://agilealliance.org/glossary/refactoring/</a></li>
@@ -1311,7 +1274,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
       Certified Scrum Developer&reg;、CSD&reg;、Advanced Certified Scrum Developer&reg;、A-CSD&reg;、Certified Scrum Professional&reg;、CSP&reg;、Scrum Alliance&reg; は Scrum Alliance, Inc. の登録商標です。本ページはScrum Allianceが公開する一次資料に基づいて作成した非公式の学習教材であり、Scrum Allianceによる公式認定コンテンツではありません。
     </footer>
     </main>
-    </div>
   </div>
 </template>
 
@@ -1493,7 +1455,6 @@ const DIAGRAM_CAREER_PATH_RENEWAL = `flowchart TB
 .main-content {
   margin-left: var(--sidebar-width);
   padding: 56px 72px 120px;
-  max-width: 1200px;
 }
 
 .hero {
@@ -1793,7 +1754,7 @@ td strong, th strong { color: var(--color-ink); }
 /* ===================== Step list (roadmap) ===================== */
 .step-list {
   list-style: none;
-  margin: 0;
+  margin: 0 0 18px 0;
   padding: 0;
   display: grid;
   gap: 16px;

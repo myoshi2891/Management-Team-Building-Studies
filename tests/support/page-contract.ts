@@ -77,8 +77,6 @@ export interface SourceParityContractInput {
    * 語順・副題・区切り記号がずれても検知できないため、可能な限り指定する。
    */
   readonly seoTitle?: string;
-  /** 原本に存在する正当な見出しスキップ（例: h2直下にh4がある場合など）を許可するリスト。 */
-  readonly allowedHeadingSkips?: readonly string[];
   /** 原本の useSeoMeta の description 全文（凍結リテラル）。与えた場合は完全一致で照合する。 */
   readonly seoDescription?: string;
 }
@@ -333,9 +331,7 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
         if (previous && level > previous + 1) skips.push(`h${previous} -> h${level}`);
         previous = level;
       }
-      const allowed = contract.allowedHeadingSkips ?? [];
-      const actualSkips = skips.filter((s) => !allowed.includes(s));
-      expect(actualSkips).toEqual([]);
+      expect(skips).toEqual([]);
     });
   });
 }
