@@ -149,9 +149,9 @@ const EXPECTED_SECTION_EYEBROWS = [
 
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart LR
-    A["Scrum Foundations\\n共通の基礎知識"] --> B["CSD\\nCertified Scrum Developer"]
-    B --> C["A-CSD\\nAdvanced Certified\\nScrum Developer"]
-    C --> D["CSP-D\\nCertified Scrum Professional\\nfor Developers"]
+    A["Scrum Foundations\n共通の基礎知識"] --> B["CSD\nCertified Scrum Developer"]
+    B --> C["A-CSD\nAdvanced Certified\nScrum Developer"]
+    C --> D["CSP-D\nCertified Scrum Professional\nfor Developers"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
@@ -160,8 +160,8 @@ const EXPECTED_MERMAID_SOURCES = [
     class B hub;
     class C,D done;`,
   `flowchart TB
-    A["Scrum Alliance認定CSDトレーナーによる\\n14時間以上の正式トレーニングを受講"] --> B["CSDアセスメントで理解度を証明\\n試験形式またはクラス内での実技評価"]
-    B --> C["CSDライセンスを受諾し\\nScrum Allianceプロフィールに登録"]
+    A["Scrum Alliance認定CSDトレーナーによる\n14時間以上の正式トレーニングを受講"] --> B["CSDアセスメントで理解度を証明\n試験形式またはクラス内での実技評価"]
+    B --> C["CSDライセンスを受諾し\nScrum Allianceプロフィールに登録"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class A,B,C box;`,
@@ -180,9 +180,9 @@ const EXPECTED_MERMAID_SOURCES = [
     class C1,C2,C3,C4,C5,C6 hub;`,
   `flowchart TB
     Emp["経験主義 Empiricism"]
-    Emp --> P1["透明性\\nTransparency"]
-    Emp --> P2["検査\\nInspection"]
-    Emp --> P3["適応\\nAdaptation"]
+    Emp --> P1["透明性\nTransparency"]
+    Emp --> P2["検査\nInspection"]
+    Emp --> P3["適応\nAdaptation"]
 
     V["スクラムの5つの価値基準"]
     V --> V1["確約 Commitment"]
@@ -196,24 +196,24 @@ const EXPECTED_MERMAID_SOURCES = [
     class Emp,P1,P2,P3 box;
     class V,V1,V2,V3,V4,V5 done;`,
   `flowchart LR
-    A["前日までの進捗を検査"] --> B["スプリントゴールとの\\nギャップを確認"]
-    B --> C["翌24時間の計画を\\n開発者同士で調整"]
-    C --> D["必要に応じて\\nスプリントバックログを更新"]
+    A["前日までの進捗を検査"] --> B["スプリントゴールとの\nギャップを確認"]
+    B --> C["翌24時間の計画を\n開発者同士で調整"]
+    C --> D["必要に応じて\nスプリントバックログを更新"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class A,B,C,D box;`,
   `flowchart TB
-    A["プロダクトバックログアイテムを\\n検査する"] --> B{"詳細・見積り・順序は\\n十分か?"}
-    B -- "不十分" --> C["開発者・POが対話し\\nPBIを分割・詳細化・再見積り"]
+    A["プロダクトバックログアイテムを\n検査する"] --> B{"詳細・見積り・順序は\n十分か?"}
+    B -- "不十分" --> C["開発者・POが対話し\nPBIを分割・詳細化・再見積り"]
     C --> A
-    B -- "十分" --> D["次のスプリントプランニングで\\n選択可能な状態にする"]
+    B -- "十分" --> D["次のスプリントプランニングで\n選択可能な状態にする"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     class A,C,D box;
     class B hub;`,
   `flowchart LR
-    A["Doneの定義"] --> B["インクリメントの\\n品質基準を明文化"]
+    A["Doneの定義"] --> B["インクリメントの\n品質基準を明文化"]
     B --> C["透明性の向上"]
     C --> D["進捗を正しく検査できる"]
     D --> E["的確な適応判断ができる"]
@@ -221,29 +221,29 @@ const EXPECTED_MERMAID_SOURCES = [
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class A,B,C,D,E box;`,
   `flowchart LR
-    SP["スプリントプランニング\\nステークホルダーの意向を反映"] --> DEV["開発期間中\\nユーザーインタビューや\\nプロトタイプでのフィードバック収集"]
-    DEV --> SR["スプリントレビュー\\nインクリメントを提示し\\nフィードバックを得る"]
+    SP["スプリントプランニング\nステークホルダーの意向を反映"] --> DEV["開発期間中\nユーザーインタビューや\nプロトタイプでのフィードバック収集"]
+    DEV --> SR["スプリントレビュー\nインクリメントを提示し\nフィードバックを得る"]
     SR --> SP
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class SP,DEV,SR box;`,
   `flowchart TB
     A["アジャイルアーキテクチャの原則"]
-    A --> B["創発的アーキテクチャ\\n必要になった時点で\\n設計を進化させる"]
-    A --> C["変更コストを下げる設計\\n疎結合・高凝集を志向する"]
-    A --> D["継続的なリファクタリングによる\\n設計の健全性維持"]
+    A --> B["創発的アーキテクチャ\n必要になった時点で\n設計を進化させる"]
+    A --> C["変更コストを下げる設計\n疎結合・高凝集を志向する"]
+    A --> D["継続的なリファクタリングによる\n設計の健全性維持"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class A,B,C,D box;`,
   `flowchart LR
-    A["リファクタリング前のコード\\n振る舞いは変化なし"] --> B["内部構造を\\n段階的に改善"]
-    B --> C["リファクタリング後のコード\\n振る舞いは同じ、構造はより良い"]
+    A["リファクタリング前のコード\n振る舞いは変化なし"] --> B["内部構造を\n段階的に改善"]
+    B --> C["リファクタリング後のコード\n振る舞いは同じ、構造はより良い"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class A,B,C box;`,
   `flowchart LR
-    R["Red\\n失敗するテストを書く"] --> G["Green\\nテストを通す\\n最小限のコードを書く"]
-    G --> F["Refactor\\n振る舞いを変えずに\\n内部構造を改善する"]
+    R["Red\n失敗するテストを書く"] --> G["Green\nテストを通す\n最小限のコードを書く"]
+    G --> F["Refactor\n振る舞いを変えずに\n内部構造を改善する"]
     F --> R
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
@@ -254,9 +254,9 @@ const EXPECTED_MERMAID_SOURCES = [
     class F box;`,
   `flowchart TB
     CI["継続的インテグレーション"]
-    CI --> A["インクリメントの品質が\\nスプリント中を通じて\\n継続的に検査できる"]
-    CI --> B["Doneの定義における\\n自動テスト合格を\\n常に満たしやすくなる"]
-    CI --> C["複数の開発者が\\n同時並行で作業しても\\n統合リスクが低い"]
+    CI --> A["インクリメントの品質が\nスプリント中を通じて\n継続的に検査できる"]
+    CI --> B["Doneの定義における\n自動テスト合格を\n常に満たしやすくなる"]
+    CI --> C["複数の開発者が\n同時並行で作業しても\n統合リスクが低い"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
@@ -264,30 +264,31 @@ const EXPECTED_MERMAID_SOURCES = [
     class A,B,C box;`,
   `flowchart LR
     A["コードをコミットまたはプッシュ"] --> B["自動ビルド"]
-    B --> C["自動テスト実行\\n単体・結合"]
-    C --> D["コード品質とカバレッジの\\n自動測定"]
-    D --> E["結果をチームに\\nフィードバック"]
+    B --> C["自動テスト実行\n単体・結合"]
+    C --> D["コード品質とカバレッジの\n自動測定"]
+    D --> E["結果をチームに\nフィードバック"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class A,B,C,D,E box;`,
   `flowchart TB
-    TDD["Test-Driven\\nDevelopment"] --> Refactor["Refactoring"]
+    TDD["Test-Driven\nDevelopment"] --> Refactor["Refactoring"]
     Refactor --> SimpleDesign["Simple Design"]
-    SimpleDesign --> CI["Continuous\\nIntegration"]
-    CI --> CollectiveOwnership["Collective Code\\nOwnership"]
+    SimpleDesign --> CI["Continuous\nIntegration"]
+    CI --> CollectiveOwnership["Collective Code\nOwnership"]
     CollectiveOwnership --> PairProgramming["Pair Programming"]
     PairProgramming --> TDD
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     class TDD,Refactor,SimpleDesign,CI,CollectiveOwnership,PairProgramming box;`,
   `flowchart TB
-    CSD["CSD取得"] --> Practice["実務でエンジニアリング\\nプラクティスを実践"]
-    Practice --> Renew["2年ごとにSEUを提出し\\n更新手数料を払って更新する"]
-    Practice --> Advance["経験を積んで\\nA-CSDに挑戦"]
-    Advance --> CSPD["さらに経験とSEUを積み\\nCSP-Dに挑戦"]
+    CSD["CSD取得"] --> Practice["実務でエンジニアリング\nプラクティスを実践"]
+    Practice --> Renew["2年ごとにSEUを提出し\n更新手数料を払って更新する"]
+    Practice --> Advance["経験を積んで\nA-CSDに挑戦"]
+    Advance --> CSPD["さらに経験とSEUを積み\nCSP-Dに挑戦"]
     Renew --> Practice
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     class Practice,Renew,Advance box;
     class CSD,CSPD hub;`
 ] as const;
@@ -336,4 +337,5 @@ defineSourceParityContract({
   seoTitleFragments: ["Certified Scrum Developer", "CSD"],
   seoTitle: EXPECTED_SEO_TITLE,
   seoDescription: EXPECTED_SEO_DESCRIPTION,
+  allowedHeadingSkips: ["h2 -> h4"],
 });
