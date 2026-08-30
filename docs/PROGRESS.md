@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `75e2d71` — style(csp-d): align page stylesheet and typography with original HTML design（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `68868d9` — chore(archive): untrack archived study guide files（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（横スクロール禁止は e2e で全幅域を固定済み。§50 参照。登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクションとグローバルナビのメガメニューの両方が自動で追随する。**`seriesId` は省略不可**） |
 | ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2-p2` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run audit:an-elegant-puzzle` ✔ / `npm run audit:caf` ✔ / `npm run audit:csd` ✔ / `npm run audit:a-csd` ✔ / `npm run audit:csp-d` ✔ / `npm run audit:casp` ✔ / `npm run test:e2e` ✔ / `npm run build` ✔（2026-08-30 実測） |
 | テスト数 | **1330** ユニット（MermaidDiagram 11 + SiteHeader 21 + useActiveHeading 9 + guide-catalog 18 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 8 + csp-d-certified-scrum-professional-developer-study-guide page 25 + csd-certified-scrum-developer-study-guide page 25 + casp-certified-agile-scaling-practitioner-study-guide page 24 + a-csd-advanced-certified-scrum-developer-study-guide page 25 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 Part 2 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25 + an-elegant-puzzle-guide page 25 + caf-certified-agile-facilitator-study-guide page 24）+ **20** E2E（capm 4 + site-header 13 + no-horizontal-scroll 3）— これがベースライン |
@@ -746,7 +746,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 | 監査スクリプト | `package.json` に `audit:an-elegant-puzzle` を追加 → **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `An-elegant-puzzle-guide.html` / `.md` を `archive/An-elegant-puzzle-guide/` 配下へ移動 |
 
-### 50. Certified Agile Facilitator(CAF)学習ガイドの Nuxt 移行
+### §52. Certified Agile Facilitator(CAF)学習ガイドの Nuxt 移行
 
 - **原本**: `archive/Caf-certified-agile-facilitator-study-guide/Caf-certified-agile-facilitator-study-guide.html`
 - **原本 Markdown**: `archive/Caf-certified-agile-facilitator-study-guide/Caf-certified-agile-facilitator-study-guide.md`
@@ -767,7 +767,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 | 監査スクリプト | `package.json` に `audit:caf` を追加 → **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `Caf-certified-agile-facilitator-study-guide.html` / `.md` を `archive/Caf-certified-agile-facilitator-study-guide/` 配下へ移動 |
 
-### 51. CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイドの Nuxt 移行
+### §53. CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイドの Nuxt 移行
 
 - **原本**: `archive/Cal2-part2-developing-as-a-leader/Cal2-part2-developing-as-a-leader.html`
 - **原本 Markdown**: `archive/Cal2-part2-developing-as-a-leader/Cal2-part2-developing-as-a-leader.md`
@@ -781,7 +781,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
   - callout 要素（note 2, practice 6, source 6、計14件）に `data-testid="callout"` / `data-variant="..."`、section-eyebrow（10件）に `data-testid="section-eyebrow"` を付与。
   - Mermaid 図解 6 本（`growthMindsetCycle`, `developmentLevelMapping`, `crucialConversationsCycle`, `radicalCandorMatrix`, `managingSelfToOthers`, `rapidFramework`）を完全移植。
 
-### 52. Advanced Certified Scrum Developer® (A-CSD®) 完全ガイドの Nuxt 移行
+### §54. Advanced Certified Scrum Developer® (A-CSD®) 完全ガイドの Nuxt 移行
 
 - **原本**: `archive/A-csd-advanced-certified-scrum-developer-study-guide/A-csd-advanced-certified-scrum-developer-study-guide.html`
 - **原本 Markdown**: `archive/A-csd-advanced-certified-scrum-developer-study-guide/A-csd-advanced-certified-scrum-developer-study-guide.md`
@@ -802,7 +802,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 | 監査スクリプト | `package.json` に `audit:a-csd` を追加 → **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `A-csd-advanced-certified-scrum-developer-study-guide.html` / `.md` を `archive/A-csd-advanced-certified-scrum-developer-study-guide/` 配下へ移動 |
 
-### 53. Certified Agile Scaling Practitioner 1 (CASP) 完全学習ガイドの Nuxt 移行
+### §55. Certified Agile Scaling Practitioner 1 (CASP) 完全学習ガイドの Nuxt 移行
 
 - **原本**: `archive/Casp-certified-agile-scaling-practitioner-study-guide/Casp-certified-agile-scaling-practitioner-study-guide.html`
 - **原本 Markdown**: `archive/Casp-certified-agile-scaling-practitioner-study-guide/Casp-certified-agile-scaling-practitioner-study-guide.md`
@@ -828,7 +828,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 0b67346
+コードコミット HEAD: 68868d9
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
@@ -836,7 +836,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   undefined を明示する。挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守ること。
   tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
   tests/components/SiteHeader.test.ts の固定契約も追随更新する。
-  1 シリーズカラムは 10 件・1 カテゴリーは 5 カラムが上限（§50）。超えたら
+  1 シリーズカラムは 12 件・1 カテゴリーは 5 カラムが上限（§50）。超えたら
   閾値ではなくシリーズの粒度を分割し直すこと。
 
 完了済み:
@@ -894,11 +894,11 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1279 件 / E2E 20 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
+  - ユニットテスト 1330 件 / E2E 20 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - test / typecheck / lint はいずれも 2026-08-30 時点で ✔（実測）
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 49 本 exit 0 パス
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 51 本 exit 0 パス
 
-ベースラインテスト数: ユニット 1279 + E2E 20
+ベースラインテスト数: ユニット 1330 + E2E 20
 ```
 
 
