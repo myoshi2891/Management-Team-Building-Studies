@@ -145,6 +145,36 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-forest",
       },
       {
+        title: "Certified Agile Facilitator(CAF)学習ガイド",
+        category: "CSM / SCRUM",
+        href: "/caf-certified-agile-facilitator-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Certified Scrum Developer®(CSD®) 完全学習ガイド",
+        category: "CSM / SCRUM",
+        href: "/csd-certified-scrum-developer-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
+        category: "CSM / SCRUM",
+        href: "/a-csd-advanced-certified-scrum-developer-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "CSP-D® 認定資格 完全ガイド | Certified Scrum Professional - Developer",
+        category: "CSM / SCRUM",
+        href: "/csp-d-certified-scrum-professional-developer-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
+        category: "CSM / SCRUM",
+        href: "/casp-certified-agile-scaling-practitioner-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
         category: "CAL 1 & 2",
         href: "/cal1-certified-agile-leader-1-guide",
@@ -178,6 +208,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
         category: "CAL 1 & 2",
         href: "/cal2-part1-organizational-strategy-and-delivery",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド",
+        category: "CAL 1 & 2",
+        href: "/cal2-part2-developing-as-a-leader",
         accentClass: "guide-card-gold",
       },
       {
@@ -220,6 +256,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "ENGINEERING MANAGEMENT",
         href: "/high-output-management-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "An Elegant Puzzle: Systems of Engineering Management 徹底解説ガイド",
+        category: "ENGINEERING MANAGEMENT",
+        href: "/an-elegant-puzzle-guide",
         accentClass: "guide-card-indigo",
       },
       {
@@ -335,8 +377,8 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "24 ガイド", cards: 24 },
-      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "5 ガイド", cards: 5 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "30 ガイド", cards: 30 },
+      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "6 ガイド", cards: 6 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "9 ガイド", cards: 9 },
     ]);

@@ -134,12 +134,25 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
     });
 
     it("S-3: 原本の外部リンク URL が全件存在する", () => {
-      const actual = new Set(
+      // 出現「回数」で照合する。Set 化すると原本に 2 回出る URL が
+      // ページ側 1 回でも通ってしまい、転写漏れを見逃す。
+      const count = (urls: readonly string[]) => {
+        const tally = new Map<string, number>();
+        for (const url of urls) {
+          const key = normalizeUrl(url);
+          tally.set(key, (tally.get(key) ?? 0) + 1);
+        }
+        return tally;
+      };
+      const actual = count(
         mountPage()
           .findAll("a[href^='http']")
-          .map((el) => normalizeUrl(el.attributes("href") ?? "")),
+          .map((el) => el.attributes("href") ?? ""),
       );
-      const missing = externalUrls.filter((url) => !actual.has(normalizeUrl(url)));
+      // 原本より多い分は許容する（ページ独自の導線は S-3 の対象外）。
+      const missing = [...count(externalUrls)]
+        .filter(([url, expected]) => (actual.get(url) ?? 0) < expected)
+        .map(([url]) => url);
       expect(missing).toEqual([]);
     });
 

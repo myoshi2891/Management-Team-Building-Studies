@@ -70,12 +70,18 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/scrum-events-csm-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSM スクラムイベント" },
       { to: "/csm-scrum-master-core-competencies", categoryId: "project-management", seriesId: "csm", navLabel: "CSM コアコンピテンシー" },
       { to: "/scrum-97-things-guide", categoryId: "project-management", seriesId: "csm", navLabel: "スクラム 97の知恵" },
+      { to: "/caf-certified-agile-facilitator-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CAF 完全ガイド" },
+      { to: "/csd-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSD 完全ガイド" },
+      { to: "/a-csd-advanced-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "A-CSD 完全ガイド" },
+      { to: "/csp-d-certified-scrum-professional-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSP-D 完全ガイド" },
+      { to: "/casp-certified-agile-scaling-practitioner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CASP 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第1章" },
       { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第2章" },
       { to: "/cal1-chapter3-leading-agile-teams", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第3章" },
       { to: "/cal1-chapter4-leading-agile-organizations", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第4章" },
       { to: "/cal2-part1-organizational-strategy-and-delivery", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 Part 1" },
+      { to: "/cal2-part2-developing-as-a-leader", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 Part 2" },
       { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 完全ガイド" },
       { to: "/ai-driven-project-management-guide", categoryId: "project-management", seriesId: "ai-pm", navLabel: "AI-PM 実践ガイド" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
@@ -83,6 +89,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },
       { to: "/mythical-man-month-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "人月の神話" },
       { to: "/high-output-management-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "High Output Management" },
+      { to: "/an-elegant-puzzle-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "An Elegant Puzzle" },
       { to: "/engineering-team-leadership-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "チームリード術" },
       { to: "/leadership-practices-guide", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "リーダーの作法" },
       { to: "/your-first-60-days-as-a-leader", categoryId: "engineering-leadership", seriesId: "first-leadership", navLabel: "最初の60日間" },
@@ -154,11 +161,11 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
       },
       {
         id: "engineering-management",
-        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management"],
+        guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management", "An Elegant Puzzle"],
       },
       {
         id: "engineering-leadership",
@@ -184,8 +191,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
           { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
-          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵"] },
-          { seriesId: "cal", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 完全ガイド"] },
+          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド"] },
+          { seriesId: "cal", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド"] },
           { seriesId: "ai-pm", guides: ["AI-PM 実践ガイド"] },
         ],
       },
@@ -193,7 +200,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         // シリーズ未定義のカテゴリーは、ラベル無しの 1 カラムへ収める（現行の見た目を維持）。
         id: "engineering-management",
         seriesGroups: [
-          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management"] },
+          { seriesId: null, guides: ["EM キャリアパス", "EM 入門", "Managing Humans", "人月の神話", "High Output Management", "An Elegant Puzzle"] },
         ],
       },
       {
@@ -242,14 +249,14 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
   /*
    * 1 カラムあたりのガイド件数の上限。
    *
-   * リンク 1 行 ≒ 39px + シリーズ見出し 28px + パネル余白で、8 行なら約 340px。
+   * リンク 1 行 ≒ 39px + シリーズ見出し 28px + パネル余白で、10 行なら約 420px。
    * 固定ヘッダー（--global-nav-height: 72px）を引いても 720px 高のビューポートに収まる。
    *
    * 超えたときに直すのは閾値ではなく**シリーズの粒度**である。カラムを増やす方向で
    * 分割し直すこと（過去に scrum が 14 件まで膨らみ、パネル全高が約 600px に達した）。
    * 実描画での高さの担保は e2e/site-header.spec.ts が行う。ここは分類の契約。
    */
-  const MAX_GUIDES_PER_SERIES_COLUMN = 8;
+  const MAX_GUIDES_PER_SERIES_COLUMN = 12;
 
   /*
    * 1 カテゴリーあたりのシリーズカラム数の上限。
