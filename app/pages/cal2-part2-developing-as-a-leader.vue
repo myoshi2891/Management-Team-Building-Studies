@@ -181,7 +181,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       :aria-expanded="sidebarOpen"
       @click="sidebarOpen = !sidebarOpen"
     >
-      <i class="ti ti-menu-2" aria-hidden="true" />
+      <Icon name="tabler:menu-2" aria-hidden="true" />
     </button>
 
     <div class="layout">
@@ -207,7 +207,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'guide-overview' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-certificate" aria-hidden="true" />本ガイドの位置づけ
+              <Icon name="tabler:certificate" aria-hidden="true" />本ガイドの位置づけ
             </a>
           </li>
           <li>
@@ -217,7 +217,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'overcoming-growth-obstacles' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-seedling" aria-hidden="true" />2.1 成長の障壁
+              <Icon name="tabler:seedling" aria-hidden="true" />2.1 成長の障壁
             </a>
           </li>
           <li>
@@ -227,7 +227,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'personalized-leadership-approach' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-compass" aria-hidden="true" />2.2 リーダーシップスタイル
+              <Icon name="tabler:compass" aria-hidden="true" />2.2 リーダーシップスタイル
             </a>
           </li>
           <li>
@@ -237,7 +237,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'difficult-conversations' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-messages" aria-hidden="true" />2.3 困難な対話
+              <Icon name="tabler:messages" aria-hidden="true" />2.3 困難な対話
             </a>
           </li>
           <li>
@@ -247,7 +247,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'giving-receiving-feedback' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-message-dots" aria-hidden="true" />2.4 フィードバック
+              <Icon name="tabler:message-dots" aria-hidden="true" />2.4 フィードバック
             </a>
           </li>
           <li>
@@ -257,7 +257,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'managing-people-challenges' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-users" aria-hidden="true" />2.5 メンバーマネジメント
+              <Icon name="tabler:users" aria-hidden="true" />2.5 メンバーマネジメント
             </a>
           </li>
           <li>
@@ -267,7 +267,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'delegation-decision-making' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-scale" aria-hidden="true" />2.6 権限移譲と意思決定
+              <Icon name="tabler:scale" aria-hidden="true" />2.6 権限移譲と意思決定
             </a>
           </li>
           <li>
@@ -277,7 +277,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'framework-integration-summary' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-flag-3" aria-hidden="true" />まとめ
+              <Icon name="tabler:flag-3" aria-hidden="true" />まとめ
             </a>
           </li>
           <li>
@@ -287,7 +287,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'glossary' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-book-2" aria-hidden="true" />用語集
+              <Icon name="tabler:book-2" aria-hidden="true" />用語集
             </a>
           </li>
           <li>
@@ -297,7 +297,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
               :aria-current="activeId === 'references' ? 'location' : undefined"
               @click="closeSidebar"
             >
-              <i class="ti ti-link" aria-hidden="true" />参考文献・ソース一覧
+              <Icon name="tabler:link" aria-hidden="true" />参考文献・ソース一覧
             </a>
           </li>
         </ul>
@@ -306,7 +306,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <!-- ===================== Main content ===================== -->
       <main id="main-content" class="main-content" tabindex="-1">
         <div class="hero">
-          <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true" />Scrum Alliance公式カリキュラムに基づく解説</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance公式カリキュラムに基づく解説</div>
           <h1>CAL2 Part 2: リーダーとしての成長(Developing as a Leader)</h1>
           <p class="hero-lede">
             本ガイドは Scrum Alliance 公式ページ(CAL 2 - Certified Agile Leader 2)に掲載されている公式カリキュラムの Part 2「Developing as a Leader」を、初学者向けにステップバイステップで詳しく解説するものです。
@@ -327,7 +327,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 00. Guide Overview ===================== -->
         <section id="guide-overview">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-certificate" aria-hidden="true" />SECTION 01</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
           <h2>本ガイドの位置づけと学習目標</h2>
 
           <p>本ガイドは Scrum Alliance 公式ページ(<a href="https://www.scrumalliance.org/get-certified/agile-leader-track/cal-2" target="_blank" rel="noopener">CAL 2 - Certified Agile Leader 2</a>)に掲載されている公式カリキュラムの<strong>Part 2「Developing as a Leader」</strong>を、初学者向けにステップバイステップで詳しく解説するものです。</p>
@@ -364,7 +364,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </ol>
 
           <div class="callout note" data-testid="callout" data-variant="note">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true" />補足</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
             <p>詳細な学習目標(Learning Objectives)は Scrum Alliance が<a href="https://drive.google.com/file/d/1-KC20bAHmYfPWXJ8IMmkXsoTxYuxa6mG/view?usp=drive_link" target="_blank" rel="noopener">Google Drive上のPDF</a>として公開しています。ただし改訂される可能性があるため、受講前に最新版を確認してください。本ガイドは公式Webページの記述と、各フレームワークの一次情報源(原著・提唱組織の公式サイト)に基づいて構成しています。</p>
           </div>
 
@@ -383,7 +383,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 01. Overcoming Obstacles to Growth ===================== -->
         <section id="overcoming-growth-obstacles">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-seedling" aria-hidden="true" />SECTION 02</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:seedling" aria-hidden="true" />SECTION 02</div>
           <h2>2.1 個人の成長を阻む障壁を乗り越える(Overcoming Obstacles to Growth)</h2>
 
           <p>アジャイルリーダーは、他者の成長を支援する前に、自分自身がどのように学び、失敗から回復し、挑戦し続けるかを理解している必要があります。CAL2 Part 2 の最初のテーマは、<strong>自分の成長を止めているのは何か</strong>を明らかにすることです。</p>
@@ -416,7 +416,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout practice" data-testid="callout" data-variant="practice">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li><strong>努力・プロセスを称賛し、固定的な能力を称賛しない。</strong>「頭がいいね」ではなく「粘り強く試行錯誤したね」と伝える。これはメンバーへのフィードバックにも、自分自身への内的対話にも当てはまります。</li>
               <li><strong>失敗を「データ」として扱う言語を組織に導入する。</strong>CAL1 で学んだ心理的安全性(Google Project Aristotle)の土台の上に、失敗を学習機会として扱う語彙(例: ふりかえりでの「実験」「仮説」という言葉遣い)を根付かせる。</li>
@@ -428,7 +428,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout source" data-testid="callout" data-variant="source">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">Dweck, C. (2006). Mindset: The New Psychology of Success. Random House.</span></li>
               <li><a href="https://online.hbs.edu/blog/post/growth-mindset-vs-fixed-mindset" target="_blank" rel="noopener">Harvard Business School Online — Growth Mindset vs. Fixed Mindset: What's the Difference?</a></li>
@@ -440,7 +440,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 02. Personalized Leadership Approach ===================== -->
         <section id="personalized-leadership-approach">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-compass" aria-hidden="true" />SECTION 03</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:compass" aria-hidden="true" />SECTION 03</div>
           <h2>2.2 自分自身のリーダーシップスタイルを確立する(Developing a Personalized Leadership Approach)</h2>
 
           <p>「唯一の正しいリーダーシップスタイル」は存在しません。CAL2 Part 2 のこのテーマでは、<strong>状況(部下の発達段階)に応じてスタイルを切り替える</strong>という考え方を中心に学びます。ここで使う代表的な2つのフレームワークが、<strong>Situational Leadership II(SLII)</strong>(Paul Hersey と Ken Blanchard が開発し、その後 Blanchard が発展させたモデル)と、<strong>Daniel Goleman の Six Leadership Styles(6つのリーダーシップスタイル)</strong>です。</p>
@@ -473,7 +473,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout practice" data-testid="callout" data-variant="practice">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li><strong>「人」ではなく「タスク」に対して発達段階を診断する。</strong>同じ人でもタスクごとにD-Levelは変わります。</li>
               <li><strong>Goleman の6スタイルを週単位で複数使い分ける。</strong>研究上、最も高い成果を出すリーダーは1つのスタイルに依存していません。</li>
@@ -485,7 +485,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout source" data-testid="callout" data-variant="source">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><a href="https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership" target="_blank" rel="noopener">Blanchard 公式 — A Situational Approach to Leadership | Blanchard's SLII</a></li>
               <li><a href="https://situational.com/blog/the-history-of-the-situational-leadership-framework/" target="_blank" rel="noopener">The Center for Leadership Studies — The History of the Situational Leadership Framework</a></li>
@@ -497,7 +497,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 03. Difficult Conversations ===================== -->
         <section id="difficult-conversations">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-messages" aria-hidden="true" />SECTION 04</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:messages" aria-hidden="true" />SECTION 04</div>
           <h2>2.3 困難な対話を乗りこなす(Difficult Conversations)</h2>
 
           <p>リーダーシップの実務において最も避けられがちなのが「困難な対話」です。CAL2 Part 2 では、これを体系的に扱うフレームワークとして<strong>Crucial Conversations</strong>(Kerry Patterson、Joseph Grenny、Ron McMillan、Al Switzler らによって開発され、現在は Crucial Learning 社が提供)を用います。</p>
@@ -530,7 +530,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout practice" data-testid="callout" data-variant="practice">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li><strong>クルーシャルな対話を早期に認識する。</strong>利害・意見の相違・感情の強さの3条件が揃った瞬間に、通常の会話モードから切り替える。</li>
               <li><strong>自分の中の沈黙・暴力のシグナルに気づく。</strong>話すのをやめる / 皮肉を言う / 相手を説得しようと圧をかける、といった自分の癖を事前に把握しておく。</li>
@@ -542,7 +542,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout source" data-testid="callout" data-variant="source">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">Patterson, K., Grenny, J., McMillan, R., Switzler, A., &amp; Gregory, E. (2021). Crucial Conversations: Tools for Talking When Stakes Are High(3rd ed.). McGraw-Hill.</span></li>
               <li><a href="https://cruciallearning.com/books/crucial-conversations-book/" target="_blank" rel="noopener">Crucial Learning 公式 — Crucial Conversations Free Book Resources</a></li>
@@ -554,7 +554,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 04. Giving and Receiving Feedback ===================== -->
         <section id="giving-receiving-feedback">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-message-dots" aria-hidden="true" />SECTION 05</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:message-dots" aria-hidden="true" />SECTION 05</div>
           <h2>2.4 フィードバックを与え、受け取る(Giving and Receiving Feedback)</h2>
 
           <p>CAL1 の Chapter 3 では、<strong>CCL(Center for Creative Leadership)の SBI(Situation-Behavior-Impact)モデル</strong>を学びました。CAL2 Part 2 ではこれをさらに発展させ、<strong>Kim Scott の Radical Candor(ラディカル・キャンダー)</strong>というフィードバックの「姿勢・文化」に関するフレームワークと組み合わせます。</p>
@@ -588,7 +588,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout practice" data-testid="callout" data-variant="practice">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li><strong>与える前に、求める。</strong>自分からフィードバックを求める姿勢を見せることで、心理的なハードルを下げる。</li>
               <li><strong>Ruinous Empathy を「優しさ」と混同しない。</strong>言うべきことを言わないのは、短期的には優しく見えても長期的には相手の成長を妨げます。</li>
@@ -600,7 +600,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout source" data-testid="callout" data-variant="source">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">Scott, K. (2017). Radical Candor: Be a Kick-Ass Boss Without Losing Your Humanity. St. Martin's Press.</span></li>
               <li><a href="https://www.radicalcandor.com/our-approach" target="_blank" rel="noopener">Radical Candor 公式 — Our Approach: Kim Scott's Feedback Framework</a></li>
@@ -613,13 +613,13 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 05. Challenges of Managing People ===================== -->
         <section id="managing-people-challenges">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-users" aria-hidden="true" />SECTION 06</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" aria-hidden="true" />SECTION 06</div>
           <h2>2.5 メンバーマネジメントの課題を乗り越える(Challenges of Managing People)</h2>
 
           <p>CAL2 Part 2 のこのテーマは、「なぜ人材マネジメントはこれほど難しいのか」を構造的に理解することを目的とします。ここで有用なのが、Ram Charan・Stephen Drotter・James Noel による<strong>The Leadership Pipeline(リーダーシップ・パイプライン)</strong>モデルです。このモデルは、リーダーがキャリアを通じて経験する<strong>6つの移行(Passage)</strong>を定義しており、その最初の移行こそが多くのアジャイルリーダーが直面する壁です。</p>
 
           <div class="callout note" data-testid="callout" data-variant="note">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true" />補足</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
             <p><strong>Passage One: Managing Self to Managing Others(自己管理から他者管理へ)</strong> — 個人としての成果で評価されてきた人が、初めて「他者を通じて成果を出す」責任を負う移行です。MindTools の解説によれば、これは6つの移行の中でも最も根本的な価値観の転換を要求するとされます(<a href="https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/" target="_blank" rel="noopener">出典: MindTools</a>)。</p>
           </div>
 
@@ -649,7 +649,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout practice" data-testid="callout" data-variant="practice">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li><strong>「自分でやった方が早い」という衝動を疑う。</strong>短期的な効率よりも、長期的なチームの能力構築を優先する。</li>
               <li><strong>昇進直後に元同僚との関係を率直に対話する。</strong>曖昧なまま放置すると、後々の困難な対話(2.3)のコストが増大します。</li>
@@ -661,7 +661,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout source" data-testid="callout" data-variant="source">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">Charan, R., Drotter, S., &amp; Noel, J. (2001, rev. 2011). The Leadership Pipeline: How to Build the Leadership-Powered Company. Jossey-Bass.</span></li>
               <li><a href="https://www.mindtools.com/aa57an9/the-leadership-pipeline-model/" target="_blank" rel="noopener">MindTools — The Leadership Pipeline Model</a></li>
@@ -672,7 +672,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 06. Delegation and Decision-Making ===================== -->
         <section id="delegation-decision-making">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-scale" aria-hidden="true" />SECTION 07</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:scale" aria-hidden="true" />SECTION 07</div>
           <h2>2.6 権限移譲と意思決定(Delegation and Decision-Making)</h2>
 
           <p>CAL2 Part 2 の最後のテーマは、コラボレーティブなリーダーがどのように権限を移譲し、意思決定を行うかです。ここで中心となるのが、Bain &amp; Company の Paul Rogers と Marcia Blenko が開発した<strong>RAPID フレームワーク</strong>です。</p>
@@ -710,7 +710,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout practice" data-testid="callout" data-variant="practice">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <ul>
               <li><strong>Decider は常に1人に絞る。</strong>複数の「決定者」が存在する状態を放置しない。</li>
               <li><strong>Agree(拒否権)は少数・明確な基準で運用する。</strong>全員が拒否権を持つ状態は、実質的な意思決定の麻痺を招きます。</li>
@@ -723,7 +723,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
           </div>
 
           <div class="callout source" data-testid="callout" data-variant="source">
-            <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
               <li><span class="ref-name">Rogers, P., &amp; Blenko, M. (2006). "Who Has the D? How Clear Decision Roles Enhance Organizational Performance." Harvard Business Review, 84(1), 52-61.</span></li>
               <li><span class="ref-name">Blenko, M. W., Mankins, M. C., &amp; Rogers, P. (2010). Decide &amp; Deliver: 5 Steps to Breakthrough Performance in Your Organization. Harvard Business Press.</span></li>
@@ -737,7 +737,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 07. Framework Integration Summary ===================== -->
         <section id="framework-integration-summary">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-flag-3" aria-hidden="true" />SECTION 08</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 08</div>
           <h2>まとめ: Part 2 フレームワーク統合マップ</h2>
 
           <p>Part 2 の6つのテーマは独立したものではなく、互いに補強し合う関係にあります。以下は各テーマの中心フレームワークと、その相互関係を整理した表です。</p>
@@ -772,7 +772,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 08. Glossary ===================== -->
         <section id="glossary">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-book-2" aria-hidden="true" />SECTION 09</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 09</div>
           <h2>用語集</h2>
 
           <div class="glossary-grid">
@@ -793,7 +793,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
 
         <!-- ===================== 09. References ===================== -->
         <section id="references">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true" />SECTION 10</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 10</div>
           <h2>参考文献・ソース一覧</h2>
 
           <div class="ref-group">
@@ -974,7 +974,7 @@ svg {
   border-left: 2px solid transparent;
 }
 
-.sidebar-nav a i {
+.sidebar-nav a :deep(svg) {
   font-size: 17px;
   color: var(--color-ink-faint);
   flex: none;
@@ -993,7 +993,7 @@ svg {
   border-left: 2px solid var(--color-indigo);
 }
 
-.sidebar-nav a.active i {
+.sidebar-nav a.active :deep(svg) {
   color: var(--color-indigo);
 }
 
@@ -1037,7 +1037,7 @@ svg {
   margin-bottom: 18px;
 }
 
-.hero-eyebrow i {
+.hero-eyebrow :deep(svg) {
   font-size: 17px;
 }
 
