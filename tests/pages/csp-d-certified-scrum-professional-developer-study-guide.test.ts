@@ -65,12 +65,7 @@ const EXPECTED_H3 = [
   "5.4 価値の流れ(バリューストリーム)のための視覚的モデリング技法を適用し、5つ以上の改善機会を選定できる",
   "13.1 認定の維持",
   "13.2 Comparative Agility の活用",
-  "13.3 CSD Trainer(トレーナー)への道"
-] as const;
-
-const EXPECTED_H4 = [
-  "コーチングアグリーメントに含めるべき項目の例",
-  "改善機会の例(5つ以上を選定する際の観点)",
+  "13.3 CSD Trainer(トレーナー)への道",
   "Scrum Alliance 公式ソース",
   "Scrum / Agile 基盤ソース",
   "アーキテクチャ・レガシーシステム",
@@ -81,6 +76,11 @@ const EXPECTED_H4 = [
   "コーチング",
   "認定後のキャリア",
   "補足で参照した個別ソース"
+] as const;
+
+const EXPECTED_H4 = [
+  "コーチングアグリーメントに含めるべき項目の例",
+  "改善機会の例(5つ以上を選定する際の観点)"
 ] as const;
 
 const EXPECTED_H5 = [] as const;

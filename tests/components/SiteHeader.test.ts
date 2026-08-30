@@ -314,6 +314,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/caf-certified-agile-facilitator-study-guide",
       "/csd-certified-scrum-developer-study-guide",
       "/a-csd-advanced-certified-scrum-developer-study-guide",
+      "/csp-d-certified-scrum-professional-developer-study-guide",
       "/casp-certified-agile-scaling-practitioner-study-guide",
       "/cal1-certified-agile-leader-1-guide",
       "/the-case-for-agile-leadership",
@@ -414,6 +415,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

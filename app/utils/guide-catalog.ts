@@ -372,6 +372,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csp-d-certified-scrum-professional-developer-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "CSP-D 完全ガイド",
+    title: "CSP-D® 認定資格 完全ガイド | Certified Scrum Professional - Developer",
+    description: "Scrum Alliance® Certified Scrum Professional - Developer (CSP-D) の公式学習目標を、初学者向けに全24項目ステップバイステップで解説する完全ガイドです。",
+    meta: "15セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/casp-certified-agile-scaling-practitioner-study-guide",
     categoryId: "project-management",
     seriesId: "csm",
