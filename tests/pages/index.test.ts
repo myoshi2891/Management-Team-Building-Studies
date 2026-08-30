@@ -163,6 +163,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CSP-D® 認定資格 完全ガイド | Certified Scrum Professional - Developer",
+        category: "CSM / SCRUM",
+        href: "/csp-d-certified-scrum-professional-developer-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
         category: "CSM / SCRUM",
         href: "/casp-certified-agile-scaling-practitioner-study-guide",

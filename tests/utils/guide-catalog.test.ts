@@ -73,6 +73,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/caf-certified-agile-facilitator-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CAF 完全ガイド" },
       { to: "/csd-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSD 完全ガイド" },
       { to: "/a-csd-advanced-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "A-CSD 完全ガイド" },
+      { to: "/csp-d-certified-scrum-professional-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSP-D 完全ガイド" },
       { to: "/casp-certified-agile-scaling-practitioner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CASP 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第1章" },
