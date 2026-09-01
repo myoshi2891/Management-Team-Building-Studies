@@ -56,10 +56,10 @@ CSP-SM（Certified Scrum Professional® ScrumMaster）は、Scrum Alliance の *
 
 ```mermaid
 flowchart LR
-    A["CSM<br/>Certified ScrumMaster<br/>(前提資格なし)"] --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(CSM必須 + 実務経験12か月)"]
+    A["CSM<br/>Certified ScrumMaster<br/>(前提資格なし)"] --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(CSM(または PSM I/PSM II)必須<br/>+ 実務経験12か月)"]
     B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster<br/>(A-CSM必須 + 実務経験24か月)"]
     C --> D["CST<br/>Certified Scrum Trainer"]
-    C --> E["CTC / CEC<br/>(2025年1月6日で新規申請停止。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
+    C --> E["CTC / CEC<br/>(2025年1月6日で新規申請停止した既存資格。<br/>既存保持者の資格は引き続き有効。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
 
     classDef current fill:#FAF1DF,stroke:#B8802A,color:#161B26
     class C current
@@ -106,24 +106,15 @@ Scrum Alliance の FAQ では、次のように明記されています。
 
 ```mermaid
 flowchart TD
-    Start(["CSM を取得する"]) --> ACSM["A-CSM を取得する
-    (CSM保有 + 実務経験12か月)"]
-    ACSM --> Enroll["CSP-SM コースに申し込む
-    (この時点で24か月の実務経験は
-    必須ではない)"]
-    Enroll --> Course["コースを受講し
-    事前/事後課題を含む全構成要素を修了する"]
-    Course --> Exp{"Scrum Master としての
-    実務経験が過去5年以内で
-    24か月以上あるか?"}
-    Exp -- いいえ --> Wait["実務経験を積み、
-    Scrum Alliance プロフィールに記録する"]
+    Start(["CSM を取得する"]) --> ACSM["A-CSM を取得する<br/>(CSM保有 + 実務経験12か月)"]
+    ACSM --> Enroll["CSP-SM コースに申し込む<br/>(この時点で24か月の実務経験は<br/>必須ではない)"]
+    Enroll --> Course["コースを受講し<br/>事前/事後課題を含む全構成要素を修了する"]
+    Course --> Exp{"Scrum Master としての<br/>実務経験が過去5年以内で<br/>24か月以上あるか?"}
+    Exp -- いいえ --> Wait["実務経験を積み、<br/>Scrum Alliance プロフィールに記録する"]
     Wait --> Exp
-    Exp -- はい --> License["CSP-SM License Agreement
-    に同意し、会員プロフィールを完成させる"]
+    Exp -- はい --> License["CSP-SM License Agreement<br/>に同意し、会員プロフィールを完成させる"]
     License --> Cert(["CSP-SM 認定証が発行される"])
-    Cert --> Maintain["SEU を獲得し、
-    2年ごとに資格を更新する"]
+    Cert --> Maintain["SEU を獲得し、<br/>2年ごとに資格を更新する"]
 ```
 
 ### 2.3 A-CSM 側の前提条件（参考）
@@ -150,17 +141,11 @@ CSP-SM Learning Objectives 文書は、すべての学習目標を **Bloom's Tax
 
 ```mermaid
 flowchart TB
-    K["Knowledge (知識)
-    事実や用語を思い出せる"] --> C["Comprehension (理解)
-    意味を自分の言葉で説明できる"]
-    C --> A["Application (応用)
-    実際の状況に適用できる"]
-    A --> An["Analysis (分析)
-    要素に分解し比較できる"]
-    An --> S["Synthesis (統合)
-    新しいものを構築・創造できる"]
-    S --> E["Evaluation (評価)
-    基準に基づいて価値判断できる"]
+    K["Knowledge (知識)<br/>事実や用語を思い出せる"] --> C["Comprehension (理解)<br/>意味を自分の言葉で説明できる"]
+    C --> A["Application (応用)<br/>実際の状況に適用できる"]
+    A --> An["Analysis (分析)<br/>要素に分解し比較できる"]
+    An --> S["Synthesis (統合)<br/>新しいものを構築・創造できる"]
+    S --> E["Evaluation (評価)<br/>基準に基づいて価値判断できる"]
 
     classDef low fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef high fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
@@ -199,27 +184,19 @@ CSP-SM の Learning Objectives は、公式文書（2022年1月版）におい�
 
 ```mermaid
 flowchart TD
-    Root(["CSP-SM
-    Learning Objectives"])
-    Root --> C1["1. Lean, Agile,
-    and Scrum"]
-    Root --> C2["2. Scrum Master
-    Core Competencies"]
-    Root --> C3["3. Service to the
-    Scrum Team"]
-    Root --> C4["4. Service to the
-    Product Owner"]
-    Root --> C5["5. Service to the
-    Organization"]
-    Root --> C6["6. Advanced
-    Scrum Mastery"]
+    Root(["CSP-SM<br/>Learning Objectives"])
+    Root --> C1["1. Lean, Agile,<br/>and Scrum"]
+    Root --> C2["2. Scrum Master<br/>Core Competencies"]
+    Root --> C3["3. Service to the<br/>Scrum Team"]
+    Root --> C4["4. Service to the<br/>Product Owner"]
+    Root --> C5["5. Service to the<br/>Organization"]
+    Root --> C6["6. Advanced<br/>Scrum Mastery"]
 
     C2 --> C2a["Facilitation"]
     C2 --> C2b["Coaching and Training"]
     C3 --> C3a["Team Dynamics"]
     C3 --> C3b["Scrum Teams"]
-    C5 --> C5a["Organizational
-    Development"]
+    C5 --> C5a["Organizational<br/>Development"]
     C5 --> C5b["Scaling Scrum"]
 ```
 
@@ -247,20 +224,10 @@ Lean Thinking の直接の起源は、**トヨタ生産方式（Toyota Productio
 
 ```mermaid
 flowchart LR
-    V["Value
-    価値の定義
-    (顧客視点)"] --> VS["Value Stream
-    価値の流れの
-    可視化"]
-    VS --> F["Flow
-    よどみなく
-    流す"]
-    F --> P["Pull
-    プル型で
-    引っ張る"]
-    P --> Pe["Perfection
-    完璧を
-    目指し続ける"]
+    V["Value<br/>価値の定義<br/>(顧客視点)"] --> VS["Value Stream<br/>価値の流れの<br/>可視化"]
+    VS --> F["Flow<br/>よどみなく<br/>流す"]
+    F --> P["Pull<br/>プル型で<br/>引っ張る"]
+    P --> Pe["Perfection<br/>完璧を<br/>目指し続ける"]
     Pe -.継続的に繰り返す.-> V
 ```
 
@@ -335,21 +302,11 @@ flowchart LR
 ```mermaid
 flowchart TD
     Q{"目的は何か?"}
-    Q -- "全員のアイデアを
-    平等に集めたい" --> LS1["1-2-4-All
-    (個人→ペア→4人→全体)"]
-    Q -- "多くの意見から
-    絞り込みたい" --> DV["ドット投票
-    (Dot Voting)"]
-    Q -- "順番に発言機会を
-    確保したい" --> RR["ラウンドロビン
-    (Round-Robin)"]
-    Q -- "少人数での深い議論を
-    全体に還元したい" --> FB["フィッシュボウル
-    (Fishbowl)"]
-    Q -- "テーマ別に
-    並行議論したい" --> BO["ブレイクアウト
-    グループ"]
+    Q -- "全員のアイデアを<br/>平等に集めたい" --> LS1["1-2-4-All<br/>(個人→ペア→4人→全体)"]
+    Q -- "多くの意見から<br/>絞り込みたい" --> DV["ドット投票<br/>(Dot Voting)"]
+    Q -- "順番に発言機会を<br/>確保したい" --> RR["ラウンドロビン<br/>(Round-Robin)"]
+    Q -- "少人数での深い議論を<br/>全体に還元したい" --> FB["フィッシュボウル<br/>(Fishbowl)"]
+    Q -- "テーマ別に<br/>並行議論したい" --> BO["ブレイクアウト<br/>グループ"]
 ```
 
 | 手法 | 特徴 |
@@ -404,18 +361,11 @@ International Coaching Federation（ICF）の Core Competencies では、「Esta
 
 ```mermaid
 flowchart TD
-    A["コーチングエンゲージメント
-    全体のアグリーメント"] --> A1["コーチングの目的・範囲の合意"]
-    A --> A2["役割と責任の明確化
-    (コーチ/クライアント/
-    スポンサーそれぞれ)"]
-    A --> A3["守秘義務・頻度・
-    期間の合意"]
-    B["個別セッションの
-    アグリーメント"] --> B1["このセッションで
-    達成したいことの確認"]
-    B --> B2["成功の指標の
-    合意"]
+    A["コーチングエンゲージメント<br/>全体のアグリーメント"] --> A1["コーチングの目的・範囲の合意"]
+    A --> A2["役割と責任の明確化<br/>(コーチ/クライアント/<br/>スポンサーそれぞれ)"]
+    A --> A3["守秘義務・頻度・<br/>期間の合意"]
+    B["個別セッションの<br/>アグリーメント"] --> B1["このセッションで<br/>達成したいことの確認"]
+    B --> B2["成功の指標の<br/>合意"]
 ```
 
 > **ベストプラクティス**: Scrum Master がチームメンバーやプロダクトオーナーに対してコーチング的な関わりを始める際、"何を目的に、どのくらいの頻度で、何をもって成功とするか" を最初に明示的に合意することで、後々の期待値のズレを防げます。
@@ -465,13 +415,8 @@ CSP-SM 保持者は、単に学ぶだけでなく **教える側に回る経験*
 
 ```mermaid
 flowchart LR
-    F["Forming
-    形成期"] --> S["Storming
-    混乱期"] --> N["Norming
-    統一期"] --> P["Performing
-    機能期"]
-    P -.チーム解散時.-> Ad["Adjourning
-    解散期"]
+    F["Forming<br/>形成期"] --> S["Storming<br/>混乱期"] --> N["Norming<br/>統一期"] --> P["Performing<br/>機能期"]
+    P -.チーム解散時.-> Ad["Adjourning<br/>解散期"]
 ```
 
 Lencioni の5つの機能不全モデルと、Google の Project Aristotle は、いずれも **信頼・心理的安全性を土台とする** という点で強く共鳴しています。Tuckman モデルも、チームが Storming（対立）を経なければ Norming や Performing に到達できないとしており、健全な対立(=心理的安全性があるからこそ表面化する対立)の重要性を示唆しています。
@@ -503,20 +448,11 @@ Lencioni の5つの機能不全モデルと、Google の Project Aristotle は�
 
 ```mermaid
 flowchart TD
-    A["プロダクトと
-    境界の定義"] --> B["チーム編成
-    (必要スキルセットの
-    洗い出し)"]
-    B --> C["Product Goal と
-    初期 Product Backlog
-    の準備"]
-    C --> D["Working Agreement
-    と Definition of Done
-    の合意形成"]
-    D --> E["ステークホルダー
-    マップの作成"]
-    E --> F["最初の
-    Sprint Planning"]
+    A["プロダクトと<br/>境界の定義"] --> B["チーム編成<br/>(必要スキルセットの<br/>洗い出し)"]
+    B --> C["Product Goal と<br/>初期 Product Backlog<br/>の準備"]
+    C --> D["Working Agreement<br/>と Definition of Done<br/>の合意形成"]
+    D --> E["ステークホルダー<br/>マップの作成"]
+    E --> F["最初の<br/>Sprint Planning"]
 ```
 
 > **ベストプラクティス**: チーム立ち上げの最初の1〜2 Sprint は、通常のベロシティを求めず「チームとしての合意形成」に投資時間を割くことをステークホルダーに事前合意しておくと、立ち上げ初期の心理的プレッシャーを減らせます。
@@ -556,14 +492,8 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    PG["Product Goal
-    (将来のプロダクトの
-    ありたい姿)"] --> Map["User Story Mapping /
-    Impact Mapping で
-    分解する"]
-    Map --> PB["Product Backlog
-    (優先順位づけされた
-    実行可能な項目群)"]
+    PG["Product Goal<br/>(将来のプロダクトの<br/>ありたい姿)"] --> Map["User Story Mapping /<br/>Impact Mapping で<br/>分解する"]
+    Map --> PB["Product Backlog<br/>(優先順位づけされた<br/>実行可能な項目群)"]
 ```
 
 > **ベストプラクティス**: Product Goal が抽象的すぎてチームがバックログ項目に落とし込めない場合、Scrum Master は Product Owner に対して Impact Mapping のようなファシリテーション技法を提案し、"ゴールと施策のつながり" を可視化するワークショップを開催することができます。
@@ -616,22 +546,12 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    P["表面化した問題
-    (例: リリースが頻繁に遅延する)"] --> W1["なぜ1: なぜ遅延するのか?"]
-    W1 --> W2["なぜ2: なぜ見積もりが
-    毎回外れるのか?"]
-    W2 --> W3["なぜ3: なぜ不確実性が
-    高い項目を見積もれないのか?"]
-    W3 --> W4["なぜ4: なぜ事前の
-    リファインメントが
-    行われていないのか?"]
-    W4 --> W5["なぜ5: なぜリファインメントの
-    時間が確保されていないのか?"]
-    W5 --> Root(["根本原因:
-    組織のカレンダー文化が
-    会議を優先し、
-    リファインメントの時間を
-    構造的に奪っている"])
+    P["表面化した問題<br/>(例: リリースが頻繁に遅延する)"] --> W1["なぜ1: なぜ遅延するのか?"]
+    W1 --> W2["なぜ2: なぜ見積もりが<br/>毎回外れるのか?"]
+    W2 --> W3["なぜ3: なぜ不確実性が<br/>高い項目を見積もれないのか?"]
+    W3 --> W4["なぜ4: なぜ事前の<br/>リファインメントが<br/>行われていないのか?"]
+    W4 --> W5["なぜ5: なぜリファインメントの<br/>時間が確保されていないのか?"]
+    W5 --> Root(["根本原因:<br/>組織のカレンダー文化が<br/>会議を優先し、<br/>リファインメントの時間を<br/>構造的に奪っている"])
 ```
 
 5 Whys を実践する際の重要な原則として、「個人を根本原因にしない（"〇〇さんのミス"で終わらせない）」というルールがあります。あくまでプロセスや構造的な要因を掘り下げることが目的です。
@@ -677,15 +597,11 @@ CSP-SM 保持者には、自分自身が実際に組織文化の変化を主導�
 ```mermaid
 flowchart TD
     subgraph Nexus["Nexus"]
-        N_PO["単一の
-        Product Owner"] --> N_PB["単一の
-        Product Backlog"]
+        N_PO["単一の<br/>Product Owner"] --> N_PB["単一の<br/>Product Backlog"]
     end
     subgraph S2["Scrum@Scale"]
-        CPO["Chief Product Owner"] --> Meta["MetaScrum
-        (各チームのPOで構成)"]
-        Meta --> S_PB["統合された
-        Product Backlog"]
+        CPO["Chief Product Owner"] --> Meta["MetaScrum<br/>(各チームのPOで構成)"]
+        Meta --> S_PB["統合された<br/>Product Backlog"]
     end
 ```
 
@@ -707,23 +623,11 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A["プロダクト全体の
-    境界とゴールの定義"] --> B["チーム分割の設計
-    (依存関係を最小化する
-    分割軸の選定)"]
-    B --> C["共有カデンス
-    (Sprint期間・イベントの
-    タイミング統一)"]
-    C --> D["統合の仕組みの設計
-    (Nexus Integration Team /
-    Scrum of Scrums など)"]
-    D --> E["各チームの
-    Working Agreement と
-    共有 Definition of Done
-    の合意"]
-    E --> F["最初の
-    複数チーム合同
-    Sprint Planning"]
+    A["プロダクト全体の<br/>境界とゴールの定義"] --> B["チーム分割の設計<br/>(依存関係を最小化する<br/>分割軸の選定)"]
+    B --> C["共有カデンス<br/>(Sprint期間・イベントの<br/>タイミング統一)"]
+    C --> D["統合の仕組みの設計<br/>(Nexus Integration Team /<br/>Scrum of Scrums など)"]
+    D --> E["各チームの<br/>Working Agreement と<br/>共有 Definition of Done<br/>の合意"]
+    E --> F["最初の<br/>複数チーム合同<br/>Sprint Planning"]
 ```
 
 > **ベストプラクティス**: 複数チームを一度に立ち上げるのではなく、まず1〜2チームで Scrum を軌道に乗せてから段階的にチームを追加していく（"start small" の原則）ことが、LeSS の原則にも通じる現実的なアプローチです。
@@ -738,17 +642,8 @@ CSP-SM は「ゴール」ではなく、Scrum Master としてのキャリアに
 
 ```mermaid
 flowchart LR
-    Shu["守 (Shu)
-    型を忠実に守る段階
-    (CSM相当)"] --> Ha["破 (Ha)
-    型を理解した上で
-    応用する段階
-    (A-CSM〜CSP-SM相当)"]
-    Ha --> Ri["離 (Ri)
-    型から離れ、
-    独自のスタイルを
-    確立する段階
-    (CST/CEC/CTC相当)"]
+    Shu["守 (Shu)<br/>型を忠実に守る段階<br/>(CSM相当)"] --> Ha["破 (Ha)<br/>型を理解した上で<br/>応用する段階<br/>(A-CSM〜CSP-SM相当)"]
+    Ha --> Ri["離 (Ri)<br/>型から離れ、<br/>独自のスタイルを<br/>確立する段階<br/>(CST/CEC/CTC相当)"]
 ```
 
 > **ベストプラクティス（個人開発戦略の設計ステップ）**:
@@ -806,7 +701,7 @@ CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイト�
 - **Certified Scrum Trainer®（CST®）**: Scrum Alliance の認定コースを教えるトレーナーへの道
 - **Certified Team Coach（CTC）/ Certified Enterprise Coach™（CEC™）**: チーム〜エンタープライズレベルのアジャイルコーチへの道
 
-> **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており、後継となる **Certified Agility Consultant（CAC）** プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
+> **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており (すでに認定を受けている保持者の資格は引き続き有効です)、後継となる **Certified Agility Consultant（CAC）** プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
 
 ### 13.1 資格の維持（SEU と更新）
 
