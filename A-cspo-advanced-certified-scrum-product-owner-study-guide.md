@@ -32,7 +32,7 @@
 
 ### 1.1 A-CSPOとは何か
 
-Advanced Certified Scrum Product Owner(A-CSPO®)は、Scrum Alliance® が提供する Product Owner Track の中級認定資格です。公式ページでは、A-CSPOコースは「ビジネス価値とROIを最大化しながら顧客を満足させるために、最も困難なシナリオに取り組めるようになる」ことを目的とした講座であると説明されています。<sup>[1]</sup>
+Advanced Certified Scrum Product Owner(A-CSPO®)は、Scrum Alliance® が提供する Product Owner Track の上級(Advanced)認定資格です。公式ページでは、A-CSPOコースは「ビジネス価値とROIを最大化しながら顧客を満足させるために、最も困難なシナリオに取り組めるようになる」ことを目的とした講座であると説明されています。<sup>[1]</sup>
 
 A-CSPOは、初級資格であるCertified Scrum Product Owner(CSPO®)の内容を土台とし、以下のような、より複雑な実務課題に踏み込みます。<sup>[1]</sup>
 
@@ -50,13 +50,18 @@ A-CSPOは、初級資格であるCertified Scrum Product Owner(CSPO®)の内容�
 
 ```mermaid
 flowchart LR
-    A["CSPO<br/>基礎を学ぶ"] --> B["PO実務経験12ヶ月以上<br/>(過去5年以内。A-CSPOコースの<br/>受講前・受講後を通算できる)"]
-    B --> C["A-CSPO<br/>応用力を鍛える"]
+    A["CSPO<br/>基礎を学ぶ"] --> G{"次の2つを<br/>ともに満たす<br/>(順不同)"}
+    G --> R1["A-CSPO認定コースを受講する"]
+    G --> R2["PO実務経験12ヶ月以上<br/>(過去5年以内。A-CSPOコースの<br/>受講前・受講後を通算できる)"]
+    R1 --> C["A-CSPO<br/>応用力を鍛える"]
+    R2 --> C
     C --> D["CSP-PO<br/>実務家として認められる"]
     D --> E["SEUによる<br/>継続的な更新"]
 
     classDef step fill:#EEF1F8,stroke:#2E3F72,color:#161B26
-    class A,B,C,D,E step
+    classDef gate fill:#FAF1DF,stroke:#B8802A,color:#161B26
+    class A,R1,R2,C,D,E step
+    class G gate
 ```
 
 ### 1.3 対象者
@@ -401,8 +406,10 @@ flowchart TB
 
     classDef good fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
     classDef bad fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+    classDef learn fill:#FAF1DF,stroke:#B8802A,color:#161B26
     class DP good
-    class IP,DR,IR bad
+    class IP learn
+    class DR,IR bad
 ```
 
 ### 7.5 技術的負債を減らす開発プラクティス(1.10)
@@ -506,7 +513,7 @@ flowchart TB
 
 | 技術 | 内容 |
 |---|---|
-| インパクトマッピング(Impact Mapping) | ゴール→アクター→インパクト(行動変容)→デリバラブルの順で、戦略的な計画を可視化する手法。Gojko Adzicが提唱した | 
+| インパクトマッピング(Impact Mapping) | ゴール→アクター→インパクト(行動変容)→デリバラブルの順で、戦略的な計画を可視化する手法。Gojko Adzicが提唱した |
 | Vision Board / エレベーターピッチ形式 | 「誰のために」「何を」「なぜ」を短い定型文で言語化し、チーム全体の目線を揃える |
 
 インパクトマッピングは「機能のショッピングリスト」に陥りがちな計画を、「ビジネスゴールを達成するために、対象者にどんな行動変容(インパクト)を起こす必要があるか」という問いに立ち返らせる手法です。<sup>[2]</sup>
@@ -844,7 +851,7 @@ A-CSPOは、Certified Scrum Professional® - Product Owner(CSP®-PO)の前提資
 flowchart LR
     CSPO["CSPO"] --> ACSPO["A-CSPO"]
     ACSPO --> CSPPO["CSP-PO"]
-    CSPPO --> CTC["CTC / CEC など<br/>トレーナー・コーチ系資格<br/>(CTC・CECは新規申請を停止した既存資格。<br/>既存保持者の資格は引き続き有効)"]
+    CSPPO --> CTC["CTC / CEC など<br/>トレーナー・コーチ系資格<br/>(新規申請は2025年1月6日で終了。<br/>既存の有効なバッジは<br/>現在の更新サイクルの間のみ表示される)"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class CSPO,ACSPO,CSPPO,CTC box
