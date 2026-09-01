@@ -1,6 +1,6 @@
 # Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド
 
-> 本ガイドは、Scrum Alliance® が公開している公式情報(A-CSPO® Learning Objectives、Scrum Foundations® Learning Objectives、Scrum Guide、Agile Manifesto など)を一次情報とし、あわせてプロダクトマネジメント/アジャイル分野で広く参照される参考情報源(解説記事、Wikipedia など二次情報を含む)を根拠として作成した、初学者から中級者向けの学習教材です。各解説章の末尾に「ソース」として根拠URLを明記しています(チェックリストと誤解・アンチパターンの章は、各解説章で示した出典をまとめ直したものです)。公式情報とそれ以外の参考情報源が混在するため、受験料・更新要件などの正確性が問われる数値は、必ず Scrum Alliance 公式サイトの一次情報で確認してください。ASCII図は使用せず、フローチャートはすべて Mermaid、比較表・一覧はすべて Markdown テーブルで表現しています。
+> 本ガイドは、Scrum Alliance® が発行する公式文書(A-CSPO® Learning Objectives、Scrum Foundations® Learning Objectives、公式サイトの認定要件ページ など)と、Scrum Alliance 以外が発行する一次文書(Scrum Guide[Ken Schwaber / Jeff Sutherland]、アジャイルソフトウェア開発宣言 など)を一次情報とし、あわせてプロダクトマネジメント/アジャイル分野で広く参照される参考情報源(解説記事、Wikipedia など二次情報を含む)を根拠として作成した、初学者から中級者向けの学習教材です。各解説章の末尾に「ソース」として根拠URLを明記しています(チェックリストと誤解・アンチパターンの章は、各解説章で示した出典をまとめ直したものです)。公式情報とそれ以外の参考情報源が混在するため、受験料・更新要件などの正確性が問われる数値は、必ず Scrum Alliance 公式サイトの一次情報で確認してください。ASCII図は使用せず、フローチャートはすべて Mermaid、比較表・一覧はすべて Markdown テーブルで表現しています。
 
 ---
 
@@ -50,15 +50,10 @@ A-CSPOは、初級資格であるCertified Scrum Product Owner(CSPO®)の内容�
 
 ```mermaid
 flowchart LR
-    A["CSPO
-基礎を学ぶ"] --> B["12ヶ月以上の
-実務経験"]
-    B --> C["A-CSPO
-応用力を鍛える"]
-    C --> D["CSP-PO
-実務家として認められる"]
-    D --> E["SEUによる
-継続的な更新"]
+    A["CSPO<br/>基礎を学ぶ"] --> B["PO実務経験12ヶ月以上<br/>(過去5年以内。A-CSPOコースの<br/>受講前・受講後を通算できる)"]
+    B --> C["A-CSPO<br/>応用力を鍛える"]
+    C --> D["CSP-PO<br/>実務家として認められる"]
+    D --> E["SEUによる<br/>継続的な更新"]
 
     classDef step fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class A,B,C,D,E step
@@ -84,16 +79,16 @@ A-CSPOは、すでにCSPOを取得し、実際にプロダクトオーナーと�
 
 ### 2.1 公式要件
 
-A-CSPOを取得するためには、以下をすべて満たす必要があります。<sup>[1]</sup>
+A-CSPOを取得・維持するためには、以下をすべて満たす必要があります(#6 は取得後に継続して必要となる維持要件です)。<sup>[1]</sup>
 
 | # | 要件 | 補足 |
 |---|---|---|
 | 1 | Scrum AllianceのCSPO資格を保有していること | 有効・失効いずれでも可。A-CSPO取得時に自動更新される |
 | 2 | 過去5年以内にプロダクトオーナーとしての実務経験が12ヶ月以上あること | 「プロダクトオーナーというアカウンタビリティに特化した」経験であることが求められる |
-| 3 | Scrum Alliance認定の教育プロバイダーが提供するA-CSPOコースを受講すること | — |
+| 3 | Scrum Alliance認定の教育プロバイダーが提供する、最低16時間のA-CSPOコースを受講すること | 承認コースは最低16時間で構成される |
 | 4 | コースの全構成要素(事前課題・事後課題を含む場合がある)を完了すること | 教育者によって課題内容が異なる |
 | 5 | A-CSPOライセンス契約に同意し、Scrum Allianceのメンバープロフィールを完成させること | — |
-| 6 | 2年ごとに資格を更新すること。標準ルートは30 SEU(Scrum Education Units)の獲得と175米ドルの更新料の支払い | 代替ルートとして、Scrum Alliance の別の認定コースを修了すると、SEU の提出も更新料の支払いもなく既存の認定が自動更新される。更新料は2026年9月1日時点で確認した金額。詳細は第15章を参照 |
+| 6 | 2年ごとに資格を更新すること。A-CSPOが保有資格のうち最上位である場合、標準ルートは30 SEU(Scrum Education Units)の獲得と175米ドルの更新料の支払い | 適用される更新区分は保有資格のうち最上位のものによって決まる。CSP-POを保有している場合はProfessional levelの要件(40 SEUと250米ドル)が適用される。代替ルートとして、Scrum Alliance の別の認定コースを修了すると、SEU の提出も更新料の支払いもなく既存の認定が自動更新される。更新料は2026年9月1日時点で確認した金額。詳細は第15章を参照 |
 
 ### 2.2 要件を満たすまでの流れ
 
@@ -113,7 +108,7 @@ flowchart TD
     W --> GATE
     GATE -- はい --> E["ライセンス契約に同意し<br/>プロフィールを完成"]
     E --> F["A-CSPO取得"]
-    F --> G["2年ごとに更新<br/>(標準: 30 SEU + 175米ドル /<br/>代替: 別のScrum Alliance認定コース修了で<br/>SEU・更新料なしに自動更新)"]
+    F --> G["2年ごとに更新<br/>(A-CSPOが最上位なら 30 SEU + 175米ドル /<br/>CSP-PO保有なら 40 SEU + 250米ドル /<br/>代替: 別のScrum Alliance認定コース修了で<br/>SEU・更新料なしに自動更新)"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -154,17 +149,11 @@ A-CSPO Learning Objectives文書は、すべての学習目標を「A-CSPO Learn
 
 ```mermaid
 flowchart BT
-    K["Knowledge
-知識"] --> C["Comprehension
-理解"]
-    C --> App["Application
-応用"]
-    App --> An["Analysis
-分析"]
-    An --> S["Synthesis
-統合"]
-    S --> E["Evaluation
-評価"]
+    K["Knowledge<br/>知識"] --> C["Comprehension<br/>理解"]
+    C --> App["Application<br/>応用"]
+    App --> An["Analysis<br/>分析"]
+    An --> S["Synthesis<br/>統合"]
+    S --> E["Evaluation<br/>評価"]
 
     classDef low fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef mid fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -225,12 +214,9 @@ flowchart TB
     end
 
     subgraph Artifacts["Artifacts と Commitments"]
-        PB["Product Backlog
-Product Goal"]
-        SB["Sprint Backlog
-Sprint Goal"]
-        INC["Increment
-Definition of Done"]
+        PB["Product Backlog<br/>Product Goal"]
+        SB["Sprint Backlog<br/>Sprint Goal"]
+        INC["Increment<br/>Definition of Done"]
     end
 
     subgraph Events["Events"]
@@ -355,16 +341,13 @@ A-CSPOでは、単発の会議ではなく「複数スプリントにわたる�
 
 ```mermaid
 flowchart TD
-    A["意見が出そろう"] --> B["評価基準を
-先に合意する"]
-    B --> C["基準に沿って
-選択肢を絞り込む"]
+    A["意見が出そろう"] --> B["評価基準を<br/>先に合意する"]
+    B --> C["基準に沿って<br/>選択肢を絞り込む"]
     C --> D["合意形成技術を選ぶ"]
     D --> E1["フィストトゥファイブ"]
     D --> E2["ローマ式投票"]
     D --> E3["決定者を明確にした上での相談"]
-    E1 --> F["決定を記録し
-合意内容を全員に共有"]
+    E1 --> F["決定を記録し<br/>合意内容を全員に共有"]
     E2 --> F
     E3 --> F
 
@@ -407,23 +390,13 @@ Martin Fowlerは技術的負債を「意図的か偶発的か」「思慮深い�
 ```mermaid
 flowchart TB
     subgraph Deliberate["意図的(Deliberate)"]
-        DP["思慮深い
-リリースを優先し
-後で返済すると
-合意した近道"]
-        DR["無謀
-設計をきちんと
-やる時間がないから
-このまま進める"]
+        DP["思慮深い<br/>リリースを優先し<br/>後で返済すると<br/>合意した近道"]
+        DR["無謀<br/>設計をきちんと<br/>やる時間がないから<br/>このまま進める"]
     end
 
     subgraph Inadvertent["偶発的(Inadvertent)"]
-        IP["思慮深い
-今ならこうすべきだったと
-後から気づいた設計"]
-        IR["無謀
-そもそも設計の
-原則を知らなかった"]
+        IP["思慮深い<br/>今ならこうすべきだったと<br/>後から気づいた設計"]
+        IR["無謀<br/>そもそも設計の<br/>原則を知らなかった"]
     end
 
     classDef good fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
@@ -473,20 +446,14 @@ flowchart TB
 ```mermaid
 flowchart TD
     A["依存関係の存在に気づく"] --> B["可視化する"]
-    B --> B1["依存関係ボード
-Cross-team Dependency Board"]
-    B --> B2["ストーリーマップ上での
-チーム横断表示"]
+    B --> B1["依存関係ボード<br/>Cross-team Dependency Board"]
+    B --> B2["ストーリーマップ上での<br/>チーム横断表示"]
     B --> C["管理する"]
-    C --> C1["Nexus統合チームによる
-定期的な調整"]
+    C --> C1["Nexus統合チームによる<br/>定期的な調整"]
     C --> C2["共通のDefinition of Done"]
     B --> D["削減する"]
-    D --> D1["プロダクトバックログの
-順序を見直し
-依存の強い項目を近づける"]
-    D --> D2["チーム構成そのものを
-見直す(フィーチャーチーム化)"]
+    D --> D1["プロダクトバックログの<br/>順序を見直し<br/>依存の強い項目を近づける"]
+    D --> D2["チーム構成そのものを<br/>見直す(フィーチャーチーム化)"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -524,18 +491,10 @@ Cross-team Dependency Board"]
 
 ```mermaid
 flowchart TB
-    V["プロダクトビジョン
-なぜこのプロダクトが存在するか"] --> S["プロダクト戦略
-どの市場・顧客に
-どう価値を届けるか"]
-    S --> G["プロダクトゴール
-次に到達したい
-具体的な状態"]
-    G --> R["ロードマップ
-Now / Next / Later"]
-    R --> PB["プロダクトバックログ
-順序付けされた
-具体的な作業項目"]
+    V["プロダクトビジョン<br/>なぜこのプロダクトが存在するか"] --> S["プロダクト戦略<br/>どの市場・顧客に<br/>どう価値を届けるか"]
+    S --> G["プロダクトゴール<br/>次に到達したい<br/>具体的な状態"]
+    G --> R["ロードマップ<br/>Now / Next / Later"]
+    R --> PB["プロダクトバックログ<br/>順序付けされた<br/>具体的な作業項目"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class V,S,G,R,PB box
@@ -554,19 +513,9 @@ Now / Next / Later"]
 
 ```mermaid
 flowchart LR
-    Why["Why
-達成したい
-ビジネスゴール"] --> Who["Who
-ゴールに影響を
-与えるアクター"]
-    Who --> How["How
-アクターに
-起こしたい
-インパクト"]
-    How --> What["What
-インパクトを
-実現するための
-デリバラブル"]
+    Why["Why<br/>達成したい<br/>ビジネスゴール"] --> Who["Who<br/>ゴールに影響を<br/>与えるアクター"]
+    Who --> How["How<br/>アクターに<br/>起こしたい<br/>インパクト"]
+    How --> What["What<br/>インパクトを<br/>実現するための<br/>デリバラブル"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class Why,Who,How,What box
@@ -623,12 +572,10 @@ flowchart LR
 ```mermaid
 flowchart LR
     P["問題を発見する"] --> D["顧客インタビュー"]
-    P --> O["行動観察
-オブザベーション"]
+    P --> O["行動観察<br/>オブザベーション"]
     D --> H["仮説を立てる"]
     O --> H
-    H --> T["プロトタイプ・
-モックアップで検証"]
+    H --> T["プロトタイプ・<br/>モックアップで検証"]
     T --> L["学びをバックログに反映"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -683,22 +630,11 @@ Sprint Reviewは単なるデモの場ではなく、「Sprint Goalに対してIn
 
 ```mermaid
 flowchart LR
-    B["Build
-最小限の実験
-または
-MVPを作る"] --> M["Measure
-実際の
-利用データ・反応を
-測定する"]
-    M --> L["Learn
-検証された学びを
-得る"]
-    L --> D{"仮説は
-支持されたか"}
-    D -- Yes --> Persevere["Persevere
-このまま前進する"]
-    D -- No --> Pivot["Pivot
-方向転換する"]
+    B["Build<br/>最小限の実験<br/>または<br/>MVPを作る"] --> M["Measure<br/>実際の<br/>利用データ・反応を<br/>測定する"]
+    M --> L["Learn<br/>検証された学びを<br/>得る"]
+    L --> D{"仮説は<br/>支持されたか"}
+    D -- Yes --> Persevere["Persevere<br/>このまま前進する"]
+    D -- No --> Pivot["Pivot<br/>方向転換する"]
     Persevere --> B
     Pivot --> B
 
@@ -723,15 +659,11 @@ MVPを作る"] --> M["Measure
 
 ```mermaid
 flowchart TD
-    H["仮説を1文で書く"] --> M["成功/失敗を判断する
-測定可能な指標を決める"]
-    M --> E["最小限の実験方法を選ぶ
-インタビュー / プロトタイプ / A/Bテスト"]
-    E --> Th["判定基準を
-実験前に決めておく"]
+    H["仮説を1文で書く"] --> M["成功/失敗を判断する<br/>測定可能な指標を決める"]
+    M --> E["最小限の実験方法を選ぶ<br/>インタビュー / プロトタイプ / A/Bテスト"]
+    E --> Th["判定基準を<br/>実験前に決めておく"]
     Th --> Run["実験を実施する"]
-    Run --> Result["結果を評価し
-次のアクションを決める"]
+    Run --> Result["結果を評価し<br/>次のアクションを決める"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class H,M,E,Th,Run,Result box
@@ -781,19 +713,12 @@ WSJFは、Cost of Delayを「ビジネス価値」「時間的な緊急度」「
 
 ```mermaid
 flowchart LR
-    BV["ビジネス価値"] --> CoD["Cost of Delay
-遅延コスト"]
+    BV["ビジネス価値"] --> CoD["Cost of Delay<br/>遅延コスト"]
     TC["時間的緊急度"] --> CoD
-    RR["リスク低減・
-機会創出"] --> CoD
-    CoD --> WSJF["WSJF = 
-Cost of Delay
-÷
-Job Size"]
-    JS["Job Size
-所要期間"] --> WSJF
-    WSJF --> Order["優先順位が
-高いものから着手"]
+    RR["リスク低減・<br/>機会創出"] --> CoD
+    CoD --> WSJF["WSJF =<br/>Cost of Delay<br/>÷<br/>Job Size"]
+    JS["Job Size<br/>所要期間"] --> WSJF
+    WSJF --> Order["優先順位が<br/>高いものから着手"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class BV,TC,RR,CoD,JS,WSJF,Order box
@@ -815,20 +740,11 @@ Scrum Guideには「Definition of Ready」という公式な作成物はあり�
 
 ```mermaid
 flowchart TD
-    A["プロダクトバックログ
-リファインメントを
-定期的に実施"] --> B["上位項目から順に
-詳細化する"]
-    B --> C["受け入れ基準を
-明文化する"]
-    C --> D["見積もり可能な
-粒度まで分割する"]
-    D --> E["チームで
-準備完了の基準を
-合意しておく"]
-    E --> F["Sprint Planningで
-即座に着手できる
-状態を維持"]
+    A["プロダクトバックログ<br/>リファインメントを<br/>定期的に実施"] --> B["上位項目から順に<br/>詳細化する"]
+    B --> C["受け入れ基準を<br/>明文化する"]
+    C --> D["見積もり可能な<br/>粒度まで分割する"]
+    D --> E["チームで<br/>準備完了の基準を<br/>合意しておく"]
+    E --> F["Sprint Planningで<br/>即座に着手できる<br/>状態を維持"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class A,B,C,D,E,F box
@@ -874,17 +790,11 @@ flowchart TD
 
 ```mermaid
 flowchart TB
-    ACSPO["A-CSPO
-5つの学習目標カテゴリー"] --> C1["1. Product Owner
-Core Competencies"]
-    ACSPO --> C2["2. Advanced Goal
-Setting and Planning"]
-    ACSPO --> C3["3. Empathizing with
-Customers and Users"]
-    ACSPO --> C4["4. Advanced Product
-Assumption Validation"]
-    ACSPO --> C5["5. Product Backlog
-Management"]
+    ACSPO["A-CSPO<br/>5つの学習目標カテゴリー"] --> C1["1. Product Owner<br/>Core Competencies"]
+    ACSPO --> C2["2. Advanced Goal<br/>Setting and Planning"]
+    ACSPO --> C3["3. Empathizing with<br/>Customers and Users"]
+    ACSPO --> C4["4. Advanced Product<br/>Assumption Validation"]
+    ACSPO --> C5["5. Product Backlog<br/>Management"]
 
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -942,7 +852,7 @@ flowchart LR
 
 ### 15.2 資格の維持とScrum Education Units(SEU)
 
-Scrum Allianceの認定は「一度取ったら終わり」の資格ではありません。公式サイトでは、資格保持者が書籍を読む・ウェビナーを視聴する・イベントに参加するなどの学習活動を通じてSEUを獲得し、2年ごとの更新でその継続的な成長を証明する仕組みになっていると説明されています。<sup>[2]</sup> A-CSPOの場合、標準的な更新ルートは2年ごとの **30 SEU** の取得と **175米ドル** の更新料の支払いの両方です(更新料は2026年9月1日時点で確認した金額)。これに加えて代替ルートがあり、**Scrum Alliance の別の認定コースを修了すると、SEU の提出も更新料の支払いもなく既存の認定が自動更新されます**(たとえば A-CSPO の取得時に CSPO が自動更新されるのは、この仕組みによるものです)。
+Scrum Allianceの認定は「一度取ったら終わり」の資格ではありません。公式サイトでは、資格保持者が書籍を読む・ウェビナーを視聴する・イベントに参加するなどの学習活動を通じてSEUを獲得し、2年ごとの更新でその継続的な成長を証明する仕組みになっていると説明されています。<sup>[2]</sup> 適用される更新区分は、保有している資格のうち最上位のものによって決まります。A-CSPOが最上位の資格である場合、標準的な更新ルートは2年ごとの **30 SEU** の取得と **175米ドル** の更新料の支払いの両方です。上位のCSP-POを保有している場合は、Professional levelの要件である **40 SEU** と **250米ドル** が適用されます(更新料はいずれも2026年9月1日時点で確認した金額)。これに加えて代替ルートがあり、**Scrum Alliance の別の認定コースを修了すると、SEU の提出も更新料の支払いもなく既存の認定が自動更新されます**(たとえば A-CSPO の取得時に CSPO が自動更新されるのは、この仕組みによるものです)。
 
 ```mermaid
 flowchart TD
@@ -953,7 +863,7 @@ flowchart TD
     B1 --> C["SEUを蓄積する"]
     B2 --> C
     B3 --> C
-    C --> D["2年ごとに30 SEU +<br/>175米ドルで更新する<br/>(標準ルート)"]
+    C --> D["2年ごとに更新する(標準ルート)<br/>A-CSPOが最上位: 30 SEU + 175米ドル<br/>CSP-PO保有: 40 SEU + 250米ドル"]
     D --> B
     A --> ALT["別のScrum Alliance認定コースを修了する<br/>(代替ルート)"]
     ALT --> D2["SEU・更新料なしで<br/>既存の認定が自動更新される"]

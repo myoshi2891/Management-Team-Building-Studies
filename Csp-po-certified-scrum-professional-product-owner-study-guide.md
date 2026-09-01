@@ -127,11 +127,13 @@ CSP-POは、まさにこうした「複雑化したプロダクトオーナー�
 
 ```mermaid
 flowchart TD
-    A["A-CSPO認定を保有(有効・失効いずれでも可)"] --> B["CSP-PO認定教育プログラムを受講"]
+    A["A-CSPO認定を保有(有効・失効いずれでも可)"] --> P["次の2つを順不同で満たす<br/>(どちらが先でもよい)"]
+    P --> B["CSP-PO認定教育プログラムを受講"]
     B --> C["事前課題・事後課題を含む全コンポーネントを完了"]
-    C --> D["CSP-PO License Agreementに同意しメンバープロフィールを完成"]
-    D --> E["過去5年以内にPOとして24ヶ月以上の実務経験を証明"]
-    E --> F["CSP-PO認定取得"]
+    P --> E["過去5年以内にPOとして24ヶ月以上の実務経験を証明"]
+    C --> D["両方を満たしたうえで<br/>CSP-PO License Agreementに同意し<br/>メンバープロフィールを完成"]
+    E --> D
+    D --> F["CSP-PO認定取得"]
 ```
 
 | # | 要件 | 補足 |
@@ -301,7 +303,7 @@ CSPOの学習目標が主にKnowledge~Applicationレベルであるのに対し�
 
 **詳細な説明**: 従来型のプロジェクトキックオフは「計画を確定し、要件を固め、スケジュールを引く」ことに主眼が置かれます。一方、新しいスクラムチームの立ち上げは、チームという「生きたシステム」を育てるプロセスであり、以下のような理由から異なる扱いが必要です。
 
-1. **チームは段階的に成熟する**: 心理学者Bruce Tuckmanが1965年に提唱した「Forming(形成期)-Storming(混乱期)-Norming(統一期)-Performing(機能期)」モデルによれば、チームは対人関係とタスク遂行能力の両面で段階的に発達していきます[10][11]。プロジェクト憲章のように「初日から高いパフォーマンスを期待する」計画は非現実的です。
+1. **チームは段階的に成熟する**: 心理学者Bruce Tuckmanが1965年に提唱した「Forming(形成期)-Storming(混乱期)-Norming(統一期)-Performing(機能期)」モデルによれば、チームは対人関係とタスク遂行能力の両面で段階的に発達していきます[10] [11]。プロジェクト憲章のように「初日から高いパフォーマンスを期待する」計画は非現実的です。
 
 ```mermaid
 flowchart LR
@@ -364,7 +366,7 @@ flowchart LR
 
 **ベストプラクティス**:
 - 「新しいスクラムチームの立ち上げは、従来のプロジェクトキックオフとは異なる」という原則([1]の公式説明にもある通り)を体現するには、計画そのものを「固定的な手順書」ではなく「最初の仮説」として扱う姿勢が重要です。
-- 新チーム発足時こそ、Scrum Values(確約、勇気、集中、公開、尊敬)[5]をチームで言語化し、行動規範として合意しておくと、Storming期の対立を乗り越えやすくなります。
+- 新チーム発足時こそ、Scrum Values(確約、勇気、集中、公開、尊敬) [5]をチームで言語化し、行動規範として合意しておくと、Storming期の対立を乗り越えやすくなります。
 
 ---
 
@@ -468,7 +470,7 @@ flowchart TD
     VP --> COST["コスト構造"]
 ```
 
-Business Model Canvasは9つの要素(ブロック)で構成され、企業やプロダクトの価値創造の全体像を1枚で可視化するツールとして、200,000以上の企業で使われています[12][17]。
+Business Model Canvasは9つの要素(ブロック)で構成され、企業やプロダクトの価値創造の全体像を1枚で可視化するツールとして、200,000以上の企業で使われています[12] [17]。
 
 **代表的なビジネスモデル3種の比較**:
 
@@ -557,7 +559,7 @@ Porterのファイブフォースは、業界の競争環境を分析し、そ�
 |---|---|---|
 | ベロシティベースのフォーキャスト | 過去のSprintのベロシティ(完了した作業量)を基に将来の完了時期を予測する | 安定したチームで、比較的予測しやすいバックログがある場合 |
 | モンテカルロ・シミュレーション | 過去のスループットのばらつきを確率分布として扱い、複数のシナリオをシミュレーションして完了確率を算出する | 不確実性が高く、単純な平均値では誤差が大きい場合 |
-| Cost of Delayに基づく優先順位付け計画 | 各項目の遅延コストを定量化し、経済的に最適な順序で計画する(詳細はカテゴリー2-Cで扱う)[14][15] | 経済合理性を重視した計画が必要な場合 |
+| Cost of Delayに基づく優先順位付け計画 | 各項目の遅延コストを定量化し、経済的に最適な順序で計画する(詳細はカテゴリー2-Cで扱う) [14] [15] | 経済合理性を重視した計画が必要な場合 |
 
 **進め方(ステップバイステップ)**:
 1. 自チームの過去数Sprintのベロシティデータを収集する
@@ -780,8 +782,9 @@ Cost of Delayは、「その機能のリリースが1週間(または1ヶ月)遅
 **進め方(ステップバイステップ)**:
 1. 対象のプロダクトフィーチャーがもたらすビジネス価値(収益向上、コスト削減など)を見積もる
 2. その価値がいつまでに実現される必要があるか(時間的緊急性)を見積もる
-3. 上記2つから、「1週間(または1ヶ月)の遅延でいくらの価値を失うか」を算出する
-4. 複数のフィーチャー間でCost of Delayを比較し、優先順位付けに活用する(LO2.13、LO5.2で詳述)
+3. そのフィーチャーによるリスク低減・機会実現(将来の選択肢を確保する)の価値を見積もる
+4. 上記3つを合算し、「1週間(または1ヶ月)の遅延でいくらの価値を失うか」を算出する
+5. 複数のフィーチャー間でCost of Delayを比較し、優先順位付けに活用する(LO2.13、LO5.2で詳述)
 
 **ベストプラクティス**:
 - Cost of Delayは、精緻な計算よりも「相対的な比較ができること」が実務上は重要です。厳密さにこだわりすぎて計算自体が停滞するアンチパターンに陥らないよう注意しましょう[14]。
@@ -914,8 +917,9 @@ flowchart TD
 flowchart TD
     D["実験を実行"] --> E["結果を測定・評価"]
     E --> F{"仮説は支持されたか"}
-    F -- "Yes" --> G["確信を持って前進(persevere)"]
-    F -- "No" --> H["方向転換(pivot)しプロダクトバックログを更新"]
+    F -- "Yes" --> G["継続(persevere)して前進"]
+    F -- "No" --> H["方向転換(pivot)して<br/>プロダクトバックログを更新"]
+    F -- "No" --> I["中止し、投じるリソースを<br/>他の機会へ振り向ける"]
 ```
 
 **評価の際に注意すべきポイント**:
@@ -990,7 +994,7 @@ flowchart TD
 | 技術 | 概要 | 出典 |
 |---|---|---|
 | Kanoモデル | 機能を「当たり前品質」「一元的品質」「魅力的品質」等に分類し、顧客満足度への影響で優先順位付けする | Noriaki Kano, 1984年[18] |
-| WSJF/CD3(Cost of Delay Divided by Duration) | Cost of Delayを所要期間で割った値が高い順に着手する | Don Reinertsen(概念)、Joshua Arnold(CD3の命名)[14][15] |
+| WSJF/CD3(Cost of Delay Divided by Duration) | Cost of Delayを所要期間で割った値が高い順に着手する | Don Reinertsen(概念)、Joshua Arnold(CD3の命名) [14] [15] |
 | MoSCoW法 | Must have(必須)、Should have(重要)、Could have(あれば良い)、Won't have(今回は含めない)の4段階に分類する | 業界で広く使われる優先順位付けの古典的手法 |
 | 学習価値優先 | 最もリスクの高い(不確実性の高い)仮説を検証できる項目から着手する | Lean Startup的な考え方[16] |
 
@@ -1070,9 +1074,9 @@ flowchart TD
 | # | チェック項目 |
 |---|---|
 | 1 | 対立するステークホルダーの利害と立場を分けて可視化しているか |
-| 2 | 新チーム発足時にTuckmanモデルを踏まえたチームビルディングの時間を確保しているか[10][11] |
+| 2 | 新チーム発足時にTuckmanモデルを踏まえたチームビルディングの時間を確保しているか[10] [11] |
 | 3 | Definition of Doneの品質期待値をチーム発足時から明文化しているか[3] |
-| 4 | 複数チームを担当する場合、単一のプロダクトゴール・プロダクトバックログを維持しているか[8][9] |
+| 4 | 複数チームを担当する場合、単一のプロダクトゴール・プロダクトバックログを維持しているか[8] [9] |
 | 5 | 委任(delegation)する際に、期待される成果・制約・権限を明確にしているか[8] |
 
 ### 13.2 戦略・計画
@@ -1146,9 +1150,9 @@ flowchart LR
 
 | 資格 | 概要 |
 |---|---|
-| Certified Scrum Trainer®(CST) | Scrum Alliance公認のトレーナーとして、CSM・CSPOなどの認定コースを教える資格[1][23] |
-| Certified Enterprise Coach(CEC) | 組織全体のアジャイル変革をコーチングする、Scrum Allianceの最高位のコーチ資格の1つ[1][24] |
-| Certified Team Coach(CTC) | チームレベルのアジャイルコーチングを専門とする資格[1][25] |
+| Certified Scrum Trainer®(CST) | Scrum Alliance公認のトレーナーとして、CSM・CSPOなどの認定コースを教える資格[1] [23] |
+| Certified Enterprise Coach(CEC) | 組織全体のアジャイル変革をコーチングする、Scrum Allianceの最高位のコーチ資格の1つ[1] [24] |
+| Certified Team Coach(CTC) | チームレベルのアジャイルコーチングを専門とする資格[1] [25] |
 
 ### 15.2 CSP-PO取得のその他のメリット
 
@@ -1156,7 +1160,7 @@ flowchart LR
 
 - 就職機会と給与ポテンシャルの向上
 - CST・CEC・CTCへのゲートウェイ・マイルストーンの確立
-- Comparative Agility®(世界最大級のアジャイルアセスメント・改善プラットフォーム)へのプレミアム無料サブスクリプション[1][19][20]
+- Comparative Agility®(世界最大級のアジャイルアセスメント・改善プラットフォーム)へのプレミアム無料サブスクリプション[1] [19] [20]
 
 ### 15.3 更新(Renewal)の仕組み
 
@@ -1172,7 +1176,7 @@ flowchart LR
     F --> B
 ```
 
-> CSP-POの整合性と価値を維持するため、2年ごとに更新すること。これには、40 Scrum Education Units(SEU)の蓄積、Scrum Alliance公式サイトでの更新申請の完了、$250の更新料の支払いが含まれる[1][21][22]。
+> CSP-POの整合性と価値を維持するため、2年ごとに更新すること。これには、40 Scrum Education Units(SEU)の蓄積、Scrum Alliance公式サイトでの更新申請の完了、$250の更新料の支払いが含まれる[1] [21] [22]。
 
 ### 15.4 Scrum Education Units(SEU)の稼ぎ方
 
@@ -1181,7 +1185,7 @@ SEUは、書籍を読む、ウェビナーを視聴する、イベントに参�
 ### ベストプラクティス
 
 - SEUは更新期限の直前にまとめて稼ごうとするのではなく、日常的な学習活動(業界記事の閲覧、社内勉強会での登壇など)を通じて継続的に蓄積する習慣をつけましょう。
-- Comparative Agilityのプレミアムアクセスを活用し、自チーム・自組織のアジャイル成熟度を定期的にアセスメントすることは、CSP-POが学んだ「評価・査定(assess)」スキルを実務で継続的に活かす良い機会になります[19][20]。
+- Comparative Agilityのプレミアムアクセスを活用し、自チーム・自組織のアジャイル成熟度を定期的にアセスメントすることは、CSP-POが学んだ「評価・査定(assess)」スキルを実務で継続的に活かす良い機会になります[19] [20]。
 
 ---
 
@@ -1243,3 +1247,30 @@ CSP-POは、単なる知識の証明ではなく、Bloom's Taxonomyの高次レ�
 ---
 
 *本ガイドは、2026年8月時点でScrum Alliance公式サイトから取得した一次情報源に基づいて作成されています。認定要件・学習目標は改訂される可能性があるため、実際の受験・受講にあたっては、必ずScrum Alliance公式サイトの最新情報をご確認ください。*
+
+[1]: https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner
+[2]: https://www.scrumalliance.org/media/certifications/los/csp_po_learning_objectives_2022.pdf
+[3]: https://scrumguides.org/scrum-guide.html
+[4]: https://agilemanifesto.org/
+[5]: https://www.scrumalliance.org/about-scrum/values
+[6]: https://www.scrumalliance.org/get-certified/product-owner-track/advanced-certified-scrum-product-owner
+[7]: https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-product-owner
+[8]: https://resources.scrumalliance.org/article/youre-asked-product-owner-multiple-teams
+[9]: https://www.scrum.org/resources/online-nexus-guide
+[10]: https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development
+[11]: https://www.mindtools.com/abyj5fi/forming-storming-norming-and-performing/
+[12]: https://www.strategyzer.com/library/the-business-model-canvas
+[13]: https://en.wikipedia.org/wiki/Porter%27s_five_forces_analysis
+[14]: https://blackswanfarming.com/cost-of-delay/
+[15]: https://blackswanfarming.com/wsjf-weighted-shortest-job-first/
+[16]: https://theleanstartup.com/principles
+[17]: https://www.producttalk.org/opportunity-solution-trees/
+[18]: https://en.wikipedia.org/wiki/Kano_model
+[19]: https://www.scrumalliance.org/member-benefits/comparative-agility
+[20]: https://www.comparativeagility.com/
+[21]: https://www.scrumalliance.org/get-certified/scrum-education-units
+[22]: https://www.scrumalliance.org/get-certified/renewing-certifications
+[23]: https://www.scrumalliance.org/get-certified/trainers
+[24]: https://www.scrumalliance.org/agile-coaching/cec
+[25]: https://www.scrumalliance.org/agile-coaching/ctc
+[26]: https://resources.scrumalliance.org/article/product-roadmaps-secret-weapon-success
