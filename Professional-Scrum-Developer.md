@@ -105,6 +105,8 @@ flowchart TB
 
 > **出典：** Scrum.org「Suggested Reading for PSD I」<https://www.scrum.org/resources/suggested-reading-professional-scrum-developer> および「The Professional Scrum Competencies」<https://www.scrum.org/professional-scrum-competencies>
 
+<!-- -->
+
 > **ベストプラクティス：** 出題の約85%を占めるBが学習の中心です。ここが「PSD Iらしさ」の部分であり、他の資格（PSM Iなど）と重なるA・C・Dの部分は、既にScrum知識のある人にとっては復習で済むことが多いです。まずBを厚く学習し、残りの約15%にあたるA・C・Dは知識の抜けを埋める形で補うとよいでしょう（A・C・D内の出題比率は公開されていないため、この3つに優先順位を付ける根拠はありません）。
 
 ---
@@ -159,6 +161,8 @@ Scrum Guide 2020では、Product Owner・Scrum Master・Developersの3つのア�
 
 > **出典：** Scrum.org「Professional Scrum Competency: Understanding and Applying the Scrum Framework」<https://www.scrum.org/professional-scrum-competencies/understanding-and-applying-scrum-framework>
 
+<!-- -->
+
 > **ベストプラクティス：** PSD I試験では「Developersの人数」「肩書き」「サブチーム」に関する設問で古い（2017年以前の）知識に基づく誤答選択肢が用意されていることがあります。「Development Teamという言葉自体がもう存在しない」という前提を必ず押さえておきましょう。
 
 ### 2.4 Scrumイベント（Events）
@@ -185,7 +189,7 @@ flowchart LR
 > **ベストプラクティス：**
 > - Daily Scrumは「進捗報告会」ではなく「その日の計画を作り直すための検査・適応の場」と捉える。参加者はDevelopersのみで、状態確認のためのミーティングにしない。
 > - Sprint Reviewは「デモの日」ではなく、ステークホルダーとの協働作業（コラボレーティブなワーキングセッション）として設計する。
-> - Sprint Retrospectiveでは「人」ではなく「プロセス・ツール・関係性・完成の定義」を対象にする。
+> - Sprint Retrospectiveの検査対象は、個人・相互作用・プロセス・ツール・Definition of Doneである（Scrum Guide 2020）。個人も検査の対象に含まれる点に注意する。個人を検査対象から外すのではなく、「個人を責める場にしない」ことと「個人の働き方を検査する」ことを区別して扱う。
 
 ### 2.5 Scrum成果物（Artifacts）とコミットメント
 
@@ -250,6 +254,8 @@ Scrum Guide 2020では「自己組織化（Self-organizing）」から「自己�
 
 > **出典：** Scrum.org「Suggested Reading for PSD I」内 "Cross-Functional, Self-Managed Development" の項 <https://www.scrum.org/resources/suggested-reading-professional-scrum-developer>
 
+<!-- -->
+
 > **ベストプラクティス：** 自己管理は「放任」ではありません。明確なSprint Goal・DoD・透明性という「枠組み」があってはじめて機能する自由度です。PSD Iでは「マネージャーがDevelopersにタスクを割り振るべきか」といった設問で、自己管理の原則からの逸脱を見抜けるかが問われます。
 
 ### 3.4 設計とアーキテクチャ（Design and Architecture）
@@ -310,7 +316,7 @@ flowchart LR
 
 ### 3.7 テスト（Testing）
 
-「動くソフトウェアを毎スプリント届ける」というScrumの原則を支えるには、手動テストへの依存を減らし、自動化されたテストで継続的に品質を担保する必要があります。
+「動くソフトウェアを毎スプリント届ける」というScrumの原則を支えるうえで、テストは開発の一部として組み込まれている必要があります。どこまで自動化し、手動テストへの依存をどの程度減らすかは、Scrumが規定するものではなく、チームや組織がDefinition of Doneとして定める品質基準の問題です。多くの現場では、スプリントごとにリリース可能な品質を保つ手段として自動化されたテストが選ばれています。
 
 ```mermaid
 flowchart TB
@@ -326,7 +332,7 @@ flowchart TB
 - **探索的テスト**：自動化だけでは見つけにくいユーザビリティやエッジケースの問題を、テスターが能動的に探索して発見する手法。
 
 > **ベストプラクティス：**
-> - テストの自動化はDefinition of Doneの一部として扱い、「テストが書かれていない機能はDoneではない」という基準をチームで合意する。
+> - どこまでのテストをDefinition of Doneに含めるかをチームで合意する。「テストが書かれていない機能はDoneとしない」という基準を置く現場は多いが、これはScrumが定める規則ではなく、チームまたは組織が選んだDoDである。
 > - テスターはスプリントの最後にまとめて作業するのではなく、リファインメントや実装の初期段階からDevelopersと協働する（シフトレフト）。
 > - CIパイプライン上でテストスイートを自動実行し、失敗した場合はビルドを止める「壊れたビルドを放置しない」文化を徹底する。
 
@@ -449,7 +455,7 @@ flowchart LR
 
 | トピック | ベストプラクティス（要約） |
 |---|---|
-| Backlog Refinement | 稼働時間の目安10%を確保し、垂直分割でINVESTを満たすアイテムに整える |
+| Backlog Refinement | 必要な時間はバックログの状態とチームの習熟度に応じて調整し、垂直分割でINVESTを満たすアイテムに整える |
 | Cross-functional | ペア／モブプログラミングとスキルマトリクスで知識のサイロ化を防ぐ |
 | Self-managed Development | 明確なゴールとDoDという境界の中で、タスク割り当てをチーム自身に委ねる |
 | Design and Architecture | ADRで意思決定を記録し、大枠は初期に、詳細は創発的に育てる |
@@ -464,7 +470,7 @@ flowchart LR
 | Coaching and Mentoring | ペアプログラミングを知識移転とオンボーディングの手段として活用する |
 | Forecasting & Release Planning | バーンアップチャートでスコープの変化そのものを可視化する |
 | Product Value | アウトプットでなくアウトカム（成果）で成功を測る |
-| CI/CD | 壊れたビルドを放置しない文化と、自動デプロイまでのパイプラインを整備する |
+| CI/CD | 壊れたビルドを放置しない文化と、ソフトウェアを常にリリース可能な状態に保つパイプラインを整備する（本番への自動デプロイはその先の選択肢） |
 
 ---
 
@@ -491,6 +497,8 @@ flowchart TB
 6. **安定して高得点が取れるようになってから、本試験（PSD I）を受験する。**
 
 > **出典：** Scrum.org「Open Assessments」<https://www.scrum.org/open-assessments>、「Scrum Developer Open」<https://www.scrum.org/open-assessments/scrum-developer-open>、「Suggested Reading for PSD I」<https://www.scrum.org/resources/suggested-reading-professional-scrum-developer>
+
+<!-- -->
 
 > **ベストプラクティス：** Scrum Developer Openは30問構成の無料練習アセスメントで、Scrum.org自身が「PSD I受験前に強く推奨する」と案内しています。本試験前に、時間を計って何度も受け、安定して高スコアを出せる状態を目指しましょう。ただし丸暗記ではなく、「なぜその選択肢が正しいのか／誤りなのか」を毎回言語化することが、出題パターンが変化しても対応できる実力につながります。
 
