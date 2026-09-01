@@ -1,6 +1,6 @@
 # Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド
 
-> 本ガイドは、Scrum Alliance® が公開している公式情報(A-CSPO® Learning Objectives、Scrum Foundations® Learning Objectives、Scrum Guide、Agile Manifesto など)と、プロダクトマネジメント/アジャイル分野で広く参照される一次情報を根拠として作成した、初学者から中級者向けの学習教材です。各章の末尾に「ソース」として根拠URLを明記しています。ASCII図は使用せず、フローチャートはすべて Mermaid、比較表・一覧はすべて Markdown テーブルで表現しています。
+> 本ガイドは、Scrum Alliance® が公開している公式情報(A-CSPO® Learning Objectives、Scrum Foundations® Learning Objectives、Scrum Guide、Agile Manifesto など)と、プロダクトマネジメント/アジャイル分野で広く参照される一次情報を根拠として作成した、初学者から中級者向けの学習教材です。各解説章の末尾に「ソース」として根拠URLを明記しています(チェックリストと誤解・アンチパターンの章は、各解説章で示した出典をまとめ直したものです)。ASCII図は使用せず、フローチャートはすべて Mermaid、比較表・一覧はすべて Markdown テーブルで表現しています。
 
 ---
 
@@ -93,7 +93,7 @@ A-CSPOを取得するためには、以下をすべて満たす必要があり�
 | 3 | Scrum Alliance認定の教育プロバイダーが提供するA-CSPOコースを受講すること | — |
 | 4 | コースの全構成要素(事前課題・事後課題を含む場合がある)を完了すること | 教育者によって課題内容が異なる |
 | 5 | A-CSPOライセンス契約に同意し、Scrum Allianceのメンバープロフィールを完成させること | — |
-| 6 | Scrum Education Units(SEU)を獲得し、2年ごとに資格を更新すること | 詳細は第15章を参照 |
+| 6 | 2年ごとに30 SEU(Scrum Education Units)を獲得し、175米ドルの更新料を支払って資格を更新すること | 更新料は2026年9月1日時点で確認した金額。詳細は第15章を参照 |
 
 ### 2.2 要件を満たすまでの流れ
 
@@ -102,21 +102,20 @@ flowchart TD
     S["Start"] --> A["CSPOを保有している？"]
     A -- No --> A1["先にCSPOコースを受講"]
     A1 --> A
-    A -- Yes --> B["直近5年以内に
-PO実務経験12ヶ月以上ある？"]
-    B -- No --> B1["PO業務の経験を積む"]
+    A -- Yes --> P["次の2つを順不同で満たす<br/>(どちらが先でもよい)"]
+    P --> C["A-CSPO認定コースを受講し<br/>事前/事後課題を完了する"]
+    P --> B["直近5年以内のPO実務経験12ヶ月以上を<br/>プロフィールに記録する"]
+    B -- 未達の場合 --> B1["PO業務の経験を積む"]
     B1 --> B
-    B -- Yes --> C["A-CSPO認定コースを受講"]
-    C --> D["事前/事後課題を完了"]
-    D --> E["ライセンス契約に同意し
-プロフィールを完成"]
+    C --> E["ライセンス契約に同意し<br/>プロフィールを完成"]
+    B --> E
     E --> F["A-CSPO取得"]
-    F --> G["2年ごとにSEUで更新"]
+    F --> G["2年ごとに30 SEU + 175米ドルで更新"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
-    class S,A,B,C,D,E box
+    class S,A,P,B,C,E box
     class A1,B1 hub
     class F,G done
 ```
@@ -174,7 +173,22 @@ flowchart BT
 
 ### 3.3 A-CSPOの学習目標のレベル感
 
-CSPOの学習目標が主に Knowledge〜Application 中心であるのに対し、A-CSPOの学習目標は discuss(議論する)、practice(実践する)、create(作成する)、experiment(実験する)、appraise(査定する)、develop(開発する)といった、Analysis〜Evaluationに近い高次の動詞が数多く使われています。<sup>[1]</sup> これは、A-CSPOが「知っている」ではなく「実際の複雑な状況で使いこなせる」ことを求めている証拠です。
+CSPOの学習目標が主に Knowledge〜Application 中心であるのに対し、A-CSPOの学習目標には Application 以上のレベルを求める動詞が数多く含まれます。<sup>[1]</sup> ただし、A-CSPOの動詞がすべて高次というわけではなく、公式学習目標には list(列挙する)、describe(記述する)、explain(説明する)、use(使う)といった低次〜中位の動詞も含まれています。代表的な動詞とBloomレベルの対応は次の通りです。
+
+| 動詞 | 対応するBloomレベル |
+|---|---|
+| list(列挙する) | 1. Knowledge |
+| describe(記述する) | 1. Knowledge 〜 2. Comprehension |
+| explain(説明する) | 2. Comprehension |
+| discuss(議論する) | 2. Comprehension |
+| use(使う) | 3. Application |
+| practice(実践する) | 3. Application |
+| experiment(実験する) | 3. Application 〜 4. Analysis |
+| create(作成する) | 5. Synthesis |
+| develop(開発する) | 5. Synthesis |
+| appraise(査定する) | 6. Evaluation |
+
+重要なのは、動詞ごとに求められる到達度が異なるという点です。A-CSPOに高次の動詞が多く含まれることは、「知っている」だけでなく「実際の複雑な状況で使いこなせる」ことが求められている証拠ですが、個々の学習目標のレベルは、その学習目標に使われている動詞そのもので判断してください。
 
 > **ベストプラクティス**：学習目標を読むときは、動詞に注目してください。「describe(説明できる)」であれば言葉で説明できれば十分ですが、「create(作成できる)」「experiment(実験できる)」であれば、実際に手を動かして成果物を作る・試行することが求められています。
 
@@ -839,7 +853,7 @@ flowchart TD
 | 削除(Eliminate) | 長期間放置され陳腐化した「ゾンビ項目」を削除する |
 | 統合(Consolidate) | 類似・重複した項目を1つにまとめ、ノイズを減らす |
 
-さらに、テーマ・エピック・ユーザーストーリー・サブタスクという階層構造を意識し、階層が上位になるほど詳細度を下げ、着手が遠い項目ほど詳細に書き込みすぎないことも、リファインメントを持続可能にするための重要な原則です。<sup>[4]</sup>
+さらに、Product Backlogの項目をテーマ・エピック・ユーザーストーリーという階層構造で捉え、階層が上位になるほど詳細度を下げ、着手が遠い項目ほど詳細に書き込みすぎないことも、リファインメントを持続可能にするための重要な原則です。<sup>[4]</sup> なお、サブタスクはProduct Backlogの階層ではなく、Sprint Planning以降にSprint Backlogの中でDevelopersが自分たちの作業を分解するための単位です。
 
 > **ベストプラクティス**：バックログのリファインメントの改善は「一度きりの大掃除」ではなく、継続的な習慣にしましょう。四半期ごとに「ゾンビ項目探し」の時間を設けるだけでも、バックログの健全性は大きく改善します。
 
@@ -927,7 +941,7 @@ flowchart LR
 
 ### 15.2 資格の維持とScrum Education Units(SEU)
 
-Scrum Allianceの認定は「一度取ったら終わり」の資格ではありません。公式サイトでは、資格保持者が書籍を読む・ウェビナーを視聴する・イベントに参加するなどの学習活動を通じてSEUを獲得し、2年ごとの更新でその継続的な成長を証明する仕組みになっていると説明されています。<sup>[2]</sup>
+Scrum Allianceの認定は「一度取ったら終わり」の資格ではありません。公式サイトでは、資格保持者が書籍を読む・ウェビナーを視聴する・イベントに参加するなどの学習活動を通じてSEUを獲得し、2年ごとの更新でその継続的な成長を証明する仕組みになっていると説明されています。<sup>[2]</sup> A-CSPOの場合、2年ごとに **30 SEU** の取得と **175米ドル** の更新料の支払いの両方が必要です(更新料は2026年9月1日時点で確認した金額)。
 
 ```mermaid
 flowchart TD
@@ -938,8 +952,7 @@ flowchart TD
     B1 --> C["SEUを蓄積する"]
     B2 --> C
     B3 --> C
-    C --> D["2年ごとに
-資格を更新する"]
+    C --> D["2年ごとに30 SEU +<br/>175米ドルで更新する"]
     D --> B
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
