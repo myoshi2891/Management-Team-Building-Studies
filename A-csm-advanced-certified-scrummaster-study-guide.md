@@ -1,5 +1,6 @@
 # Advanced Certified ScrumMaster (A-CSM) 学習ガイド
-### 初学者のためのステップバイステップ解説 — 全ラーニングオブジェクティブ対応版
+
+**初学者のためのステップバイステップ解説 — 全ラーニングオブジェクティブ対応版**
 
 > 本ガイドは Scrum Alliance が公開する **A-CSM Learning Objectives (2022年1月版)** に基づき、6つの学習カテゴリー・全26のラーニングオブジェクティブ (LO) を、初学者でも理解できるようステップバイステップで解説したものです。各項目には「初学者向け解説」「ベストプラクティス」「参考ソース」を併記しています。ASCIIアートは使用せず、図解はすべて Mermaid、表はすべて Markdown 形式で記述しています。
 
@@ -63,33 +64,33 @@ A-CSM を取得・維持するためには、以下の要件を満たす必要�
 
 | # | 要件 | 詳細 |
 |---|------|------|
-| 1 | CSM 認定の保有 | Scrum Alliance の CSM 認定を保有していること（有効期限切れでも可。A-CSM 取得時に自動更新される） |
+| 1 | 前提資格の保有 | Scrum Alliance の CSM 認定、または Scrum.org の PSM I / PSM II のいずれかを保有していること（CSM は有効期限切れでも可。A-CSM 取得時に自動更新される） |
 | 2 | 実務経験 | 過去5年以内に Scrum Master としての実務経験12ヶ月以上を Scrum Alliance のプロフィールに記録していること |
-| 3 | コース修了 | 承認された A-CSM コース（事前・事後課題を含む）を修了すること |
+| 3 | コース修了 | 承認された A-CSM コース（最低16時間）を修了すること。講師が指定する課題・実務は、コース受講前・受講後のいずれかで実施すればよい |
 | 4 | ライセンス受諾 | A-CSM ライセンスへの同意とメンバープロフィールの完成 |
-| 5 | 資格更新 | Scrum Education Units (SEU) を取得し、2年ごとに資格を更新すること |
+| 5 | 資格更新 | 2年ごとに **30 SEU (Scrum Education Units) の取得** と **175 米ドルの更新料の支払い** の両方を行うこと。適用される更新区分は、保有している資格のうち最上位のものによって決まる |
 
-> **補足:** 実務経験12ヶ月に満たない状態でも A-CSM コース自体は受講可能です。ただし、認定ライセンスを受け取るには受講後に12ヶ月の実務経験要件を満たす必要があります。
+> **補足:** 実務経験12ヶ月に満たない状態でも A-CSM コース自体は受講可能です。ただし、認定ライセンスを受け取るには受講後に12ヶ月の実務経験要件を満たす必要があります。また、承認コースは最低16時間で構成され、講師が指定する課題・実務はコース受講前・受講後のどちらで行っても要件を満たします。
 
 ### 1.4 CSM と A-CSM の違い
 
 | 観点 | CSM | A-CSM |
 |------|-----|-------|
 | 位置づけ | Scrum 実践者としての入門資格 | より複雑な課題・組織的な取り組みに対応するための次のレベル |
-| 前提条件 | なし（Scrum の基礎学習） | CSM 保有 + Scrum Master 実務経験12ヶ月 |
+| 前提条件 | なし（Scrum の基礎学習） | CSM（または Scrum.org の PSM I / PSM II）保有 + Scrum Master 実務経験12ヶ月 |
 | 学習の焦点 | Scrum フレームワークの理解 | ファシリテーション・コーチング・スケーリングの実践 |
-| コース形式 | 基礎コース | 事前・事後課題を伴う応用コース |
+| コース形式 | 基礎コース | 最低16時間の応用コース（講師指定の課題・実務は受講前・受講後のいずれでも可） |
 
 ```mermaid
 flowchart TD
-    R1["Scrum Alliance CSM 認定を保有<br/>(有効期限切れでも可)"] --> R2["過去5年以内に<br/>Scrum Master実務経験12ヶ月"]
-    R2 --> R3["承認されたA-CSMコースを修了<br/>(事前/事後課題含む)"]
+    R1["Scrum Alliance CSM 認定<br/>または Scrum.org PSM I / PSM II を保有<br/>(CSMは有効期限切れでも可)"] --> R2["過去5年以内に<br/>Scrum Master実務経験12ヶ月"]
+    R2 --> R3["承認されたA-CSMコース(最低16時間)を修了<br/>(課題は受講前/受講後どちらでも可)"]
     R3 --> R4["A-CSMライセンス受諾+<br/>メンバープロフィール完成"]
     R4 --> R5["A-CSM認定取得"]
-    R5 --> R6["SEU取得により<br/>2年ごとに更新"]
+    R5 --> R6["2年ごとに30 SEU取得+<br/>175米ドルの更新料で更新"]
 ```
 
-> **ソース:** [Scrum Alliance — Advanced Certified ScrumMaster](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster)
+> **ソース:** [Scrum Alliance — Advanced Certified ScrumMaster](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster) / [Scrum Alliance Help Center — How do I earn the A-CSM or A-CSPO certification?](https://support.scrumalliance.org/hc/en-us/articles/115001680252-How-do-I-earn-the-Advanced-Certified-ScrumMaster-A-CSM-or-Advanced-Certified-Scrum-Product-Owner-A-CSPO-certification)
 
 ---
 
@@ -563,7 +564,7 @@ flowchart TD
 | コードレビューが完了している |
 | 単体テスト・自動テストが通過している |
 | ドキュメントが更新されている |
-| プロダクトオーナーによる受け入れ確認が完了している |
+| （任意・文脈依存）プロダクトオーナーによる受け入れ確認が完了している — Scrum が定める DoD の要件ではなく、組織やプロダクトの事情に応じて加える運用上のコントロール |
 | 本番相当の環境にデプロイ可能な状態である |
 
 > **ベストプラクティス:** DoD は一度作ったら固定するのではなく、チームの技術力や組織の期待水準が上がるにつれて、より厳格な基準へと「強化」していくべきものです。逆に緩めることは品質の後退を意味するため慎重に扱いましょう。
@@ -1045,14 +1046,17 @@ A-CSM 取得後の次のステップとして、Scrum Alliance の FAQ では **
 
 ```mermaid
 flowchart LR
-    A["A-CSM取得"] --> B["実務経験の蓄積+<br/>SEU(Scrum Education Units)の取得"]
+    A["A-CSM取得"] --> B["承認されたCSP-SMコースの<br/>全構成要素(事前/事後課題を含む)を修了<br/>+ 過去5年以内にScrum Masterとして<br/>実務経験24ヶ月以上を記録"]
     B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster"]
-    C --> D["トレーナー/コーチとしての道<br/>(CTC, CEC等)"]
+    C --> R["2年ごとにSEU取得+<br/>更新料の支払いで資格を更新"]
+    C --> D["トレーナー/コーチとしての道<br/>(CTC・CECは旧称の資格)"]
 ```
+
+> **注記:** CTC (Certified Team Coach)・CEC (Certified Enterprise Coach) は旧称の資格であり、新規申請の受付は2025年1月6日をもって停止されています。後継となる Certified Agility Consultant (CAC) プログラムは現在も開発中で、申請可能なパスとしてはまだ開始されていません。コーチ系のキャリアパスを検討する際は最新の状況を確認してください。 [Scrum Alliance Help Center — Updates to the CEC and CTC programs](https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs)
 
 ### 16.2 資格の維持: Scrum Education Units (SEU)
 
-A-CSM は取得して終わりではなく、2年ごとに **Scrum Education Units (SEU)** を取得して更新する必要があります。SEU は以下のような活動を通じて取得できます。
+A-CSM は取得して終わりではなく、2年ごとに **30 SEU (Scrum Education Units)** の取得と **175 米ドルの更新料** の支払いの両方によって更新する必要があります（更新区分は保有資格のうち最上位のものによって決まるため、A-CSM を保有していれば CSM も連動して更新されます）。SEU は以下のような活動を通じて取得できます。
 
 | 活動 | 内容 |
 |------|------|
