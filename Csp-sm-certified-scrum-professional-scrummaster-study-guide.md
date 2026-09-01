@@ -210,7 +210,7 @@ Scrum は Lean Thinking を土台にした経験主義（Empiricism）のフレ�
 
 ### 5.1 LO 1.1: Lean Thinking の起源を説明できる
 
-Lean Thinking の直接の起源は、**トヨタ生産方式（Toyota Production System, TPS）** です。トヨタ自動車工業の創業者・豊田佐吉、その息子である豊田喜一郎、そして「トヨタ生産方式の父」と呼ばれる **大野耐一（Taiichi Ohno）** が中心となって、戦後日本の資源制約の中で確立しました。
+Lean Thinking の直接の起源は、**トヨタ生産方式（Toyota Production System, TPS）** です。トヨタグループの創始者・豊田佐吉、その息子でトヨタ自動車工業の創業者である豊田喜一郎、そして「トヨタ生産方式の父」と呼ばれる **大野耐一（Taiichi Ohno）** が中心となって、戦後日本の資源制約の中で確立しました。
 
 - 大野耐一は「ムダ（muda）」の排除を体系化し、後述する7つのムダを定義しました。
 - トヨタの現場文化として **「現地現物」（genchi genbutsu）**、つまり「机上の空論ではなく、自分の目で現場を見て判断する」という原則があります。
@@ -591,7 +591,7 @@ CSP-SM 保持者には、自分自身が実際に組織文化の変化を主導�
 | フレームワーク | Product Owner のスケーリングパターン |
 |---|---|
 | Nexus（Scrum.org） | **単一の Product Owner** が、単一の Product Backlog を管理し、3〜9チームで構成される Nexus 全体に対して責任を持つ。Nexus Integration Team の一員でもある |
-| LeSS（Large-Scale Scrum） | 単一の Product Owner が全体のプロダクトバックログを持ちつつ、大規模になった場合は "Area Product Owner" のような概念でエリアごとの優先順位付けを補助する |
+| LeSS（Large-Scale Scrum） | 標準の LeSS では **単一の Product Owner** が全体のプロダクトバックログに責任を持つ。さらに大規模な **LeSS Huge**（LeSS の拡張形態）になった場合にのみ、"Area Product Owner" という概念が導入され、要求エリアごとの優先順位付けを担当する |
 | Scrum@Scale | **Chief Product Owner（CPO）** が、複数チームの Product Owner から構成される "MetaScrum" を率い、単一の全体バックログの優先順位を調整する |
 
 ```mermaid
@@ -708,6 +708,7 @@ CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイト�
 - Scrum Alliance の資格は **2年ごとの更新** が必要です。
 - 更新には Scrum Education Units（SEU）の取得が必要で、記事の閲読・イベント参加・ボランティア活動など「学習に費やした1時間 = 1 SEU」として計算されます。
 - CSP レベル（CSP-SM を含む）の更新には、専門レベル（Professional-level）の更新料が必要です（2年ごとに専門レベルは基礎レベル・上級レベルより高い更新料が設定されています）。
+- CSP-SM の場合、現行の更新要件は **2年ごとに 40 SEU の取得と 250 米ドルの更新料の支払い** です（金額は2026年9月1日時点で確認したもの。最新の金額は Scrum Alliance 公式サイトで確認してください）。
 - CSP-SM 保持者は、Scrum Alliance が提供する世界最大級のアジャイルアセスメント・継続的改善プラットフォームである **Comparative Agility®** のプレミアムサブスクリプションを無料で利用できます。
 
 ### 13.2 上位資格との関係

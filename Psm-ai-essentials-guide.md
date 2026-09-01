@@ -209,7 +209,7 @@ PSM-AI Essentialsのコース目標では、この基礎の上にAIを重ねる�
 | 1 | **Delegation(委任)** | 目標を設定し、いつ・どのようにAIに関与させるかを決める |
 | 2 | **Description(記述)** | 有用なAIの振る舞いとアウトプットを引き出すために、目標を的確に説明する |
 | 3 | **Discernment(見極め)** | AIのアウトプットや振る舞いの有用性を正確に評価する |
-| 4 | **Diligence(誠実な responsibility)** | AIを使って行ったこと・その方法について責任を持つ |
+| 4 | **Diligence(責任)** | AIを使って行ったこと・その方法について責任を持つ |
 
 (出典: 4)
 
@@ -335,7 +335,7 @@ Scrum Masterがチームの AI利用を支援する際、次のような問い�
 
 ### 5.4 人間の説明責任(Accountability)は代替されない
 
-AI活用がどれほど進んでも、Scrumのアカウンタビリティ構造(Product Owner・Scrum Master・Developers)自体は変わりません。エージェンティックAIが自律的にタスクを実行する場合であっても、その結果に対する説明責任は人間の側に残ります。これは4D AI Fluency Frameworkの「Diligence(誠実な責任)」とも直結する考え方です。(出典: 4)
+AI活用がどれほど進んでも、Scrumのアカウンタビリティ構造(Product Owner・Scrum Master・Developers)自体は変わりません。エージェンティックAIが自律的にタスクを実行する場合であっても、その結果に対する説明責任は人間の側に残ります。これは4D AI Fluency Frameworkの「Diligence(責任)」とも直結する考え方です。(出典: 4)
 
 ### 5.5 「AIを使ってよいか」の判断フロー
 
