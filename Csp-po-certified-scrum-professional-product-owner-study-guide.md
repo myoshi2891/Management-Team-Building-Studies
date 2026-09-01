@@ -1,6 +1,6 @@
 # Certified Scrum Professional® - Product Owner (CSP®-PO) 完全学習ガイド
 
-> 初学者から経験者まで、CSP-PO認定が求める5つのカテゴリー・26の学習目標(Learning Objectives)を、ステップバイステップでわかりやすく解説する日本語ガイドです。各項目には「詳細な説明」「具体的な進め方」「ベストプラクティス」「一次情報源のURL」を必ず添えています。ASCII図解は一切使用せず、フローチャートはすべてMermaid、比較・整理はすべてMarkdownの表で表現しています。
+> 初学者から経験者まで、CSP-PO認定が求める5つのカテゴリー・31の学習目標(Learning Objectives)を、ステップバイステップでわかりやすく解説する日本語ガイドです。各項目には「詳細な説明」「具体的な進め方」「ベストプラクティス」「一次情報源のURL」を必ず添えています。ASCII図解は一切使用せず、フローチャートはすべてMermaid、比較・整理はすべてMarkdownの表で表現しています。
 
 ---
 
@@ -15,7 +15,7 @@
 
 ### このガイドの作り方
 
-本ガイドは、Scrum Alliance公式サイトの「[Certified Scrum Professional Product Owner (CSP-PO) Certification](https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner)」ページ、および同ページからリンクされている公式PDF「[CSP-PO Learning Objectives (2022年1月版)](https://www.scrumalliance.org/media/certifications/los/csp_po_learning_objectives_2022.pdf)」を一次情報源として直接取得し、そこに定義された5カテゴリー・26個の学習目標をすべて網羅する形で構成しています。加えて、各学習目標の実務的な理解を助けるため、Scrum Guide、Agile Manifesto、Scrum Alliance公式リソース記事、そしてCost of Delay/WSJF、Business Model Canvas、Lean Startup、Opportunity Solution Tree、Kanoモデル、Nexus、Tuckmanモデル、Porterのファイブフォースといった、プロダクトマネジメント/アジャイル業界で広く参照される一次情報源・原典に近い資料を補助的な根拠として引用しています。引用箇所には文中に `[番号]` を付与し、末尾の「参考文献・出典一覧」で該当URLを確認できます。
+本ガイドは、Scrum Alliance公式サイトの「[Certified Scrum Professional Product Owner (CSP-PO) Certification](https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner)」ページ、および同ページからリンクされている公式PDF「[CSP-PO Learning Objectives (2022年1月版)](https://www.scrumalliance.org/media/certifications/los/csp_po_learning_objectives_2022.pdf)」を一次情報源として直接取得し、そこに定義された5カテゴリー・31個の学習目標をすべて網羅する形で構成しています。加えて、各学習目標の実務的な理解を助けるため、Scrum Guide、Agile Manifesto、Scrum Alliance公式リソース記事、そしてCost of Delay/WSJF、Business Model Canvas、Lean Startup、Opportunity Solution Tree、Kanoモデル、Nexus、Tuckmanモデル、Porterのファイブフォースといった、プロダクトマネジメント/アジャイル業界で広く参照される一次情報源・原典に近い資料を補助的な根拠として引用しています。引用箇所には文中に `[番号]` を付与し、末尾の「参考文献・出典一覧」で該当URLを確認できます。
 
 ### 表記について
 
@@ -63,7 +63,7 @@ CSP-POが検証する高度な知識領域は、公式FAQによれば次の3つ�
 
 ### 1.2 Product Owner Trackにおける位置づけ
 
-Scrum AllianceのProduct Owner Trackは、CSPO → A-CSPO → CSP-POという3段階で構成されており、CSP-POはその最終段階です[1][6][7]。
+Scrum AllianceのProduct Owner Trackは、CSPO → A-CSPO → CSP-POという3段階で構成されており、CSP-POはその最終段階です[1]、[6]、[7]。
 
 ```mermaid
 flowchart LR
@@ -762,7 +762,7 @@ flowchart LR
 **詳細な説明**: Cost of Delay(遅延コスト)は、プロダクト開発における最も重要な経済的概念の1つです。Don Reinertsenは次のように述べています。
 
 > Cost of Delayは、時間が私たちの目指す成果に与える影響を伝える方法である。より正式には、時間に対する総期待価値の偏微分である[14]。
-
+>
 > もし1つだけ定量化するなら、Cost of Delayを定量化せよ[14]。
 
 ```mermaid
@@ -1187,7 +1187,7 @@ SEUは、書籍を読む、ウェビナーを視聴する、イベントに参�
 
 ## 16. まとめ
 
-CSP-PO(Certified Scrum Professional® - Product Owner)は、Scrum AllianceのProduct Owner Trackにおける最高位の認定であり、以下の5つのカテゴリー・26の学習目標を通じて、経験豊富なプロダクトオーナーが直面する複雑な現実の課題に対応する力を養います[2]。
+CSP-PO(Certified Scrum Professional® - Product Owner)は、Scrum AllianceのProduct Owner Trackにおける最高位の認定であり、以下の5つのカテゴリー・31の学習目標を通じて、経験豊富なプロダクトオーナーが直面する複雑な現実の課題に対応する力を養います[2]。
 
 ```mermaid
 flowchart TD
