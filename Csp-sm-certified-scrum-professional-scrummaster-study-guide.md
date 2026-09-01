@@ -1,6 +1,6 @@
 # Certified Scrum Professional® ScrumMaster (CSP®-SM) 完全学習ガイド
 
-> 世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum Alliance® の **Certified Scrum Professional® ScrumMaster（CSP®-SM）** の出題範囲（Learning Objectives）を、初学者にもわかりやすくステップバイステップで解説する学習ガイドです。各項目には具体的なベストプラクティスと、その根拠となる一次情報源の URL を付記しています。
+> 世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum Alliance® の **Certified Scrum Professional® ScrumMaster（CSP®-SM）** の出題範囲（Learning Objectives）を、初学者にもわかりやすくステップバイステップで解説する学習ガイドです。各項目には具体的なベストプラクティスと、その根拠となる参考情報源の URL を付記しています。
 
 ---
 
@@ -56,21 +56,10 @@ CSP-SM（Certified Scrum Professional® ScrumMaster）は、Scrum Alliance の *
 
 ```mermaid
 flowchart LR
-    A["CSM
-    Certified ScrumMaster
-    (前提資格なし)"] --> B["A-CSM
-    Advanced Certified ScrumMaster
-    (CSM必須 + 実務経験12か月)"]
-    B --> C["CSP-SM
-    Certified Scrum Professional
-    ScrumMaster
-    (A-CSM必須 + 実務経験24か月)"]
-    C --> D["CST
-    Certified Scrum Trainer"]
-    C --> E["CTC / CEC
-    (2025年以降は
-    Certified Agility
-    Consultant へ移行中)"]
+    A["CSM<br/>Certified ScrumMaster<br/>(前提資格なし)"] --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(CSM必須 + 実務経験12か月)"]
+    B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster<br/>(A-CSM必須 + 実務経験24か月)"]
+    C --> D["CST<br/>Certified Scrum Trainer"]
+    C --> E["CTC / CEC<br/>(2025年1月6日で新規申請停止。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
 
     classDef current fill:#FAF1DF,stroke:#B8802A,color:#161B26
     class C current
@@ -111,7 +100,7 @@ Scrum Alliance の FAQ では、次のように明記されています。
 
 > "You can take the course without the 24 months of experience, but you cannot get the certification until you have completed and recorded the 24 months of experience."
 
-つまり **A-CSM を取得した時点でコースを受講することは可能** ですが、**認定証が発行されるのは24か月分の実務経験がプロフィールに記録・検証された後** です。これは A-CSM から CSP-PO/CSP-SM に進む多くの実務者が誤解しやすいポイントです。
+つまり **A-CSM を取得した時点でコースを受講することは可能** ですが、**認定証が発行されるのは24か月分の実務経験がプロフィールに記録・検証された後** です。これは上位トラックへ進む多くの実務者が誤解しやすいポイントです。なお前提資格はトラックごとに分かれており、CSP-SM の前提資格は **A-CSM**、CSP-PO の前提資格は **A-CSPO** です。
 
 ### 2.2 取得までのプロセス（フローチャート）
 
@@ -124,15 +113,15 @@ flowchart TD
     必須ではない)"]
     Enroll --> Course["コースを受講し
     事前/事後課題を含む全構成要素を修了する"]
-    Course --> License["CSP-SM License Agreement
-    に同意し、会員プロフィールを完成させる"]
-    License --> Exp{"Scrum Master としての
+    Course --> Exp{"Scrum Master としての
     実務経験が過去5年以内で
     24か月以上あるか?"}
     Exp -- いいえ --> Wait["実務経験を積み、
     Scrum Alliance プロフィールに記録する"]
     Wait --> Exp
-    Exp -- はい --> Cert(["CSP-SM 認定証が発行される"])
+    Exp -- はい --> License["CSP-SM License Agreement
+    に同意し、会員プロフィールを完成させる"]
+    License --> Cert(["CSP-SM 認定証が発行される"])
     Cert --> Maintain["SEU を獲得し、
     2年ごとに資格を更新する"]
 ```
@@ -197,7 +186,7 @@ CSP-SM の LO には「plan the launch of a new Scrum Team」「create a coachin
 
 ## 4. CSP-SM Learning Objectives 全体マップ
 
-CSP-SM の Learning Objectives は、公式文書（2022年1月版）において以下の6カテゴリ・28個の学習目標に整理されています。
+CSP-SM の Learning Objectives は、公式文書（2022年1月版）において以下の6カテゴリ・29個の学習目標に整理されています。
 
 | # | カテゴリ | サブカテゴリ | LO数 |
 |---|---|---|---|
@@ -385,9 +374,9 @@ flowchart TD
 |---|---|
 | アフィニティマッピング（親和図法） | 付箋を使ってアイデアをグルーピングし、共通のテーマを発見する |
 | ホワイトボード/デジタルボードでのフローの可視化 | プロセスの流れやユーザージャーニーを描き、認識を揃える |
-| Liberating Structures の各種マイクロストラクチャー | 「1-2-4-All」「Troika Consulting」「W³（What, So What, Now What）」など、目的別に設計された33以上のファシリテーション構造 |
+| グラフィックレコーディング / スケッチノート | 議論の内容をその場で文字・図・アイコンとして描き出し、参加者が「今どこまで何を話したか」を目で追える状態にする。発言が絵として残るため、認識のズレを議論中に発見しやすくなる |
 
-Liberating Structures は Henri Lipmanowicz と Keith McCandless によって開発された、参加と協働を促すための一連の "マイクロストラクチャー（微細構造）" 群です。従来の会議形式（円卓での自由討議、一方的なプレゼンなど）に代わる、より包摂的な相互作用パターンを提供します。
+なお、視覚化の技法そのものではありませんが、協働セッションの「型」を選ぶ引き出しとして **Liberating Structures** も併せて知っておくと有用です。これは Henri Lipmanowicz と Keith McCandless によって開発された、参加と協働を促すための一連の "マイクロストラクチャー（微細構造）" 群で、「1-2-4-All」「Troika Consulting」「W³（What, So What, Now What）」など、目的別に設計された33以上の構造が含まれます。従来の会議形式（円卓での自由討議、一方的なプレゼンなど）に代わる、より包摂的な相互作用パターンを提供します。
 
 > **ベストプラクティス**: いきなり複雑な Liberating Structures を導入するのではなく、まず「1-2-4-All」のようなシンプルな構造から低リスクな社内会議で試し、目的と手順を明確に説明してから導入することが推奨されます。
 
@@ -471,7 +460,7 @@ CSP-SM 保持者は、単に学ぶだけでなく **教える側に回る経験*
 | モデル | 提唱者 | 概要 |
 |---|---|---|
 | Tuckman モデル | Bruce Tuckman | チームは **Forming（形成期）→ Storming（混乱期）→ Norming（統一期）→ Performing（機能期）→（Adjourning：解散期）** という段階を経て発展する |
-| Five Dysfunctions of a Team（チームの5つの機能不全） | Patrick Lencioni（2002年） | チームの機能不全を **信頼の欠如 → 対立への恐れ → responsibility=コミットメント不足 → 説明責任の回避 → 結果への無関心** という5層のピラミッドで説明する |
+| Five Dysfunctions of a Team（チームの5つの機能不全） | Patrick Lencioni（2002年） | チームの機能不全を **信頼の欠如 → 対立への恐れ → コミットメントの欠如（Lack of Commitment） → 説明責任の回避 → 結果への無関心** という5層のピラミッドで説明する |
 | Project Aristotle（プロジェクト・アリストテレス） | Google re:Work チーム | 180のチームを調査した結果、チームの効果性を決める最も重要な要因は **心理的安全性（Psychological Safety）** であり、次いで「信頼性」「構造と明確さ」「意味」「インパクト」が続くと結論づけた |
 
 ```mermaid
@@ -603,14 +592,14 @@ flowchart LR
 | アプローチ | 提唱者/出典 | 特徴 |
 |---|---|---|
 | Kotter's 8-Step Change Model | John Kotter（*Leading Change*, 1996） | トップダウン型。危機感の醸成 → 推進チームの結成 → ビジョンの策定 → ビジョンの伝達 → 障害の除去 → 短期的成果の創出 → 更なる変革の推進 → 変革の定着、という8段階で **組織レベル** の変革を主導する |
-| Prosci ADKAR モデル | Jeff Hiatt（Prosci） | ボトムアップ型。Awareness（認識）→ Desire（欲求）→ Knowledge（知識）→ Ability（能力）→ Reinforcement（定着）という **個人レベル** の変化を積み上げる |
+| Prosci ADKAR モデル | Jeff Hiatt（Prosci） | 個人レベルの変化を扱うモデル。Awareness（認識）→ Desire（欲求）→ Knowledge（知識）→ Ability（能力）→ Reinforcement（定着）という **個人レベル** の変化を積み上げる |
 
 ```mermaid
 flowchart TB
     subgraph Kotter["Kotter 8-Step (組織レベル・トップダウン)"]
         K1["危機感の醸成"] --> K2["推進チームの結成"] --> K3["ビジョンの策定"] --> K4["ビジョンの伝達"] --> K5["障害の除去"] --> K6["短期的成果"] --> K7["更なる変革の推進"] --> K8["変革の定着"]
     end
-    subgraph ADKAR["ADKAR (個人レベル・ボトムアップ)"]
+    subgraph ADKAR["ADKAR (個人レベルの変化)"]
         A1["Awareness"] --> A2["Desire"] --> A3["Knowledge"] --> A4["Ability"] --> A5["Reinforcement"]
     end
 ```
@@ -707,7 +696,7 @@ flowchart TD
 | 技法 | 概要 |
 |---|---|
 | Scrum of Scrums | 各チームの代表者が定期的に集まり、依存関係や課題を共有する（Scrum@Scale の "Scrum of Scrums Master" が象徴的な役割） |
-| Nexus Integration Team | Product Owner・Scrum Master・各チームの代表者からなる統合チームが、複数チームの成果物の統合責任を持つ |
+| Nexus Integration Team | 統合作業に必要なスキルと知識に基づいて選ばれた Nexus Integration Team Members が、複数チームの成果物の統合責任を持つ。各チームからの固定的な代表者ではなく、Nexus の状況に応じて構成を変更できる |
 | Communities of Practice（実践コミュニティ） | 職能横断で知見を共有する場を設け、暗黙知の共有と標準化を進める |
 | 共有 Definition of Done | 複数チームが同じ品質基準を持つことで、統合時の手戻りを減らす |
 | Open Space Technology | 大人数が集まる場で、参加者自身がアジェンダを作り議論するオープンな形式のイベント |
@@ -817,7 +806,7 @@ CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイト�
 - **Certified Scrum Trainer®（CST®）**: Scrum Alliance の認定コースを教えるトレーナーへの道
 - **Certified Team Coach（CTC）/ Certified Enterprise Coach™（CEC™）**: チーム〜エンタープライズレベルのアジャイルコーチへの道
 
-> **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており、両プログラムは新設の **Certified Agility Consultant（CAC）** プログラムへと統合・移行が進められています。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
+> **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており、後継となる **Certified Agility Consultant（CAC）** プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
 
 ### 13.1 資格の維持（SEU と更新）
 
@@ -845,7 +834,7 @@ CSP-SM は、Scrum Master トラックの中で最も高度な認定資格であ
 
 これらはいずれも単独の知識としてではなく、**相互に接続された1つの体系** として理解することが重要です。Lean Thinking の理解がファシリテーションの設計思想を支え、チームダイナミクスの理解が組織開発の土台となり、個人の成長戦略がキャリア全体を貫く軸になります。
 
-CSP-SM を取得することは、Scrum Master としての学びのゴールではなく、CST・CEC・CTC（またはその後継である Certified Agility Consultant）といった、より高度な役割へと進むための土台を築くプロセスであると言えます。
+CSP-SM を取得することは、Scrum Master としての学びのゴールではなく、CST、および CEC・CTC（新規申請は停止中で、後継の Certified Agility Consultant は開発中）といった、より高度な役割へと進むための土台を築くプロセスであると言えます。
 
 ---
 
