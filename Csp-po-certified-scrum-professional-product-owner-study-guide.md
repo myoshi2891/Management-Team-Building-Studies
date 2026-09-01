@@ -2,6 +2,10 @@
 
 > 初学者から経験者まで、CSP-PO認定が求める5つのカテゴリー・31の学習目標(Learning Objectives)を、ステップバイステップでわかりやすく解説する日本語ガイドです。各項目には「詳細な説明」「具体的な進め方」「ベストプラクティス」「一次情報源のURL」を必ず添えています。ASCII図解は一切使用せず、フローチャートはすべてMermaid、比較・整理はすべてMarkdownの表で表現しています。
 
+<!-- -->
+
+> **商標について:** Certified Scrum Professional®、CSP®、CSPO®、A-CSPO® は Scrum Alliance, Inc. の商標または所有物です。本ガイドは Scrum Alliance, Inc. とは無関係の非公式な学習資料であり、同社による承認・後援を受けたものではありません。
+
 ---
 
 ## このガイドについて
@@ -15,7 +19,7 @@
 
 ### このガイドの作り方
 
-本ガイドは、Scrum Alliance公式サイトの「[Certified Scrum Professional Product Owner (CSP-PO) Certification](https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner)」ページ、および同ページからリンクされている公式PDF「[CSP-PO Learning Objectives (2022年1月版)](https://www.scrumalliance.org/media/certifications/los/csp_po_learning_objectives_2022.pdf)」を一次情報源として直接取得し、そこに定義された5カテゴリー・31個の学習目標をすべて網羅する形で構成しています。加えて、各学習目標の実務的な理解を助けるため、Scrum Guide、Agile Manifesto、Scrum Alliance公式リソース記事、そしてCost of Delay/WSJF、Business Model Canvas、Lean Startup、Opportunity Solution Tree、Kanoモデル、Nexus、Tuckmanモデル、Porterのファイブフォースといった、プロダクトマネジメント/アジャイル業界で広く参照される一次情報源・原典に近い資料を補助的な根拠として引用しています。引用箇所には文中に `[番号]` を付与し、末尾の「参考文献・出典一覧」で該当URLを確認できます。
+本ガイドは、Scrum Alliance公式サイトの「[Certified Scrum Professional Product Owner (CSP-PO) Certification](https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner)」ページ、および同ページからリンクされている公式PDF「[CSP-PO Learning Objectives (2022年1月版)](https://www.scrumalliance.org/media/certifications/los/csp_po_learning_objectives_2022.pdf)」を一次情報源として直接取得し、そこに定義された5カテゴリー・31個の学習目標をすべて網羅する形で構成しています。加えて、各学習目標の実務的な理解を助けるため、Scrum Guide、Agile Manifesto、Scrum Alliance公式リソース記事、そしてCost of Delay/WSJF、Business Model Canvas、Lean Startup、Opportunity Solution Tree、Kanoモデル、Nexus、Tuckmanモデル、Porterのファイブフォースといった、プロダクトマネジメント/アジャイル業界で広く参照される概念を補助的な根拠として引用しています。ただし後者のうち、Wikipedia・MindTools・Black Swan Farming などは提唱者本人による資料ではない**二次資料**です。末尾の参考文献一覧では一次情報源と参考資料(二次資料)を節に分けて示し、二次資料には対応する原典を併記しています。引用箇所には文中に `[番号]` を付与し、番号は両方の節を通した通し番号です。
 
 ### 表記について
 
@@ -417,7 +421,8 @@ flowchart TD
 | パターン | 概要 | 出典・関連フレームワーク |
 |---|---|---|
 | Nexus型(統合チームによる調整) | 単一のプロダクトバックログを複数チームで共有し、Nexus Integration Teamが統合上の課題を横断的に扱う[9] | Scrum.org Nexus Guide[9] |
-| 階層型(チーフPO + エリアPO) | 大規模プロダクトを複数の「エリア」に分割し、それぞれにエリアPOを置きつつ、チーフPOが全体の一貫性を担保する | LeSS(Large-Scale Scrum)のArea Product Ownerパターンなどに類似 |
+| 階層型(チーフPO + エリアPO) | 大規模プロダクトを複数の「エリア」に分割し、それぞれにエリアPOを置きつつ、チーフPOが全体の一貫性を担保する(一般的な階層型の呼び名であり、LeSS固有の役割名ではない) | 業界で広く見られる大規模PO体制のパターン |
+| LeSS Huge型(単一PO + エリアPO) | プロダクト全体の順序付けと最終決定に責任を持つ **Product Owner は1人**であり、その下で各Area Product Ownerが Requirement Area(要求エリア)を受け持つ。Area Backlogは独立したバックログではなく、**単一のProduct Backlogを絞り込んだビュー**である | LeSS Huge(Large-Scale Scrum) |
 | 委任ネットワーク型 | POが特定の意思決定権限をステークホルダーや専門家ネットワークに委任し、自身は戦略とゴールの一貫性に集中する[8] | Scrum Alliance公式リソース記事[8] |
 
 **進め方(ステップバイステップ)**:
@@ -470,7 +475,7 @@ flowchart TD
     VP --> COST["コスト構造"]
 ```
 
-Business Model Canvasは9つの要素(ブロック)で構成され、企業やプロダクトの価値創造の全体像を1枚で可視化するツールとして、200,000以上の企業で使われています[12] [17]。
+Business Model Canvasは9つの要素(ブロック)で構成され、企業やプロダクトの価値創造の全体像を1枚で可視化するツールです。考案元であるStrategyzerは、同社が提供する一連のメソッド(Business Model Canvasを含む)について「200,000社を超える企業が使っている」と公表しています[12]。
 
 **代表的なビジネスモデル3種の比較**:
 
@@ -740,7 +745,15 @@ flowchart LR
 
 > 2.11 demonstrate at least three ways how return on investment can be improved.[2]
 
-**詳細な説明**: ROIはリターンをコストで割った比率であるため、改善方法は「リターンを増やす」か「コストを減らす」かの2方向、あるいはその両方に整理できます。
+**詳細な説明**: ROI(投資利益率)は次のように定義される比率です。
+
+> **ROI = 投資利益(= 予測リターン − 投資コスト) ÷ 投資コスト**
+
+ここでいう「予測リターン」は、9.2(LO2.9)と同じく**収益の増加分とコスト削減効果の合計**を指します。分子は投資によって得られた**純利益(投資利益)**であり、分母は**投資コスト**です。算出にあたっては「どの期間のリターンとコストを対象にするか(例: リリース後12ヶ月)」を必ず明記します。期間を揃えなければ、施策間の比較は成立しません。
+
+なお、「予測リターン ÷ 投資コスト」で得られる値は**回収倍率**であり、ROIとは異なります(回収倍率はROIより常に1だけ大きくなります)。投資額と同額を回収した状態は、回収倍率1.0・ROI 0%です。
+
+この定義から、ROIの改善方法は「リターンを増やす」か「コストを減らす」かの2方向、あるいはその両方に整理できます。
 
 | 改善方法 | 分類 | 説明 |
 |---|---|---|
@@ -777,14 +790,31 @@ flowchart TD
 
 **Cost of Delayの計算の基本的な考え方**:
 
-Cost of Delayは、「その機能のリリースが1週間(または1ヶ月)遅れると、いくらの価値を失うか」という単位(通貨/時間)で表現されます[14]。厳密な計算には財務モデルが必要な場合もありますが、CSP-POレベルでは概算(qualitative/relative)での算出方法も広く実務で使われています[14]。
+Cost of Delayの算出には、性質の異なる2つのモデルがあります。両者を混同しないことが重要です[14]。
+
+| モデル | 単位 | 何を表すか |
+|---|---|---|
+| 金額モデル(財務的算出) | 通貨/時間(例: 円/週、ドル/月) | 「その機能のリリースが1週間(または1ヶ月)遅れると、いくらの価値を失うか」を財務的に見積もった**金額** |
+| 相対スコアモデル(qualitative/relative) | 単位なしのスコア | ビジネス価値・時間的緊急性・リスク低減/機会実現価値をそれぞれ相対的なスコア(例: 1〜10)で評価し合算した、**比較専用の指標** |
+
+厳密な金額モデルには財務モデルが必要ですが、CSP-POレベルの実務では相対スコアモデルが広く使われています[14]。相対スコアはあくまで項目間の順位付けのための数値であり、**「週あたり/月あたりの金額」として読み替えてはいけません**。
 
 **進め方(ステップバイステップ)**:
-1. 対象のプロダクトフィーチャーがもたらすビジネス価値(収益向上、コスト削減など)を見積もる
-2. その価値がいつまでに実現される必要があるか(時間的緊急性)を見積もる
-3. そのフィーチャーによるリスク低減・機会実現(将来の選択肢を確保する)の価値を見積もる
-4. 上記3つを合算し、「1週間(または1ヶ月)の遅延でいくらの価値を失うか」を算出する
-5. 複数のフィーチャー間でCost of Delayを比較し、優先順位付けに活用する(LO2.13、LO5.2で詳述)
+
+金額モデルの場合:
+
+1. 対象のプロダクトフィーチャーがもたらすビジネス価値(収益向上、コスト削減など)を金額で見積もる
+2. その価値がいつまでに実現される必要があるか(時間的緊急性)を踏まえ、遅延によって失われる金額を時間あたりに換算する
+3. リスク低減・機会実現(将来の選択肢を確保する)の価値も金額に換算して加える
+4. 上記を合算し、「1週間(または1ヶ月)の遅延で失う金額」を算出する
+
+相対スコアモデルの場合:
+
+1. ビジネス価値・時間的緊急性・リスク低減/機会実現価値の3要素を定義する
+2. 各フィーチャーについて、3要素をそれぞれ共通のスケール(例: 1〜10)で相対評価する
+3. 3つのスコアを合算し、そのフィーチャーのCost of Delayスコアとする(単位は付けない)
+
+いずれのモデルでも、最後に複数のフィーチャー間でCost of Delayを比較し、優先順位付けに活用します(LO2.13、LO5.2で詳述)。
 
 **ベストプラクティス**:
 - Cost of Delayは、精緻な計算よりも「相対的な比較ができること」が実務上は重要です。厳密さにこだわりすぎて計算自体が停滞するアンチパターンに陥らないよう注意しましょう[14]。
@@ -994,19 +1024,22 @@ flowchart TD
 | 技術 | 概要 | 出典 |
 |---|---|---|
 | Kanoモデル | 機能を「当たり前品質」「一元的品質」「魅力的品質」等に分類し、顧客満足度への影響で優先順位付けする | Noriaki Kano, 1984年[18] |
-| WSJF/CD3(Cost of Delay Divided by Duration) | Cost of Delayを所要期間で割った値が高い順に着手する | Don Reinertsen(概念)、Joshua Arnold(CD3の命名) [14] [15] |
+| WSJF(Weighted Shortest Job First) | SAFeでの定義は **Cost of Delay ÷ Job Size(仕事の大きさ)**。値が高い順に着手する | Don Reinertsen(概念) [15] |
+| CD3(Cost of Delay Divided by Duration) | **Cost of Delay ÷ Duration(所要期間)**。WSJFを「期間」を分母として実装したもので、分母が異なるため同一の式ではない | Joshua Arnold(CD3の命名) [14] [15] |
 | MoSCoW法 | Must have(必須)、Should have(重要)、Could have(あれば良い)、Won't have(今回は含めない)の4段階に分類する | 業界で広く使われる優先順位付けの古典的手法 |
 | 学習価値優先 | 最もリスクの高い(不確実性の高い)仮説を検証できる項目から着手する | Lean Startup的な考え方[16] |
 
-**WSJF/CD3の計算式**:
+**WSJFとCD3の計算式(分母が異なる)**:
 
 ```mermaid
 flowchart TD
     A["ビジネス価値"] --> D["Cost of Delay"]
     B["時間的緊急性"] --> D
     C["リスク低減/機会実現価値"] --> D
-    D --> E["Duration(所要期間)で除算"]
-    E --> F["WSJF/CD3スコア"]
+    D --> W["÷ Job Size(仕事の大きさ)"]
+    D --> E["÷ Duration(所要期間)"]
+    W --> WS["WSJFスコア<br/>(SAFeの定義)"]
+    E --> F["CD3スコア<br/>(期間ベースの実装)"]
 ```
 
 > CD3を使うと、異なる価値・緊急性を持つ機会を共通の尺度で比較でき、所要期間が異なる場合にも対応できる[15]。
@@ -1169,14 +1202,20 @@ CSP-POは2年ごとに更新が必要です[1]。公式FAQによれば、更新�
 ```mermaid
 flowchart LR
     A["CSP-PO取得"] --> B["2年間の実務・学習活動"]
-    B --> C["40 SEUを蓄積"]
+    B --> R{"更新ルートを選ぶ"}
+    R -->|"標準ルート"| C["40 SEUを蓄積"]
     C --> D["更新申請フォームを提出"]
     D --> E["更新料$250を支払い"]
     E --> F["CSP-PO更新完了"]
+    R -->|"代替ルート"| G["対象となる別の<br/>Scrum Alliance認定コースを修了"]
+    G --> H["SEUの提出・<br/>既存資格の更新料は不要"]
+    H --> F
     F --> B
 ```
 
-> CSP-POの整合性と価値を維持するため、2年ごとに更新すること。これには、40 Scrum Education Units(SEU)の蓄積、Scrum Alliance公式サイトでの更新申請の完了、$250の更新料の支払いが含まれる[1] [21] [22]。
+**標準ルート**: CSP-POの整合性と価値を維持するため、2年ごとに更新します。これには、40 Scrum Education Units(SEU)の蓄積、Scrum Alliance公式サイトでの更新申請の完了、$250の更新料の支払いが含まれます[1] [21] [22]。
+
+**代替ルート(コース修了による更新)**: 対象となる別のScrum Alliance認定コースを修了した場合は、SEUを提出することも、既存資格の更新料を支払うこともなく、保有資格が更新されます[22]。新しい認定を取得する予定がある場合は、この経路のほうが実質的な負担が小さくなります。
 
 ### 15.4 Scrum Education Units(SEU)の稼ぎ方
 
@@ -1215,6 +1254,12 @@ CSP-POは、単なる知識の証明ではなく、Bloom's Taxonomyの高次レ�
 
 ## 17. 参考文献・出典一覧
 
+引用番号は本文中の `[番号]` に対応し、17.1 と 17.2 を通した通し番号です(節ごとに振り直していません)。
+
+### 17.1 一次情報源
+
+認定制度・フレームワーク・提唱者本人(またはその組織)が発行している資料です。本ガイドの記述は原則としてこれらを根拠としています。
+
 | # | 出典 | URL |
 |---|---|---|
 | [1] | Scrum Alliance, "Certified Scrum Professional Product Owner (CSP-PO) Certification" | https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner |
@@ -1226,15 +1271,9 @@ CSP-POは、単なる知識の証明ではなく、Bloom's Taxonomyの高次レ�
 | [7] | Scrum Alliance, "Certified Scrum Product Owner (CSPO)" | https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-product-owner |
 | [8] | Jim Schiel, "What to Do When You're Asked to Be the Product Owner for Multiple Teams," Scrum Alliance Resource Library | https://resources.scrumalliance.org/article/youre-asked-product-owner-multiple-teams |
 | [9] | Scrum.org, "The Nexus Guide" | https://www.scrum.org/resources/online-nexus-guide |
-| [10] | "Tuckman's stages of group development," Wikipedia(Bruce Tuckman, 1965/1977年の研究に基づく) | https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development |
-| [11] | MindTools, "Forming, Storming, Norming, and Performing" | https://www.mindtools.com/abyj5fi/forming-storming-norming-and-performing/ |
 | [12] | Strategyzer, "The Business Model Canvas"(Alexander Osterwalder & Yves Pigneur) | https://www.strategyzer.com/library/the-business-model-canvas |
-| [13] | "Porter's five forces analysis," Wikipedia(Michael E. Porter, 1979年) | https://en.wikipedia.org/wiki/Porter%27s_five_forces_analysis |
-| [14] | Black Swan Farming, "Cost of Delay"(Don Reinertsenの理論に基づく) | https://blackswanfarming.com/cost-of-delay/ |
-| [15] | Black Swan Farming, "WSJF – Weighted Shortest Job First" | https://blackswanfarming.com/wsjf-weighted-shortest-job-first/ |
 | [16] | The Lean Startup, "Methodology"(Eric Ries) | https://theleanstartup.com/principles |
 | [17] | Product Talk, "Opportunity Solution Trees"(Teresa Torres) | https://www.producttalk.org/opportunity-solution-trees/ |
-| [18] | "Kano model," Wikipedia(Noriaki Kano, 1984年) | https://en.wikipedia.org/wiki/Kano_model |
 | [19] | Scrum Alliance, "Comparative Agility Member Benefit" | https://www.scrumalliance.org/member-benefits/comparative-agility |
 | [20] | Comparative Agility, 公式サイト | https://www.comparativeagility.com/ |
 | [21] | Scrum Alliance, "Scrum Education Units (SEUs)" | https://www.scrumalliance.org/get-certified/scrum-education-units |
@@ -1243,6 +1282,19 @@ CSP-POは、単なる知識の証明ではなく、Bloom's Taxonomyの高次レ�
 | [24] | Scrum Alliance, "Certified Enterprise Coach" | https://www.scrumalliance.org/agile-coaching/cec |
 | [25] | Scrum Alliance, "Certified Team Coach" | https://www.scrumalliance.org/agile-coaching/ctc |
 | [26] | Scrum Alliance, "Product Roadmaps: Your Secret Weapon for Success" | https://resources.scrumalliance.org/article/product-roadmaps-secret-weapon-success |
+
+### 17.2 参考資料(二次資料)
+
+以下は提唱者本人による発行物ではなく、概念の全体像を把握するための**補助的な資料**です。数値・定義を確認する際は、併記した原典を優先してください。
+
+| # | 出典 | URL | 対応する原典 |
+|---|---|---|---|
+| [10] | "Tuckman's stages of group development," Wikipedia(Bruce Tuckman, 1965/1977年の研究に基づく) | https://en.wikipedia.org/wiki/Tuckman%27s_stages_of_group_development | Tuckman, B. W. (1965). "Developmental sequence in small groups." *Psychological Bulletin*, 63(6), 384–399. <https://doi.org/10.1037/h0022100> |
+| [11] | MindTools, "Forming, Storming, Norming, and Performing" | https://www.mindtools.com/abyj5fi/forming-storming-norming-and-performing/ | 同上(Tuckman, 1965 / Tuckman & Jensen, 1977) |
+| [13] | "Porter's five forces analysis," Wikipedia(Michael E. Porter, 1979年) | https://en.wikipedia.org/wiki/Porter%27s_five_forces_analysis | Porter, M. E. (1979). "How Competitive Forces Shape Strategy." *Harvard Business Review*. <https://hbr.org/1979/03/how-competitive-forces-shape-strategy> |
+| [14] | Black Swan Farming, "Cost of Delay"(Don Reinertsenの理論に基づく) | https://blackswanfarming.com/cost-of-delay/ | Reinertsen, D. G. (2009). *The Principles of Product Development Flow*. Celeritas Publishing.(書籍。公式のオンライン版なし) |
+| [15] | Black Swan Farming, "WSJF – Weighted Shortest Job First" | https://blackswanfarming.com/wsjf-weighted-shortest-job-first/ | 同上(Reinertsen, 2009)。CD3の命名はJoshua Arnoldによる |
+| [18] | "Kano model," Wikipedia(Noriaki Kano, 1984年) | https://en.wikipedia.org/wiki/Kano_model | 狩野紀昭ほか (1984)「魅力的品質と当り前品質」『品質』14(2), 39–48.(学術論文) |
 
 ---
 
