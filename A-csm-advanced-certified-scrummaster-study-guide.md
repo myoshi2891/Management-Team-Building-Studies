@@ -30,6 +30,7 @@
 ---
 
 <a id="chapter1"></a>
+
 ## 第1章: A-CSM とは何か — 資格の位置づけと要件
 
 ### 1.1 初学者向け解説
@@ -64,11 +65,11 @@ A-CSM を取得・維持するためには、以下の要件を満たす必要�
 
 | # | 要件 | 詳細 |
 |---|------|------|
-| 1 | 前提資格の保有 | Scrum Alliance の CSM 認定、または Scrum.org の PSM I / PSM II のいずれかを保有していること（CSM は有効期限切れでも可。A-CSM 取得時に自動更新される） |
+| 1 | 前提資格の保有 | Scrum Alliance の CSM 認定、または Scrum.org の PSM I / PSM II のいずれかを保有していること（CSM は有効期限切れでも可。A-CSM 取得時に自動更新される）。PSM I / PSM II を前提資格として使う場合は、その資格情報を Scrum Alliance のアカウント（メンバープロフィール）に登録し、A-CSM 認定を受ける前までに登録を完了しておく必要がある。トレーナーはこの登録を確認したうえで認定を行うため、登録が未完了だと認定手続きに進めない |
 | 2 | 実務経験 | 過去5年以内に Scrum Master としての実務経験12ヶ月以上を Scrum Alliance のプロフィールに記録していること |
 | 3 | コース修了 | 承認された A-CSM コース（最低16時間）を修了すること。講師が指定する課題・実務は、コース受講前・受講後のいずれかで実施すればよい |
 | 4 | ライセンス受諾 | A-CSM ライセンスへの同意とメンバープロフィールの完成 |
-| 5 | 資格更新 | 2年ごとに **30 SEU (Scrum Education Units) の取得** と **175 米ドルの更新料の支払い** の両方を行うこと。適用される更新区分は、保有している資格のうち最上位のものによって決まる |
+| 5 | 資格更新 | 標準の更新ルートでは、2年ごとに **30 SEU (Scrum Education Units) の取得** と **175 米ドルの更新料の支払い** の両方を行うこと。適用される更新区分は、保有している資格のうち最上位のものによって決まる。なお、別の Scrum Alliance 認定コースを修了した場合は、SEU の提出と更新料の支払いなしで既存の認定が更新される |
 
 > **補足:** 実務経験12ヶ月に満たない状態でも A-CSM コース自体は受講可能です。ただし、認定ライセンスを受け取るまでに、過去5年以内の Scrum Master 実務経験12ヶ月以上という要件を満たす必要があります。この12ヶ月はコース受講後の経験に限られず、受講前の経験と受講後の経験を通算して数えられます。また、承認コースは最低16時間で構成され、講師が指定する課題・実務はコース受講前・受講後のどちらで行っても要件を満たします。
 
@@ -87,7 +88,7 @@ flowchart TD
     R2 --> R3["承認されたA-CSMコース(最低16時間)を修了<br/>(課題は受講前/受講後どちらでも可)"]
     R3 --> R4["A-CSMライセンス受諾+<br/>メンバープロフィール完成"]
     R4 --> R5["A-CSM認定取得"]
-    R5 --> R6["2年ごとに30 SEU取得+<br/>175米ドルの更新料で更新"]
+    R5 --> R6["2年ごとに30 SEU取得+<br/>175米ドルの更新料で更新(標準ルート)<br/>別の認定コース修了なら<br/>SEU・更新料なしで更新"]
 ```
 
 > **ソース:** [Scrum Alliance — Advanced Certified ScrumMaster](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster) / [Scrum Alliance Help Center — How do I earn the A-CSM or A-CSPO certification?](https://support.scrumalliance.org/hc/en-us/articles/115001680252-How-do-I-earn-the-Advanced-Certified-ScrumMaster-A-CSM-or-Advanced-Certified-Scrum-Product-Owner-A-CSPO-certification)
@@ -95,6 +96,7 @@ flowchart TD
 ---
 
 <a id="chapter2"></a>
+
 ## 第2章: Bloom's Taxonomy とラーニングオブジェクティブの読み方
 
 ### 2.1 初学者向け解説
@@ -146,6 +148,7 @@ A-CSM の LO は以下の6カテゴリーに分類されます。教育実施団
 ---
 
 <a id="chapter3"></a>
+
 ## 第3章: カテゴリー1 — Lean, Agile, and Scrum (LO 1.1–1.5)
 
 ### LO 1.1: Scrum とアジャイルマニフェストの整合性を示す
@@ -160,6 +163,8 @@ A-CSM の LO は以下の6カテゴリーに分類されます。教育実施団
 | 計画に従うことよりも変化への対応を | Sprint ごとの検査と適応、Product Backlog のリファインメント |
 
 > **ベストプラクティス:** A-CSM レベルの Scrum Master は、単に「Scrum のルール」を教えるのではなく、なぜそのルールがアジャイルマニフェストの価値観に基づいているのかをチームや経営層に説明できる必要があります。ルールの背景にある「なぜ」を語れることが、抵抗を減らし、形骸化した Scrum (いわゆる "Zombie Scrum") を防ぐ鍵になります。
+
+<!-- -->
 
 > **ソース:** [Manifesto for Agile Software Development](https://agilemanifesto.org/) / [12 Principles behind the Agile Manifesto](https://agilemanifesto.org/principles.html) / [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html)
 
@@ -189,6 +194,8 @@ flowchart LR
 
 > **ベストプラクティス:** チームの状況（フローが不規則、技術的負債が大きい、プロダクト検証フェーズにあるなど）に応じて、Scrum に Kanban のプラクティス（WIP制限、累積フロー図）や XP のプラクティス（TDD、ペアプログラミング）を組み合わせる「Scrumban」のような柔軟な運用を検討しましょう。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html) — Scrum は「意図的に不完全」であり、他のプラクティスとの併用を前提としている旨が明記されています。
 
 ### LO 1.4: 優れた Scrum Master の性格特性を最低5つ挙げてランク付けする
@@ -206,6 +213,8 @@ flowchart LR
 | 勇気 (Courage) | 難しい会話や現状への異議申し立てを避けない力 |
 
 > **ベストプラクティス:** 自己評価として「Scrum の5つの価値基準（確約・勇気・集中・公開・尊敬）」を性格特性のランク付けの土台として使うと、Scrum Alliance の価値観と一貫性のある振り返りができます。
+
+<!-- -->
 
 > **ソース:** [Scrum Alliance — Scrum Values](https://www.scrumalliance.org/about-scrum/values)
 
@@ -231,11 +240,14 @@ flowchart TD
 
 > **ベストプラクティス:** 3本柱が機能しているかを定期的に自己診断するために、レトロスペクティブの冒頭で「今スプリント、私たちは何を隠していなかったか？（透明性）」「何を本当に検査したか？（検査）」「何を実際に変えたか？（適応）」という3つの問いを投げかける手法が有効です。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020) — Scrum Pillars](https://scrumguides.org/scrum-guide.html)
 
 ---
 
 <a id="chapter4"></a>
+
 ## 第4章: カテゴリー2-A — Scrum Master Core Competencies: Facilitation (LO 2.1–2.8)
 
 ### LO 2.1: 発散的思考と収束的思考の兆候をそれぞれ最低3つ識別する
@@ -258,6 +270,8 @@ flowchart LR
 ```
 
 > **ベストプラクティス:** 発散フェーズでは「ブレインストーミングのルール（批判しない、量を求める、突飛な意見を歓迎する）」を明示し、収束フェーズでは「ドット投票 (dot voting)」や「Fist of Five（5本指投票）」のような軽量な意思決定手法を使うことで、両フェーズの切り替えをチームに明確に伝えることができます。
+
+<!-- -->
 
 > **ソース:** [Design Council (UK) — Double Diamond](https://www.designcouncil.org.uk/our-resources/the-double-diamond/)
 
@@ -287,6 +301,8 @@ flowchart LR
 
 > **ベストプラクティス:** ファシリテーターは「自分の意見を言わない」ことに徹し、グループ自身が答えにたどり着けるよう質問と要約に徹することが重要です。これは中立性 (Neutrality) の原則とも呼ばれます。
 
+<!-- -->
+
 > **ソース:** [IAF Core Competencies](https://iaf-world.org/the-iaf-core-competencies/)
 
 ### LO 2.4: オープンディスカッションの代替手法を最低2つ実演する
@@ -309,6 +325,8 @@ flowchart TD
 
 > **ベストプラクティス:** オープンディスカッションが停滞している、あるいは一部の声だけが支配的だと感じたら、まず 1-2-4-All に切り替えてみましょう。ファシリテーション経験がなくても実施できるシンプルさが特徴です。
 
+<!-- -->
+
 > **ソース:** [Liberating Structures](https://www.liberatingstructures.com/) / [Liberating Structures — Design Elements](https://www.liberatingstructures.com/design-elements/)
 
 ### LO 2.5: Scrum Master がファシリテーターとして振る舞うべきでない例を2つ説明する
@@ -321,6 +339,8 @@ flowchart TD
 | チームが既に高い自己組織化能力を持ち、自分たちでファシリテートできる状態にある場合 | Scrum Master が介入し続けると、チームの自律的な成長を妨げる（過保護になる）ため |
 
 > **ベストプラクティス:** 自分が当事者になる議論では、外部のファシリテーター（他チームの Scrum Master など）に依頼する「ファシリテーターの互助」の仕組みを組織内に作ることが有効です。
+
+<!-- -->
 
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html) — Scrum Master の役割は「サーバントリーダー」であり、常に議論の中心に立つことを意味しない旨が示されています。
 
@@ -336,7 +356,9 @@ flowchart TD
 | 成果物 (Output) | セッション終了時に何が手元に残るべきか？ |
 | タイムボックス (When) | 各アクティビティに何分割り当てるか？ |
 
-> **ベストプラクティス:** セッション設計時には「アジェンダ」ではなく「ライブリー・イベント（liberating structures的な流れ図）」を作り、各アクティビティの目的と所要時間を明示しておくと、当日の進行がぶれません。
+> **ベストプラクティス:** セッション設計時には「アジェンダ」ではなく、Liberating Structures の **Design Storyboards**（複数のマイクロストラクチャーをつなげた一連の流れ＝ **string** を、設計図として時系列に描き起こしたもの）を作り、各アクティビティの目的と所要時間を明示しておくと、当日の進行がぶれません。単なる議題の羅列ではなく、「どの活動で何を引き出すか」を設計するための流れ図である点が違いです。
+
+<!-- -->
 
 > **ソース:** [IAF Core Competencies](https://iaf-world.org/the-iaf-core-competencies/)
 
@@ -376,11 +398,14 @@ flowchart TD
 
 > **ベストプラクティス:** Working Agreement は一度作って終わりではなく、レトロスペクティブのたびに「今も機能しているか」を確認し、必要に応じて更新する「生きたドキュメント」として扱いましょう。押し付けではなく、チーム自身が作成・改訂することが自己組織化の観点で重要です。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html) / [Liberating Structures](https://www.liberatingstructures.com/)
 
 ---
 
 <a id="chapter5"></a>
+
 ## 第5章: カテゴリー2-B — Scrum Master Core Competencies: Coaching and Training (LO 2.9–2.12)
 
 ### LO 2.9: コーチング・スタンスの要素を最低3つ説明する
@@ -403,6 +428,8 @@ flowchart TB
 ```
 
 > **ベストプラクティス:** コーチング・スタンスは「ティーチング（教える）」「メンタリング（経験を伝える）」とは明確に異なります。A-CSM の Scrum Master は、状況に応じてこの3つのモード（コーチング・メンタリング・ティーチング）を意図的に使い分ける必要があります。
+
+<!-- -->
 
 > **ソース:** [ICF Core Competencies](https://coachingfederation.org/credentialing/coaching-competencies/icf-core-competencies/)
 
@@ -439,6 +466,8 @@ flowchart LR
 
 > **ベストプラクティス:** コーチング仲間同士で「ピアコーチング」を行い、お互いの介入を観察してフィードバックし合う「コーチングクラブ」を組織内に作ることで、継続的にスキルを向上させることができます。
 
+<!-- -->
+
 > **ソース:** [ICF Core Competencies](https://coachingfederation.org/credentialing/coaching-competencies/icf-core-competencies/)
 
 ### LO 2.12: ビジネスステークホルダーに Scrum とそのメリットを説明する
@@ -454,11 +483,14 @@ flowchart LR
 
 > **ベストプラクティス:** 抽象的な説明よりも「もし今のやり方（ウォーターフォール型）なら〜だったが、Scrum ならこう変わる」という Before/After の対比で語ると、ビジネスステークホルダーの腹落ち感が高まります。
 
+<!-- -->
+
 > **ソース:** [Manifesto for Agile Software Development](https://agilemanifesto.org/) / [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html)
 
 ---
 
 <a id="chapter6"></a>
+
 ## 第6章: カテゴリー3-A — Service to the Scrum Team: Self-Management and Team Dynamics (LO 3.1–3.4)
 
 ### LO 3.1: 効果的な自己管理型チームの属性を最低3つ説明する
@@ -497,6 +529,8 @@ flowchart LR
 
 > **ベストプラクティス:** デリゲーションポーカーの7段階を使い、意思決定の種類ごと（例: 技術選定、採用面接への参加、休暇の調整）に現在のレベルと目指すべきレベルをチームで話し合うワークショップを定期的に実施すると、権限移譲が段階的かつ透明に進みます。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html)
 
 ### LO 3.3: チームとワーキンググループの違いを説明する
@@ -511,6 +545,8 @@ flowchart LR
 | コミュニケーション | 情報共有が中心 | 共同での問題解決が中心 |
 
 > **ベストプラクティス:** Scrum Team が「ワーキンググループ」の状態（各自がタスクを個別にこなすだけ）に陥っていないかを見極めるために、「もし1人が抜けたら、他のメンバーはその作業を引き継げるか？」という問いをチェックポイントとして使うとよいでしょう。
+
+<!-- -->
 
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html)
 
@@ -536,11 +572,14 @@ flowchart LR
 
 > **ベストプラクティス:** 新しいメンバーが加入するたびに、チームは実質的に Forming に戻ることを理解しておきましょう。焦って Performing の状態を維持しようとせず、段階を経ることを許容する姿勢が重要です。
 
+<!-- -->
+
 > **ソース:** [Tuckman's stages of group development — infed.org (原論文の解説)](https://infed.org/dir/welcome/bruce-w-tuckman-forming-storming-norming-and-performing-in-groups/)
 
 ---
 
 <a id="chapter7"></a>
+
 ## 第7章: カテゴリー3-B — Service to the Scrum Team: Definition of Done and Development Practices (LO 3.5–3.8)
 
 ### LO 3.5: 強力な Definition of Done (DoD) の作成・改善をファシリテートする
@@ -569,6 +608,8 @@ flowchart TD
 
 > **ベストプラクティス:** DoD は一度作ったら固定するのではなく、チームの技術力や組織の期待水準が上がるにつれて、より厳格な基準へと「強化」していくべきものです。逆に緩めることは品質の後退を意味するため慎重に扱いましょう。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020) — Definition of Done](https://scrumguides.org/scrum-guide.html)
 
 ### LO 3.6: 非ソフトウェア製品における Definition of Done の定式化方法を説明する
@@ -582,6 +623,8 @@ flowchart TD
 | ハードウェアプロトタイプ | 安全基準テストに合格している／必要な認証プロセスの初期審査を通過している |
 
 > **ベストプラクティス:** 非ソフトウェア領域では「完成」の基準があいまいになりがちです。DoD 作成時に「これが完成していないのに次の工程に進んだ場合、過去にどんな問題が起きたか」を洗い出すことで、抜け漏れのない DoD を作りやすくなります。
+
+<!-- -->
 
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html) — Scrum は「あらゆる複雑な仕事」に適用可能なフレームワークとして記述されています。
 
@@ -609,11 +652,14 @@ flowchart TD
 
 > **ベストプラクティス:** 複数チーム環境では、共通の DoD（Nexus における "Definition of Done" の統一）と、共有の CI/CD 基盤への投資を早期に行うことが、スケーリングの成否を分けます。
 
+<!-- -->
+
 > **ソース:** [The Nexus Guide](https://www.scrum.org/resources/nexus-guide)
 
 ---
 
 <a id="chapter8"></a>
+
 ## 第8章: カテゴリー4 — Service to the Product Owner (LO 4.1–4.4)
 
 ### LO 4.1: プロダクトビジョンと Product Goal の関係を説明する
@@ -638,7 +684,7 @@ flowchart TD
 
 ### LO 4.2: Scrum Team とステークホルダーとともに Product Goal を検討・改良する
 
-**初学者向け解説:** Product Goal は Product Owner が一人で決めるものではなく、Scrum Team やステークホルダーとの対話を通じて磨かれていくべきものです。A-CSM の Scrum Master は、この対話をファシリテートする役割を担います。
+**初学者向け解説:** Product Goal を定めることに説明責任を持つのは Product Owner ですが、その内容は Scrum Team やステークホルダーとの対話を通じて磨かれていくべきものです。決定の責任者は Product Owner であり、対話はその判断の質を高めるためのものである、という関係を取り違えないことが重要です。A-CSM の Scrum Master は、この対話をファシリテートする役割を担います。
 
 **ファシリテーションの流れの例:**
 
@@ -651,6 +697,8 @@ flowchart LR
 ```
 
 > **ベストプラクティス:** 「インパクトマッピング (Impact Mapping)」のような手法を使うと、「なぜ (Why)」「誰に (Who)」「どう変化してほしいか (How)」「何を作るか (What)」の階層構造で Product Goal をステークホルダーと一緒に検討でき、独りよがりなゴール設定を防げます。
+
+<!-- -->
 
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html)
 
@@ -679,11 +727,14 @@ flowchart LR
 
 > **ベストプラクティス:** リファインメントを「Sprint 終盤のイベント」として一括で行うのではなく、Sprint 期間を通じて少しずつ（例: 週に数十分）継続的に実施することで、Sprint Planning がスムーズになります。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020) — Product Backlog Refinement](https://scrumguides.org/scrum-guide.html) / Jeff Patton, *User Story Mapping* の概念
 
 ---
 
 <a id="chapter9"></a>
+
 ## 第9章: カテゴリー5-A — Service to the Organization: 組織的障害 (LO 5.1–5.2)
 
 ### LO 5.1: 組織的障害の根本原因を解決する実践を行う
@@ -701,6 +752,8 @@ flowchart TD
 
 > **ベストプラクティス:** 「なぜなぜ分析」を1人で行うのではなく、関係する複数部署の担当者を巻き込んで行うことで、部署ごとの思い込みや責任転嫁を防ぎ、真の根本原因にたどり着きやすくなります。また、根本原因への対処には時間がかかることが多いため、短期的な緩和策と長期的な根本対策を分けて計画することが重要です。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html) — Scrum Master の組織へのサービスとして「組織的な障害の除去」が明記されています。
 
 ### LO 5.2: 最新の Scrum の定義を採用した場合の影響を最低3つ議論する
@@ -715,11 +768,14 @@ flowchart TD
 
 > **ベストプラクティス:** 新しい定義を採用する際は、いきなり全社的なルール変更として展開するのではなく、まず1〜2チームで試験的に適用し、実際の影響（LO 5.2 で問われる「影響の議論」）を観察してから展開範囲を広げるアプローチが安全です。
 
+<!-- -->
+
 > **ソース:** [Scrum Guide (2020)](https://scrumguides.org/scrum-guide.html)
 
 ---
 
 <a id="chapter10"></a>
+
 ## 第10章: カテゴリー5-B — Service to the Organization: Scaling Scrum (LO 5.3–5.6)
 
 ### LO 5.3: Scrum をスケールするアプローチを最低2つ認識する
@@ -765,6 +821,8 @@ flowchart TB
 
 > **ベストプラクティス:** 「本当にスケールが必要か？」を問う前に、まず「1つのチームでできる範囲を最大化できないか（コンポーネントの削減、依存関係の解消）」を検討するのが LeSS の思想である「より少なく (More with LeSS)」の精神です。
 
+<!-- -->
+
 > **ソース:** [LeSS — Principles Overview](https://less.works/less/principles) — 「まず1つのチームでうまくいく仕組みを作り、そこからスケールする」という原則
 
 ### LO 5.5: 依存関係を可視化・管理・削減する技法を最低2つ識別する
@@ -779,6 +837,8 @@ flowchart TB
 | **X-as-a-Service インタラクション** | Team Topologies が提唱する、チーム間のやり取りを「サービス提供者と利用者」の関係に定義し、依存を明示的・非同期的に管理する |
 
 > **ベストプラクティス:** 依存関係は「なくす」ことが理想ですが、完全になくせない場合は「見える化」するだけでも大きな効果があります。依存を暗黙のまま放置することが、複数チーム環境で最も危険な状態です。
+
+<!-- -->
 
 > **ソース:** [The Nexus Guide](https://www.scrum.org/resources/nexus-guide) / [Team Topologies — Key Concepts](https://teamtopologies.com/key-concepts)
 
@@ -805,11 +865,14 @@ flowchart LR
 
 > **ベストプラクティス:** 一般的にはフィーチャーチームがフロー効率とスケーラビリティの観点で推奨されますが、真に複雑で専門性の高いサブシステム（例: 決済基盤、暗号化ライブラリ）は Team Topologies の「Complicated Subsystem Team（複雑なサブシステムチーム）」として独立させ、他のフィーチャーチームの認知負荷を下げるという併用パターンも実践的です。
 
+<!-- -->
+
 > **ソース:** [Team Topologies — Key Concepts](https://teamtopologies.com/key-concepts) / [The Nexus Framework for Scaling Scrum](https://www.scrum.org/resources/nexus-framework-scaling-scrum)
 
 ---
 
 <a id="chapter11"></a>
+
 ## 第11章: カテゴリー5-C — Service to the Organization: Organizational Change (LO 5.7–5.8)
 
 ### LO 5.7: 複雑系の性質を説明する
@@ -845,6 +908,8 @@ flowchart TB
 
 > **ベストプラクティス:** 組織変革の多くは「複雑 (Complex)」領域に属します。この領域では、詳細な計画を立てて一気に実行するのではなく、小さな「安全に失敗できる実験 (Safe-to-Fail Probe)」を行い、結果を観察しながら次の一手を決める **Probe → Sense → Respond** のサイクルが有効です。
 
+<!-- -->
+
 > **ソース:** [The Cynefin Company — About the Cynefin Framework](https://thecynefin.co/about-us/about-cynefin-framework/) / Snowden, D. & Boone, M. "A Leader's Framework for Decision Making," *Harvard Business Review*, Nov 2007.
 
 ### LO 5.8: 組織変革を促進するアプローチを最低2つ説明する
@@ -871,11 +936,14 @@ flowchart TD
 
 > **ベストプラクティス:** A-CSM の Scrum Master は、組織変革を「一度きりのプロジェクト」ではなく「継続的なプロセス」として捉えるべきです。Kotter の8段階モデルもステップ7・8が示す通り、変革の定着には長い時間がかかることを組織に事前に伝えておくことが重要です。
 
+<!-- -->
+
 > **ソース:** [Kotter Inc. — The 8-Step Process for Leading Change](https://www.kotterinc.com/methodology/8-steps/) / [The Cynefin Company](https://thecynefin.co/about-us/about-cynefin-framework/)
 
 ---
 
 <a id="chapter12"></a>
+
 ## 第12章: カテゴリー6-A — Scrum Mastery: Personal Development (LO 6.1–6.3)
 
 ### LO 6.1: 自身の Scrum 価値基準の実践度を分析し、改善方法を検討する
@@ -892,6 +960,8 @@ flowchart TD
 
 > **ベストプラクティス:** 定期的に（例えば四半期ごとに）この5つの価値基準について自己採点し、信頼できる同僚やコーチにフィードバックを求める「360度的な自己評価」を行うと、盲点に気づきやすくなります。
 
+<!-- -->
+
 > **ソース:** [Scrum Alliance — Scrum Values](https://www.scrumalliance.org/about-scrum/values)
 
 ### LO 6.2: 建設的な相互作用が破壊的な対立に転じる瞬間を認識する
@@ -905,6 +975,8 @@ flowchart TD
 | 対立後も関係性が保たれている | 対立が禍根を残し、その後のコミュニケーションを阻害する |
 
 > **ベストプラクティス:** 対立が「人 vs 人」の構図になっていると感じたら、すぐに「課題 vs 私たち」の構図に引き戻すファシリテーションが有効です（例:「一度、意見ではなくホワイトボードに書かれた選択肢そのものに焦点を当てましょう」）。
+
+<!-- -->
 
 > **ソース:** [Tuckman's stages of group development](https://infed.org/dir/welcome/bruce-w-tuckman-forming-storming-norming-and-performing-in-groups/)
 
@@ -931,11 +1003,14 @@ flowchart TB
 
 > **ベストプラクティス:** 多くの人には「デフォルトのモード」（例えば常に回避する、あるいは常に競合する）がありますが、TKI の価値は「どのモードが優れているか」ではなく「状況に応じてモードを切り替えられるか」にあります。自分のデフォルトパターンを自覚した上で、意図的に別のモードを試す練習をしましょう。
 
+<!-- -->
+
 > **ソース:** [Kilmann Diagnostics — Overview of the TKI Assessment](https://kilmanndiagnostics.com/brief-overview-of-the-tki-assessment/)
 
 ---
 
 <a id="chapter13"></a>
+
 ## 第13章: カテゴリー6-B — Scrum Mastery: Scrum Master as a True Leader (LO 6.4–6.5)
 
 ### LO 6.4: 効果的なリーダーの属性を最低3つ述べる
@@ -973,11 +1048,14 @@ flowchart TB
 
 > **ベストプラクティス:** サーバントリーダーシップは「優しいだけのリーダーシップ」ではありません。時にはチームや組織にとって耳の痛いフィードバックを、勇気（Scrum の価値基準）を持って伝えることも、真のリーダーシップの実演に含まれます。
 
+<!-- -->
+
 > **ソース:** [Greenleaf Center for Servant Leadership](https://greenleaf.org/what-is-servant-leadership/) / [Scrum Alliance — Scrum Values](https://www.scrumalliance.org/about-scrum/values)
 
 ---
 
 <a id="chapter14"></a>
+
 ## 第14章: ベストプラクティス総合チェックリスト
 
 全42のラーニングオブジェクティブを横断して実践する際の総合チェックリストです。日々の業務や1on1、レトロスペクティブの準備時に参照してください。
@@ -1022,6 +1100,7 @@ flowchart TB
 ---
 
 <a id="chapter15"></a>
+
 ## 第15章: よくある誤解とアンチパターン
 
 | 誤解・アンチパターン | 実際には |
@@ -1038,6 +1117,7 @@ flowchart TB
 ---
 
 <a id="chapter16"></a>
+
 ## 第16章: 認定取得後のキャリアパス
 
 ### 16.1 CSP-SM への道
@@ -1047,16 +1127,17 @@ A-CSM 取得後の次のステップとして、Scrum Alliance の FAQ では **
 ```mermaid
 flowchart LR
     A["A-CSM取得"] --> B["承認されたCSP-SMコースの<br/>全構成要素(事前/事後課題を含む)を修了<br/>+ 過去5年以内にScrum Masterとして<br/>実務経験24ヶ月以上を記録"]
-    B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster"]
-    C --> R["2年ごとにSEU取得+<br/>更新料の支払いで資格を更新"]
-    C --> D["トレーナー/コーチとしての道<br/>(CTC・CECは新規申請を停止した既存資格。<br/>既存保持者の資格は引き続き有効)"]
+    B --> L["CSP-SMライセンスへの同意+<br/>Scrum Allianceプロフィールの完成"]
+    L --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster"]
+    C --> R["2年ごとにSEU取得+<br/>更新料の支払いで資格を更新(標準ルート)<br/>別の認定コース修了なら<br/>SEU・更新料なしで更新"]
+    C --> D["トレーナー/コーチとしての道<br/>(CTC・CECは新規申請を停止した既存資格。<br/>既存保持者の資格は現在の更新サイクルまで有効)"]
 ```
 
-> **注記:** CTC (Certified Team Coach)・CEC (Certified Enterprise Coach) は、新規申請の受付を2025年1月6日をもって停止した既存資格です (すでに認定を受けている保持者の資格は引き続き有効です)。後継となる Certified Agility Consultant (CAC) プログラムは現在も開発中で、申請可能なパスとしてはまだ開始されていません。コーチ系のキャリアパスを検討する際は最新の状況を確認してください。 [Scrum Alliance Help Center — Updates to the CEC and CTC programs](https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs)
+> **注記:** CTC (Certified Team Coach)・CEC (Certified Enterprise Coach) は、新規申請の受付を2025年1月6日をもって停止した既存資格です (すでに認定を受けている保持者の資格は、現在の更新サイクルまで有効です)。後継となる Certified Agility Consultant (CAC) プログラムは現在も開発中で、申請可能なパスとしてはまだ開始されていません。コーチ系のキャリアパスを検討する際は最新の状況を確認してください。 [Scrum Alliance Help Center — Updates to the CEC and CTC programs](https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs)
 
 ### 16.2 資格の維持: Scrum Education Units (SEU)
 
-A-CSM は取得して終わりではなく、2年ごとに **30 SEU (Scrum Education Units)** の取得と **175 米ドルの更新料** の支払いの両方によって更新する必要があります（更新区分は保有資格のうち最上位のものによって決まるため、A-CSM を保有していれば CSM も連動して更新されます）。SEU は以下のような活動を通じて取得できます。
+A-CSM は取得して終わりではなく、2年ごとの更新が必要です。標準の更新ルートは **30 SEU (Scrum Education Units)** の取得と **175 米ドルの更新料** の支払いの両方によるものです（更新区分は保有資格のうち最上位のものによって決まるため、A-CSM を保有していれば CSM も連動して更新されます）。これとは別に、別の Scrum Alliance 認定コースを修了した場合は、SEU の提出も既存資格の更新料の支払いも行わずに認定が更新されます。SEU は以下のような活動を通じて取得できます。
 
 | 活動 | 内容 |
 |------|------|
@@ -1070,6 +1151,7 @@ A-CSM は取得して終わりではなく、2年ごとに **30 SEU (Scrum Educa
 ---
 
 <a id="chapter17"></a>
+
 ## 第17章: まとめ
 
 A-CSM は、CSM で得た Scrum の基礎知識を土台に、以下の3つの軸で Scrum Master としての実践力を深める資格です。
@@ -1083,6 +1165,7 @@ A-CSM は、CSM で得た Scrum の基礎知識を土台に、以下の3つの�
 ---
 
 <a id="chapter18"></a>
+
 ## 第18章: 参考文献・ソース一覧
 
 本ガイドの作成にあたり参照した一次・二次情報源です。
