@@ -302,7 +302,7 @@ const DIAGRAM_CATEGORY_SUMMARY = `flowchart TD
     </ul>
   </aside>
 
-    <main class="main-content" id="main-content">
+    <main id="main-content" class="main-content">
       <div class="hero">
       <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance公式Learning Objectives準拠</div>
       <h1>Certified Scrum Product Owner®(CSPO®) 完全学習ガイド</h1>
