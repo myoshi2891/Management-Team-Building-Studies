@@ -60,7 +60,7 @@ PSD Iには公式な受験資格要件はなく、誰でも受験可能です。
 - IT運用（Operations）担当者
 - （技術的知識を持つ）Scrum MasterやProduct Owner
 
-Scrum Guide 2020では「Development Team」という下位区分は廃止され、Product Owner・Scrum Master以外の全員が単に「Developers」と呼ばれるようになりました。PSD Iはこの意味での「Developers」を主対象としています。
+Scrum Guide 2020では「Development Team」という下位区分は廃止され、スプリントごとに利用可能なIncrementを作り出す作業にコミットするScrum Teamのメンバーが「Developers」と呼ばれるようになりました。これは役割による除外ではなく担う作業による定義であり、Product OwnerやScrum MasterもSprint Backlogの作業を実際に行っている場合はDeveloperとして参加します（2.4節のベストプラクティスも参照）。PSD Iはこの意味での「Developers」を主対象としています。
 
 ### 1.4 出題範囲マッピング
 
