@@ -832,7 +832,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 - **移行先**: `app/pages/cspo-certified-scrum-product-owner-study-guide.vue`
 - **契約テスト**: `tests/pages/cspo-certified-scrum-product-owner-study-guide.test.ts`（23 件・S-1〜S-4, C-1〜C-6, D-1, D-2, D-5a, Q-2, Q-3）
 - **照合結果**: `npm run audit:cspo` → **exit 0**（全要素一致: listItems 216, codeBlocks 0, tableRows 83, paragraphs 105, headings 64, externalLinks 21, mermaidSources 15, svgElements 1, calloutElements 72）
-- **ガイドカタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `cspo-certified-scrum-product-owner-study-guide`（`project-management` カテゴリー、`csm` シリーズ）を追加
+- **ガイドカタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `cspo-certified-scrum-product-owner-study-guide`（`project-management` カテゴリー、`product-owner` シリーズ）を追加
 - **デザイン・アクセシビリティ対応**:
   - メインコンテンツ幅の制限を撤廃し、画面幅いっぱいに広がるレスポンシブデザインを適用。
   - 参考文献セクションの見出し階層スキップ（h2 → h4）を h3 へ昇格し、アクセシビリティ階層ルール（Q-3）に適合。
@@ -859,7 +859,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   undefined を明示する。挿入位置は「カテゴリー順 → シリーズ順 → 定義順」を守ること。
   tests/utils/guide-catalog.test.ts / tests/pages/index.test.ts /
   tests/components/SiteHeader.test.ts の固定契約も追随更新する。
-  1 シリーズカラムは 14 件・1 カテゴリーは 5 カラムが上限（§50）。超えたら
+  1 シリーズカラムは 12 件・1 カテゴリーは 6 カラムが上限（tests/utils/guide-catalog.test.ts の現行値）。超えたら
   閾値ではなくシリーズの粒度を分割し直すこと。
 
 完了済み:
