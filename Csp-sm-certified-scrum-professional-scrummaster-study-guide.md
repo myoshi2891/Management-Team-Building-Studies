@@ -106,7 +106,7 @@ Scrum Alliance の FAQ では、次のように明記されています。
 
 ```mermaid
 flowchart TD
-    Start(["CSM を取得する"]) --> ACSM["A-CSM を取得する<br/>(CSM保有 + 実務経験12か月)"]
+    Start(["CSM を取得する<br/>(A-CSM の前提資格は<br/>PSM I / PSM II でも代替可)"]) --> ACSM["A-CSM を取得する<br/>(CSM または PSM I / PSM II 保有<br/>+ 実務経験12か月)"]
     ACSM --> Enroll["CSP-SM コースに申し込む<br/>(この時点で24か月の実務経験は<br/>必須ではない)"]
     Enroll --> Course["コースを受講し<br/>事前/事後課題を含む全構成要素を修了する"]
     Course --> Exp{"Scrum Master としての<br/>実務経験が過去5年以内で<br/>24か月以上あるか?"}
@@ -643,13 +643,13 @@ CSP-SM は「ゴール」ではなく、Scrum Master としてのキャリアに
 ```mermaid
 flowchart LR
     Shu["守 (Shu)<br/>型を忠実に守る段階<br/>(CSM相当)"] --> Ha["破 (Ha)<br/>型を理解した上で<br/>応用する段階<br/>(A-CSM〜CSP-SM相当)"]
-    Ha --> Ri["離 (Ri)<br/>型から離れ、<br/>独自のスタイルを<br/>確立する段階<br/>(CST/CEC/CTC相当)"]
+    Ha --> Ri["離 (Ri)<br/>型から離れ、<br/>独自のスタイルを<br/>確立する段階<br/>(CST相当。CEC・CTC は<br/>新規申請の受付を停止した既存資格)"]
 ```
 
 > **ベストプラクティス（個人開発戦略の設計ステップ）**:
 > 1. 現在地を自己評価する（Facilitation / Coaching / Teaching / Mentoring / Technical の各領域でのスキルレベル）。
 > 2. Comparative Agility のような組織診断ツールや、360度フィードバックを活用して他者評価とのギャップを把握する。
-> 3. 短期（半年)・中期（1〜2年）・長期（3年以上、CST/CEC/CTC等）の目標を設定する。
+> 3. 短期（半年)・中期（1〜2年）・長期（3年以上、CST 等）の目標を設定する。なお CEC・CTC は 2025年1月6日をもって新規申請の受付を停止した既存資格であり、後継の Certified Agility Consultant (CAC) プログラムは開発中でまだ申請できないため、長期目標として設定する際は最新の状況を確認すること。
 > 4. SEU（Scrum Education Units）の獲得計画を、単なる資格維持のノルマではなく、実際の学習計画として設計する。
 
 ### 10.2 LO 6.2: 誰かをメンタリングする経験を積める
