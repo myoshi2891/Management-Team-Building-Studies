@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-08-29)
+(最終更新日: 2026-09-02)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -83,7 +83,7 @@
 | `app/plugins/mermaid.client.ts` | ✅ 完了 | `tests/plugins/mermaid.client.test.ts`（3 件・初期化設定の契約）+ 同上（コンポーネントからの再 initialize を禁止） |
 | `app/utils/mermaid-loader.ts` | ✅ 完了 | 同上（動的 import の singleton 化） |
 | `app/composables/useActiveHeading.ts` | ✅ 完了 | `tests/composables/useActiveHeading.test.ts`（9 件・契約 Q-1） |
-| `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（16 件・ガイド定義の SSoT） |
+| `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（18 件・ガイド定義の SSoT） |
 | `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（21 件・シリーズベース カラム型メガメニュー + フォーカス退避）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
 | `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 11 件（メディアクエリ依存の挙動。jsdom では再現不能） |
@@ -845,6 +845,26 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 | カタログ・ナビ契約 | `tests/pages/index.test.ts`, `tests/components/SiteHeader.test.ts`, `tests/utils/guide-catalog.test.ts` 追随更新 |
 | 監査スクリプト | `package.json` に `audit:cspo` を追加 → **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `Cspo-certified-scrum-product-owner-study-guide.html` / `.md` を `archive/Cspo-certified-scrum-product-owner-study-guide/` 配下へ移動 |
+
+### §57. Certified Scrum Professional® - Product Owner (CSP®-PO) 完全学習ガイドの Nuxt 移行
+
+- **原本**: `archive/Csp-po-certified-scrum-professional-product-owner-study-guide/Csp-po-certified-scrum-professional-product-owner-study-guide.html`
+- **原本 Markdown**: `archive/Csp-po-certified-scrum-professional-product-owner-study-guide/Csp-po-certified-scrum-professional-product-owner-study-guide.md`
+- **移行先**: `app/pages/csp-po-certified-scrum-professional-product-owner-study-guide.vue`
+- **契約テスト**: `tests/pages/csp-po-certified-scrum-professional-product-owner-study-guide.test.ts`（25 件・共有契約 `defineSourceParityContract` の S-1〜S-4, C-1〜C-6, D-1, D-2, D-5a, Q-2, Q-3 に加え、テーブル契約 2 件（テーブル 31 件がすべて `.table-wrap` で包まれている／テーブル行 157 行））
+- **照合結果**: `npm run audit:csp-po` → **exit 0**（全要素一致: listItems 274, codeBlocks 0, tableRows 157, paragraphs 160, headings 73, externalLinks 27, mermaidSources 19, svgElements 1, calloutElements 76）
+- **ガイドカタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `csp-po-certified-scrum-professional-product-owner-study-guide`（`project-management` カテゴリー、`product-owner` シリーズ、`accent: gold`）を追加
+- **デザイン・アクセシビリティ対応**:
+  - callout 要素（note 41, practice 35、計76件）に `data-testid="callout"` / `data-variant="..."`、section-eyebrow（18件）に `data-testid="section-eyebrow"` を付与。
+  - 参考文献セクションの見出しを h2 → h3 の階層で構成し、アクセシビリティ階層ルール（Q-3）に適合。
+  - Mermaid 図解 19 本（`DIAGRAM_TRACK_PROGRESSION`, `DIAGRAM_REQUIREMENTS_FLOW`, `DIAGRAM_BLOOMS_TAXONOMY`, `DIAGRAM_TUCKMAN_STAGES`, `DIAGRAM_SCALING_PATTERNS`, `DIAGRAM_BUSINESS_MODEL_CANVAS`, `DIAGRAM_FIVE_FORCES`, `DIAGRAM_RELEASE_STRATEGY`, `DIAGRAM_BUILD_MEASURE_LEARN`, `DIAGRAM_COST_OF_DELAY`, `DIAGRAM_OPPORTUNITY_SOLUTION_TREE`, `DIAGRAM_HYPOTHESIS_EXPERIMENT`, `DIAGRAM_EXPERIMENT_EVALUATION`, `DIAGRAM_OUTPUT_OUTCOME_IMPACT`, `DIAGRAM_BACKLOG_ORDERING_TECHNIQUES`, `DIAGRAM_WSJF_CALCULATION`, `DIAGRAM_CAREER_PATH`, `DIAGRAM_RENEWAL_CYCLE`, `DIAGRAM_FIVE_CATEGORIES_SUMMARY`）を完全移植。
+
+| 項目 | 内容 |
+|---|---|
+| 契約テスト | `tests/pages/csp-po-certified-scrum-professional-product-owner-study-guide.test.ts` 新規作成（25 件パス） |
+| カタログ・ナビ契約 | `tests/pages/index.test.ts`, `tests/components/SiteHeader.test.ts`, `tests/utils/guide-catalog.test.ts` 追随更新 |
+| 監査スクリプト | `package.json` に `audit:csp-po` を追加 → **exit 0**（全要素一致） |
+| 原本アーカイブ移動 | `Csp-po-certified-scrum-professional-product-owner-study-guide.html` / `.md` を `archive/Csp-po-certified-scrum-professional-product-owner-study-guide/` 配下へ移動 |
 
 ## 次回セッションでの再開プロンプト
 
