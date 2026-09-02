@@ -319,6 +319,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/csd-certified-scrum-developer-study-guide",
       "/a-csd-advanced-certified-scrum-developer-study-guide",
       "/csp-d-certified-scrum-professional-developer-study-guide",
+      "/cspo-certified-scrum-product-owner-study-guide",
       "/csp-po-certified-scrum-professional-product-owner-study-guide",
       "/casp-certified-agile-scaling-practitioner-study-guide",
       "/cal1-certified-agile-leader-1-guide",
@@ -420,6 +421,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,

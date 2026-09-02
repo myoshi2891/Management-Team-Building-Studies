@@ -383,6 +383,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/cspo-certified-scrum-product-owner-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "CSPO 完全ガイド",
+    title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
+    description: "Scrum Alliance公式のCSPO Learning ObjectivesとScrum Foundations Learning Objectivesを完全網羅した、Certified Scrum Product Owner(CSPO)学習ガイド。5つの学習目標カテゴリ、ベストプラクティス、認定後のキャリアパスをMermaid図解付きで解説。",
+    meta: "14セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/csp-po-certified-scrum-professional-product-owner-study-guide",
     categoryId: "project-management",
     seriesId: "csm",

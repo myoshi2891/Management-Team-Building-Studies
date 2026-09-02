@@ -77,14 +77,13 @@ const EXPECTED_H3 = [
   "10.1 資格更新の基本ルール",
   "10.2 上位資格による自動更新",
   "10.3 A-CSPO(Advanced Certified Scrum Product Owner)",
-  "10.4 CSP®-PO(Certified Scrum Professional® - Product Owner)"
-] as const;
-
-const EXPECTED_H4 = [
+  "10.4 CSP®-PO(Certified Scrum Professional® - Product Owner)",
   "Scrum Alliance公式情報",
   "フレームワークの一次情報源",
   "関連リソース(Scrum Alliance Resource Library)"
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
