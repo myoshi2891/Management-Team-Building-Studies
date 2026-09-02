@@ -28,6 +28,30 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
+const CHECKLIST_KEY = 'cspo-checklist-v1';
+const checkedItems = ref<Set<string>>(new Set());
+
+onMounted(() => {
+  try {
+    const stored = localStorage.getItem(CHECKLIST_KEY);
+    if (stored) checkedItems.value = new Set(JSON.parse(stored) as string[]);
+  } catch {
+    // ignore parse / security errors
+  }
+});
+
+function toggleCheck(id: string): void {
+  const s = new Set(checkedItems.value);
+  if (s.has(id)) s.delete(id);
+  else s.add(id);
+  checkedItems.value = s;
+  try {
+    localStorage.setItem(CHECKLIST_KEY, JSON.stringify([...s]));
+  } catch {
+    // ignore quota errors
+  }
+}
+
 useSeoMeta({
   title: "CSPO® 認定資格 完全ガイド | Certified Scrum Product Owner 学習目標&ベストプラクティス",
   description: "Scrum Alliance公式のCSPO Learning ObjectivesとScrum Foundations Learning Objectivesを完全網羅した、Certified Scrum Product Owner(CSPO)学習ガイド。5つの学習目標カテゴリ、ベストプラクティス、認定後のキャリアパスをMermaid図解付きで解説。",
@@ -1582,46 +1606,141 @@ const DIAGRAM_CATEGORY_SUMMARY = `flowchart TD
 
       <h3>プロダクトオーナーとしての基本姿勢</h3>
 
-      <ul>
-        <li>☐ Product Backlogに対する最終決定権は自分にあることを自覚しつつ、独断ではなく十分な情報収集の上で判断している</li>
-        <li>☐ Developersの「どう作るか」には介入せず、「何を・なぜ」の意思決定に集中している</li>
-        <li>☐ 経験主義(透明性・検査・適応)を自ら体現し、Product Backlogを常に最新に保っている</li>
-        <li>☐ 複数チームを担当する場合、委任と権限保持の境界を明確にしている</li>
+      <ul class="checklist-ul">
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('po-basics-1') }]">
+            <input type="checkbox" :checked="checkedItems.has('po-basics-1')" @change="toggleCheck('po-basics-1')">
+            <span class="checklist-text">Product Backlogに対する最終決定権は自分にあることを自覚しつつ、独断ではなく十分な情報収集の上で判断している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('po-basics-2') }]">
+            <input type="checkbox" :checked="checkedItems.has('po-basics-2')" @change="toggleCheck('po-basics-2')">
+            <span class="checklist-text">Developersの「どう作るか」には介入せず、「何を・なぜ」の意思決定に集中している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('po-basics-3') }]">
+            <input type="checkbox" :checked="checkedItems.has('po-basics-3')" @change="toggleCheck('po-basics-3')">
+            <span class="checklist-text">経験主義(透明性・検査・適応)を自ら体現し、Product Backlogを常に最新に保っている</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('po-basics-4') }]">
+            <input type="checkbox" :checked="checkedItems.has('po-basics-4')" @change="toggleCheck('po-basics-4')">
+            <span class="checklist-text">複数チームを担当する場合、委任と権限保持の境界を明確にしている</span>
+          </label>
+        </li>
       </ul>
 
       <h3>ゴール設定と計画</h3>
 
-      <ul>
-        <li>☐ Product Visionと現在のProduct Goalの違いをチームに説明できる</li>
-        <li>☐ Product Goalを「機能」ではなく「状態・成果」で言語化している</li>
-        <li>☐ Sprint Goalが単なるItemの寄せ集めになっていないか、毎回検証している</li>
-        <li>☐ リリース計画を単一日付ではなく確率的なレンジで提示している</li>
-        <li>☐ 大きなItemを小さく価値ある増分に分割する技法(SPIDR、Story Mapping等)を使いこなせる</li>
+      <ul class="checklist-ul">
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('goals-1') }]">
+            <input type="checkbox" :checked="checkedItems.has('goals-1')" @change="toggleCheck('goals-1')">
+            <span class="checklist-text">Product Visionと現在のProduct Goalの違いをチームに説明できる</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('goals-2') }]">
+            <input type="checkbox" :checked="checkedItems.has('goals-2')" @change="toggleCheck('goals-2')">
+            <span class="checklist-text">Product Goalを「機能」ではなく「状態・成果」で言語化している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('goals-3') }]">
+            <input type="checkbox" :checked="checkedItems.has('goals-3')" @change="toggleCheck('goals-3')">
+            <span class="checklist-text">Sprint Goalが単なるItemの寄せ集めになっていないか、毎回検証している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('goals-4') }]">
+            <input type="checkbox" :checked="checkedItems.has('goals-4')" @change="toggleCheck('goals-4')">
+            <span class="checklist-text">リリース計画を単一日付ではなく確率的なレンジで提示している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('goals-5') }]">
+            <input type="checkbox" :checked="checkedItems.has('goals-5')" @change="toggleCheck('goals-5')">
+            <span class="checklist-text">大きなItemを小さく価値ある増分に分割する技法(SPIDR、Story Mapping等)を使いこなせる</span>
+          </label>
+        </li>
       </ul>
 
       <h3>顧客とユーザーの理解</h3>
 
-      <ul>
-        <li>☐ Discovery(探索)とDelivery(構築)を並行して継続的に行っている</li>
-        <li>☐ セグメンテーションを実際の優先順位判断に活用している</li>
-        <li>☐ 対立するニーズをKanoモデルやImpact/Effortマトリクスで構造的に整理している</li>
-        <li>☐ Developersが顧客と直接接する機会を意図的に設計している</li>
+      <ul class="checklist-ul">
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('customers-1') }]">
+            <input type="checkbox" :checked="checkedItems.has('customers-1')" @change="toggleCheck('customers-1')">
+            <span class="checklist-text">Discovery(探索)とDelivery(構築)を並行して継続的に行っている</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('customers-2') }]">
+            <input type="checkbox" :checked="checkedItems.has('customers-2')" @change="toggleCheck('customers-2')">
+            <span class="checklist-text">セグメンテーションを実際の優先順位判断に活用している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('customers-3') }]">
+            <input type="checkbox" :checked="checkedItems.has('customers-3')" @change="toggleCheck('customers-3')">
+            <span class="checklist-text">対立するニーズをKanoモデルやImpact/Effortマトリクスで構造的に整理している</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('customers-4') }]">
+            <input type="checkbox" :checked="checkedItems.has('customers-4')" @change="toggleCheck('customers-4')">
+            <span class="checklist-text">Developersが顧客と直接接する機会を意図的に設計している</span>
+          </label>
+        </li>
       </ul>
 
       <h3>プロダクト仮説の検証</h3>
 
-      <ul>
-        <li>☐ 最もリスクの高い仮説から検証する順序でProduct Backlogを組んでいる</li>
-        <li>☐ 実装前に検証できる方法(インタビュー、プロトタイプ、フェイクドア等)を優先的に検討している</li>
+      <ul class="checklist-ul">
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('hypothesis-1') }]">
+            <input type="checkbox" :checked="checkedItems.has('hypothesis-1')" @change="toggleCheck('hypothesis-1')">
+            <span class="checklist-text">最もリスクの高い仮説から検証する順序でProduct Backlogを組んでいる</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('hypothesis-2') }]">
+            <input type="checkbox" :checked="checkedItems.has('hypothesis-2')" @change="toggleCheck('hypothesis-2')">
+            <span class="checklist-text">実装前に検証できる方法(インタビュー、プロトタイプ、フェイクドア等)を優先的に検討している</span>
+          </label>
+        </li>
       </ul>
 
       <h3>プロダクトバックログの運用</h3>
 
-      <ul>
-        <li>☐ アウトプットではなくアウトカムでチームの成功を測っている</li>
-        <li>☐ Product Backlogの各Itemが明確にProduct Goalへ紐づいている(DEEP属性を満たしている)</li>
-        <li>☐ Item作成時に"so that"(価値・アウトカム)を明確に書いている</li>
-        <li>☐ リファインメントをDevelopersと共同で継続的に実施している</li>
+      <ul class="checklist-ul">
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('backlog-1') }]">
+            <input type="checkbox" :checked="checkedItems.has('backlog-1')" @change="toggleCheck('backlog-1')">
+            <span class="checklist-text">アウトプットではなくアウトカムでチームの成功を測っている</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('backlog-2') }]">
+            <input type="checkbox" :checked="checkedItems.has('backlog-2')" @change="toggleCheck('backlog-2')">
+            <span class="checklist-text">Product Backlogの各Itemが明確にProduct Goalへ紐づいている(DEEP属性を満たしている)</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('backlog-3') }]">
+            <input type="checkbox" :checked="checkedItems.has('backlog-3')" @change="toggleCheck('backlog-3')">
+            <span class="checklist-text">Item作成時に"so that"(価値・アウトカム)を明確に書いている</span>
+          </label>
+        </li>
+        <li>
+          <label :class="['checklist-label', { 'is-checked': checkedItems.has('backlog-4') }]">
+            <input type="checkbox" :checked="checkedItems.has('backlog-4')" @change="toggleCheck('backlog-4')">
+            <span class="checklist-text">リファインメントをDevelopersと共同で継続的に実施している</span>
+          </label>
+        </li>
       </ul>
     </section>
 
@@ -2405,5 +2524,52 @@ a { color: var(--color-indigo); text-decoration: none; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .sidebar { transition: none; }
+  }
+
+  /* ===================== Interactive Checklist ===================== */
+  .checklist-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+  }
+
+  .checklist-ul li {
+    padding: 4px 0;
+  }
+
+  .checklist-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin: 0 -6px;
+    transition: background 0.15s ease;
+  }
+
+  .checklist-label:hover {
+    background: var(--color-paper-raised);
+  }
+
+  .checklist-label input[type="checkbox"] {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--color-forest, #2f6b3d);
+    cursor: pointer;
+  }
+
+  .checklist-label.is-checked .checklist-text {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+
+  .checklist-text {
+    line-height: 1.65;
+    color: var(--color-ink);
+    transition: opacity 0.15s ease, text-decoration 0.15s ease;
   }
 </style>
