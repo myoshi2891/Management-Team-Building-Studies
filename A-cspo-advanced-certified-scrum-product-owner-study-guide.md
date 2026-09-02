@@ -68,7 +68,7 @@ flowchart LR
 
 ### 1.3 対象者
 
-A-CSPOは、すでにCSPOを取得し、実際にプロダクトオーナーとして一定期間働いた経験を持つ人を対象としています。学習目標文書(Learning Objectives)には「Individual Path to CSP」の教育者が扱う補足トピックについての言及もあり、A-CSPOはCertified Scrum Professional®(CSP®)へ至るパスの一部としても位置づけられています。<sup>[2]</sup>
+A-CSPOは、すでにCSPOを取得し、実際にプロダクトオーナーとして一定期間働いた経験を持つ人を対象としています。A-CSPOはプロダクトオーナートラックの最高位資格であるCSP-PO(Certified Scrum Professional® - Product Owner)の前提資格であり、CSP-POへ至るパスの一部として位置づけられています。これとは別の選択肢として、学習目標文書(Learning Objectives)にはScrum Allianceが承認した「Individual Path to CSP-PO」の教育者が扱う補足トピックについての言及もあります。<sup>[2]</sup>
 
 ### 1.4 プロダクトオーナーとスクラムマスターの関係
 
@@ -141,7 +141,7 @@ A-CSPOはコースを聞くだけで理解できる知識ではなく、「実�
 
 ### 3.1 なぜBloom's Taxonomyを理解する必要があるのか
 
-A-CSPO Learning Objectives文書は、すべての学習目標を「A-CSPO Learning Objectivesの検証に成功した学習者は、〜できるようになる」という前提のもとで、Bloom's Taxonomy(ブルームの分類学)に基づく動詞を使って記述しています。<sup>[1]</sup> つまり、学習目標の動詞を見れば、その項目がどのレベルの理解を要求しているかが分かります。
+A-CSPO Learning Objectives文書は、すべての学習目標を「A-CSPO Learning Objectivesの検証に成功した学習者は、〜できるようになる」という前提のもとで、Bloom's Taxonomy(ブルームの分類学)に基づく動詞を使って記述しています。<sup>[1]</sup> 動詞はその項目が要求する理解のレベルを読み取る手がかりになりますが、レベルは動詞だけで決まるものではありません。実際のレベルは、公式PDFに記載されたBloomレベルの表示と、その学習目標の文脈をあわせて判断してください(3.3節を参照)。
 
 ### 3.2 6段階の分類
 
