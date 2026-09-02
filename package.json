@@ -65,7 +65,7 @@
     "audit:csd": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csd-certified-scrum-developer-study-guide/Csd-certified-scrum-developer-study-guide.html app/pages/csd-certified-scrum-developer-study-guide.vue",
     "audit:csp-d": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csp-d-certified-scrum-professional-developer-study-guide/Csp-d-certified-scrum-professional-developer-study-guide.html app/pages/csp-d-certified-scrum-professional-developer-study-guide.vue",
     "audit:casp": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Casp-certified-agile-scaling-practitioner-study-guide/Casp-certified-agile-scaling-practitioner-study-guide.html app/pages/casp-certified-agile-scaling-practitioner-study-guide.vue",
-    "audit:csp-po": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Csp-po-certified-scrum-professional-product-owner-study-guide.html app/pages/csp-po-certified-scrum-professional-product-owner-study-guide.vue"
+    "audit:csp-po": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csp-po-certified-scrum-professional-product-owner-study-guide/Csp-po-certified-scrum-professional-product-owner-study-guide.html app/pages/csp-po-certified-scrum-professional-product-owner-study-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
