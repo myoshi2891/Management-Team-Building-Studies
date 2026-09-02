@@ -88,12 +88,11 @@ const EXPECTED_H3 = [
   "15.1 CSP-PO取得後に開けるキャリアパス",
   "15.2 CSP-PO取得のその他のメリット",
   "15.3 更新(Renewal)の仕組み",
-  "15.4 Scrum Education Units(SEU)の稼ぎ方"
-] as const;
-
-const EXPECTED_H4 = [
+  "15.4 Scrum Education Units(SEU)の稼ぎ方",
   "引用文献一覧"
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;

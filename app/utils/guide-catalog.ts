@@ -383,6 +383,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csp-po-certified-scrum-professional-product-owner-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "CSP-PO 完全ガイド",
+    title: "CSP-PO® 認定資格 完全ガイド | Certified Scrum Professional - Product Owner",
+    description: "Scrum Alliance公式のCSP-PO Learning Objectives(2022年1月版)に基づく、5カテゴリー31項目の完全解説。初学者向けのステップバイステップの進め方とベストプラクティス、一次情報源URLを掲載。",
+    meta: "18セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/casp-certified-agile-scaling-practitioner-study-guide",
     categoryId: "project-management",
     seriesId: "csm",
