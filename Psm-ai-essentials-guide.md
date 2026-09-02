@@ -1,6 +1,6 @@
 # Professional Scrum Master™ - AI Essentials (PSM-AI Essentials) 学習ガイド
 
-> 世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum.org公式のProfessional Scrum Master™ - AI Essentials Certificationについて、初学者でも迷わず学べるようステップバイステップで解説します。各項目には根拠となる出典URLを付記しています。
+> 世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum.org公式のProfessional Scrum Master™ - AI Essentials Certificationについて、初学者でも迷わず学べるようステップバイステップで解説します。主要な項目には根拠となる出典URLを付記しています。
 
 **公式認定ページ:** https://www.scrum.org/assessments/professional-scrum-master-ai-essentials-certification
 
