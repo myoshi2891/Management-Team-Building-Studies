@@ -74,6 +74,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csd-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSD 完全ガイド" },
       { to: "/a-csd-advanced-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "A-CSD 完全ガイド" },
       { to: "/csp-d-certified-scrum-professional-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSP-D 完全ガイド" },
+      { to: "/cspo-certified-scrum-product-owner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSPO 完全ガイド" },
       { to: "/csp-po-certified-scrum-professional-product-owner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSP-PO 完全ガイド" },
       { to: "/casp-certified-agile-scaling-practitioner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CASP 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 完全ガイド" },
@@ -162,7 +163,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CSP-PO 完全ガイド", "CASP 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CSPO 完全ガイド", "CSP-PO 完全ガイド", "CASP 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
       },
       {
         id: "engineering-management",
@@ -192,7 +193,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
           { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
-          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CSP-PO 完全ガイド", "CASP 完全ガイド"] },
+          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CSPO 完全ガイド", "CSP-PO 完全ガイド", "CASP 完全ガイド"] },
           { seriesId: "cal", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド"] },
           { seriesId: "ai-pm", guides: ["AI-PM 実践ガイド"] },
         ],
@@ -257,7 +258,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
    * 分割し直すこと（過去に scrum が 14 件まで膨らみ、パネル全高が約 600px に達した）。
    * 実描画での高さの担保は e2e/site-header.spec.ts が行う。ここは分類の契約。
    */
-  const MAX_GUIDES_PER_SERIES_COLUMN = 13;
+  const MAX_GUIDES_PER_SERIES_COLUMN = 14;
 
   /*
    * 1 カテゴリーあたりのシリーズカラム数の上限。
