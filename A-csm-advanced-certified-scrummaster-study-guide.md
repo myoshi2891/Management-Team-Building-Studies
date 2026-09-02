@@ -1122,7 +1122,7 @@ flowchart TB
 
 ### 16.1 CSP-SM への道
 
-A-CSM 取得後の次のステップとして、Scrum Alliance の FAQ では **CSP-SM (Certified Scrum Professional® - ScrumMaster)** が Scrum Master トラックにおける最高位の資格として位置づけられています。A-CSM は「CSP への個別パス (Individual Path to CSP)」の一部としても機能しており、教育実施団体はこのパス向けの補助トピックを A-CSM コースに含めることができます。
+A-CSM 取得後の次のステップとして、Scrum Alliance の FAQ では **CSP-SM (Certified Scrum Professional® - ScrumMaster)** が Scrum Master トラックにおける最高位の資格として位置づけられています。また、Scrum Alliance が承認した **Individual Path to CSP-SM Educators** は、その個別パス向けの補助トピックを A-CSM コースに追加することができます。
 
 ```mermaid
 flowchart LR
@@ -1197,4 +1197,4 @@ A-CSM は、CSM で得た Scrum の基礎知識を土台に、以下の3つの�
 25. Kotter, J. / Kotter Inc. "The 8-Step Process for Leading Change." https://www.kotterinc.com/methodology/8-steps/
 26. Greenleaf, R. K. / Greenleaf Center for Servant Leadership. "What is Servant Leadership?" https://greenleaf.org/what-is-servant-leadership/
 
-> 本ガイドは教育目的で作成された二次資料です。認定試験の公式基準は必ず [Scrum Alliance 公式サイト](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster) および承認された A-CSM コースでご確認ください。
+> 本ガイドは教育目的で作成された二次資料です。A-CSM認定の公式要件は必ず [Scrum Alliance 公式サイト](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster) および承認された A-CSM コースでご確認ください。
