@@ -706,7 +706,7 @@ flowchart TD
 | Kanoモデル | モデル化 | 機能を「当たり前品質」「一元的品質(性能)」「魅力的品質(デライター)」などに分類し、顧客満足度への影響の質的な違いを可視化する。Noriaki Kanoが1984年に提唱した |
 | インパクトマッピング | モデル化 | ビジネスゴールから逆算して、機能ではなく「行動変容」で価値を捉える |
 | Cost of Delay(遅延コスト) | 測定 | ある機能の提供が遅れることで失われる価値を定量化する考え方。Don Reinertsenが体系化した |
-| WSJF(Weighted Shortest Job First) | 測定 | Cost of DelayをJob Duration(所要期間)で割ることで、経済合理性に基づいた優先順位を算出する手法。SAFeで採用されている |
+| WSJF(Weighted Shortest Job First) | 測定 | 相対的なCost of Delayを相対的なJob Duration(所要期間。SAFeでは見積りやすいJob Size=規模を同義の代理指標として用いる)で割ることで、経済合理性に基づいた優先順位を算出する手法。SAFeで採用されている |
 
 Kanoモデルは、機能を顧客満足度への影響のパターンで分類します。<sup>[2]</sup>
 
@@ -718,15 +718,15 @@ Kanoモデルは、機能を顧客満足度への影響のパターンで分類�
 | 無関心品質(Indifferent) | あってもなくても満足度に影響しない |
 | 逆品質(Reverse) | 充実させるほどかえって満足度が下がる |
 
-WSJFは、Cost of Delayを「ビジネス価値」「時間的な緊急度」「リスク低減・機会創出」の3要素の合計として算出し、それをJob Sizeで割ることで、経済的な効果が最大になる順序を導き出します。<sup>[3]</sup>
+WSJFは、Cost of Delayを「ビジネス価値」「時間的な緊急度」「リスク低減・機会創出」の3要素の合計として算出し、それを相対的なJob Duration(所要期間。実務では同義の代理指標としてJob Size=規模を用います)で割ることで、経済的な効果が最大になる順序を導き出します。<sup>[3]</sup>
 
 ```mermaid
 flowchart LR
     BV["ビジネス価値"] --> CoD["Cost of Delay<br/>遅延コスト"]
     TC["時間的緊急度"] --> CoD
     RR["リスク低減・<br/>機会創出"] --> CoD
-    CoD --> WSJF["WSJF =<br/>Cost of Delay<br/>÷<br/>Job Size"]
-    JS["Job Size<br/>所要期間"] --> WSJF
+    CoD --> WSJF["WSJF =<br/>相対的なCost of Delay<br/>÷<br/>相対的なJob Duration"]
+    JS["Job Duration(所要期間)<br/>= Job Size(規模)を代理指標として使用"] --> WSJF
     WSJF --> Order["優先順位が<br/>高いものから着手"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -776,7 +776,7 @@ flowchart TD
 
 | ステップ | 内容 |
 |---|---|
-| 分割(Split) | 対象とするユーザー層や課題の種類が大きく異なる場合、バックログ自体を複数に分ける |
+| 分割(Split) | 対象とするユーザー層や課題の種類が大きく異なる場合、その区分で分類・ビューを設けて見通しを良くする。1つのプロダクトのProduct Backlogは1つに保つのが原則であり(唯一の情報源)、バックログ自体を分けるのは作業を別プロダクトとして切り出す場合に限る |
 | 制限(Limit) | 「プロダクトゴールに沿うものだけ」「件数の上限」「一定期間更新のない項目の除外」などの基準を設ける |
 | 削除(Eliminate) | 長期間放置され陳腐化した「ゾンビ項目」を削除する |
 | 統合(Consolidate) | 類似・重複した項目を1つにまとめ、ノイズを減らす |
