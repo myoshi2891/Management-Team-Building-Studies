@@ -33,6 +33,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { id: "capm", categoryId: "project-management", navLabel: "CAPM", cardLabel: "CAPM" },
       { id: "pmp", categoryId: "project-management", navLabel: "PMP", cardLabel: "PMP" },
       { id: "csm", categoryId: "project-management", navLabel: "CSM / Scrum", cardLabel: "CSM / SCRUM" },
+      { id: "product-owner", categoryId: "project-management", navLabel: "Product Owner", cardLabel: "PRODUCT OWNER" },
       { id: "cal", categoryId: "project-management", navLabel: "CAL 1・2", cardLabel: "CAL 1 & 2" },
       { id: "ai-pm", categoryId: "project-management", navLabel: "AI-PM", cardLabel: "AI-PM" },
       { id: "first-leadership", categoryId: "engineering-leadership", navLabel: "はじめてのリード", cardLabel: "FIRST LEADERSHIP" },
@@ -74,9 +75,9 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csd-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSD 完全ガイド" },
       { to: "/a-csd-advanced-certified-scrum-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "A-CSD 完全ガイド" },
       { to: "/csp-d-certified-scrum-professional-developer-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSP-D 完全ガイド" },
-      { to: "/cspo-certified-scrum-product-owner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSPO 完全ガイド" },
-      { to: "/csp-po-certified-scrum-professional-product-owner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CSP-PO 完全ガイド" },
       { to: "/casp-certified-agile-scaling-practitioner-study-guide", categoryId: "project-management", seriesId: "csm", navLabel: "CASP 完全ガイド" },
+      { to: "/cspo-certified-scrum-product-owner-study-guide", categoryId: "project-management", seriesId: "product-owner", navLabel: "CSPO 完全ガイド" },
+      { to: "/csp-po-certified-scrum-professional-product-owner-study-guide", categoryId: "project-management", seriesId: "product-owner", navLabel: "CSP-PO 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第1章" },
       { to: "/agile-leadership-in-action", categoryId: "project-management", seriesId: "cal", navLabel: "CAL1 第2章" },
@@ -163,7 +164,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CSPO 完全ガイド", "CSP-PO 完全ガイド", "CASP 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド", "CSPO 完全ガイド", "CSP-PO 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
       },
       {
         id: "engineering-management",
@@ -193,7 +194,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
           { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
-          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CSPO 完全ガイド", "CSP-PO 完全ガイド", "CASP 完全ガイド"] },
+          { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド"] },
+          { seriesId: "product-owner", guides: ["CSPO 完全ガイド", "CSP-PO 完全ガイド"] },
           { seriesId: "cal", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド"] },
           { seriesId: "ai-pm", guides: ["AI-PM 実践ガイド"] },
         ],
@@ -255,17 +257,23 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
    * 固定ヘッダー（--global-nav-height: 72px）を引いても 720px 高のビューポートに収まる。
    *
    * 超えたときに直すのは閾値ではなく**シリーズの粒度**である。カラムを増やす方向で
-   * 分割し直すこと（過去に scrum が 14 件まで膨らみ、パネル全高が約 600px に達した）。
+   * 分割し直すこと（過去に scrum が 14 件まで膨らみ、パネル全高が約 600px に達した。
+   * 現在は Product Owner 系を product-owner シリーズへ分離して解消している）。
    * 実描画での高さの担保は e2e/site-header.spec.ts が行う。ここは分類の契約。
    */
-  const MAX_GUIDES_PER_SERIES_COLUMN = 14;
+  const MAX_GUIDES_PER_SERIES_COLUMN = 12;
 
   /*
    * 1 カテゴリーあたりのシリーズカラム数の上限。
    * 1040px ブレークポイントでのヘッダー内枠（約 1016px）にカラムが収まる上限。
    * 超える場合は、シリーズではなくカテゴリー自体を分ける判断が必要になる。
+   *
+   * 6 は project-management を capm / pmp / csm / product-owner / cal / ai-pm へ
+   * 分類した結果。カラムは max-content 幅のため実測でしか収まりを判定できず、
+   * 1040 / 1240 / 1440px での内枠への収まりは e2e/site-header.spec.ts が担保する。
+   * これ以上増える場合は閾値ではなくカテゴリー自体を分けること。
    */
-  const MAX_SERIES_COLUMNS_PER_CATEGORY = 5;
+  const MAX_SERIES_COLUMNS_PER_CATEGORY = 6;
 
   it("1 シリーズカラムのガイド件数が上限を超えない（ドロップダウンの縦の肥大化を防ぐ）", () => {
     const oversized = groupGuidesByCategory()

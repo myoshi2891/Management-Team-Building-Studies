@@ -169,21 +169,21 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
-        title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
+        title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
         category: "CSM / SCRUM",
+        href: "/casp-certified-agile-scaling-practitioner-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
+        category: "PRODUCT OWNER",
         href: "/cspo-certified-scrum-product-owner-study-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "CSP-PO® 認定資格 完全ガイド | Certified Scrum Professional - Product Owner",
-        category: "CSM / SCRUM",
+        category: "PRODUCT OWNER",
         href: "/csp-po-certified-scrum-professional-product-owner-study-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
-        title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
-        category: "CSM / SCRUM",
-        href: "/casp-certified-agile-scaling-practitioner-study-guide",
         accentClass: "guide-card-gold",
       },
       {
