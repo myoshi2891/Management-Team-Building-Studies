@@ -1,29 +1,26 @@
-// 期待値は原本 HTML から機械生成した凍結リテラル。
-// 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
-// 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi, describe, it, expect } from "vitest";
-import { defineSourceParityContract } from "../support/page-contract";
+import { describe, expect, it, vi } from "vitest";
 import Page from "~/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue";
+import { defineSourceParityContract } from "../support/page-contract";
 
-// useSeoMeta の引数を捕まえて契約 Q-2 で検証する。
-const { seoMeta } = vi.hoisted(() => ({ seoMeta: vi.fn() }));
+const { seoMeta } = vi.hoisted(() => ({
+  seoMeta: vi.fn(),
+}));
 mockNuxtImport("useSeoMeta", () => seoMeta);
 
 const EXPECTED_H1 = [
   "Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド"
 ] as const;
-
 const EXPECTED_H2 = [
   "この章立てについて",
   "第1章 A-CSPO資格の概要とProduct Owner Trackにおける位置づけ",
   "第2章 受験要件と認定への道のり",
   "第3章 Bloom's Taxonomyの読み方",
   "第4章 CSPOからの橋渡し: Scrum基礎の要点整理",
-  "第5章 Core Competencies1 プロダクトオーナーシップの本質とマインドセット(LO 1.1〜1.3)",
-  "第6章 Core Competencies2 ステークホルダーとの協働技術(LO 1.4〜1.8)",
-  "第7章 Core Competencies3 開発者との協働と技術的負債(LO 1.9〜1.10)",
-  "第8章 Core Competencies4 複数チームでのプロダクトオーナーシップ(LO 1.11〜1.13)",
+  "第5章 Core Competencies① プロダクトオーナーシップの本質とマインドセット(LO 1.1〜1.3)",
+  "第6章 Core Competencies② ステークホルダーとの協働技術(LO 1.4〜1.8)",
+  "第7章 Core Competencies③ 開発者との協働と技術的負債(LO 1.9〜1.10)",
+  "第8章 Core Competencies④ 複数チームでのプロダクトオーナーシップ(LO 1.11〜1.13)",
   "第9章 Advanced Goal Setting and Planning(LO 2.1〜2.4)",
   "第10章 Empathizing with Customers and Users(LO 3.1〜3.2)",
   "第11章 Advanced Product Assumption Validation(LO 4.1〜4.5)",
@@ -34,7 +31,6 @@ const EXPECTED_H2 = [
   "まとめ",
   "参考資料・出典一覧"
 ] as const;
-
 const EXPECTED_H3 = [
   "1.1 A-CSPOとは何か",
   "1.2 CSPOとの違い",
@@ -92,10 +88,51 @@ const EXPECTED_H3 = [
   "15.2 資格の維持とScrum Education Units(SEU)",
   "15.3 なぜ「学び続ける資格」なのか"
 ] as const;
-
 const EXPECTED_H4 = [] as const;
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
+
+const EXPECTED_TOC_IDS = [
+  "about-guide",
+  "acspo-overview",
+  "requirements",
+  "blooms-taxonomy",
+  "scrum-foundations-bridge",
+  "core-competencies-mindset",
+  "core-competencies-stakeholders",
+  "core-competencies-technical-debt",
+  "core-competencies-scaling",
+  "goal-setting-planning",
+  "empathizing-customers",
+  "assumption-validation",
+  "backlog-management",
+  "best-practices-checklist",
+  "misconceptions-antipatterns",
+  "career-path",
+  "summary",
+  "references"
+] as const;
+
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+  "SECTION 11",
+  "SECTION 12",
+  "SECTION 13",
+  "SECTION 14",
+  "SECTION 15",
+  "SECTION 16",
+  "SECTION 17",
+  "SECTION 18"
+] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
   "flowchart LR\nA[\"CSPO\n基礎を学ぶ\"] --> B[\"12ヶ月以上の\n実務経験\"]\nB --> C[\"A-CSPO\n応用力を鍛える\"]\nC --> D[\"CSP-PO\n実務家として認められる\"]\nD --> E[\"SEUによる\n継続的な更新\"]\nclassDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;\nclass A,B,C,D,E box;",
@@ -119,56 +156,113 @@ const EXPECTED_MERMAID_SOURCES = [
 
 const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrumalliance.org/get-certified/product-owner-track/advanced-certified-scrum-product-owner",
+  "https://www.scrumalliance.org/get-certified/product-owner-track/advanced-certified-scrum-product-owner",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://www.scrumalliance.org/get-certified/product-owner-track/advanced-certified-scrum-product-owner",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
   "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
   "https://assets.scrumalliance.org/media/certifications/los/scrum_foundations_learning_objectives_2022.pdf",
-  "https://scrumguides.org",
-  "https://martinfowler.com/bliki/technicaldebt.html",
-  "https://martinfowler.com/bliki/technicaldebtquadrant.html",
+  "https://scrumguides.org/",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://scrumguides.org/",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://martinfowler.com/bliki/TechnicalDebt.html",
+  "https://martinfowler.com/bliki/TechnicalDebtQuadrant.html",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
   "https://www.scrum.org/resources/online-nexus-guide",
-  "https://www.impactmapping.org",
-  "https://jpattonassociates.com/story-mapping-quick-ref",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://www.impactmapping.org/",
+  "https://jpattonassociates.com/story-mapping-quick-ref/",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
   "https://appliedframeworks.com/blog/fourteen-cognitive-biases-common-to-product-owners",
   "https://theleanstartup.com/principles",
-  "https://en.wikipedia.org/wiki/kano_model",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://en.wikipedia.org/wiki/Kano_model",
   "https://framework.scaledagile.com/wsjf",
-  "https://resources.scrumalliance.org/article/manage-large-product-backlog",
+  "https://resources.scrumalliance.org/Article/manage-large-product-backlog",
   "https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner",
   "https://www.scrumalliance.org/get-certified/scrum-education-units",
-  "https://agilemanifesto.org",
+  "https://www.scrumalliance.org/get-certified/product-owner-track/advanced-certified-scrum-product-owner",
+  "https://www.scrumalliance.org/media/certifications/los/adv_cspo_learning_objectives_2022.pdf",
+  "https://assets.scrumalliance.org/media/certifications/los/scrum_foundations_learning_objectives_2022.pdf",
+  "https://scrumguides.org/",
+  "https://agilemanifesto.org/",
   "https://www.scrumalliance.org/about-scrum/values",
   "https://www.scrumalliance.org/get-certified/product-owner-track",
   "https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-product-owner",
-  "https://www.scrumalliance.org/get-certified/renewing-certifications"
+  "https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner",
+  "https://www.scrumalliance.org/get-certified/scrum-education-units",
+  "https://www.scrumalliance.org/get-certified/renewing-certifications",
+  "https://martinfowler.com/bliki/TechnicalDebt.html",
+  "https://martinfowler.com/bliki/TechnicalDebtQuadrant.html",
+  "https://www.scrum.org/resources/online-nexus-guide",
+  "https://framework.scaledagile.com/wsjf",
+  "https://en.wikipedia.org/wiki/Kano_model",
+  "https://www.impactmapping.org/",
+  "https://jpattonassociates.com/story-mapping-quick-ref/",
+  "https://theleanstartup.com/principles",
+  "https://appliedframeworks.com/blog/fourteen-cognitive-biases-common-to-product-owners",
+  "https://resources.scrumalliance.org/Article/manage-large-product-backlog"
 ] as const;
 
-const { mountPage } = defineSourceParityContract({
-  Page,
-  expectedH1: EXPECTED_H1,
-  expectedH2: EXPECTED_H2,
-  expectedH3: EXPECTED_H3,
-  expectedH4: EXPECTED_H4,
-  expectedH5: EXPECTED_H5,
-  expectedH6: EXPECTED_H6,
-  expectedMermaidSources: EXPECTED_MERMAID_SOURCES,
-  expectedExternalUrls: EXPECTED_EXTERNAL_URLS,
+const EXPECTED_CALLOUT_VARIANTS = {
+  practice: 14,
+  source: 13,
+} as const;
+
+const EXPECTED_CALLOUT_LABELS = {
+  practice: {
+    "ベストプラクティス": 14,
+  },
+  source: {
+    "ソース": 13,
+  },
+} as const;
+
+defineSourceParityContract({
+  page: Page,
+  suiteName: "pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue",
+  seoMeta,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: [],
+  seoTitleFragments: [
+    "A-CSPO",
+    "Advanced Certified Scrum Product Owner",
+    "学習ガイド",
+  ],
+  seoTitle: "A-CSPO® 認定資格 完全ガイド | Advanced Certified Scrum Product Owner 学習ガイド",
+  seoDescription:
+    "Scrum Alliance Advanced Certified Scrum Product Owner (A-CSPO) の公式ラーニングオブジェクティブに基づく、初学者向けステップバイステップ学習ガイド。",
 });
 
-describe("A-CSPO ガイド ページ個別契約", () => {
-  it("D-1: callout の種類と件数が原本と一致する (practice: 14, source: 13)", () => {
-    const wrapper = mountPage();
-    const practices = wrapper.findAll('.callout[data-variant="practice"], .callout.practice');
-    const sources = wrapper.findAll('.callout[data-variant="source"], .callout.source');
-    expect(practices.length).toBe(14);
-    expect(sources.length).toBe(13);
+describe("pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue — テーブル構造契約", () => {
+  it("テーブルが原本と同じ件数（23件）存在し、すべて .table-wrap で包まれている", async () => {
+    const { mountSuspended } = await import("@nuxt/test-utils/runtime");
+    const wrapper = await mountSuspended(Page);
+    const tables = wrapper.findAll("table");
+    expect(tables).toHaveLength(23);
+    for (const table of tables) {
+      expect(table.element.closest(".table-wrap")).not.toBeNull();
+    }
   });
 
-  it("Q-2: SEO メタ情報が設定されている", () => {
-    mountPage();
-    expect(seoMeta).toHaveBeenCalledWith(
-      expect.objectContaining({
-        title: expect.stringContaining("A-CSPO"),
-        description: expect.stringContaining("Scrum Alliance"),
-      })
-    );
+  it("テーブル行の総数が原本と一致する（150行）", async () => {
+    const { mountSuspended } = await import("@nuxt/test-utils/runtime");
+    const wrapper = await mountSuspended(Page);
+    const rows = wrapper.findAll("table tr");
+    expect(rows).toHaveLength(150);
   });
 });

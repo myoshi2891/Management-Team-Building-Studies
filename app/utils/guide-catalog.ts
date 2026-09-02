@@ -416,6 +416,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
+    categoryId: "project-management",
+    seriesId: "product-owner",
+    navLabel: "A-CSPO 完全ガイド",
+    title: "Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド",
+    description: "Scrum Alliance Advanced Certified Scrum Product Owner (A-CSPO) の公式ラーニングオブジェクティブに基づく、初学者向けステップバイステップ学習ガイド。",
+    meta: "18セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/csp-po-certified-scrum-professional-product-owner-study-guide",
     categoryId: "project-management",
     seriesId: "product-owner",
