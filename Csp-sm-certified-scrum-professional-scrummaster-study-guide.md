@@ -100,7 +100,7 @@ Scrum Alliance の FAQ では、次のように明記されています。
 
 > "You can take the course without the 24 months of experience, but you cannot get the certification until you have completed and recorded the 24 months of experience."
 
-つまり **A-CSM を取得した時点でコースを受講することは可能** ですが、**認定証が発行されるのは24か月分の実務経験がプロフィールに記録・検証された後** です。これは上位トラックへ進む多くの実務者が誤解しやすいポイントです。なお前提資格はトラックごとに分かれており、CSP-SM の前提資格は **A-CSM**、CSP-PO の前提資格は **A-CSPO** です。
+つまり **A-CSM を取得した時点で CSP-SM コースへ登録・受講することは可能**（24か月の実務経験は受講前・受講後のどちらで満たしてもよい）ですが、**認定証が発行されるのは24か月分の実務経験がプロフィールに記録・検証された後** です。これは上位トラックへ進む多くの実務者が誤解しやすいポイントです。なお前提資格はトラックごとに分かれており、CSP-SM の前提資格は **A-CSM**、CSP-PO の前提資格は **A-CSPO** です。
 
 ### 2.2 取得までのプロセス（フローチャート）
 
