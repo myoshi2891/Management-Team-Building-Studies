@@ -95,6 +95,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CSP-D 完全ガイド", href: "/csp-d-certified-scrum-professional-developer-study-guide" },
       { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
       { label: "CSPO 完全ガイド", href: "/cspo-certified-scrum-product-owner-study-guide" },
+      { label: "A-CSPO 完全ガイド", href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide" },
       { label: "CSP-PO 完全ガイド", href: "/csp-po-certified-scrum-professional-product-owner-study-guide" },
       { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
       { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
@@ -189,6 +190,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
         labelledBy: "nav-series-product-owner",
         links: [
           { label: "CSPO 完全ガイド", href: "/cspo-certified-scrum-product-owner-study-guide" },
+          { label: "A-CSPO 完全ガイド", href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide" },
           { label: "CSP-PO 完全ガイド", href: "/csp-po-certified-scrum-professional-product-owner-study-guide" },
         ],
       },
@@ -327,6 +329,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/csp-d-certified-scrum-professional-developer-study-guide",
       "/casp-certified-agile-scaling-practitioner-study-guide",
       "/cspo-certified-scrum-product-owner-study-guide",
+      "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
       "/csp-po-certified-scrum-professional-product-owner-study-guide",
       "/cal1-certified-agile-leader-1-guide",
       "/the-case-for-agile-leadership",
@@ -427,6 +430,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
