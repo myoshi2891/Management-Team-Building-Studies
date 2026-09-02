@@ -50,18 +50,20 @@ A-CSPOは、初級資格であるCertified Scrum Product Owner(CSPO®)の内容�
 
 ```mermaid
 flowchart LR
-    A["CSPO<br/>基礎を学ぶ"] --> G{"次の2つを<br/>ともに満たす<br/>(順不同)"}
-    G --> R1["A-CSPO認定コースを受講する"]
-    G --> R2["PO実務経験12ヶ月以上<br/>(過去5年以内。A-CSPOコースの<br/>受講前・受講後を通算できる)"]
-    R1 --> C["A-CSPO<br/>応用力を鍛える"]
-    R2 --> C
-    C --> D["CSP-PO<br/>実務家として認められる"]
+    A["CSPO<br/>基礎を学ぶ"] --> R1["A-CSPO認定コースを受講する"]
+    A --> R2["PO実務経験12ヶ月以上<br/>(過去5年以内。A-CSPOコースの<br/>受講前・受講後を通算できる)"]
+    R1 --> G{"次の2つを<br/>ともに満たす<br/>(順不同)"}
+    R2 --> G
+    G --> C["A-CSPO<br/>応用力を鍛える"]
+    C --> N["CSP-POを目指す<br/>(A-CSPOはCSP-POの前提資格)"]
+    N --> REQ{"CSP-POの追加要件をすべて満たす<br/>・CSP-PO認定教育プログラムの受講<br/>・事前/事後課題を含む全構成要素の修了<br/>・過去5年以内にPOとして実務経験24ヶ月<br/>・CSP-PO License Agreementへの同意と<br/>メンバープロフィールの完成"}
+    REQ --> D["CSP-PO<br/>実務家として認められる"]
     D --> E["SEUによる<br/>継続的な更新"]
 
     classDef step fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef gate fill:#FAF1DF,stroke:#B8802A,color:#161B26
-    class A,R1,R2,C,D,E step
-    class G gate
+    class A,R1,R2,C,N,D,E step
+    class G,REQ gate
 ```
 
 ### 1.3 対象者
@@ -851,10 +853,12 @@ A-CSPOは、Certified Scrum Professional® - Product Owner(CSP®-PO)の前提資
 flowchart LR
     CSPO["CSPO"] --> ACSPO["A-CSPO"]
     ACSPO --> CSPPO["CSP-PO"]
-    CSPPO --> CTC["CTC / CEC など<br/>トレーナー・コーチ系資格<br/>(新規申請は2025年1月6日で終了。<br/>既存の有効なバッジは<br/>現在の更新サイクルの間のみ表示される)"]
+    CSPPO -.->|"現在のキャリアパスの次段階ではない"| CTC["【新規申請を停止した旧資格】<br/>CTC / CEC(トレーナー・コーチ系)<br/>新規申請は2025年1月6日で終了<br/>既存の有効なバッジは<br/>現在の更新サイクルの間のみ表示される"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
-    class CSPO,ACSPO,CSPPO,CTC box
+    classDef retired fill:#F2F2F2,stroke:#8A8A8A,color:#5A5A5A,stroke-dasharray: 4 3
+    class CSPO,ACSPO,CSPPO box
+    class CTC retired
 ```
 
 ### 15.2 資格の維持とScrum Education Units(SEU)
@@ -890,6 +894,7 @@ Scrum自体が経験主義(検査と適応)に基づくフレームワークで�
 **ソース**
 1. Scrum Alliance「Certified Scrum Professional® - Product Owner (CSP®-PO)」公式ページ — https://www.scrumalliance.org/get-certified/product-owner-track/certified-scrum-professional-product-owner
 2. Scrum Alliance「Scrum Education Units」公式ページ — https://www.scrumalliance.org/get-certified/scrum-education-units
+3. Scrum Alliance Help Center「Updates to the Certified Enterprise Coach (CEC) and Certified Team Coach (CTC) programs」 — https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs
 
 ---
 
@@ -932,3 +937,4 @@ A-CSPOは、コースを受講して終わりではなく、これらの技術�
 | 19 | The Lean Startup — Principles | Eric Ries | https://theleanstartup.com/principles |
 | 20 | Fourteen Cognitive Biases Common to Product Owners | Applied Frameworks | https://appliedframeworks.com/blog/fourteen-cognitive-biases-common-to-product-owners |
 | 21 | How to Manage a Large Product Backlog | Scrum Alliance(Miloš Belčević) | https://resources.scrumalliance.org/Article/manage-large-product-backlog |
+| 22 | Updates to the Certified Enterprise Coach (CEC) and Certified Team Coach (CTC) programs | Scrum Alliance Help Center | https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs |
