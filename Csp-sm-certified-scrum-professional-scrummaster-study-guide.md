@@ -59,10 +59,12 @@ flowchart LR
     A["CSM<br/>Certified ScrumMaster<br/>(前提資格なし)"] --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(CSM(または PSM I/PSM II)必須<br/>+ 実務経験12か月)"]
     B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster<br/>(A-CSM必須 + 実務経験24か月)"]
     C --> D["CST<br/>Certified Scrum Trainer"]
-    C --> E["CTC / CEC<br/>(2025年1月6日で新規申請停止した既存資格。<br/>有効期限内(アクティブ)の保持者に限り<br/>バッジ表示と認定の保持を継続できる<br/>(失効後も有効という意味ではない)。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
+    C -.->|"現在のキャリアパスの次段階ではない"| E["CTC / CEC<br/>(2025年1月6日で新規申請停止した既存資格。<br/>有効期限内(アクティブ)の保持者に限り<br/>バッジ表示と認定の保持を継続できる<br/>(失効後も有効という意味ではない)。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
 
     classDef current fill:#FAF1DF,stroke:#B8802A,color:#161B26
+    classDef retired fill:#F2F2F2,stroke:#8A8A8A,color:#5A5A5A,stroke-dasharray: 4 3
     class C current
+    class E retired
 ```
 
 CSM が「Scrumの基礎を実践できる」段階、A-CSM が「ファシリテーション・コーチングの基礎とスケーリングの入口を身につける」段階だとすれば、CSP-SM は「複雑な組織課題に対して体系的に介入できる」段階です。CSP-SM の学習範囲は Lean Thinking の起源にまで遡り、複数チームのスケーリング、組織開発、そして「アドバンスド・スクラム・マスタリー」という個人のキャリア開発戦略にまで及びます。
@@ -708,7 +710,8 @@ CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイト�
 - Scrum Alliance の資格は **2年ごとの更新** が必要です。
 - 更新には Scrum Education Units（SEU）の取得が必要で、記事の閲読・イベント参加・ボランティア活動など「学習に費やした1時間 = 1 SEU」として計算されます。
 - CSP レベル（CSP-SM を含む）の更新には、専門レベル（Professional-level）の更新料が必要です（2年ごとに専門レベルは基礎レベル・上級レベルより高い更新料が設定されています）。
-- CSP-SM の場合、現行の更新要件は **2年ごとに 40 SEU の取得と 250 米ドルの更新料の支払い** です（金額は2026年9月1日時点で確認したもの。最新の金額は Scrum Alliance 公式サイトで確認してください）。
+- CSP-SM の場合、標準的な更新ルートは **2年ごとに 40 SEU の取得と 250 米ドルの更新料の支払い** です（金額は2026年9月1日時点で確認したもの。最新の金額は Scrum Alliance 公式サイトで確認してください）。
+- 代替ルートとして、更新サイクル中に **Scrum Alliance の認定コースを修了する** と、SEU の提出も更新料の支払いも行わずに資格が更新されます。
 - CSP-SM 保持者は、Scrum Alliance が提供する世界最大級のアジャイルアセスメント・継続的改善プラットフォームである **Comparative Agility®** のプレミアムサブスクリプションを無料で利用できます。
 
 ### 13.2 上位資格との関係
