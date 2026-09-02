@@ -85,11 +85,16 @@ A-CSM を取得・維持するためには、以下の要件を満たす必要�
 ```mermaid
 flowchart TD
     R1["Scrum Alliance CSM 認定<br/>または Scrum.org PSM I / PSM II を保有<br/>(CSMは有効期限切れでも可)"] --> R2["過去5年以内に<br/>Scrum Master実務経験12ヶ月"]
-    R2 --> R3["承認されたA-CSMコース(最低16時間)を修了<br/>(課題は受講前/受講後どちらでも可)"]
-    R3 --> R4["A-CSMライセンス受諾+<br/>メンバープロフィール完成"]
+    R1 --> R3["承認されたA-CSMコース(最低16時間)を修了<br/>(課題は受講前/受講後どちらでも可)"]
+    R2 --> R4["A-CSMライセンス受諾+<br/>メンバープロフィール完成"]
+    R3 --> R4
     R4 --> R5["A-CSM認定取得"]
     R5 --> R6["2年ごとに30 SEU取得+<br/>175米ドルの更新料で更新(標準ルート)<br/>別の認定コース修了なら<br/>SEU・更新料なしで更新"]
 ```
+
+**補足:** 実務経験12ヶ月(R2)とA-CSMコース修了(R3)に順序の指定はありません。
+コースを先に修了し、後から実務経験の要件を満たしても構いません
+(両方を満たした時点でR4へ進めます)。
 
 > **ソース:** [Scrum Alliance — Advanced Certified ScrumMaster](https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster) / [Scrum Alliance Help Center — How do I earn the A-CSM or A-CSPO certification?](https://support.scrumalliance.org/hc/en-us/articles/115001680252-How-do-I-earn-the-Advanced-Certified-ScrumMaster-A-CSM-or-Advanced-Certified-Scrum-Product-Owner-A-CSPO-certification)
 
