@@ -37,6 +37,7 @@ PSD Iは、単なるScrum理論の理解にとどまらず、**自己管理型�
 |---|---|
 | 試験名 | Professional Scrum Developer（PSD I） |
 | 出題形式 | 択一式（Multiple Choice）、複数選択（Multiple Answer）、正誤問題（True/False） |
+| 試験言語 | 英語のみ（日本語での受験はできない） |
 | 問題数 | 80問 |
 | 制限時間 | 60分 |
 | 合格ライン | 85% |
@@ -187,7 +188,7 @@ flowchart LR
 | Sprint Retrospective | チーム自身の働き方（プロセス・ツール・人間関係）を検査し改善計画を立てる | 最大3時間 |
 
 > **ベストプラクティス：**
-> - Daily Scrumは「進捗報告会」ではなく「その日の計画を作り直すための検査・適応の場」と捉える。参加者はDevelopersのみで、状態確認のためのミーティングにしない。
+> - Daily Scrumは「進捗報告会」ではなく「その日の計画を作り直すための検査・適応の場」と捉える。イベントの主体はDevelopersであり、Product OwnerやScrum MasterもSprint Backlogの作業を実際に行っている場合はDeveloperとして参加する。それ以外の同席者は、イベントを妨げない限り傍聴しても構わない（発言・報告を求める場にはしない）。
 > - Sprint Reviewは「デモの日」ではなく、ステークホルダーとの協働作業（コラボレーティブなワーキングセッション）として設計する。
 > - Sprint Retrospectiveの検査対象は、個人・相互作用・プロセス・ツール・Definition of Doneである（Scrum Guide 2020）。個人も検査の対象に含まれる点に注意する。個人を検査対象から外すのではなく、「個人を責める場にしない」ことと「個人の働き方を検査する」ことを区別して扱う。
 
@@ -247,7 +248,7 @@ Developersは、Increment を作成するために必要なすべてのスキル
 
 ### 3.3 自己管理型の開発（Self-managed Development）
 
-Scrum Guide 2020では「自己組織化（Self-organizing）」から「自己管理（Self-managing）」へと用語が変わりました。自己管理とは、Developersが「誰が」「どのように」「何を」行うかを、チーム内部で決定することを指します（外部からの管理・指示ではなく）。
+Scrum Guide 2020では「自己組織化（Self-organizing）」から「自己管理（Self-managing）」へと用語が変わりました。自己管理とは、Scrum Team全体が「誰が」「どのように」「何を」行うかを、チーム内部で決定することを指します（外部からの管理・指示ではなく）。その内訳として、Product OwnerがProduct Backlogの順序付けに責任を持ち、DevelopersがSprint Backlogを作成し、その実現方法を自分たちで計画・適応します。
 
 - 自己管理には、適切な開発スキルの存在だけでなく、協働・チームコミットメント・共同の課題オーナーシップ・共有ゴール・創造性が必要とされる。
 - マネージャーがタスクを個人に割り当てるのではなく、チーム自身がSprint Backlogの中でタスクを引き受けていく。
