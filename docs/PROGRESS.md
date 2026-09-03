@@ -867,6 +867,19 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 | 監査スクリプト | `package.json` に `audit:csp-po` を追加 → **exit 0**（全要素一致） |
 | 原本アーカイブ移動 | `Csp-po-certified-scrum-professional-product-owner-study-guide.html` / `.md` を `archive/Csp-po-certified-scrum-professional-product-owner-study-guide/` 配下へ移動 |
 
+### §58. A-CSPO 学習ガイド（A-cspo-advanced-certified-scrum-product-owner-study-guide.html）移行完了（2026-09-03）
+
+- **移行元原本**: `archive/A-cspo-advanced-certified-scrum-product-owner-study-guide/A-cspo-advanced-certified-scrum-product-owner-study-guide.html`（HTML・MD 共にアーカイブへ移動）
+- **移行先ページ**: `app/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue`
+- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `categoryId: "project-management"`, `seriesId: "product-owner"` として登録（CSPO と CSP-PO の間に配置）。
+- **原本照合監査**: `npm run audit:a-cspo` にて **exit 0** を確認（listItems: 113, tableRows: 150, paragraphs: 63, headings: 74, externalLinks: 22, mermaidSources: 17, svgElements: 1, calloutElements: 27 すべて原本と完全一致）。
+- **契約テスト**: `tests/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.test.ts`（25 件全通過）。
+- **TDD Mandatory サイクル**:
+  1. `test(a-cspo)`: コントラクトテスト作成・Red 確認 (`8c51845`)
+  2. `feat(a-cspo)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`acc4f22`)
+  3. `refactor(a-cspo)`: 原本アーカイブ移動・typecheck & lint パス確認 (`747575d`)
+  4. `chore(docs)`: `docs/PROGRESS.md` 更新
+
 ## 次回セッションでの再開プロンプト
 
 ```text
@@ -949,16 +962,3 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 
 ベースラインテスト数: ユニット 1403 + E2E 20
 ```
-
-### §58. A-CSPO 学習ガイド（A-cspo-advanced-certified-scrum-product-owner-study-guide.html）移行完了（2026-09-03）
-
-- **移行元原本**: `archive/A-cspo-advanced-certified-scrum-product-owner-study-guide/A-cspo-advanced-certified-scrum-product-owner-study-guide.html`（HTML・MD 共にアーカイブへ移動）
-- **移行先ページ**: `app/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue`
-- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `categoryId: "project-management"`, `seriesId: "product-owner"` として登録（CSPO と CSP-PO の間に配置）。
-- **原本照合監査**: `npm run audit:a-cspo` にて **exit 0** を確認（listItems: 113, tableRows: 150, paragraphs: 63, headings: 74, externalLinks: 22, mermaidSources: 17, svgElements: 1, calloutElements: 27 すべて原本と完全一致）。
-- **契約テスト**: `tests/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.test.ts`（25 件全通過）。
-- **TDD Mandatory サイクル**:
-  1. `test(a-cspo)`: コントラクトテスト作成・Red 確認 (`8c51845`)
-  2. `feat(a-cspo)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`acc4f22`)
-  3. `refactor(a-cspo)`: 原本アーカイブ移動・typecheck & lint パス確認 (`747575d`)
-  4. `chore(docs)`: `docs/PROGRESS.md` 更新
