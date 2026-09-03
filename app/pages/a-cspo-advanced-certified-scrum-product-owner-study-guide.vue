@@ -1342,18 +1342,102 @@ onMounted(() => {
 <th>チェック項目</th>
 </tr></thead>
           <tbody>
-<tr><td>Core Competencies</td><td><label class="checklist-label" for="chk-0"><input type="checkbox" id="chk-0" data-checklist-key="acspoBP-0"><span class="checklist-text">自分のマインドセットが仮説思考・サーバントリーダーシップになっているか定期的に振り返っている</span></label></td></tr>
-<tr><td>Core Competencies</td><td><label class="checklist-label" for="chk-1"><input type="checkbox" id="chk-1" data-checklist-key="acspoBP-1"><span class="checklist-text">ステークホルダーとの対話にファシリテーティブ・リスニングと合意形成技術を意図的に使い分けている</span></label></td></tr>
-<tr><td>Core Competencies</td><td><label class="checklist-label" for="chk-2"><input type="checkbox" id="chk-2" data-checklist-key="acspoBP-2"><span class="checklist-text">技術的負債の状態を開発チームと定期的に対話し、負債解消をバックログの中に組み込んでいる</span></label></td></tr>
-<tr><td>Core Competencies</td><td><label class="checklist-label" for="chk-3"><input type="checkbox" id="chk-3" data-checklist-key="acspoBP-3"><span class="checklist-text">複数チーム編成が必要な場合、フィーチャーチーム化を優先的に検討し、依存関係を可視化している</span></label></td></tr>
-<tr><td>Goal Setting and Planning</td><td><label class="checklist-label" for="chk-4"><input type="checkbox" id="chk-4" data-checklist-key="acspoBP-4"><span class="checklist-text">プロダクト戦略を1枚で説明できる状態を維持している</span></label></td></tr>
-<tr><td>Goal Setting and Planning</td><td><label class="checklist-label" for="chk-5"><input type="checkbox" id="chk-5" data-checklist-key="acspoBP-5"><span class="checklist-text">ロードマップやプランをステークホルダーと共同で作成し、前提条件を明記している</span></label></td></tr>
-<tr><td>Empathizing with Customers</td><td><label class="checklist-label" for="chk-6"><input type="checkbox" id="chk-6" data-checklist-key="acspoBP-6"><span class="checklist-text">開発者が顧客と直接接点を持つ機会を定期的に作っている</span></label></td></tr>
-<tr><td>Empathizing with Customers</td><td><label class="checklist-label" for="chk-7"><input type="checkbox" id="chk-7" data-checklist-key="acspoBP-7"><span class="checklist-text">顧客インタビューでは過去の具体的な行動を尋ね、機能の是非を直接聞かないようにしている</span></label></td></tr>
-<tr><td>Assumption Validation</td><td><label class="checklist-label" for="chk-8"><input type="checkbox" id="chk-8" data-checklist-key="acspoBP-8"><span class="checklist-text">自分の意思決定が確証バイアスやサンクコスト効果に影響されていないか、定期的に自問している</span></label></td></tr>
-<tr><td>Assumption Validation</td><td><label class="checklist-label" for="chk-9"><input type="checkbox" id="chk-9" data-checklist-key="acspoBP-9"><span class="checklist-text">実験を始める前にPersevere/Pivotの判定基準を書面で決めている</span></label></td></tr>
-<tr><td>Backlog Management</td><td><label class="checklist-label" for="chk-10"><input type="checkbox" id="chk-10" data-checklist-key="acspoBP-10"><span class="checklist-text">価値のモデル化(Kanoなど)と測定(WSJFなど)を使い分けて優先順位付けをしている</span></label></td></tr>
-<tr><td>Backlog Management</td><td><label class="checklist-label" for="chk-11"><input type="checkbox" id="chk-11" data-checklist-key="acspoBP-11"><span class="checklist-text">バックログが肥大化する前に、分割・制限・削除・統合のいずれかの手段を定期的に実行している</span></label></td></tr>
+<tr><td>Core Competencies</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-0'] }]" for="chk-0">
+          <input
+            id="chk-0"
+            type="checkbox"
+            data-checklist-key="acspoBP-0"
+            :checked="checklistState['acspoBP-0']"
+            @change="toggleChecklist('acspoBP-0', $event)"
+          ><span class="checklist-text">自分のマインドセットが仮説思考・サーバントリーダーシップになっているか定期的に振り返っている</span></label></td></tr>
+<tr><td>Core Competencies</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-1'] }]" for="chk-1">
+          <input
+            id="chk-1"
+            type="checkbox"
+            data-checklist-key="acspoBP-1"
+            :checked="checklistState['acspoBP-1']"
+            @change="toggleChecklist('acspoBP-1', $event)"
+          ><span class="checklist-text">ステークホルダーとの対話にファシリテーティブ・リスニングと合意形成技術を意図的に使い分けている</span></label></td></tr>
+<tr><td>Core Competencies</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-2'] }]" for="chk-2">
+          <input
+            id="chk-2"
+            type="checkbox"
+            data-checklist-key="acspoBP-2"
+            :checked="checklistState['acspoBP-2']"
+            @change="toggleChecklist('acspoBP-2', $event)"
+          ><span class="checklist-text">技術的負債の状態を開発チームと定期的に対話し、負債解消をバックログの中に組み込んでいる</span></label></td></tr>
+<tr><td>Core Competencies</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-3'] }]" for="chk-3">
+          <input
+            id="chk-3"
+            type="checkbox"
+            data-checklist-key="acspoBP-3"
+            :checked="checklistState['acspoBP-3']"
+            @change="toggleChecklist('acspoBP-3', $event)"
+          ><span class="checklist-text">複数チーム編成が必要な場合、フィーチャーチーム化を優先的に検討し、依存関係を可視化している</span></label></td></tr>
+<tr><td>Goal Setting and Planning</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-4'] }]" for="chk-4">
+          <input
+            id="chk-4"
+            type="checkbox"
+            data-checklist-key="acspoBP-4"
+            :checked="checklistState['acspoBP-4']"
+            @change="toggleChecklist('acspoBP-4', $event)"
+          ><span class="checklist-text">プロダクト戦略を1枚で説明できる状態を維持している</span></label></td></tr>
+<tr><td>Goal Setting and Planning</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-5'] }]" for="chk-5">
+          <input
+            id="chk-5"
+            type="checkbox"
+            data-checklist-key="acspoBP-5"
+            :checked="checklistState['acspoBP-5']"
+            @change="toggleChecklist('acspoBP-5', $event)"
+          ><span class="checklist-text">ロードマップやプランをステークホルダーと共同で作成し、前提条件を明記している</span></label></td></tr>
+<tr><td>Empathizing with Customers</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-6'] }]" for="chk-6">
+          <input
+            id="chk-6"
+            type="checkbox"
+            data-checklist-key="acspoBP-6"
+            :checked="checklistState['acspoBP-6']"
+            @change="toggleChecklist('acspoBP-6', $event)"
+          ><span class="checklist-text">開発者が顧客と直接接点を持つ機会を定期的に作っている</span></label></td></tr>
+<tr><td>Empathizing with Customers</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-7'] }]" for="chk-7">
+          <input
+            id="chk-7"
+            type="checkbox"
+            data-checklist-key="acspoBP-7"
+            :checked="checklistState['acspoBP-7']"
+            @change="toggleChecklist('acspoBP-7', $event)"
+          ><span class="checklist-text">顧客インタビューでは過去の具体的な行動を尋ね、機能の是非を直接聞かないようにしている</span></label></td></tr>
+<tr><td>Assumption Validation</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-8'] }]" for="chk-8">
+          <input
+            id="chk-8"
+            type="checkbox"
+            data-checklist-key="acspoBP-8"
+            :checked="checklistState['acspoBP-8']"
+            @change="toggleChecklist('acspoBP-8', $event)"
+          ><span class="checklist-text">自分の意思決定が確証バイアスやサンクコスト効果に影響されていないか、定期的に自問している</span></label></td></tr>
+<tr><td>Assumption Validation</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-9'] }]" for="chk-9">
+          <input
+            id="chk-9"
+            type="checkbox"
+            data-checklist-key="acspoBP-9"
+            :checked="checklistState['acspoBP-9']"
+            @change="toggleChecklist('acspoBP-9', $event)"
+          ><span class="checklist-text">実験を始める前にPersevere/Pivotの判定基準を書面で決めている</span></label></td></tr>
+<tr><td>Backlog Management</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-10'] }]" for="chk-10">
+          <input
+            id="chk-10"
+            type="checkbox"
+            data-checklist-key="acspoBP-10"
+            :checked="checklistState['acspoBP-10']"
+            @change="toggleChecklist('acspoBP-10', $event)"
+          ><span class="checklist-text">価値のモデル化(Kanoなど)と測定(WSJFなど)を使い分けて優先順位付けをしている</span></label></td></tr>
+<tr><td>Backlog Management</td><td><label :class="['checklist-label', { 'is-checked': checklistState['acspoBP-11'] }]" for="chk-11">
+          <input
+            id="chk-11"
+            type="checkbox"
+            data-checklist-key="acspoBP-11"
+            :checked="checklistState['acspoBP-11']"
+            @change="toggleChecklist('acspoBP-11', $event)"
+          ><span class="checklist-text">バックログが肥大化する前に、分割・制限・削除・統合のいずれかの手段を定期的に実行している</span></label></td></tr>
           </tbody>
         </table>
       </div>
