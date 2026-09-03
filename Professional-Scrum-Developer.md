@@ -37,7 +37,7 @@ PSD Iは、単なるScrum理論の理解にとどまらず、**自己管理型�
 |---|---|
 | 試験名 | Professional Scrum Developer（PSD I） |
 | 出題形式 | 択一式（Multiple Choice）、複数選択（Multiple Answer）、正誤問題（True/False） |
-| 試験言語 | 英語のみ（日本語での受験はできない） |
+| 試験言語 | 英語（試験問題は英語で提供される）。Scrum.org が案内する手順に従うことで、受験時に Google Translate Plugin による翻訳補助を利用できる |
 | 問題数 | 80問 |
 | 制限時間 | 60分 |
 | 合格ライン | 85% |
