@@ -76,7 +76,7 @@ export const GUIDE_SERIES = [
     /*
      * Product Owner 系（CSPO / CSP-PO）は CSM / Scrum と同じ Scrum Alliance の認定だが、
      * 対象アカウンタビリティが異なるため独立したシリーズにする。
-     * csm へ束ねると 14 件になり、1 カラムの上限（12 件）を超える。
+     * csm へ束ねると 15 件になり、1 カラムの上限（12 件）を超える。
      */
     id: "product-owner",
     categoryId: "project-management",
