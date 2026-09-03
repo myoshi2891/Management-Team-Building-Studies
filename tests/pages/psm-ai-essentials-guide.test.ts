@@ -211,6 +211,8 @@ describe("pages/psm-ai-essentials-guide.vue — テーブル構造契約", () =>
 
     tables.forEach((table, i) => {
       const config = tableConfigs[i];
+      expect(config).toBeDefined();
+      if (!config) return;
       const ths = table.findAll("thead th").map((th) => th.text().trim());
       expect(ths).toEqual(config.headers);
       const rows = table.findAll("tbody tr");

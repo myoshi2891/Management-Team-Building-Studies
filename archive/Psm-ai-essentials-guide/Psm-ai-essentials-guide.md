@@ -1,6 +1,6 @@
 # Professional Scrum Master™ - AI Essentials (PSM-AI Essentials) 学習ガイド
 
-> 世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum.org公式のProfessional Scrum Master™ - AI Essentials Certificationについて、初学者でも迷わず学べるようステップバイステップで解説します。主要な項目には根拠となる出典URLを付記しています。
+> Scrum.org公式のProfessional Scrum Master™ - AI Essentials Certificationについて、初学者でも迷わず学べるようステップバイステップで解説します。主要な項目には根拠となる出典URLを付記しています。
 
 **公式認定ページ:** https://www.scrum.org/assessments/professional-scrum-master-ai-essentials-certification
 
@@ -31,7 +31,7 @@
 
 ### このガイドの読み方
 
-各Moduleは「概念解説 → ベストプラクティス → 出典」の順に構成しています。図解はすべてMermaid記法、比較・整理はMarkdown表で統一し、ASCIIアートは使用していません。Mermaidに対応したビューア(GitHub、VS Code、Obsidian等)で閲覧すると図が正しく描画されます。
+各Moduleは「概念解説 → ベストプラクティス → 出典」の順に構成しています。
 
 > **[補足]** PSM-AI Essentialsは「Scrum Masterが実務でAIをどう使うか」を問う資格であり、AIエンジニアリングやデータサイエンスの技術試験ではありません。公式に示されている出題領域は **AI Theory and Primer / AI Security and Ethics / AI for Scrum Masters / Effective AI Prompting** の4カテゴリーです。いずれも、AIエンジニアではなくユーザーの視点からのAI理解、Scrum実務への応用、そして倫理・責任という文脈で問われます。(出典: 1, 7)
 
