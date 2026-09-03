@@ -1200,8 +1200,43 @@ class OK done;`;
   .callout ul { margin-bottom: 0; padding-left: 20px; }
   .callout p:last-child { margin-bottom: 0; }
 
-  .callout.practice { border-left-color: var(--color-gold); }
+  /* --- practice callout: 連続する場合にグループカードとして視覚的に統合 --- */
+  .callout.practice {
+    border-left-color: var(--color-gold);
+    /* 最初の practice: 上側の角丸・マージン・ボーダーは通常通り */
+  }
   .callout.practice .callout-title { color: var(--color-gold); }
+
+  /* 2件目以降の practice（直前が practice callout）: 連続するアイテムとして結合 */
+  .callout.practice + .callout.practice {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: calc(-28px + 0px); /* 前の callout のマージン bottom を相殺して隙間をなくす */
+    padding-top: 0;
+    position: relative;
+  }
+
+  /* 連続 practice 間のセパレーターライン */
+  .callout.practice + .callout.practice::before {
+    content: "";
+    display: block;
+    height: 1px;
+    background: color-mix(in srgb, var(--color-gold) 30%, transparent);
+    margin: 0 0 16px;
+  }
+
+  /* 2件目以降のタイトル（「ベストプラクティス」の繰り返し）を非表示 */
+  .callout.practice + .callout.practice .callout-title {
+    display: none;
+  }
+
+  /* 最初の practice の下角丸を消す（次に practice が続く場合） */
+  .callout.practice:has(+ .callout.practice) {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 0;
+  }
 
   .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
   .callout.source .callout-title { color: var(--color-forest); }
