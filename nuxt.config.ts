@@ -16,16 +16,12 @@ export default defineNuxtConfig({
   icon: {
     // 静的生成（nuxt generate）ではサーバー API が使えないため、
     // 使用アイコンをビルド時にスキャンしてクライアントバンドルへ同梱する。
-    // globInclude の既定は .vue/.jsx/.tsx/.md 等のみで **.ts を含まない**。
-    // ガイドのアイコン名は app/utils/guide-catalog.ts が持つため、.ts を走査対象に加える。
-    // これを外すとヘッダー・ホームのアイコンだけがビルド成果物から欠落する
-    // （dev サーバーでは API 経由で解決されるため気付けない）。
+    // アプリコードはすべて app/ 配下に存在するため、スキャン対象を app/ に限定し、
+    // archive や docs 等の大容量テキスト走査をスキップして起動時間を大幅短縮する。
     clientBundle: {
       scan: {
-        globInclude: ["**/*.{vue,jsx,tsx,ts,md,mdc,mdx,yml,yaml}"],
-        // globExclude は既定値を丸ごと置き換えるため、既定に含まれる "test" も明記する
-        // （落とすと @nuxt/icon の既定より走査範囲が広がる）。"tests" / "e2e" は本リポジトリ固有。
-        globExclude: ["node_modules", "dist", "build", "coverage", "test", "tests", "e2e", ".*"],
+        globInclude: ["app/**/*.{vue,jsx,tsx,ts}"],
+        globExclude: ["node_modules", "dist", "build", "coverage", "test", "tests", "e2e", "archive", "docs", ".*"],
       },
       includeCustomCollections: true,
     },
@@ -44,6 +40,15 @@ export default defineNuxtConfig({
 
   // 静的サイトのため OG 画像のランタイム生成は無効化する（generate を通すため）。
   ogImage: { enabled: false },
+
+  // 開発時の不要なランタイム Sitemap/リンク巡回を停止し、Nitro サーバー初期化を高速化する。
+  sitemap: { zeroRuntime: true },
+  linkChecker: { enabled: false },
+
+  // Nitro の走査・監視対象からアーカイブ・ドキュメント・テストを除外する。
+  nitro: {
+    ignore: ["archive/**", "docs/**", "tests/**", "e2e/**"],
+  },
 
   eslint: {
     config: {
