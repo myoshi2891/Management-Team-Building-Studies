@@ -464,7 +464,7 @@ const DIAGRAM_TRAINER_PATH_FLOW = `flowchart LR
       <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance&reg; Developer Track</div>
       <h1>Certified Scrum Professional&reg; Developer (CSP&reg;-D) 学習ガイド</h1>
       <p class="hero-lede">
-        本ガイドは、世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum Alliance&reg; の Certified Scrum Professional&reg; - Developer (CSP&reg;-D) 認定について、初学者にもわかりやすいように段階を踏んで解説するものです。公式 Learning Objectives (LO) の各項目を1つずつ丁寧に説明し、それぞれに対応するベストプラクティスと出典 URL を付記しています。図解はすべて Mermaid で記述しており、ASCII アートは使用していません。
+        本ガイドはScrum Alliance&reg; の Certified Scrum Professional&reg; - Developer (CSP&reg;-D) 認定について、初学者にもわかりやすいように段階を踏んで解説するものです。公式 Learning Objectives (LO) の各項目を1つずつ丁寧に説明し、それぞれに対応するベストプラクティスと出典 URL を付記しています。図解はすべて Mermaid で記述しており、ASCII アートは使用していません。
       </p>
 
       <div class="stat-row">
