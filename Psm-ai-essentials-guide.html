@@ -1121,7 +1121,7 @@
 
   var DIAGRAMS = {
     moduleRoadmap: `flowchart TB
-A["Module 1 AI Fundamentals AIの基礎概念を理解する"] --> B["Module 2 AI for the Scrum Master Scrum Masterのアカウンタビリティを強化する"] --> C["Module 3 AI for the Scrum Team チームの協働・速度・品質を高める"] --> D["Module 4 Ethics and Responsible AI 倫理的で責任あるAI活用"]
+A["Module 1<br/>AI Fundamentals<br/>AIの基礎概念を理解する"] --> B["Module 2<br/>AI for the Scrum Master<br/>Scrum Masterの<br/>アカウンタビリティを強化する"] --> C["Module 3<br/>AI for the Scrum Team<br/>チームの協働・速度・品質を高める"] --> D["Module 4<br/>Ethics and Responsible AI<br/>倫理的で責任あるAI活用"]
 D -.->|"試験対策・実践への橋渡し"| E["PSM-AI Essentials 認定試験"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
@@ -1134,37 +1134,37 @@ subgraph AI["Artificial Intelligence 人工知能"]
 subgraph ML["Machine Learning 機械学習"]
 DL["Deep Learning 深層学習"]
 end
-GEN["Generative AI 生成する能力"]
+GEN["Generative AI<br/>生成する能力"]
 end
-AGENT["Agentic AI 目標を与えられ自律的に計画・実行するシステムの振る舞い モデルの階層とは別系統"]
-DL -.->|"生成AIの主流な実装手段 包含関係ではない"| GEN
-GEN -.->|"構成要素として組み込まれ得る 必須ではない"| AGENT
+AGENT["Agentic AI<br/>目標を与えられ自律的に計画・実行する<br/>システムの振る舞い<br/>(モデルの階層とは別系統)"]
+DL -.->|"生成AIの主流な実装手段<br/>(包含関係ではない)"| GEN
+GEN -.->|"構成要素として組み込まれ得る<br/>(必須ではない)"| AGENT
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class AI,ML,DL,GEN,AGENT box;`,
 
     fourDCycle: `flowchart LR
-D1["Delegation 委任すべきか判断する"] --> D2["Description 目的を明確に記述する"] --> D3["Discernment 出力を批判的に評価する"] --> D4["Diligence 結果への責任を持つ"]
+D1["Delegation<br/>委任すべきか判断する"] --> D2["Description<br/>目的を明確に記述する"] --> D3["Discernment<br/>出力を批判的に評価する"] --> D4["Diligence<br/>結果への責任を持つ"]
 D4 -.->|"次回の委任判断に反映"| D1
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class D1,D2,D3,D4 box;`,
 
     sprintCycle: `flowchart LR
-SP["Sprint Planning 依存関係のモデル化 容量の可視化"] --> DS["Daily Scrum 進捗の要約 ブロッカーの可視化"] --> SR["Sprint Review フィードバックの集約"] --> RETRO["Sprint Retrospective 多様な意見の統合"]
+SP["Sprint Planning<br/>依存関係のモデル化<br/>容量の可視化"] --> DS["Daily Scrum<br/>進捗の要約<br/>ブロッカーの可視化"] --> SR["Sprint Review<br/>フィードバックの集約"] --> RETRO["Sprint Retrospective<br/>多様な意見の統合"]
 RETRO -.->|"気づきを次のSprintへ反映"| SP
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class SP,DS,SR,RETRO box;`,
 
     aiUseDecision: `flowchart TD
-START["Scrum MasterがAI活用を検討している"] --> Q1{"選択したAI環境へのデータ入力がベンダー規約・組織ポリシー・NDA等の組織ルールで許可されているか?"}
-Q1 -->|"いいえ"| NG["利用を見送る、または安全な代替手段を検討する"]
+START["Scrum MasterがAI活用を検討している"] --> Q1{"選択したAI環境へのデータ入力が<br/>ベンダー規約・組織ポリシー・NDA等の<br/>組織ルールで許可されているか?"}
+Q1 -->|"いいえ"| NG["利用を見送る、または<br/>安全な代替手段を検討する"]
 Q1 -->|"はい"| Q2{"人間による最終判断を残せる設計か?"}
 Q2 -->|"いいえ"| NG
 Q2 -->|"はい"| Q3{"チームや組織の透明性・DoDと整合するか?"}
 Q3 -->|"いいえ"| NG
-Q3 -->|"はい"| OK["活用してよい 結果は人間がレビューする"]
+Q3 -->|"はい"| OK["活用してよい<br/>結果は人間がレビューする"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
