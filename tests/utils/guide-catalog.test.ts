@@ -88,6 +88,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/cal2-part2-developing-as-a-leader", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 Part 2" },
       { to: "/cal2-certified-agile-leader-2-study-guide", categoryId: "project-management", seriesId: "cal", navLabel: "CAL2 完全ガイド" },
       { to: "/ai-driven-project-management-guide", categoryId: "project-management", seriesId: "ai-pm", navLabel: "AI-PM 実践ガイド" },
+      { to: "/psm-ai-essentials-guide", categoryId: "project-management", seriesId: "ai-pm", navLabel: "PSM-AI 完全ガイド" },
       { to: "/engineering-management-career-path", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM キャリアパス" },
       { to: "/engineering-manager-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "EM 入門" },
       { to: "/managing-humans-best-practices-guide", categoryId: "engineering-management", seriesId: undefined, navLabel: "Managing Humans" },

@@ -247,6 +247,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Scrum Master™ - AI Essentials 完全ガイド",
+        category: "AI-PM",
+        href: "/psm-ai-essentials-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "エンジニアのためのマネジメントキャリアパス",
         category: "ENGINEERING MANAGEMENT",
         href: "/engineering-management-career-path",

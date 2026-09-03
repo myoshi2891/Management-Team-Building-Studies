@@ -106,6 +106,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "CAL2 Part 2", href: "/cal2-part2-developing-as-a-leader" },
       { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
       { label: "AI-PM 実践ガイド", href: "/ai-driven-project-management-guide" },
+      { label: "PSM-AI 完全ガイド", href: "/psm-ai-essentials-guide" },
     ]);
     expect(panelLinks(wrapper, "engineering-management")).toEqual([
       { label: "EM キャリアパス", href: "/engineering-management-career-path" },
@@ -213,6 +214,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
         labelledBy: "nav-series-ai-pm",
         links: [
           { label: "AI-PM 実践ガイド", href: "/ai-driven-project-management-guide" },
+          { label: "PSM-AI 完全ガイド", href: "/psm-ai-essentials-guide" },
         ],
       },
     ]);
@@ -430,6 +432,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
