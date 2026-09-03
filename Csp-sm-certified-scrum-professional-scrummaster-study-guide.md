@@ -59,7 +59,7 @@ flowchart LR
     A["CSM<br/>Certified ScrumMaster<br/>(前提資格なし)"] --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(CSM(または PSM I/PSM II)必須<br/>+ 実務経験12か月)"]
     B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster<br/>(A-CSM必須 + 実務経験24か月)"]
     C --> D["CST<br/>Certified Scrum Trainer"]
-    C -.->|"現在のキャリアパスの次段階ではない"| E["CTC / CEC<br/>(2025年1月6日で新規申請停止した既存資格。<br/>有効期限内(アクティブ)の保持者に限り<br/>バッジ表示と認定の保持を継続できる<br/>(失効後も有効という意味ではない)。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
+    C -.->|"現在のキャリアパスの次段階ではない"| E["CTC / CEC<br/>(2025年1月6日で新規申請停止した既存資格。<br/>2025年にアクティブだった保持者に限り<br/>現在の更新サイクルまで<br/>元のバッジを表示できる。<br/>後継のCertified Agility Consultant<br/>(CAC)は開発中で未開始)"]
 
     classDef current fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef retired fill:#F2F2F2,stroke:#8A8A8A,color:#5A5A5A,stroke-dasharray: 4 3
@@ -703,7 +703,7 @@ CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイト�
 - **Certified Scrum Trainer®（CST®）**: Scrum Alliance の認定コースを教えるトレーナーへの道
 - **Certified Team Coach（CTC）/ Certified Enterprise Coach™（CEC™）**: チーム〜エンタープライズレベルのアジャイルコーチへの道（ただし新規申請は 2025年1月6日で停止済みの既存資格。現在は取得できないため、下の注記を参照）
 
-> **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており (すでに認定を受けており、かつ認定が有効期限内=アクティブな保持者に限り、バッジの表示と認定の保持を継続できます。失効した認定が引き続き有効になるわけではありません)、後継となる **Certified Agility Consultant（CAC）** プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
+> **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており (2025年時点でアクティブな CTC・CEC バッジを保持していた方に限り、現在の更新サイクルまで元のバッジを表示できます)、後継となる **Certified Agility Consultant（CAC）** プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
 
 ### 13.1 資格の維持（SEU と更新）
 
