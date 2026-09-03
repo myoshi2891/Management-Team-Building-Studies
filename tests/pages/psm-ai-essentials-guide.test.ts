@@ -9,7 +9,7 @@ const { seoMeta } = vi.hoisted(() => ({
 mockNuxtImport("useSeoMeta", () => seoMeta);
 
 const EXPECTED_H1 = [
-  "Professional Scrum MasterTM - AI Essentials 完全ガイド",
+  "Professional Scrum Master™ - AI Essentials 完全ガイド",
 ] as const;
 
 const EXPECTED_H2 = [
@@ -199,14 +199,14 @@ describe("pages/psm-ai-essentials-guide.vue — テーブル構造契約", () =>
     expect(tables).toHaveLength(8);
 
     const tableConfigs = [
-      { headers: ["項目", "公式の説明", "初学者向け解説"], rowCount: 3 },
-      { headers: ["項目", "内容"], rowCount: 8 },
-      { headers: ["概念", "定義", "Scrum Masterとしての実践的理解"], rowCount: 6 },
-      { headers: ["要素", "英語名", "意味", "具体的な問い"], rowCount: 4 },
-      { headers: ["場面", "ベストプラクティス", "避けるべきアンチパターン"], rowCount: 6 },
-      { headers: ["観点", "従来のDoD", "AI導入後のDoD検討項目"], rowCount: 5 },
-      { headers: ["枠組み", "発行主体", "目的・核心", "Scrum Masterの実務での位置づけ"], rowCount: 3 },
-      { headers: ["チェック項目", "状態", "アクション"], rowCount: 5 },
+      { headers: ["項目", "内容"], rowCount: 5 },
+      { headers: ["項目", "内容"], rowCount: 9 },
+      { headers: ["観点", "生成AI(Generative AI)", "エージェンティックAI(Agentic AI)"], rowCount: 4 },
+      { headers: ["D", "名称", "内容"], rowCount: 4 },
+      { headers: ["場面", "ベストプラクティス", "避けるべきアンチパターン"], rowCount: 5 },
+      { headers: ["カテゴリ", "Definition of Doneに追記する観点の例"], rowCount: 4 },
+      { headers: ["フレームワーク", "発行元", "位置づけ", "主な柱"], rowCount: 2 },
+      { headers: ["優先度", "トピック", "理由"], rowCount: 6 },
     ];
 
     tables.forEach((table, i) => {

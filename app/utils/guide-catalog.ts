@@ -537,6 +537,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/psm-ai-essentials-guide",
+    categoryId: "project-management",
+    seriesId: "ai-pm",
+    navLabel: "PSM-AI 完全ガイド",
+    title: "Professional Scrum Master™ - AI Essentials 完全ガイド",
+    description: "Scrum.org公式 Professional Scrum Master™ - AI Essentials Certificationの初学者向け学習ガイド。AI基礎知識、4D AI Fluency Framework、Definition of Doneへの影響、責任あるAI利用までをMermaid図解と出典付きで解説します。",
+    meta: "10セクション",
+    icon: "tabler:robot",
+    accent: "gold",
+  },
+  {
     to: "/engineering-management-career-path",
     categoryId: "engineering-management",
     // engineering-management はシリーズ未定義（1 カラム表示）。
