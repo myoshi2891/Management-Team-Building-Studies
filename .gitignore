@@ -45,3 +45,5 @@ yarn-error.log*
 
 # Claude Code の個人設定（共有設定は .claude/settings.json に置く）
 .claude/settings.local.json
+
+/archive/
