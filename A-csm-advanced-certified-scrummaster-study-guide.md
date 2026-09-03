@@ -49,13 +49,17 @@ CSM が「Scrum とは何か」を学ぶ場であるのに対し、A-CSM は「S
 
 ```mermaid
 flowchart LR
-    A["CSM<br/>Certified ScrumMaster<br/>(エントリーレベル)"] --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(中級レベル)"]
+    A["CSM<br/>Certified ScrumMaster<br/>(Scrum Alliance / エントリーレベル)"] -- 前提資格 --> B["A-CSM<br/>Advanced Certified ScrumMaster<br/>(中級レベル)"]
+    P["PSM I / PSM II<br/>Professional Scrum Master<br/>(Scrum.org)"] -. 前提資格（代替） .-> B
     B --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster<br/>(上級レベル)"]
 
     style A fill:#EEF1F8,stroke:#2E3F72
+    style P fill:#F3EEF6,stroke:#6B3F72
     style B fill:#FAF1DF,stroke:#B8802A
     style C fill:#EAF4EC,stroke:#2F6B3D
 ```
+
+A-CSM の前提資格は CSM だけではなく、Scrum.org の PSM I / PSM II も代替として認められます（詳細と自己申告の手順は 1.3 を参照）。
 
 Scrum Alliance の FAQ によれば、Scrum Master トラックにおける最高位の資格は **Certified Scrum Professional® - ScrumMaster (CSP®-SM)** であり、A-CSM はその一歩手前に位置づけられます。
 
