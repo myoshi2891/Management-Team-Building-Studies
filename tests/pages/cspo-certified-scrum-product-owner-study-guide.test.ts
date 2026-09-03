@@ -2,7 +2,7 @@
 // 実行時に原本を読み込んではならない（テストが原本の写しになり転写漏れを検知できなくなる）。
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/cspo-certified-scrum-product-owner-study-guide.vue";
 
@@ -377,4 +377,23 @@ defineSourceParityContract({
   seoTitleFragments: EXPECTED_SEO_TITLE_FRAGMENTS,
   seoTitle: EXPECTED_SEO_TITLE,
   seoDescription: EXPECTED_SEO_DESCRIPTION,
+});
+
+describe("pages/cspo-certified-scrum-product-owner-study-guide.vue — テーブル構造契約", () => {
+  it("テーブルが原本と同じ件数（14件）存在し、すべて .table-wrap で包まれている", async () => {
+    const { mountSuspended } = await import("@nuxt/test-utils/runtime");
+    const wrapper = await mountSuspended(Page);
+    const tables = wrapper.findAll("table");
+    expect(tables).toHaveLength(14);
+    for (const table of tables) {
+      expect(table.element.closest(".table-wrap")).not.toBeNull();
+    }
+  });
+
+  it("テーブル行の総数が原本と一致する（83行）", async () => {
+    const { mountSuspended } = await import("@nuxt/test-utils/runtime");
+    const wrapper = await mountSuspended(Page);
+    const rows = wrapper.findAll("table tr");
+    expect(rows).toHaveLength(83);
+  });
 });
