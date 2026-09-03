@@ -1217,15 +1217,6 @@ class OK done;`;
     position: relative;
   }
 
-  /* 連続 practice 間のセパレーターライン */
-  .callout.practice + .callout.practice::before {
-    content: "";
-    display: block;
-    height: 1px;
-    background: color-mix(in srgb, var(--color-gold) 30%, transparent);
-    margin: 0 0 16px;
-  }
-
   /* 2件目以降のタイトル（「ベストプラクティス」の繰り返し）を非表示 */
   .callout.practice + .callout.practice .callout-title {
     display: none;
