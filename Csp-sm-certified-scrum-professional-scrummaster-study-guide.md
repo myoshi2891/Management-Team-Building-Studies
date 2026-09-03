@@ -701,7 +701,7 @@ flowchart LR
 CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイトでは以下が挙げられています。
 
 - **Certified Scrum Trainer®（CST®）**: Scrum Alliance の認定コースを教えるトレーナーへの道
-- **Certified Team Coach（CTC）/ Certified Enterprise Coach™（CEC™）**: チーム〜エンタープライズレベルのアジャイルコーチへの道
+- **Certified Team Coach（CTC）/ Certified Enterprise Coach™（CEC™）**: チーム〜エンタープライズレベルのアジャイルコーチへの道（ただし新規申請は 2025年1月6日で停止済みの既存資格。現在は取得できないため、下の注記を参照）
 
 > **重要な注記（2025年以降の変更）**: Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは **2025年1月6日をもって新規申請を停止** しており (すでに認定を受けており、かつ認定が有効期限内=アクティブな保持者に限り、バッジの表示と認定の保持を継続できます。失効した認定が引き続き有効になるわけではありません)、後継となる **Certified Agility Consultant（CAC）** プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が "次のステップ" として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。
 
