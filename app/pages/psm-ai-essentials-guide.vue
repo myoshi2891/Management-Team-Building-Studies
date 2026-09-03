@@ -320,7 +320,7 @@ class OK done;`;
                 <tr><td>形式</td><td>選択式(Multiple Choice)</td></tr>
                 <tr><td>制限時間</td><td>30分</td></tr>
                 <tr><td>合格ライン</td><td>85%以上</td></tr>
-                <tr><td>言語</td><td>英語</td></tr>
+                <tr><td>言語</td><td>英語。手順に従えばGoogle Translateプラグインを利用して受験できるが、翻訳の品質は保証されない</td></tr>
                 <tr><td>受験資格</td><td>PSM-AI Essentialsトレーニング受講者のみ</td></tr>
                 <tr><td>デジタルバッジ</td><td>Credly発行の無料デジタル資格証明が付帯</td></tr>
                 <tr><td>資格の有効期限</td><td>生涯有効(更新料なし)</td></tr>
