@@ -1141,10 +1141,10 @@ flowchart LR
     B --> L["CSP-SMライセンスへの同意+<br/>Scrum Allianceプロフィールの完成"]
     L --> C["CSP-SM<br/>Certified Scrum Professional<br/>ScrumMaster"]
     C --> R["2年ごとにSEU取得+<br/>更新料の支払いで資格を更新(標準ルート)<br/>別の認定コース修了なら<br/>SEU・更新料なしで更新"]
-    C --> D["トレーナー/コーチとしての道<br/>(CTC・CECは新規申請を停止した既存資格。<br/>既存保持者の資格は現在の更新サイクルまで有効)"]
+    C --> D["トレーナー/コーチとしての道<br/>(CTC・CECは新規申請を停止した既存資格。<br/>2025年にアクティブだった保持者に限り<br/>現在の更新サイクルまで元のバッジを表示可能)"]
 ```
 
-> **注記:** CTC (Certified Team Coach)・CEC (Certified Enterprise Coach) は、新規申請の受付を2025年1月6日をもって停止した既存資格です (すでに認定を受けている保持者の資格は、現在の更新サイクルまで有効です)。後継となる Certified Agility Consultant (CAC) プログラムは現在も開発中で、申請可能なパスとしてはまだ開始されていません。コーチ系のキャリアパスを検討する際は最新の状況を確認してください。 [Scrum Alliance Help Center — Updates to the CEC and CTC programs](https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs)
+> **注記:** CTC (Certified Team Coach)・CEC (Certified Enterprise Coach) は、新規申請の受付を2025年1月6日をもって停止した既存資格です (2025年時点でアクティブな CTC・CEC バッジを保持していた方に限り、現在の更新サイクルまで元のバッジを表示できます)。後継となる Certified Agility Consultant (CAC) プログラムは現在も開発中で、申請可能なパスとしてはまだ開始されていません。コーチ系のキャリアパスを検討する際は最新の状況を確認してください。 [Scrum Alliance Help Center — Updates to the CEC and CTC programs](https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs)
 
 ### 16.2 資格の維持: Scrum Education Units (SEU)
 
