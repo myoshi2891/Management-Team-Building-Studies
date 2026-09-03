@@ -87,7 +87,7 @@
 | `app/utils/guide-catalog.ts` | ✅ 完了 | `tests/utils/guide-catalog.test.ts`（18 件・ガイド定義の SSoT） |
 | `app/components/SiteHeader.vue` | ✅ 完了 | `tests/components/SiteHeader.test.ts`（21 件・シリーズベース カラム型メガメニュー + フォーカス退避）+ `tests/app.test.ts`（1 件） |
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
-| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 11 件（メディアクエリ依存の挙動。jsdom では再現不能） |
+| `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 13 件（メディアクエリ依存の挙動。jsdom では再現不能） |
 
 ## 技術スタック（2026-08-16 時点の npm 実測値）
 
@@ -872,7 +872,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: e0012d6
+コードコミット HEAD: 747575d
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ホームのカテゴリーセクションとグローバルナビのメガメニューが自動で追随する（契約 N-1〜N-3）。
@@ -950,7 +950,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 ベースラインテスト数: ユニット 1403 + E2E 20
 ```
 
-### 57. A-CSPO 学習ガイド（A-cspo-advanced-certified-scrum-product-owner-study-guide.html）移行完了（2026-09-03）
+### §58. A-CSPO 学習ガイド（A-cspo-advanced-certified-scrum-product-owner-study-guide.html）移行完了（2026-09-03）
 
 - **移行元原本**: `archive/A-cspo-advanced-certified-scrum-product-owner-study-guide/A-cspo-advanced-certified-scrum-product-owner-study-guide.html`（HTML・MD 共にアーカイブへ移動）
 - **移行先ページ**: `app/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue`
@@ -962,6 +962,3 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   2. `feat(a-cspo)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`acc4f22`)
   3. `refactor(a-cspo)`: 原本アーカイブ移動・typecheck & lint パス確認 (`747575d`)
   4. `chore(docs)`: `docs/PROGRESS.md` 更新
-
-
-
