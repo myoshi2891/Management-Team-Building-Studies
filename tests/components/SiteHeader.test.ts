@@ -342,6 +342,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/cal2-part2-developing-as-a-leader",
       "/cal2-certified-agile-leader-2-study-guide",
       "/ai-driven-project-management-guide",
+      "/psm-ai-essentials-guide",
       "/engineering-management-career-path",
       "/engineering-manager-guide",
       "/managing-humans-best-practices-guide",

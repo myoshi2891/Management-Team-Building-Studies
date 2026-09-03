@@ -166,7 +166,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     }))).toEqual([
       {
         id: "project-management",
-        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド", "CSPO 完全ガイド", "A-CSPO 完全ガイド", "CSP-PO 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド"],
+        guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4", "PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3", "CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド", "CSPO 完全ガイド", "A-CSPO 完全ガイド", "CSP-PO 完全ガイド", "CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド", "AI-PM 実践ガイド", "PSM-AI 完全ガイド"],
       },
       {
         id: "engineering-management",
@@ -199,7 +199,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
           { seriesId: "csm", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "スクラム 97の知恵", "CAF 完全ガイド", "CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド", "CASP 完全ガイド"] },
           { seriesId: "product-owner", guides: ["CSPO 完全ガイド", "A-CSPO 完全ガイド", "CSP-PO 完全ガイド"] },
           { seriesId: "cal", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド"] },
-          { seriesId: "ai-pm", guides: ["AI-PM 実践ガイド"] },
+          { seriesId: "ai-pm", guides: ["AI-PM 実践ガイド", "PSM-AI 完全ガイド"] },
         ],
       },
       {
