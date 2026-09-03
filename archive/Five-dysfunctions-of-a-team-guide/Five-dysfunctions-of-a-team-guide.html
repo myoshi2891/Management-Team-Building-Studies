@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>『あなたのチームは、機能してますか？』完全ガイド | The Five Dysfunctions of a Team</title>
+<meta name="description" content="Patrick Lencioni著『The Five Dysfunctions of a Team』を初学者向けに解説。5つの機能不全のピラミッド構造とステップバイステップの実践ガイド、エンジニアリングチームでの応用例を紹介します。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  .skip-link {
+    position: absolute; top: -48px; left: 0; z-index: 40;
+    background: var(--color-paper-raised); color: var(--color-indigo);
+    padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+    transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 0; }
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h3 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">あなたのチームは、機能してますか？</div>
+        <div class="brand-subtitle">The Five Dysfunctions of a Team 完全ガイド</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-the-book"><i class="ti ti-book"></i>この本について</a></li>
+      <li><a href="#about-the-author"><i class="ti ti-user"></i>著者紹介: パトリック・レンシオーニ</a></li>
+      <li><a href="#the-model-overview"><i class="ti ti-stack-2"></i>全体像: 5つの機能不全モデル</a></li>
+      <li><a href="#five-dysfunctions-explained"><i class="ti ti-list-details"></i>機能不全を1つずつ理解する</a></li>
+      <li><a href="#step-by-step-practice-guide"><i class="ti ti-route"></i>ステップバイステップ実践ガイド</a></li>
+      <li><a href="#engineering-team-practices"><i class="ti ti-code"></i>エンジニアリングチームでの実践例</a></li>
+      <li><a href="#comparison-project-aristotle"><i class="ti ti-scale"></i>Project Aristotleとの比較</a></li>
+      <li><a href="#critiques-and-limitations"><i class="ti ti-alert-triangle"></i>批判的視点と限界</a></li>
+      <li><a href="#this-weeks-checklist"><i class="ti ti-checklist"></i>今週から始めるチェックリスト</a></li>
+      <li><a href="#summary"><i class="ti ti-flag-3"></i>まとめ</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典URL一覧</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content" id="main-content" tabindex="-1">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-book"></i>書籍解説ガイド(Patrick Lencioni著)</div>
+      <h1>『あなたのチームは、機能してますか？』完全ガイド</h1>
+      <p class="hero-lede">
+        The Five Dysfunctions of a Team ― 初学者のためのステップバイステップ実践ガイド
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">5</div><div class="stat-label">階層から成るピラミッド構造</div></div>
+        <div class="stat-card"><div class="stat-number">2002年</div><div class="stat-label">初版刊行(Jossey-Bass)</div></div>
+        <div class="stat-card"><div class="stat-number">240ページ</div><div class="stat-label">原著のボリューム</div></div>
+        <div class="stat-card"><div class="stat-number">10件</div><div class="stat-label">参照した情報源</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        原著: <em>The Five Dysfunctions of a Team: A Leadership Fable</em>(Patrick M. Lencioni著, Jossey-Bass, 2002年)。本ガイドはソフトウェアエンジニアリング組織やプロジェクトマネジメントの現場での実践を念頭に、初学者向けにモデルの構造・原因・処方箋をステップバイステップで整理した非公式の解説資料です。原著の書誌情報は<a href="https://www.oreilly.com/library/view/the-five-dysfunctions/9780787960759/" target="_blank" rel="noopener">O'Reilly Online Learningの書誌ページ</a>でご確認いただけます。
+      </div>
+    </div>
+
+    <!-- ===================== 1. About the Book ===================== -->
+    <section id="about-the-book">
+      <div class="section-eyebrow"><i class="ti ti-book"></i>SECTION 01</div>
+      <h2>この本について</h2>
+
+      <p>『The Five Dysfunctions of a Team(邦題: あなたのチームは、機能してますか？)』は、コンサルタントのパトリック・レンシオーニが2002年に発表したビジネス書です。IT企業の架空のCEOキャサリンが、機能不全に陥った経営陣を立て直していく物語(ビジネスフェーブル形式)を通じて、チームが陥りやすい5つの落とし穴とその克服法を提示しています。</p>
+
+      <p>240ページというコンパクトな分量ながら、出版から20年以上経った現在でも、経営チームのオフサイト研修から、スタートアップのエンジニアリングチームのふりかえりまで、幅広い場面で参照され続けている「モダンクラシック」的な位置づけの一冊です。書籍の後半(本編の物語パート後)には、実務で使えるモデルの要約・チーム診断アセスメント・各機能不全ごとの「リーダーの役割」がまとめられており、実践書としても利用できる構成になっています。</p>
+
+      <p>このガイドでは、物語部分ではなくモデルそのものの構造と、現代のソフトウェア開発チーム・プロジェクトマネジメントへの応用に焦点を当てて解説します。</p>
+    </section>
+
+    <!-- ===================== 2. About the Author ===================== -->
+    <section id="about-the-author">
+      <div class="section-eyebrow"><i class="ti ti-user"></i>SECTION 02</div>
+      <h2>著者紹介: パトリック・レンシオーニ</h2>
+
+      <p>パトリック・レンシオーニは、組織開発コンサルティング会社The Table Groupの創業者・社長です。Fortune 500企業からハイテクスタートアップ、大学、非営利団体まで、幅広い組織の経営チームと仕事をしてきた経験を持ちます。本書のほかにも『The Five Temptations of a CEO』『The Ideal Team Player』など、同じくビジネスフェーブル形式のリーダーシップ書を多数執筆しています。</p>
+    </section>
+
+    <!-- ===================== 3. The Model Overview ===================== -->
+    <section id="the-model-overview">
+      <div class="section-eyebrow"><i class="ti ti-stack-2"></i>SECTION 03</div>
+      <h2>全体像: 5つの機能不全モデルとは</h2>
+
+      <p>レンシオーニのモデルの最大の特徴は、5つの問題を<strong>独立した課題としてではなく、下から積み上がる「ピラミッド構造」</strong>として捉えている点です。土台となる「信頼」が欠けていると、その上のすべての階層が連鎖的に機能しなくなるという考え方です。</p>
+
+      <p>5つの機能不全は次の通りです。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階層</th><th>機能不全(英語)</th><th>機能不全(日本語)</th></tr></thead>
+          <tbody>
+            <tr><td>1(土台)</td><td>Absence of Trust</td><td>信頼の欠如</td></tr>
+            <tr><td>2</td><td>Fear of Conflict</td><td>衝突への恐怖</td></tr>
+            <tr><td>3</td><td>Lack of Commitment</td><td>積極的関与の不足(コミットメント不足)</td></tr>
+            <tr><td>4</td><td>Avoidance of Accountability</td><td>説明責任の回避</td></tr>
+            <tr><td>5(頂点)</td><td>Inattention to Results</td><td>結果への無関心</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>以下のフローチャートは、下の階層(信頼)が満たされて初めて、上の階層が機能するという因果連鎖を示したものです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="dysfunctionPyramid"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">5つの機能不全のピラミッド構造(下から積み上がる因果連鎖)</div>
+      </div>
+
+      <p>ポイントは「積み上げ」の方向です。多くのチームは逆に、いきなり階層5の「結果」ばかりを追い求め、階層1の「信頼」を後回しにしてしまいます。しかしレンシオーニのモデルでは、<strong>土台を飛ばして上の階層だけを改善することはできない</strong>というのが核心のメッセージです。</p>
+    </section>
+
+    <!-- ===================== 4. Five Dysfunctions Explained ===================== -->
+    <section id="five-dysfunctions-explained">
+      <div class="section-eyebrow"><i class="ti ti-list-details"></i>SECTION 04</div>
+      <h2>機能不全を1つずつ理解する</h2>
+
+      <p>ここからは各階層を「症状」「根本原因」「放置した場合の影響」「克服のためのアクション」の4点で整理します。</p>
+
+      <h3>機能不全1: 信頼の欠如(Absence of Trust)</h3>
+      <p>チームの土台となる階層です。ここでいう「信頼」は、単に「相手の能力を信頼する」という意味だけでなく、<strong>弱さや失敗を見せても大丈夫だと思える「脆弱性に基づく信頼(vulnerability-based trust)」</strong>を指します。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>症状</td><td>弱みやミスを隠す / 助けを求めない / 他者の意図を悪く解釈する / 会議が退屈で防御的になる</td></tr>
+            <tr><td>根本原因</td><td>弱さを見せることへの恐怖、評価を下げられることへの不安</td></tr>
+            <tr><td>放置した場合の影響</td><td>表面的な協力しか生まれず、次の階層「健全な衝突」が起こらなくなる</td></tr>
+            <tr><td>克服のためのアクション</td><td>リーダー自らが最初に弱みを見せる / パーソナルヒストリー・エクササイズを行う / 360度フィードバックを導入する</td></tr>
+            <tr><td>リーダーの役割</td><td>自分自身が最初に無防備になり、批判されるリスクを受け入れる姿勢を示すこと</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>機能不全2: 衝突への恐怖(Fear of Conflict)</h3>
+      <p>信頼がないチームは、対立を避け「表面上の調和(artificial harmony)」を選びます。しかしレンシオーニは、健全で情熱的な意見の衝突こそが良い意思決定に不可欠だと強調します。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>症状</td><td>会議が退屈 / 本音の議論を避ける / 裏で不満を言う(会議室の外での根回し)</td></tr>
+            <tr><td>根本原因</td><td>対立=人間関係の破壊と誤解している / 対立から自分の身を守りたい心理</td></tr>
+            <tr><td>放置した場合の影響</td><td>本音の意見が出ないまま決定が進み、次の階層「コミットメント」が形だけのものになる</td></tr>
+            <tr><td>克服のためのアクション</td><td>議論のルール(グラウンドルール)を明文化する / あえて対立を引き出すファシリテーションを行う / 「今の発言、本当にそう思っていますか？」と問いかける文化を作る</td></tr>
+            <tr><td>リーダーの役割</td><td>議論中に早く収束させすぎず、チームが対立に耐えられるよう見守ること</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>機能不全3: 積極的関与の不足(Lack of Commitment)</h3>
+      <p>ここでの「コミットメント」は「全員一致(コンセンサス)」とは異なります。レンシオーニは、<strong>全員が意見を言い尽くした上で、たとえ自分の意見が通らなくても決定を支持する</strong>状態を目指すべきだとしています。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>症状</td><td>決定があいまいなまま進む / 同じ議論が何度も蒸し返される / 方針変更に対して過度に慎重になる</td></tr>
+            <tr><td>根本原因</td><td>意見を言う機会(健全な衝突)がなかったため、納得感を持てないまま「合意したふり」をしている</td></tr>
+            <tr><td>放置した場合の影響</td><td>決定への納得感がないため、次の階層「説明責任」を果たす動機が生まれない</td></tr>
+            <tr><td>克服のためのアクション</td><td>会議の最後に決定事項と担当者・期限を明文化する(Cascading Messaging) / 「不同意でもコミットする(disagree and commit)」を明示的に合意する</td></tr>
+            <tr><td>リーダーの役割</td><td>曖昧さを許さず、期限内に決定を下す胆力を持つこと</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>機能不全4: 説明責任の回避(Avoidance of Accountability)</h3>
+      <p>コミットメントが不十分だと、チームメンバーは互いの行動や基準の逸脱を指摘し合うことに消極的になります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>症状</td><td>締め切りの遅延や品質低下を見過ごす / 同僚に対して直接フィードバックせず、リーダーに丸投げする</td></tr>
+            <tr><td>根本原因</td><td>対人関係の気まずさを避けたい心理 / コミットメントの内容自体が曖昧で、何を指摘すべきか不明確</td></tr>
+            <tr><td>放置した場合の影響</td><td>基準が形骸化し、次の階層「結果への集中」が失われる</td></tr>
+            <tr><td>克服のためのアクション</td><td>チームの目標・基準を公開・可視化する(進捗の透明化) / 定例のピアレビューを制度化する</td></tr>
+            <tr><td>リーダーの役割</td><td>説明責任を果たすのはリーダーだけの仕事ではなく、チーム全体の規範だと明確に伝えること</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>機能不全5: 結果への無関心(Inattention to Results)</h3>
+      <p>ピラミッドの頂点です。個人の評価・地位・エゴを、チーム全体の集合的な成果よりも優先してしまう状態を指します。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>症状</td><td>自部門の成果ばかり気にする / チーム全体が停滞しても個人の評価が良ければ満足してしまう</td></tr>
+            <tr><td>根本原因</td><td>説明責任の欠如により、個人が自分のことだけ考えても咎められない環境になっている</td></tr>
+            <tr><td>放置した場合の影響</td><td>優秀な人材から離職し、組織全体の成長が止まる</td></tr>
+            <tr><td>克服のためのアクション</td><td>チーム共通の指標(Team Scoreboard)を公開する / 個人評価だけでなくチーム成果に連動した評価制度を設ける</td></tr>
+            <tr><td>リーダーの役割</td><td>集合的な結果を賞賛し、個人の功績よりチームの成果を優先する姿勢を体現すること</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Step-by-Step Practice Guide ===================== -->
+    <section id="step-by-step-practice-guide">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 05</div>
+      <h2>ステップバイステップ実践ガイド: チーム改善の5ステップサイクル</h2>
+
+      <p>理論を理解しただけでは、チームは変わりません。以下は、このモデルを実際のチーム運営に落とし込むための反復サイクルです。ワンショットの施策ではなく、<strong>継続的に回し続けるプロセス</strong>として設計してください。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="practiceCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">チーム改善の5ステップサイクル(継続的な反復プロセス)</div>
+      </div>
+
+      <h3>各ステップの詳細</h3>
+
+      <h4>Step1: チーム診断アンケートを実施する</h4>
+      <p>書籍後半には簡易的な自己診断アセスメントが収録されています。各階層について「はい / いいえ」や5段階評価で回答してもらい、匿名で集計します。以下は自作の簡易チェック項目の例です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階層</th><th>診断の問いかけ例</th></tr></thead>
+          <tbody>
+            <tr><td>信頼</td><td>チームメンバーは自分の弱みやミスを気兼ねなく共有できているか？</td></tr>
+            <tr><td>衝突</td><td>会議で本音の意見の対立が起きているか？それとも表面上だけ穏やかか？</td></tr>
+            <tr><td>コミットメント</td><td>会議の決定事項に対して、全員が明確に「やる」と言えているか？</td></tr>
+            <tr><td>説明責任</td><td>メンバー同士が、リーダーを介さず直接フィードバックし合えているか？</td></tr>
+            <tr><td>結果</td><td>チーム全体の成果が、個人の評価より優先される文化になっているか？</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Step2: 最も弱い階層を特定する</h4>
+      <p>アンケート結果の中で、最も低いスコアの階層こそが今取り組むべき最優先課題です。上位の階層(例: 結果)のスコアが低くても、下位の階層(例: 信頼)に根本原因がある場合が多いため、<strong>必ず一番下の階層から順にボトルネックを探す</strong>のが原則です。</p>
+
+      <h4>Step3: 具体的な介入策を選ぶ</h4>
+      <p>各機能不全の章で紹介したアクション例(パーソナルヒストリー・エクササイズ、グラウンドルールの明文化、Team Scoreboardなど)から、チームの規模や文化に合ったものを1〜2個選びます。一度に全部やろうとしないことが継続のコツです。</p>
+
+      <h4>Step4: 実践する</h4>
+      <p>選んだ施策を、通常の1on1・スタンドアップ・スプリントレビュー・レトロスペクティブなど、既存の会議体に組み込みます。新しい会議を増やすより、既存の儀式を少し変える方が定着しやすいとされています。</p>
+
+      <h4>Step5: ふりかえり、効果を測定する</h4>
+      <p>4〜6週間ごとに同じ診断アンケートを再実施し、スコアの変化を確認します。改善が見られない場合はStep2に戻って介入策を見直し、改善が確認できた場合は次の階層に着手します。</p>
+    </section>
+
+    <!-- ===================== 6. Engineering Team Practices ===================== -->
+    <section id="engineering-team-practices">
+      <div class="section-eyebrow"><i class="ti ti-code"></i>SECTION 06</div>
+      <h2>ソフトウェア開発・エンジニアリングチームでの実践例</h2>
+
+      <p>このモデルは経営チーム向けに書かれたものですが、ソフトウェア業界の著名なエンジニアリングリーダーたちが、開発チームやエンジニアリングリーダーシップの文脈でたびたび引用・応用しています。</p>
+
+      <ul>
+        <li><strong>Addy Osmani</strong>(Google Cloud AIのディレクターを務め、14年以上Google Chromeの開発者体験をリードしてきた著名なエンジニアリングリーダー。2026年にGoogleを退職)は、自身のブログでレンシオーニモデルを「チームの機能不全をデバッグするためのフレームワーク」と位置づけ、信頼の欠如から衝突への恐怖、コミットメント不足、説明責任の回避、そして結果への無関心へと問題が連鎖していく構造をソフトウェアチーム向けに解説しています。彼は「チームがあなたや互いを信頼していなければ、最高の仕事はできない」と述べ、リーダーはまず問題の根本原因を特定してから対処すべきだと強調しています。</li>
+        <li><strong>Will Larson</strong>(Imprint社CTO、著書『An Elegant Puzzle』『Staff Engineer』で知られるエンジニアリングリーダーシップ分野の著名な書き手)は、自身のブログ「Irrational Exuberance」で本書から得た概念として「ファーストチーム(first team)」を紹介しています。これは、マネージャーにとって自分の直属の部下ではなく、<strong>自分の同僚(他のマネージャー・経営陣)こそが最初に忠誠を尽くすべきチームである</strong>という考え方で、エンジニアリング組織のリーダーシップチームを団結させる難しさについて論じています。</li>
+        <li><strong>Pat Kua</strong>(ThoughtWorks社の元CTOで、テックリーダーシップ領域の国際的なコンサルタント・スピーカー)は、Googleの「Project Aristotle」を論じたブログの中で、心理的安全性を高めるための実践としてペアプログラミング、Definition of Doneの合意、失敗を学習機会として扱う文化づくりなど、開発チーム特有の具体的なプラクティスを提案しており、レンシオーニの「信頼」の階層と重なる領域として位置づけています。</li>
+        <li><strong>GitLab社</strong>は、自社のオープンなハンドブック(TeamOpsの章)の中で、意思決定のスピードが落ちる原因として「信頼の欠如」や「衝突への恐怖」というレンシオーニの用語をそのまま引用し、率直なフィードバックを歓迎する文化(「short toes」mentality)の重要性を説明しています。</li>
+      </ul>
+
+      <p>以下は、これらの実践例を踏まえた、一般的な開発チームの儀式と各階層の対応表です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>チームの儀式</th><th>主に強化できる階層</th><th>具体例</th></tr></thead>
+          <tbody>
+            <tr><td>オンボーディング / 自己紹介セッション</td><td>信頼</td><td>各自の強み・弱み・仕事のスタイルを共有する</td></tr>
+            <tr><td>デイリースタンドアップ</td><td>衝突・説明責任</td><td>進捗のブロッカーを隠さず共有する文化を作る</td></tr>
+            <tr><td>スプリントプランニング</td><td>コミットメント</td><td>チーム全体で見積りに合意し、後から蒸し返さない</td></tr>
+            <tr><td>コードレビュー</td><td>説明責任</td><td>直接的だが敬意あるフィードバックを行う場にする</td></tr>
+            <tr><td>レトロスペクティブ</td><td>衝突・結果</td><td>本音の議論を促すファシリテーション技法を使う</td></tr>
+            <tr><td>チームメトリクスの共有</td><td>結果</td><td>個人のベロシティではなくチーム全体の成果を可視化する</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Comparison with Project Aristotle ===================== -->
+    <section id="comparison-project-aristotle">
+      <div class="section-eyebrow"><i class="ti ti-scale"></i>SECTION 07</div>
+      <h2>関連フレームワークとの比較: Googleの「Project Aristotle」</h2>
+
+      <p>2012年、Googleは「何が効果的なチームを作るのか」を明らかにするため、社内の180チームを対象に大規模な調査「Project Aristotle」を実施しました。その結果、<strong>心理的安全性(psychological safety)</strong>がチームの成果を左右する最も重要な要素であることが分かりました。これはレンシオーニが提唱する「信頼」の階層と非常に近い概念として、多くの実務家から比較されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>レンシオーニの5つの機能不全モデル</th><th>GoogleのProject Aristotle</th></tr></thead>
+          <tbody>
+            <tr><td>発表年</td><td>2002年</td><td>2012年(2015年頃に公表)</td></tr>
+            <tr><td>手法</td><td>コンサルティング経験に基づくフレームワーク(ビジネスフェーブル形式)</td><td>180チームを対象にした社内データ分析</td></tr>
+            <tr><td>中核概念</td><td>信頼(vulnerability-based trust)</td><td>心理的安全性(psychological safety)</td></tr>
+            <tr><td>モデルの形</td><td>5階層のピラミッド(積み上げ構造)</td><td>5つの力学(優先順位付きリスト)</td></tr>
+            <tr><td>スコープ</td><td>チーム全体、特に経営陣向け</td><td>Google社内のあらゆるチーム</td></tr>
+            <tr><td>学術的検証</td><td>査読付き研究による検証は限定的</td><td>組織心理学者エイミー・エドモンドソンの研究を基盤とし、Google社内データで裏付け</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>両モデルとも「土台となる心理的な安心感がなければ、他の要素は機能しない」という点で一致しています。一方で、エドモンドソンは信頼(trust)と心理的安全性を厳密には区別しており、信頼が主に「二者間の関係」であるのに対し、心理的安全性は「チーム全体で共有される集団的な雰囲気」である点が異なると指摘されています。</p>
+    </section>
+
+    <!-- ===================== 8. Critiques and Limitations ===================== -->
+    <section id="critiques-and-limitations">
+      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 08</div>
+      <h2>批判的視点と限界</h2>
+
+      <p>初学者がこのモデルを使う際に知っておくべき限界もあります。実務での有用性と、学術的な厳密さは別の問題として捉えることが大切です。</p>
+
+      <ul>
+        <li><strong>査読付き学術研究による検証が限定的:</strong>レンシオーニのモデルは実務家の間で広く使われている一方、心理的安全性研究(エイミー・エドモンドソンの理論など)ほどの査読付き学術的裏付けは確立されていないと指摘されています。フレームワークとしては優れた「議論の出発点」として使い、唯一の正解として過信しないことが推奨されます。</li>
+        <li><strong>複雑系(Complex Adaptive Systems)の観点からの批判:</strong>ピラミッドモデルは「信頼→衝突→コミットメント→説明責任→結果」という固定的な因果順序を前提としていますが、現実の組織、特にメンバーの入れ替わりが頻繁な経営チームやリーダーシップチームでは、チームは常に変化し続ける動的なシステムであり、単純な直線的モデルでは捉えきれないという批判があります。新しいメンバーが加わるたびに、このプロセスを最初からやり直す必要があるのか、という実務上の疑問も提起されています。</li>
+        <li><strong>心理的安全性が「衝突を避けてよい」と誤読されるリスク:</strong>心理的安全性が「対立を起こさないこと」と取り違えられると、チームが健全な対立を避け、現状維持に安住してしまいます。これはレンシオーニのモデル自身が機能不全2「衝突への恐怖」として警告している状態であり、安心・安全であることと、健全な緊張感を保つことのバランスが重要です。</li>
+      </ul>
+
+      <p>これらの批判を踏まえると、このモデルは<strong>万能の診断ツールではなく、チームの状態について対話を始めるための「共通言語」</strong>として使うのが最も実践的な活用法だと言えます。</p>
+    </section>
+
+    <!-- ===================== 9. This Week's Checklist ===================== -->
+    <section id="this-weeks-checklist">
+      <div class="section-eyebrow"><i class="ti ti-checklist"></i>SECTION 09</div>
+      <h2>今週から始める実践チェックリスト</h2>
+
+      <ul>
+        <li>チームメンバー全員に、5つの機能不全それぞれについて簡易アンケートを実施する</li>
+        <li>最もスコアの低い階層を1つだけ特定し、次のチームミーティングの議題にする</li>
+        <li>リーダー自身が最初に、最近の失敗や弱みを1つチームに共有する</li>
+        <li>次回の会議で「本当は反対だけど黙っている人はいないか」を意識的に問いかける</li>
+        <li>直近の決定事項について、担当者と期限を全員が言える状態か確認する</li>
+        <li>チーム全体の成果指標(Team Scoreboard)を1つ選び、可視化して共有する</li>
+        <li>4〜6週間後に同じアンケートを再実施し、変化を比較する</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 10. Summary ===================== -->
+    <section id="summary">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 10</div>
+      <h2>まとめ</h2>
+
+      <p>『The Five Dysfunctions of a Team』は、20年以上前に書かれたビジネスフェーブルでありながら、今なお経営チームからソフトウェア開発チームまで幅広く参照され続けているフレームワークです。その核心は、</p>
+
+      <ol>
+        <li>チームの機能不全は<strong>独立した問題ではなく、下から積み上がる連鎖構造</strong>である</li>
+        <li>すべての土台は<strong>信頼(特に脆弱性に基づく信頼)</strong>である</li>
+        <li>健全な<strong>衝突(対立)</strong>を避けてはならない</li>
+        <li><strong>コミットメント</strong>は全員一致ではなく、意見を言い尽くした上での支持である</li>
+        <li><strong>説明責任</strong>は上から押し付けるものではなく、メンバー同士の相互作用として根付かせる</li>
+        <li>最終的には<strong>チーム全体の集合的な結果</strong>を、個人のエゴより優先する</li>
+      </ol>
+
+      <p>という点に集約されます。一方で、査読付き研究による検証が限定的である点、固定的な直線モデルであるがゆえの限界がある点も踏まえ、Googleの「Project Aristotle」のような他の枠組みと組み合わせながら、<strong>チームの状態について対話するための共通言語</strong>として活用することをおすすめします。</p>
+    </section>
+
+    <!-- ===================== 11. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 11</div>
+      <h2>参考文献・出典URL一覧</h2>
+
+      <div class="ref-group">
+        <h3>書誌・原典情報</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">O'Reilly Online Learning「The Five Dysfunctions of a Team: A Leadership Fable」(書誌情報・目次)</span><a class="ref-url" href="https://www.oreilly.com/library/view/the-five-dysfunctions/9780787960759/" target="_blank" rel="noopener">https://www.oreilly.com/library/view/the-five-dysfunctions/9780787960759/</a></li>
+          <li><span class="ref-name">Wikipedia「The Five Dysfunctions of a Team」</span><a class="ref-url" href="https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>エンジニアリングリーダーからの実践知見</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Addy Osmani「Debugging teams with the Lencioni Model」(AddyOsmani.com, 2022年)</span><a class="ref-url" href="https://addyosmani.com/blog/debugging-teams-lencioni/" target="_blank" rel="noopener">https://addyosmani.com/blog/debugging-teams-lencioni/</a></li>
+          <li><span class="ref-name">Will Larson「Gelling your Engineering leadership team.」(Irrational Exuberance, lethain.com, 2023年)</span><a class="ref-url" href="https://lethain.com/gelling-engineering-leadership-team/" target="_blank" rel="noopener">https://lethain.com/gelling-engineering-leadership-team/</a></li>
+          <li><span class="ref-name">Pat Kua「Using Project Aristotle To Build Highly Effective Teams」(patkua.com, 2025年)</span><a class="ref-url" href="https://www.patkua.com/blog/project-aristotle/" target="_blank" rel="noopener">https://www.patkua.com/blog/project-aristotle/</a></li>
+          <li><span class="ref-name">GitLab Inc.「Equal Contributions」GitLab Handbook(TeamOps章)</span><a class="ref-url" href="https://handbook.gitlab.com/teamops/equal-contributions/" target="_blank" rel="noopener">https://handbook.gitlab.com/teamops/equal-contributions/</a></li>
+          <li><span class="ref-name">InfoQ「Agile Addresses "The Five Dysfunctions of a Team"」(2009年)</span><a class="ref-url" href="https://www.infoq.com/news/2009/08/agile-five-team-dysfunctions" target="_blank" rel="noopener">https://www.infoq.com/news/2009/08/agile-five-team-dysfunctions</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>比較・批判的視点</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Google re:Work「Guide: Understand team effectiveness」(Project Aristotle の調査手法と、180チームの分析で心理的安全性が最重要要因として第1位に挙がった結果の一次資料)</span><a class="ref-url" href="https://rework.withgoogle.com/guides/understanding-team-effectiveness/steps/introduction/" target="_blank" rel="noopener">https://rework.withgoogle.com/guides/understanding-team-effectiveness/steps/introduction/</a></li>
+          <li><span class="ref-name">Amy C. Edmondson「Psychological Safety and Learning Behavior in Work Teams」(Administrative Science Quarterly, 44(2), 1999年。心理的安全性をチーム単位で共有される信念として定義し、二者間の信頼(trust)と区別した一次論文)</span><a class="ref-url" href="https://journals.sagepub.com/doi/10.2307/2666999" target="_blank" rel="noopener">https://journals.sagepub.com/doi/10.2307/2666999</a></li>
+          <li><span class="ref-name">DiSC Profile「The Five Behaviors® model」(レンシオーニモデルを基にした公式研修プログラムの解説)</span><a class="ref-url" href="https://www.discprofile.com/fac-sup/fac-tips/model" target="_blank" rel="noopener">https://www.discprofile.com/fac-sup/fac-tips/model</a></li>
+          <li><span class="ref-name">Leda「High Performing Teams Frameworks: 6 Models Reviewed」(学術的検証状況の比較, 2026年)</span><a class="ref-url" href="https://getleda.com/high-performing-teams/frameworks" target="_blank" rel="noopener">https://getleda.com/high-performing-teams/frameworks</a></li>
+          <li><span class="ref-name">「The Five Dysfunctions of a Team – A Complex Systems Critique」(Substack, 2025年)</span><a class="ref-url" href="https://prairieoyster24.substack.com/p/the-five-dysfunctions-of-a-team-a" target="_blank" rel="noopener">https://prairieoyster24.substack.com/p/the-five-dysfunctions-of-a-team-a</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>本ガイドは2026年8月23日時点の公開情報をもとに作成しています。各リンク先の内容は将来変更される可能性があります。</p>
+      </div>
+    </section>
+
+    <footer>
+      『The Five Dysfunctions of a Team』は Patrick M. Lencioni氏および出版社Jossey-Bass(Wiley)に帰属する著作物です。本ページはその内容を要約・解説した非公式の学習用ガイドであり、原著および各引用元の著作権はそれぞれの著者・出版社に帰属します。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    dysfunctionPyramid: `flowchart BT
+    T["1 信頼の欠如 Absence of Trust"] --> C["2 衝突への恐怖 Fear of Conflict"]
+    C --> CM["3 積極的関与の不足 Lack of Commitment"]
+    CM --> AC["4 説明責任の回避 Avoidance of Accountability"]
+    AC --> R["5 結果への無関心 Inattention to Results"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class T hub;
+    class C,CM,AC box;
+    class R done;`,
+    practiceCycle: `flowchart TD
+    S1["Step1 チーム診断アンケートを実施する"] --> S2["Step2 最も弱い階層を特定する"]
+    S2 --> S3["Step3 該当する機能不全への具体的な介入策を選ぶ"]
+    S3 --> S4["Step4 1on1やチームミーティングで実践する"]
+    S4 --> S5["Step5 定期的にふりかえり効果を測定する"]
+    S5 -->|"改善が不十分な場合"| S2
+    S5 -->|"土台が固まった場合"| S6["次の階層に着手する"]
+    S6 --> S2
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class S1 hub;
+    class S2,S3,S4,S5 box;
+    class S6 done;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams().catch(function (err) {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+      });
+      if (window.console) console.error("Mermaid initialization error:", err);
+    });
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
