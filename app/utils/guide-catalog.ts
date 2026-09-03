@@ -74,6 +74,17 @@ export const GUIDE_SERIES = [
   },
   {
     /*
+     * Product Owner 系（CSPO / CSP-PO）は CSM / Scrum と同じ Scrum Alliance の認定だが、
+     * 対象アカウンタビリティが異なるため独立したシリーズにする。
+     * csm へ束ねると 15 件になり、1 カラムの上限（12 件）を超える。
+     */
+    id: "product-owner",
+    categoryId: "project-management",
+    navLabel: "Product Owner",
+    cardLabel: "PRODUCT OWNER",
+  },
+  {
+    /*
      * CAL は CSM と同じ Scrum Alliance の認定だが、対象読者（チーム ↔ 組織リーダー）が
      * 異なるため独立したシリーズにする。1 カラムへ束ねると 14 件になり、
      * カラム分割による縦方向の吸収が効かなくなる。
@@ -391,6 +402,39 @@ export const GUIDES = [
     description: "Scrum Allianceの Certified Agile Scaling Practitioner(CASP)を初学者向けに解説。定義・失敗要因・原則主導のスケーリング思想・SAFe/LeSS/Spotifyパターン比較・Team Topologiesまで、ステップ解説とMermaid図解、公式ソースURL付きで網羅。",
     meta: "13セクション",
     icon: "tabler:topology-star-3",
+    accent: "gold",
+  },
+  {
+    to: "/cspo-certified-scrum-product-owner-study-guide",
+    categoryId: "project-management",
+    seriesId: "product-owner",
+    navLabel: "CSPO 完全ガイド",
+    title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
+    description: "Scrum Alliance公式のCSPO Learning ObjectivesとScrum Foundations Learning Objectivesを完全網羅した、Certified Scrum Product Owner(CSPO)学習ガイド。5つの学習目標カテゴリ、ベストプラクティス、認定後のキャリアパスをMermaid図解付きで解説。",
+    meta: "14セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
+    to: "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
+    categoryId: "project-management",
+    seriesId: "product-owner",
+    navLabel: "A-CSPO 完全ガイド",
+    title: "Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド",
+    description: "Scrum Alliance Advanced Certified Scrum Product Owner (A-CSPO) の公式ラーニングオブジェクティブに基づく、初学者向けステップバイステップ学習ガイド。",
+    meta: "18セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
+    to: "/csp-po-certified-scrum-professional-product-owner-study-guide",
+    categoryId: "project-management",
+    seriesId: "product-owner",
+    navLabel: "CSP-PO 完全ガイド",
+    title: "CSP-PO® 認定資格 完全ガイド | Certified Scrum Professional - Product Owner",
+    description: "Scrum Alliance公式のCSP-PO Learning Objectives(2022年1月版)に基づく、5カテゴリー31項目の完全解説。初学者向けのステップバイステップの進め方とベストプラクティス、一次情報源URLを掲載。",
+    meta: "18セクション",
+    icon: "tabler:certificate",
     accent: "gold",
   },
   {

@@ -606,7 +606,9 @@ function inventoryMarkdown(src) {
  */
 function inventoryHtml(src) {
   const documentBody = /<body\b[^>]*>([\s\S]*?)<\/body>/i.exec(src)?.[1] ?? src;
-  const body = documentBody.replace(/<(script|style)[\s\S]*?<\/\1>/gi, "");
+  const body = documentBody
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, "")
+    .replace(/<div\b[^>]*\bclass=["'][^"']*\bdiagram-loading\b[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, "");
   const headings = [];
   const headingRe = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi;
   let match = headingRe.exec(body);
@@ -788,7 +790,9 @@ function collectVueMermaidSources(template, constants) {
 function inventoryVue(src) {
   const constants = collectStringConstants(src);
   const rawTemplate = extractVueTemplate(src);
-  const template = resolveVueInterpolation(rawTemplate, constants);
+  const template = resolveVueInterpolation(rawTemplate, constants)
+    .replace(/<template\s+#fallback>[\s\S]*?<\/template>/gi, "")
+    .replace(/<(p|div)\b[^>]*\bclass=["'][^"']*\bdiagram-loading\b[^"']*["'][^>]*>[\s\S]*?<\/\1>/gi, "");
 
   const headings = [];
   const headingRe = /<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/g;

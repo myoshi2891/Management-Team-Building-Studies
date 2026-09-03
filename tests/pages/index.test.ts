@@ -175,6 +175,24 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
+        category: "PRODUCT OWNER",
+        href: "/cspo-certified-scrum-product-owner-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド",
+        category: "PRODUCT OWNER",
+        href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "CSP-PO® 認定資格 完全ガイド | Certified Scrum Professional - Product Owner",
+        category: "PRODUCT OWNER",
+        href: "/csp-po-certified-scrum-professional-product-owner-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
         category: "CAL 1 & 2",
         href: "/cal1-certified-agile-leader-1-guide",
@@ -377,7 +395,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "30 ガイド", cards: 30 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "33 ガイド", cards: 33 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "6 ガイド", cards: 6 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "9 ガイド", cards: 9 },
