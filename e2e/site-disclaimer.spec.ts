@@ -72,6 +72,31 @@ test.describe("共通の免責事項", () => {
     }
   });
 
+  /*
+   * 免責事項は <NuxtPage> の外にあるため、クライアント遷移では再マウントされない。
+   * 一方 .sidebar は遷移先のページで新しく作られる。マウント時に一度測るだけでは、
+   * サイドバーの無いホームから入ったときに退避量が 0px のまま固定される。
+   * 全ページを goto で開き直す上のテストはページの再読み込みになるため、この経路を踏まない。
+   */
+  test("ホームからクライアント遷移してもサイドバーに隠れない", async ({ page }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto("/");
+    // ナビのパネル内にも同じ href があるが、閉じている間は不可視でクリックできない。
+    // ホームのカード一覧（#guides）に限定する。
+    await page.locator('#guides a[href="/capm"]').click();
+    await expect(page).toHaveURL(/\/capm$/);
+
+    await expect
+      .poll(async () => {
+        const { contentLeft, sidebarRight } = await measure(page);
+        return {
+          サイドバーが固定: sidebarRight > 0,
+          免責事項が隠れている: contentLeft < sidebarRight,
+        };
+      }, { message: "ホーム → /capm のクライアント遷移後に免責事項が隠れている" })
+      .toEqual({ サイドバーが固定: true, 免責事項が隠れている: false });
+  });
+
   test("サイドバーの無いホームでは退避しない", async ({ page }) => {
     await page.setViewportSize(DESKTOP);
     await page.goto("/");
