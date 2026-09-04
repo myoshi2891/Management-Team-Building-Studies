@@ -49,21 +49,27 @@ test.describe("共通の免責事項", () => {
   test("デスクトップ幅で固定サイドバーに隠れない", async ({ page }) => {
     await page.setViewportSize(DESKTOP);
 
-    const offenders: string[] = [];
     for (const path of SIDEBAR_PAGES) {
       await page.goto(path);
-      const { contentLeft, sidebarRight } = await measure(page);
-      // サイドバーが生きている幅であることを先に確かめる（前提が崩れると検査が空回りする）
-      if (sidebarRight <= 0) {
-        offenders.push(`${path}: サイドバーが固定されていない（前提が崩れている）`);
-        continue;
-      }
-      if (contentLeft < sidebarRight) {
-        offenders.push(`${path}: 内容の左端 ${contentLeft}px < サイドバー右端 ${sidebarRight}px`);
-      }
-    }
 
-    expect(offenders).toEqual([]);
+      /*
+       * 退避量が確定するのはハイドレーション後。見出しが可視になった瞬間はまだ
+       * SSR の初期値（0px）で、そこで一度だけ測ると結果が実行環境の速さで変わる
+       * （並列実行時に実際に取り違えた）。収束した状態を待って判定する。
+       *
+       * 「サイドバーが固定されている」も一緒に返す。前提が崩れたまま
+       * 「隠れていない」だけを見ると、検査が空回りしていても Green になる。
+       */
+      await expect
+        .poll(async () => {
+          const { contentLeft, sidebarRight } = await measure(page);
+          return {
+            サイドバーが固定: sidebarRight > 0,
+            免責事項が隠れている: contentLeft < sidebarRight,
+          };
+        }, { message: `${path}: 免責事項が固定サイドバーに隠れている` })
+        .toEqual({ サイドバーが固定: true, 免責事項が隠れている: false });
+    }
   });
 
   test("サイドバーの無いホームでは退避しない", async ({ page }) => {
