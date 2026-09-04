@@ -490,6 +490,18 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
   });
 
   /*
+   * ページ末尾のフッターと共通の免責事項（SiteDisclaimer.vue）は、
+   * どちらも document 直下の <footer> = contentinfo ランドマークになる。
+   * 名前が無いと支援技術のランドマーク一覧で二つを区別できないため、
+   * ホーム側のフッターに固有のアクセシブル名を持たせる。
+   */
+  it("フッターに固有のアクセシブル名を持つ（免責事項の contentinfo と区別する）", () => {
+    const wrapper = mountPage();
+
+    expect(wrapper.get("footer.site-footer").attributes("aria-label")).toBe("サイトフッター");
+  });
+
+  /*
    * 著作権表示は全ページ共通の免責事項（SiteDisclaimer.vue）が持つ。
    * ホームのフッターにも置くと、ホームだけ同じ表示が二度出る。
    */
