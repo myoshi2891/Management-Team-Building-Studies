@@ -15,6 +15,7 @@ import { onBeforeUnmount, onMounted, ref } from "#imports";
  * 決めると必ず外れるページが出る。実測すればページ側の事情を知る必要が無い。
  */
 const sidebarInset = ref(0);
+let sidebarResize: ResizeObserver | null = null;
 
 /**
  * 画面左端を覆っているサイドバーの右端を返す。覆っていなければ 0。
@@ -40,10 +41,26 @@ onMounted(() => {
   syncSidebarInset();
   // 幅が変わるとサイドバーの出入りが切り替わる。
   window.addEventListener("resize", syncSidebarInset);
+
+  /*
+   * マウント時の一度きりの計測では足りない。その瞬間にまだスタイルが確定していないと
+   * 誤った値を焼き付けたまま固定される（実測: 全体 CSS の box-sizing が効く前は
+   * サイドバーの右端が 288px ではなく 336px に見える）。
+   * サイドバーの寸法そのものを購読し、確定したところで測り直す。
+   */
+  const sidebar = document.querySelector<HTMLElement>(".sidebar");
+  if (!sidebar) return;
+  // jsdom には ResizeObserver が無い。無い環境では上の一度きりの計測のまま動かす。
+  const observer = window.ResizeObserver;
+  if (!observer) return;
+  sidebarResize = new observer(syncSidebarInset);
+  sidebarResize.observe(sidebar);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", syncSidebarInset);
+  sidebarResize?.disconnect();
+  sidebarResize = null;
 });
 </script>
 
