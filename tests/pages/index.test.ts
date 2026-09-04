@@ -489,6 +489,18 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     expect(wrapper.get("footer nav").attributes("aria-label")).toBe("フッターナビゲーション");
   });
 
+  /*
+   * 著作権表示は全ページ共通の免責事項（SiteDisclaimer.vue）が持つ。
+   * ホームのフッターにも置くと、ホームだけ同じ表示が二度出る。
+   */
+  it("著作権表示を持たない（共通の免責事項が担当する）", () => {
+    const wrapper = mountPage();
+    const footer = wrapper.get("footer");
+
+    expect(footer.findAll("small").map((element) => element.text())).toEqual([]);
+    expect(footer.text()).not.toContain("©");
+  });
+
   it("SEOメタ情報を設定する", () => {
     mountPage();
 
