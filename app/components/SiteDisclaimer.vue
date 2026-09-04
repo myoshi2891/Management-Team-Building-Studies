@@ -122,27 +122,35 @@ onBeforeUnmount(() => {
   background: var(--color-gold);
 }
 
+/*
+ * 3 項目を 3 カラムに開き、上のフッターと同じ共通カラム幅いっぱいに広げる。
+ * 1 カラムに詰めて幅を余らせると、上のフッターより狭く見えて版面が揃わない。
+ * カラムに割ると幅を使い切りながら 1 行あたりの文字数はむしろ短くなる。
+ *
+ * grid-auto-flow: column と 2 行指定で、dt / dd の対が縦に積まれたまま
+ * 横へ流れる（dt1 dd1 | dt2 dd2 | dt3 dd3）。
+ */
 .disclaimer-terms {
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  column-gap: 24px;
-  row-gap: 14px;
-  max-width: 760px;
-  margin: 26px 0 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  grid-auto-flow: column;
+  column-gap: 48px;
+  margin: 30px 0 0;
 }
 
+/* 項目の頭を罫で仕切る。奥付の罫組みで、罫はこの 1 種類だけ使う。 */
 .disclaimer-terms dt {
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-strong);
   color: var(--color-ink);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.9;
-  white-space: nowrap;
 }
 
 .disclaimer-terms dd {
-  margin: 0;
-  padding-left: 24px;
-  border-left: 1px solid var(--color-border-strong);
+  margin: 6px 0 0;
   color: var(--color-ink-soft);
   font-size: 13px;
   line-height: 1.9;
@@ -155,33 +163,26 @@ onBeforeUnmount(() => {
   letter-spacing: 0.04em;
 }
 
-@media (max-width: 680px) {
-  .disclaimer-inner {
-    width: calc(100% - 40px);
-    padding-block: 36px 32px;
-  }
-
-  /*
-   * 項目名の左レールは狭い幅では本文を潰す。縦積みに畳み、
-   * 行間は row-gap ではなく margin で作る（対になる dt と dd を近づけるため）。
-   */
+/*
+ * 3 カラムでは 1 行が短くなりすぎる幅から縦積みへ畳む。
+ * 変えるのはカラム数だけで、上罫の体裁はそのまま保つ。
+ */
+@media (max-width: 899px) {
   .disclaimer-terms {
     grid-template-columns: minmax(0, 1fr);
-    row-gap: 0;
-  }
-
-  .disclaimer-terms dt {
-    white-space: normal;
-  }
-
-  .disclaimer-terms dt + dd {
-    margin-top: 6px;
-    padding-left: 12px;
-    border-left-color: var(--color-border);
+    grid-template-rows: none;
+    grid-auto-flow: row;
   }
 
   .disclaimer-terms dd + dt {
     margin-top: 22px;
+  }
+}
+
+@media (max-width: 680px) {
+  .disclaimer-inner {
+    width: calc(100% - 40px);
+    padding-block: 36px 32px;
   }
 }
 </style>
