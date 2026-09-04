@@ -175,6 +175,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "CSP-SM® 認定資格 完全ガイド | Certified Scrum Professional ScrumMaster 学習ガイド",
+        category: "CSM / SCRUM",
+        href: "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
         category: "PRODUCT OWNER",
         href: "/cspo-certified-scrum-product-owner-study-guide",

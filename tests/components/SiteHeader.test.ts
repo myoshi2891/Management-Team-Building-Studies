@@ -94,6 +94,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       { label: "A-CSD 完全ガイド", href: "/a-csd-advanced-certified-scrum-developer-study-guide" },
       { label: "CSP-D 完全ガイド", href: "/csp-d-certified-scrum-professional-developer-study-guide" },
       { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
+      { label: "CSP-SM 完全ガイド", href: "/csp-sm-certified-scrum-professional-scrummaster-study-guide" },
       { label: "CSPO 完全ガイド", href: "/cspo-certified-scrum-product-owner-study-guide" },
       { label: "A-CSPO 完全ガイド", href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide" },
       { label: "CSP-PO 完全ガイド", href: "/csp-po-certified-scrum-professional-product-owner-study-guide" },
@@ -184,6 +185,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
           { label: "A-CSD 完全ガイド", href: "/a-csd-advanced-certified-scrum-developer-study-guide" },
           { label: "CSP-D 完全ガイド", href: "/csp-d-certified-scrum-professional-developer-study-guide" },
           { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
+          { label: "CSP-SM 完全ガイド", href: "/csp-sm-certified-scrum-professional-scrummaster-study-guide" },
         ],
       },
       {
@@ -433,6 +435,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "page",
+      undefined,
       undefined,
       undefined,
       undefined,
