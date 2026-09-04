@@ -52,6 +52,42 @@ function appendSidebar(options: { position: string; left: number; width: number 
 const inset = (wrapper: ReturnType<typeof mount>): string =>
   (wrapper.element as HTMLElement).style.getPropertyValue("--disclaimer-inset");
 
+/**
+ * jsdom には ResizeObserver が無い。購読先と発火のタイミングを検査できる最小の実装を置く。
+ * @returns 差し替えの後片付けと、購読中の要素・発火用のハンドル
+ */
+function stubResizeObserver(): {
+  observed: Element[];
+  trigger: () => void;
+  restore: () => void;
+} {
+  const observed: Element[] = [];
+  const callbacks: (() => void)[] = [];
+  const original = Reflect.get(window, "ResizeObserver");
+
+  class FakeResizeObserver {
+    constructor(private readonly callback: () => void) {
+      callbacks.push(() => this.callback());
+    }
+
+    observe(target: Element): void {
+      observed.push(target);
+    }
+
+    disconnect(): void {
+      callbacks.length = 0;
+    }
+  }
+
+  Reflect.set(window, "ResizeObserver", FakeResizeObserver);
+
+  return {
+    observed,
+    trigger: () => callbacks.forEach((callback) => callback()),
+    restore: () => Reflect.set(window, "ResizeObserver", original),
+  };
+}
+
 afterEach(() => {
   document.querySelectorAll(".sidebar").forEach((element) => element.remove());
 });
@@ -139,6 +175,53 @@ describe("SiteDisclaimer — サイト共通の免責事項", () => {
     await nextTick();
 
     expect(inset(wrapper)).toBe("0px");
+  });
+
+  /*
+   * マウント時の一度きりの計測では、その瞬間にまだスタイルが確定していない場合に
+   * 誤った値を焼き付けたまま固定されてしまう（実測: 全体 CSS の box-sizing が
+   * 効く前はサイドバーの右端が 288px ではなく 336px に見える）。
+   * サイドバーの寸法そのものを購読し、確定したところで測り直す。
+   */
+  it("サイドバーの寸法変化を購読して測り直す", async () => {
+    const observer = stubResizeObserver();
+    try {
+      const sidebar = appendSidebar({ position: "fixed", left: 0, width: 336 });
+      const wrapper = mount(SiteDisclaimer);
+      await nextTick();
+      expect(observer.observed).toEqual([sidebar]);
+
+      // レイアウト確定後の寸法へ差し替えて、購読側から再計測させる。
+      sidebar.getBoundingClientRect = (): DOMRect => ({
+        x: 0, y: 0, left: 0, right: 288, top: 0, bottom: 0, width: 288, height: 0,
+        toJSON: () => ({}),
+      });
+      observer.trigger();
+      await nextTick();
+
+      expect(inset(wrapper)).toBe("288px");
+    } finally {
+      observer.restore();
+    }
+  });
+
+  it("アンマウントで寸法の購読も解除する", async () => {
+    const observer = stubResizeObserver();
+    try {
+      appendSidebar({ position: "fixed", left: 0, width: 288 });
+      const wrapper = mount(SiteDisclaimer);
+      const element = wrapper.element as HTMLElement;
+      await nextTick();
+      wrapper.unmount();
+
+      document.querySelectorAll(".sidebar").forEach((node) => node.remove());
+      observer.trigger();
+      await nextTick();
+
+      expect(element.style.getPropertyValue("--disclaimer-inset")).toBe("288px");
+    } finally {
+      observer.restore();
+    }
   });
 
   it("アンマウント後の resize では測り直さない（リスナーを残さない）", async () => {
