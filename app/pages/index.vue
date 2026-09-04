@@ -139,7 +139,6 @@ useSeoMeta({
           <NuxtLink to="/engineering-team-leadership-guide">Team Lead</NuxtLink>
           <NuxtLink to="/engineering-manager-guide">EM Guide</NuxtLink>
         </nav>
-        <small>© 2026 Management Studies</small>
       </div>
     </footer>
   </div>
@@ -249,12 +248,11 @@ useSeoMeta({
 .closing-message a:hover { text-decoration: none; border-color: white; }
 
 .site-footer { border-top: 1px solid var(--color-border); background: var(--color-paper-raised); }
-.footer-inner { min-height: 165px; display: grid; grid-template-columns: 1fr auto auto; gap: 50px; align-items: center; }
+.footer-inner { min-height: 165px; display: grid; grid-template-columns: 1fr auto; gap: 50px; align-items: center; }
 .footer-brand { display: flex; align-items: center; gap: 14px; }
 .footer-brand p { margin: 0; line-height: 1.45; }
 .footer-brand strong { font-family: var(--font-display); font-size: 16px; }
 .footer-brand span { color: var(--color-ink-faint); font-size: 11px; }
-.footer-inner > small { color: var(--color-ink-faint); font-size: 10px; }
 @keyframes orbit { to { transform: rotate(360deg); } }
 
 @media (max-width: 960px) {
@@ -265,8 +263,6 @@ useSeoMeta({
   .guide-card:not(.guide-card-coming) { grid-column: span 6; }
   .guide-card-coming { grid-column: span 6; min-height: 210px; }
   .approach-section { gap: 50px; }
-  .footer-inner { grid-template-columns: 1fr auto; }
-  .footer-inner > small { grid-column: 1 / -1; margin-top: -35px; }
 }
 
 @media (max-width: 720px) {
@@ -288,7 +284,6 @@ useSeoMeta({
   .theme-item { grid-template-columns: 28px 42px 1fr; gap: 13px; }
   .closing-message { min-height: 340px; align-items: flex-start; flex-direction: column; justify-content: center; margin-bottom: 70px; padding: 42px 30px; }
   .footer-inner { grid-template-columns: 1fr; gap: 24px; align-content: center; padding-block: 42px; }
-  .footer-inner > small { grid-column: auto; margin-top: 0; }
 }
 
 @media (max-width: 430px) {
