@@ -58,7 +58,15 @@ const EXPECTED_H3 = [
   "10.1 LO 6.1: スクラムマスタリーに向けた個人開発戦略の概要を描ける",
   "10.2 LO 6.2: 誰かをメンタリングする経験を積める",
   "13.1 資格の維持(SEU と更新)",
-  "13.2 上位資格との関係"
+  "13.2 上位資格との関係",
+  "Scrum Alliance 公式情報源",
+  "Scrum / Agile の一次情報源",
+  "Lean Thinking / Toyota Production System",
+  "ファシリテーション / コーチング",
+  "チームダイナミクス",
+  "ソフトウェアクラフトマンシップ",
+  "スケーリングフレームワーク",
+  "組織変革"
 ] as const;
 
 const EXPECTED_H4 = [
@@ -82,15 +90,7 @@ const EXPECTED_H4 = [
   "LO 5.4: 最新の Scrum の定義を採用することで、自分の Scrum チーム・組織がどのように便益を得られるかを評価できる",
   "LO 5.5: Product Owner ロールをスケールする少なくとも2つのパターンを対比できる",
   "LO 5.6: チーム間協働を改善する少なくとも3つの技法を実験できる",
-  "LO 5.7: 複数の Scrum チームの立ち上げを計画できる",
-  "Scrum Alliance 公式情報源",
-  "Scrum / Agile の一次情報源",
-  "Lean Thinking / Toyota Production System",
-  "ファシリテーション / コーチング",
-  "チームダイナミクス",
-  "ソフトウェアクラフトマンシップ",
-  "スケーリングフレームワーク",
-  "組織変革"
+  "LO 5.7: 複数の Scrum チームの立ち上げを計画できる"
 ] as const;
 
 const EXPECTED_H5 = [] as const;

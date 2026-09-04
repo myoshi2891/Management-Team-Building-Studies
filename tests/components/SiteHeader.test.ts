@@ -332,6 +332,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
       "/a-csd-advanced-certified-scrum-developer-study-guide",
       "/csp-d-certified-scrum-professional-developer-study-guide",
       "/casp-certified-agile-scaling-practitioner-study-guide",
+      "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
       "/cspo-certified-scrum-product-owner-study-guide",
       "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
       "/csp-po-certified-scrum-professional-product-owner-study-guide",

@@ -405,6 +405,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "CSP-SM 完全ガイド",
+    title: "CSP-SM® 認定資格 完全ガイド | Certified Scrum Professional ScrumMaster 学習ガイド",
+    description: "Scrum Alliance Certified Scrum Professional ScrumMaster (CSP-SM) の公式 Learning Objectives に基づく初学者向け学習ガイド。ステップバイステップの解説、ベストプラクティス、出典URL付き。",
+    meta: "16セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/cspo-certified-scrum-product-owner-study-guide",
     categoryId: "project-management",
     seriesId: "product-owner",

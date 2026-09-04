@@ -1,0 +1,1818 @@
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "about-this-guide",
+  "what-is-csp-sm",
+  "requirements",
+  "blooms-taxonomy",
+  "lo-overview-map",
+  "category-1-lean-agile-scrum",
+  "category-2-core-competencies",
+  "category-3-service-to-scrum-team",
+  "category-4-service-to-product-owner",
+  "category-5-service-to-organization",
+  "category-6-advanced-scrum-mastery",
+  "best-practices-summary",
+  "misconceptions-and-antipatterns",
+  "career-path",
+  "summary",
+  "references"
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "CSP-SM® 認定資格 完全ガイド | Certified Scrum Professional ScrumMaster 学習ガイド",
+  description: "Scrum Alliance Certified Scrum Professional ScrumMaster (CSP-SM) の公式 Learning Objectives に基づく初学者向け学習ガイド。ステップバイステップの解説、ベストプラクティス、出典URL付き。",
+});
+
+const MERMAID_THEME_VARIABLES = {
+  background: "transparent",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+  fontFamily:
+    "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+  fontSize: "16px",
+};
+
+const DIAGRAM_TRACK_OVERVIEW = `flowchart LR
+A["CSM Certified ScrumMaster (前提資格なし)"] --> B["A-CSM Advanced Certified ScrumMaster (CSM(または PSM I/PSM II)必須 + 実務経験12か月)"]
+B --> C["CSP-SM Certified Scrum Professional ScrumMaster (A-CSM必須 + 実務経験24か月)"]
+C --> D["CST Certified Scrum Trainer"]
+C -.->|"現在のキャリアパスの次段階ではない"| E["CTC / CEC (2025年1月6日で新規申請停止した既存資格。有効期限内(アクティブ)の保持者に限りバッジ表示と認定の保持を継続できる(失効後も有効という意味ではない)。後継のCertified Agility Consultant(CAC)は開発中で未開始)"]
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class C hub;`;
+
+const DIAGRAM_ACQUISITION_PROCESS = `flowchart TD
+Start(["CSM を取得する (A-CSM の前提資格は PSM I / PSM II でも代替可)"]) --> ACSM["A-CSM を取得する (CSM または PSM I / PSM II 保有 + 実務経験12か月)"]
+ACSM --> Enroll["CSP-SM コースに申し込む (この時点で24か月の実務経験は必須ではない)"]
+Enroll --> Course["コースを受講し 事前/事後課題を含む全構成要素を修了する"]
+Course --> Exp{"Scrum Master としての実務経験が過去5年以内で24か月以上あるか?"}
+Exp -- いいえ --> Wait["実務経験を積み、Scrum Alliance プロフィールに記録する"]
+Wait --> Exp
+Exp -- はい --> License["CSP-SM License Agreement に同意し、会員プロフィールを完成させる"]
+License --> Cert(["CSP-SM 認定証が発行される"])
+Cert --> Maintain["SEU を獲得し、2年ごとに資格を更新する"]
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Cert done;`;
+
+const DIAGRAM_BLOOMS_PYRAMID = `flowchart TB
+K["Knowledge (知識) 事実や用語を思い出せる"] --> C["Comprehension (理解) 意味を自分の言葉で説明できる"]
+C --> A["Application (応用) 実際の状況に適用できる"]
+A --> An["Analysis (分析) 要素に分解し比較できる"]
+An --> S["Synthesis (統合) 新しいものを構築・創造できる"]
+S --> E["Evaluation (評価) 基準に基づいて価値判断できる"]
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S,E done;`;
+
+const DIAGRAM_LO_OVERVIEW_MAP = `flowchart TD
+Root(["CSP-SM Learning Objectives"])
+Root --> C1["1. Lean, Agile, and Scrum"]
+Root --> C2["2. Scrum Master Core Competencies"]
+Root --> C3["3. Service to the Scrum Team"]
+Root --> C4["4. Service to the Product Owner"]
+Root --> C5["5. Service to the Organization"]
+Root --> C6["6. Advanced Scrum Mastery"]
+C2 --> C2a["Facilitation"]
+C2 --> C2b["Coaching and Training"]
+C3 --> C3a["Team Dynamics"]
+C3 --> C3b["Scrum Teams"]
+C5 --> C5a["Organizational Development"]
+C5 --> C5b["Scaling Scrum"]
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Root hub;`;
+
+const DIAGRAM_LEAN_PRINCIPLES_CYCLE = `flowchart LR
+V["Value 価値の定義 (顧客視点)"] --> VS["Value Stream 価値の流れの可視化"]
+VS --> F["Flow よどみなく流す"]
+F --> P["Pull プル型で引っ張る"]
+P --> Pe["Perfection 完璧を目指し続ける"]
+Pe -.->|"継続的に繰り返す"| V`;
+
+const DIAGRAM_FACILITATION_CHOICE = `flowchart TD
+Q{"目的は何か?"}
+Q -- "全員のアイデアを平等に集めたい" --> LS1["1-2-4-All (個人→ペア→4人→全体)"]
+Q -- "多くの意見から絞り込みたい" --> DV["ドット投票 (Dot Voting)"]
+Q -- "順番に発言機会を確保したい" --> RR["ラウンドロビン (Round-Robin)"]
+Q -- "少人数での深い議論を全体に還元したい" --> FB["フィッシュボウル (Fishbowl)"]
+Q -- "テーマ別に並行議論したい" --> BO["ブレイクアウト グループ"]`;
+
+const DIAGRAM_COACHING_AGREEMENT_LEVELS = `flowchart TD
+A["コーチングエンゲージメント 全体のアグリーメント"] --> A1["コーチングの目的・範囲の合意"]
+A --> A2["役割と責任の明確化 (コーチ/クライアント/スポンサーそれぞれ)"]
+A --> A3["守秘義務・頻度・期間の合意"]
+B["個別セッションの アグリーメント"] --> B1["このセッションで達成したいことの確認"]
+B --> B2["成功の指標の合意"]`;
+
+const DIAGRAM_TUCKMAN_MODEL = `flowchart LR
+F["Forming 形成期"] --> S["Storming 混乱期"] --> N["Norming 統一期"] --> P["Performing 機能期"]
+P -.->|"チーム解散時"| Ad["Adjourning 解散期"]`;
+
+const DIAGRAM_NEW_TEAM_LAUNCH_FLOW = `flowchart TD
+A["プロダクトと境界の定義"] --> B["チーム編成 (必要スキルセットの洗い出し)"]
+B --> C["Product Goal と初期 Product Backlog の準備"]
+C --> D["Working Agreement と Definition of Done の合意形成"]
+D --> E["ステークホルダー マップの作成"]
+E --> F["最初の Sprint Planning"]`;
+
+const DIAGRAM_PRODUCT_GOAL_TO_BACKLOG = `flowchart LR
+PG["Product Goal (将来のプロダクトのありたい姿)"] --> Map["User Story Mapping / Impact Mapping で分解する"]
+Map --> PB["Product Backlog (優先順位づけされた実行可能な項目群)"]`;
+
+const DIAGRAM_KOTTER_ADKAR_COMPARISON = `flowchart TB
+subgraph Kotter["Kotter 8-Step (組織レベル・トップダウン)"]
+K1["危機感の醸成"] --> K2["推進チームの結成"] --> K3["ビジョンの策定"] --> K4["ビジョンの伝達"] --> K5["障害の除去"] --> K6["短期的成果"] --> K7["更なる変革の推進"] --> K8["変革の定着"]
+end
+subgraph ADKAR["ADKAR (個人レベルの変化)"]
+A1["Awareness"] --> A2["Desire"] --> A3["Knowledge"] --> A4["Ability"] --> A5["Reinforcement"]
+end`;
+
+const DIAGRAM_FIVE_WHYS_EXAMPLE = `flowchart TD
+P["表面化した問題 (例: リリースが頻繁に遅延する)"] --> W1["なぜ1: なぜ遅延するのか?"]
+W1 --> W2["なぜ2: なぜ見積もりが毎回外れるのか?"]
+W2 --> W3["なぜ3: なぜ不確実性が高い項目を見積もれないのか?"]
+W3 --> W4["なぜ4: なぜ事前のリファインメントが行われていないのか?"]
+W4 --> W5["なぜ5: なぜリファインメントの時間が確保されていないのか?"]
+W5 --> Root(["根本原因: 組織のカレンダー文化が会議を優先し、リファインメントの時間を構造的に奪っている"])
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Root hub;`;
+
+const DIAGRAM_PO_SCALING_PATTERNS = `flowchart TD
+subgraph Nexus["Nexus"]
+N_PO["単一の Product Owner"] --> N_PB["単一の Product Backlog"]
+end
+subgraph S2["Scrum@Scale"]
+CPO["Chief Product Owner"] --> Meta["MetaScrum (各チームのPOで構成)"]
+Meta --> S_PB["統合された Product Backlog"]
+end`;
+
+const DIAGRAM_MULTI_TEAM_LAUNCH_FLOW = `flowchart TD
+A["プロダクト全体の境界とゴールの定義"] --> B["チーム分割の設計 (依存関係を最小化する分割軸の選定)"]
+B --> C["共有カデンス (Sprint期間・イベントのタイミング統一)"]
+C --> D["統合の仕組みの設計 (Nexus Integration Team / Scrum of Scrums など)"]
+D --> E["各チームの Working Agreement と共有 Definition of Done の合意"]
+E --> F["最初の複数チーム合同 Sprint Planning"]`;
+
+const DIAGRAM_SHU_HA_RI_MODEL = `flowchart LR
+Shu["守 (Shu) 型を忠実に守る段階 (CSM相当)"] --> Ha["破 (Ha) 型を理解した上で応用する段階 (A-CSM〜CSP-SM相当)"]
+Ha --> Ri["離 (Ri) 型から離れ、独自のスタイルを確立する段階 (CST相当。CEC・CTC は新規申請の受付を停止した既存資格)"]
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Ri done;`;
+
+</script>
+
+<template>
+  <div class="csp-sm-page">
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
+    <div
+      v-if="sidebarOpen"
+      class="sidebar-backdrop"
+      aria-hidden="true"
+      @click="closeSidebar"
+    />
+
+    <div class="layout">
+      <!-- ===================== Sidebar ===================== -->
+      <nav
+        id="sidebar"
+        class="sidebar"
+        :class="{ open: sidebarOpen }"
+        aria-label="目次"
+      >
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">CSP-SM® 完全ガイド</div>
+            <div class="brand-subtitle">Scrum Master 最上位認定</div>
+          </div>
+        </div>
+
+        <ul class="sidebar-nav">
+
+      <li><a href="#about-this-guide" :class="{ active: activeId === 'about-this-guide' }" @click="closeSidebar"><Icon name="tabler:file-text" aria-hidden="true" />このガイドについて</a></li>
+      <li><a href="#what-is-csp-sm" :class="{ active: activeId === 'what-is-csp-sm' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />CSP-SM とは何か</a></li>
+      <li><a href="#requirements" :class="{ active: activeId === 'requirements' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" aria-hidden="true" />取得要件</a></li>
+      <li><a href="#blooms-taxonomy" :class="{ active: activeId === 'blooms-taxonomy' }" @click="closeSidebar"><Icon name="tabler:book-2" aria-hidden="true" />Bloom's Taxonomy</a></li>
+      <li><a href="#lo-overview-map" :class="{ active: activeId === 'lo-overview-map' }" @click="closeSidebar"><Icon name="tabler:map-2" aria-hidden="true" />LO 全体マップ</a></li>
+      <li><a href="#category-1-lean-agile-scrum" :class="{ active: activeId === 'category-1-lean-agile-scrum' }" @click="closeSidebar"><Icon name="tabler:building-bank" aria-hidden="true" />カテゴリ1: Lean, Agile, Scrum</a></li>
+      <li><a href="#category-2-core-competencies" :class="{ active: activeId === 'category-2-core-competencies' }" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />カテゴリ2: Core Competencies</a></li>
+      <li><a href="#category-3-service-to-scrum-team" :class="{ active: activeId === 'category-3-service-to-scrum-team' }" @click="closeSidebar"><Icon name="tabler:route" aria-hidden="true" />カテゴリ3: Service to the Scrum Team</a></li>
+      <li><a href="#category-4-service-to-product-owner" :class="{ active: activeId === 'category-4-service-to-product-owner' }" @click="closeSidebar"><Icon name="tabler:clipboard-text" aria-hidden="true" />カテゴリ4: Service to the Product Owner</a></li>
+      <li><a href="#category-5-service-to-organization" :class="{ active: activeId === 'category-5-service-to-organization' }" @click="closeSidebar"><Icon name="tabler:timeline" aria-hidden="true" />カテゴリ5: Service to the Organization</a></li>
+      <li><a href="#category-6-advanced-scrum-mastery" :class="{ active: activeId === 'category-6-advanced-scrum-mastery' }" @click="closeSidebar"><Icon name="tabler:chart-pie" aria-hidden="true" />カテゴリ6: Advanced Scrum Mastery</a></li>
+      <li><a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />ベストプラクティス総まとめ</a></li>
+      <li><a href="#misconceptions-and-antipatterns" :class="{ active: activeId === 'misconceptions-and-antipatterns' }" @click="closeSidebar"><Icon name="tabler:refresh" aria-hidden="true" />よくある誤解・アンチパターン</a></li>
+      <li><a href="#career-path" :class="{ active: activeId === 'career-path' }" @click="closeSidebar"><Icon name="tabler:calendar-event" aria-hidden="true" />認定後のキャリアパス</a></li>
+      <li><a href="#summary" :class="{ active: activeId === 'summary' }" @click="closeSidebar"><Icon name="tabler:flag-3" aria-hidden="true" />まとめ</a></li>
+      <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />参考文献</a></li>
+        </ul>
+      </nav>
+
+      <!-- ===================== Main content ===================== -->
+      <main class="main-content">
+
+
+    <div class="hero">
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance 公式 Learning Objectives 準拠</div>
+      <h1>Certified Scrum Professional® ScrumMaster (CSP®-SM) 完全学習ガイド</h1>
+      <p class="hero-lede">
+        世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum Alliance® の Certified Scrum Professional® ScrumMaster(CSP®-SM)の出題範囲(Learning Objectives)を、初学者にもわかりやすくステップバイステップで解説する学習ガイドです。各項目には具体的なベストプラクティスと、その根拠となる参考情報源の URL を付記しています。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">6</div><div class="stat-label">Learning Objectives カテゴリ数</div></div>
+        <div class="stat-card"><div class="stat-number">29</div><div class="stat-label">学習目標(LO)の総数</div></div>
+        <div class="stat-card"><div class="stat-number">A-CSM</div><div class="stat-label">必須の前提資格</div></div>
+        <div class="stat-card"><div class="stat-number">24か月</div><div class="stat-label">必要な Scrum Master 実務経験</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <Icon name="tabler:info-circle" aria-hidden="true" />
+        <span>本ガイドは2026年8月時点で公開されている一次情報源に基づいて作成されています(更新料の金額のみ2026年9月1日時点で確認しています)。Scrum Alliance の認定制度・料金・プログラム構成(特に CEC/CTC から Certified Agility Consultant への移行など)は変更される可能性があるため、正式な受講・申請前には必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>で最新情報をご確認ください。</span>
+      </div>
+    </div>
+
+    <!-- ===================== 0. About This Guide ===================== -->
+    <section id="about-this-guide">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:file-text" aria-hidden="true" />SECTION 01</div>
+      <h2>このガイドについて</h2>
+
+      <p>このガイドは、以下の一次・準一次情報源を中心とした情報源に基づいて作成しています。原典が公開されている項目は原典を優先し、概説の把握を目的として Wikipedia・Mindtools・第三者ニュースレターなどの二次資料も補助的に参照しています(個別の出典は末尾の参考文献一覧を参照)。</p>
+
+      <ul>
+        <li>Scrum Alliance が公式に発行している<strong>CSP-SM Learning Objectives(2022年1月版, PDF)</strong></li>
+        <li>Scrum Alliance 公式サイトの CSP-SM 紹介ページ、A-CSM/CSM 紹介ページ、SEU・更新制度ページ</li>
+        <li>Manifesto for Agile Software Development(Agile Manifesto)</li>
+        <li>Scrum Guide(2020年版, scrumguides.org)</li>
+        <li>Lean Thinking / Toyota Production System(TPS) に関する一次・準一次情報源</li>
+        <li>ICF(International Coaching Federation)の Core Competencies</li>
+        <li>Nexus Guide、LeSS(Large-Scale Scrum)、Scrum@Scale Guide などスケーリングフレームワークの公式ガイド</li>
+        <li>Kotter の 8-Step Change Model、Prosci ADKAR モデルなど組織変革理論の一次・準一次情報源</li>
+      </ul>
+
+      <p>Scrum Alliance 自身が Learning Objectives 文書内で明言している通り、<strong>「Scrum の実装はチームごとに異なるが、フレームワークの根幹は常に同じである」</strong>という前提のもとで、このガイドは書かれています。CSP-SM の教育コースは、各トレーナー(Path to CSP Educator)が独自の教材・演習を用いて実施しますが、本ガイドがカバーする Learning Objectives(LO)は、どのコースでも共通してカバーされるべき内容です。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p><strong>対象読者:</strong>CSM → A-CSM → CSP-SM とキャリアを積み上げていきたい方、CSP-SM のコース受講を検討している方、すでに A-CSM を保有しコース受講の準備をしている方。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 1. What is CSP-SM ===================== -->
+    <section id="what-is-csp-sm">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 02</div>
+      <h2>CSP-SM とは何か — 全体像</h2>
+
+      <p>CSP-SM(Certified Scrum Professional® ScrumMaster)は、Scrum Alliance の<strong>Scrum Master トラックにおける最上位の認定資格</strong>です。公式サイトでは次のように位置づけられています。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"Become a top-tier scrum master who launches new scrum teams, scales scrum across teams and organizations, and coaches all levels of an organization to be more agile."</p>
+      </div>
+
+      <p>つまり CSP-SM は、単に1つのチームで Scrum を回せることを証明する資格ではなく、<strong>新しいチームの立ち上げ、複数チームへのスケーリング、組織のあらゆる階層へのコーチング</strong>ができることを証明する資格です。</p>
+
+      <h3>1.1 Scrum Master トラックの全体像</h3>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TRACK_OVERVIEW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Scrum Master トラックの全体像(CSM → A-CSM → CSP-SM → CST / CTC・CEC)</div>
+      </div>
+
+      <p>CSM が「Scrumの基礎を実践できる」段階、A-CSM が「ファシリテーション・コーチングの基礎とスケーリングの入口を身につける」段階だとすれば、CSP-SM は「複雑な組織課題に対して体系的に介入できる」段階です。CSP-SM の学習範囲は Lean Thinking の起源にまで遡り、複数チームのスケーリング、組織開発、そして「アドバンスド・スクラム・マスタリー」という個人のキャリア開発戦略にまで及びます。</p>
+
+      <h3>1.2 CSP-SM で学ぶこと</h3>
+
+      <p>Scrum Alliance 公式ページでは、CSP-SM コースで学ぶ主要領域として次を挙げています。</p>
+
+      <ul>
+        <li>Lean Thinking の起源と中核概念</li>
+        <li>ファシリテーションとコーチングの高度なスキル</li>
+        <li>チームダイナミクスの強化、新しい Scrum チームの立ち上げ計画、スキルギャップを埋める戦略</li>
+        <li>プロダクトゴールからプロダクトバックログを構築する技法、複雑・複数チームバックログの管理</li>
+        <li>Scrum 導入を組織的に進めるための体系的アプローチ、組織的な障害への対処、最新の Scrum Guide の定義がもたらす便益の評価</li>
+        <li>スクラムマスタリーに向けた個人開発戦略、メンタリング経験</li>
+      </ul>
+
+      <p>これらは後述する6つの LO カテゴリにそのまま対応しています。</p>
+    </section>
+
+    <!-- ===================== 2. Requirements ===================== -->
+    <section id="requirements">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 03</div>
+      <h2>取得要件(Requirements)</h2>
+
+      <p>CSP-SM の取得要件は、Scrum Alliance 公式ページに以下のように明記されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>要件</th><th>詳細</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>A-CSM 保有</td><td>Active でも Expired でも可。CSP-SM 取得時に CSM・A-CSM ともに自動更新される</td></tr>
+            <tr><td>2</td><td>コースの全構成要素を修了</td><td>トレーナーが定める事前課題・事後課題を含む場合がある</td></tr>
+            <tr><td>3</td><td>CSP-SM License Agreement への同意</td><td>Scrum Alliance の会員プロフィールも完成させる必要がある</td></tr>
+            <tr><td>4</td><td>実務経験の証明</td><td>過去5年以内で、Scrum Master のアカウンタビリティに特化した実務経験24か月以上</td></tr>
+            <tr><td>5</td><td>資格の維持</td><td>Scrum Education Units(SEU)を獲得し、2年ごとに資格更新</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.1 重要な注意点: コース受講と資格取得は別タイミングでよい</h3>
+
+      <p>Scrum Alliance の FAQ では、次のように明記されています。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"You can take the course without the 24 months of experience, but you cannot get the certification until you have completed and recorded the 24 months of experience."</p>
+      </div>
+
+      <p>つまり<strong>A-CSM を取得した時点で CSP-SM コースへ登録・受講することは可能</strong>(24か月の実務経験は受講前・受講後のどちらで満たしてもよい)ですが、<strong>認定証が発行されるのは24か月分の実務経験がプロフィールに記録・検証された後</strong>です。これは上位トラックへ進む多くの実務者が誤解しやすいポイントです。なお前提資格はトラックごとに分かれており、CSP-SM の前提資格は<strong>A-CSM</strong>、CSP-PO の前提資格は<strong>A-CSPO</strong>です。</p>
+
+      <h3>2.2 取得までのプロセス(フローチャート)</h3>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ACQUISITION_PROCESS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">CSP-SM 取得までのプロセス</div>
+      </div>
+
+      <h3>2.3 A-CSM 側の前提条件(参考)</h3>
+
+      <p>CSP-SM のさらに前段階である A-CSM の取得要件も押さえておくと、全体像の理解が深まります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要件</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>前提資格</td><td>CSM(Active/Expired 可)。または Scrum.org の PSM I/PSM II で代替可能(A-CSM のみの特例)</td></tr>
+            <tr><td>コース時間</td><td>最低16時間のA-CSMコース受講</td></tr>
+            <tr><td>実務経験</td><td>過去5年以内でScrum Masterとしての実務経験12か月以上</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 3. Bloom's Taxonomy ===================== -->
+    <section id="blooms-taxonomy">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 04</div>
+      <h2>Bloom's Taxonomy — 学習目標の読み方</h2>
+
+      <p>CSP-SM Learning Objectives 文書は、すべての学習目標を<strong>Bloom's Taxonomy(ブルームの分類学)</strong>に基づいて記述しています。公式文書には次の一文があります。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"Please mentally start each Learning Objective with the following phrase: 'Upon successful validation of the CSP-SM Learning Objectives, the learner will be able to &hellip;'"</p>
+      </div>
+
+      <p>つまり、たとえば「1.1 describe the origins of Lean Thinking」は、<strong>「CSP-SM の学習目標の達成が確認された段階で、学習者は Lean Thinking の起源を説明できる」</strong>と読み替える必要があります。</p>
+
+      <h3>3.1 Bloom's Taxonomy の6段階</h3>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_BLOOMS_PYRAMID" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Bloom's Taxonomy の6段階</div>
+      </div>
+
+      <h3>3.2 動詞から認知レベルを読み解くコツ</h3>
+
+      <p>CSP-SM の LO は下位レベル(Knowledge/Comprehension)から上位レベル(Synthesis/Evaluation)まで幅広く分布しています。各 LO で使われている動詞を見ることで、要求されている認知レベルのヒントが得られます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>動詞の例</th><th>対応する認知レベルの目安</th></tr></thead>
+          <tbody>
+            <tr><td>describe / list / relate</td><td>Knowledge〜Comprehension</td></tr>
+            <tr><td>apply / illustrate / experiment</td><td>Application</td></tr>
+            <tr><td>differentiate / compare / appraise / analyze</td><td>Analysis</td></tr>
+            <tr><td>create / develop / plan / propose / outline</td><td>Synthesis</td></tr>
+            <tr><td>evaluate / summarize(価値判断を伴う場合)</td><td>Evaluation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>CSP-SM の LO には「plan the launch of a new Scrum Team」「create a coaching agreement」のような<strong>Synthesis レベルの動詞</strong>が多く含まれています。これは A-CSM までの「知っている・実践できる」段階から、CSP-SM では<strong>「ゼロから設計・構築できる」段階への移行</strong>が求められていることを意味します。</p>
+    </section>
+
+    <!-- ===================== 4. LO Overview Map ===================== -->
+    <section id="lo-overview-map">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 05</div>
+      <h2>CSP-SM Learning Objectives 全体マップ</h2>
+
+      <p>CSP-SM の Learning Objectives は、公式文書(2022年1月版)において以下の6カテゴリ・29個の学習目標に整理されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>カテゴリ</th><th>サブカテゴリ</th><th>LO数</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Lean, Agile, and Scrum</td><td>&mdash;</td><td>4</td></tr>
+            <tr><td>2</td><td>Scrum Master Core Competencies</td><td>Facilitation / Coaching and Training</td><td>4 + 4</td></tr>
+            <tr><td>3</td><td>Service to the Scrum Team</td><td>Team Dynamics / Scrum Teams</td><td>2 + 4</td></tr>
+            <tr><td>4</td><td>Service to the Product Owner</td><td>&mdash;</td><td>2</td></tr>
+            <tr><td>5</td><td>Service to the Organization</td><td>Organizational Development / Scaling Scrum</td><td>4 + 3</td></tr>
+            <tr><td>6</td><td>Advanced Scrum Mastery</td><td>&mdash;</td><td>2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_LO_OVERVIEW_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">CSP-SM Learning Objectives 全体マップ(6カテゴリ)</div>
+      </div>
+
+      <p>なお、このガイドが根拠とする「Individual Path to CSP-SM」の教育者は、公式文書に沿う限り追加のトピック(ancillary topics)を独自に加えることが認められています。ただし<strong>その場合は明示的にアンシラリー・トピックであると示さなければならない</strong>とされており、この点も CSP-SM の教育設計における重要なルールです。</p>
+    </section>
+
+    <!-- ===================== 5. Category 1: Lean, Agile, and Scrum ===================== -->
+    <section id="category-1-lean-agile-scrum">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 06</div>
+      <h2>カテゴリ1: Lean, Agile, and Scrum (LO 1.1&ndash;1.4)</h2>
+
+      <p>Scrum は Lean Thinking を土台にした経験主義(Empiricism)のフレームワークです。CSP-SM ではまず、Scrum の背後にある思想の"なぜ"を理解することが求められます。</p>
+
+      <h3>5.1 LO 1.1: Lean Thinking の起源を説明できる</h3>
+
+      <p>Lean Thinking の直接の起源は、<strong>トヨタ生産方式(Toyota Production System, TPS)</strong>です。トヨタグループの創始者・豊田佐吉、その息子でトヨタ自動車工業の創業者である豊田喜一郎、そして「トヨタ生産方式の父」と呼ばれる<strong>大野耐一(Taiichi Ohno)</strong>が中心となって、戦後日本の資源制約の中で確立しました。</p>
+
+      <ul>
+        <li>大野耐一は「ムダ(muda)」の排除を体系化し、後述する7つのムダを定義しました。</li>
+        <li>トヨタの現場文化として<strong>「現地現物」(genchi genbutsu)</strong>、つまり「机上の空論ではなく、自分の目で現場を見て判断する」という原則があります。</li>
+        <li>大野耐一の思想は、ジェームズ・ウォマックとダニエル・ジョーンズによる著書<em>The Machine That Changed the World</em>(1990)や<em>Lean Thinking</em>(1996)を通じて西側諸国に広く紹介され、「Lean」という言葉が定着しました。</li>
+      </ul>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Scrum Master は Sprint Retrospective やインペディメント対応の場で「現地現物」を実践しましょう。ダッシュボードの数字だけで判断するのではなく、実際に開発者のペアプログラミングやデプロイ作業に同席し、一次情報から状況を把握する習慣を持つことが推奨されます。</p>
+      </div>
+
+      <h3>5.2 LO 1.2: Lean Thinking の中核概念と Scrum への適用を説明できる</h3>
+
+      <p>ウォマック＆ジョーンズは<em>Lean Thinking</em>の中で、Lean の5つの原則を提示しました。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_LEAN_PRINCIPLES_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Lean の5原則(Value → Value Stream → Flow → Pull → Perfection)</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Lean の原則</th><th>Scrum における対応</th></tr></thead>
+          <tbody>
+            <tr><td>Value(価値)</td><td>Product Goal / Product Backlog の並び替え基準としての顧客価値</td></tr>
+            <tr><td>Value Stream(価値の流れ)</td><td>Definition of Done による「完了」の可視化、アイデアから価値提供までのリードタイム</td></tr>
+            <tr><td>Flow(流れ)</td><td>Sprint という短いタイムボックスで継続的に増分を生み出す仕組み</td></tr>
+            <tr><td>Pull(プル)</td><td>Sprint Planning で Developers がプロダクトバックログから"引っ張る"形で作業を選ぶこと</td></tr>
+            <tr><td>Perfection(完璧の追求)</td><td>Sprint Retrospective による継続的改善(Kaizen)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Scrum イベントを Lean の原則に接続して説明できると、"なぜこの儀式が必要なのか"を懐疑的なステークホルダーに説明する際に説得力が増します。特に Sprint Retrospective は Lean の"Perfection"の原則そのものであることを強調すると、形骸化を防ぐ議論のきっかけになります。</p>
+      </div>
+
+      <h3>5.3 LO 1.3: プロダクト開発における5つ以上のムダを、製造業における7つのムダに関連づけられる</h3>
+
+      <p>大野耐一が定義したトヨタ生産方式における<strong>7つのムダ(TIMWOOD)</strong>は以下の通りです。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>英語</th><th>日本語</th><th>頭文字</th></tr></thead>
+          <tbody>
+            <tr><td>Transportation</td><td>運搬のムダ</td><td>T</td></tr>
+            <tr><td>Inventory</td><td>在庫のムダ</td><td>I</td></tr>
+            <tr><td>Motion</td><td>動作のムダ</td><td>M</td></tr>
+            <tr><td>Waiting</td><td>手待ちのムダ</td><td>W</td></tr>
+            <tr><td>Overproduction</td><td>造りすぎのムダ</td><td>O</td></tr>
+            <tr><td>Overprocessing</td><td>加工そのもののムダ</td><td>O</td></tr>
+            <tr><td>Defects</td><td>不良・手直しのムダ</td><td>D</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>これをソフトウェア開発向けに翻訳したのが、Mary Poppendieck と Tom Poppendieck による著書<em>Lean Software Development: An Agile Toolkit</em>(2003)および<em>Implementing Lean Software Development</em>(2006)です。両者は製造業の7つのムダを、ソフトウェア開発の文脈における7つのムダにマッピングしました。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ソフトウェア開発の7つのムダ</th><th>説明</th><th>元になった製造業のムダ</th></tr></thead>
+          <tbody>
+            <tr><td>Partially Done Work(未完了の作業)</td><td>コミットされていない・テストされていないコード等</td><td>Inventory(在庫)</td></tr>
+            <tr><td>Extra Features(余分な機能)</td><td>使われない機能を作り込むこと</td><td>Overproduction(造りすぎ)</td></tr>
+            <tr><td>Relearning(再学習)</td><td>情報の消失により同じことを何度も学び直すこと</td><td>Overprocessing</td></tr>
+            <tr><td>Handoffs(引き継ぎ)</td><td>チーム間・担当者間の受け渡しで発生する情報損失</td><td>Transportation</td></tr>
+            <tr><td>Task Switching(タスクの切り替え)</td><td>マルチタスクによる集中力低下</td><td>Motion</td></tr>
+            <tr><td>Delays(遅延)</td><td>承認待ち・レビュー待ちなどのボトルネック</td><td>Waiting</td></tr>
+            <tr><td>Defects(欠陥)</td><td>バグ・品質不良</td><td>Defects</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li>Value Stream Mapping を用いて、アイデアの発生から本番リリースまでの各ステップに要する時間を可視化し、どのムダが支配的かを特定する。</li>
+          <li>WIP(Work In Progress)制限を導入し、"Partially Done Work"を可視化・削減する。</li>
+          <li>Definition of Done を明確にし、"何が完了か"を曖昧にしないことで手戻り(Defects)を防ぐ。</li>
+          <li>T字型スキル(T-shaped skills)の育成やペアプログラミングにより、Handoffs と Relearning を同時に削減する。</li>
+        </ul>
+      </div>
+
+      <h3>5.4 LO 1.4: 少なくとも3つのアジャイル開発プラクティスを Lean プラクティスに関連づけられる</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Agile プラクティス</th><th>対応する Lean プラクティス</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>Sprint(タイムボックス化された開発)</td><td>Just-In-Time(JIT)</td><td>必要な分だけを、必要なタイミングで作る</td></tr>
+            <tr><td>Definition of Done</td><td>Jidoka(自働化・品質を作り込む)</td><td>品質を工程の後工程に頼らず、その場で作り込む</td></tr>
+            <tr><td>Sprint Retrospective</td><td>Kaizen(継続的改善)</td><td>小さな改善を繰り返し積み上げる</td></tr>
+            <tr><td>Product Backlog Refinement / プル型の作業選択</td><td>Kanban / プル生産方式</td><td>後工程が必要な分だけ前工程から引っ張る</td></tr>
+            <tr><td>Continuous Integration / テスト自動化</td><td>Poka-yoke(ポカヨケ・誤りを未然に防ぐ仕組み)</td><td>人的ミスを仕組みで未然に防ぐ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>新しいチームに Scrum を導入する際、いきなり"儀式"として events を教えるのではなく、それぞれの event がどの Lean の課題を解決するために存在するのかをセットで説明すると、形骸化を防ぎやすくなります。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Category 2: Scrum Master Core Competencies ===================== -->
+    <section id="category-2-core-competencies">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 07</div>
+      <h2>カテゴリ2: Scrum Master Core Competencies (LO 2.1&ndash;2.8)</h2>
+
+      <p>このカテゴリは「Facilitation(ファシリテーション)」と「Coaching and Training(コーチングとトレーニング)」の2つのサブカテゴリで構成されています。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p><strong>原文の注記:</strong>Scrum Alliance の公式 Learning Objectives PDF(2022年1月版)では、リモート会議のファシリテーションに関する学習目標が誤って「2.2」として重複表記されています(本来は 2.4 であると推測されます)。本ガイドでは、内容の一貫性を保つため便宜的に<strong>2.4</strong>として扱います。</p>
+      </div>
+
+      <h3>6.1 Facilitation(ファシリテーション)</h3>
+
+      <h4>LO 2.1: オープンディスカッションに代わる少なくとも3つの選択肢を使い分けられる</h4>
+
+      <p>「とりあえず自由に話し合ってください」というオープンディスカッションは、発言力の強い人に議論が支配されやすいという弱点があります。CSP-SM レベルのスクラムマスターは、目的に応じて以下のような代替手法を使い分ける必要があります。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FACILITATION_CHOICE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">オープンディスカッションに代わるファシリテーション技法の選び方</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>手法</th><th>特徴</th></tr></thead>
+          <tbody>
+            <tr><td>1-2-4-All(Liberating Structures の代表的な手法)</td><td>個人思考→ペア→4人グループ→全体共有と段階的に広げることで、発言力に関係なく全員のアイデアを引き出す</td></tr>
+            <tr><td>ドット投票(Dot Voting)</td><td>多数の選択肢から優先順位をつける際、声の大きさではなく"票数"で可視化する</td></tr>
+            <tr><td>ラウンドロビン</td><td>発言順を機械的に固定することで、発言の少ないメンバーにも均等に機会を与える</td></tr>
+            <tr><td>フィッシュボウル</td><td>内側の少人数が議論し、外側のメンバーは観察→交代する形式。大人数での深い議論に有効</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>LO 2.2: 包摂的な解決策の醸成を支援するために少なくとも3つの行動を特定できる</h4>
+
+      <p>ファシリテーターが「中立」を保ちながらも、声の小さいメンバーの意見を積極的に引き出すための行動には以下があります。</p>
+
+      <ul>
+        <li><strong>発言時間の可視化・均等化:</strong>タイマーや発言回数のトラッキングを用いて、特定の人に発言が偏っていないかを可視化する。</li>
+        <li><strong>明示的な招待(Explicit Invitation):</strong>「〇〇さんはどう思いますか?」と名指しで意見を求める(ただし安全な場が前提)。</li>
+        <li><strong>発散と収束を分ける:</strong>アイデア出し(発散)と意思決定(収束)のフェーズを明確に分離し、早すぎる評価によってアイデアが潰されるのを防ぐ。</li>
+        <li><strong>心理的安全性の土台づくり:</strong>会議冒頭でグラウンドルールを共有し、「反対意見・少数意見は歓迎される」という空気を明示的に作る。</li>
+      </ul>
+
+      <h4>LO 2.3: 協働セッションのために少なくとも3つのビジュアルファシリテーション技法を適用できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td>アフィニティマッピング(親和図法)</td><td>付箋を使ってアイデアをグルーピングし、共通のテーマを発見する</td></tr>
+            <tr><td>ホワイトボード/デジタルボードでのフローの可視化</td><td>プロセスの流れやユーザージャーニーを描き、認識を揃える</td></tr>
+            <tr><td>グラフィックレコーディング / スケッチノート</td><td>議論の内容をその場で文字・図・アイコンとして描き出し、参加者が「今どこまで何を話したか」を目で追える状態にする。発言が絵として残るため、認識のズレを議論中に発見しやすくなる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>なお、視覚化の技法そのものではありませんが、協働セッションの「型」を選ぶ引き出しとして<strong>Liberating Structures</strong>も併せて知っておくと有用です。これは Henri Lipmanowicz と Keith McCandless によって開発された、参加と協働を促すための一連の"マイクロストラクチャー(微細構造)"群で、「1-2-4-All」「Troika Consulting」「W³(What, So What, Now What)」など、目的別に設計された33以上の構造が含まれます。従来の会議形式(円卓での自由討議、一方的なプレゼンなど)に代わる、より包摂的な相互作用パターンを提供します。</p>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>いきなり複雑な Liberating Structures を導入するのではなく、まず「1-2-4-All」のようなシンプルな構造から低リスクな社内会議で試し、目的と手順を明確に説明してから導入することが推奨されます。</p>
+      </div>
+
+      <h4>LO 2.4: リモート会議をファシリテーションするための少なくとも3つのプラクティスを特定できる</h4>
+
+      <p>リモート会議では、対面会議以上に「発言できない・観察されている感覚がない」という課題が顕在化します。</p>
+
+      <ul>
+        <li>ブレイクアウトルームを活用し、少人数での対話機会を意図的に作る。</li>
+        <li>Miro / Mural などのデジタルホワイトボードで、非同期的にも書き込める場を用意する。</li>
+        <li>カメラON/OFFのノームを明確化し、心理的な安全性とのバランスを取る。</li>
+        <li>チャットでの匿名的な意見表明や、デジタルドット投票ツールを併用し、発言のハードルを下げる。</li>
+        <li>タイムボックスをより厳密に管理し、リモート特有の"間延び"を防ぐ。</li>
+      </ul>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>リモートファシリテーションでは「参加者が受動的になりやすい」という前提に立ち、5〜10分に一度は何らかのインタラクション(投票、チャット入力、ブレイクアウト等)を挟む設計にすることが推奨されます。</p>
+      </div>
+
+      <h3>6.2 Coaching and Training(コーチングとトレーニング)</h3>
+
+      <h4>LO 2.5: コーチング・アグリーメントを作成できる</h4>
+
+      <p>International Coaching Federation(ICF)の Core Competencies では、「Establishes and Maintains Agreements(合意の確立と維持)」がコアコンピテンシーの1つとして定義されています。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"Partners with the client and relevant stakeholders to create clear agreements about the coaching relationship, process, plans and goals. Establishes agreements for the overall coaching engagement as well as those for each coaching session."</p>
+      </div>
+
+      <p>コーチング・アグリーメントには2つの階層があります。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_COACHING_AGREEMENT_LEVELS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">コーチング・アグリーメントの2つの階層</div>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Scrum Master がチームメンバーやプロダクトオーナーに対してコーチング的な関わりを始める際、"何を目的に、どのくらいの頻度で、何をもって成功とするか"を最初に明示的に合意することで、後々の期待値のズレを防げます。</p>
+      </div>
+
+      <h4>LO 2.6: 少なくとも2つの基本的なコーチングの前提を議論できる</h4>
+
+      <p>コーチングにおいて広く共有されている基本的な前提(assumption)には以下のようなものがあります。</p>
+
+      <ul>
+        <li><strong>クライアントは答えを持っている(The client has the answer):</strong>コーチはアドバイスや答えを与える存在ではなく、クライアント自身が持つ答えを引き出すパートナーである。</li>
+        <li><strong>コーチングはメンタリング/コンサルティングとは異なる:</strong>コーチは特定の専門知識を教える立場(メンター/コンサルタント)ではなく、クライアントの思考プロセスを支援する、非指示的(non-directive)な立場である。</li>
+      </ul>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Scrum Master は「問題を解決してあげる人」ではなく「チームが自ら問題を解決できるよう問いかける人」であるという自覚を持つことが重要です。特に経験豊富なエンジニア出身の Scrum Master は、つい答えを教えたくなる衝動を自覚的に抑える訓練が必要です。</p>
+      </div>
+
+      <h4>LO 2.7: 個人の行動変容を促す少なくとも3つの基礎的な心理学的概念を挙げられる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>概念</th><th>提唱者・出典</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Self-Determination Theory(自己決定理論)</td><td>Edward Deci &amp; Richard Ryan</td><td>人の内発的動機づけは<strong>自律性(Autonomy)・有能感(Competence)・関係性(Relatedness)</strong>の3つの心理的欲求が満たされることで高まる</td></tr>
+            <tr><td>Growth Mindset(成長マインドセット)</td><td>Carol Dweck</td><td>能力は固定的ではなく努力によって伸ばせるという信念を持つことで、挑戦への姿勢や学習意欲が変わる</td></tr>
+            <tr><td>行動変容モデル(Habit Loop / 行動デザイン)</td><td>習慣形成に関する行動科学の知見</td><td>きっかけ(Cue)・ルーティン(Routine)・報酬(Reward)の3要素で行動ループを捉え、小さな行動変化を積み重ねる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>チームの自律性を尊重する(マイクロマネジメントをしない)、失敗を学習の機会として扱う(成長マインドセットを体現する)、そして新しい行動(例: 朝会での積極的な発言)を促す際は"きっかけ"を意図的に設計する、といった具体的な介入に応用できます。</p>
+      </div>
+
+      <h4>LO 2.8: Scrum またはアジャイルに関連する少なくとも1つのトピックを開発し、教えられる</h4>
+
+      <p>CSP-SM 保持者は、単に学ぶだけでなく<strong>教える側に回る経験</strong>が求められます。</p>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス(ミニトレーニング設計のステップ)</div>
+        <ol>
+          <li>Bloom's Taxonomy を使って、参加者に「何ができるようになってほしいか」を動詞で明確化する(例:「Retrospective の3つの手法を比較できる」)。</li>
+          <li>参加者の事前知識レベルを想定し、レクチャー・ワークショップ・ケーススタディなど適切な手法を選ぶ。</li>
+          <li>小規模な社内勉強会でドライランを行い、フィードバックを得る。</li>
+          <li>実施後、参加者からのフィードバックをもとに教材を改訂する。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Category 3: Service to the Scrum Team ===================== -->
+    <section id="category-3-service-to-scrum-team">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 08</div>
+      <h2>カテゴリ3: Service to the Scrum Team (LO 3.1&ndash;3.6)</h2>
+
+      <h3>7.1 Team Dynamics(チームダイナミクス)</h3>
+
+      <h4>LO 3.1: チーム開発に関する少なくとも2つの異なるモデルを評価できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>モデル</th><th>提唱者</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Tuckman モデル</td><td>Bruce Tuckman</td><td>チームは<strong>Forming(形成期)→ Storming(混乱期)→ Norming(統一期)→ Performing(機能期)→(Adjourning: 解散期)</strong>という段階を経て発展する</td></tr>
+            <tr><td>Five Dysfunctions of a Team(チームの5つの機能不全)</td><td>Patrick Lencioni(2002年)</td><td>チームの機能不全を<strong>信頼の欠如 → 対立への恐れ → コミットメントの欠如(Lack of Commitment) → 説明責任の回避 → 結果への無関心</strong>という5層のピラミッドで説明する</td></tr>
+            <tr><td>Project Aristotle(プロジェクト・アリストテレス)</td><td>Google re:Work チーム</td><td>180のチームを調査した結果、チームの効果性を決める最も重要な要因は<strong>心理的安全性(Psychological Safety)</strong>であり、次いで「信頼性」「構造と明確さ」「意味」「インパクト」が続くと結論づけた</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TUCKMAN_MODEL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Tuckman モデルのチーム発展段階</div>
+      </div>
+
+      <p>Lencioni の5つの機能不全モデルと、Google の Project Aristotle は、いずれも<strong>信頼・心理的安全性を土台とする</strong>という点で強く共鳴しています。Tuckman モデルも、チームが Storming(対立)を経なければ Norming や Performing に到達できないとしており、健全な対立(=心理的安全性があるからこそ表面化する対立)の重要性を示唆しています。</p>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>新しいチームが Storming フェーズにいることを Scrum Master が認識し、「対立を無理に抑え込む」のではなく「安全に対立できる場(Working Agreement の合意など)」を設計することが、チームを Norming/Performing に導く近道です。</p>
+      </div>
+
+      <h4>LO 3.2: チームの効果性を改善する少なくとも3つの技法を比較できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Working Agreement(作業合意)の明文化</td><td>チームの行動規範(コアタイム、レビューのルール等)を明文化し、定期的に見直す</td></tr>
+            <tr><td>Retrospective の手法バリエーション</td><td>Start-Stop-Continue、Sailboat、4Ls など、目的に応じて手法を変えることでマンネリを防ぎ改善のインパクトを高める</td></tr>
+            <tr><td>ペア/モブプログラミング</td><td>知識の属人化を防ぎ、リアルタイムでのフィードバックループを短縮する</td></tr>
+            <tr><td>心理的安全性を高める具体的プラクティス</td><td>失敗を祝う("Fail Party")、Blameless Postmortem(非難のない振り返り)の実施など</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.2 Scrum Teams(スクラムチーム)</h3>
+
+      <h4>LO 3.3: 新しい Scrum チームを結成する際の、Scrum チームメンバーとステークホルダーの少なくとも5つの責任を説明できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>関係者</th><th>新チーム結成時の責任の例</th></tr></thead>
+          <tbody>
+            <tr><td>Product Owner</td><td>Product Goal の明確化とステークホルダーへの伝達、初期 Product Backlog の準備</td></tr>
+            <tr><td>Developers</td><td>必要なスキルセットの自己評価、Definition of Done の合意への参加</td></tr>
+            <tr><td>Scrum Master</td><td>チームの立ち上げプロセスのファシリテーション、組織的な障害の除去</td></tr>
+            <tr><td>スポンサー/マネジメント層</td><td>チームの権限委譲(意思決定の範囲の明確化)、必要なリソースの確保</td></tr>
+            <tr><td>ステークホルダー</td><td>定期的な Sprint Review への参加と誠実なフィードバックの提供</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>LO 3.4: 新しい Scrum チームの立ち上げを計画できる</h4>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_NEW_TEAM_LAUNCH_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">新しい Scrum チームの立ち上げプロセス</div>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>チーム立ち上げの最初の1〜2 Sprint は、通常のベロシティを求めず「チームとしての合意形成」に投資時間を割くことをステークホルダーに事前合意しておくと、立ち上げ初期の心理的プレッシャーを減らせます。</p>
+      </div>
+
+      <h4>LO 3.5: プロダクトの成功に必要なスキル・能力のギャップを埋める戦略を提案できる</h4>
+
+      <ul>
+        <li><strong>T字型スキルの育成:</strong>専門性(縦棒)を保ちながら、隣接領域への理解(横棒)を広げるペアプログラミングやジョブローテーションを設計する。</li>
+        <li><strong>プラクティス・コミュニティ(Community of Practice)の設立:</strong>職能横断で同じ専門性を持つ人が定期的に知見を共有する場を設ける。</li>
+        <li><strong>一時的な専門家の埋め込み(Embedding):</strong>不足するスキル(例: セキュリティ専門家)を一定期間チームに参加させ、ノウハウを移転する。</li>
+        <li><strong>教育投資予算の確保:</strong>トレーニングや資格取得支援の予算をスプリントの計画に組み込む。</li>
+      </ul>
+
+      <h4>LO 3.6: ソフトウェアクラフトマンシップの少なくとも1つの要素が自分の仕事にどう適用されるかを説明できる</h4>
+
+      <p><strong>Manifesto for Software Craftsmanship</strong>(ソフトウェアクラフトマンシップ宣言)は、Agile Manifesto の4つの価値観を土台としつつ、次のような対比構造で"職人としての専門性"を強調する宣言です。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"Not only working software, but also well-crafted software. Not only responding to change, but also steadily adding value. Not only individuals and interactions, but also a community of professionals. Not only customer collaboration, but also productive partnerships."</p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Software Craftsmanship の価値観</th><th>Scrum チームでの適用例</th></tr></thead>
+          <tbody>
+            <tr><td>Well-crafted software(洗練されたソフトウェア)</td><td>リファクタリング、コードレビュー、技術的負債の可視化と計画的な返済</td></tr>
+            <tr><td>Steadily adding value(着実な価値の積み上げ)</td><td>機能追加だけでなく保守性・パフォーマンスの改善も価値として扱う</td></tr>
+            <tr><td>Community of professionals(専門家コミュニティ)</td><td>社内外の勉強会・カンファレンス登壇を通じた技術コミュニティへの貢献</td></tr>
+            <tr><td>Productive partnerships(生産的パートナーシップ)</td><td>顧客・ステークホルダーとの単なる契約関係を超えた、共創的な関係構築</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Scrum Master がソフトウェアエンジニアリング出身である場合、Definition of Done に「クラフトマンシップの視点(テスト網羅性、コードの可読性など)」を組み込むようチームと合意形成することが、技術的卓越性と Scrum の両立に貢献します。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 8. Category 4: Service to the Product Owner ===================== -->
+    <section id="category-4-service-to-product-owner">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 09</div>
+      <h2>カテゴリ4: Service to the Product Owner (LO 4.1&ndash;4.2)</h2>
+
+      <h3>8.1 LO 4.1: Product Goal から Product Backlog へ移行するための少なくとも2つの技法を適用できる</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>提唱者</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>User Story Mapping(ユーザーストーリーマッピング)</td><td>Jeff Patton</td><td>ユーザーの行動フロー(バックボーン)に沿ってストーリーを並べ、リリース単位で優先順位づけをする。Product Goal という"大きな物語"を、実行可能なバックログアイテムへと段階的に分解できる</td></tr>
+            <tr><td>Impact Mapping(インパクトマッピング)</td><td>Gojko Adzic</td><td>「なぜ(Why=ゴール)」「誰が(Who=アクター)」「どう変わってほしいか(How=インパクト)」「何を作るか(What=成果物)」の4階層でマインドマップを構築し、ゴールと施策の因果関係を明示する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PRODUCT_GOAL_TO_BACKLOG" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Product Goal から Product Backlog への分解</div>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Product Goal が抽象的すぎてチームがバックログ項目に落とし込めない場合、Scrum Master は Product Owner に対して Impact Mapping のようなファシリテーション技法を提案し、"ゴールと施策のつながり"を可視化するワークショップを開催することができます。</p>
+      </div>
+
+      <h3>8.2 LO 4.2: 複雑・複数チームの Product Backlog を構造化するための少なくとも3つの基準を評価できる</h3>
+
+      <p>複数チームが1つのプロダクトに関わる場合、単一の Product Backlog をどう構造化するかが課題になります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>構造化の基準</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>コンポーネント別 vs フィーチャー別</td><td>技術コンポーネント(例:認証基盤、決済基盤)で分けるか、顧客に価値を届けるフィーチャー単位で分けるかの選択</td></tr>
+            <tr><td>顧客ジャーニー別</td><td>エンドユーザーの体験フロー(例: 検索→購入→配送)を軸にバックログを構造化する</td></tr>
+            <tr><td>依存関係の最小化</td><td>チーム間の依存を最小化する形でバックログ項目を分割する(Nexus/LeSS でも共通して重視される観点)</td></tr>
+            <tr><td>プロダクト全体の単一バックログ原則</td><td>Nexus では「単一の Product Owner が単一の Product Backlog を管理する」ことが定義されており、LeSS でも同様に単一プロダクトバックログの原則がある</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>複数チームのバックログを構造化する際は、まず「なぜ複数チームなのか(=1チームでは扱いきれないスコープなのか)」を確認したうえで、依存関係を可視化するワークショップ(例: Nexus Sprint Backlog のようなクロスチーム依存の可視化)を定期的に実施することが推奨されます。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 9. Category 5: Service to the Organization ===================== -->
+    <section id="category-5-service-to-organization">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 10</div>
+      <h2>カテゴリ5: Service to the Organization (LO 5.1&ndash;5.7)</h2>
+
+      <h3>9.1 Organizational Development(組織開発)</h3>
+
+      <h4>LO 5.1: 組織の Scrum 導入を助ける少なくとも2つの体系的アプローチを比較できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アプローチ</th><th>提唱者/出典</th><th>特徴</th></tr></thead>
+          <tbody>
+            <tr><td>Kotter's 8-Step Change Model</td><td>John Kotter(<em>Leading Change</em>, 1996)</td><td>トップダウン型。危機感の醸成 → 推進チームの結成 → ビジョンの策定 → ビジョンの伝達 → 障害の除去 → 短期的成果の創出 → 更なる変革の推進 → 変革の定着、という8段階で<strong>組織レベル</strong>の変革を主導する</td></tr>
+            <tr><td>Prosci ADKAR モデル</td><td>Jeff Hiatt(Prosci)</td><td>個人レベルの変化を扱うモデル。Awareness(認識)→ Desire(欲求)→ Knowledge(知識)→ Ability(能力)→ Reinforcement(定着)という<strong>個人レベル</strong>の変化を積み上げる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_KOTTER_ADKAR_COMPARISON" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Kotter 8-Step と ADKAR の対比</div>
+      </div>
+
+      <p>両モデルは対立するものではなく、しばしば組み合わせて使われます。Kotter が組織としての変革のロードマップを描き、ADKAR がその中で個々人が実際に変化を受け入れるプロセスを支援する、という補完関係にあります。</p>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>大規模な Scrum 導入では、経営層への説明は Kotter の枠組み(なぜ今、危機感があるのか)で行い、現場のチームメンバーへの働きかけは ADKAR の枠組み(この変化が自分にとって何を意味するのか)で行うと、両方の層に響くコミュニケーションが可能になります。</p>
+      </div>
+
+      <h4>LO 5.2: 組織的な障害の根本原因に対処する複雑な介入について、自分のアプローチを分析できる</h4>
+
+      <p>根本原因分析(Root Cause Analysis)の代表的な手法が<strong>「なぜなぜ分析(5 Whys)」</strong>です。これはトヨタの豊田佐吉が考案し、大野耐一がトヨタ生産方式の科学的アプローチの基礎として体系化した手法です。</p>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"The basis of Toyota's scientific approach is to ask 'why' five times whenever we find a problem. By repeating, the problem &mdash; as well as its solution &mdash; becomes clear." &mdash; 大野耐一</p>
+      </div>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FIVE_WHYS_EXAMPLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">5 Whys による根本原因分析の例</div>
+      </div>
+
+      <p>5 Whys を実践する際の重要な原則として、「個人を根本原因にしない("〇〇さんのミス"で終わらせない)」というルールがあります。あくまでプロセスや構造的な要因を掘り下げることが目的です。</p>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>5 Whys は必ずしも"ちょうど5回"である必要はなく、構造的な根本原因にたどり着くまで柔軟に回数を調整してよいとされています。複雑な問題には、5 Whys に加えてフィッシュボーン図(特性要因図)のような複数要因を並行して扱える手法を組み合わせることも有効です。</p>
+      </div>
+
+      <h4>LO 5.3: チームや組織の文化をどう変えたかについて、少なくとも2つの具体例を要約できる</h4>
+
+      <p>CSP-SM 保持者には、自分自身が実際に組織文化の変化を主導した経験を言語化することが求められます。以下は文化変化を可視化・言語化する際の観点の例です。</p>
+
+      <ul>
+        <li><strong>可視化できる行動変化の例:</strong>Blameless Postmortem の導入により、インシデント後の議論が「誰が悪いか」から「何を学べるか」に変わった、など。</li>
+        <li><strong>可視化できる構造変化の例:</strong>評価制度を個人目標から「チームの成果」に変更したことで、知識の抱え込みが減りペアプログラミングが自然発生するようになった、など。</li>
+      </ul>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>文化変化を語る際は、「〇〇を導入した」という施策だけでなく、「その結果、どのような行動やメトリクスが変化したか」までセットで語れるようにしておくことが、コーチングやトレーニングの説得力を高めます。</p>
+      </div>
+
+      <h4>LO 5.4: 最新の Scrum の定義を採用することで、自分の Scrum チーム・組織がどのように便益を得られるかを評価できる</h4>
+
+      <p>2020年版 Scrum Guide は、2017年版から大きく次のような変更を行いました。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>変更点</th><th>2017年版</th><th>2020年版</th></tr></thead>
+          <tbody>
+            <tr><td>チーム構造</td><td>Scrum Team の内部に"Development Team"というサブチームが存在</td><td>サブチームを廃止し、Product Owner・Scrum Master・Developers からなる<strong>単一の Scrum Team</strong>に統合</td></tr>
+            <tr><td>自律性の表現</td><td>Development Team は"self-organizing"(自己組織化)</td><td>Scrum Team 全体が"self-managing"(自己管理)&mdash; 誰が・どのように・<strong>何を</strong>行うかまで自分たちで決める</td></tr>
+            <tr><td>コミットメント(Commitments)</td><td>明示的な定義なし</td><td>Product Backlog に<strong>Product Goal</strong>、Sprint Backlog に<strong>Sprint Goal</strong>、Increment に<strong>Definition of Done</strong>という「コミットメント」が明示的に追加された</td></tr>
+            <tr><td>記述のスタイル</td><td>より規範的(prescriptive)</td><td>よりシンプルで簡潔な言語に整理され、ソフトウェア以外の領域にも適用しやすい記述に</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>"The Product Goal describes a future state of the product which can serve as a target for the Scrum Team to plan against." &mdash; Scrum Guide 2020</p>
+      </div>
+
+      <p>これらの変更は、単なる用語の言い換えではありません。特に「Development Team というサブチームの廃止」は、Product Owner と Developers の間に生まれがちな"us vs. them"という対立構造を解消し、Scrum Team 全体が同じ目的に向かって一体となることを狙ったものです。</p>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>まだ2017年版の用語("self-organizing"、"Development Team")でチームを運営している組織に対しては、単に用語を置き換えるのではなく、「なぜこの変更が行われたのか」という設計思想("us vs. them"構造の解消、Product Goal によるチームの求心力向上)まで含めて説明することで、形だけの移行を防げます。</p>
+      </div>
+
+      <h3>9.2 Scaling Scrum(スクラムのスケーリング)</h3>
+
+      <h4>LO 5.5: Product Owner ロールをスケールする少なくとも2つのパターンを対比できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>フレームワーク</th><th>Product Owner のスケーリングパターン</th></tr></thead>
+          <tbody>
+            <tr><td>Nexus(Scrum.org)</td><td><strong>単一の Product Owner</strong>が、単一の Product Backlog を管理し、3〜9チームで構成される Nexus 全体に対して責任を持つ。Nexus Integration Team の一員でもある</td></tr>
+            <tr><td>LeSS(Large-Scale Scrum)</td><td>標準の LeSS では<strong>単一の Product Owner</strong>が全体のプロダクトバックログに責任を持つ。さらに大規模な<strong>LeSS Huge</strong>(LeSS の拡張形態)になった場合にのみ、"Area Product Owner"という概念が導入され、要求エリアごとの優先順位付けを担当する</td></tr>
+            <tr><td>Scrum@Scale</td><td><strong>Chief Product Owner(CPO)</strong>が、複数チームの Product Owner から構成される"MetaScrum"を率い、単一の全体バックログの優先順位を調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PO_SCALING_PATTERNS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">Product Owner ロールのスケーリングパターン(Nexus と Scrum@Scale)</div>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>どのパターンを採用するかは、組織の規模・成熟度・文化に依存します。3〜9チーム程度の単一プロダクトであれば Nexus のようなシンプルな単一PO構造から始め、規模が拡大するにつれて Scrum@Scale の MetaScrum のような"PO 同士のScrumチーム"を設計する、という段階的な移行が現実的です。</p>
+      </div>
+
+      <h4>LO 5.6: チーム間協働を改善する少なくとも3つの技法を実験できる</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Scrum of Scrums</td><td>各チームの代表者が定期的に集まり、依存関係や課題を共有する(Scrum@Scale の"Scrum of Scrums Master"が象徴的な役割)</td></tr>
+            <tr><td>Nexus Integration Team</td><td>統合作業に必要なスキルと知識に基づいて選ばれた Nexus Integration Team Members が、複数チームの成果物の統合責任を持つ。各チームからの固定的な代表者ではなく、Nexus の状況に応じて構成を変更できる</td></tr>
+            <tr><td>Communities of Practice(実践コミュニティ)</td><td>職能横断で知見を共有する場を設け、暗黙知の共有と標準化を進める</td></tr>
+            <tr><td>共有 Definition of Done</td><td>複数チームが同じ品質基準を持つことで、統合時の手戻りを減らす</td></tr>
+            <tr><td>Open Space Technology</td><td>大人数が集まる場で、参加者自身がアジェンダを作り議論するオープンな形式のイベント</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>LO 5.7: 複数の Scrum チームの立ち上げを計画できる</h4>
+
+      <p>複数チームの立ち上げは、単一チームの立ち上げ(LO 3.4)に加えて、次のような組織設計上の考慮が必要です。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_MULTI_TEAM_LAUNCH_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">複数の Scrum チームの立ち上げプロセス</div>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>複数チームを一度に立ち上げるのではなく、まず1〜2チームで Scrum を軌道に乗せてから段階的にチームを追加していく("start small"の原則)ことが、LeSS の原則にも通じる現実的なアプローチです。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Category 6: Advanced Scrum Mastery ===================== -->
+    <section id="category-6-advanced-scrum-mastery">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 11</div>
+      <h2>カテゴリ6: Advanced Scrum Mastery (LO 6.1&ndash;6.2)</h2>
+
+      <h3>10.1 LO 6.1: スクラムマスタリーに向けた個人開発戦略の概要を描ける</h3>
+
+      <p>CSP-SM は「ゴール」ではなく、Scrum Master としてのキャリアにおける通過点です。個人開発戦略を描く際に有効な考え方の1つが、武道由来の<strong>守破離(Shu-Ha-Ri)</strong>です。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SHU_HA_RI_MODEL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中…</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="diagram-caption">守破離によるスクラムマスタリーの成長段階</div>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス(個人開発戦略の設計ステップ)</div>
+        <ol>
+          <li>現在地を自己評価する(Facilitation / Coaching / Teaching / Mentoring / Technical の各領域でのスキルレベル)。</li>
+          <li>Comparative Agility のような組織診断ツールや、360度フィードバックを活用して他者評価とのギャップを把握する。</li>
+          <li>短期(半年)・中期(1〜2年)・長期(3年以上、CST 等)の目標を設定する。なお CEC・CTC は 2025年1月6日をもって新規申請の受付を停止した既存資格であり、後継の Certified Agility Consultant (CAC) プログラムは開発中でまだ申請できないため、長期目標として設定する際は最新の状況を確認すること。</li>
+          <li>SEU(Scrum Education Units)の獲得計画を、単なる資格維持のノルマではなく、実際の学習計画として設計する。</li>
+        </ol>
+      </div>
+
+      <h3>10.2 LO 6.2: 誰かをメンタリングする経験を積める</h3>
+
+      <p>コーチング・ティーチング・メンタリングは似て非なる関わり方です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>関わり方</th><th>特徴</th></tr></thead>
+          <tbody>
+            <tr><td>Teaching(ティーチング)</td><td>知識やスキルを直接教える。指示的(directive)</td></tr>
+            <tr><td>Mentoring(メンタリング)</td><td>自身の経験に基づき、助言やキャリア的な視点を提供する。指示的な要素と非指示的な要素の両方を含む</td></tr>
+            <tr><td>Coaching(コーチング)</td><td>答えを与えず、問いかけによって相手自身の答えを引き出す。基本的に非指示的(non-directive)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>メンタリング関係を始める際も、LO 2.5 で触れたコーチング・アグリーメントと同様に、「何を目的に」「どのくらいの頻度で」関わるかを明示的に合意することが推奨されます。CSP-SM 取得後は、A-CSM や CSM を目指す後進のメンターになることで、このLOの実践を継続できます。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Best Practices Summary ===================== -->
+    <section id="best-practices-summary">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 12</div>
+      <h2>ベストプラクティス総まとめ</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>カテゴリ</th><th>重要なベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td>Lean, Agile, and Scrum</td><td>Scrum の各 event を Lean の原則(JIT, Jidoka, Kaizen 等)に接続して説明できるようにする。Value Stream Mapping で"見えないムダ"を可視化する</td></tr>
+            <tr><td>Facilitation</td><td>目的に応じてオープンディスカッション以外の手法(1-2-4-All、ドット投票、フィッシュボウル等)を使い分ける。リモート会議では能動的なインタラクションを頻繁に挟む</td></tr>
+            <tr><td>Coaching and Training</td><td>コーチング・アグリーメントを明示的に結ぶ。答えを与えるのではなく問いかける。SDT(自律性・有能感・関係性)を意識した関わりをする</td></tr>
+            <tr><td>Service to the Scrum Team</td><td>新チーム立ち上げ初期はベロシティより合意形成に投資する。心理的安全性を土台に Storming を安全に経験させる</td></tr>
+            <tr><td>Service to the Product Owner</td><td>Impact Mapping / User Story Mapping で Product Goal をバックログへ分解する。複数チームバックログは依存関係最小化を軸に構造化する</td></tr>
+            <tr><td>Service to the Organization</td><td>Kotter(組織)と ADKAR(個人)を組み合わせて変革を進める。5 Whys で個人ではなく構造的な根本原因を掘り下げる</td></tr>
+            <tr><td>Scaling Scrum</td><td>Nexus / LeSS / Scrum@Scale の PO スケーリングパターンを組織の成熟度に応じて選ぶ。複数チームはスモールスタートで段階的に拡大する</td></tr>
+            <tr><td>Advanced Scrum Mastery</td><td>守破離のフレームで自身の成長段階を自己評価する。メンタリング関係にもアグリーメントの概念を適用する</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Misconceptions and Antipatterns ===================== -->
+    <section id="misconceptions-and-antipatterns">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 13</div>
+      <h2>よくある誤解・アンチパターン</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤解・アンチパターン</th><th>実際には</th></tr></thead>
+          <tbody>
+            <tr><td>Scrum Master は「ファシリテーターであればよい」</td><td>CSP-SM レベルでは、ファシリテーションに加えてコーチング・組織開発・スケーリングまで幅広い専門性が求められる</td></tr>
+            <tr><td>5 Whys は必ず正確に5回質問する手法である</td><td>5回は目安であり、根本原因(多くは構造的・プロセス的な要因)にたどり着くまで柔軟に回数を調整してよい</td></tr>
+            <tr><td>コーチングは「アドバイスを親身に与えること」</td><td>専門的な意味でのコーチングは非指示的(non-directive)であり、答えを与えるのではなく問いかけによって相手自身の答えを引き出すことを指す</td></tr>
+            <tr><td>Scrum Guide 2020 は Development Team という言葉を単に言い換えただけ</td><td>Development Team というサブチームの概念自体を廃止し、Product Owner と Developers の間の"us vs. them"構造を解消することが本質的な狙い</td></tr>
+            <tr><td>複数チームのスケーリングでは Product Owner も人数を増やせばよい</td><td>Nexus・LeSS・Scrum@Scale いずれも「単一の全体バックログ」という原則を維持しながら、Product Owner 間の調整の仕組み(Nexus Integration Team、MetaScrum 等)を設計することが本質</td></tr>
+            <tr><td>A-CSM を取得すればすぐに CSP-SM の認定証がもらえる</td><td>コース受講自体は24か月の実務経験がなくても可能だが、<strong>認定証の発行には</strong>過去5年以内で24か月以上の Scrum Master 実務経験の記録・検証が必須</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Career Path ===================== -->
+    <section id="career-path">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:calendar-event" aria-hidden="true" />SECTION 14</div>
+      <h2>認定後のキャリアパス</h2>
+
+      <p>CSP-SM 取得後のキャリアパスとして、Scrum Alliance 公式サイトでは以下が挙げられています。</p>
+
+      <ul>
+        <li><strong>Certified Scrum Trainer®(CST®):</strong>Scrum Alliance の認定コースを教えるトレーナーへの道</li>
+        <li><strong>Certified Team Coach(CTC)/ Certified Enterprise Coach™(CEC™):</strong>チーム〜エンタープライズレベルのアジャイルコーチへの道</li>
+      </ul>
+
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p><strong>重要な注記(2025年以降の変更):</strong>Scrum Alliance の公式ヘルプセンターによると、CTC・CEC のアプリケーションポータルは<strong>2025年1月6日をもって新規申請を停止</strong>しており(すでに認定を受けており、かつ認定が有効期限内=アクティブな保持者に限り、バッジの表示と認定の保持を継続できます。失効した認定が引き続き有効になるわけではありません)、後継となる<strong>Certified Agility Consultant(CAC)</strong>プログラムは現在も開発中であり、申請可能なパスとしてはまだ開始されていません。CSP-SM の公式紹介ページでは依然として CTC/CEC が"次のステップ"として案内されていますが、実際に CTC/CEC/CAC のキャリアパスを検討する際は、Scrum Alliance のヘルプセンターで最新の状況を確認することを強く推奨します。</p>
+      </div>
+
+      <h3>13.1 資格の維持(SEU と更新)</h3>
+
+      <ul>
+        <li>Scrum Alliance の資格は<strong>2年ごとの更新</strong>が必要です。</li>
+        <li>更新には Scrum Education Units(SEU)の取得が必要で、記事の閲読・イベント参加・ボランティア活動など「学習に費やした1時間 = 1 SEU」として計算されます。</li>
+        <li>CSP レベル(CSP-SM を含む)の更新には、専門レベル(Professional-level)の更新料が必要です(2年ごとに専門レベルは基礎レベル・上級レベルより高い更新料が設定されています)。</li>
+        <li>CSP-SM の場合、標準的な更新ルートは<strong>2年ごとに 40 SEU の取得と 250 米ドルの更新料の支払い</strong>です(金額は2026年9月1日時点で確認したもの。最新の金額は Scrum Alliance 公式サイトで確認してください)。</li>
+        <li>代替ルートとして、更新サイクル中に<strong>Scrum Alliance の認定コースを修了する</strong>と、SEU の提出も更新料の支払いも行わずに資格が更新されます。</li>
+        <li>CSP-SM 保持者は、Scrum Alliance が提供する世界最大級のアジャイルアセスメント・継続的改善プラットフォームである<strong>Comparative Agility®</strong>のプレミアムサブスクリプションを無料で利用できます。</li>
+      </ul>
+
+      <h3>13.2 上位資格との関係</h3>
+
+      <p>複数の Scrum Alliance 認定を保有している場合、<strong>トラック内で最上位の資格を更新すれば、下位資格は自動的に更新される</strong>仕組みになっています(例: CSM と A-CSM を両方保有していても、A-CSM を SEU で更新すれば CSM も自動更新される)。CSP-SM を更新すれば、CSM・A-CSM も連動して更新されます。</p>
+    </section>
+
+    <!-- ===================== 14. Summary ===================== -->
+    <section id="summary">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 15</div>
+      <h2>まとめ</h2>
+
+      <p>CSP-SM は、Scrum Master トラックの中で最も高度な認定資格であり、その学習範囲は以下の6つの柱で構成されています。</p>
+
+      <ol>
+        <li><strong>Lean, Agile, and Scrum:</strong>Scrum を支える思想的な土台の理解</li>
+        <li><strong>Scrum Master Core Competencies:</strong>ファシリテーションとコーチングという中核スキルの高度化</li>
+        <li><strong>Service to the Scrum Team:</strong>チームダイナミクスの理解とチーム立ち上げの実践力</li>
+        <li><strong>Service to the Product Owner:</strong>プロダクトバックログの構造化を支援する専門性</li>
+        <li><strong>Service to the Organization:</strong>組織開発とスケーリングという、より大きな系への介入力</li>
+        <li><strong>Advanced Scrum Mastery:</strong>自らのキャリアを設計し、次世代を育てる力</li>
+      </ol>
+
+      <p>これらはいずれも単独の知識としてではなく、<strong>相互に接続された1つの体系</strong>として理解することが重要です。Lean Thinking の理解がファシリテーションの設計思想を支え、チームダイナミクスの理解が組織開発の土台となり、個人の成長戦略がキャリア全体を貫く軸になります。</p>
+
+      <p>CSP-SM を取得することは、Scrum Master としての学びのゴールではなく、CST、および CEC・CTC(新規申請は停止中で、後継の Certified Agility Consultant は開発中)といった、より高度な役割へと進むための土台を築くプロセスであると言えます。</p>
+    </section>
+
+    <!-- ===================== 15. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 16</div>
+      <h2>参考文献(Sources)</h2>
+
+      <div class="ref-group">
+        <h3>Scrum Alliance 公式情報源</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">CSP-SM 公式ページ</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster</a></li>
+          <li><span class="ref-name">CSP-SM Learning Objectives(2022年1月版, PDF)</span><a class="ref-url" href="https://www.scrumalliance.org/media/certifications/los/csp_sm_learning_objectives_2022.pdf" target="_blank" rel="noopener">https://www.scrumalliance.org/media/certifications/los/csp_sm_learning_objectives_2022.pdf</a></li>
+          <li><span class="ref-name">A-CSM 公式ページ</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster</a></li>
+          <li><span class="ref-name">CSM 公式ページ</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster</a></li>
+          <li><span class="ref-name">A-CSM/A-CSPO 取得要件(Help Center)</span><a class="ref-url" href="https://support.scrumalliance.org/hc/en-us/articles/115001680252-How-do-I-earn-the-Advanced-Certified-ScrumMaster-A-CSM-or-Advanced-Certified-Scrum-Product-Owner-A-CSPO-certification" target="_blank" rel="noopener">https://support.scrumalliance.org/hc/en-us/articles/115001680252-How-do-I-earn-the-Advanced-Certified-ScrumMaster-A-CSM-or-Advanced-Certified-Scrum-Product-Owner-A-CSPO-certification</a></li>
+          <li><span class="ref-name">CSP-SM/CSP-PO を実務経験前に受講できるか(Help Center)</span><a class="ref-url" href="https://support.scrumalliance.org/hc/en-us/articles/115001681612-Can-I-take-the-CSP-SM-or-CSP-PO-course-before-I-have-the-required-work-experience" target="_blank" rel="noopener">https://support.scrumalliance.org/hc/en-us/articles/115001681612-Can-I-take-the-CSP-SM-or-CSP-PO-course-before-I-have-the-required-work-experience</a></li>
+          <li><span class="ref-name">Scrum Education Units(SEU)</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/scrum-education-units" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/scrum-education-units</a></li>
+          <li><span class="ref-name">資格の更新(Renewing Certifications)</span><a class="ref-url" href="https://www.scrumalliance.org/get-certified/renewing-certifications" target="_blank" rel="noopener">https://www.scrumalliance.org/get-certified/renewing-certifications</a></li>
+          <li><span class="ref-name">CEC/CTC プログラムの変更(Certified Agility Consultant への移行)</span><a class="ref-url" href="https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs" target="_blank" rel="noopener">https://support.scrumalliance.org/hc/en-us/articles/35971003067291-Updates-to-the-Certified-Enterprise-Coach-CEC-and-Certified-Team-Coach-CTC-programs</a></li>
+          <li><span class="ref-name">What is Scrum(Scrum Values を含む)</span><a class="ref-url" href="https://www.scrumalliance.org/about-scrum" target="_blank" rel="noopener">https://www.scrumalliance.org/about-scrum</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>Scrum / Agile の一次情報源</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Manifesto for Agile Software Development</span><a class="ref-url" href="https://agilemanifesto.org/" target="_blank" rel="noopener">https://agilemanifesto.org/</a></li>
+          <li><span class="ref-name">Scrum Guide(2020年版)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+          <li><span class="ref-name">Scrum Guide の改訂履歴</span><a class="ref-url" href="https://scrumguides.org/revisions.html" target="_blank" rel="noopener">https://scrumguides.org/revisions.html</a></li>
+          <li><span class="ref-name">Scrum Guide 2020 と 2017 の比較(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/scrum-guide-2020-and-2017-side-side-comparison" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/scrum-guide-2020-and-2017-side-side-comparison</a></li>
+          <li><span class="ref-name">Scrum Guide 2020: Product Goal の導入(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/scrum-guide-2020-update-introducing-product-goal" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/scrum-guide-2020-update-introducing-product-goal</a></li>
+          <li><span class="ref-name">Scrum Guide 2020: Self-Management(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/scrum-guide-2020-update-self-mgt-replaces-self-organization" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/scrum-guide-2020-update-self-mgt-replaces-self-organization</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>Lean Thinking / Toyota Production System</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Taiichi Ohno(Wikipedia)</span><a class="ref-url" href="https://en.wikipedia.org/wiki/Taiichi_Ohno" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Taiichi_Ohno</a></li>
+          <li><span class="ref-name">The Seven Wastes &mdash; Definition, Origins, and Structure(Art of Lean)</span><a class="ref-url" href="https://artoflean.com/topics/seven-wastes/" target="_blank" rel="noopener">https://artoflean.com/topics/seven-wastes/</a></li>
+          <li><span class="ref-name">7 Wastes of Software Development(Poppendieck の7つのムダのソフトウェア開発への適用)</span><a class="ref-url" href="https://newsletter.techworld-with-milan.com/p/software-development-waste" target="_blank" rel="noopener">https://newsletter.techworld-with-milan.com/p/software-development-waste</a></li>
+          <li><span class="ref-name">5 Whys(Mindtools)</span><a class="ref-url" href="https://www.mindtools.com/a3mi00v/5-whys/" target="_blank" rel="noopener">https://www.mindtools.com/a3mi00v/5-whys/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>ファシリテーション / コーチング</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Liberating Structures 公式サイト</span><a class="ref-url" href="https://www.liberatingstructures.com/" target="_blank" rel="noopener">https://www.liberatingstructures.com/</a></li>
+          <li><span class="ref-name">ICF Core Competencies(International Coaching Federation)</span><a class="ref-url" href="https://coachingfederation.org/credentialing/coaching-competencies/icf-core-competencies/" target="_blank" rel="noopener">https://coachingfederation.org/credentialing/coaching-competencies/icf-core-competencies/</a></li>
+          <li><span class="ref-name">Self-Determination Theory(Ryan &amp; Deci, 2000, 原著PDF)</span><a class="ref-url" href="https://selfdeterminationtheory.org/SDT/documents/2000_RyanDeci_SDT.pdf" target="_blank" rel="noopener">https://selfdeterminationtheory.org/SDT/documents/2000_RyanDeci_SDT.pdf</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>チームダイナミクス</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">The Five Dysfunctions of a Team(Wikipedia)</span><a class="ref-url" href="https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/The_Five_Dysfunctions_of_a_Team</a></li>
+          <li><span class="ref-name">Understand Team Effectiveness(Google re:Work, Project Aristotle)</span><a class="ref-url" href="https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness" target="_blank" rel="noopener">https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>ソフトウェアクラフトマンシップ</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Manifesto for Software Craftsmanship</span><a class="ref-url" href="https://manifesto.softwarecraftsmanship.org/" target="_blank" rel="noopener">https://manifesto.softwarecraftsmanship.org/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>スケーリングフレームワーク</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Online Nexus Guide(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/online-nexus-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/online-nexus-guide</a></li>
+          <li><span class="ref-name">LeSS Principles Overview</span><a class="ref-url" href="https://less.works/less/principles/overview.html" target="_blank" rel="noopener">https://less.works/less/principles/overview.html</a></li>
+          <li><span class="ref-name">Large-Scale Scrum is Scrum(LeSS)</span><a class="ref-url" href="https://less.works/less/principles/large_scale_scrum_is_scrum" target="_blank" rel="noopener">https://less.works/less/principles/large_scale_scrum_is_scrum</a></li>
+          <li><span class="ref-name">The Scrum@Scale Guide Online</span><a class="ref-url" href="https://www.scrumatscale.com/scrum-at-scale-guide-online/" target="_blank" rel="noopener">https://www.scrumatscale.com/scrum-at-scale-guide-online/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h3>組織変革</h3>
+        <ul class="ref-list">
+          <li><span class="ref-name">Kotter's Change Management Theory(Prosci)</span><a class="ref-url" href="https://www.prosci.com/blog/kotters-change-management-theory" target="_blank" rel="noopener">https://www.prosci.com/blog/kotters-change-management-theory</a></li>
+          <li><span class="ref-name">ADKAR vs Kotter(Prosci)</span><a class="ref-url" href="https://www.prosci.com/blog/adkar-vs-kotter" target="_blank" rel="noopener">https://www.prosci.com/blog/adkar-vs-kotter</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      CSP&reg;、CSP-SM&reg;、Certified Scrum Professional&reg;、Certified ScrumMaster&reg;、CSM&reg;、A-CSM&reg;、Advanced Certified ScrumMaster&reg;、CST&reg;、Scrum Alliance&reg; は Scrum Alliance, Inc. の登録商標です。本ガイドは学習支援を目的とした非公式の解説資料であり、Scrum Alliance による承認・提携関係はありません。認定制度の詳細・最新の要件・料金は必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>でご確認ください。
+    </footer>
+      </main>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.csp-sm-page {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: var(--global-nav-height);
+    left: 0;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--global-nav-height));
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a :deep(.iconify) { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active :deep(.iconify) { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: calc(var(--global-nav-height) + 16px);
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .sidebar-backdrop {
+    display: none;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow :deep(.iconify) { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+    line-height: 1.6;
+  }
+
+  .disclaimer-box :deep(.iconify),
+  .disclaimer-box :deep(svg) {
+    flex: none;
+    font-size: 20px;
+    margin-top: 2px;
+  }
+
+  .disclaimer-box > span {
+    flex: 1;
+  }
+
+  /* ===================== Sections ===================== */
+  section {
+    margin-bottom: 72px;
+  }
+
+  :is(h2, h3, h4) {
+    scroll-margin-top: calc(var(--global-nav-height) + 32px);
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-forest);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-eyebrow :deep(.iconify) { font-size: 14px; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.35;
+    margin: 0 0 20px;
+    color: var(--color-ink);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.4;
+    margin: 36px 0 16px;
+    color: var(--color-ink);
+  }
+
+  h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 28px 0 12px;
+    color: var(--color-indigo);
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol {
+    margin: 0 0 20px;
+    padding-left: 24px;
+  }
+
+  li { margin-bottom: 6px; }
+
+  /* ===================== Cards & Grids ===================== */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin: 22px 0 28px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin: 22px 0 28px;
+  }
+
+  .card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+
+  .card h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    border: 1px solid var(--color-border);
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .callout-title :deep(.iconify) { font-size: 18px; }
+
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice {
+    background: var(--color-success-bg);
+    color: var(--color-success-text);
+    border-color: var(--color-success-border);
+  }
+  .callout.practice .callout-title { color: var(--color-success-text); }
+
+  .callout.note {
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-color: var(--color-info-border);
+  }
+  .callout.note .callout-title { color: var(--color-info-text); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    max-width: 100%;
+    margin: 20px 0 28px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-paper-raised);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    line-height: 1.55;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--color-paper-sunken);
+    font-weight: 700;
+    color: var(--color-ink);
+    border-bottom: 2px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  /* ===================== Mermaid Wrap ===================== */
+  .mermaid-wrap {
+    margin: 28px 0;
+    padding: 24px;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+  }
+
+  /* ===================== Source list ===================== */
+  .source-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 28px;
+  }
+
+  .source-list li {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .source-list li:last-child { border-bottom: none; }
+  .source-title { font-weight: 700; color: var(--color-ink); }
+  .source-meta { font-size: 16px; color: var(--color-ink-soft); }
+  .source-link { font-size: 16px; word-break: break-all; }
+
+  /* ===================== Footer ===================== */
+  footer {
+    margin-top: 96px;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-border);
+    font-size: 16px;
+    color: var(--color-ink-faint);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(2px);
+      z-index: 15;
+    }
+    .sidebar {
+      top: 0;
+      height: 100vh;
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 40px 24px 80px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .main-content { padding: 32px 16px 64px; }
+  }
+</style>
