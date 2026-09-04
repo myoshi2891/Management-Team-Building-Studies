@@ -627,6 +627,12 @@ nav { height: 100%; display: flex; align-items: stretch; }
     /* 通常フローでは内容幅ではなく親幅に従わせる（デスクトップの max-content を解く）。 */
     width: auto;
     max-width: none;
+    /*
+     * 丈とスクロールは外側の nav が持つ。アコーディオンのパネルごとに
+     * 頭打ちを掛けると入れ子のスクロール領域ができる（デスクトップの指定を解く）。
+     */
+    max-height: none;
+    overflow-y: visible;
     /* 通常フローのアコーディオンなので退避しない。 */
     margin-left: 0;
     padding: 0;
