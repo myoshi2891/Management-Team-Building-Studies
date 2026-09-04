@@ -1392,12 +1392,19 @@ class OK done;`;
     scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
   }
 
+  /* 開閉状態は v-if が担う。CSS は「モバイル幅でのみ有効」だけを担当する。
+     この定義は上の @media (max-width: 980px) より後ろにあるため、
+     有効化のメディアクエリも同じ位置以降に置く必要がある（後勝ち） */
   .sidebar-backdrop {
     display: none;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.4);
     z-index: 15;
+  }
+
+  @media (max-width: 980px) {
+    .sidebar-backdrop { display: block; }
   }
 
   .sidebar.is-open {
