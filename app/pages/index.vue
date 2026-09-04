@@ -127,7 +127,7 @@ useSeoMeta({
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" aria-label="サイトフッター">
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">M</span>
