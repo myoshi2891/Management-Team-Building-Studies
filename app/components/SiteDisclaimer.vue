@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "#imports";
+import { onBeforeUnmount, onMounted, ref, useNuxtApp } from "#imports";
 
 /*
  * サイト全体で共有する免責事項。書籍の奥付にならって、巻末の小さな組みで置く。
@@ -37,17 +37,24 @@ function syncSidebarInset(): void {
   sidebarInset.value = measureSidebarInset();
 }
 
-onMounted(() => {
-  syncSidebarInset();
-  // 幅が変わるとサイドバーの出入りが切り替わる。
-  window.addEventListener("resize", syncSidebarInset);
+/**
+ * いま存在するサイドバーを測り直し、その要素の寸法変化を購読し直す。
+ *
+ * 一度きりの計測では足りない理由は 2 つある。
+ * 1. マウント直後はスタイルが確定していないことがあり、誤った値を焼き付けたまま
+ *    固定される（実測: 全体 CSS の box-sizing が効く前は右端が 288px ではなく 336px）。
+ * 2. 免責事項は <NuxtPage> の外にあるため遷移で再マウントされないが、.sidebar は
+ *    遷移先のページごとに作り直される。前のページの要素を購読したままでは、
+ *    遷移先のサイドバーを誰も測らない。
+ * したがって購読は「張りっぱなし」ではなく、そのつど張り直す。
+ */
+function trackSidebar(): void {
+  // 前のページの要素への購読を必ず切る。切らずに重ねると解除漏れが積み上がる。
+  sidebarResize?.disconnect();
+  sidebarResize = null;
 
-  /*
-   * マウント時の一度きりの計測では足りない。その瞬間にまだスタイルが確定していないと
-   * 誤った値を焼き付けたまま固定される（実測: 全体 CSS の box-sizing が効く前は
-   * サイドバーの右端が 288px ではなく 336px に見える）。
-   * サイドバーの寸法そのものを購読し、確定したところで測り直す。
-   */
+  syncSidebarInset();
+
   const sidebar = document.querySelector<HTMLElement>(".sidebar");
   if (!sidebar) return;
   // jsdom には ResizeObserver が無い。無い環境では上の一度きりの計測のまま動かす。
@@ -55,10 +62,27 @@ onMounted(() => {
   if (!observer) return;
   sidebarResize = new observer(syncSidebarInset);
   sidebarResize.observe(sidebar);
+}
+
+let stopPageFinish: (() => void) | undefined;
+
+onMounted(() => {
+  trackSidebar();
+  // 幅が変わるとサイドバーの出入りが切り替わる。
+  window.addEventListener("resize", syncSidebarInset);
+
+  /*
+   * 遷移の完了を待ってから測り直す。route の変化を見ると遷移先の DOM がまだ無い
+   * 時点で走りうるが、page:finish は <NuxtPage> の Suspense 解決後に呼ばれるため、
+   * 遷移先のサイドバーが確実にマウントされている。
+   */
+  stopPageFinish = useNuxtApp().hook("page:finish", trackSidebar);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("resize", syncSidebarInset);
+  stopPageFinish?.();
+  stopPageFinish = undefined;
   sidebarResize?.disconnect();
   sidebarResize = null;
 });

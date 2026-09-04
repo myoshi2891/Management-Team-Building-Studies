@@ -1,4 +1,4 @@
-import { mount } from "@vue/test-utils";
+import { enableAutoUnmount, mount } from "@vue/test-utils";
 import { useNuxtApp } from "#imports";
 import { afterEach, describe, expect, it } from "vitest";
 import { nextTick } from "vue";
@@ -92,6 +92,12 @@ function stubResizeObserver(): {
     restore: () => Reflect.set(window, "ResizeObserver", original),
   };
 }
+
+/*
+ * マウントしたまま放置したコンポーネントは page:finish を購読し続けるため、
+ * 後続のテストの遷移でも一緒に動いて購読先の記録を汚す。テストごとに必ず畳む。
+ */
+enableAutoUnmount(afterEach);
 
 afterEach(() => {
   document.querySelectorAll(".sidebar").forEach((element) => element.remove());
