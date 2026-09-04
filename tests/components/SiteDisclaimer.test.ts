@@ -1,4 +1,5 @@
 import { mount } from "@vue/test-utils";
+import { useNuxtApp } from "#imports";
 import { afterEach, describe, expect, it } from "vitest";
 import { nextTick } from "vue";
 import SiteDisclaimer from "~/components/SiteDisclaimer.vue";
@@ -66,8 +67,11 @@ function stubResizeObserver(): {
   const original = Reflect.get(window, "ResizeObserver");
 
   class FakeResizeObserver {
+    /* 購読解除はインスタンス単位で効く必要がある（遷移のたびに張り直すため）。 */
+    private readonly fire = (): void => this.callback();
+
     constructor(private readonly callback: () => void) {
-      callbacks.push(() => this.callback());
+      callbacks.push(this.fire);
     }
 
     observe(target: Element): void {
@@ -75,7 +79,8 @@ function stubResizeObserver(): {
     }
 
     disconnect(): void {
-      callbacks.length = 0;
+      const index = callbacks.indexOf(this.fire);
+      if (index >= 0) callbacks.splice(index, 1);
     }
   }
 
@@ -219,6 +224,67 @@ describe("SiteDisclaimer — サイト共通の免責事項", () => {
       await nextTick();
 
       expect(element.style.getPropertyValue("--disclaimer-inset")).toBe("288px");
+    } finally {
+      observer.restore();
+    }
+  });
+
+  /*
+   * 免責事項は <NuxtPage> の外にあるため、遷移しても再マウントされない。
+   * 一方 .sidebar は遷移先のページごとに作り直されるので、マウント時の
+   * 一度きりの購読では、遷移後のサイドバーを誰も測らないまま取り残される。
+   * 遷移の完了（page:finish = Suspense 解決）を待って測り直す契約。
+   */
+  it("サイドバーの無いページから遷移したら、遷移先のサイドバーを測る", async () => {
+    const wrapper = mount(SiteDisclaimer);
+    await nextTick();
+    expect(inset(wrapper)).toBe("0px");
+
+    appendSidebar({ position: "fixed", left: 0, width: 288 });
+    await useNuxtApp().callHook("page:finish");
+    await nextTick();
+
+    expect(inset(wrapper)).toBe("288px");
+  });
+
+  it("遷移先のサイドバーへ購読を張り直す", async () => {
+    const observer = stubResizeObserver();
+    try {
+      const first = appendSidebar({ position: "fixed", left: 0, width: 288 });
+      const wrapper = mount(SiteDisclaimer);
+      await nextTick();
+      expect(observer.observed).toEqual([first]);
+
+      first.remove();
+      const second = appendSidebar({ position: "fixed", left: 0, width: 240 });
+      await useNuxtApp().callHook("page:finish");
+      await nextTick();
+
+      expect(observer.observed).toEqual([first, second]);
+      expect(inset(wrapper)).toBe("240px");
+    } finally {
+      observer.restore();
+    }
+  });
+
+  it("遷移でサイドバーが消えたら退避も解く（古い購読を残さない）", async () => {
+    const observer = stubResizeObserver();
+    try {
+      const sidebar = appendSidebar({ position: "fixed", left: 0, width: 288 });
+      const wrapper = mount(SiteDisclaimer);
+      await nextTick();
+      expect(inset(wrapper)).toBe("288px");
+
+      sidebar.remove();
+      await useNuxtApp().callHook("page:finish");
+      await nextTick();
+      expect(inset(wrapper)).toBe("0px");
+
+      // 張り直しの際に古い購読を切っていなければ、ここで消えた要素を測り直してしまう。
+      observer.trigger();
+      await nextTick();
+
+      expect(inset(wrapper)).toBe("0px");
     } finally {
       observer.restore();
     }
