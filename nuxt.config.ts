@@ -2,6 +2,20 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-14",
 
+  // favicon は public/ の実体を明示的に宣言する。
+  // 原本は public/favicon.svg（ヘッダーのブランドマーク由来）で、
+  // .ico / apple-touch-icon.png はそこからレンダリングした派生物。
+  // ico を先に置くのは、SVG 非対応のブラウザが先勝ちで .ico を選ぶようにするため。
+  app: {
+    head: {
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico", sizes: "48x48" },
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      ],
+    },
+  },
+
   modules: ["@nuxt/eslint", "@nuxt/icon", "@vueuse/nuxt", "@nuxtjs/seo"],
 
   // 原本 HTML の CDN 読み込みを npm パッケージへ置き換える。
