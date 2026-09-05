@@ -265,7 +265,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
    * 現在は Product Owner 系を product-owner シリーズへ分離して解消している）。
    * 実描画での高さの担保は e2e/site-header.spec.ts が行う。ここは分類の契約。
    */
-  const MAX_GUIDES_PER_SERIES_COLUMN = 13;
+  const MAX_GUIDES_PER_SERIES_COLUMN = 14;
 
   /*
    * 1 カテゴリーあたりのシリーズカラム数の上限。

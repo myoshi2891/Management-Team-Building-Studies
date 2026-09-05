@@ -235,7 +235,7 @@ defineSourceParityContract({
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
-  seoTitleFragments: ["A-CSM", "Advanced Certified ScrumMaster", "学習ガイド"],
+  seoTitleFragments: ["A-CSM", "Advanced Certified ScrumMaster", "完全ガイド"],
   seoTitle: "Advanced Certified ScrumMaster (A-CSM) 認定資格 完全ガイド | 初学者向けステップバイステップ解説",
   seoDescription: "Scrum Alliance公式のA-CSM Learning Objectivesに基づき、全42のラーニングオブジェクティブを初学者向けに解説する完全ガイド。ファシリテーション・コーチング・スケーリングのベストプラクティスと一次情報源リンク付き。",
 });

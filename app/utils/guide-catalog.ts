@@ -416,6 +416,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/a-csm-advanced-certified-scrummaster-study-guide",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "A-CSM 完全ガイド",
+    title: "Advanced Certified ScrumMaster (A-CSM) 学習ガイド",
+    description: "Scrum Alliance公式のA-CSM Learning Objectivesに基づき、全42のラーニングオブジェクティブを初学者向けに解説する完全ガイド。ファシリテーション・コーチング・スケーリングのベストプラクティスと一次情報源リンク付き。",
+    meta: "18セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/cspo-certified-scrum-product-owner-study-guide",
     categoryId: "project-management",
     seriesId: "product-owner",
