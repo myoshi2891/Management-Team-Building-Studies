@@ -181,6 +181,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Advanced Certified ScrumMaster (A-CSM) 学習ガイド",
+        category: "CSM / SCRUM",
+        href: "/a-csm-advanced-certified-scrummaster-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
         category: "PRODUCT OWNER",
         href: "/cspo-certified-scrum-product-owner-study-guide",
@@ -407,7 +413,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       count: section.get("[data-testid='guide-category-count']").text(),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "35 ガイド", cards: 35 },
+      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "36 ガイド", cards: 36 },
       { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "6 ガイド", cards: 6 },
       { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
       { kicker: "TEAM BUILDING", title: "チームビルディング", count: "9 ガイド", cards: 9 },
