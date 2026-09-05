@@ -67,7 +67,10 @@
     "audit:casp": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Casp-certified-agile-scaling-practitioner-study-guide/Casp-certified-agile-scaling-practitioner-study-guide.html app/pages/casp-certified-agile-scaling-practitioner-study-guide.vue",
     "audit:csp-po": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csp-po-certified-scrum-professional-product-owner-study-guide/Csp-po-certified-scrum-professional-product-owner-study-guide.html app/pages/csp-po-certified-scrum-professional-product-owner-study-guide.vue",
     "audit:a-cspo": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/A-cspo-advanced-certified-scrum-product-owner-study-guide/A-cspo-advanced-certified-scrum-product-owner-study-guide.html app/pages/a-cspo-advanced-certified-scrum-product-owner-study-guide.vue",
-    "audit:cspo": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Cspo-certified-scrum-product-owner-study-guide/Cspo-certified-scrum-product-owner-study-guide.html app/pages/cspo-certified-scrum-product-owner-study-guide.vue"
+    "audit:cspo": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Cspo-certified-scrum-product-owner-study-guide/Cspo-certified-scrum-product-owner-study-guide.html app/pages/cspo-certified-scrum-product-owner-study-guide.vue",
+    "audit:psm-ai": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Psm-ai-essentials-guide/Psm-ai-essentials-guide.html app/pages/psm-ai-essentials-guide.vue",
+    "audit:csp-sm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Csp-sm-certified-scrum-professional-scrummaster-study-guide/Csp-sm-certified-scrum-professional-scrummaster-study-guide.html app/pages/csp-sm-certified-scrum-professional-scrummaster-study-guide.vue",
+    "audit:a-csm": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/A-csm-advanced-certified-scrummaster-study-guide/A-csm-advanced-certified-scrummaster-study-guide.html app/pages/a-csm-advanced-certified-scrummaster-study-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",

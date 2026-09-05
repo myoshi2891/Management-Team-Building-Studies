@@ -1,6 +1,6 @@
 # Certified Scrum Professional® ScrumMaster (CSP®-SM) 完全学習ガイド
 
-> 世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、Scrum Alliance® の **Certified Scrum Professional® ScrumMaster（CSP®-SM）** の出題範囲（Learning Objectives）を、初学者にもわかりやすくステップバイステップで解説する学習ガイドです。各項目には具体的なベストプラクティスと、その根拠となる参考情報源の URL を付記しています。
+> Scrum Alliance® の **Certified Scrum Professional® ScrumMaster（CSP®-SM）** の出題範囲（Learning Objectives）を、初学者にもわかりやすくステップバイステップで解説する学習ガイドです。各項目には具体的なベストプラクティスと、その根拠となる参考情報源の URL を付記しています。
 
 ---
 

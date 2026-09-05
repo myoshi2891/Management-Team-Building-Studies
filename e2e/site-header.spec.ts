@@ -46,6 +46,24 @@ async function openWithHover(page: Page, triggerId: string): Promise<void> {
   }).toPass({ timeout: 10_000 });
 }
 
+/*
+ * モバイルのハンバーガーを開く。hover / keyboard 版と同じハイドレーション競合があり、
+ * リスナーが付く前のタップはネイティブのクリックとして捨てられる
+ * （実測: 3 回に 1 回、ナビが開かないまま後続のトリガーが不可視でタイムアウトした）。
+ *
+ * 再試行を掛けるのは「最初の 1 タップ」だけに留める。ナビが可視になった時点で
+ * ハイドレーションは済んでおり、それ以降のタップは素のまま検証してよい
+ * （アコーディオン側にも再試行を掛けると、開いた直後に閉じる二重発火のバグを
+ *   再試行が覆い隠してしまう）。開いていれば何もしないので再試行で閉じない。
+ */
+async function openMobileNav(page: Page): Promise<void> {
+  const nav = page.locator("#global-nav");
+  await expect(async () => {
+    if (await nav.isHidden()) await page.locator("[data-testid='nav-toggle']").click();
+    await expect(nav).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+}
+
 async function openWithKeyboard(page: Page, triggerId: string): Promise<void> {
   const trigger = page.locator(`#nav-trigger-${triggerId}`);
   await expect(async () => {
@@ -219,8 +237,7 @@ test("モバイル幅: ポインタデバイスでもタップでアコーディ
   await page.setViewportSize(MOBILE);
   await page.goto("/");
 
-  await page.locator("[data-testid='nav-toggle']").click();
-  await expect(page.locator("#global-nav")).toBeVisible();
+  await openMobileNav(page);
 
   for (const id of CATEGORY_IDS) {
     const trigger = page.locator(`#nav-trigger-${id}`);
@@ -237,7 +254,7 @@ test("モバイル幅: リンクをタップすると遷移してナビが閉じ
   await page.setViewportSize(MOBILE);
   await page.goto("/");
 
-  await page.locator("[data-testid='nav-toggle']").click();
+  await openMobileNav(page);
   await page.locator("#nav-trigger-team-building").click();
   await page.locator("#nav-panel-team-building a").first().click();
 
@@ -282,8 +299,7 @@ test("モバイル幅: Escape でメニューが閉じて nav-toggle へフォ�
   await page.goto("/");
 
   const toggle = page.locator("[data-testid='nav-toggle']");
-  await toggle.click();
-  await expect(page.locator("#global-nav")).toBeVisible();
+  await openMobileNav(page);
 
   // カテゴリを開いてリンクにフォーカスを当てる
   await page.locator("#nav-trigger-project-management").click();

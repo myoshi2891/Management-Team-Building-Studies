@@ -52,7 +52,20 @@ async function waitForDiagrams(page: import("@playwright/test").Page): Promise<v
   );
 }
 
+/*
+ * 1 テストで全ページを巡回するため、所要時間はページ数に比例して伸びる。
+ * Playwright 既定の 30 秒は 58 ページの時点で使い切っており（実測 27〜28 秒。
+ * 他 spec と並列で走ると超えてタイムアウトする）、ガイドを追加するたびに
+ * 静かに越える。固定値を置くと同じことが再発するので、ページ数から導出する。
+ *
+ * 1 ページあたり 5 秒は、図の描画待ち（waitForDiagrams の上限 30 秒）を含む
+ * 最も重いページでも巡回が止まらない余裕を見た値。
+ */
+const TIMEOUT_PER_PAGE_MS = 5_000;
+
 test.describe("横スクロールが出ない", () => {
+  test.describe.configure({ timeout: PATHS.length * TIMEOUT_PER_PAGE_MS });
+
   for (const width of WIDTHS) {
     test(`幅 ${width}px: 全 ${PATHS.length} ページ`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });

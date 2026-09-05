@@ -482,6 +482,15 @@ nav { height: 100%; display: flex; align-items: stretch; }
    */
   width: max-content;
   max-width: calc(100vw - 32px);
+  /*
+   * カテゴリー内のガイドが増えるとパネルが縦にビューポートを覆う
+   * （実測: project-management が 683px に対しヘッダー下の残り 648px）。
+   * シリーズカラムは横方向にしか肥大を吸収できず、最も高いカラムが伸びると
+   * カラムを増やしても高さは減らない。件数の閾値で守るのではなく、
+   * ヘッダー直下からの残り高さで頭打ちにし、超えた分は内部スクロールへ逃がす。
+   */
+  max-height: calc(100vh - var(--global-nav-height) - 16px);
+  overflow-y: auto;
   /* ヘッダー内枠の右端をはみ出す分だけ左へ退避する。値は JS が実測して設定する。 */
   margin: 0 0 0 var(--nav-panel-shift, 0px);
   padding: 8px;
@@ -618,6 +627,12 @@ nav { height: 100%; display: flex; align-items: stretch; }
     /* 通常フローでは内容幅ではなく親幅に従わせる（デスクトップの max-content を解く）。 */
     width: auto;
     max-width: none;
+    /*
+     * 丈とスクロールは外側の nav が持つ。アコーディオンのパネルごとに
+     * 頭打ちを掛けると入れ子のスクロール領域ができる（デスクトップの指定を解く）。
+     */
+    max-height: none;
+    overflow-y: visible;
     /* 通常フローのアコーディオンなので退避しない。 */
     margin-left: 0;
     padding: 0;
