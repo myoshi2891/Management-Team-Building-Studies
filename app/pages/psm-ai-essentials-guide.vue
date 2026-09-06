@@ -834,8 +834,6 @@ class OK done;`;
 
   * { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
-
   body {
     margin: 0;
     background: var(--color-paper);
@@ -1384,7 +1382,11 @@ class OK done;`;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
+    /*
+     * `html { scroll-behavior: auto }` はここには置かない。
+     * scoped CSS は `html[data-v-xxxx]` にコンパイルされ <html> には決して一致しないため、
+     * スクロール挙動は app/assets/css/main.css のグローバル定義が担う。
+     */
     .sidebar { transition: none; }
   }
 
