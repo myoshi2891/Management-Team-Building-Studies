@@ -245,12 +245,10 @@ describe("pages/a-csm-advanced-certified-scrummaster-study-guide.vue — 個別�
 
   it("サイドバーのドロワー制御とアクセシビリティ属性が整合する", async () => {
     const wrapper = mountPage();
-    const toggle = wrapper.find("[data-testid='sidebar-toggle']");
-    if (toggle.exists()) {
-      expect(toggle.attributes("aria-expanded")).toBe("false");
-      await toggle.trigger("click");
-      expect(toggle.attributes("aria-expanded")).toBe("true");
-    }
+    const toggle = wrapper.get("[data-testid='sidebar-toggle']");
+    expect(toggle.attributes("aria-expanded")).toBe("false");
+    await toggle.trigger("click");
+    expect(toggle.attributes("aria-expanded")).toBe("true");
   });
 
   it("インライン SVG seal が存在する", () => {
