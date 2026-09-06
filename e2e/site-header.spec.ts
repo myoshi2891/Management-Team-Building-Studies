@@ -59,7 +59,7 @@ async function openWithHover(page: Page, triggerId: string): Promise<void> {
 async function openMobileNav(page: Page): Promise<void> {
   const nav = page.locator("#global-nav");
   await expect(async () => {
-    if (await nav.isHidden()) await page.locator("[data-testid='nav-toggle']").click();
+    if (await nav.isHidden()) await page.locator("[data-testid='nav-toggle']").click({ timeout: 2_000 });
     await expect(nav).toBeVisible({ timeout: 500 });
   }).toPass({ timeout: 10_000 });
 }
