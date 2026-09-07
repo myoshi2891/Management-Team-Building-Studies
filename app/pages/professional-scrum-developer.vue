@@ -105,6 +105,40 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class SP hub;
 class DS,SR,RETRO box;`;
+
+const DIAGRAM_EMERGENT_ARCHITECTURE = `flowchart LR
+G["最初に大まかな アーキテクチャ方針を決める"] --> S1["Sprint 1: 動くものを作る"]
+S1 --> R1["得られた知見で 設計をリファクタリング"]
+R1 --> S2["Sprint 2: 機能を追加"]
+S2 --> R2["さらにリファクタリング"]
+R2 --> S3["Sprint N: 継続"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class G hub;
+class S1,R1,S2,R2,S3 box;`;
+
+const DIAGRAM_TDD_CYCLE = `flowchart LR
+RED["Red 失敗するテストを書く"] --> GREEN["Green テストを通す 最小限の実装"]
+GREEN --> REFACTOR["Refactor 重複を排除し 設計を改善"]
+REFACTOR --> RED
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class RED hub;
+class GREEN,REFACTOR box;`;
+
+const DIAGRAM_TEST_PYRAMID = `flowchart TB
+UI["UI / E2Eテスト 実行数は少なく低速 実際のユーザー操作に近い"]
+IT["統合テスト Integration Tests コンポーネント間の結合を検証"]
+UT["ユニットテスト Unit Tests 数が多く高速 個々のロジックを検証"]
+UT --> IT
+IT --> UI
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class UT hub;
+class IT,UI box;`;
 </script>
 
 <template>
@@ -398,6 +432,173 @@ class DS,SR,RETRO box;`;
         <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <p>ソフトウェア開発の文脈では、DoDは単なる「テストが通った」だけでなく、「コードレビュー済み」「静的解析をクリア」「ドキュメント更新済み」「本番相当環境にデプロイ可能」などまで含めて定義することが望ましいとされます。DoDが甘いと、後工程に「隠れた未完成作業(技術的負債)」が積み上がっていく点が、PSD Iでは品質(Quality)や技術的リスクの管理の文脈と結び付けて出題されます。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 3. Part B: Developing and Delivering Products Professionally ===================== -->
+      <section id="part-b-developing-delivering">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:code" aria-hidden="true" />SECTION 03</div>
+        <h2>Part B: プロフェッショナルとしてのプロダクト開発と提供</h2>
+
+        <p>このコンピテンシーが、PSD Iを他のScrum.org資格(PSM Iなど)と差別化する中核部分です。「Developing and Delivering Products Professionally」というコンピテンシーは、高品質なプロダクトを反復的・漸進的に、しかも高い頻度で提供することを目的としています。</p>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies/developing-and-delivering-products-professionally" target="_blank" rel="noopener">Professional Scrum Competency: Developing and Delivering Products Professionally</a></li>
+          </ul>
+        </div>
+
+        <h3>3.1 プロダクトバックログリファインメント(Backlog Refinement)</h3>
+        <p>リファインメントとは、プロダクトバックログアイテムに詳細・見積もり・順序を追加していく継続的な活動です。Scrum Guideでは正式な「イベント」ではなく、必要に応じて随時行う活動として位置づけられています。</p>
+        <ul>
+          <li>大きすぎるアイテムを、より小さく、より扱いやすい単位に分割する。</li>
+          <li>受け入れ基準(Acceptance Criteria)を明確にし、Developersが実装可能な粒度まで具体化する。</li>
+          <li>見積もりの精度を高め、次のスプリント以降の計画をしやすくする。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>リファインメントに使う時間は、かつてScrum Guideに記載されていた「スプリントの稼働時間の10%以下」という目安が実務でも参照されることがある。ただしこれは現行のScrum Guideにも試験の規則にも存在しない過去の目安であり、プロダクトバックログの状態やチームの習熟度に応じて必要な時間を調整するのが本来の考え方である。</li>
+            <li>ユーザーストーリーの分割には「垂直分割(画面から永続化層まで一気通貫で薄く切る)」を優先し、「水平分割(フロントだけ、バックエンドだけ)」は避ける。垂直に分割することで、各アイテムが独立して「動く」ものとして完成させられる。</li>
+            <li>INVEST(Independent, Negotiable, Valuable, Estimable, Small, Testable)の観点でアイテムの品質をチェックする。</li>
+          </ul>
+        </div>
+
+        <h3>3.2 職能横断型チーム(Cross-functional)</h3>
+        <p>Developersは、Increment を作成するために必要なすべてのスキルを、チーム全体として持っている必要があります。個々人が全スキルを持つ必要はなく、チーム全体として職能横断的であればよい、という点が重要です。</p>
+        <ul>
+          <li>特定の専門家(DBA、フロントエンド専任など)に依存すると、その人が不在のときにボトルネックが発生する。</li>
+          <li>T型人材(一つの専門を深く持ちつつ周辺領域もある程度対応できる)を育てることで、チームのフロー効率が上がる。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>ペアプログラミングやモブプログラミングは、知識のサイロ化を防ぎ、チーム全体のクロスファンクショナル性を高める実践的な手段として推奨される。</li>
+            <li>スキルマトリクス(誰が何を得意とするかの可視化表)を作り、意図的にペア構成やタスクアサインをローテーションする。</li>
+          </ul>
+        </div>
+
+        <h3>3.3 自己管理型の開発(Self-managed Development)</h3>
+        <p>Scrum Guide 2020では「自己組織化(Self-organizing)」から「自己管理(Self-managing)」へと用語が変わりました。自己管理とは、Scrum Team全体が「誰が」「どのように」「何を」行うかを、チーム内部で決定することを指します(外部からの管理・指示ではなく)。その内訳として、Product OwnerがProduct Backlogの順序付けに責任を持ち、DevelopersがSprint Backlogを作成し、その実現方法を自分たちで計画・適応します。</p>
+        <ul>
+          <li>自己管理には、適切な開発スキルの存在だけでなく、協働・チームコミットメント・共同の課題オーナーシップ・共有ゴール・創造性が必要とされる。</li>
+          <li>マネージャーがタスクを個人に割り当てるのではなく、チーム自身がSprint Backlogの中でタスクを引き受けていく。</li>
+        </ul>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-reading-professional-scrum-developer" target="_blank" rel="noopener">Suggested Reading for PSD I 内 "Cross-Functional, Self-Managed Development" の項</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>自己管理は「放任」ではありません。明確なSprint Goal・DoD・透明性という「枠組み」があってはじめて機能する自由度です。PSD Iでは「マネージャーがDevelopersにタスクを割り振るべきか」といった設問で、自己管理の原則からの逸脱を見抜けるかが問われます。</p>
+        </div>
+
+        <h3>3.4 設計とアーキテクチャ(Design and Architecture)</h3>
+        <p>Scrumでは、詳細な設計を事前にすべて確定させる「Big Design Up Front(BDUF)」ではなく、アーキテクチャの境界の中で設計が創発的(Emergent)に育っていくアプローチを取ります。</p>
+        <ul>
+          <li>アーキテクチャの大枠(境界・原則)は初期に方向性を定めるが、詳細はスプリントを重ねる中で、実際に得られた知見をもとに進化させる。</li>
+          <li>YAGNI(You Aren't Gonna Need It)の原則に従い、「今必要なもの」だけを作り、将来のための過剰設計を避ける。</li>
+          <li>リファクタリングを継続的に行うことで、設計をコードベースの成長に追従させる。</li>
+        </ul>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EMERGENT_ARCHITECTURE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">創発的アーキテクチャがスプリントを重ねる中で育っていく流れ</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>アーキテクチャ決定の背景を記録する軽量な手法として ADR(Architecture Decision Record)を使い、なぜその設計を選んだかをチームで共有する。</li>
+            <li>技術的な選択肢を早期に検証するために、スパイク(時間を区切った調査用の作業)を活用する。</li>
+            <li>ドキュメンテーションは「作って終わり」ではなく、コードや設計と同様に継続的にメンテナンスする対象として扱う。</li>
+          </ul>
+        </div>
+
+        <h3>3.5 プログラミング(Programming)</h3>
+        <p>PSD Iでは、具体的なプログラミング言語や実装テクニックそのものよりも、Scrumの文脈でどのようなプログラミングプラクティスが「継続的に高品質なDoneの増分」を支えるかが問われます。</p>
+        <ul>
+          <li><strong>テスト駆動開発(TDD): </strong>先にテストを書き、そのテストを通す最小限の実装を行い、その後リファクタリングするサイクル(Red → Green → Refactor)。</li>
+          <li><strong>ペアプログラミング / モブプログラミング: </strong>知識共有と品質担保を同時に行う協働的な実装スタイル。</li>
+          <li><strong>クリーンコード: </strong>可読性・単純性を重視し、将来の変更コストを下げるコーディング。</li>
+          <li><strong>継続的リファクタリング: </strong>機能を変えずに内部構造を改善し続けることで、技術的負債の蓄積を防ぐ。</li>
+        </ul>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TDD_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">テスト駆動開発(TDD)のRed-Green-Refactorサイクル</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>TDDは「テストを後から書く」文化と対比され、設計の質を早期に検証する手段として位置づけられる。</li>
+            <li>コードレビューをDefinition of Doneの一部に組み込み、属人化と品質低下を防ぐ。</li>
+            <li>静的解析・Linter・フォーマッタをCIパイプラインに組み込み、レビューの負荷を「スタイルの指摘」から「設計・ロジックの指摘」にシフトさせる。</li>
+          </ul>
+        </div>
+
+        <h3>3.6 品質(Quality)</h3>
+        <p>品質は「後から付け加えるもの」ではなく、開発プロセス全体に組み込まれるべきものだという考え方が、Scrumのエンジニアリングプラクティスの中核にあります。</p>
+        <ul>
+          <li><strong>継続的品質(Continuous Quality): </strong>品質保証をスプリント末のフェーズとして切り離すのではなく、日々の開発活動の中に統合する。</li>
+          <li><strong>技術的負債(Technical Debt): </strong>短期的な近道の代償として将来発生する追加コスト。可視化し、計画的に返済する対象として扱う。</li>
+          <li><strong>技術的リスクの管理(Managing Technical Risk): </strong>不確実性の高い技術要素を早期に検証し、後工程での手戻りを防ぐ。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>技術的負債をプロダクトバックログに可視化し、「見えない負債」を「管理可能な負債」に変える。</li>
+            <li>サイクルタイム(Cycle Time)やリードタイムなどのフロー指標をチームで計測し、品質と速度のトレードオフを定量的に把握する。</li>
+            <li>Definition of Doneに品質基準(テストカバレッジ、静的解析の合格、パフォーマンス基準など)を明示的に組み込む。</li>
+          </ul>
+        </div>
+
+        <h3>3.7 テスト(Testing)</h3>
+        <p>Scrumが求めるのは「Definition of Doneを満たす利用可能なIncrementを毎Sprint作成すること」であり、これを支えるうえでテストは開発の一部として組み込まれている必要があります(作成したIncrementを実際にユーザーへリリースするかどうかは、Sprintの途中でも終了時でも別途判断される任意の活動です)。どこまで自動化し、手動テストへの依存をどの程度減らすかは、Scrumが規定するものではなく、チームや組織がDefinition of Doneとして定める品質基準の問題です。多くの現場では、スプリントごとにリリース可能な品質を保つ手段として自動化されたテストが選ばれています。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TEST_PYRAMID" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">ユニットテストを土台とするテストピラミッド</div>
+        </div>
+
+        <ul>
+          <li><strong>テストピラミッド: </strong>ユニットテストを土台に多く配置し、統合テスト、E2E/UIテストの順に数を絞っていく考え方。逆ピラミッド(UIテストに偏重する構成)はメンテナンスコストが高く壊れやすい。</li>
+          <li><strong>受け入れテスト駆動開発(ATDD): </strong>実装に着手する前に、ビジネス側と合意した受け入れ基準をテストとして定義し、そのテストが通ることで完成を判断する手法。</li>
+          <li><strong>振る舞い駆動開発(BDD): </strong>望ましい振る舞いをドメインの言葉(ユビキタス言語)で記述し、関係者の共通理解を作ることに主眼を置く補完的なアプローチ。ATDDと組み合わせて用いられることが多い。</li>
+          <li><strong>探索的テスト: </strong>自動化だけでは見つけにくいユーザビリティやエッジケースの問題を、テスターが能動的に探索して発見する手法。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>どこまでのテストをDefinition of Doneに含めるかをチームで合意する。「テストが書かれていない機能はDoneとしない」という基準を置く現場は多いが、これはScrumが定める規則ではなく、チームまたは組織が選んだDoDである。</li>
+            <li>テスターはスプリントの最後にまとめて作業するのではなく、リファインメントや実装の初期段階からDevelopersと協働する(シフトレフト)。</li>
+            <li>CIパイプライン上でテストスイートを自動実行し、失敗した場合はビルドを止める「壊れたビルドを放置しない」文化を徹底する。</li>
+          </ul>
         </div>
       </section>
     </main>
