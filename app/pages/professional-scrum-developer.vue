@@ -86,6 +86,25 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class EXAM hub;
 class A,B,C,D,A1,A2,A3,A4,A5,A6,B1,B2,B3,B4,B5,B6,B7,C1,C2,C3,D1,D2,D3,D4 box;`;
 
+const DIAGRAM_EMPIRICISM_PILLARS = `flowchart LR
+T["透明性 Transparency プロセスと成果物が 関係者に見える状態"] --> I["検査 Inspection 進捗と成果物を 頻繁に検査する"]
+I --> AD["適応 Adaptation ずれが見つかったら すぐに調整する"]
+AD -.->|"フィードバック"| T
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class T,I,AD box;`;
+
+const DIAGRAM_SPRINT_EVENTS = `flowchart LR
+SP["Sprint Planning Whatと Howと Whyを決める"] --> DS["Daily Scrum 毎日15分 進捗を検査し計画を調整"]
+DS --> DS
+DS --> SR["Sprint Review 増分を検査し バックログを適応させる"]
+SR --> RETRO["Sprint Retrospective チームの働き方を 検査し改善する"]
+RETRO --> SP
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class SP hub;
+class DS,SR,RETRO box;`;
 </script>
 
 <template>
@@ -234,6 +253,151 @@ class A,B,C,D,A1,A2,A3,A4,A5,A6,B1,B2,B3,B4,B5,B6,B7,C1,C2,C3,D1,D2,D3,D4 box;`;
         <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <p>出題の約85%を占めるBが学習の中心です。ここが「PSD Iらしさ」の部分であり、他の資格(PSM Iなど)と重なるA・C・Dの部分は、既にScrum知識のある人にとっては復習で済むことが多いです。まずBを厚く学習し、残りの約15%にあたるA・C・Dは知識の抜けを埋める形で補うとよいでしょう(A・C・D内の出題比率は公開されていないため、この3つに優先順位を付ける根拠はありません)。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 2. Part A: Scrum Framework ===================== -->
+      <section id="part-a-scrum-framework">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
+        <h2>Part A: Scrumフレームワークの理解と適用</h2>
+
+        <p>このコンピテンシーは、Scrumを実践する上での土台となる部分です。Scrum Guide(2020年11月版)が一次情報源であり、PSD Iの設問の多くはScrum Guideの記述に忠実に基づいています。</p>
+
+        <h3>2.1 経験主義(Empiricism)</h3>
+        <p>Scrumは経験主義に基づくフレームワークです。経験主義とは、「知識は経験からのみ得られ、意思決定は観察された事実に基づいて行うべきである」という考え方であり、事前に詳細な計画を立てて実行するのではなく、探索的なプロセスを通じて複雑な問題を解決していくアプローチを指します。</p>
+        <p>経験主義を支えるのが「透明性(Transparency)」「検査(Inspection)」「適応(Adaptation)」という3つの柱です。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EMPIRICISM_PILLARS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">経験主義を支える透明性・検査・適応の3本柱</div>
+        </div>
+
+        <ul>
+          <li><strong>透明性: </strong>不透明な情報の上では正しい検査はできず、誤った適応につながる。プロダクトバックログやスプリントの状態を関係者全員が同じ理解で見られる状態を作ることが前提となる。</li>
+          <li><strong>検査: </strong>作業成果物やゴールへの進捗を、望ましくない差異を検出できる頻度で確認すること。検査自体が作業の妨げにならない程度の頻度・熱心さが求められる。</li>
+          <li><strong>適応: </strong>プロセスや作成物のいずれかが許容範囲を逸脱していると判断された場合、できるだけ早く調整を行うこと。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>「動くソフトウェア」を頻繁に完成させることで、検査対象の透明性を最大化する(半分できた機能は検査しづらい)。</li>
+            <li>スプリントレビューやデイリースクラムを「報告会」にせず、実際の増分(Increment)を見せて検査・適応につなげる。</li>
+            <li>CI(継続的インテグレーション)や自動テストの可視化は、開発チームレベルでの透明性を支える技術的な裏付けになる。</li>
+          </ul>
+        </div>
+
+        <h3>2.2 Scrumの5つの価値基準(Scrum Values)</h3>
+        <p>Scrumチームの成功は、以下5つの価値基準をどれだけ体現できるかに懸かっています。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>価値基準</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>Commitment(確約)</td><td>ゴール達成とお互いへのサポートを約束する</td></tr>
+              <tr><td>Focus(集中)</td><td>スプリントの作業とゴールに集中する</td></tr>
+              <tr><td>Openness(公開)</td><td>作業やその過程で生じる課題をオープンにする</td></tr>
+              <tr><td>Respect(尊敬)</td><td>チームメンバーを能力ある独立した人として尊重する</td></tr>
+              <tr><td>Courage(勇気)</td><td>正しいことをする勇気、難しい問題に取り組む勇気を持つ</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>Scrum Valuesは抽象的に見えますが、開発の現場では非常に具体的に効いてきます。たとえば「動かないコードを隠さずに Daily Scrum で共有する(Openness)」「技術的負債を指摘する(Courage)」など、日々のエンジニアリング行動と直結させて理解すると記憶に残りやすくなります。</p>
+        </div>
+
+        <h3>2.3 Scrum Team</h3>
+        <p>Scrum Guide 2020では、Product Owner・Scrum Master・Developersの3つのアカウンタビリティ(責任)を持つ、単一のチーム「Scrum Team」という考え方に統一されました。以前存在した「Development Team」という入れ子のチーム概念は廃止されています。</p>
+        <ul>
+          <li><strong>Product Owner: </strong>プロダクトの価値を最大化する責任を持つ。プロダクトゴールの策定、プロダクトバックログの管理を担う。</li>
+          <li><strong>Scrum Master: </strong>Scrumの理解と実践を組織・チームに根付かせる責任を持つ。真のリーダーとしてチームに奉仕する(サーバントリーダーシップ)。</li>
+          <li><strong>Developers: </strong>スプリントごとに利用可能な増分の各側面を作成することにコミットする人たち。職能横断的(Cross-functional)かつ自己管理的である必要がある。</li>
+        </ul>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies/understanding-and-applying-scrum-framework" target="_blank" rel="noopener">Professional Scrum Competency: Understanding and Applying the Scrum Framework</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>PSD I試験では「Developersの人数」「肩書き」「サブチーム」に関する設問で古い(2017年以前の)知識に基づく誤答選択肢が用意されていることがあります。「Development Teamという言葉自体がもう存在しない」という前提を必ず押さえておきましょう。</p>
+        </div>
+
+        <h3>2.4 Scrumイベント(Events)</h3>
+        <p>5つのイベントは、経験主義の3本柱(透明性・検査・適応)を実践するための定期的な機会です。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SPRINT_EVENTS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">1つのSprintを構成する5つのイベントの循環</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>イベント</th><th>目的</th><th>タイムボックス(1か月スプリントの場合の目安)</th></tr></thead>
+            <tbody>
+              <tr><td>The Sprint</td><td>すべてのイベントを包含するコンテナ。一貫性のあるIncrementを生み出す</td><td>最大1か月</td></tr>
+              <tr><td>Sprint Planning</td><td>今回のスプリントで「何を」「どう」「なぜ」やるかを計画する</td><td>最大8時間</td></tr>
+              <tr><td>Daily Scrum</td><td>Sprint Goalに向けた進捗を検査し、計画を調整する</td><td>15分</td></tr>
+              <tr><td>Sprint Review</td><td>Increment を検査し、プロダクトバックログを適応させる</td><td>最大4時間</td></tr>
+              <tr><td>Sprint Retrospective</td><td>チーム自身の働き方(プロセス・ツール・人間関係)を検査し改善計画を立てる</td><td>最大3時間</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>Daily Scrumは「進捗報告会」ではなく「その日の計画を作り直すための検査・適応の場」と捉える。イベントの主体はDevelopersであり、Product OwnerやScrum MasterもSprint Backlogの作業を実際に行っている場合はDeveloperとして参加する。それ以外の同席者は、イベントを妨げない限り傍聴しても構わない(発言・報告を求める場にはしない)。</li>
+            <li>Sprint Reviewは「デモの日」ではなく、ステークホルダーとの協働作業(コラボレーティブなワーキングセッション)として設計する。</li>
+            <li>Sprint Retrospectiveの検査対象は、個人・相互作用・プロセス・ツール・Definition of Doneである(Scrum Guide 2020)。個人も検査の対象に含まれる点に注意する。個人を検査対象から外すのではなく、「個人を責める場にしない」ことと「個人の働き方を検査する」ことを区別して扱う。</li>
+          </ul>
+        </div>
+
+        <h3>2.5 Scrum成果物(Artifacts)とコミットメント</h3>
+        <p>Scrum Guide 2020では、3つの成果物それぞれに対応する「コミットメント」が明示されました。コミットメントは、その成果物が実際にどれだけ進捗しているかの透明性を高めるためのものです。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>成果物(Artifact)</th><th>内容</th><th>対応するコミットメント</th></tr></thead>
+            <tbody>
+              <tr><td>Product Backlog</td><td>プロダクトを改善するために必要な作業の、順序付けされた一覧</td><td>Product Goal(プロダクトゴール)</td></tr>
+              <tr><td>Sprint Backlog</td><td>選択されたプロダクトバックログアイテム + 実現計画</td><td>Sprint Goal(スプリントゴール)</td></tr>
+              <tr><td>Increment</td><td>完成した(Doneの)プロダクトバックログアイテムの積み上げ</td><td>Definition of Done(完成の定義)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>「成果物=物」「コミットメント=その成果物が目指す方向性・進捗の目安」という対応関係をセットで覚えると、設問で「Sprint Goalはどの成果物に対応するコミットメントか」といった問われ方をされても即答できます。</p>
+        </div>
+
+        <h3>2.6 完成の定義(Definition of Done)</h3>
+        <p>Definition of Done(DoD)は、Incrementの品質基準を定める正式な記述です。プロダクトバックログアイテムがDoDを満たしたときにのみ、それは「Increment」の一部となります。</p>
+        <ul>
+          <li>DoDはScrum Teamがコンテキストに応じて作成する。組織で標準のDoDが存在する場合、それを最低ラインとして各Scrum Teamが独自にさらに厳しくすることは可能。</li>
+          <li>DoDを満たさない作業は、Sprint Reviewで公開してはならない。むしろプロダクトバックログに戻し、次回以降のスプリントで再検討する。</li>
+          <li>開発の過程でDoDに関する新しい知識が得られた場合、DoDの基準そのものを厳格化していくのが一般的な成熟プロセス。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>ソフトウェア開発の文脈では、DoDは単なる「テストが通った」だけでなく、「コードレビュー済み」「静的解析をクリア」「ドキュメント更新済み」「本番相当環境にデプロイ可能」などまで含めて定義することが望ましいとされます。DoDが甘いと、後工程に「隠れた未完成作業(技術的負債)」が積み上がっていく点が、PSD Iでは品質(Quality)や技術的リスクの管理の文脈と結び付けて出題されます。</p>
         </div>
       </section>
     </main>
