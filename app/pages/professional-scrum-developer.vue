@@ -1514,12 +1514,17 @@ footer {
     bottom: 0;
     height: calc(100vh - var(--global-nav-height));
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    /* 画面外の TOC リンクがキーボードフォーカスを受け取らないようにする。
+       visibility は閉じるアニメーション完了後に切り替える */
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
   }
 
   .sidebar.open {
     transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.25s ease, visibility 0s;
   }
 
   .sidebar-overlay {
