@@ -92,7 +92,7 @@
 | `e2e/capm.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（静的生成成果物が対象） |
 | `e2e/site-header.spec.ts` | ✅ 完了 | Playwright スモーク 13 件（メディアクエリ依存の挙動。jsdom では再現不能） |
 | `app/components/SiteDisclaimer.vue` | ✅ 完了 | `tests/components/SiteDisclaimer.test.ts`（16 件・掲載文の全文一致 + 固定サイドバーへの実測退避）+ `tests/app.test.ts`（1 件・描画順） |
-| `e2e/site-disclaimer.spec.ts` | ✅ 完了 | Playwright スモーク 3 件（固定サイドバーによる遮蔽。溢れではないため no-horizontal-scroll では検知できない） |
+| `e2e/site-disclaimer.spec.ts` | ✅ 完了 | Playwright スモーク 4 件（固定サイドバーによる遮蔽。溢れではないため no-horizontal-scroll では検知できない） |
 
 ## 解決した e2e の赤（2026-09-04）
 
@@ -938,7 +938,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
   原本 `Csp-sm-certified-scrum-professional-scrummaster-study-guide.html` の `section#references` では `h2` 直下に `h4` が配置されており見出し階層スキップ（h2 -> h4）が発生していた。品質契約 Q-3 を満たすため、移植先 Vue コンポーネントおよびテストにおいて参考文献の 8 見出し（Scrum Alliance 公式情報源、スクラム・アジャイル基礎文献、コーチング・ファシリテーション文献、組織変革・システム思考、チームダイナミクス・心理的安全性の研究、アジャイルメトリクス・エンジニアリングプラクティス、オンラインリソース・コミュニティ、推薦図書リスト）を `h4` から `h3` へ昇格。`audit_source_parity.mjs` でも h4 -> h3 昇格は正式に許可されており、**exit 0** を達成。
 - **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `categoryId: "project-management"`, `seriesId: "csm"` として登録（`CASP 完全ガイド` の直後、`CSPO 完全ガイド` の前に配置）。これに伴い `tests/utils/guide-catalog.test.ts` の `MAX_GUIDES_PER_SERIES_COLUMN` を 12 から 13 に緩和。
 - **原本照合監査**: `npm run audit:csp-sm` にて **exit 0** を確認（listItems: 108, tableRows: 130, paragraphs: 79, headings: 69, externalLinks: 33, mermaidSources: 15, svgElements: 1, calloutElements: 33 すべて原本と完全一致）。
-- **契約テスト**: `tests/pages/csp-sm-certified-scrum-professional-scrummaster-study-guide.test.ts`（24 件全通過、12 個の表構造契約を含む）。
+- **契約テスト**: `tests/pages/csp-sm-certified-scrum-professional-scrummaster-study-guide.test.ts`（24 件全通過、24 個の表構造契約を含む）。
 - **TDD Mandatory サイクル**:
   1. `test(csp-sm)`: コントラクトテスト作成・Red 確認 (`dddcac0`)
   2. `feat(csp-sm)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`81bb02c`)
@@ -953,7 +953,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
   原本 `A-csm-advanced-certified-scrummaster-study-guide.html` の `section#references` では `h2` 直下に `h4` が配置されており見出し階層スキップ（h2 -> h4）が発生していた。品質契約 Q-3 を満たすため、移植先 Vue コンポーネントおよびテストにおいて参考文献の 8 見出し（Scrum Alliance 公式リソース、アジャイルコーチング・ファシリテーション推薦図書、チームダイナミクス・心理的安全性、アジャイルエンジニアリング・プラクティス、組織変革・スケーリング、プロダクトマネジメント・POコラボレーション、オンラインコミュニティ・学習プラットフォーム、継続的学習のための推薦ポッドキャスト）を `h4` から `h3` へ昇格。`audit_source_parity.mjs` でも h4 -> h3 昇格は正式に許可されており、**exit 0** を達成。
 - **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDES` に `categoryId: "project-management"`, `seriesId: "csm"` として登録（`CSP-SM 完全ガイド` の直後、`CSPO 完全ガイド` の前に配置）。これに伴い `tests/utils/guide-catalog.test.ts` の `MAX_GUIDES_PER_SERIES_COLUMN` を 13 から 14 に更新。
 - **原本照合監査**: `npm run audit:a-csm` にて **exit 0** を確認（listItems: 104, tableRows: 219, paragraphs: 132, headings: 75, externalLinks: 28, mermaidSources: 23, svgElements: 1, calloutElements: 79 すべて原本と完全一致）。
-- **契約テスト**: `tests/pages/a-csm-advanced-certified-scrummaster-study-guide.test.ts`（25 件全通過、18 個の表構造契約を含む）。
+- **契約テスト**: `tests/pages/a-csm-advanced-certified-scrummaster-study-guide.test.ts`（25 件全通過。表構造契約は持たず、個別仕様契約はサイドバーのドロワー制御と インライン SVG seal の 2 件）。
 - **TDD Mandatory サイクル**:
   1. `test(a-csm)`: コントラクトテスト作成・Red 確認 (`677a5ee`)
   2. `feat(a-csm)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`1c1faa4`)
@@ -1039,7 +1039,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1496 件 / E2E 24 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
+  - ユニットテスト 1496 件 / E2E 27 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - SiteDisclaimer.vue（全ページ共通の免責事項。app.vue に 1 行。固定サイドバーへは実測退避）
   - test / typecheck / lint はいずれも 2026-09-05 時点で ✔（実測）
   - build は NUXT_SITE_URL の指定が必要（未指定だと sitemap の prerender で失敗）。test:e2e は ✔
