@@ -10,7 +10,7 @@ import { expect, test } from "@playwright/test";
 
 const ICON_LINKS = [
   { selector: 'link[rel="icon"][type="image/svg+xml"]', href: "/favicon.svg", contentType: "image/svg+xml" },
-  { selector: 'link[rel="icon"][sizes="48x48"]', href: "/favicon.ico", contentType: "image/" },
+  { selector: 'link[rel="icon"][sizes="48x48"]', href: "/favicon.ico", contentType: "image/x-icon" },
   { selector: 'link[rel="apple-touch-icon"]', href: "/apple-touch-icon.png", contentType: "image/png" },
 ];
 
