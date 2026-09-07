@@ -1124,8 +1124,7 @@ class S7 done;`;
 .main-content {
   flex: 1;
   min-width: 0;
-  padding: 48px 48px 120px;
-  max-width: 960px;
+  padding: 56px 72px 120px;
 }
 
 .hero {
@@ -1536,6 +1535,16 @@ footer {
 
   .main-content {
     padding: 32px 24px 80px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
   }
 }
 </style>
