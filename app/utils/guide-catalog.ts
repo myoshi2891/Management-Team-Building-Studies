@@ -427,6 +427,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/professional-scrum-developer",
+    categoryId: "project-management",
+    seriesId: "csm",
+    navLabel: "PSD 完全ガイド",
+    title: "Professional Scrum Developer(PSD I)認定資格 学習ガイド",
+    description: "Scrum.orgのProfessional Scrum Developer(PSD I)認定資格について、4つのProfessional Scrum Competencies(出題範囲)を初学者向けにステップバイステップで解説する非公式の学習ガイドです。",
+    meta: "11セクション",
+    icon: "tabler:code",
+    accent: "indigo",
+  },
+  {
     to: "/cspo-certified-scrum-product-owner-study-guide",
     categoryId: "project-management",
     seriesId: "product-owner",
