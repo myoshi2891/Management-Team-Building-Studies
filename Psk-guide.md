@@ -189,13 +189,13 @@ Kanban Guide for Scrum Teams は、フローの状態を客観的に把握する
 
 リトルの法則は、WIP・Cycle Time・Throughput の3つのメトリクスを結びつける数学的関係です。Kanban Guide for Scrum Teams における表現は次の通りです。
 
-```
+```text
 平均 Cycle Time = 平均 WIP ÷ 平均 Throughput
 ```
 
 **計算例**：あるチームの平均WIPが10アイテム、平均Throughputが1日あたり2アイテムだとすると、
 
-```
+```text
 平均 Cycle Time = 10 ÷ 2 = 5日
 ```
 
