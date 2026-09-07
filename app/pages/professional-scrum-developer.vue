@@ -139,6 +139,19 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class UT hub;
 class IT,UI box;`;
+
+const DIAGRAM_CICD_PIPELINE = `flowchart LR
+DEV["コード変更を コミット"] --> BUILD["自動ビルド"]
+BUILD --> TEST["自動テスト実行 ユニット/統合"]
+TEST --> STAGE["ステージング環境へ 自動デプロイ"]
+STAGE --> RELEASE["本番環境へ リリース"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class DEV hub;
+class BUILD,TEST,STAGE box;
+class RELEASE done;`;
 </script>
 
 <template>
@@ -705,6 +718,97 @@ class IT,UI box;`;
         <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <p>Sprint Reviewを「完成した機能の発表会」にせず、ステークホルダーと一緒に次の優先順位を議論する場として設計する。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 6. DevOps and Modern Engineering Practices ===================== -->
+      <section id="devops-engineering-practices">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 06</div>
+        <h2>モダンなエンジニアリングプラクティスとDevOps</h2>
+
+        <p>公式のFocus Areaには明示的な項目名としては現れませんが、Scrum.orgの公式研修「Applying Professional Scrum for Software Development(APS-SD)」のカリキュラムには、DevOpsおよびモダンなエンジニアリングプラクティスの概観が含まれており、PSD Iの「Programming」「Quality」「Testing」「Design and Architecture」の設問の背景知識として重要です。</p>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/courses/applying-professional-scrum-for-software-development-training" target="_blank" rel="noopener">Applying Professional Scrum for Software Development 研修ページ</a></li>
+          </ul>
+        </div>
+
+        <h3>6.1 継続的インテグレーション / 継続的デリバリー(CI/CD)</h3>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CICD_PIPELINE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">コミットからリリースまでのCI/CDパイプライン</div>
+        </div>
+
+        <ul>
+          <li><strong>継続的インテグレーション(CI): </strong>Developersが頻繁に(少なくとも1日に一度は)変更を共有のメインラインに統合し、自動ビルド・自動テストで即座に検証する。</li>
+          <li><strong>継続的デリバリー(CD): </strong>ビルドされた成果物を、いつでも本番にリリース可能な状態に保つ。実際のリリースタイミングはビジネス判断で決める。</li>
+          <li><strong>継続的デプロイメント: </strong>CDをさらに進め、テストを通過した変更を自動的に本番へ反映する。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>CI/CDはScrumの必須ルールではなく、それを補完する技術プラクティスです。ただし「Definition of Doneを満たす利用可能なIncrementを毎Sprint作成する」ことを現実的に達成するうえで、CI/CDという技術基盤の有無は大きく効いてきます。PSD Iでは、CI/CDがScrumのイベント・成果物とどう結び付くか(例: Doneの増分を支える技術的裏付け)を理解しているかが問われます。</p>
+        </div>
+
+        <h3>6.2 進化的データベース設計(Evolutionary Database Development)</h3>
+        <p>データベーススキーマも、アプリケーションコードと同様に、スプリントを重ねる中で段階的に進化させていくアプローチです。</p>
+        <ul>
+          <li>スキーマ変更をバージョン管理し、マイグレーションスクリプトとして自動化・再現可能にする。</li>
+          <li>「後方互換性のある小さな変更」を積み重ねることで、大規模な一括マイグレーションのリスクを避ける。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>データベースマイグレーションを手作業のSQL実行ではなく、コードと同じCI/CDパイプラインに組み込んで自動化・レビュー対象にする。</p>
+        </div>
+
+        <h3>6.3 技術的負債の可視化と返済</h3>
+        <ul>
+          <li>技術的負債は「悪」ではなく、意図的に選択されるトレードオフである場合もある(納期優先で近道を選ぶなど)。問題は「見えない負債」が無秩序に蓄積することにある。</li>
+          <li>定期的なリファクタリング枠をスプリントの計画に組み込み、負債の返済を継続的なプラクティスにする。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>技術的負債専用のバックログアイテムを作り、Product Ownerと優先順位を明示的に交渉する(隠れた負債にしない)ことが、持続可能な開発速度を保つ鍵になります。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 7. Best Practices Summary ===================== -->
+      <section id="best-practices-summary">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bulb" aria-hidden="true" />SECTION 07</div>
+        <h2>ベストプラクティス総まとめ表</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>トピック</th><th>ベストプラクティス(要約)</th></tr></thead>
+            <tbody>
+              <tr><td>Backlog Refinement</td><td>必要な時間はバックログの状態とチームの習熟度に応じて調整し、垂直分割でINVESTを満たすアイテムに整える</td></tr>
+              <tr><td>Cross-functional</td><td>ペア / モブプログラミングとスキルマトリクスで知識のサイロ化を防ぐ</td></tr>
+              <tr><td>Self-managed Development</td><td>明確なゴールとDoDという境界の中で、タスク割り当てをチーム自身に委ねる</td></tr>
+              <tr><td>Design and Architecture</td><td>ADRで意思決定を記録し、大枠は初期に、詳細は創発的に育てる</td></tr>
+              <tr><td>Programming</td><td>TDD・ペアプログラミング・継続的リファクタリングで内部品質を保つ</td></tr>
+              <tr><td>Quality</td><td>DoDに品質基準を明記し、技術的負債をバックログで可視化する</td></tr>
+              <tr><td>Testing</td><td>テストピラミッドに沿って自動化し、テストをDoDに組み込む(シフトレフト)</td></tr>
+              <tr><td>Empiricism</td><td>頻繁な検査ができるよう、小さく完成させた増分を作り続ける</td></tr>
+              <tr><td>Scrum Values</td><td>日々のエンジニアリング行動(隠さず共有する、指摘する勇気)と結び付けて実践する</td></tr>
+              <tr><td>Events</td><td>各イベントの目的(検査と適応)を報告会にせず徹底する</td></tr>
+              <tr><td>Self-Managing Teams</td><td>権限移譲を段階的に進め、境界を明確にした上で裁量を広げる</td></tr>
+              <tr><td>Facilitation</td><td>フォーマットを固定化せず、状況に応じたファシリテーション手法を選ぶ</td></tr>
+              <tr><td>Coaching and Mentoring</td><td>ペアプログラミングを知識移転とオンボーディングの手段として活用する</td></tr>
+              <tr><td>Forecasting &amp; Release Planning</td><td>バーンアップチャートでスコープの変化そのものを可視化する</td></tr>
+              <tr><td>Product Value</td><td>アウトプットでなくアウトカム(成果)で成功を測る</td></tr>
+              <tr><td>CI/CD</td><td>壊れたビルドを放置しない文化と、ソフトウェアを常にリリース可能な状態に保つパイプラインを整備する(本番への自動デプロイはその先の選択肢)</td></tr>
+            </tbody>
+          </table>
         </div>
       </section>
     </main>
