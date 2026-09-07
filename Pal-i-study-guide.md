@@ -8,9 +8,9 @@
 ## 目次
 
 1. [PAL I 認定試験概要と「アジャイルリーダーシップ」の基本理念](#1-pal-i-認定試験概要とアジャイルリーダーシップの基本理念)
-2. [高業績・自己管理型チームの育成](#2-高業績自己管理型チームの育成-developing-people--teams)
-3. [組織的な障害の排除とカルチャー変革](#3-組織的な障害の排除とカルチャー変革-managing-the-organization)
-4. [価値とエビデンスに基づく測定と改善（EBM）](#4-価値とエビデンスに基づく測定と改善-ebm-evidence-based-management)
+2. [高業績・自己管理型チームの育成](#2-高業績自己管理型チームの育成developing-people--teams)
+3. [組織的な障害の排除とカルチャー変革](#3-組織的な障害の排除とカルチャー変革managing-the-organization)
+4. [価値とエビデンスに基づく測定と改善（EBM）](#4-価値とエビデンスに基づく測定と改善ebm-evidence-based-management)
 5. [試験対策・頻出シチュエーション問題の解法パターン](#5-試験対策頻出シチュエーション問題の解法パターン)
 6. [参考リソース・公式リンク集](#6-参考リソース公式リンク集)
 
@@ -30,7 +30,7 @@ PAL I（Professional Agile Leadership I）は、Scrum.org が提供する、マ�
 | 出題言語 | 英語のみ |
 | 受験前提コース | 必須ではないが「Professional Agile Leadership Essentials（PAL-E）」受講が推奨 |
 | 有効期限 | なし（再認定不要の永続資格） |
-| 出題領域 | Facilitation、Self-Managing Teams、Empiricism、Product Value、Leadership Styles、Events、Forecasting & Release Planning、Accountabilities、Stakeholders & Customers、Scrum Values、Organizational Design & Culture、Quality、Evidence-Based Management、Emergent Software Development など Professional Scrum Competencies 全域 |
+| 出題領域 | Facilitation、Self-Managing Teams、Empiricism、Product Value、Leadership Styles、Events、Forecasting & Release Planning、Scrum Team、Stakeholders & Customers、Scrum Values、Organizational Design & Culture、Evidence-Based Management、Emergent Software Development |
 
 これらの数値・出題領域は今後変更される可能性があるため、受験前に必ず公式ページで最新情報を確認してください。
 

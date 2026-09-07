@@ -42,7 +42,7 @@ Professional Scrum Facilitation Skills（PSFS）は、Scrum.org が提供する�
 | 受験言語 | 英語（Google翻訳プラグインを使って母国語で受験する人も多い） |
 | 費用 | 200 USD |
 | 有効期限 | なし（更新料も不要） |
-| 前提資格 | 必須ではないが、Professional Scrum Master I（PSM I）の取得が強く推奨される |
+| 前提資格 | 必須ではないが、Professional Scrum Master I（PSM I）コースの受講が強く推奨される |
 | 公式スタンダード | The Scrum Guide／The Professional Scrum Competencies |
 | バッジ発行 | Credly経由でデジタルバッジが発行される |
 
