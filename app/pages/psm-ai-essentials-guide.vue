@@ -1002,7 +1002,10 @@ class OK done;`;
 
   .stat-row {
     display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    /* 下限は 0。1024px 幅では本文カラムが 592px しかなく、minmax(140px, ...) だと
+       4 列 + gap で 608px となり右の padding へ食い込む（§49 と同系統の溢れ）。
+       4 列と 16px の間隔は保ったまま、列が本文幅まで縮めるようにする。 */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
   }
 
