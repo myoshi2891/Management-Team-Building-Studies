@@ -601,6 +601,112 @@ class IT,UI box;`;
           </ul>
         </div>
       </section>
+
+      <!-- ===================== 4. Part C: Developing People and Teams ===================== -->
+      <section id="part-c-people-teams">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" aria-hidden="true" />SECTION 04</div>
+        <h2>Part C: 人とチームの成長</h2>
+
+        <p>このコンピテンシーは、Scrumチームが「単に手順を回す集団」から「継続的に学習し成長するチーム」へと成熟していくために必要な、対人的なスキルを扱います。</p>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/professional-scrum-competency-developing-people-and-teams" target="_blank" rel="noopener">Professional Scrum Competency: Developing People and Teams</a></li>
+          </ul>
+        </div>
+
+        <h3>4.1 自己管理型チーム(Self-Managing Teams)</h3>
+        <p>複雑な問題に取り組むチームを支援する最良の方法は、チームに「どう仕事をするか」を細かく指示することではなく、チーム自身が決められる余地(スペース)を与えることです。</p>
+        <ul>
+          <li>自己管理型チームには、明確な境界(ゴール・制約・Definition of Done)が必要。境界がないまま自由度だけを与えると混乱を招く。</li>
+          <li>「自己管理=マネージャー不要」という誤解が多いが、実際には組織的な支援やコーチングは依然として必要。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>チームの自己管理度合いを一足飛びに最大化しようとせず、段階的に権限移譲していく(タスクの割り当て→見積もり→スプリント計画→リリース判断、の順で裁量を広げるなど)アプローチが実務では有効とされます。</p>
+        </div>
+
+        <h3>4.2 ファシリテーション(Facilitation)</h3>
+        <p>ファシリテーションとは、参加・当事者意識・創造性を促す形で、人々を合意された目標に導く技術です。Scrum Masterに限らず、Developers自身がミーティングや議論をファシリテートできることが望ましいとされます。</p>
+        <ul>
+          <li>Scrumイベント(特にSprint RetrospectiveやRefinement)は、ファシリテーション技術を活用することで質が大きく変わる。</li>
+          <li>特定の声の大きい人だけが発言する状況を避け、全員の視点を引き出す工夫(ラウンドロビン、匿名アイデア出しなど)が重要。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>レトロスペクティブでは、毎回同じフォーマット(例: KPT、Start-Stop-Continue)だけに頼らず、チームの状況に応じてファシリテーション手法を変えることでマンネリ化を防ぐ。</p>
+        </div>
+
+        <h3>4.3 コーチングとメンタリング(Coaching and Mentoring)</h3>
+        <ul>
+          <li><strong>コーチング: </strong>コーチはプロセスの専門家として振る舞い、対話や積極的傾聴、示唆に富む質問を通じて、相手自身が答えにたどり着けるよう支援する。</li>
+          <li><strong>メンタリング: </strong>メンターが自身の経験・専門知識に基づいて、メンティーに具体的なガイダンスを提供する、双方向の関係性。</li>
+        </ul>
+        <p>両者は混同されがちですが、コーチングは「答えを引き出す」、メンタリングは「答え(または方向性)を提供する」という違いがあります。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>経験豊富なDeveloperが新しいメンバーに対してペアプログラミングを通じてメンタリングを行うことは、知識移転とオンボーディングの高速化に直結する実践例としてよく挙げられます。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 5. Part D: Managing Products with Agility ===================== -->
+      <section id="part-d-managing-products">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-details" aria-hidden="true" />SECTION 05</div>
+        <h2>Part D: アジリティを持ったプロダクトマネジメント</h2>
+
+        <p>PSD Iでは主にProduct Ownerの役割とされる領域からも、Developerとして知っておくべき部分が出題されます。</p>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">Professional Scrum Competency: Managing Products with Agility</a></li>
+          </ul>
+        </div>
+
+        <h3>5.1 予測とリリース計画(Forecasting and Release Planning)</h3>
+        <p>予測とリリース計画はScrumが規定するルールではなく、Scrumを補完する実践です。多くのチームは、大きな一度きりのビッグバンリリースではなく、小さく頻繁な増分リリースを導くためのガイドとしてこれらを用います(Scrumが求めるのはDefinition of Doneを満たすIncrementを毎Sprint作成することまでで、リリースの可否とタイミングは別途の判断です)。</p>
+        <ul>
+          <li>ベロシティ(過去の実績)をもとにした予測は「約束」ではなく、不確実性を伴う目安として扱う。</li>
+          <li>経験主義に基づき、計画は一度立てたら終わりではなく、スプリントを重ねるごとに継続的に更新する。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>バーンダウン / バーンアップチャートだけに頼らず、スコープの変化そのものを可視化する(バーンアップチャートはスコープの増減が見えやすい)ことで、ステークホルダーとの期待値調整がしやすくなります。</p>
+        </div>
+
+        <h3>5.2 プロダクト価値(Product Value)</h3>
+        <p>Scrumチームの目的は、顧客とステークホルダーに価値を届けることです。価値の定義・測定・検証を継続的に行うことが求められます。</p>
+        <ul>
+          <li>価値を継続的に定義し、実際に実現された価値を測定し、仮説を検証し、傾向を分析することが鍵となる。</li>
+          <li>アウトプット(作った機能の数)ではなく、アウトカム(それによって生まれた成果)で成功を測る。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>リリース後の利用状況やビジネス指標(例: 離脱率、コンバージョン率)をチームにフィードバックする仕組みを作り、「作ったら終わり」にしない。</p>
+        </div>
+
+        <h3>5.3 プロダクトバックログマネジメント(Product Backlog Management)</h3>
+        <p>プロダクトバックログの効果的な管理には、Scrumチーム自身を含む多様なステークホルダーからの入力と協働が必要です。透明性のレベルは、ステークホルダーのニーズに応じて進化させる必要があります。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>DevelopersはPBMを「Product Ownerだけの仕事」と捉えず、技術的な観点からアイテムの分割・見積もり・依存関係の指摘に積極的に関わることで、バックログの質を高められます。</p>
+        </div>
+
+        <h3>5.4 ステークホルダーと顧客(Stakeholders and Customers)</h3>
+        <p>ステークホルダーとの関わり方は、Sprint Reviewを中心に設計されますが、それだけに閉じません。継続的なフィードバックループを設計することが重要です。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>Sprint Reviewを「完成した機能の発表会」にせず、ステークホルダーと一緒に次の優先順位を議論する場として設計する。</p>
+        </div>
+      </section>
     </main>
   </div>
 </template>
