@@ -1093,54 +1093,6 @@ class OK done;`;
 
   em { color: var(--color-ink-soft); }
 
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
   /* ===================== Tables ===================== */
   .table-wrap {
     overflow-x: auto;
@@ -1255,56 +1207,11 @@ class OK done;`;
     text-align: center;
   }
 
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
   .diagram-loading {
     color: var(--color-ink-faint);
     font-size: 16px;
     padding: 20px 0;
   }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
 
   /* ===================== Glossary ===================== */
   .glossary-grid {
@@ -1352,15 +1259,6 @@ class OK done;`;
     font-size: 16px;
   }
 
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
   /* ===================== Responsive ===================== */
   @media (max-width: 980px) {
     .sidebar-toggle { display: flex; }
@@ -1375,13 +1273,11 @@ class OK done;`;
     .main-content { margin-left: 0; padding: 88px 24px 100px; }
     .hero h1 { font-size: 32px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
     .glossary-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 560px) {
     .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: reduce) {

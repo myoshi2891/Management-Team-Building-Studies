@@ -107,6 +107,8 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://scrumguides.org/scrum-guide.html",
   "https://tryscrum.com/certifications/agile/scrum/scrum-master/professional-scrum-master-ai-essentials/",
   "https://www.scrum.org/assessments/professional-scrum-master-ai-essentials-certification",
+  "https://www.scrum.org/assessments/professional-scrum-master-ai-essentials-certification",
+  "https://www.scrum.org/assessments/professional-scrum-master-ai-essentials-certification",
   "https://www.scrum.org/courses/professional-scrum-master-ai-essentials-training",
   "https://www.scrum.org/resources/blog/ai-augmented-scrum-framework-when-half-your-team-autonomous-agents",
   "https://www.scrum.org/resources/blog/ai-rewiring-scrum-teams-not-scrum",
