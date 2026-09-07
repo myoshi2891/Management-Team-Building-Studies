@@ -939,6 +939,67 @@ class S7 done;`;
         </ul>
         <p><strong>正解: B</strong>　技術的負債を見える化し、Product Ownerと優先順位を明示的に交渉することで、透明性を保ったまま持続可能な開発速度を維持できます。</p>
       </section>
+
+      <!-- ===================== 10. Common Misconceptions ===================== -->
+      <section id="common-misconceptions">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" aria-hidden="true" />SECTION 10</div>
+        <h2>よくある誤解と注意点</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>よくある誤解</th><th>実際の考え方</th></tr></thead>
+            <tbody>
+              <tr><td>「Developersとはプログラマーだけを指す」</td><td>テスター、DBA、アーキテクトなど、Increment作成に関わる全員がDevelopersに含まれる</td></tr>
+              <tr><td>「自己管理=マネージャー不要、指示ゼロで自由にやってよい」</td><td>ゴールとDoDという境界の中での裁量であり、無秩序な自由放任ではない</td></tr>
+              <tr><td>「リファインメントは正式なScrumイベントである」</td><td>リファインメントはイベントではなく、継続的な活動として位置づけられている</td></tr>
+              <tr><td>「DoDはScrum.orgが標準として定めている」</td><td>DoDはScrum Team(および組織)が自ら定義するものであり、統一のグローバル標準は存在しない</td></tr>
+              <tr><td>「Sprint ReviewはDoneになった機能のデモをするだけの場」</td><td>ステークホルダーと共に次の優先順位を協働で検討する場でもある</td></tr>
+              <tr><td>「PSD IはCSD(Scrum Alliance)と同じ資格である」</td><td>PSD IはScrum.orgが提供する知識証明型試験であり、Scrum Alliance(研修受講型)のCSDとは発行団体・認定方式が異なる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>最後の項目について、Scrum AllianceのCertified Scrum Developer(CSD)は認定教育プロバイダーの研修受講に加え、試験または講師が研修中に実施する評価に合格することで取得する認定であるのに対し、Scrum.orgのPSD Iは研修受講を前提としない、独立した知識証明型の試験(合格ライン85%)による認定です。両者は名称が似ていますが別団体・別制度である点に注意してください。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 11. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 11</div>
+        <h2>参考文献・出典一覧</h2>
+
+        <div class="ref-group">
+          <h3>Scrum.org 公式リソース</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">Professional Scrum Developer™ Certification(公式試験ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-developer-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-developer-certification</a></li>
+            <li><span class="ref-name">Suggested Reading for PSD I™(推奨学習リソース)</span><a class="ref-url" href="https://www.scrum.org/resources/suggested-reading-professional-scrum-developer" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-reading-professional-scrum-developer</a></li>
+            <li><span class="ref-name">The Professional Scrum™ Competencies(コンピテンシー概要)</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+            <li><span class="ref-name">Professional Scrum Competency: Understanding and Applying the Scrum Framework</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies/understanding-and-applying-scrum-framework" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies/understanding-and-applying-scrum-framework</a></li>
+            <li><span class="ref-name">Professional Scrum Competency: Developing and Delivering Products Professionally</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies/developing-and-delivering-products-professionally" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies/developing-and-delivering-products-professionally</a></li>
+            <li><span class="ref-name">Professional Scrum Competency: Developing People and Teams</span><a class="ref-url" href="https://www.scrum.org/resources/professional-scrum-competency-developing-people-and-teams" target="_blank" rel="noopener">https://www.scrum.org/resources/professional-scrum-competency-developing-people-and-teams</a></li>
+            <li><span class="ref-name">Professional Scrum Competency: Managing Products with Agility</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility</a></li>
+            <li><span class="ref-name">The Scrum Guide(Scrum.org公式配布ページ)</span><a class="ref-url" href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide</a></li>
+            <li><span class="ref-name">Applying Professional Scrum for Software Development™(公式研修ページ)</span><a class="ref-url" href="https://www.scrum.org/courses/applying-professional-scrum-for-software-development-training" target="_blank" rel="noopener">https://www.scrum.org/courses/applying-professional-scrum-for-software-development-training</a></li>
+            <li><span class="ref-name">Open Assessments(無料練習アセスメント一覧)</span><a class="ref-url" href="https://www.scrum.org/open-assessments" target="_blank" rel="noopener">https://www.scrum.org/open-assessments</a></li>
+            <li><span class="ref-name">Scrum Developer Open(PSD I向け無料練習アセスメント)</span><a class="ref-url" href="https://www.scrum.org/open-assessments/scrum-developer-open" target="_blank" rel="noopener">https://www.scrum.org/open-assessments/scrum-developer-open</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>その他の一次情報・外部リソース</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">The Scrum Guide(2020年11月版・一次配布サイト)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+            <li><span class="ref-name">Professional Scrum Developer™ I(PSD I)バッジ情報</span><a class="ref-url" href="https://www.credly.com/org/scrum-org/badge/professional-scrum-developer-i-psd-i" target="_blank" rel="noopener">https://www.credly.com/org/scrum-org/badge/professional-scrum-developer-i-psd-i</a></li>
+            <li><span class="ref-name">PSD概要資料(Indiana州 DWD公開PDF: 受験料・時間等の要約)</span><a class="ref-url" href="https://www.in.gov/dwd/files/industry-certifications/Professional-Scrum-Developer-PSD.pdf" target="_blank" rel="noopener">https://www.in.gov/dwd/files/industry-certifications/Professional-Scrum-Developer-PSD.pdf</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        Scrum.org®、Professional Scrum Developer™、PSD I™ は Scrum, Inc. (Scrum.org)の商標です。本ガイドはScrum.orgとは無関係な非公式の学習支援コンテンツであり、正式な認定要件・出題内容・受験料等は必ず<a href="https://www.scrum.org/assessments/professional-scrum-developer-certification" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
+      </footer>
     </main>
   </div>
 </template>
@@ -1352,6 +1413,93 @@ tr:last-child td {
   font-size: 14px;
   padding: 20px 0;
   text-align: center;
+}
+
+/* Step list (roadmap) */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.step-list li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.step-num {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo);
+  color: var(--color-indigo);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-body .step-title {
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.step-body .step-desc {
+  color: var(--color-ink-soft);
+  font-size: 15px;
+}
+
+/* Reference list */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h3 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* Responsive */
