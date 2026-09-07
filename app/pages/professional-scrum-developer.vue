@@ -152,6 +152,22 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class DEV hub;
 class BUILD,TEST,STAGE box;
 class RELEASE done;`;
+
+const DIAGRAM_ROADMAP_FLOW = `flowchart TB
+S1["Step 1 Scrum Guide 2020を精読する"] --> S2["Step 2 Professional Scrum Competenciesの4領域を確認する"]
+S2 --> S3["Step 3 PSD I向けSuggested Reading ページの推薦図書に目を通す"]
+S3 --> S4["Step 4 Scrum Openと Scrum Developer Openを受験する"]
+S4 --> S5{"連続して 高得点が取れるか"}
+S5 -- いいえ --> S6["Step 5 弱点分野を復習する"]
+S6 --> S4
+S5 -- はい --> S7["Step 6 PSD I本試験を受験する"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S1 hub;
+class S2,S3,S4,S5,S6 box;
+class S7 done;`;
 </script>
 
 <template>
@@ -810,6 +826,118 @@ class RELEASE done;`;
             </tbody>
           </table>
         </div>
+      </section>
+
+      <!-- ===================== 8. Study Roadmap ===================== -->
+      <section id="study-roadmap">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 08</div>
+        <h2>学習ロードマップ</h2>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ROADMAP_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">Scrum Guideの精読からPSD I本試験受験までの学習ロードマップ</div>
+        </div>
+
+        <p>学習の進め方として、以下のステップが実務でも広く推奨されています。</p>
+
+        <ol class="step-list">
+          <li>
+            <div class="step-num" data-testid="step-tag">1</div>
+            <div class="step-body">
+              <div class="step-title">Scrum Guideを精読する</div>
+              <div class="step-desc">Scrum Guideを精読する。PSD Iを含むScrum.orgの全資格において、Scrum Guideは一次情報源であり、最も出題根拠として引用される頻度が高い文書です。</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">2</div>
+            <div class="step-body">
+              <div class="step-title">Professional Scrum Competenciesで全体像をつかむ</div>
+              <div class="step-desc">Professional Scrum Competenciesページで、4つのコンピテンシーとFocus Areaの全体像をつかむ。</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">3</div>
+            <div class="step-body">
+              <div class="step-title">Suggested Readingで推薦図書を確認する</div>
+              <div class="step-desc">PSD I向けのSuggested Readingページで、推薦図書(例: The DevOps Handbook、Professional Scrum Development with Azure DevOps など)を確認する。全部読む必要はなく、目次レベルで用語を拾うだけでも効果があります。</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">4</div>
+            <div class="step-body">
+              <div class="step-title">無料のOpen Assessmentを繰り返し受験する</div>
+              <div class="step-desc">無料のOpen Assessment(Scrum OpenおよびScrum Developer Open)を繰り返し受験する。実際の本試験と同一問題ではありませんが、Scrum.orgはこれらを誰でも利用できる無料のアセスメントとして公開しており、Scrum Developer OpenはPSD Iの準備に役立つ練習手段として案内されています。</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">5</div>
+            <div class="step-body">
+              <div class="step-title">弱点分野を復習する</div>
+              <div class="step-desc">間違えた分野・自信のない分野を、該当するCompetencyページやScrum Guideの該当箇所に戻って復習する。</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">6</div>
+            <div class="step-body">
+              <div class="step-title">PSD I本試験を受験する</div>
+              <div class="step-desc">安定して高得点が取れるようになってから、本試験(PSD I)を受験する。</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/open-assessments" target="_blank" rel="noopener">Open Assessments</a></li>
+            <li><a href="https://www.scrum.org/open-assessments/scrum-developer-open" target="_blank" rel="noopener">Scrum Developer Open</a></li>
+            <li><a href="https://www.scrum.org/resources/suggested-reading-professional-scrum-developer" target="_blank" rel="noopener">Suggested Reading for PSD I</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>Scrum Developer Openは30問構成の無料アセスメントで、Scrum.orgはPSD Iの準備に役立つ手段として案内しています。本試験前に、時間を計って何度も受け、安定して高スコアを出せる状態を目指しましょう。ただし丸暗記ではなく、「なぜその選択肢が正しいのか / 誤りなのか」を毎回言語化することが、出題パターンが変化しても対応できる実力につながります。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 9. Practice Quiz ===================== -->
+      <section id="practice-quiz">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 09</div>
+        <h2>理解度チェック(オリジナル問題)</h2>
+
+        <p>以下は本ガイドの理解度を確認するために独自に作成した設問です。実際のPSD I試験の問題ではありません。</p>
+
+        <h3>Q1. Scrum Guide 2020において、以前存在した「Development Team」というサブチームの概念はどうなったか。</h3>
+        <ul>
+          <li>A. そのまま維持されている</li>
+          <li>B. Product Owner・Scrum Master・DevelopersのすべてがScrum Teamという単一のチームに統合され、Development Teamという用語は廃止された</li>
+          <li>C. Development Teamの人数上限が撤廃された</li>
+          <li>D. Development TeamがScrum Masterの管理下に置かれるようになった</li>
+        </ul>
+        <p><strong>正解: B</strong>　2020年版では、3つのアカウンタビリティを持つ単一のScrum Teamという考え方に統一され、入れ子構造の「Development Team」という呼び方は使われなくなりました。</p>
+
+        <h3>Q2. テストピラミッドの考え方として最も適切なものはどれか。</h3>
+        <ul>
+          <li>A. UI / E2Eテストを最も多く用意し、ユニットテストは最小限にする</li>
+          <li>B. ユニットテストを土台として最も多く配置し、統合テスト、UI/E2Eテストの順に数を絞る</li>
+          <li>C. すべてのテストを手動で行い、自動化は避ける</li>
+          <li>D. 統合テストのみを実施すれば十分である</li>
+        </ul>
+        <p><strong>正解: B</strong>　高速で保守しやすいユニットテストを土台に多く配置し、実行コストの高いE2Eテストは最小限に絞ることで、フィードバックの速度とテストの保守性を両立させます。</p>
+
+        <h3>Q3. 技術的負債への向き合い方として、Scrumのエンジニアリングプラクティスとして推奨されるのはどれか。</h3>
+        <ul>
+          <li>A. 負債を隠し、Product Ownerに気付かれないようにする</li>
+          <li>B. 負債を可視化し、バックログ上で明示的に優先順位を交渉する</li>
+          <li>C. 負債の返済は考えず、常に新機能開発を優先する</li>
+          <li>D. 負債はScrum Masterが単独で判断して返済する</li>
+        </ul>
+        <p><strong>正解: B</strong>　技術的負債を見える化し、Product Ownerと優先順位を明示的に交渉することで、透明性を保ったまま持続可能な開発速度を維持できます。</p>
       </section>
     </main>
   </div>
