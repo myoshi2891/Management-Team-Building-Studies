@@ -33,6 +33,12 @@ async function horizontalOverflow(page: import("@playwright/test").Page): Promis
   );
 }
 
+/*
+ * 図の描画待ちの上限。テスト全体の時間予算にも同じ値を算入するため定数で持つ
+ * （直書きすると片方だけ変えたときに予算が静かに足りなくなる）。
+ */
+const DIAGRAM_WAIT_TIMEOUT_MS = 30_000;
+
 /**
  * Mermaid の描画完了を待つ。図は ClientOnly + onMounted の非同期描画なので、
  * 待たずに測ると「まだ図が無い状態」の幅を測ってしまい、図が原因の溢れを取り逃がす。
@@ -48,7 +54,7 @@ async function waitForDiagrams(page: import("@playwright/test").Page): Promise<v
   // ここで待ち切らないと、失敗した図があるページだけ永久にタイムアウトする。
   await expect(page.locator(".mermaid-wrap svg, .mermaid-wrap .diagram-error")).toHaveCount(
     expected,
-    { timeout: 30_000 },
+    { timeout: DIAGRAM_WAIT_TIMEOUT_MS },
   );
 }
 
@@ -58,13 +64,20 @@ async function waitForDiagrams(page: import("@playwright/test").Page): Promise<v
  * 他 spec と並列で走ると超えてタイムアウトする）、ガイドを追加するたびに
  * 静かに越える。固定値を置くと同じことが再発するので、ページ数から導出する。
  *
- * 1 ページあたり 5 秒は、図の描画待ち（waitForDiagrams の上限 30 秒）を含む
- * 最も重いページでも巡回が止まらない余裕を見た値。
+ * 1 ページあたり 5 秒は、正常に描画されるページの巡回に十分な値（実測 0.5 秒前後）。
  */
 const TIMEOUT_PER_PAGE_MS = 5_000;
 
+/*
+ * 図の描画が確定しないページが 1 枚あると、そのページだけで waitForDiagrams の
+ * 上限いっぱいを消費する。ページ単価にこれを織り込むと予算が桁違いに膨らむので、
+ * 「どこか 1 枚が上限まで待つ」ぶんだけを定数項として一度加算する。
+ * こうしておけば、上限を変えたときに巡回ぶんの予算が削られることもない。
+ */
 test.describe("横スクロールが出ない", () => {
-  test.describe.configure({ timeout: PATHS.length * TIMEOUT_PER_PAGE_MS });
+  test.describe.configure({
+    timeout: PATHS.length * TIMEOUT_PER_PAGE_MS + DIAGRAM_WAIT_TIMEOUT_MS,
+  });
 
   for (const width of WIDTHS) {
     test(`幅 ${width}px: 全 ${PATHS.length} ページ`, async ({ page }) => {
