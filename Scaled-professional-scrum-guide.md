@@ -561,7 +561,7 @@ flowchart TB
 - [The Nexus™ Guide(2021年1月版・公式PDF)](https://scrumorg-website-prod.s3.amazonaws.com/drupal/2021-01/NexusGuide%202021_0.pdf)
 - [Online Nexus Guide(公式・Web版)](https://www.scrum.org/resources/online-nexus-guide)
 - [Nexus Guide Change History(改訂履歴・公式)](https://www.scrum.org/resources/nexus-guide-change-history)
-- [Scaled Professional Scrum(コース概要・公式)](https://www.scrum.org/courses/scaled-professional-scrum-2024-11-05-86619)
+- [Scaled Professional Scrum(コース概要・公式)](https://www.scrum.org/courses/scaled-professional-scrum-training)
 - [The Professional Scrum™ Competencies(公式)](https://www.scrum.org/professional-scrum-competencies)
 - [Professional Scrum™ Certifications(認定一覧・公式)](https://www.scrum.org/professional-scrum-certifications)
 - [Scaling Scrum with Nexus(公式リソースセンター)](https://www.scrum.org/resources/scaling-scrum)
