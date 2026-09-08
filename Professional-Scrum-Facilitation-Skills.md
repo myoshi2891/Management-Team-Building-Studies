@@ -72,10 +72,12 @@ flowchart TB
 
 ### 1.4 出題対象となる「フォーカスエリア」
 
-Scrum.orgが定める Professional Scrum Competencies のうち、PSFSは「Developing People and Teams」というコンピテンシーの中の「Facilitation」というフォーカスエリアに対応しています。さらにその中は次の2つのサブ項目に分かれます。これが本試験の出題範囲のすべてです。
+Scrum.orgが定める Professional Scrum Competencies のうち、PSFSの中心となるのは「Developing People and Teams」というコンピテンシーの中の「Facilitation」というフォーカスエリアです。その中は次の2つのサブ項目に分かれます。
 
 - **Facilitation Principles and Values**（ファシリテーションの原則と価値観）
 - **Applying Facilitation Skills and Techniques**（ファシリテーションのスキルと技法の適用）
+
+ただし、出題がこの2つのサブ項目だけに閉じるわけではありません。PSFSはファシリテーションを「スクラムの文脈の中で」問う試験のため、Scrum Values（スクラムの価値基準）、Scrum Team（スクラムチーム）、Events（スクラムイベント）、Artifacts（作成物）といったスクラムの基礎理解を前提とした上で、上記のFacilitationフォーカスエリアが主要な出題範囲となります。
 
 出典: https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills
 
@@ -315,7 +317,7 @@ flowchart LR
 - Performing（機能期）: チームが自律的に高い成果を出せる段階
 - Adjourning（解散期）: チームの役目が終わり解散する段階
 
-出典: https://en.wikipedia.org/wiki/Group_dynamics（Bruce Tuckmanの4段階モデルに基づく整理）
+出典: https://en.wikipedia.org/wiki/Group_dynamics（Bruce Tuckmanの5段階モデルに基づく整理）
 
 ### 8.2 Sam Kanerの「参加型意思決定のダイヤモンド」とGroan Zone
 
@@ -457,9 +459,9 @@ Liberating Structures（リベレイティング・ストラクチャーズ）�
 
 タイムボックスを厳守することは重要ですが、それ自体を目的化してしまうと本末転倒です。時間切れを理由に必要な決定がなされないまま会議を終えてしまうと、そのイベントの目的そのものが果たされなかったことになります。
 
-- アジェンダは柔軟に扱い、価値ある議論を時間だけを理由に打ち切らない
-- ただし「なんとなく延長する」のではなく、チームと合意の上で調整する
-- 決定に至らなかった場合は、フォローアップの場と担当を明確にしてからイベントを終える
+- スクラムイベントのタイムボックスは「上限」であり、超過は選択肢にならない。アジェンダを柔軟に扱うのは、あくまでこの上限の範囲内での調整として行う
+- 時間配分を変える場合も「なんとなく続ける」のではなく、チームと合意の上で調整する
+- 決定に至らなかった論点は、イベントを延長するのではなく、フォローアップの場と担当を明確にした上でイベント外に持ち越す
 
 出典: https://www.infoq.com/articles/facilitation-skill-scrum
 
