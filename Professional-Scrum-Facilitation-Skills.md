@@ -39,10 +39,10 @@ Professional Scrum Facilitation Skills（PSFS）は、Scrum.org が提供する�
 | 問題数 | 20問（多肢選択式） |
 | 制限時間 | 30分 |
 | 合格ライン | 85%以上 |
-| 受験言語 | 英語（Google翻訳プラグインを使って母国語で受験する人も多い） |
+| 受験言語 | 英語（Chrome に標準搭載された Google 翻訳で母国語表示にして受験する人も多い。翻訳用の拡張機能を追加インストールする必要はない） |
 | 費用 | 200 USD |
 | 有効期限 | なし（更新料も不要） |
-| 前提資格 | 必須ではないが、Professional Scrum Master I（PSM I）認定の取得が強く推奨される |
+| 前提資格 | 必須ではないが、Professional Scrum Master I（PSM I）研修コースの受講が強く推奨される |
 | 公式スタンダード | The Scrum Guide／The Professional Scrum Competencies |
 | バッジ発行 | Credly経由でデジタルバッジが発行される |
 
@@ -60,7 +60,7 @@ Professional Scrum Facilitation Skills（PSFS）は、Scrum.org が提供する�
 
 ```mermaid
 flowchart TB
-    A["Scrumの基礎を固める"] --> B["Professional Scrum Master I を取得する 推奨"]
+    A["Scrumの基礎を固める"] --> B["Professional Scrum Master I 研修を受講する 推奨"]
     B --> C["Professional Scrum Facilitation Skills 研修を受講する 任意"]
     C --> D["公式のFacilitation関連記事を読み込む"]
     D --> E["Facilitation Skills Open 無料模擬試験 を受験する"]
@@ -519,7 +519,7 @@ flowchart TB
 ### 11.4 受験当日のベストプラクティス
 
 - 制限時間は30分で20問。1問あたり平均1.5分というタイトな時間配分になるため、迷った問題は一旦フラグを立てて次に進む判断力が必要
-- 英語での出題だが、Google翻訳プラグインを使って母国語で読むことも可能。事前に翻訳表示に慣れておくとよい
+- 英語での出題だが、Chrome に標準搭載された Google 翻訳で母国語表示にして読むことも可能。翻訳用の拡張機能をインストールする必要はない。事前に翻訳表示に慣れておくとよい
 - 「一般的に正しそうなファシリテーション論」ではなく「Scrum Guideに沿った文脈で最も適切な選択肢」を選ぶことを常に意識する
 - 選択肢に複数の技法が並んでいる場合、「発散のための技法か」「収束・合意形成のための技法か」をまず見極めると正答率が上がりやすい
 
