@@ -9,7 +9,7 @@
 | 項目 | 内容 |
 |---|---|
 | 対象試験 | Scaled Professional Scrum™(SPS)Certification(Scrum.org) |
-| 前提知識 | Scrum Guide の内容を熟知していること(PSM Ⅰ/Ⅱ 相当)。SPS は「Scrum を知らない人」には推奨されない上級試験です |
+| 前提知識 | 受験資格の要件はありません。ただし Scrum Guide の内容の熟知と Scrum の実務経験が準備として推奨され、「Scrum を知らない人」には勧められない上級試験です |
 | 出題形式 | 選択式・複数選択・True/False 混在、40問、60分 |
 | 合格ライン | 85%以上(Scrum.org の中でも最も高い合格基準の一つ) |
 | コア教材 | The Nexus™ Guide(2021年1月版) |
@@ -301,7 +301,7 @@ flowchart TB
 
 **順序の工夫:** Nexus Daily Scrum を各チームの Daily Scrum より**先**に実施すると、チームは Nexus Daily Scrum で提起された依存関係や統合課題への対応を、その日の自チームの計画に反映しやすくなります。
 
-**ソース:** [Nexus events: Team Sprint Planning & sequence of events(公式フォーラム)](https://www.scrum.org/forum/scrum-forum/46438/nexus-events-team-sprint-planing-sequence-events) / [Nexus Framework - Growing Agility](http://growing-agility.com/nexus/)
+**ソース:** [Nexus events: Team Sprint Planning & sequence of events(公式フォーラム)](https://www.scrum.org/forum/scrum-forum/46438/nexus-events-team-sprint-planing-sequence-events) / [Scaling Scrum(Scrum.org)](https://www.scrum.org/resources/scaling-scrum)
 
 ### 5.5 Nexus Sprint Review
 
@@ -583,7 +583,7 @@ flowchart TB
 - [How To Pass The Scaled Professional Scrum (SPS) Assessment:TheScrumMaster.co.uk](https://www.thescrummaster.co.uk/scrum/how-to-pass-the-scaled-professional-scrum-sps-assessment-from-scrum-org/)
 - [Scaled Professional Scrum With Nexus コース詳細・学習目標:TheScrumMaster.co.uk](https://www.thescrummaster.co.uk/scaled-professional-scrum/)
 - [Nexus Sprint Planning in Practice(実務解説):Accentient](https://accentient.com/blog/nexus-sprint-planning-in-practice/)
-- [Nexus Framework 実務解説:Growing Agility](http://growing-agility.com/nexus/)
+- [Scaling Scrum(Scrum.org)](https://www.scrum.org/resources/scaling-scrum)
 - [Nexus Guide 詳細解説(Martin Hinshelwood, Professional Scrum Trainer)](https://engineering-leadership.hinshelwood.com/guides/nexus-guide)
 - [Nexus - the scaling Scrum framework(解説記事)](https://www.scrum-tips.com/agile/nexus-scaling-scrum-framework/)
 - [Scaling Scrum: LeSS, SAFe, Nexus, or Scrum@Scale?(比較記事)](https://prepforscrum.com/scaling-scrum-frameworks-less-safe-nexus-scrum-at-scale/)
