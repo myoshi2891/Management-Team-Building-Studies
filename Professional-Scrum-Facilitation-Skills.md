@@ -704,7 +704,7 @@ A. Groan Zone　B. Groupthink（集団思考）　C. Forming　D. Consent
 
 ### 一般的な理論的背景（補足）
 
-- Group dynamics / Tuckman's stages（Wikipedia、Bruce Tuckmanの4段階モデルの一般的整理）: https://en.wikipedia.org/wiki/Group_dynamics
+- Group dynamics / Tuckman's stages（Wikipedia、Bruce Tuckmanの5段階モデルの一般的整理。当初は Forming / Storming / Norming / Performing の4段階として提唱され、Adjourning（解散期）は後年に追加された段階）: https://en.wikipedia.org/wiki/Group_dynamics
 - Sam Kaner, "Facilitator's Guide to Participatory Decision-Making"（Groan Zoneの提唱元となった書籍。Scrum.orgのブログ記事内でも参照されている）
 
 ---
