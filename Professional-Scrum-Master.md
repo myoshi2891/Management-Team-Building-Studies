@@ -30,7 +30,7 @@
 
 ### 1.1 PSMとは何か
 
-Professional Scrum Master™（PSM）は、Scrum の共同考案者 Ken Schwaber が設立した **Scrum.org** が提供する認定制度です。CSM（Certified ScrumMaster、Scrum Alliance）が主に「研修への出席」によって認定されるのに対し、PSM は **知識と理解度を問う試験に合格すること** で認定される点が最大の特徴です。研修の受講は必須ではなく、独学でも受験・合格が可能です。
+Professional Scrum Master™（PSM）は、Scrum の共同考案者 Ken Schwaber が設立した **Scrum.org** が提供する認定制度です。CSM（Certified ScrumMaster、Scrum Alliance）が **16 時間の公式コース受講と 50 問の試験合格の両方** を認定要件とするのに対し、PSM は **知識と理解度を問う試験に合格すること** のみで認定される点が最大の特徴です。研修の受講は必須ではなく、独学でも受験・合格が可能です。
 
 PSM ファミリーには難易度別に3段階のアセスメントがあります。
 
