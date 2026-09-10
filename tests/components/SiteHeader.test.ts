@@ -37,10 +37,21 @@ const mountHeader = (options: { attachTo?: Element } = {}) =>
 const triggers = (wrapper: ReturnType<typeof mountHeader>) =>
   wrapper.findAll("[data-testid='nav-category-trigger']");
 
-/** 指定種別のドロップダウン内リンク */
+/**
+ * 指定種別のドロップダウン内リンク。
+ *
+ * textContent は要素間に空白を入れずに連結されるため、ラベル・件数・説明を
+ * まとめて 1 本の文字列で固定すると、区切りの無い読みにくい期待値になり、
+ * どの要素が欠けたのかも分からない。要素ごとに取り出して個別に固定する。
+ */
 const panelLinks = (wrapper: ReturnType<typeof mountHeader>, kindId: string) =>
   wrapper.get(`#nav-panel-${kindId}`).findAll("a").map((link) => ({
-    label: link.text(),
+    label: link.find(".nav-program-label").exists()
+      ? link.get(".nav-program-label").text()
+      : link.text(),
+    summary: link.find(".nav-program-summary").exists()
+      ? link.get(".nav-program-summary").text()
+      : null,
     href: link.attributes("href"),
   }));
 
@@ -69,25 +80,25 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
     const wrapper = mountHeader();
 
     expect(panelLinks(wrapper, "certifications")).toEqual([
-      { label: "PMI 認定 9 CAPM・PMP の全出題ドメイン", href: "/certifications/pmi" },
-      { label: "Scrum Alliance 認定 24 CSM・CSPO・CSD・CAL の各体系", href: "/certifications/scrum-alliance" },
-      { label: "Scrum.org 認定 2 PSM・PSPO・PSD の各体系", href: "/certifications/scrum-org" },
-      { label: "資格で学ぶ をすべて見る", href: "/certifications" },
+      { label: "PMI 認定", summary: "CAPM・PMP の全出題ドメイン", href: "/certifications/pmi" },
+      { label: "Scrum Alliance 認定", summary: "CSM・CSPO・CSD・CAL の各体系", href: "/certifications/scrum-alliance" },
+      { label: "Scrum.org 認定", summary: "PSM・PSPO・PSD の各体系", href: "/certifications/scrum-org" },
+      { label: "資格で学ぶをすべて見る", summary: null, href: "/certifications" },
     ]);
 
     expect(panelLinks(wrapper, "books")).toEqual([
-      { label: "マネジメント 5 マネジメントの原典と実務書", href: "/books/management" },
-      { label: "リーダーシップ 4 リードの実践と対話の技術", href: "/books/leadership" },
-      { label: "チーム・組織文化 5 信頼・心理的安全性・組織文化", href: "/books/team" },
-      { label: "チーム設計 2 チーム構造とその変え方", href: "/books/org-design" },
-      { label: "プロダクト・アジャイル 2 プロダクト開発とアジャイル実践", href: "/books/product" },
-      { label: "書籍で学ぶ をすべて見る", href: "/books" },
+      { label: "マネジメント", summary: "マネジメントの原典と実務書", href: "/books/management" },
+      { label: "リーダーシップ", summary: "リードの実践と対話の技術", href: "/books/leadership" },
+      { label: "チーム・組織文化", summary: "信頼・心理的安全性・組織文化", href: "/books/team" },
+      { label: "チーム設計", summary: "チーム構造とその変え方", href: "/books/org-design" },
+      { label: "プロダクト・アジャイル", summary: "プロダクト開発とアジャイル実践", href: "/books/product" },
+      { label: "書籍で学ぶをすべて見る", summary: null, href: "/books" },
     ]);
 
     expect(panelLinks(wrapper, "practices")).toEqual([
-      { label: "役割とキャリア 5 リーダーの立ち上がりと役割間の協働", href: "/practices/career" },
-      { label: "AI 活用 1 AI を前提にした実務の進め方", href: "/practices/ai" },
-      { label: "テーマで学ぶ をすべて見る", href: "/practices" },
+      { label: "役割とキャリア", summary: "リーダーの立ち上がりと役割間の協働", href: "/practices/career" },
+      { label: "AI 活用", summary: "AI を前提にした実務の進め方", href: "/practices/ai" },
+      { label: "テーマで学ぶをすべて見る", summary: null, href: "/practices" },
     ]);
   });
 
