@@ -552,8 +552,13 @@ nav { height: 100%; display: flex; align-items: stretch; }
  * 1 行 = アイコン / ラベル / 件数 / 説明。説明はラベルの下段へ回り込ませる。
  * grid にするのは、件数を右端へ揃えたまま説明を 2 行目に置くため
  * （flex の折り返しでは件数の位置が行内容に引きずられる）。
+ *
+ * .nav-dropdown を前置してクラス 2 つ分の詳細度 (0,2,1) を確保する。
+ * 後方の .nav-dropdown a は同じ (0,1,1) で display: flex を指定しており、
+ * .nav-program-list a のままでは同点後勝ちで grid 指定一式（grid-template-columns /
+ * .nav-program-summary の grid-column）が丸ごと無効化される。
  */
-.nav-program-list a {
+.nav-dropdown .nav-program-list a {
   display: grid;
   grid-template-columns: 17px minmax(0, 1fr) auto;
   align-items: center;

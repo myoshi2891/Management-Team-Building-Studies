@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import SiteSearch from "~/components/SiteSearch.vue";
 
 const { navigateTo } = vi.hoisted(() => ({ navigateTo: vi.fn() }));
@@ -11,11 +11,25 @@ const NuxtLinkStub = {
   template: `<a :href="to"><slot /></a>`,
 };
 
-const mountSearch = () =>
-  mount(SiteSearch, {
+/*
+ * attachTo: document.body で document に直接リスナーを張るため、
+ * 後始末をテスト末尾の unmount() に任せると assertion 失敗時に取り残される
+ * （次のテストのキー操作を前のインスタンスが拾う）。afterEach で必ず剥がす。
+ */
+const mounted: ReturnType<typeof mount>[] = [];
+
+afterEach(() => {
+  while (mounted.length > 0) mounted.pop()?.unmount();
+});
+
+const mountSearch = () => {
+  const wrapper = mount(SiteSearch, {
     attachTo: document.body,
     global: { stubs: { NuxtLink: NuxtLinkStub, Icon: { template: "<span aria-hidden='true' />" } } },
   });
+  mounted.push(wrapper);
+  return wrapper;
+};
 
 /** 検索を開いて入力を返す。 */
 async function open(wrapper: ReturnType<typeof mountSearch>) {
@@ -35,7 +49,6 @@ describe("SiteSearch — サイト内検索", () => {
 
     expect(trigger.attributes("aria-expanded")).toBe("false");
     expect(wrapper.find("[data-testid='site-search-input']").exists()).toBe(false);
-    wrapper.unmount();
   });
 
   it("開くと combobox として listbox に紐づく", async () => {
@@ -46,7 +59,6 @@ describe("SiteSearch — サイト内検索", () => {
     expect(input.attributes("aria-expanded")).toBe("true");
     expect(input.attributes("aria-controls")).toBe(wrapper.get("[role='listbox']").attributes("id"));
     expect(wrapper.get("[data-testid='site-search-trigger']").attributes("aria-expanded")).toBe("true");
-    wrapper.unmount();
   });
 
   it("入力に応じて候補を出し、所属体系を添える", async () => {
@@ -64,7 +76,6 @@ describe("SiteSearch — サイト内検索", () => {
       { label: "CAPM ドメイン3", program: "PMI 認定" },
       { label: "CAPM ドメイン4", program: "PMI 認定" },
     ]);
-    wrapper.unmount();
   });
 
   it("一致が無いことを利用者へ伝える（黙って空にしない）", async () => {
@@ -75,7 +86,6 @@ describe("SiteSearch — サイト内検索", () => {
 
     expect(wrapper.findAll("[role='option']")).toHaveLength(0);
     expect(wrapper.get("[data-testid='search-empty']").text()).toContain("見つかりません");
-    wrapper.unmount();
   });
 
   /*
@@ -96,7 +106,6 @@ describe("SiteSearch — サイト内検索", () => {
 
     await input.setValue("CAPM ド");
     expect(wrapper.get("[data-testid='search-empty']").text()).toBe("");
-    wrapper.unmount();
   });
 
   it("上下キーで候補を移動し、aria-activedescendant で現在位置を通知する", async () => {
@@ -113,7 +122,6 @@ describe("SiteSearch — サイト内検索", () => {
 
     await wrapper.get("[data-testid='site-search-input']").trigger("keydown", { key: "ArrowUp" });
     expect(wrapper.get("[data-testid='site-search-input']").attributes("aria-activedescendant")).toBe(optionIds[0]);
-    wrapper.unmount();
   });
 
   it("端で循環する（先頭の上は末尾、末尾の下は先頭）", async () => {
@@ -125,7 +133,10 @@ describe("SiteSearch — サイト内検索", () => {
     await input.trigger("keydown", { key: "ArrowUp" });
     expect(wrapper.get("[data-testid='site-search-input']").attributes("aria-activedescendant"))
       .toBe(optionIds.at(-1));
-    wrapper.unmount();
+
+    await wrapper.get("[data-testid='site-search-input']").trigger("keydown", { key: "ArrowDown" });
+    expect(wrapper.get("[data-testid='site-search-input']").attributes("aria-activedescendant"))
+      .toBe(optionIds[0]);
   });
 
   it("Enter で選択中の候補へ遷移し、検索を閉じる", async () => {
@@ -139,7 +150,6 @@ describe("SiteSearch — サイト内検索", () => {
 
     expect(navigateTo).toHaveBeenCalledWith("/certified-associate-in-project-management-domain2");
     expect(wrapper.find("[data-testid='site-search-input']").exists()).toBe(false);
-    wrapper.unmount();
   });
 
   it("候補が無い状態の Enter では遷移しない", async () => {
@@ -151,7 +161,6 @@ describe("SiteSearch — サイト内検索", () => {
     await input.trigger("keydown", { key: "Enter" });
 
     expect(navigateTo).not.toHaveBeenCalled();
-    wrapper.unmount();
   });
 
   it("Escape で閉じてトリガーへフォーカスを戻す", async () => {
@@ -166,7 +175,6 @@ describe("SiteSearch — サイト内検索", () => {
 
     expect(wrapper.find("[data-testid='site-search-input']").exists()).toBe(false);
     expect(document.activeElement).toBe(wrapper.get("[data-testid='site-search-trigger']").element);
-    wrapper.unmount();
   });
 
   it("候補をクリックしても遷移する", async () => {
@@ -178,7 +186,6 @@ describe("SiteSearch — サイト内検索", () => {
     await wrapper.findAll("[role='option']")[2]!.trigger("click");
 
     expect(navigateTo).toHaveBeenCalledWith("/capm-domain3-agile-frameworks-guide");
-    wrapper.unmount();
   });
 
   it("トリガーにアクセシブルな名前を持つ", () => {
@@ -186,6 +193,5 @@ describe("SiteSearch — サイト内検索", () => {
 
     expect(wrapper.get("[data-testid='site-search-trigger']").attributes("aria-label"))
       .toBe("ガイドを検索");
-    wrapper.unmount();
   });
 });
