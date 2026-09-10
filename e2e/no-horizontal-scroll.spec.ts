@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { GUIDES } from "../app/utils/guide-catalog";
+import { allSiteRoutes } from "../app/utils/guide-catalog";
 
 /*
  * 全ページ・全幅域での横スクロール禁止。
@@ -10,8 +10,9 @@ import { GUIDES } from "../app/utils/guide-catalog";
  *   テキストからは決定できない（静的検査は誤検知だらけでゲートにならないことを実測で確認した）。
  *   したがってここが唯一の機械的ゲートになる。
  *
- * 対象ページは guide-catalog の GUIDES から導出する。新規ガイドを GUIDES に登録すると
- * 自動的にこの契約の対象になる。裏返すと、GUIDES へ未登録のページは巡回されないため、
+ * 対象ページは guide-catalog の allSiteRoutes()（ホーム・種別インデックス・ハブ・全ガイド）
+ * から導出する。ガイドを GUIDES に、プログラムを GUIDE_PROGRAMS に登録すると自動的に
+ * この契約の対象になる。裏返すと、カタログへ未登録のページは巡回されないため、
  * カタログへの登録漏れそのものはこの spec では検知できない。
  *
  * 幅の選び方（すべて「過去に事故が出た帯」を含む）:
@@ -21,7 +22,7 @@ import { GUIDES } from "../app/utils/guide-catalog";
  */
 const WIDTHS = [1440, 1024, 390] as const;
 
-const PATHS = ["/", ...GUIDES.map((guide) => guide.to)];
+const PATHS = allSiteRoutes();
 
 /**
  * ドキュメントが横方向に溢れている量を返す。0 以下なら横スクロールは出ない。

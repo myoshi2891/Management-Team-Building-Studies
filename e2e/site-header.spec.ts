@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { GUIDE_CATEGORIES, type GuideCategoryId } from "../app/utils/guide-catalog";
+import { GUIDE_KINDS, type GuideKindId } from "../app/utils/guide-catalog";
 
 /*
  * グローバルナビのスモーク。
@@ -12,13 +12,11 @@ import { GUIDE_CATEGORIES, type GuideCategoryId } from "../app/utils/guide-catal
  */
 
 /*
- * 巡回対象のカテゴリーは GUIDE_CATEGORIES（カテゴリー定義の SSoT）から導出する。
- * ここに固定配列を置くとカテゴリー追加時に二重管理になり、テストは Green のまま
- * 新カテゴリーのドロップダウンを一度も開かない（＝静かにカバレッジが欠ける）。
+ * 巡回対象の種別は GUIDE_KINDS（種別定義の SSoT）から導出する。
+ * ここに固定配列を置くと種別追加時に二重管理になり、テストは Green のまま
+ * 新種別のドロップダウンを一度も開かない（＝静かにカバレッジが欠ける）。
  */
-const CATEGORY_IDS: readonly GuideCategoryId[] = GUIDE_CATEGORIES.map(
-  (category) => category.id,
-);
+const KIND_IDS: readonly GuideKindId[] = GUIDE_KINDS.map((kind) => kind.id);
 
 const MOBILE = { width: 375, height: 720 };
 
@@ -79,8 +77,8 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/capm");
 
-  const trigger = page.locator("#nav-trigger-project-management");
-  const panel = page.locator("#nav-panel-project-management");
+  const trigger = page.locator("#nav-trigger-certifications");
+  const panel = page.locator("#nav-panel-certifications");
 
   await expect(trigger).toHaveClass(/current/);
   await expect(panel).toBeHidden();
@@ -115,7 +113,7 @@ test("デスクトップ: パネルはトリガー基準に出て、はみ出す
     await page.goto("/");
     const container = (await page.locator(".global-header-inner").boundingBox())!;
 
-    for (const id of CATEGORY_IDS) {
+    for (const id of KIND_IDS) {
       await openWithHover(page, id);
       const panel = page.locator(`#nav-panel-${id}`);
       const trigger = (await page.locator(`#nav-trigger-${id}`).boundingBox())!;
@@ -141,10 +139,11 @@ test("デスクトップ: パネルはトリガー基準に出て、はみ出す
 /*
  * ドロップダウンを「開いた状態」の縦方向の契約。
  *
- * シリーズカラムは縦の肥大化を吸収するための構造だが、1 カラムへガイドが集中すると
- * その吸収が効かなくなる（実測: scrum シリーズが 14 件へ膨らみ、パネル全高が約 600px に達した）。
- * カラムあたりの件数上限は tests/utils/guide-catalog.test.ts が分類の契約として固定するが、
- * 「実際に描いたら画面を覆うか」は実レイアウトでしか判定できないため、ここで実測する。
+ * パネルはハブ（プログラム）へのリンクだけを並べるため、行数はガイド数ではなく
+ * プログラム数で決まる（旧メガメニューはガイドを列挙しており、実測でパネル全高が
+ * 683px に達して破綻した）。プログラム数の上限は tests/utils/guide-catalog.test.ts が
+ * 分類の契約として固定するが、「実際に描いたら画面を覆うか」は実レイアウトでしか
+ * 判定できないため、ここで実測する。
  *
  * 縦が最も厳しい常用構成として 1280x720 を使う。
  */
@@ -156,7 +155,7 @@ test("デスクトップ: どのパネルを開いても縦にビューポート
   const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
   const available = viewport.height - headerBox.height;
 
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     await openWithHover(page, id);
 
     const panel = page.locator(`#nav-panel-${id}`);
@@ -185,7 +184,7 @@ test("デスクトップ: パネル内のアイコンが潰れず、ラベルが
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     await openWithHover(page, id);
     const squeezed = await page.locator(`#nav-panel-${id}`).evaluate((el) =>
       [...el.querySelectorAll("a")]
@@ -212,8 +211,8 @@ test("デスクトップ: Escape で閉じてトリガーへフォーカスが�
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  const trigger = page.locator("#nav-trigger-engineering-leadership");
-  const panel = page.locator("#nav-panel-engineering-leadership");
+  const trigger = page.locator("#nav-trigger-books");
+  const panel = page.locator("#nav-panel-books");
 
   await openWithKeyboard(page, "engineering-leadership");
 
@@ -226,10 +225,10 @@ test("デスクトップ: 閉じているドロップダウンのリンクはタ
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  await page.locator("#nav-trigger-project-management").focus();
+  await page.locator("#nav-trigger-certifications").focus();
   await page.keyboard.press("Tab");
 
-  await expect(page.locator("#nav-trigger-engineering-management")).toBeFocused();
+  await expect(page.locator("#nav-trigger-books")).toBeFocused();
 });
 
 test("モバイル幅: ポインタデバイスでもタップでアコーディオンが開く", async ({ page }) => {
@@ -239,7 +238,7 @@ test("モバイル幅: ポインタデバイスでもタップでアコーディ
 
   await openMobileNav(page);
 
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     const trigger = page.locator(`#nav-trigger-${id}`);
     await trigger.click();
     await expect(trigger).toHaveAttribute("aria-expanded", "true");
@@ -255,8 +254,8 @@ test("モバイル幅: リンクをタップすると遷移してナビが閉じ
   await page.goto("/");
 
   await openMobileNav(page);
-  await page.locator("#nav-trigger-team-building").click();
-  await page.locator("#nav-panel-team-building a").first().click();
+  await page.locator("#nav-trigger-practices").click();
+  await page.locator("#nav-panel-practices a").first().click();
 
   // カタログの並べ替えにより、チームビルディングの先頭は「チーム文化」シリーズの Team Geek。
   await expect(page).toHaveURL(/\/team-geek-guide$/);
@@ -302,15 +301,15 @@ test("モバイル幅: Escape でメニューが閉じて nav-toggle へフォ�
   await openMobileNav(page);
 
   // カテゴリを開いてリンクにフォーカスを当てる
-  await page.locator("#nav-trigger-project-management").click();
-  const link = page.locator("#nav-panel-project-management a").first();
+  await page.locator("#nav-trigger-certifications").click();
+  const link = page.locator("#nav-panel-certifications a").first();
   await link.focus();
   await expect(link).toBeFocused();
 
   // Escape でパネルが閉じトリガーに戻る
   await page.keyboard.press("Escape");
-  await expect(page.locator("#nav-panel-project-management")).toBeHidden();
-  await expect(page.locator("#nav-trigger-project-management")).toBeFocused();
+  await expect(page.locator("#nav-panel-certifications")).toBeHidden();
+  await expect(page.locator("#nav-trigger-certifications")).toBeFocused();
 
   // もう一度 Escape でメニュー自体が閉じて nav-toggle に戻る
   await page.keyboard.press("Escape");
@@ -322,8 +321,8 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  const trigger = page.locator("#nav-trigger-engineering-management");
-  const panel = page.locator("#nav-panel-engineering-management");
+  const trigger = page.locator("#nav-trigger-books");
+  const panel = page.locator("#nav-panel-books");
 
   // キーボードで開く（フォーカスがナビ内に入る）
   await openWithKeyboard(page, "engineering-management");
@@ -356,7 +355,7 @@ test("デスクトップ: どのパネルを開いても切り取られず、横
 
   // 右寄りのカテゴリーほどはみ出しやすいが、どれか 1 つを見るだけでは
   // カタログの並べ替えで検証対象が入れ替わってしまう。全カテゴリーを見る。
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     await openWithHover(page, id);
 
     const box = await page.locator(`#nav-panel-${id}`).boundingBox();
