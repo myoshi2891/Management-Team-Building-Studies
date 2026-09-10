@@ -85,7 +85,13 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
 
   await openWithHover(page, "certifications");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
-  await expect(panel.locator("a.current")).toHaveAttribute("href", "/capm");
+  /*
+   * ナビはガイドを列挙しないため、現在地として点くのは所属ハブ（PMI 認定）。
+   * ハブ自身ではなく配下のガイドを見ているので aria-current は "page" ではなく "true"（祖先）。
+   */
+  const current = panel.locator("a.current");
+  await expect(current).toHaveAttribute("href", "/certifications/pmi");
+  await expect(current).toHaveAttribute("aria-current", "true");
 
   // パネルはヘッダーの下端より下に出る（ヘッダーに潜り込んで切れない）。
   // toBeVisible() は visibility が切り替わった時点で通るが、パネルは 160ms かけて
