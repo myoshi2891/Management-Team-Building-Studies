@@ -1,3 +1,5 @@
+import { GUIDE_KINDS, GUIDE_PROGRAMS } from "./app/utils/guide-catalog";
+
 // Nuxt 4 の既定 srcDir は `app/`。ページ・コンポーネント等はすべて app/ 配下に置く。
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-14",
@@ -62,6 +64,18 @@ export default defineNuxtConfig({
   // Nitro の走査・監視対象からアーカイブ・ドキュメント・テストを除外する。
   nitro: {
     ignore: ["archive/**", "docs/**", "tests/**", "e2e/**"],
+
+    /*
+     * ハブは動的ルート（/certifications/[program] など）なので、
+     * crawlLinks 任せにするとナビの実装ミスひとつで静かに生成対象から外れる。
+     * カタログから明示的に導出して、生成対象を決定論的にする。
+     */
+    prerender: {
+      routes: [
+        ...GUIDE_KINDS.map((kind) => kind.to),
+        ...GUIDE_PROGRAMS.map((program) => program.to),
+      ],
+    },
   },
 
   eslint: {

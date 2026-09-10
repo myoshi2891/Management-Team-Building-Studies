@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref, useRoute, watch } from "#imports";
-import { groupGuidesByCategory, type GuideCategoryId, type GuideGroup } from "~/utils/guide-catalog";
+import { groupGuidesByKind, type GuideKindGroup, type GuideKindId, type GuideProgramGroup } from "~/utils/guide-catalog";
 
 const route = useRoute();
 
 /*
  * ナビの項目はガイドカタログ（app/utils/guide-catalog.ts）から導出する。
  * ここで独自の配列を持つと、ホームのカード一覧と二重管理になり登録漏れが起きる。
+ *
+ * **ナビはプログラム（ハブページ）までしか列挙しない。**
+ * ガイド本体のリンクを並べると項目数がガイド数に比例し、必ず破綻する
+ * （実測: 59 本の時点でカラム数・カラム内件数の上限へ同時に張り付き、
+ * パネル高も 683px に達した）。ガイドの一覧はハブページが担う。
  */
-const guideGroups = groupGuidesByCategory();
+const guideGroups = groupGuidesByKind();
 
 /** 開いているドロップダウン。同時に開けるのは 1 つだけ。 */
-const openCategoryId = ref<GuideCategoryId | null>(null);
+const openCategoryId = ref<GuideKindId | null>(null);
 /** モバイル幅のハンバーガーで開くナビ本体。 */
 const isMenuOpen = ref(false);
 /*
@@ -117,24 +122,52 @@ function isCurrent(to: string): boolean {
   return route.path === to;
 }
 
-function isCategoryCurrent(group: GuideGroup): boolean {
-  return group.guides.some((guide) => isCurrent(guide.to));
+/**
+ * 種別トリガーを現在地として示すか。
+ *
+ * ナビはガイドを列挙しないため、閲覧中のガイドから辿れる手掛かりはここしかない。
+ * 種別インデックス・ハブ・配下のガイドのいずれを見ていても点灯させる。
+ * @param group - 種別単位のガイド束
+ */
+function isCategoryCurrent(group: GuideKindGroup): boolean {
+  if (isCurrent(group.kind.to)) return true;
+  return group.programGroups.some((item) => isProgramCurrent(item));
+}
+
+/**
+ * ハブ自身、またはその配下のガイドを見ているか。
+ * @param item - プログラム単位のガイド束
+ */
+function isProgramCurrent(item: GuideProgramGroup): boolean {
+  if (isCurrent(item.program.to)) return true;
+  return item.guides.some((guide) => isCurrent(guide.to));
+}
+
+/**
+ * ハブリンクの aria-current。
+ * ハブページ自身は "page"、配下のガイドを見ているときは "true"（祖先）で区別する。
+ * どちらも同じ値にすると、支援技術には「今そのページにいる」と読まれてしまう。
+ * @param item - プログラム単位のガイド束
+ */
+function programAriaCurrent(item: GuideProgramGroup): "page" | "true" | undefined {
+  if (isCurrent(item.program.to)) return "page";
+  return item.guides.some((guide) => isCurrent(guide.to)) ? "true" : undefined;
 }
 
 function closeAllCategories(): void {
   openCategoryId.value = null;
 }
 
-function toggleCategory(id: GuideCategoryId): void {
+function toggleCategory(id: GuideKindId): void {
   openCategoryId.value = openCategoryId.value === id ? null : id;
 }
 
-function openCategoryOnHover(id: GuideCategoryId): void {
+function openCategoryOnHover(id: GuideKindId): void {
   if (!canHover.value) return;
   openCategoryId.value = id;
 }
 
-function closeCategoryOnHover(id: GuideCategoryId): void {
+function closeCategoryOnHover(id: GuideKindId): void {
   if (!canHover.value) return;
   if (openCategoryId.value === id) closeAllCategories();
 }
@@ -283,63 +316,67 @@ watch(() => route.path, () => {
 
         <div
           v-for="group in guideGroups"
-          :key="group.category.id"
+          :key="group.kind.id"
           class="nav-category"
-          :class="{ open: openCategoryId === group.category.id }"
-          @mouseenter="openCategoryOnHover(group.category.id)"
-          @mouseleave="closeCategoryOnHover(group.category.id)"
+          :class="{ open: openCategoryId === group.kind.id }"
+          @mouseenter="openCategoryOnHover(group.kind.id)"
+          @mouseleave="closeCategoryOnHover(group.kind.id)"
         >
           <button
-            :id="`nav-trigger-${group.category.id}`"
+            :id="`nav-trigger-${group.kind.id}`"
             type="button"
             class="global-nav-link nav-category-trigger"
             data-testid="nav-category-trigger"
             :class="{ current: isCategoryCurrent(group) }"
-            :aria-controls="`nav-panel-${group.category.id}`"
-            :aria-expanded="openCategoryId === group.category.id ? 'true' : 'false'"
-            @click="toggleCategory(group.category.id)"
+            :aria-controls="`nav-panel-${group.kind.id}`"
+            :aria-expanded="openCategoryId === group.kind.id ? 'true' : 'false'"
+            @click="toggleCategory(group.kind.id)"
           >
-            <Icon :name="group.category.icon" aria-hidden="true" />
-            <span>{{ group.category.navLabel }}</span>
+            <Icon :name="group.kind.icon" aria-hidden="true" />
+            <span>{{ group.kind.navLabel }}</span>
             <Icon class="nav-chevron" name="tabler:chevron-down" aria-hidden="true" />
           </button>
 
           <!--
-            パネルはシリーズ（カタログの GUIDE_SERIES）ごとのカラムに分ける。
+            パネルの中身はハブ（プログラム）へのリンクと、種別の総覧リンクだけ。
+            行数はガイド数ではなくプログラム数で決まるので、ガイドが増えても太らない。
             data-columns は DOM 契約としての可視化、--nav-panel-columns が実際のグリッド列数。
-            どちらも seriesGroups.length から導出しており、手で数を書かない。
+            ハブ方式では常に 1 カラム（縦に並べる）。
           -->
           <div
-            :id="`nav-panel-${group.category.id}`"
+            :id="`nav-panel-${group.kind.id}`"
             class="nav-dropdown"
-            :data-columns="group.seriesGroups.length"
-            :style="{ '--nav-panel-columns': group.seriesGroups.length }"
+            data-columns="1"
+            :style="{ '--nav-panel-columns': 1 }"
           >
-            <div
-              v-for="column in group.seriesGroups"
-              :key="column.series?.id ?? '_unassigned'"
-              class="nav-series"
+            <ul class="nav-program-list" :aria-labelledby="`nav-trigger-${group.kind.id}`">
+              <li v-for="item in group.programGroups" :key="item.program.id">
+                <NuxtLink
+                  :class="{ current: isProgramCurrent(item) }"
+                  :to="item.program.to"
+                  :aria-current="programAriaCurrent(item)"
+                >
+                  <Icon :name="item.program.icon" aria-hidden="true" />
+                  <span class="nav-program-label">{{ item.program.navLabel }}</span>
+                  <span
+                    class="nav-program-count"
+                    data-testid="nav-program-count"
+                    :data-program="item.program.id"
+                  >{{ item.guides.length }}</span>
+                  <span class="nav-program-summary">{{ item.program.summary }}</span>
+                </NuxtLink>
+              </li>
+            </ul>
+
+            <NuxtLink
+              class="nav-panel-all"
+              :class="{ current: isCurrent(group.kind.to) }"
+              :to="group.kind.to"
+              :aria-current="isCurrent(group.kind.to) ? 'page' : undefined"
             >
-              <p
-                v-if="column.series"
-                :id="`nav-series-${column.series.id}`"
-                class="nav-series-label"
-              >
-                {{ column.series.navLabel }}
-              </p>
-              <ul :aria-labelledby="column.series ? `nav-series-${column.series.id}` : undefined">
-                <li v-for="guide in column.guides" :key="guide.to">
-                  <NuxtLink
-                    :class="{ current: isCurrent(guide.to) }"
-                    :to="guide.to"
-                    :aria-current="isCurrent(guide.to) ? 'page' : undefined"
-                  >
-                    <Icon :name="guide.icon" aria-hidden="true" />
-                    <span>{{ guide.navLabel }}</span>
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
+              <span class="nav-panel-all-label">{{ group.kind.navLabel }}をすべて見る</span>
+              <Icon name="tabler:arrow-right" aria-hidden="true" />
+            </NuxtLink>
           </div>
         </div>
       </nav>
@@ -483,11 +520,10 @@ nav { height: 100%; display: flex; align-items: stretch; }
   width: max-content;
   max-width: calc(100vw - 32px);
   /*
-   * カテゴリー内のガイドが増えるとパネルが縦にビューポートを覆う
-   * （実測: project-management が 683px に対しヘッダー下の残り 648px）。
-   * シリーズカラムは横方向にしか肥大を吸収できず、最も高いカラムが伸びると
-   * カラムを増やしても高さは減らない。件数の閾値で守るのではなく、
-   * ヘッダー直下からの残り高さで頭打ちにし、超えた分は内部スクロールへ逃がす。
+   * ハブ方式では行数がプログラム数で決まるため、ガイドが増えてもここは伸びない。
+   * それでも残すのは、プログラム自体が増えた場合の最後の受け皿として
+   * （旧メガメニューではガイド列挙により実測 683px に達し、ヘッダー下の残り 648px を
+   * 超えて画面を覆った）。ヘッダー直下からの残り高さで頭打ちにし、内部スクロールへ逃がす。
    */
   max-height: calc(100vh - var(--global-nav-height) - 16px);
   overflow-y: auto;
@@ -503,18 +539,50 @@ nav { height: 100%; display: flex; align-items: stretch; }
   transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
 }
 
-.nav-series { min-width: 0; }
-.nav-series + .nav-series { padding-left: 8px; border-left: 1px solid var(--color-border); }
-.nav-series ul { margin: 0; padding: 0; list-style: none; }
+.nav-program-list { margin: 0; padding: 0; list-style: none; min-width: 0; }
 
-.nav-series-label {
-  margin: 0;
-  padding: 8px 12px 6px;
-  color: var(--color-ink-faint);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+/*
+ * 1 行 = アイコン / ラベル / 件数 / 説明。説明はラベルの下段へ回り込ませる。
+ * grid にするのは、件数を右端へ揃えたまま説明を 2 行目に置くため
+ * （flex の折り返しでは件数の位置が行内容に引きずられる）。
+ */
+.nav-program-list a {
+  display: grid;
+  grid-template-columns: 17px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 10px;
+  row-gap: 2px;
 }
+
+.nav-program-count {
+  justify-self: end;
+  min-width: 22px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.nav-program-summary {
+  grid-column: 2 / -1;
+  color: var(--color-ink-faint);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* 種別の総覧へ抜ける導線。ハブの一覧とは区切り線で分ける。 */
+.nav-panel-all {
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-indigo);
+  font-size: 12px;
+}
+
+.nav-panel-all svg { color: currentcolor; }
 
 .nav-category.open .nav-dropdown {
   opacity: 1;
@@ -563,10 +631,10 @@ nav { height: 100%; display: flex; align-items: stretch; }
 .nav-toggle svg { width: 20px; height: 20px; }
 
 /*
- * 横に並ぶのはホーム + 4 カテゴリーの計 5 項目に固定（カテゴリー集約）。
- * 縦方向はシリーズカラムへの分割（メガメニュー）で吸収するため、
- * ガイドが増えてもブレークポイントの再計算は不要。
- * カラムが増える方向の上限は .nav-dropdown の max-width が担保する。
+ * 横に並ぶのはホーム + 3 種別の計 4 項目に固定。
+ * パネルの縦はプログラム数で決まり、ガイドが何本増えても伸びないため、
+ * ブレークポイントの再計算は不要。
+ * 幅が増える方向の上限は .nav-dropdown の max-width が担保する。
  */
 @media (max-width: 1040px) {
   .global-header-inner { width: calc(100% - 24px); gap: 16px; }
