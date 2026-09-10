@@ -441,7 +441,8 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     // nuxt 環境ではグローバル URL が jsdom 実装のため、new URL(相対, import.meta.url) は
     // file: ベースを無視して http://localhost:3000 で解決してしまう。パスに落としてから解決する。
     const testDir = dirname(fileURLToPath(import.meta.url));
-    const source = readFileSync(resolve(testDir, "../../app/pages/index.vue"), "utf8");
+    // 配色の定義はカードの意匠を持つ GuideCard.vue にある（ホームとハブで共有するため）。
+    const source = readFileSync(resolve(testDir, "../../app/components/GuideCard.vue"), "utf8");
     const usedAccents = [...new Set(
       mountPage()
         .findAll("[data-testid='guide-card']")
