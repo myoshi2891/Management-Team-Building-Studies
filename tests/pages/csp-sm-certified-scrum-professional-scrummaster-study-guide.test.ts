@@ -135,6 +135,8 @@ const EXPECTED_SECTION_EYEBROWS = [
 ] as const;
 
 const EXPECTED_EXTERNAL_URLS = [
+  // 原本の出現回数をそのまま保持する（S-3 は出現回数の下限を検証するため、
+  // 重複を畳むと「n 回描画されること」の契約が 1 回に弱まる）。
   "https://agilemanifesto.org/",
   "https://artoflean.com/topics/seven-wastes/",
   "https://coachingfederation.org/credentialing/coaching-competencies/icf-core-competencies/",
@@ -163,6 +165,8 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrumalliance.org/get-certified/renewing-certifications",
   "https://www.scrumalliance.org/get-certified/scrum-education-units",
   "https://www.scrumalliance.org/get-certified/scrum-master-track/advanced-certified-scrummaster",
+  "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster",
+  "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster",
   "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster",
   "https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster",
   "https://www.scrumalliance.org/media/certifications/los/csp_sm_learning_objectives_2022.pdf",
