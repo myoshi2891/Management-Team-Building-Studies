@@ -573,6 +573,18 @@ nav { height: 100%; display: flex; align-items: stretch; }
   font-weight: 400;
 }
 
+/*
+ * 説明は 2 行目で折り返させる（ラベル側の省略表示はそのまま残す）。
+ * .nav-dropdown a の white-space: nowrap は継承値なので直接指定で上書きできるが、
+ * .nav-dropdown a span の overflow / text-overflow は詳細度 (0,1,2) で後方にあるため、
+ * クラス 2 つ分の詳細度を確保してからでないと打ち消せない。
+ */
+.nav-program-list a .nav-program-summary {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
 /* 種別の総覧へ抜ける導線。ハブの一覧とは区切り線で分ける。 */
 .nav-panel-all {
   margin-top: 6px;
