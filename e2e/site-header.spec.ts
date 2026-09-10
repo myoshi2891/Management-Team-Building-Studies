@@ -83,7 +83,7 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
   await expect(trigger).toHaveClass(/current/);
   await expect(panel).toBeHidden();
 
-  await openWithHover(page, "project-management");
+  await openWithHover(page, "certifications");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
   await expect(panel.locator("a.current")).toHaveAttribute("href", "/capm");
 
@@ -214,7 +214,7 @@ test("デスクトップ: Escape で閉じてトリガーへフォーカスが�
   const trigger = page.locator("#nav-trigger-books");
   const panel = page.locator("#nav-panel-books");
 
-  await openWithKeyboard(page, "engineering-leadership");
+  await openWithKeyboard(page, "books");
 
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();
@@ -257,8 +257,8 @@ test("モバイル幅: リンクをタップすると遷移してナビが閉じ
   await page.locator("#nav-trigger-practices").click();
   await page.locator("#nav-panel-practices a").first().click();
 
-  // カタログの並べ替えにより、チームビルディングの先頭は「チーム文化」シリーズの Team Geek。
-  await expect(page).toHaveURL(/\/team-geek-guide$/);
+  // ナビが並べるのはハブ（プログラム）だけなので、先頭は「テーマで学ぶ」の最初のハブ。
+  await expect(page).toHaveURL(/\/practices\/career$/);
   await expect(page.locator("#global-nav")).toBeHidden();
 });
 
@@ -325,7 +325,7 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   const panel = page.locator("#nav-panel-books");
 
   // キーボードで開く（フォーカスがナビ内に入る）
-  await openWithKeyboard(page, "engineering-management");
+  await openWithKeyboard(page, "books");
 
   // パネル内のリンクにフォーカスを当ててから外側クリック。
   // クリック先は必ず <main> にする。`locator("main, body")` は CSS セレクタリストを
@@ -373,3 +373,60 @@ test("デスクトップ: どのパネルを開いても切り取られず、横
   }
 });
 
+
+/*
+ * サイト内検索のスモーク。
+ *
+ * ユニットテスト（tests/components/SiteSearch.test.ts）が開閉とキーボード操作を固定するが、
+ * 「実際に遷移するか」「パネルがヘッダーの overflow-x: clip で切り取られないか」は
+ * 実レイアウトと実ルーティングでしか判定できない。
+ * 検索はハブ方式でガイドが 1 クリック遠くなる代償を相殺する導線なので、
+ * ここが黙って壊れると回遊が成立しなくなる。
+ */
+test("デスクトップ: 検索から候補を選んでガイドへ遷移する", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const trigger = page.locator("[data-testid='site-search-trigger']");
+  const input = page.locator("[data-testid='site-search-input']");
+
+  /*
+   * SSG された HTML はボタンが押せる状態で先に描画されるため、goto() 直後のクリックは
+   * Vue のリスナーが付く前のネイティブ click になりうる。他のトリガーと同じく冪等に再試行する。
+   */
+  await expect(async () => {
+    if (await input.isHidden()) await trigger.click({ timeout: 2_000 });
+    await expect(input).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+
+  await input.fill("CAPM ド");
+
+  const options = page.locator("[role='option']");
+  await expect(options).toHaveCount(4);
+
+  // パネルがヘッダー内枠の右端をはみ出さない（overflow-x: clip で切り取られない）。
+  const container = (await page.locator(".global-header-inner").boundingBox())!;
+  const panel = (await page.locator(".site-search-panel").boundingBox())!;
+  expect(panel.x).toBeGreaterThanOrEqual(container.x - 0.5);
+  expect(panel.x + panel.width).toBeLessThanOrEqual(container.x + container.width + 0.5);
+
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/certified-associate-in-project-management-domain1$/);
+});
+
+test("デスクトップ: 検索は Escape で閉じてトリガーへフォーカスが戻る", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const trigger = page.locator("[data-testid='site-search-trigger']");
+  const input = page.locator("[data-testid='site-search-input']");
+
+  await expect(async () => {
+    if (await input.isHidden()) await trigger.click({ timeout: 2_000 });
+    await expect(input).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+
+  await page.keyboard.press("Escape");
+  await expect(input).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
