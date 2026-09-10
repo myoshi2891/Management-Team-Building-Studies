@@ -211,10 +211,20 @@ onBeforeUnmount(() => {
         </li>
       </ul>
 
-      <p v-if="isEmptyResult" class="site-search-empty" data-testid="search-empty" role="status">
-        一致するガイドが見つかりません。
-      </p>
-      <p v-else-if="hits.length === 0" class="site-search-hint">
+      <!--
+        「見つかりません」はライブリージョンで伝える。要素ごと後から挿入すると
+        挿入と中身の変化が同時になり、支援技術が読み上げを取りこぼす。
+        よってパネルが開いている間は空のまま置き続け、文言だけを差し替える
+        （display:none で畳むとライブリージョンごと読み上げ対象から外れるため、
+        余白だけを詰める is-quiet を当てる）。
+      -->
+      <p
+        class="site-search-empty"
+        :class="{ 'is-quiet': !isEmptyResult }"
+        data-testid="search-empty"
+        role="status"
+      >{{ isEmptyResult ? "一致するガイドが見つかりません。" : "" }}</p>
+      <p v-if="!isEmptyResult && hits.length === 0" class="site-search-hint">
         資格名（CAPM・CSPO など）や書名の一部を入力してください。
       </p>
     </div>
@@ -336,6 +346,9 @@ onBeforeUnmount(() => {
   color: var(--color-ink-faint);
   font-size: 12px;
 }
+
+/* 文言が無いときは場所だけ確保せず余白を畳む（要素自体は残す）。 */
+.site-search-empty.is-quiet { padding: 0; }
 
 /* 680px 以下はハンバーガー内に入る。ヘッダー最上部の横幅を圧迫させない。 */
 @media (max-width: 680px) {

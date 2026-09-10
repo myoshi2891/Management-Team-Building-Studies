@@ -78,6 +78,27 @@ describe("SiteSearch — サイト内検索", () => {
     wrapper.unmount();
   });
 
+  /*
+   * ライブリージョンは「中身が変わったこと」で読み上げが起きる。要素ごと後から
+   * 挿入すると、挿入と変化が同時になり支援技術が通知を取りこぼす。
+   * したがってパネルが開いている間は空のまま置き続け、文言だけを差し替える。
+   */
+  it("一致が無いことを伝える枠は、開いている間ずっと DOM に居座る", async () => {
+    const wrapper = mountSearch();
+    const input = await open(wrapper);
+
+    const region = wrapper.get("[data-testid='search-empty']");
+    expect(region.attributes("role")).toBe("status");
+    expect(region.text()).toBe("");
+
+    await input.setValue("該当なしのはずの文字列xyzzy");
+    expect(wrapper.get("[data-testid='search-empty']").text()).toBe("一致するガイドが見つかりません。");
+
+    await input.setValue("CAPM ド");
+    expect(wrapper.get("[data-testid='search-empty']").text()).toBe("");
+    wrapper.unmount();
+  });
+
   it("上下キーで候補を移動し、aria-activedescendant で現在位置を通知する", async () => {
     const wrapper = mountSearch();
     const input = await open(wrapper);
