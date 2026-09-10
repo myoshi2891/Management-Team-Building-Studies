@@ -51,7 +51,7 @@ PSM ファミリーには難易度別に3段階のアセスメントがありま
 | 採点方法 | 即時自動採点 | 即時自動採点 | Scrum専門家チームによる手動採点（結果通知まで約4週間） |
 | 前提資格 | なし | なし（PSM I 取得が推奨） | なし（PSM II 取得が推奨） |
 | 有効期限 | なし（生涯有効） | なし（生涯有効） | なし（生涯有効） |
-| 対応言語 | 英語・日本語・簡体字中国語（scrum.org.cn 経由） | 英語・簡体字中国語（scrum.org.cn 経由） | 英語のみ |
+| 対応言語 | 英語・日本語・簡体字中国語（scrum.org.cn 経由） | 英語のみ | 英語のみ |
 | デジタル資格 | Credly バッジ付与 | Credly バッジ付与 | Credly バッジ付与 |
 
 > 出典: [PSM I 公式ページ](https://www.scrum.org/assessments/professional-scrum-master-i-certification)、[PSM II 公式ページ](https://www.scrum.org/assessments/professional-scrum-master-ii-certification)、[PSM III 公式ページ](https://www.scrum.org/assessments/professional-scrum-master-iii-certification)

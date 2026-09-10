@@ -59,7 +59,6 @@ PAL-EBM（Professional Agile Leadership™ - Evidence-Based Management™）は�
 |---|---|
 | PAL I（Professional Agile Leadership I） | 自己管理型チームの育成、権限移譲、組織的インペディメントの除去 |
 | PAL-EBM（本ガイドの対象） | Evidence-Based Management™フレームワークによる価値の測定、仮説駆動の意思決定 |
-| PAL II | より高度なリーダーシップ・組織変革のシナリオ対応（上級） |
 
 ### 1.4 認定取得までの流れ
 

@@ -405,7 +405,7 @@ EBMの中核にあるのが **4つのKey Value Areas（KVA、重要な価値領�
 |---|---|---|
 | Current Value（CV, 現在の価値） | 現時点で顧客に届けている価値 | 顧客満足度、利用率、収益 |
 | Unrealized Value（UV, 未実現の価値） | まだ実現できていない潜在的な価値・市場機会 | 対応できていない顧客セグメント、市場シェアの伸びしろ |
-| Time-to-Market（TTM, 市場投入までの時間） | 価値を届けるまでの組織の応答速度 | リリース頻度、サイクルタイム |
+| Time-to-Market（T2M, 市場投入までの時間） | 価値を届けるまでの組織の応答速度 | リリース頻度、サイクルタイム |
 | Ability to Innovate（A2I, 革新する能力） | 継続的に新しい価値を生み出す組織の実効力 | 技術的負債の量、実験の実施数 |
 
 ```mermaid
@@ -415,14 +415,14 @@ flowchart TB
         UV["Unrealized Value<br/>未実現の価値"]
     end
     subgraph Org["価値を届ける組織能力（どう届けているか）"]
-        TTM["Time-to-Market<br/>市場投入までの時間"]
+        T2M["Time-to-Market<br/>市場投入までの時間"]
         A2I["Ability to Innovate<br/>革新する能力"]
     end
 ```
 
 EBMは特定のKey Value Measures（具体的指標）を規定しません。組織ごとの状況に合わせて、各KVAに紐づく指標を選び、仮説を立てて小さな実験を行い、結果を測定し、目標を検査・適応していくプロセスそのものがEBMの実践です。
 
-**ベストプラクティス**: 4つのKVAをバランスよく見る。Current Value（今の稼ぎ）だけを追うと将来の成長機会（Unrealized Value）を見落とし、逆にTTMやA2Iのような組織能力の指標だけを見ると、実際に顧客に価値が届いているかを見失う。
+**ベストプラクティス**: 4つのKVAをバランスよく見る。Current Value（今の稼ぎ）だけを追うと将来の成長機会（Unrealized Value）を見落とし、逆にT2MやA2Iのような組織能力の指標だけを見ると、実際に顧客に価値が届いているかを見失う。
 
 ### 5.7 Problem-Solution Fit から Product-Market Fit へ
 

@@ -420,7 +420,8 @@ flowchart LR
 
 Nexus に5チームある場合、単一の Product Owner がすべてのチームの Sprint Planning に出席するのは現実的でないことがあります。この点は実務上よく議論される論点であり、対応としては次のようなプラクティスが挙げられます。
 
-- Nexus Sprint Planning でチーム横断の Nexus Sprint Goal と全体像を Product Owner が直接説明し、各チームの個別 Sprint Planning には Product Owner の代理としてプロダクトの意図を理解した人物(Product Owner のプロキシ)が同席する
+- Nexus Sprint Planning でチーム横断の Nexus Sprint Goal と全体像を Product Owner が直接説明したうえで、各チームの個別 Sprint Planning にも単一の Product Owner が参加して協働する。Nexus に Product Owner は1人だけであり、代理(プロキシ)を立てて参加を肩代わりさせることはしない
+- 参加の負荷が高い場合は、プロダクトの意図に詳しいステークホルダーやドメイン専門家に助言者として同席してもらう。あくまで Product Owner を補佐する立場であり、Product Owner の参加や意思決定を代替するものではない
 - Cross-Team Refinement を通じて、各 PBI の意図・受け入れ基準を事前に十分明確化しておくことで、個別 Sprint Planning での Product Owner への依存を減らす
 
 ### 7.4 見積り(Estimation)の扱い

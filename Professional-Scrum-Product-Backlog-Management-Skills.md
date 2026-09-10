@@ -73,7 +73,7 @@ Scrum.org は、PSPBM Skills 認定の取得によって以下の理解が示さ
 
 ### 1.3 対応する公式トレーニングコース
 
-Scrum.org は本認定に対応する1日制のコース「**Professional Scrum Product Backlog Management Skills**」を提供しています。このコースを受講し、受講後14日以内にアセスメントを受験して85%未満だった場合、追加費用なしで2回目の受験機会が付与されます。
+Scrum.org は本認定に対応する1日制のコース「**Professional Scrum Product Backlog Management Skills**」を提供しています。**講師によるライブコース（instructor-led）の参加者**は、受講後14日以内にアセスメントを受験して85%未満だった場合に限り、追加費用なしで2回目の受験機会が付与されます。自己学習型（self-paced）のコース参加者にはこの特典は付かず、受験機会は1回です。
 
 > **ソース：** [Xebia Academy — PSPBMS トレーニング概要](https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/)
 
@@ -119,12 +119,17 @@ flowchart TB
 
 ### 2.2 PSPBM Skills が重点的に問う Focus Area
 
-PSPBM Skills の出題は、「Managing Products with Agility」コンピテンシー配下の Focus Area、なかでも **Product Backlog Management** を中心に、**Stakeholders & Customers**・**Product Value**・**Product Vision**・**Forecasting & Release Planning** の理解を横断的に問う構成です。加えて、土台となる「Understanding and Applying the Scrum Framework」（Empiricism・Artifacts・Events の基礎）の理解も前提とされます。
+公式に PSPBM Skills の Focus Area として挙げられているのは、**Product Backlog Management** と **Stakeholders & Customers** の2つだけです。加えて、土台となる「Understanding and Applying the Scrum Framework」（Empiricism・Artifacts・Events の基礎）の理解が前提とされます。
 
-| Focus Area | 概要 |
+| 公式の Focus Area | 概要 |
 |---|---|
 | Product Backlog Management | プロダクトバックログの形成、リファインメント、並び替えを継続的に行い、透明性と価値を保つ活動 |
 | Stakeholders & Customers | プロダクトバックログの内容に影響を与える多様なステークホルダー・カスタマーとの協働 |
+
+次の3つは同じ「Managing Products with Agility」コンピテンシー配下にありますが、**PSPBM Skills の出題範囲としては公式に挙げられていません**。プロダクトバックログ管理の背景を理解するための周辺知識として扱ってください。
+
+| 周辺のコンピテンシー文脈（出題範囲外） | 概要 |
+|---|---|
 | Product Value | 提供した価値・実現しうる価値を継続的に定義し、測定し、検証する活動 |
 | Product Vision | プロダクトが届けるべき価値と、その届け先を表現する将来像 |
 | Forecasting & Release Planning | 反復的・漸進的アプローチによるリリース計画とステークホルダーへの見通し提示 |

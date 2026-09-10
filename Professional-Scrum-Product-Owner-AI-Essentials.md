@@ -537,7 +537,7 @@ PSPO-AI Essentials の試験は Multiple Choice ですが、単純な用語の�
 
 ### Scrum.org 公式ページ（PSPO-AI Essentials 関連）
 
-- 認定試験ページ：https://www.scrum.org/professional-scrum-product-ownertm-ai-essentials-certification
+- 認定試験ページ：https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification
 - コースページ（例）：https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training
 - コース新設アナウンス：https://www.scrum.org/resources/scrumorg-announces-new-ai-training-product-owners
 - コース構成解説VLOG：https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained

@@ -540,7 +540,7 @@ flowchart TB
 | Daily Scrum | DiscoveryとDeliveryの進捗を同期し、両者の連携の詰まりを早期発見する場 |
 | Sprint Review | Incrementのデモに加え、ユーザーテストや実験の結果を共有し、次の優先順位に反映する場 |
 | Sprint Retrospective | Definition of Doneにユーザビリティ・アクセシビリティ観点を追加するなど、プロセス自体を継続的に改善する場 |
-| Definition of Done | 「動く」だけでなく「検証された価値がある」水準まで含めるかをチームで合意する基準 |
+| Definition of Done | Incrementが「使える（usable）」といえる品質水準をチームで合意する基準（ユーザビリティ・アクセシビリティなどの品質観点を含める。価値が検証済みであることは条件にしない） |
 
 ---
 
