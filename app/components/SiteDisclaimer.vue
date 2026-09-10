@@ -27,6 +27,18 @@ function measureSidebarInset(): number {
   // 本文と一緒に流れるサイドバーは重ならない。重なるのは固定配置のときだけ。
   if (window.getComputedStyle(sidebar).position !== "fixed") return 0;
 
+  /*
+   * 狭い幅ではサイドバーがオーバーレイのドロワーへ変わる。開いている間も
+   * position: fixed / left: 0 のままだが、本文の上へ重なっているだけなので
+   * 退避させると奥付が画面幅の大半を明け渡してしまう（390px 幅で 288px）。
+   * 開閉状態はページ側の持ち物なので購読しない。代わりに、その幅でしか
+   * 表示されない開閉ボタンの計算済みスタイルでレイアウト方式を見分ける。
+   * transform で出入りするドロワーは寸法が変わらず ResizeObserver では気づけないが、
+   * この判定は開閉に依存しないため、開いた瞬間を追いかける必要が無い。
+   */
+  const toggle = document.querySelector<HTMLElement>(".sidebar-toggle");
+  if (toggle && window.getComputedStyle(toggle).display !== "none") return 0;
+
   const rect = sidebar.getBoundingClientRect();
   // 画面外へ退避したオフキャンバス状態（left が負）は覆っていない。
   if (rect.left > 0) return 0;

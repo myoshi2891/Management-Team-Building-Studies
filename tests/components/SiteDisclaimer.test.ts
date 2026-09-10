@@ -50,6 +50,19 @@ function appendSidebar(options: { position: string; left: number; width: number 
   return sidebar;
 }
 
+/**
+ * サイドバーの開閉ボタンを body へ差し込む。これが表示されている幅は
+ * サイドバーがオーバーレイのドロワーへ切り替わっている、という目印になる。
+ * @param display - 計算済みスタイルとして返したい display 値
+ */
+function appendSidebarToggle(display: string): HTMLElement {
+  const toggle = document.createElement("button");
+  toggle.className = "sidebar-toggle";
+  toggle.style.display = display;
+  document.body.appendChild(toggle);
+  return toggle;
+}
+
 const inset = (wrapper: ReturnType<typeof mount>): string =>
   (wrapper.element as HTMLElement).style.getPropertyValue("--disclaimer-inset");
 
@@ -100,7 +113,7 @@ function stubResizeObserver(): {
 enableAutoUnmount(afterEach);
 
 afterEach(() => {
-  document.querySelectorAll(".sidebar").forEach((element) => element.remove());
+  document.querySelectorAll(".sidebar, .sidebar-toggle").forEach((element) => element.remove());
 });
 
 describe("SiteDisclaimer — サイト共通の免責事項", () => {
@@ -165,6 +178,31 @@ describe("SiteDisclaimer — サイト共通の免責事項", () => {
     await nextTick();
 
     expect(inset(wrapper)).toBe("0px");
+  });
+
+  /*
+   * 狭い幅ではサイドバーがオーバーレイのドロワーへ変わる。開いている間は
+   * position: fixed / left: 0 のまま本文の上へ重なるだけなので、退避させると
+   * 奥付が画面幅の大半を失う（実測: 390px 幅で 288px を明け渡す）。
+   * しかも transform で出入りするドロワーは寸法が変わらないため ResizeObserver では
+   * 気づけない。その幅でしか現れない開閉ボタンの表示状態で方式を見分ける。
+   */
+  it("オーバーレイのドロワーが開いていても退避しない", async () => {
+    appendSidebarToggle("flex");
+    appendSidebar({ position: "fixed", left: 0, width: 288 });
+    const wrapper = mount(SiteDisclaimer);
+    await nextTick();
+
+    expect(inset(wrapper)).toBe("0px");
+  });
+
+  it("開閉ボタンが隠れている幅（常設サイドバー）では従来どおり退避する", async () => {
+    appendSidebarToggle("none");
+    appendSidebar({ position: "fixed", left: 0, width: 288 });
+    const wrapper = mount(SiteDisclaimer);
+    await nextTick();
+
+    expect(inset(wrapper)).toBe("288px");
   });
 
   it("固定配置でないサイドバーは本文と一緒に流れるので退避しない", async () => {
