@@ -304,6 +304,18 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
     expect(wrapper.get("[data-testid='nav-toggle']").attributes("aria-label")).toBe("ナビゲーションを閉じる");
   });
 
+  it("ナビゲーション内にサイト内検索を組み込む", () => {
+    /*
+     * ハブ方式ではガイドが 1 クリック遠くなる。その代償を相殺する導線が検索であり、
+     * ヘッダーから欠けると 4 階層モデルの前提（回遊は検索が担う）が崩れる。
+     * 検索そのものの挙動は tests/components/SiteSearch.test.ts が固定するため、
+     * ここでは「ナビの中に居ること」だけを見る。
+     */
+    const wrapper = mountHeader();
+
+    expect(wrapper.get("nav").find("[data-testid='site-search-trigger']").exists()).toBe(true);
+  });
+
   it("ブランドとナビゲーションにアクセシブルな名前を持つ", () => {
     const wrapper = mountHeader();
 
