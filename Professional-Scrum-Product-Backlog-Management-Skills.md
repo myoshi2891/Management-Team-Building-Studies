@@ -56,7 +56,7 @@
 | 前提資格 | 必須ではないが、PSM I（Professional Scrum Master I）または PSPO I（Professional Scrum Product Owner I）の取得が推奨される |
 
 > **ベストプラクティス：** 出題は「Scrum Guide の暗記」だけでは対応しきれません。PSM I や PSPO I で問われるような Scrum フレームワークの基礎理解を土台としたうえで、プロダクトバックログに関する実務知識（リファインメント技法、並び替え手法、ステークホルダー協働、経験主義の適用）が上乗せされる出題になります。まず土台となる Scrum の基礎を固めてから本ガイドの各章に進むことを推奨します。
-
+>
 > **ソース：** [scrum.org — PSPBM Skills Certification](https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification) ／ [Credly — PSPBM バッジ発行条件](https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill) ／ [TheScrumMaster.co.uk — 試験形式の解説](https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills)
 
 ### 1.2 認定が証明する能力
@@ -145,7 +145,7 @@ Scrum Guide（2020年版）は、プロダクトバックログを「プロダ�
 - **順序付けられている（Ordered）**：項目には「優先度カテゴリ」ではなく、明確な並び順（順位）がある
 
 > **ベストプラクティス：** 「優先度（priority）」という言葉は High/Medium/Low のようなカテゴリ分類を連想させますが、プロダクトバックログは**厳密な1本の順序リスト**です。2つの項目が同じ優先度ということはあり得ません。曖昧な優先度ラベルではなく、上から下までの明確な並び順で管理することが、透明性を高める第一歩です。
-
+>
 > **ソース：** [Scrum Guide 2020（日本語版含む）](https://scrumguides.org/scrum-guide.html) ／ [scrum.org — What is a Product Backlog?](https://www.scrum.org/resources/what-is-a-product-backlog)
 
 ### 1.2 Product Owner の説明責任
@@ -160,7 +160,7 @@ Scrum Guide は、Product Owner がプロダクトの価値を最大化する説
 Product Owner はこれらの作業を自ら行うことも、他者に委任することもできますが、**説明責任そのものは常に Product Owner に残ります**。また、Product Owner は1人の人間であり、委員会ではありません。
 
 > **ベストプラクティス：** 実務では Product Owner が単独ですべてのプロダクトバックログ項目を書き上げるのではなく、Developers・Scrum Master・ステークホルダーの知見を集めながら形成・リファインするのが一般的です。ただし「誰が作業したか」に関わらず、最終的な内容・並び順に対する説明責任は Product Owner から離れません。
-
+>
 > **ソース：** [Scrum Guide 2020 PDF（英語）](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf)
 
 ### 1.3 コミットメント：プロダクトゴール
@@ -198,7 +198,7 @@ Product Owner Roman Pichler と Mike Cohn が提唱した **DEEP** は、良い�
 | **P** | Prioritized（並び替えられている） | 最も価値の高い項目が上位に来るよう常に並び替えられている |
 
 > **ベストプラクティス：** 「D」（適切な詳細化）と「E」（創発性）は見落とされがちですが、これらを軽視すると、遠い未来の項目まで過剰に詳細化してしまい、後で無駄になる作業（ウォーターフォール的な要件定義の再来）を生みます。「Just enough, just in time（必要な分だけ、必要なタイミングで）」の原則を徹底しましょう。
-
+>
 > **ソース：** [Roman Pichler — Make Your Product Backlog DEEP](https://www.romanpichler.com/blog/make-the-product-backlog-deep/)
 
 ---
@@ -221,7 +221,7 @@ Managing Products with Agility コンピテンシーの Focus Area「Product Vis
 | Sprint Goal（スプリントゴール） | 短期（1スプリント） | プロダクトゴールに向けた、そのスプリントでの具体的な貢献 |
 
 > **ベストプラクティス：** プロダクトゴールを設定する際は「機能の羅列」ではなく、「なぜこの機能群が必要なのか」という価値の仮説を言語化しましょう。良いプロダクトゴールは、Developers がプロダクトバックログ項目の並び替えや取捨選択について自律的に判断できるだけの、十分な文脈を提供します。
-
+>
 > **ソース：** [scrum.org — Professional Scrum Competency: Managing Products with Agility](https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility) ／ [Scrum Guide 2020](https://scrumguides.org/scrum-guide.html)
 
 ---
@@ -262,7 +262,7 @@ Scrum Guide は PBI が持つ属性を厳密に規定していませんが、一
 Scrum Guide（2020年版）は、プロダクトバックログのリファインメントを「プロダクトバックログ項目をより小さく、より正確な項目に分解し、詳細化していく行為」と定義しています。これは説明・順序・サイズなどの詳細を追加し続ける継続的な活動であり、**スプリントの中で必要に応じて行われる継続的活動であり、Scrum の公式イベント（Event）ではありません**。
 
 > **ベストプラクティス（時間配分の目安）：** Developers がリファインメントに費やす時間の目安として、スプリントキャパシティの**約10%以内**にとどめることが多くの実務者・トレーナーから推奨されています。これは Scrum Guide の必須ルールではなく、経験則としてのガイドラインです。
-
+>
 > **ソース：** [scrum.org — What Is Product Backlog Refinement?](https://www.scrum.org/resources/blog/what-product-backlog-refinement) ／ [scrum.org — Product Backlog Refinement](https://www.scrum.org/resources/product-backlog-refinement)
 
 ### 4.2 リファインメントの5つの戦略
@@ -329,7 +329,7 @@ flowchart TD
 ```
 
 > **ベストプラクティス：** 分割の目的は「作業を小さくすること」自体ではなく、**分割後も各項目が独立して価値を生み、ユーザーに意味のある形で確認できること**です。垂直分割を徹底し、「フロントエンドだけ作る」「バックエンドだけ作る」のような技術レイヤーでの分割（水平分割）は避けましょう。
-
+>
 > **ソース：** [Mountain Goat Software — SPIDR: Five Simple but Powerful Ways to Split User Stories](https://www.mountaingoatsoftware.com/agile/five-simple-but-powerful-ways-to-split-user-stories)（Mike Cohn） ／ [scrum.org — 5 Strategies for Product Backlog Refinement](https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement)（垂直分割の原則）
 
 ### 4.4 INVEST 基準（項目の品質チェック）
@@ -378,7 +378,7 @@ flowchart TD
 | Weighted Scoring（重み付けスコアリング） | 複数の評価軸に重みを付けてスコア化し、総合順位を出す | 一般的なプロダクトマネジメント手法 |
 
 > **補足（試験対策上の注意）：** WSJF・Cost of Delay は SAFe（Scaled Agile Framework）の文脈でよく紹介される手法であり、**Scrum Guide 自体が規定する公式手法ではありません**。PSPBM Skills は Scrum.org の認定であるため、出題の中心は「Scrum の原則（価値・経験主義に基づく並び替え）」であり、特定のフレームワーク固有の計算式そのものよりも、「なぜ並び替えるのか」「何を根拠に並び替えるのか」という考え方の理解が重視されます。
-
+>
 > **ソース：** [Scaled Agile Framework — WSJF](https://framework.scaledagile.com/wsjf) ／ [scrum-master.org — WSJFの計算式](https://scrum-master.org/en/what-is-wsjf-weighted-shortest-job-first-safe/)
 
 ### 5.3 並び替えの判断材料
@@ -481,7 +481,7 @@ flowchart TB
 ```
 
 > **ベストプラクティス：** ベロシティ（Velocity）は「チームがどれだけ作業をこなしたか」という**内部の出力（アウトプット）指標**であり、顧客に届いた価値そのもの（アウトカム）を測るものではありません。プロダクトバックログの意思決定にベロシティだけを根拠にするのは誤りで、EBM の KVA のような**アウトカム指標**と組み合わせて価値を検証することが推奨されます。
-
+>
 > **ソース：** [scrum.org — Evidence-Based Management™（EBM）](https://www.scrum.org/resources/evidence-based-management)
 
 ### 7.3 経験主義を競争優位として活かす
@@ -503,7 +503,7 @@ PSPBM Skills のコース説明では、学習目標の一つとして「デー�
 - ステークホルダーからのフィードバックの要約・傾向分析にAIを活用する
 
 > **ベストプラクティス：** AIはあくまで「意思決定を支援する道具」であり、プロダクトバックログの内容・並び順に対する説明責任は Product Owner に残り続けます。AIが提示した分析結果や生成した項目案も、経験主義の3本柱（透明性・検査・適応）のプロセスに組み込み、人間による検証を経て取り込むべきです。
-
+>
 > **ソース：** [Agilemania — PSPBM Certification Course Objectives（AI活用への言及）](https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states)
 
 ---

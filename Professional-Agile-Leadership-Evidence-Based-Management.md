@@ -25,6 +25,7 @@
 ---
 
 <a id="chapter1"></a>
+
 ## 第1章：試験概要
 
 ### 1.1 PAL-EBMとは
@@ -83,6 +84,7 @@ flowchart TB
 ---
 
 <a id="chapter2"></a>
+
 ## 第2章：出題範囲（Focus Areas）の全体像
 
 PAL-EBMの出題範囲は、Scrum.orgが定義する「Professional Scrum Competencies（プロフェッショナル・スクラム・コンピテンシー）」モデルの中から、EBMに関連するFocus Areaと、コンピテンシーモデルには明示されていない追加トピック（Additional Topics）から構成されます。
@@ -139,6 +141,7 @@ flowchart TB
 ---
 
 <a id="chapter3"></a>
+
 ## 第3章：経験主義（Empiricism）― なぜ、いつ必要か
 
 ### 3.1 経験主義の3本柱
@@ -181,6 +184,7 @@ flowchart LR
 ---
 
 <a id="chapter4"></a>
+
 ## 第4章：Evidence-Based Management™（EBM）とは何か
 
 ### 4.1 定義と目的
@@ -200,7 +204,7 @@ flowchart TB
     C --> D["小さく焦点を絞った<br/>実験を行う"]
     D --> E["結果を測定・検査する"]
     E --> F{"仮説は<br/>支持されたか?"}
-    F -- Yes --> G["組織の意思決定・<br/投資配分に反映する"]
+    F -- Yes --> G["組織の意思決定・<br/>投資配分に反映する"]
     F -- No --> H["学びを得て<br/>次の仮説を形成する"]
     G --> A
     H --> C
@@ -228,6 +232,7 @@ flowchart TB
 ---
 
 <a id="chapter5"></a>
+
 ## 第5章：4つの主要価値領域（Key Value Areas, KVA）
 
 PAL-EBM試験における最重要トピックです。EBMは価値を4つの「主要価値領域（Key Value Areas, KVA）」に分解して捉えます。2つは「市場に向き合う価値（Market Value）」、残り2つは「価値を提供する組織能力（Ability to Deliver Value）」に関するものです。
@@ -300,6 +305,7 @@ flowchart TB
 ---
 
 <a id="chapter6"></a>
+
 ## 第6章：プロダクトバリュー（Product Value）の評価方法
 
 Focus Area「Managing Products with Agility」の一部で、プロダクトが提供する価値を評価する多様な方法を扱います。
@@ -333,6 +339,7 @@ flowchart LR
 ---
 
 <a id="chapter7"></a>
+
 ## 第7章：ビジネス戦略とUnrealized Value
 
 Focus Area「Business Strategy」では、Unrealized Valueの概念を「潜在的な機会の追求」にどう応用するかが問われます。
@@ -370,6 +377,7 @@ flowchart TB
 ---
 
 <a id="chapter8"></a>
+
 ## 第8章：ステークホルダーと顧客管理
 
 Focus Area「Stakeholders & Customers」では、Current ValueとUnrealized Valueの概念をステークホルダー・顧客管理にどう応用するかが問われます。
@@ -406,6 +414,7 @@ flowchart LR
 ---
 
 <a id="chapter9"></a>
+
 ## 第9章：ポートフォリオプランニング（Evolving the Agile Organization）
 
 Focus Area「Portfolio Planning」では、リーン・アジャイル原則を「最大のビジネス便益を追求する投資判断」にどう適用するかが問われます。
@@ -432,7 +441,7 @@ flowchart TB
 ```
 
 > **補足（EBM Guide本体には明記されない、実務でよく併用される考え方）**：ポートフォリオの優先順位付けにおいては、Donald G. Reinertsenが提唱する「Cost of Delay（遅延コスト）」のようなリーン・プロダクト開発フローの経済的概念が、PAL-EBMトレーニングや実務の場でしばしば補完的に紹介されます。これはScrum.orgの公式EBM Guideそのものの用語ではない点に注意してください。
-
+>
 > **ベストプラクティス**
 > - 大きな投資判断を一度に行わず、小さく投資して測定し、evidenceに基づいて追加投資するかを判断する。
 > - ポートフォリオレベルでもCV/UV/T2M/A2Iの4つの視点でイニシアチブを評価し、単一指標（例：ROIの見積もりのみ）に偏らないようにする。
@@ -444,6 +453,7 @@ flowchart TB
 ---
 
 <a id="chapter10"></a>
+
 ## 第10章：仮説形成と検証（Forming & Evaluating Hypotheses）
 
 Additional Topicsの1つ。短く焦点を絞った実験を行い、望むアウトカムに向けて前進するための考え方です。
@@ -495,6 +505,7 @@ flowchart LR
 ---
 
 <a id="chapter11"></a>
+
 ## 第11章：目標の設定・検査・適応（Setting, Inspecting & Adapting Goals）
 
 Additional Topicsのもう1つの柱。複雑な世界で、経験主義を用いてどのように目標に向かって進むかを扱います。
@@ -541,6 +552,7 @@ OKR（Objectives and Key Results）は、GoogleやLinkedInなど多くの企業�
 ---
 
 <a id="chapter12"></a>
+
 ## 第12章：試験対策：シナリオ問題の解き方
 
 PAL-EBMは単純な用語暗記ではなく、シナリオに対してどう考え・解釈するかを問う設問が中心です。「あなたの経験に基づいてEBMの原則にどう沿って対応するか」を問う形式である点が公式に明記されています。
@@ -584,6 +596,7 @@ flowchart TB
 ---
 
 <a id="chapter13"></a>
+
 ## 第13章：学習ステップ（初学者向けロードマップ）
 
 初めてEBM・PAL-EBMに触れる方向けの、ステップバイステップの学習の進め方です。
@@ -607,6 +620,7 @@ flowchart TB
 ---
 
 <a id="chapter14"></a>
+
 ## 第14章：用語集（Glossary）
 
 | 用語 | 説明 |
@@ -627,6 +641,7 @@ flowchart TB
 ---
 
 <a id="chapter15"></a>
+
 ## 第15章：参考文献・ソースURL一覧
 
 以下は本ガイド作成にあたって参照した一次情報・公式情報源です。学習の際は、可能な限りこれらの一次情報にあたることを強く推奨します。
