@@ -178,10 +178,6 @@ flowchart TB
         MEM["Nexus Integration Team Members<br/>(各Scrum Teamから必要なスキルを持つ人材)"]
     end
 
-    PO --> NIT
-    SM --> NIT
-    MEM --> NIT
-
     NIT --> Goal["少なくともSprintごとに<br/>Doneな Integrated Increment を実現する"]
 
     classDef role fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -293,7 +289,7 @@ flowchart TB
 
 各 Scrum Team の Daily Scrum は、Nexus Daily Scrum で提起された統合上の課題に対応することに主眼を置いた、その日の計画を作成することで Nexus Daily Scrum を補完します。Nexus Daily Scrum のみが依存関係や統合課題を提起できる唯一の場ではなく、Sprint 中の作業再計画についてのより詳細な議論のために、チーム横断のコミュニケーションは1日を通じて発生し得ます。
 
-**ベストプラクティス:** 実務コミュニティ(Growing Agility 等)では、Nexus Daily Scrum の代表者が確認すべき観点として次が挙げられています。
+**ベストプラクティス:** Scrum.org の公式フォーラムおよび Scaling Scrum のリソース(下記ソース)では、Nexus Daily Scrum の代表者が確認すべき観点として次が挙げられています。
 
 - 前日の作業は正しく統合できたか。できなかった場合、その理由は何か
 - 今日、統合上のリスクとなりうる作業は何か
