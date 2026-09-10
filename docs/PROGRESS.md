@@ -1040,7 +1040,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: b1493db
+コードコミット HEAD: 32d5ead
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
@@ -1120,13 +1120,14 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/an-elegant-puzzle-guide.vue（An Elegant Puzzle 徹底解説ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
-  - SiteHeader.vue（全ページ共通グローバルナビ。シリーズ単位・カラム型メガメニュー + モバイルはアコーディオン）
+  - SiteHeader.vue（全ページ共通グローバルナビ。種別ごとのパネルはハブページへのリンクのみを列挙し、モバイルはアコーディオン）
+  - SiteSearch.vue（ヘッダー内のサイト内検索。/ と Cmd/Ctrl+K で開く）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1521 件 / E2E 27 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
+  - ユニットテスト 1569 件 / E2E 29 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - SiteDisclaimer.vue（全ページ共通の免責事項。app.vue に 1 行。固定サイドバーへは実測退避）
   - test / typecheck / lint はいずれも 2026-09-07 時点で ✔（実測）
   - build は NUXT_SITE_URL の指定が必要（未指定だと sitemap の prerender で失敗）。test:e2e は ✔
   - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 59 本 exit 0 パス
 
-ベースラインテスト数: ユニット 1521 + E2E 27
+ベースラインテスト数: ユニット 1569 + E2E 29
 ```
