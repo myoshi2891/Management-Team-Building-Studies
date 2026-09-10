@@ -25,7 +25,7 @@ Professional Scrum with User Experience I（PSU I）は、Scrum TeamがUX（ユ�
 
 ### 0.2 出題範囲（Focus Areas）
 
-PSU Iは、Scrum.orgが定める [The Professional Scrum Competencies](https://www.scrum.org/professional-scrum-competencies) というコンピテンシーモデルのうち、以下4つのコンピテンシー領域・7つのFocus Areaから出題されます。
+PSU Iは、Scrum.orgが定める [The Professional Scrum Competencies](https://www.scrum.org/professional-scrum-competencies) というコンピテンシーモデルのうち、以下4つのコンピテンシー領域・12のFocus Areaから出題されます。
 
 | コンピテンシー領域 | Focus Area |
 |---|---|
@@ -183,7 +183,7 @@ Definition of Done（DoD）は、Incrementが満たすべき品質基準の正�
 
 PSU Iで問われる重要な論点は、**「UX・デザインに関する検証や作業を、DoDにどう組み込むか」**です。
 
-- デザインだけが完了し、ユーザビリティ検証がまだの状態は「Done」ではない（DoDに「ユーザビリティテストを実施済み」を含めるチームもある）
+- DoDに「ユーザビリティテストを実施済み」を含めるチームもある。その場合、デザインだけが完了してユーザビリティ検証がまだの状態は「Done」ではない（ユーザビリティテストの実施が全チームに一律で求められるわけではなく、何をDoDに含めるかはチームが決める）
 - 逆に、リサーチや実験そのもの（仮説の検証）は、機能の実装とは別に、それ単体で「学びを得る」という価値を生む作業として扱われる
 - 1つのSprintで完結しない大きなデザイン課題は、そのSprintのDoDを満たす小さな単位に分解する（例: 「コンセプト検証まで」を今回のDoneとする）
 
@@ -271,12 +271,12 @@ Product Backlog Managementとは、Product Backlogの内容、可用性、順序
 | リサーチスパイク（Research Spike） | ユーザーインタビューや競合調査など、知識を得るための時間限定の調査 | 学びがドキュメント化され、チームに共有された状態 |
 | 実験ストーリー（Experiment Story） | 仮説を検証するための小さな実験（A/Bテスト、コンシェルジュMVPなど） | 仮説が検証（または反証）され、結論が出た状態 |
 
-**Backlog Refinement（バックログの磨き込み）** は、これらの多様なアイテムを次のSprintで着手できる十分小さいサイズに分解し、受け入れ基準を明確にする継続的な活動です。UXの検証がまだ済んでいない大きな機能は、まず「検証のための小さな一歩（実験・プロトタイプ）」に分解してからバックログに積むのが定石です。
+**Backlog Refinement（バックログの磨き込み）** は、これらの多様なアイテムを次のSprintで着手できる十分小さいサイズに分解し、受け入れ基準を明確にする継続的な活動です。UXの検証がまだ済んでいない大きな機能は、「検証のための小さな一歩（実験・プロトタイプ）」に分解しておくと着手しやすくなります。ただし検証済みであることはProduct Backlogに載せる条件ではなく、未検証の仮説やそれを確かめる実験そのものをBacklogアイテムとして扱って構いません。
 
 #### ベストプラクティス
 
 - 「実装ストーリー」と「検証・学習ストーリー」を同じProduct Backlog上で並び替え、優先順位を統一する（別々のバックログに分けると、価値の比較ができなくなる）
-- 大きすぎるUX課題は、Discoveryの中でさらに小さな検証可能な単位に分解してからバックログに載せる
+- 大きすぎるUX課題は、検証可能な小さい単位に分解してからバックログに載せると扱いやすい（分解や検証の完了を、バックログ登録の前提条件にはしない）
 - 受け入れ基準にユーザビリティやアクセシビリティの観点を含める
 
 出典: [The 2020 Scrum Guide – scrumguides.org](https://scrumguides.org/scrum-guide.html)、[Lean UX, 3rd Edition – O'Reilly](https://www.oreilly.com/library/view/lean-ux-3rd/9781098116293/)
@@ -536,7 +536,7 @@ flowchart TB
 | Scrumのイベント/成果物 | UX統合における役割 |
 |---|---|
 | Product Backlog | 機能・デザイン検証・リサーチ・実験の全アイテムを一元的に優先順位づけする場 |
-| Sprint Planning | Discoveryで検証済みのアイテムのみをDeliveryに引き込む関門 |
+| Sprint Planning | Discoveryで得た学びを踏まえ、次のSprintで取り組むアイテムを選ぶ場（検証済みのアイテムだけに限定する関門ではなく、検証そのものを目的としたアイテムも選べる） |
 | Daily Scrum | DiscoveryとDeliveryの進捗を同期し、両者の連携の詰まりを早期発見する場 |
 | Sprint Review | Incrementのデモに加え、ユーザーテストや実験の結果を共有し、次の優先順位に反映する場 |
 | Sprint Retrospective | Definition of Doneにユーザビリティ・アクセシビリティ観点を追加するなど、プロセス自体を継続的に改善する場 |
