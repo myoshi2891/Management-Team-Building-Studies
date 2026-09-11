@@ -259,6 +259,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "PAL I(Professional Agile Leadership I)認定試験 学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/pal-i-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",

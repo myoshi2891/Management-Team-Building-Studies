@@ -75,6 +75,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { id: "sa-facilitation", programId: "scrum-alliance", navLabel: "ファシリテーション・スケーリング", cardLabel: "FACILITATION & SCALING" },
       { id: "so-scrum-master", programId: "scrum-org", navLabel: "スクラムマスター", cardLabel: "SCRUM MASTER" },
       { id: "so-developer", programId: "scrum-org", navLabel: "ディベロッパー", cardLabel: "DEVELOPER" },
+      { id: "so-agile-leader", programId: "scrum-org", navLabel: "アジャイルリーダー", cardLabel: "AGILE LEADER" },
       { id: "book-management", programId: "management", navLabel: "マネジメントの原典", cardLabel: "MANAGEMENT CLASSICS" },
       { id: "book-leadership", programId: "leadership", navLabel: "リーダーシップの実践", cardLabel: "LEADERSHIP PRACTICE" },
       { id: "book-team", programId: "team", navLabel: "チームづくり", cardLabel: "TEAM BUILDING" },
@@ -134,6 +135,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/casp-certified-agile-scaling-practitioner-study-guide", programId: "scrum-alliance", seriesId: "sa-facilitation", navLabel: "CASP 完全ガイド" },
       { to: "/psm-ai-essentials-guide", programId: "scrum-org", seriesId: "so-scrum-master", navLabel: "PSM-AI 完全ガイド" },
       { to: "/professional-scrum-developer", programId: "scrum-org", seriesId: "so-developer", navLabel: "PSD 完全ガイド" },
+      { to: "/pal-i-study-guide", programId: "scrum-org", seriesId: "so-agile-leader", navLabel: "PAL I 完全ガイド" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/managing-humans-best-practices-guide", programId: "management", seriesId: "book-management", navLabel: "Managing Humans" },
@@ -265,6 +267,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "so-scrum-master", guides: ["PSM-AI 完全ガイド"] },
           { seriesId: "so-developer", guides: ["PSD 完全ガイド"] },
+          { seriesId: "so-agile-leader", guides: ["PAL I 完全ガイド"] },
         ],
       },
       {
