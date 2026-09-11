@@ -289,6 +289,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Scrum™ with User Experience(PSU I) 完全ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-with-user-experience",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
