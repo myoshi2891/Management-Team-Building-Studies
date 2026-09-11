@@ -74,7 +74,13 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { id: "sa-agile-leader", programId: "scrum-alliance", navLabel: "アジャイルリーダー", cardLabel: "AGILE LEADER" },
       { id: "sa-facilitation", programId: "scrum-alliance", navLabel: "ファシリテーション・スケーリング", cardLabel: "FACILITATION & SCALING" },
       { id: "so-scrum-master", programId: "scrum-org", navLabel: "スクラムマスター", cardLabel: "SCRUM MASTER" },
+      { id: "so-product-owner", programId: "scrum-org", navLabel: "プロダクトオーナー", cardLabel: "PRODUCT OWNER" },
       { id: "so-developer", programId: "scrum-org", navLabel: "ディベロッパー", cardLabel: "DEVELOPER" },
+      { id: "so-agile-leader", programId: "scrum-org", navLabel: "アジャイルリーダー", cardLabel: "AGILE LEADER" },
+      { id: "so-facilitation", programId: "scrum-org", navLabel: "ファシリテーション", cardLabel: "FACILITATION" },
+      { id: "so-kanban", programId: "scrum-org", navLabel: "カンバン", cardLabel: "KANBAN" },
+      { id: "so-scaling", programId: "scrum-org", navLabel: "スケーリング", cardLabel: "SCALING" },
+      { id: "so-user-experience", programId: "scrum-org", navLabel: "ユーザーエクスペリエンス", cardLabel: "USER EXPERIENCE" },
       { id: "book-management", programId: "management", navLabel: "マネジメントの原典", cardLabel: "MANAGEMENT CLASSICS" },
       { id: "book-leadership", programId: "leadership", navLabel: "リーダーシップの実践", cardLabel: "LEADERSHIP PRACTICE" },
       { id: "book-team", programId: "team", navLabel: "チームづくり", cardLabel: "TEAM BUILDING" },
@@ -133,7 +139,13 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/caf-certified-agile-facilitator-study-guide", programId: "scrum-alliance", seriesId: "sa-facilitation", navLabel: "CAF 完全ガイド" },
       { to: "/casp-certified-agile-scaling-practitioner-study-guide", programId: "scrum-alliance", seriesId: "sa-facilitation", navLabel: "CASP 完全ガイド" },
       { to: "/psm-ai-essentials-guide", programId: "scrum-org", seriesId: "so-scrum-master", navLabel: "PSM-AI 完全ガイド" },
+      { to: "/professional-scrum-product-owner", programId: "scrum-org", seriesId: "so-product-owner", navLabel: "PSPO 完全ガイド" },
       { to: "/professional-scrum-developer", programId: "scrum-org", seriesId: "so-developer", navLabel: "PSD 完全ガイド" },
+      { to: "/pal-i-study-guide", programId: "scrum-org", seriesId: "so-agile-leader", navLabel: "PAL I 完全ガイド" },
+      { to: "/professional-scrum-facilitation-skills", programId: "scrum-org", seriesId: "so-facilitation", navLabel: "PSFS 完全ガイド" },
+      { to: "/professional-scrum-with-kanban", programId: "scrum-org", seriesId: "so-kanban", navLabel: "PSK 完全ガイド" },
+      { to: "/scaled-professional-scrum-guide", programId: "scrum-org", seriesId: "so-scaling", navLabel: "SPS 完全ガイド" },
+      { to: "/professional-scrum-with-user-experience", programId: "scrum-org", seriesId: "so-user-experience", navLabel: "PSU 完全ガイド" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/managing-humans-best-practices-guide", programId: "management", seriesId: "book-management", navLabel: "Managing Humans" },
@@ -220,7 +232,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       ...GUIDE_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 59);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 65);
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -229,7 +241,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 35, programs: ["pmi", "scrum-alliance", "scrum-org"] },
+      { id: "certifications", count: 41, programs: ["pmi", "scrum-alliance", "scrum-org"] },
       { id: "books", count: 18, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
@@ -264,7 +276,13 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         programId: "scrum-org",
         seriesGroups: [
           { seriesId: "so-scrum-master", guides: ["PSM-AI 完全ガイド"] },
+          { seriesId: "so-product-owner", guides: ["PSPO 完全ガイド"] },
           { seriesId: "so-developer", guides: ["PSD 完全ガイド"] },
+          { seriesId: "so-agile-leader", guides: ["PAL I 完全ガイド"] },
+          { seriesId: "so-facilitation", guides: ["PSFS 完全ガイド"] },
+          { seriesId: "so-kanban", guides: ["PSK 完全ガイド"] },
+          { seriesId: "so-scaling", guides: ["SPS 完全ガイド"] },
+          { seriesId: "so-user-experience", guides: ["PSU 完全ガイド"] },
         ],
       },
       {
@@ -409,8 +427,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     const group = programGroup("scrum-org");
 
     expect(group.program.navLabel).toBe("Scrum.org 認定");
-    expect(group.guides.map((guide) => guide.navLabel)).toEqual(["PSM-AI 完全ガイド", "PSD 完全ガイド"]);
-    expect(group.seriesGroups.map((item) => item.series.id)).toEqual(["so-scrum-master", "so-developer"]);
+    expect(group.guides.map((guide) => guide.navLabel)).toEqual(["PSM-AI 完全ガイド", "PSPO 完全ガイド", "PSD 完全ガイド", "PAL I 完全ガイド", "PSFS 完全ガイド", "PSK 完全ガイド", "SPS 完全ガイド", "PSU 完全ガイド"]);
+    expect(group.seriesGroups.map((item) => item.series.id)).toEqual(["so-scrum-master", "so-product-owner", "so-developer", "so-agile-leader", "so-facilitation", "so-kanban", "so-scaling", "so-user-experience"]);
   });
 
   it("種別に属するプログラムを順序込みで引ける", () => {

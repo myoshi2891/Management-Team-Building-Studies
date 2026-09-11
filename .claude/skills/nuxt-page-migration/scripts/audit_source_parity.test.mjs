@@ -673,3 +673,48 @@ test("human-readable output uses the audited page path instead of page.tsx", () 
 		rmSync(fixtureDir, { recursive: true, force: true });
 	}
 });
+
+test("matches short list items containing inline markup elements", () => {
+	const result = audit(
+		"<ul><li><strong>計測単位。</strong>日数</li></ul>",
+		"<template><ul><li><strong>計測単位。</strong>日数</li></ul></template>",
+		"html",
+		"page.vue",
+	);
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingListItems, []);
+});
+
+
+test("does not double-count a plain short list item in the TSX text-node inventory", () => {
+	// 素の <li> は collectTextNodeKeys が既にキーを採っている。li 全体の結合キーを
+	// 無条件に足すと同じキーが 2 個積まれ、原本 2 回・移植先 1 回の欠落を素通しする。
+	const result = audit("<ul><li>Go</li><li>Go</li></ul>", "<ul><li>Go</li></ul>");
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});
+
+test("does not double-count a plain short list item in the Vue text-node inventory", () => {
+	const result = audit(
+		"<ul><li>Go</li><li>Go</li></ul>",
+		"<template><ul><li>Go</li></ul></template>",
+		"html",
+		"page.vue",
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});
+
+test("keeps a composite list item whose key matches a separate element's text node", () => {
+	// 結合キーの重複判定は「その <li> 自身のテキストノード」に限る。ページ全体の
+	// インベントリと突き合わせると、別要素が同じ正規化キーを持つだけで合成 <li> の
+	// キーが落ち、移植済みの項目を欠落と誤判定する。
+	const markup = "<ul><li>WIP制限</li><li><strong>WIP</strong>制限</li></ul>";
+	const result = audit(markup, `<template>${markup}</template>`, "html", "page.vue");
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingListItems, []);
+});

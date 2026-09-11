@@ -45,8 +45,32 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
         guides: ["Professional Scrum Master™ - AI Essentials 完全ガイド"],
       },
       {
+        heading: "プロダクトオーナー",
+        guides: ["Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド"],
+      },
+      {
         heading: "ディベロッパー",
         guides: ["Professional Scrum Developer(PSD I)認定資格 学習ガイド"],
+      },
+      {
+        heading: "アジャイルリーダー",
+        guides: ["PAL I(Professional Agile Leadership I)認定試験 学習ガイド"],
+      },
+      {
+        heading: "ファシリテーション",
+        guides: ["Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド"],
+      },
+      {
+        heading: "カンバン",
+        guides: ["Professional Scrum with Kanban(PSK I)認定資格 完全ガイド"],
+      },
+      {
+        heading: "スケーリング",
+        guides: ["Scaled Professional Scrum(SPS)認定 完全学習ガイド"],
+      },
+      {
+        heading: "ユーザーエクスペリエンス",
+        guides: ["Professional Scrum™ with User Experience(PSU I) 完全ガイド"],
       },
     ]);
   });
@@ -55,7 +79,7 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
     expect(mountHub("pmi").get("[data-testid='hub-count']").text()).toBe("9 ガイド");
   });
 
-  it("全プログラムを合わせると公開ガイド 59 本すべてへ到達できる（登録漏れの検知）", () => {
+  it("全プログラムを合わせると公開ガイド 65 本すべてへ到達できる（登録漏れの検知）", () => {
     /*
      * 弱い契約（件数一致のみ）にすると、同じガイドが 2 か所に出て 1 本消えた場合を素通しする。
      * 遷移先の集合と順序の双方をカタログと突き合わせる。

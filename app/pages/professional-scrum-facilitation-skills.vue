@@ -1,634 +1,236 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professional Scrum Facilitation Skills™ 認定資格 完全ガイド | 出題範囲とベストプラクティス</title>
-<meta name="description" content="Scrum.org公式のProfessional Scrum Facilitation Skills(PSFS)認定資格について、出題範囲・ファシリテーション原則・スキルと資質・イベント別技法・練習問題までを初学者向けに解説するガイドです。">
-
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
-
-<style>
-  :root {
-    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
-    --color-paper:        #F6F7F9;
-    --color-paper-raised: #FFFFFF;
-    --color-paper-sunken: #EEF0F4;
-
-    --color-ink:          #161B26;
-    --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
-
-    --color-border:       #DFE3EA;
-    --color-border-strong:#C7CDD9;
-
-    --color-indigo:       #2E3F72;
-    --color-indigo-dark:  #1F2C57;
-    --color-indigo-tint:  #EEF1F8;
-
-    --color-gold:         #B8802A;
-    --color-gold-tint:    #FAF1DF;
-
-    --color-forest:       #1B6E6A;
-    --color-forest-tint:  #E7F3F2;
-
-    --color-plum:         #8C3A5C;
-    --color-plum-tint:    #F6EAEF;
-
-    --color-success-bg:    #EAF4EC;
-    --color-success-text:  #2F6B3D;
-    --color-success-border:#BFE0C6;
-
-    --color-info-bg:       #EEF1F8;
-    --color-info-text:     #2E3F72;
-    --color-info-border:   #C7D1EA;
-
-    /* ---- Typography ---- */
-    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-    --sidebar-width: 288px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--color-indigo); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
-
-  img, svg { max-width: 100%; }
-
-  .layout {
-    display: block;
-  }
-
-  /* ===================== Sidebar ===================== */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--color-paper-raised);
-    border-right: 1px solid var(--color-border);
-    padding: 32px 24px 40px;
-    z-index: 20;
-  }
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .seal {
-    flex: none;
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-text .brand-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--color-ink);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-text .brand-subtitle {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 2px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar-nav .nav-group-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.06em;
-    margin: 22px 0 8px;
-    padding-left: 12px;
-  }
-
-  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
-
-  .sidebar-nav li { margin: 2px 0; }
-
-  .sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--color-ink-soft);
-    font-size: 16px;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-  }
-
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
-
-  .sidebar-nav a:hover {
-    background: var(--color-indigo-tint);
-    text-decoration: none;
-    color: var(--color-indigo);
-  }
-
-  .sidebar-nav a.active {
-    background: var(--color-indigo-tint);
-    color: var(--color-indigo);
-    font-weight: 600;
-    border-left: 2px solid var(--color-indigo);
-  }
-
-  .sidebar-nav a.active i { color: var(--color-indigo); }
-
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 30;
-    background: var(--color-paper-raised);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  /* ===================== Main content ===================== */
-  .main-content {
-    margin-left: var(--sidebar-width);
-    padding: 56px 72px 120px;
-  }
-
-  .hero {
-    margin-bottom: 56px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  .hero-eyebrow i { font-size: 17px; }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.28;
-    margin: 0 0 16px;
-    color: var(--color-ink);
-  }
-
-  .hero .hero-lede {
-    font-size: 18px;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .stat-card .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--color-indigo);
-    line-height: 1.1;
-  }
-
-  .stat-card .stat-label {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .disclaimer-box {
-    border: 1px solid var(--color-info-border);
-    background: var(--color-info-bg);
-    color: var(--color-info-text);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-size: 16px;
-    margin-top: 28px;
-  }
-
-  section {
-    margin: 72px 0;
-    scroll-margin-top: 32px;
-  }
-
-  section:first-of-type { margin-top: 0; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 29px;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--color-ink);
-    margin: 40px 0 16px;
-  }
-
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-ink);
-    margin: 28px 0 12px;
-  }
-
-  p { margin: 0 0 18px; }
-
-  ul, ol { margin: 0 0 18px; padding-left: 24px; }
-  li { margin-bottom: 8px; }
-
-  strong { font-weight: 600; color: var(--color-ink); }
-
-  em { color: var(--color-ink-soft); }
-
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
-  /* ===================== Tables ===================== */
-  .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  thead th {
-    background: var(--color-paper-sunken);
-    text-align: left;
-    font-weight: 600;
-    color: var(--color-ink);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border-strong);
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-ink-soft);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--color-paper); }
-
-  td strong, th strong { color: var(--color-ink); }
-
-  /* ===================== Callouts ===================== */
-  .callout {
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-indigo);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 28px 0;
-  }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--color-indigo);
-    margin-bottom: 10px;
-  }
-
-  .callout ul { margin-bottom: 0; padding-left: 20px; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .callout.practice { border-left-color: var(--color-gold); }
-  .callout.practice .callout-title { color: var(--color-gold); }
-
-  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
-  .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source a { color: var(--color-forest); font-weight: 500; }
-  .callout.source ul { list-style: none; padding-left: 0; }
-  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
-
-  .callout.note { border-left-color: var(--color-plum); }
-  .callout.note .callout-title { color: var(--color-plum); }
-
-  /* ===================== Diagram containers ===================== */
-  .diagram-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 12px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-
-  .diagram-card .diagram-caption {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 14px;
-    text-align: center;
-  }
-
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
-
-  /* ===================== Glossary ===================== */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-
-  .glossary-item .g-term {
-    font-weight: 600;
-    color: var(--color-indigo);
-    margin-bottom: 4px;
-  }
-
-  .glossary-item .g-def {
-    color: var(--color-ink-soft);
-    font-size: 16px;
-  }
-
-  /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
-  .ref-list { list-style: none; margin: 0; padding: 0; }
-  .ref-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 16px;
-  }
-  .ref-list li:last-child { border-bottom: none; }
-  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
-  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
-
-  footer {
-    margin-top: 96px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-ink-faint);
-    font-size: 16px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
-  /* ===================== Responsive ===================== */
-  @media (max-width: 980px) {
-    .sidebar-toggle { display: flex; }
-    .sidebar {
-      transform: translateX(-100%);
-      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
-      visibility: hidden;
-      transition: transform 0.2s ease, visibility 0.2s ease;
-      box-shadow: none;
-    }
-    .sidebar.open { transform: translateX(0); visibility: visible; }
-    .main-content { margin-left: 0; padding: 88px 24px 100px; }
-    .hero h1 { font-size: 32px; }
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
-    .glossary-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .sidebar { transition: none; }
-  }
-</style>
-</head>
-<body>
-
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
-
-<div class="layout">
-
-  <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
-    <div class="sidebar-brand">
-      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
-        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
-        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="brand-text">
-        <div class="brand-title">PSFS™ 完全ガイド</div>
-        <div class="brand-subtitle">Facilitation Skills 認定対策</div>
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
+const TOC_IDS = [
+  "certification-overview",
+  "what-is-facilitation",
+  "exam-scope",
+  "principles-and-values",
+  "facilitator-skills",
+  "facilitation-level",
+  "facilitating-events",
+  "group-dynamics",
+  "facilitation-toolkit",
+  "diverse-perspectives",
+  "exam-prep-roadmap",
+  "practice-questions",
+  "best-practice-cheatsheet",
+  "references"
+];
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "Professional Scrum Facilitation Skills™ 認定資格 完全ガイド | 出題範囲とベストプラクティス",
+  description:
+    "Scrum.org公式のProfessional Scrum Facilitation Skills(PSFS)認定資格について、出題範囲・ファシリテーション原則・スキルと資質・イベント別技法・練習問題までを初学者向けに解説するガイドです。",
+});
+
+const DIAGRAM_CERTIFICATION_ROADMAP = `flowchart TB
+A["Scrumの基礎を固める"] --> B["Professional Scrum Master I を取得する 推奨"]
+B --> C["Professional Scrum Facilitation Skills 研修を受講する 任意"]
+C --> D["公式のFacilitation関連記事を読み込む"]
+D --> E["Facilitation Skills Open 無料模擬試験 を受験する"]
+E --> F{"安定して高得点が取れているか"}
+F -->|"はい"| G["PSFS本試験を申し込み受験する"]
+F -->|"いいえ"| D
+G --> H["85%以上でPSFS認定を取得"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,G box;
+class H done;`;
+
+const DIAGRAM_FACILITATOR_STANCE = `flowchart TB
+A["セッションが進行中"] --> B{"自分は議論の内容に利害関係があるか"}
+B -->|"ない"| C["中立なファシリテーターとして進行を続ける"]
+B -->|"ある"| D["いったんファシリテーター役を離れることを宣言する"]
+D --> E["チームメンバーとして意見や提案を述べる"]
+E --> F["ファシリテーター役に戻ることを宣言する"]
+F --> C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,D,E,F box;
+class C done;`;
+
+const DIAGRAM_COMPETENCY_TREE = `flowchart TB
+A["Professional Scrum Competencies"] --> B["Developing People and Teams"]
+B --> C["Facilitation"]
+C --> D["Facilitation Principles and Values"]
+C --> E["Applying Facilitation Skills and Techniques"]
+D --> D1["ファシリテーション原則とその適用を理解する"]
+D --> D2["原則をスクラムイベント等の力学改善に活かす方法を理解する"]
+E --> E1["多様な視点とチームダイナミクスの活用方法を理解する"]
+E --> E2["チームの協働と参加型意思決定の改善方法を理解する"]
+E --> E3["アウトカムに向けて進捗を促す技法の活用方法を理解する"]
+E --> E4["弱いアウトカムと強いアウトカムの違いを理解する"]
+E --> E5["Groan Zoneを認識し乗り越える方法を理解する"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,D1,D2,E1,E2,E3,E4,E5 box;`;
+
+const DIAGRAM_FACILITATION_LEVEL_MODEL = `flowchart TB
+A["チームの状況を観察する"] --> B{"チームの効果性は高いか"}
+B -->|"高い"| C{"状況の複雑さは高いか"}
+B -->|"低い"| D{"状況の複雑さは高いか"}
+C -->|"低い"| E["ファシリテーションなし"]
+C -->|"高い"| F["軽いファシリテーション"]
+D -->|"低い"| G["中程度のファシリテーション"]
+D -->|"高い"| H["強いファシリテーション"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D box;
+class E,F,G,H done;`;
+
+const DIAGRAM_SPRINT_CYCLE = `flowchart LR
+A["Sprint Planning 協調的で透明性の高い環境"] --> B["Sprint Developersが計画を実行する"]
+B --> C["Daily Scrum スプリントゴールへの集中を保つ"]
+C --> B
+B --> D["Sprint Review 参加型で共感的な対話"]
+D --> E["Sprint Retrospective 安全な場と合意形成"]
+E --> A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E box;`;
+
+const DIAGRAM_TUCKMAN_MODEL = `flowchart LR
+A["Forming 形成期"] --> B["Storming 混乱期"]
+B --> C["Norming 統一期"]
+C --> D["Performing 機能期"]
+D --> E["Adjourning 解散期"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D box;
+class E done;`;
+
+const DIAGRAM_KANER_DIAMOND = `flowchart LR
+A["Divergent Zone 発散 多様な視点とアイデアの探索"] --> B["Groan Zone 混乱 摩擦 停滞感が生じる時期"]
+B --> C["Convergent Zone 収束 共通理解への統合"]
+C --> D["合意された決定"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B box;
+class C,D done;`;
+
+const DIAGRAM_DECISION_TECHNIQUE_SELECTOR = `flowchart TB
+A["何を決めたいか"] --> B{"複数案から1つを選ぶ"}
+A --> C{"複数案の優先順位をつけたい"}
+A --> D{"賛成か反対かを問う"}
+B --> E["賛同の度合いも知りたい"]
+E --> F["Fist of Five を使う"]
+C --> G["全員に平等な発言権を持たせたい"]
+G --> H["Dot Voting または White Elephant を使う"]
+D --> I["素早く白黒つけたい"]
+I --> J["Roman Voting を使う"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,G,I box;
+class F,H,J done;`;
+
+const DIAGRAM_EXAM_STUDY_ROADMAP = `flowchart TB
+A["Scrum Guideを読み込み Scrumイベントのアウトカムを再確認する"] --> B["Facilitation Learning Seriesの記事を一通り読む"]
+B --> C["5つの原則 9つのスキルと資質を自分の言葉で説明できるようにする"]
+C --> D["イベントごとのファシリテーション技法を整理する"]
+D --> E["Groan Zoneと弱い アウトカム 強い アウトカムの違いを理解する"]
+E --> F["Facilitation Skills Open を複数回受験する"]
+F --> G{"安定して高得点が取れるか"}
+G -->|"いいえ"| B
+G -->|"はい"| H["本試験 PSFS を申し込み受験する"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,G box;
+class H done;`;
+</script>
+
+<template>
+  <div class="layout">
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      data-testid="sidebar-toggle"
+      aria-label="目次を開閉する"
+      :aria-expanded="sidebarOpen ? 'true' : 'false'"
+      aria-controls="sidebar"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+    <div
+      v-if="sidebarOpen"
+      class="sidebar-overlay"
+      aria-hidden="true"
+      @click="closeSidebar"
+    />
+    <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
+      <div class="sidebar-brand">
+        <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+          <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+          <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="brand-text">
+          <div class="brand-title">PSFS 完全ガイド</div>
+          <div class="brand-subtitle">Professional Scrum Facilitation Skills</div>
+        </div>
       </div>
-    </div>
 
-    <ul class="sidebar-nav">
-      <li><a href="#certification-overview"><i class="ti ti-certificate"></i>1. この資格の概要</a></li>
-      <li><a href="#what-is-facilitation"><i class="ti ti-users"></i>2. ファシリテーションとは</a></li>
-      <li><a href="#exam-scope"><i class="ti ti-list-check"></i>3. 出題範囲の全体像</a></li>
-      <li><a href="#principles-and-values"><i class="ti ti-scale"></i>4. 5原則と価値基準</a></li>
-      <li><a href="#facilitator-skills"><i class="ti ti-user-check"></i>5. スキルと資質</a></li>
-      <li><a href="#facilitation-level"><i class="ti ti-adjustments"></i>6. 必要なレベルの見極め</a></li>
-      <li><a href="#facilitating-events"><i class="ti ti-repeat"></i>7. イベントのファシリテーション</a></li>
-      <li><a href="#group-dynamics"><i class="ti ti-git-branch"></i>8. グループダイナミクスと意思決定</a></li>
-      <li><a href="#facilitation-toolkit"><i class="ti ti-tools"></i>9. 技法ツールキット</a></li>
-      <li><a href="#diverse-perspectives"><i class="ti ti-messages"></i>10. 多様な視点への対応</a></li>
-      <li><a href="#exam-prep-roadmap"><i class="ti ti-map-2"></i>11. 試験対策ロードマップ</a></li>
-      <li><a href="#practice-questions"><i class="ti ti-clipboard-check"></i>12. 練習問題</a></li>
-      <li><a href="#best-practice-cheatsheet"><i class="ti ti-flag-3"></i>13. チートシート</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>14. 参考文献・出典</a></li>
-    </ul>
-  </nav>
+      <ul class="sidebar-nav">
+        <li><a :class="{ active: activeId === 'certification-overview' }" href="#certification-overview" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />1. この資格の概要</a></li>
+        <li><a :class="{ active: activeId === 'what-is-facilitation' }" href="#what-is-facilitation" @click="closeSidebar"><Icon name="tabler:users" aria-hidden="true" />2. ファシリテーションとは</a></li>
+        <li><a :class="{ active: activeId === 'exam-scope' }" href="#exam-scope" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />3. 出題範囲の全体像</a></li>
+        <li><a :class="{ active: activeId === 'principles-and-values' }" href="#principles-and-values" @click="closeSidebar"><Icon name="tabler:scale" aria-hidden="true" />4. 5原則と価値基準</a></li>
+        <li><a :class="{ active: activeId === 'facilitator-skills' }" href="#facilitator-skills" @click="closeSidebar"><Icon name="tabler:user-check" aria-hidden="true" />5. スキルと資質</a></li>
+        <li><a :class="{ active: activeId === 'facilitation-level' }" href="#facilitation-level" @click="closeSidebar"><Icon name="tabler:adjustments" aria-hidden="true" />6. 必要なレベルの見極め</a></li>
+        <li><a :class="{ active: activeId === 'facilitating-events' }" href="#facilitating-events" @click="closeSidebar"><Icon name="tabler:repeat" aria-hidden="true" />7. イベントのファシリテーション</a></li>
+        <li><a :class="{ active: activeId === 'group-dynamics' }" href="#group-dynamics" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />8. グループダイナミクスと意思決定</a></li>
+        <li><a :class="{ active: activeId === 'facilitation-toolkit' }" href="#facilitation-toolkit" @click="closeSidebar"><Icon name="tabler:tools" aria-hidden="true" />9. 技法ツールキット</a></li>
+        <li><a :class="{ active: activeId === 'diverse-perspectives' }" href="#diverse-perspectives" @click="closeSidebar"><Icon name="tabler:messages" aria-hidden="true" />10. 多様な視点への対応</a></li>
+        <li><a :class="{ active: activeId === 'exam-prep-roadmap' }" href="#exam-prep-roadmap" @click="closeSidebar"><Icon name="tabler:map-2" aria-hidden="true" />11. 試験対策ロードマップ</a></li>
+        <li><a :class="{ active: activeId === 'practice-questions' }" href="#practice-questions" @click="closeSidebar"><Icon name="tabler:clipboard-check" aria-hidden="true" />12. 練習問題</a></li>
+        <li><a :class="{ active: activeId === 'best-practice-cheatsheet' }" href="#best-practice-cheatsheet" @click="closeSidebar"><Icon name="tabler:flag-3" aria-hidden="true" />13. チートシート</a></li>
+        <li><a :class="{ active: activeId === 'references' }" href="#references" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />14. 参考文献・出典</a></li>
+      </ul>
+    </nav>
 
-  <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+    <!-- ===================== Main content ===================== -->
+    <main id="main-content" class="main-content">
+
 
     <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>SCRUM.ORG 認定資格ガイド</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />SCRUM.ORG 認定資格ガイド</div>
       <h1>Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド</h1>
       <p class="hero-lede">
         初学者向けに、出題範囲の各項目をステップバイステップで解説し、各項目・各テクニックにおけるベストプラクティスをまとめた学習ガイドです。すべての図はMermaidで、表形式の情報はMarkdownテーブルで記述しています。
@@ -642,14 +244,14 @@
       </div>
 
       <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
-        本ガイドはScrum.orgの公開情報および関連する業界解説記事を基に、学習目的で独自にまとめた非公式の解説資料です。試験問題そのものを再現したものではありません。最新の出題範囲・受験要項は必ず<a href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
-      </div>
+          <Icon name="tabler:info-circle" aria-hidden="true" />
+          <span>本ガイドはScrum.orgの公開情報および関連する業界解説記事を基に、学習目的で独自にまとめた非公式の解説資料です。試験問題そのものを再現したものではありません。最新の出題範囲・受験要項は必ず<a href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">公式サイト</a>でご確認ください。</span>
+        </div>
     </div>
 
     <!-- ===================== 1. Certification Overview ===================== -->
     <section id="certification-overview">
-      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
       <h2>この資格の概要</h2>
 
       <p>Professional Scrum Facilitation Skills(PSFS)は、Scrum.org が提供する認定資格で、ファシリテーションの原則・スキル・技法をどれだけ理解し、スクラムイベントやその他のチームの対話にどう応用できるかを検証するものです。単なる「一般的なファシリテーション知識」を問う試験ではなく、<strong>スクラムという文脈の中でファシリテーション原則をどう適用するか</strong>を問う点が最大の特徴です。</p>
@@ -675,8 +277,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">認定資格ページ</a></li>
           <li><a href="https://www.credly.com/org/scrum-org/badge/professional-scrum-facilitation-skills.1" target="_blank" rel="noopener">Credly バッジページ(Professional Scrum Facilitation Skills™)</a></li>
@@ -693,7 +295,11 @@
 
       <h3>資格取得までの流れ</h3>
       <div class="diagram-card">
-        <div class="diagram-container" id="certificationRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_CERTIFICATION_ROADMAP" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">PSFS資格取得までの推奨ステップ</div>
       </div>
 
@@ -705,8 +311,8 @@
       </ul>
       <p>ただし、出題がこの2つのサブ項目だけに閉じるわけではありません。PSFSはファシリテーションを「スクラムの文脈の中で」問う試験のため、Scrum Values(スクラムの価値基準)、Scrum Team(スクラムチーム)、Events(スクラムイベント)、Artifacts(作成物)といったスクラムの基礎理解を前提とした上で、上記のFacilitationフォーカスエリアが主要な出題範囲となります。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills" target="_blank" rel="noopener">試験対策ガイダンス(Prove your knowledge of Facilitation Skills)</a></li>
         </ul>
@@ -715,15 +321,15 @@
 
     <!-- ===================== 2. What is Facilitation ===================== -->
     <section id="what-is-facilitation">
-      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 02</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" aria-hidden="true" />SECTION 02</div>
       <h2>ファシリテーションとは何か</h2>
 
       <h3>定義</h3>
       <p>Scrum.orgはファシリテーションを、関係者全員の参加・当事者意識・創造性を引き出しながら、合意された目的に向けて人々を導くための手法と定義しています。良いファシリテーションは透明性とコラボレーションを生み出し、集団の相乗効果(シナジー)を発揮させ、共通の目的の達成につながります。</p>
       <p>ファシリテーターの役割は、人々が共通のゴールを理解し、それを達成できるよう支援することです。そのために欠かせないのが「中立性」です。ファシリテーターは議論の内容そのものに肩入れせず、あくまで議論が前に進むための「場」と「プロセス」を設計し、導く役割に徹します。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/what-facilitation" target="_blank" rel="noopener">What is Facilitation?</a></li>
         </ul>
@@ -735,12 +341,16 @@
       <p>このとき重要なのは、<strong>今どちらの立場で話しているのかをチームに明確に伝えること</strong>です。曖昧なまま両方の役割を行き来すると、チームはあなたの発言をどう受け止めればよいか混乱してしまいます。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="facilitatorStance"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FACILITATOR_STANCE" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">ファシリテーターとしての中立性を保つための役割切り替えフロー</div>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>ファシリテーションを始める前に「今日は私がファシリテーターとして進行します」と役割を明言する</li>
           <li>発言する前に「今は参加者として話します」と一言添えるだけで、チームの混乱を防げる</li>
@@ -749,8 +359,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/blog/scrum-master-facilitator" target="_blank" rel="noopener">The Scrum Master as a Facilitator</a></li>
         </ul>
@@ -759,11 +369,15 @@
 
     <!-- ===================== 3. Exam Scope (Professional Scrum Competencies) ===================== -->
     <section id="exam-scope">
-      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 03</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 03</div>
       <h2>出題範囲の全体像(Professional Scrum Competencies)</h2>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="competencyTree"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_COMPETENCY_TREE" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">Professional Scrum CompetenciesにおけるFacilitationフォーカスエリアの構造</div>
       </div>
 
@@ -778,21 +392,21 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/facilitation-principles-and-values" target="_blank" rel="noopener">Facilitation Principles and Values(フォーカスエリア)</a></li>
           <li><a href="https://www.scrum.org/resources/applying-facilitation-skills-and-techniques" target="_blank" rel="noopener">Applying Facilitation Skills and Techniques(フォーカスエリア)</a></li>
         </ul>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
         <p>PSFS試験問題は、この2つのフォーカスエリアに加えて、スクラムの価値基準・スクラムチーム・イベント・作成物についての土台知識(=PSM Iレベルの内容)からも派生して出題されます。「一般的なファシリテーション理論の試験」ではなく「スクラムの文脈でのファシリテーション原則の適用」を問う試験である、という点を繰り返し意識してください。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills" target="_blank" rel="noopener">試験対策ガイダンス(Prove your knowledge of Facilitation Skills)</a></li>
         </ul>
@@ -801,7 +415,7 @@
 
     <!-- ===================== 4. Principles and Values ===================== -->
     <section id="principles-and-values">
-      <div class="section-eyebrow"><i class="ti ti-scale"></i>SECTION 04</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:scale" aria-hidden="true" />SECTION 04</div>
       <h2>ファシリテーションの5原則とスクラムの価値基準</h2>
 
       <h3>ファシリテーションの5原則</h3>
@@ -820,8 +434,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/facilitation-principles" target="_blank" rel="noopener">Facilitation Principles</a></li>
         </ul>
@@ -843,22 +457,22 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/blog/scrum-values-facilitators-perspective" target="_blank" rel="noopener">Scrum Values from a Facilitator's Perspective</a></li>
         </ul>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>5原則とスクラムの価値基準は、公式に1対1で対応関係が定義されているわけではありません。試験対策としては「両者は互いに補完し合う関係にある」という位置づけを理解しておけば十分です。無理に1対1のペアで暗記しようとすると、誤った理解につながるので注意してください。</p>
       </div>
     </section>
 
     <!-- ===================== 5. Skills and Traits of a Facilitator ===================== -->
     <section id="facilitator-skills">
-      <div class="section-eyebrow"><i class="ti ti-user-check"></i>SECTION 05</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:user-check" aria-hidden="true" />SECTION 05</div>
       <h2>ファシリテーターに必要なスキルと資質</h2>
 
       <p>Scrum.orgの「Skills and Traits of a Facilitator」では、優れたファシリテーターに共通する資質が紹介されています。初学者はこれらを「性格」ではなく「後天的に磨けるスキル」として捉えることが重要です。</p>
@@ -880,8 +494,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/skills-and-traits-facilitator" target="_blank" rel="noopener">Skills and Traits of a Facilitator</a></li>
         </ul>
@@ -890,7 +504,7 @@
 
     <!-- ===================== 6. How Much Facilitation Is Needed ===================== -->
     <section id="facilitation-level">
-      <div class="section-eyebrow"><i class="ti ti-adjustments"></i>SECTION 06</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:adjustments" aria-hidden="true" />SECTION 06</div>
       <h2>どれだけ・どんなファシリテーションが必要か</h2>
 
       <p>すべての対話に強いファシリテーションが必要なわけではありません。むしろ、健全で自己管理されたスクラムチームには、明示的なファシリテーションがまったく不要な場面も多くあります。Scrum.orgのPatricia Kong氏とGlaudia Califano氏は、必要なファシリテーションの強さを判断するための2軸モデルを提唱しています。</p>
@@ -903,7 +517,11 @@
       <p>この2軸の組み合わせによって、ファシリテーションのレベルは「なし」「軽い」「中程度」「強い」の4段階に分かれます。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="facilitationLevelModel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FACILITATION_LEVEL_MODEL" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">チームの効果性と状況の複雑さから必要なファシリテーションの強さを見極める</div>
       </div>
 
@@ -919,13 +537,13 @@
         </table>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
         <p>チームの状態は固定的なものではありません。同じチームでも状況によって必要なファシリテーションのレベルは変化します。「このチームはいつも自己管理できているから、もうファシリテーションは不要」と決めつけないことが大切です。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
           <li><a href="https://www.scrum.org/resources/blog/how-facilitation-key-effective-scrum-events" target="_blank" rel="noopener">How Facilitation is Key to Effective Scrum Events</a></li>
@@ -933,8 +551,8 @@
       </div>
 
       <h3>ベストプラクティス</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>テクニックを「知っていること」自体が目的化しないようにする。アイスブレイクや凝った手法は、目的に沿って使われて初めて価値を持つ</li>
           <li>リモート・ハイブリッド環境が増えるほど、対話の意図と目的にフォーカスすることが一層重要になる</li>
@@ -945,13 +563,17 @@
 
     <!-- ===================== 7. Facilitating the Scrum Events ===================== -->
     <section id="facilitating-events">
-      <div class="section-eyebrow"><i class="ti ti-repeat"></i>SECTION 07</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:repeat" aria-hidden="true" />SECTION 07</div>
       <h2>スクラムイベントのファシリテーション</h2>
 
       <p>Scrumの5つのイベント(スプリント・デイリースクラム・スプリントプランニング・スプリントレビュー・スプリントレトロスペクティブ)には、それぞれ目的とタイムボックスがあらかじめ定義されています。良いファシリテーションが機能しないと、目的が果たされないまま時間だけが過ぎたり、一部の声だけが反映されたりする「非効果的な会議」に陥ってしまいます。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="sprintCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SPRINT_CYCLE" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">スプリントサイクルと各イベントのファシリテーション焦点</div>
       </div>
 
@@ -969,8 +591,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/facilitation-techniques-scrum-events" target="_blank" rel="noopener">Facilitation Techniques for Scrum Events(総合ページ)</a></li>
           <li><a href="https://www.scrum.org/resources/facilitation-techniques-daily-scrum" target="_blank" rel="noopener">Facilitation Techniques for the Daily Scrum</a></li>
@@ -989,16 +611,16 @@
         <li>協働し、望む成果に向けて前進する機会そのものを逃してしまう</li>
       </ul>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/facilitation-techniques-scrum-events" target="_blank" rel="noopener">Facilitation Techniques for Scrum Events(総合ページ)</a></li>
         </ul>
       </div>
 
       <h3>スプリントレビューを「デモ」にしないためのベストプラクティス</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>「デモ」「見せる場」という一方通行の場ではなく、学びと発見のための協働的な場として設計する</li>
           <li>ステークホルダーには事前にスプリントゴールを共有し、当日どのように貢献するかを考えてきてもらう</li>
@@ -1007,8 +629,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/facilitation-techniques-sprint-review" target="_blank" rel="noopener">Facilitation Techniques for the Sprint Review</a></li>
         </ul>
@@ -1017,14 +639,18 @@
 
     <!-- ===================== 8. Group Dynamics and Decision Making ===================== -->
     <section id="group-dynamics">
-      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 08</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 08</div>
       <h2>グループダイナミクスと意思決定</h2>
 
       <h3>Tuckmanのチーム発達モデル</h3>
       <p>チームが成果を出せるようになるまでには段階があります。ファシリテーターは、チームが今どの段階にいるかを理解した上で、適切な支援のレベルを調整する必要があります。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="tuckmanModel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TUCKMAN_MODEL" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">Tuckmanのチーム発達5段階モデル</div>
       </div>
 
@@ -1036,8 +662,8 @@
         <li>Adjourning(解散期): チームの役目が終わり解散する段階</li>
       </ul>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://en.wikipedia.org/wiki/Group_dynamics" target="_blank" rel="noopener">Group dynamics(Wikipedia) - Bruce Tuckmanの5段階モデルの一般的整理。当初は Forming / Storming / Norming / Performing の4段階として提唱され、Adjourning(解散期)は後年に追加された段階</a></li>
         </ul>
@@ -1047,7 +673,11 @@
       <p>複雑な問題についてグループで意思決定をする際、最初から一直線に結論に向かえることはほとんどありません。Sam Kaner氏は著書『Facilitator's Guide to Participatory Decision-Making』の中で、発散思考から収束思考に至る過程を「ダイヤモンド」の形で説明し、その中間に訪れる混乱の時期を「Groan Zone(うなり声ゾーン)」と名付けました。</p>
 
       <div class="diagram-card">
-        <div class="diagram-container" id="kanerDiamond"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_KANER_DIAMOND" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">Sam Kanerの参加型意思決定のダイヤモンドとGroan Zone</div>
       </div>
 
@@ -1065,8 +695,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/blog/rollercoaster-group-dynamics-decision-making" target="_blank" rel="noopener">The Rollercoaster of Group Dynamics in Decision Making</a></li>
         </ul>
@@ -1097,16 +727,16 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
         </ul>
       </div>
 
       <h3>沈黙・対立・集団思考への向き合い方</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li><strong>沈黙は問題ではない。</strong>沈黙は、声の大きい人に埋もれがちな意見を持つ人が考えをまとめるための貴重な時間になり得る。無理に沈黙を埋めようとせず、意図的に「間」をつくる</li>
           <li><strong>対立を抑え込まない。</strong>「和を乱さないため」に対立を封じ込めると、緊張は解消されずに後で再燃する。対立は多様なアイデアを発見するための仕組みでもある</li>
@@ -1115,8 +745,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
         </ul>
@@ -1125,7 +755,7 @@
 
     <!-- ===================== 9. Facilitation Technique Toolkit ===================== -->
     <section id="facilitation-toolkit">
-      <div class="section-eyebrow"><i class="ti ti-tools"></i>SECTION 09</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:tools" aria-hidden="true" />SECTION 09</div>
       <h2>ファシリテーション技法ツールキット</h2>
 
       <h3>発散のための技法</h3>
@@ -1157,8 +787,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/blog/five-ways-build-consensus" target="_blank" rel="noopener">Five Ways to Build Consensus</a></li>
           <li><a href="https://www.scrum.org/resources/blog/trumpeting-all-voices-be-heard-white-elephant-facilitating-participation" target="_blank" rel="noopener">Trumpeting for all Voices to be Heard with White Elephant</a></li>
@@ -1168,7 +798,11 @@
 
       <h3>意思決定技法の選び方(フロー)</h3>
       <div class="diagram-card">
-        <div class="diagram-container" id="decisionTechniqueSelector"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_DECISION_TECHNIQUE_SELECTOR" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">目的別に見る意思決定技法の選び方</div>
       </div>
 
@@ -1183,8 +817,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/facilitation-techniques-sprint-retrospective" target="_blank" rel="noopener">Facilitation Techniques for the Sprint Retrospective</a></li>
         </ul>
@@ -1193,8 +827,8 @@
       <h3>Liberating Structures について</h3>
       <p>Liberating Structures(リベレイティング・ストラクチャーズ)は、従来の「発表者中心の会議」やありがちな「フリーディスカッション」の限界を超え、あらゆる参加者の関与を引き出すために設計された、一連の軽量なファシリテーション構造の総称です。1-2-4-Allはその代表例の一つです。PSFSの出題範囲そのものに個々のLiberating Structuresの名称を暗記することは求められていませんが、Credlyのスキルタグにも挙げられている通り、PSFSが扱う「参加型ファシリテーション」という考え方の実践例として理解しておくとよいでしょう。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/blog/power-facilitation-liberating-structures-effective-collaboration" target="_blank" rel="noopener">The Power of Facilitation: Liberating Structures for Effective Collaboration</a></li>
           <li><a href="https://www.credly.com/org/scrum-org/badge/professional-scrum-facilitation-skills.1" target="_blank" rel="noopener">Credly バッジページ(Professional Scrum Facilitation Skills™)</a></li>
@@ -1204,13 +838,13 @@
 
     <!-- ===================== 10. Diverse Perspectives and Difficult Situations ===================== -->
     <section id="diverse-perspectives">
-      <div class="section-eyebrow"><i class="ti ti-messages"></i>SECTION 10</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:messages" aria-hidden="true" />SECTION 10</div>
       <h2>多様な視点と難しい状況への対応</h2>
 
       <h3>内向的なメンバーと外向的なメンバーのバランス</h3>
       <p>グループには自然と、積極的に発言する人と、静かに考えることを好む人がいます。これは補完し合う関係になり得ますが、放っておくと声の大きい人の意見に他のメンバーが流されてしまう「集団思考」につながりやすくなります。</p>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>「静かな人から先に発言してもらう」というやり方は、善意であっても不自然でぎこちなくなりがちで、逆効果になることがある</li>
           <li>代わりに、オープンな問いを投げかけた上で、全員に付箋へ個別に書き出してもらう時間を設けると、発言順に関係なく全員の考えを可視化できる</li>
@@ -1218,16 +852,16 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
         </ul>
       </div>
 
       <h3>対立が表面化したときの対応</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>緊張が高まっている場面で、対立を無視したり打ち切ったりするのは最悪の対応の一つ。適切に扱われれば、対立を乗り越えたチームはむしろ結束が強まる</li>
           <li>感情が高ぶっている場合は、一時的に休憩を挟み、場の温度を下げるという選択肢を持っておく</li>
@@ -1235,8 +869,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
         </ul>
@@ -1244,8 +878,8 @@
 
       <h3>タイムボックスとアジェンダの扱い方</h3>
       <p>タイムボックスを厳守することは重要ですが、それ自体を目的化してしまうと本末転倒です。時間切れを理由に必要な決定がなされないまま会議を終えてしまうと、そのイベントの目的そのものが果たされなかったことになります。</p>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>スクラムイベントのタイムボックスは「上限」であり、超過は選択肢にならない。アジェンダを柔軟に扱うのは、あくまでこの上限の範囲内での調整として行う</li>
           <li>時間配分を変える場合も「なんとなく続ける」のではなく、チームと合意の上で調整する</li>
@@ -1253,16 +887,16 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
         </ul>
       </div>
 
       <h3>リモート・ハイブリッド環境でのファシリテーション</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>対面よりもリモート・ハイブリッドの方が、意図と目的を明確にすることの重要性が増す</li>
           <li>デジタルの付箋やドット投票ツールを使うと、匿名性を保ちながら全員の意見を集めやすくなる</li>
@@ -1270,8 +904,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.infoq.com/articles/facilitation-skill-scrum" target="_blank" rel="noopener">When, Why and How Facilitation Skills Help Scrum Teams(InfoQ, Patricia Kong)</a></li>
         </ul>
@@ -1280,7 +914,7 @@
 
     <!-- ===================== 11. Exam Prep and Study Roadmap ===================== -->
     <section id="exam-prep-roadmap">
-      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 11</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 11</div>
       <h2>試験対策・学習ロードマップ</h2>
 
       <h3>出題カテゴリの再確認</h3>
@@ -1291,8 +925,8 @@
       </ul>
       <p>そしてこれらの問題は、スクラムの価値基準・スクラムチーム・イベント・作成物、そしてFacilitationのフォーカスエリアから導き出されます。「一般的なファシリテーション力を問う試験」ではなく「スクラムの文脈でのファシリテーション適用力を問う試験」であることを最後まで意識してください。</p>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills" target="_blank" rel="noopener">試験対策ガイダンス(Prove your knowledge of Facilitation Skills)</a></li>
         </ul>
@@ -1314,8 +948,8 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills" target="_blank" rel="noopener">試験対策ガイダンス(Prove your knowledge of Facilitation Skills)</a></li>
         </ul>
@@ -1323,13 +957,17 @@
 
       <h3>学習ロードマップ</h3>
       <div class="diagram-card">
-        <div class="diagram-container" id="examStudyRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EXAM_STUDY_ROADMAP" theme="base" />
+          </ClientOnly>
+        </div>
         <div class="diagram-caption">PSFS合格までの学習ロードマップ</div>
       </div>
 
       <h3>受験当日のベストプラクティス</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>制限時間は30分で20問。1問あたり平均1.5分というタイトな時間配分になるため、迷った問題は一旦フラグを立てて次に進む判断力が必要</li>
           <li>英語での出題だが、Google翻訳プラグインを使って母国語で読むことも可能。事前に翻訳表示に慣れておくとよい</li>
@@ -1338,8 +976,8 @@
         </ul>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">認定資格ページ</a></li>
           <li><a href="https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-facilitation-skills-psfs-assessment-from-scrum-org/" target="_blank" rel="noopener">How to Pass the PSFS Assessment(The Scrum Master)</a></li>
@@ -1349,70 +987,70 @@
 
     <!-- ===================== 12. Practice Questions ===================== -->
     <section id="practice-questions">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 12</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 12</div>
       <h2>練習問題(オリジナル10問)</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-testid="callout" data-variant="note">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
         <p>以下は本ガイドの内容の理解度を確認するための、著者オリジナルの練習問題です。Scrum.orgの本試験問題そのものではありません。</p>
       </div>
 
       <p><strong>Q1.</strong> ファシリテーションの5原則に含まれないものはどれか。</p>
-      <p>A. Participatory　B. Healthy　C. Adaptation　D. Transparency　E. Purposeful</p>
+      <p>A. Participatory  B. Healthy  C. Adaptation  D. Transparency  E. Purposeful</p>
       <details><summary>解答と解説</summary>
         <p>正解: C(Adaptationはスクラムの経験主義の柱の一つであり、ファシリテーションの5原則には含まれない。5原則はParticipatory / Healthy / Transparency / Process / Purposefulの5つ。)</p>
       </details>
 
       <p><strong>Q2.</strong> チームの効果性が高く、状況の複雑さも低い場面で、一般的に推奨されるファシリテーションのレベルはどれか。</p>
-      <p>A. 強いファシリテーション　B. ファシリテーションなし　C. 中程度のファシリテーション　D. 常に強いファシリテーションが必要</p>
+      <p>A. 強いファシリテーション  B. ファシリテーションなし  C. 中程度のファシリテーション  D. 常に強いファシリテーションが必要</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Team EffectivenessとContextual Complexityの2軸モデルにおいて、両方が低リスクな組み合わせでは、明示的なファシリテーションはほとんど不要になる。)</p>
       </details>
 
       <p><strong>Q3.</strong> Sam Kanerの「参加型意思決定のダイヤモンド」における中間の混乱・摩擦の時期を何と呼ぶか。</p>
-      <p>A. Storming Zone　B. Groan Zone　C. Norming Phase　D. Conflict Bridge</p>
+      <p>A. Storming Zone  B. Groan Zone  C. Norming Phase  D. Conflict Bridge</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Groan Zoneは、発散から収束に至る過程で自然に生じる混乱の時期を指す。避けるべきものではなく、乗り越えるべきものとして扱う。)</p>
       </details>
 
       <p><strong>Q4.</strong> White Elephant技法の主な目的として最も適切なものはどれか。</p>
-      <p>A. 新しいアイデアを大量に生み出すこと　B. 全員が平等に関与しながら既存の項目を順序づけること　C. プロダクトバックログから項目を削除すること　D. 単一の提案への賛否を問うこと</p>
+      <p>A. 新しいアイデアを大量に生み出すこと  B. 全員が平等に関与しながら既存の項目を順序づけること  C. プロダクトバックログから項目を削除すること  D. 単一の提案への賛否を問うこと</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(White Elephantはアイデア創出の技法ではなく、既にある項目を全員参加で並べ替えるための技法である。)</p>
       </details>
 
       <p><strong>Q5.</strong> デイリースクラムのファシリテーターの焦点として最も適切でないものはどれか。</p>
-      <p>A. スプリントゴールへの集中を保つ　B. 各メンバーの進捗をステータス報告として発表させる　C. 品質と確約に焦点を当てた雰囲気をつくる　D. 必要な時だけ観察し質問する</p>
+      <p>A. スプリントゴールへの集中を保つ  B. 各メンバーの進捗をステータス報告として発表させる  C. 品質と確約に焦点を当てた雰囲気をつくる  D. 必要な時だけ観察し質問する</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Scrum.orgの公式ガイダンスでは、デイリースクラムがステータス報告会になることを避けるべきだと明記されている。)</p>
       </details>
 
       <p><strong>Q6.</strong> 「決定に進むことに異議がない」状態で意思決定を行うルールを何と呼ぶか。</p>
-      <p>A. 全会一致　B. コンセント　C. 多数決　D. 委任</p>
+      <p>A. 全会一致  B. コンセント  C. 多数決  D. 委任</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(コンセントは全員の積極的な賛成までは求めないが、決定に対する重大な異議がないことを確認する意思決定ルールである。)</p>
       </details>
 
       <p><strong>Q7.</strong> ファシリテーターが「中立性」を保つとはどういうことか、最も適切な説明はどれか。</p>
-      <p>A. 議論の内容について一切発言しないこと　B. プロセスの舵取りに専念し、議論の内容そのものに肩入れしないこと　C. 常に多数派の意見を支持すること　D. チームに代わって最終決定を下すこと</p>
+      <p>A. 議論の内容について一切発言しないこと  B. プロセスの舵取りに専念し、議論の内容そのものに肩入れしないこと  C. 常に多数派の意見を支持すること  D. チームに代わって最終決定を下すこと</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(中立性とは、発言を完全に禁じることではなく、コンテンツではなくプロセスのオーナーであり続けることを意味する。内容に関与したい場合は役割の切り替えを明示すべきである。)</p>
       </details>
 
       <p><strong>Q8.</strong> 「弱いアウトカム」の特徴として最も適切なものはどれか。</p>
-      <p>A. 参加者の懸念が十分に表に出され、確約された結論　B. 曖昧なまま終わり、参加者が本当には納得していない結論　C. Fist of Fiveで満場一致となった結論　D. タイムボックスより早く終わった結論</p>
+      <p>A. 参加者の懸念が十分に表に出され、確約された結論  B. 曖昧なまま終わり、参加者が本当には納得していない結論  C. Fist of Fiveで満場一致となった結論  D. タイムボックスより早く終わった結論</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(弱いアウトカムとは、表面的には決定したように見えても実際には確約が伴っていない結論を指す。タイムボックス終了間際の「とりあえずの決定」は弱いアウトカムに陥りやすい典型例。)</p>
       </details>
 
       <p><strong>Q9.</strong> スプリントレビューにおけるファシリテーターの焦点として最も適切なものはどれか。</p>
-      <p>A. できるだけ多くの機能をデモすること　B. 参加型でエネルギッシュな環境をつくり、ステークホルダーとの共感とシナジーを築くこと　C. スケジュール通りに終わらせることだけに集中すること　D. 開発チーム内の対立を解消すること</p>
+      <p>A. できるだけ多くの機能をデモすること  B. 参加型でエネルギッシュな環境をつくり、ステークホルダーとの共感とシナジーを築くこと  C. スケジュール通りに終わらせることだけに集中すること  D. 開発チーム内の対立を解消すること</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Sprint Reviewは一方向のデモではなく、フィードバックを引き出す協働的な学びの場として設計されるべきである。)</p>
       </details>
 
       <p><strong>Q10.</strong> グループの中で声の大きい人に他のメンバーが同調してしまい、本音を言えなくなる現象を何と呼ぶか。</p>
-      <p>A. Groan Zone　B. Groupthink(集団思考)　C. Forming　D. Consent</p>
+      <p>A. Groan Zone  B. Groupthink(集団思考)  C. Forming  D. Consent</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Groupthinkは、和を乱さないために本心とは異なる同意をしてしまう状態を指す。ファシリテーターはこれを防ぐため、個別に意見を書き出す時間を設けるなどの工夫を行う。)</p>
       </details>
@@ -1420,7 +1058,7 @@
 
     <!-- ===================== 13. Best Practice Cheatsheet ===================== -->
     <section id="best-practice-cheatsheet">
-      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 13</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 13</div>
       <h2>ベストプラクティス チートシート</h2>
 
       <h3>イベント別チートシート</h3>
@@ -1437,8 +1075,8 @@
       </div>
 
       <h3>汎用ベストプラクティス</h3>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <ul>
           <li>ファシリテーションを始める前に、自分の役割(ファシリテーターか参加者か)を明言する</li>
           <li>テクニックはコレクションを増やすことが目的ではなく、原則(Participatory / Healthy / Transparency / Process / Purposeful)に立ち返って選ぶ</li>
@@ -1452,11 +1090,11 @@
 
     <!-- ===================== 14. References ===================== -->
     <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 14</div>
       <h2>参考文献・出典</h2>
 
       <div class="ref-group">
-        <h4>Scrum.org 公式リソース</h4>
+        <h3>Scrum.org 公式リソース</h3>
         <ul class="ref-list">
           <li><span class="ref-name">認定資格ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification</a></li>
           <li><span class="ref-name">試験対策ガイダンス(Prove your knowledge of Facilitation Skills)</span><a class="ref-url" href="https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills" target="_blank" rel="noopener">https://www.scrum.org/resources/prove-your-knowledge-facilitation-skills</a></li>
@@ -1487,7 +1125,7 @@
       </div>
 
       <div class="ref-group">
-        <h4>業界解説記事・書籍関連</h4>
+        <h3>業界解説記事・書籍関連</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Patricia Kong, "When, Why and How Facilitation Skills Help Scrum Teams" (InfoQ)</span><a class="ref-url" href="https://www.infoq.com/articles/facilitation-skill-scrum/" target="_blank" rel="noopener">https://www.infoq.com/articles/facilitation-skill-scrum/</a></li>
           <li><span class="ref-name">Patricia Kong, "Facilitating Professional Scrum Teams: Improve Team Alignment, Effectiveness and Outcomes"(書籍、O'Reilly掲載の抜粋)</span><a class="ref-url" href="https://www.oreilly.com/library/view/facilitating-professional-scrum/9780138196202/" target="_blank" rel="noopener">https://www.oreilly.com/library/view/facilitating-professional-scrum/9780138196202/</a></li>
@@ -1495,14 +1133,14 @@
       </div>
 
       <div class="ref-group">
-        <h4>認定情報</h4>
+        <h3>認定情報</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Credly バッジページ(Professional Scrum Facilitation Skills™)</span><a class="ref-url" href="https://www.credly.com/org/scrum-org/badge/professional-scrum-facilitation-skills.1" target="_blank" rel="noopener">https://www.credly.com/org/scrum-org/badge/professional-scrum-facilitation-skills.1</a></li>
         </ul>
       </div>
 
       <div class="ref-group">
-        <h4>一般的な理論的背景(補足)</h4>
+        <h3>一般的な理論的背景(補足)</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Group dynamics / Tuckman's stages(Wikipedia、Bruce Tuckmanの5段階モデルの一般的整理。当初は Forming / Storming / Norming / Performing の4段階として提唱され、Adjourning(解散期)は後年に追加された段階)</span><a class="ref-url" href="https://en.wikipedia.org/wiki/Group_dynamics" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Group_dynamics</a></li>
           <li><span class="ref-name">Sam Kaner, "Facilitator's Guide to Participatory Decision-Making"(Groan Zoneの提唱元となった書籍。Scrum.orgのブログ記事内でも参照されている)</span></li>
@@ -1516,280 +1154,565 @@
       Professional Scrum™、Professional Scrum Facilitation Skills™、PSFS™ は Scrum.org の商標です。本ガイドはScrum.orgとは独立した非公式の学習支援資料であり、学習目的で独自にまとめたものです。最新情報は<a href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">Scrum.org公式サイト</a>をご確認ください。
     </footer>
 
-  </main>
-</div>
+  
+      <footer>
+        Professional Scrum™、Professional Scrum Facilitation Skills™、PSFS™ は Scrum.org の商標です。本ガイドはScrum.orgとは独立した非公式の学習支援資料であり、学習目的で独自にまとめたものです。最新情報は<a href="https://www.scrum.org/assessments/professional-scrum-facilitation-skills-certification" target="_blank" rel="noopener">Scrum.org公式サイト</a>をご確認ください。
+      </footer>
+    </main>
+  </div>
+</template>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
-<script>
-(function () {
-  "use strict";
+<style scoped>
+/* ===================== Layout ===================== */
+.layout {
+  display: block;
+}
 
-  var DIAGRAMS = {
-certificationRoadmap: `flowchart TB
-A["Scrumの基礎を固める"] --> B["Professional Scrum Master I を取得する 推奨"]
-B --> C["Professional Scrum Facilitation Skills 研修を受講する 任意"]
-C --> D["公式のFacilitation関連記事を読み込む"]
-D --> E["Facilitation Skills Open 無料模擬試験 を受験する"]
-E --> F{"安定して高得点が取れているか"}
-F -->|"はい"| G["PSFS本試験を申し込み受験する"]
-F -->|"いいえ"| D
-G --> H["85%以上でPSFS認定を取得"]
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width, 288px);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D,E,F,G box;
-class H done;`,
-facilitatorStance: `flowchart TB
-A["セッションが進行中"] --> B{"自分は議論の内容に利害関係があるか"}
-B -->|"ない"| C["中立なファシリテーターとして進行を続ける"]
-B -->|"ある"| D["いったんファシリテーター役を離れることを宣言する"]
-D --> E["チームメンバーとして意見や提案を述べる"]
-E --> F["ファシリテーター役に戻ることを宣言する"]
-F --> C
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,D,E,F box;
-class C done;`,
-competencyTree: `flowchart TB
-A["Professional Scrum Competencies"] --> B["Developing People and Teams"]
-B --> C["Facilitation"]
-C --> D["Facilitation Principles and Values"]
-C --> E["Applying Facilitation Skills and Techniques"]
-D --> D1["ファシリテーション原則とその適用を理解する"]
-D --> D2["原則をスクラムイベント等の力学改善に活かす方法を理解する"]
-E --> E1["多様な視点とチームダイナミクスの活用方法を理解する"]
-E --> E2["チームの協働と参加型意思決定の改善方法を理解する"]
-E --> E3["アウトカムに向けて進捗を促す技法の活用方法を理解する"]
-E --> E4["弱いアウトカムと強いアウトカムの違いを理解する"]
-E --> E5["Groan Zoneを認識し乗り越える方法を理解する"]
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D,E,D1,D2,E1,E2,E3,E4,E5 box;`,
-facilitationLevelModel: `flowchart TB
-A["チームの状況を観察する"] --> B{"チームの効果性は高いか"}
-B -->|"高い"| C{"状況の複雑さは高いか"}
-B -->|"低い"| D{"状況の複雑さは高いか"}
-C -->|"低い"| E["ファシリテーションなし"]
-C -->|"高い"| F["軽いファシリテーション"]
-D -->|"低い"| G["中程度のファシリテーション"]
-D -->|"高い"| H["強いファシリテーション"]
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D box;
-class E,F,G,H done;`,
-sprintCycle: `flowchart LR
-A["Sprint Planning 協調的で透明性の高い環境"] --> B["Sprint Developersが計画を実行する"]
-B --> C["Daily Scrum スプリントゴールへの集中を保つ"]
-C --> B
-B --> D["Sprint Review 参加型で共感的な対話"]
-D --> E["Sprint Retrospective 安全な場と合意形成"]
-E --> A
+.brand-text .brand-subtitle {
+  font-size: 14px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D,E box;`,
-tuckmanModel: `flowchart LR
-A["Forming 形成期"] --> B["Storming 混乱期"]
-B --> C["Norming 統一期"]
-C --> D["Performing 機能期"]
-D --> E["Adjourning 解散期"]
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D box;
-class E done;`,
-kanerDiamond: `flowchart LR
-A["Divergent Zone 発散 多様な視点とアイデアの探索"] --> B["Groan Zone 混乱 摩擦 停滞感が生じる時期"]
-B --> C["Convergent Zone 収束 共通理解への統合"]
-C --> D["合意された決定"]
+.sidebar-nav li {
+  margin: 2px 0;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B box;
-class C,D done;`,
-decisionTechniqueSelector: `flowchart TB
-A["何を決めたいか"] --> B{"複数案から1つを選ぶ"}
-A --> C{"複数案の優先順位をつけたい"}
-A --> D{"賛成か反対かを問う"}
-B --> E["賛同の度合いも知りたい"]
-E --> F["Fist of Five を使う"]
-C --> G["全員に平等な発言権を持たせたい"]
-G --> H["Dot Voting または White Elephant を使う"]
-D --> I["素早く白黒つけたい"]
-I --> J["Roman Voting を使う"]
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 15px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D,E,G,I box;
-class F,H,J done;`,
-examStudyRoadmap: `flowchart TB
-A["Scrum Guideを読み込み Scrumイベントのアウトカムを再確認する"] --> B["Facilitation Learning Seriesの記事を一通り読む"]
-B --> C["5つの原則 9つのスキルと資質を自分の言葉で説明できるようにする"]
-C --> D["イベントごとのファシリテーション技法を整理する"]
-D --> E["Groan Zoneと弱い アウトカム 強い アウトカムの違いを理解する"]
-E --> F["Facilitation Skills Open を複数回受験する"]
-F --> G{"安定して高得点が取れるか"}
-G -->|"いいえ"| B
-G -->|"はい"| H["本試験 PSFS を申し込み受験する"]
+.sidebar-nav a :deep(.iconify),
+.sidebar-nav a :deep(svg) {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A hub;
-class B,C,D,E,F,G box;
-class H done;`
-  };
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
 
-  function extendViewBoxHeight(svgEl, extra) {
-    var vb = svgEl.getAttribute("viewBox");
-    if (!vb) return;
-    var parts = vb.split(/\s+/).map(Number);
-    if (parts.length !== 4) return;
-    svgEl.style.width = parts[2] + "px";
-    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active :deep(.iconify),
+.sidebar-nav a.active :deep(svg) {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width, 288px);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(.iconify),
+.hero-eyebrow :deep(svg) {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 15px;
+  margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.section-eyebrow :deep(.iconify),
+.section-eyebrow :deep(svg) {
+  font-size: 16px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul, ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 15px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong, th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout-title :deep(.iconify),
+.callout-title :deep(svg) {
+  font-size: 18px;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Details / Practice Quiz ===================== */
+details {
+  background: var(--color-paper-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0 24px;
+}
+
+details[open] {
+  background: var(--color-paper-raised);
+}
+
+summary {
+  font-weight: 600;
+  color: var(--color-indigo);
+  cursor: pointer;
+  outline: none;
+}
+
+details p {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Diagram containers ===================== */
+.diagram-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-card .diagram-caption {
+  font-size: 14px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.mermaid-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 15px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 14px;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
   }
 
-  async function renderAllDiagrams() {
-    if (typeof mermaid === "undefined") {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
-      });
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      try { await document.fonts.ready; } catch (e) { /* ignore */ }
-    }
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "strict",
-      theme: "base",
-      themeVariables: {
-        background: "transparent",
-        primaryColor: "#EEF1F8",
-        primaryBorderColor: "#2E3F72",
-        primaryTextColor: "#161B26",
-        lineColor: "#2E3F72",
-        secondaryColor: "#FAF1DF",
-        secondaryBorderColor: "#B8802A",
-        tertiaryColor: "#FFFFFF",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-        fontSize: "16px",
-        pie1: "#C7D1EA",
-        pie2: "#AEDBD6",
-        pie3: "#F0D9A6",
-        pie4: "#E7C0D0",
-        pieOpacity: "1",
-        pieStrokeColor: "#FFFFFF",
-        pieStrokeWidth: "2px",
-        pieOuterStrokeWidth: "1px",
-        pieOuterStrokeColor: "#DFE3EA",
-        pieSectionTextColor: "#161B26",
-        pieLegendTextColor: "#161B26",
-        pieTitleTextColor: "#161B26"
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        nodeSpacing: 45,
-        rankSpacing: 48,
-        curve: "basis"
-      },
-      pie: {
-        useMaxWidth: false
-      }
-    });
-
-    var entries = Object.keys(DIAGRAMS);
-    for (var i = 0; i < entries.length; i++) {
-      var id = entries[i];
-      var container = document.getElementById(id);
-      if (!container) continue;
-      try {
-        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
-        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
-        container.innerHTML = typeof result === "string" ? result : result.svg;
-        var svgEl = container.querySelector("svg");
-        if (svgEl) {
-          svgEl.removeAttribute("width");
-          svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.overflow = "visible";
-          extendViewBoxHeight(svgEl, 15);
-        }
-      } catch (err) {
-        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
-      }
-    }
+  .sidebar {
+    position: fixed;
+    top: var(--global-nav-height);
+    left: 0;
+    bottom: 0;
+    height: calc(100vh - var(--global-nav-height));
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
   }
 
-  function setupSidebarHighlight() {
-    var sections = document.querySelectorAll("main section[id]");
-    var navLinks = document.querySelectorAll(".sidebar-nav a");
-    var linkMap = {};
-    navLinks.forEach(function (link) {
-      var href = link.getAttribute("href").replace("#", "");
-      linkMap[href] = link;
-    });
-    if (!("IntersectionObserver" in window)) return;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var link = linkMap[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
-          link.classList.add("active");
-        }
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    sections.forEach(function (section) { observer.observe(section); });
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.25s ease, visibility 0s;
   }
 
-  function setupMobileToggle() {
-    var toggle = document.getElementById("sidebarToggle");
-    var sidebar = document.getElementById("sidebar");
-    if (!toggle || !sidebar) return;
-    toggle.addEventListener("click", function () {
-      var isOpen = sidebar.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        var wasOpen = sidebar.classList.contains("open");
-        sidebar.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
-      });
-    });
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: var(--global-nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 15;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
-    setupSidebarHighlight();
-    setupMobileToggle();
-  });
-})();
-</script>
-</body>
-</html>
+  .main-content {
+    margin-left: 0;
+    padding: 32px 24px 80px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}
+</style>

@@ -253,9 +253,45 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-product-owner",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Professional Scrum Developer(PSD I)認定資格 学習ガイド",
         category: "SCRUM.ORG",
         href: "/professional-scrum-developer",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "PAL I(Professional Agile Leadership I)認定試験 学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/pal-i-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-facilitation-skills",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Professional Scrum with Kanban(PSK I)認定資格 完全ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-with-kanban",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Scaled Professional Scrum(SPS)認定 完全学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/scaled-professional-scrum-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Professional Scrum™ with User Experience(PSU I) 完全ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-with-user-experience",
         accentClass: "guide-card-indigo",
       },
       {
@@ -422,7 +458,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "35 ガイド", hub: "/certifications", cards: 35 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "41 ガイド", hub: "/certifications", cards: 41 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "18 ガイド", hub: "/books", cards: 18 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);

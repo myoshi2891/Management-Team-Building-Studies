@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-09-10)
+(最終更新日: 2026-09-11)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `32d5ead` — test(nav): 現在地表示の期待値をハブ方式へ追随させる（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `29866a6` — chore(archive): move PSU html and md sources to archive（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（横スクロール禁止は e2e で全幅域を固定済み。§50 参照。登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクション・グローバルナビ・種別ハブ・プログラムハブ・サイト内検索がすべて自動で追随する。**`programId` / `seriesId` はいずれも省略不可**。§63 参照） |
-| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:em-career` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2-p2` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run audit:an-elegant-puzzle` ✔ / `npm run audit:caf` ✔ / `npm run audit:csd` ✔ / `npm run audit:a-csd` ✔ / `npm run audit:csp-d` ✔ / `npm run audit:cspo` ✔ / `npm run audit:a-cspo` ✔ / `npm run audit:csp-po` ✔ / `npm run audit:casp` ✔ / `npm run audit:psm-ai` ✔ / `npm run audit:csp-sm` ✔ / `npm run audit:a-csm` ✔ / `npm run audit:psd` ✔ / `npm run build` ✔ **ただし `NUXT_SITE_URL` の指定が必要**（未指定だと `@nuxt/sitemap` が `/sitemap.xml` の prerender に失敗して exit 1。`NUXT_SITE_URL=https://example.com npm run build` は exit 0）/ `npm run test:e2e` ✔（2026-09-10 実測・29 件） |
-| テスト数 | **1566** ユニット（MermaidDiagram 11 + SiteHeader 24 + SiteSearch 11 + GuideCard 3 + GuideKindHub 4 + GuideProgramHub 8 + SiteDisclaimer 16 + useActiveHeading 9 + guide-catalog 24 + guide-search 10 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 10 + professional-scrum-developer page 25 + a-csm-advanced-certified-scrummaster-study-guide page 25 + csp-sm-certified-scrum-professional-scrummaster-study-guide page 24 + psm-ai-essentials-guide page 24 + a-cspo-advanced-certified-scrum-product-owner-study-guide page 25 + cspo-certified-scrum-product-owner-study-guide page 25 + csp-po-certified-scrum-professional-product-owner-study-guide page 25 + csp-d-certified-scrum-professional-developer-study-guide page 25 + csd-certified-scrum-developer-study-guide page 25 + casp-certified-agile-scaling-practitioner-study-guide page 25 + a-csd-advanced-certified-scrum-developer-study-guide page 25 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 Part 2 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25 + an-elegant-puzzle-guide page 25 + caf-certified-agile-facilitator-study-guide page 24）+ **29** E2E（capm 4 + site-header 15 + no-horizontal-scroll 3 + site-disclaimer 4 + favicon 3）— これがベースライン |
-| 原本照合監査 | ✔ **全 59 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:em-career` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2-p2` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run audit:an-elegant-puzzle` ✔ / `npm run audit:caf` ✔ / `npm run audit:csd` ✔ / `npm run audit:a-csd` ✔ / `npm run audit:csp-d` ✔ / `npm run audit:cspo` ✔ / `npm run audit:a-cspo` ✔ / `npm run audit:csp-po` ✔ / `npm run audit:casp` ✔ / `npm run audit:psm-ai` ✔ / `npm run audit:csp-sm` ✔ / `npm run audit:a-csm` ✔ / `npm run audit:psd` ✔ / `npm run audit:pal-i` ✔ / `npm run audit:psfs` ✔ / `npm run audit:pspo` ✔ / `npm run audit:psk` ✔ / `npm run audit:sps` ✔ / `npm run audit:psu` ✔ / `npm run build` ✔ **ただし `NUXT_SITE_URL` の指定が必要**（未指定だと `@nuxt/sitemap` が `/sitemap.xml` の prerender に失敗して exit 1。`NUXT_SITE_URL=https://example.com npm run build` は exit 0）/ `npm run test:e2e` ✔（2026-09-10 実測・29 件） |
+| テスト数 | **1737** ユニット（MermaidDiagram 11 + SiteHeader 24 + SiteSearch 11 + GuideCard 3 + GuideKindHub 4 + GuideProgramHub 8 + SiteDisclaimer 16 + useActiveHeading 9 + guide-catalog 24 + guide-search 10 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 10 + professional-scrum-with-user-experience page 31 + scaled-professional-scrum-guide page 29 + professional-scrum-with-kanban page 28 + professional-scrum-product-owner page 27 + pal-i-study-guide page 25 + professional-scrum-facilitation-skills page 28 + professional-scrum-developer page 25 + a-csm-advanced-certified-scrummaster-study-guide page 25 + csp-sm-certified-scrum-professional-scrummaster-study-guide page 24 + psm-ai-essentials-guide page 24 + a-cspo-advanced-certified-scrum-product-owner-study-guide page 25 + cspo-certified-scrum-product-owner-study-guide page 25 + csp-po-certified-scrum-professional-product-owner-study-guide page 25 + csp-d-certified-scrum-professional-developer-study-guide page 25 + csd-certified-scrum-developer-study-guide page 25 + casp-certified-agile-scaling-practitioner-study-guide page 25 + a-csd-advanced-certified-scrum-developer-study-guide page 25 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 Part 2 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25 + an-elegant-puzzle-guide page 25 + caf-certified-agile-facilitator-study-guide page 24）+ **29** E2E（capm 4 + site-header 15 + no-horizontal-scroll 3 + site-disclaimer 4 + favicon 3）— これがベースライン |
+| 原本照合監査 | ✔ **全 65 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -78,6 +78,12 @@
 | `archive/An-elegant-puzzle-guide/An-elegant-puzzle-guide.html` | `app/pages/an-elegant-puzzle-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Psm-ai-essentials-guide/Psm-ai-essentials-guide.html` | `app/pages/psm-ai-essentials-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Developer/Professional-Scrum-Developer.html` | `app/pages/professional-scrum-developer.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Pal-i-study-guide/Pal-i-study-guide.html` | `app/pages/pal-i-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Professional-Scrum-Facilitation-Skills/Professional-Scrum-Facilitation-Skills.html` | `app/pages/professional-scrum-facilitation-skills.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Professional-Scrum-Product-Owner/Professional-Scrum-Product-Owner.html` | `app/pages/professional-scrum-product-owner.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Professional-Scrum-with-Kanban/Professional-Scrum-with-Kanban.html` | `app/pages/professional-scrum-with-kanban.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Scaled-professional-scrum-guide/Scaled-professional-scrum-guide.html` | `app/pages/scaled-professional-scrum-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Professional-Scrum-with-User-Experience/Professional-Scrum-with-User-Experience.html` | `app/pages/professional-scrum-with-user-experience.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -1035,12 +1041,86 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
   5. `refactor(home)`: ホームを種別セクション構成へ
   6. `test(nav)`: e2e の旧 ID 修正と検索スモーク追加 (`c451320`, `32d5ead`) → 本ファイルの `docs(...)`
 
+### §64. Professional Agile Leadership - Evidence-Based Management / PAL-I 認定資格 学習ガイド（pal-i-study-guide.vue）の Nuxt 移行（2026-09-11）
+
+- **移行元原本**: `archive/Pal-i-study-guide/Pal-i-study-guide.html`（HTML・MD 共にアーカイブへ移動）
+- **移行先ページ**: `app/pages/pal-i-study-guide.vue`
+- **原本照合監査**: `npm run audit:pal-i` にて **exit 0** を確認（listItems: 52, tableRows: 29, paragraphs: 30, headings: 23, externalLinks: 5, mermaidSources: 2, svgElements: 1, calloutElements: 6 すべて原本と完全一致）。
+- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDE_SERIES` に `so-agile-leader`（Scrum.org アジャイルリーダー）を追加、`GUIDES` に `programId: "scrum-org"`, `seriesId: "so-agile-leader"` として登録。これにより全体ガイド数は 59 → 60 本、資格ガイド数は 35 → 36 本へ増加。
+- **契約テスト**: `tests/pages/pal-i-study-guide.test.ts`（25 件全通過）。関連する `index.test.ts`、`GuideProgramHub.test.ts`、`GuideKindHub.test.ts`、`guide-catalog.test.ts` の期待値もすべて追随更新。
+- **TDD Mandatory サイクル**:
+  1. `test(pal-i)`: コントラクトテスト作成・Red 確認 (`3f61304`)
+  2. `feat(pal-i)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`363365a`)
+  3. `refactor(pal-i)`: `package.json` に `audit:pal-i` 追加・型検査 & lint パス確認 (`52d490a`)
+  4. `chore(archive)`: 原本 HTML / MD を `archive/Pal-i-study-guide/` へ移動・audit スクリプト参照パス更新 (`3c26c1a`)
+  5. `test(catalog)`: `GuideKindHub` の資格件数期待値を 36 ガイドへ追随更新 (`44f8567`)
+  6. `chore(docs)`: `docs/PROGRESS.md` 更新
+
+### §65. Professional Scrum Facilitation Skills™ (PSFS) 認定資格 完全対策ガイド（professional-scrum-facilitation-skills.vue）の Nuxt 移行（2026-09-11）
+
+- **移行元原本**: `archive/Professional-Scrum-Facilitation-Skills/Professional-Scrum-Facilitation-Skills.html`（HTML・MD 共にアーカイブへ移動）
+- **移行先ページ**: `app/pages/professional-scrum-facilitation-skills.vue`
+- **原本照合監査**: `npm run audit:psfs` にて **exit 0** を確認（listItems: 140, tableRows: 89, paragraphs: 63, headings: 54, externalLinks: 32, mermaidSources: 9, svgElements: 1, calloutElements: 41 すべて原本と完全一致）。
+- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDE_SERIES` に `so-facilitation`（Scrum.org ファシリテーション）を追加、`GUIDES` に `programId: "scrum-org"`, `seriesId: "so-facilitation"` として登録。これにより全体ガイド数は 60 → 61 本、資格ガイド数は 36 → 37 本へ増加。
+- **契約テスト**: `tests/pages/professional-scrum-facilitation-skills.test.ts`（28 件全通過）。関連する `index.test.ts`、`GuideProgramHub.test.ts`、`GuideKindHub.test.ts`、`guide-catalog.test.ts` の期待値もすべて追随更新。
+- **見出し昇格対応**: 原本 SECTION 14（参考文献）の `h2 -> h4` スキップ（4件）を契約 Q-3 に従い `h3` へ昇格。原本照合監査 exit 0 を維持。
+- **TDD Mandatory サイクル**:
+  1. `test(psfs)`: コントラクトテスト作成・Red 確認 (`b4c1664`)
+  2. `feat(psfs)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`02f20cf`)
+  3. `refactor(psfs)`: `package.json` に `audit:psfs` 追加・型検査 & lint パス確認 (`a818e17`)
+  4. `chore(archive)`: 原本 HTML / MD を `archive/Professional-Scrum-Facilitation-Skills/` へ移動・audit スクリプト参照パス更新 (`66e536d`)
+  5. `chore(docs)`: `docs/PROGRESS.md` 更新
+
+### §66. Professional Scrum Product Owner™ (PSPO I / PSPO II) 学習ガイド（professional-scrum-product-owner.vue）の Nuxt 移行（2026-09-11）
+
+- **移行元原本**: `archive/Professional-Scrum-Product-Owner/Professional-Scrum-Product-Owner.html`（HTML・MD 共にアーカイブへ移動）
+- **移行先ページ**: `app/pages/professional-scrum-product-owner.vue`
+- **原本照合監査**: `npm run audit:pspo` にて **exit 0** を確認（listItems: 68, tableRows: 49, paragraphs: 47, headings: 32, externalLinks: 5, mermaidSources: 3, svgElements: 1, calloutElements: 9 すべて原本と完全一致）。
+- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDE_SERIES` に `so-product-owner`（Scrum.org プロダクトオーナー）を追加、`GUIDES` に `programId: "scrum-org"`, `seriesId: "so-product-owner"` として登録。これにより全体ガイド数は 61 → 62 本、資格ガイド数は 37 → 38 本へ増加。
+- **契約テスト**: `tests/pages/professional-scrum-product-owner.test.ts`（27 件全通過）。関連する `index.test.ts`、`GuideProgramHub.test.ts`、`GuideKindHub.test.ts`、`guide-catalog.test.ts` の期待値もすべて追随更新。
+- **TDD Mandatory サイクル**:
+  1. `test(pspo)`: コントラクトテスト作成・Red 確認 (`8a60377`)
+  2. `feat(pspo)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`0cdd5b9`)
+  3. `refactor(pspo)`: `package.json` に `audit:pspo` 追加・型検査 & lint パス確認 (`ed9a5a0`)
+  4. `chore(archive)`: 原本 HTML / MD を `archive/Professional-Scrum-Product-Owner/` へ移動・audit スクリプト参照パス更新 (`7f4cb8a`)
+  5. `chore(docs)`: `docs/PROGRESS.md` 更新
+
+### §67. Professional Scrum with Kanban™ (PSK I) 完全ガイド（professional-scrum-with-kanban.vue）の Nuxt 移行（2026-09-11）
+
+- **移行元原本**: `archive/Professional-Scrum-with-Kanban/Professional-Scrum-with-Kanban.html`（HTML・MD 共にアーカイブへ移動）
+- **移行先ページ**: `app/pages/professional-scrum-with-kanban.vue`
+- **原本照合監査**: `npm run audit:psk` にて **exit 0** を確認（listItems: 78, tableRows: 27, paragraphs: 31, headings: 33, externalLinks: 5, mermaidSources: 5, svgElements: 1, calloutElements: 11 すべて原本と完全一致）。
+- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDE_SERIES` に `so-kanban`（Scrum.org カンバン）を追加、`GUIDES` に `programId: "scrum-org"`, `seriesId: "so-kanban"` として登録。これにより全体ガイド数は 62 → 63 本、資格ガイド数は 38 → 39 本へ増加。
+- **契約テスト**: `tests/pages/professional-scrum-with-kanban.test.ts`（28 件全通過）。関連する `index.test.ts`、`GuideProgramHub.test.ts`、`GuideKindHub.test.ts`、`guide-catalog.test.ts` の期待値もすべて追随更新。
+- **見出し昇格対応**: 原本 SECTION 07（参考リソース）の `h2 -> h4` スキップ（1件: Scrum.org 公式リソース）をアクセシビリティ階層スキップ是正のため `h3` へ昇格。原本照合監査 exit 0 を維持。
+- **TDD Mandatory サイクル**:
+  1. `test(psk)`: コントラクトテスト作成・Red 確認 (`556be19`)
+  2. `feat(psk)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`a820af4`)
+  3. `refactor(psk)`: `package.json` に `audit:psk` 追加・型検査 & lint パス確認 (`6e8de39`)
+  4. `chore(archive)`: 原本 HTML / MD を `archive/Professional-Scrum-with-Kanban/` へ移動・audit スクリプト参照パス更新 (`81c4904`)
+  5. `chore(docs)`: `docs/PROGRESS.md` 更新
+
+### §68. Scaled Professional Scrum™ (SPS) 完全ガイド（scaled-professional-scrum-guide.vue）の Nuxt 移行（2026-09-11）
+
+- **移行元原本**: `archive/Scaled-professional-scrum-guide/Scaled-professional-scrum-guide.html`（HTML・MD 共にアーカイブへ移動）
+- **移行先ページ**: `app/pages/scaled-professional-scrum-guide.vue`
+- **原本照合監査**: `npm run audit:sps` にて **exit 0** を確認（listItems: 102, tableRows: 52, paragraphs: 65, headings: 46, externalLinks: 27, mermaidSources: 9, svgElements: 1, calloutElements: 29 すべて原本と完全一致）。
+- **カタログ登録**: `app/utils/guide-catalog.ts` の `GUIDE_SERIES` に `so-scaling`（Scrum.org スケーリング）を追加、`GUIDES` に `programId: "scrum-org"`, `seriesId: "so-scaling"` として登録。これにより全体ガイド数は 63 → 64 本、資格ガイド数は 39 → 40 本へ増加。
+- **契約テスト**: `tests/pages/scaled-professional-scrum-guide.test.ts`（29 件全通過）。関連する `index.test.ts`、`GuideProgramHub.test.ts`、`GuideKindHub.test.ts`、`guide-catalog.test.ts` の期待値もすべて追随更新。
+- **見出し昇格対応**: 原本 SECTION 12（参考文献・ソース一覧）の `h2 -> h4` スキップ（2件: 一次情報源(Scrum.org 公式), 二次情報源(コミュニティ・実務解説)）をアクセシビリティ階層スキップ是正のため `h3` へ昇格。原本照合監査 exit 0 を維持。
+- **TDD Mandatory サイクル**:
+  1. `test(sps)`: コントラクトテスト作成・Red 確認 (`942c323`)
+  2. `feat(sps)`: ページ実装・カタログ登録・原本照合 exit 0・Green 確認 (`0269531`)
+  3. `refactor(sps)`: `package.json` に `audit:sps` 追加・型検査 & lint パス確認 (`137240e`)
+  4. `chore(archive)`: 原本 HTML / MD を `archive/Scaled-professional-scrum-guide/` へ移動・audit スクリプト参照パス更新 (`f53596f`)
+  5. `chore(docs)`: `docs/PROGRESS.md` 更新
+
 ## 次回セッションでの再開プロンプト
 
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 32d5ead
+コードコミット HEAD: 9405a69
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
@@ -1096,6 +1176,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/csp-sm-certified-scrum-professional-scrummaster-study-guide.vue（CSP-SM 完全ガイド）
   - app/pages/a-csm-advanced-certified-scrummaster-study-guide.vue（A-CSM 完全ガイド）
   - app/pages/professional-scrum-developer.vue（Professional Scrum Developer (PSD I) 完全ガイド）
+  - app/pages/professional-scrum-facilitation-skills.vue（Professional Scrum Facilitation Skills™ 完全ガイド）
   - app/pages/leadership-challenge-workbook-guide.vue（The Leadership Challenge Workbook 完全ガイド）
   - app/pages/lean-ux-beginner-guide.vue（Lean UX 実践ガイド）
   - app/pages/your-first-60-days-as-a-leader.vue（リーダーとしての最初の60日間 完全ガイド）
@@ -1118,16 +1199,28 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - app/pages/ai-driven-project-management-guide.vue（AI駆動プロジェクトマネジメント実践ガイド）
   - app/pages/psm-ai-essentials-guide.vue（Professional Scrum Master™ - AI Essentials 完全ガイド）
   - app/pages/an-elegant-puzzle-guide.vue（An Elegant Puzzle 徹底解説ガイド）
+  - app/pages/pal-i-study-guide.vue（Professional Agile Leadership I (PAL-I) 完全学習ガイド）
+  - app/pages/professional-scrum-product-owner.vue（Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド）
+  - app/pages/professional-scrum-with-kanban.vue（Professional Scrum with Kanban(PSK I)認定資格 完全ガイド）
+  - app/pages/scaled-professional-scrum-guide.vue（Scaled Professional Scrum(SPS)認定 完全学習ガイド）
+  - app/pages/professional-scrum-with-user-experience.vue（Professional Scrum™ with User Experience(PSU I) 完全ガイド）
   - app/pages/index.vue（学習ライブラリ型ホーム）
   - app/utils/guide-catalog.ts（ガイド定義の SSoT）
   - SiteHeader.vue（全ページ共通グローバルナビ。種別ごとのパネルはハブページへのリンクのみを列挙し、モバイルはアコーディオン）
   - SiteSearch.vue（ヘッダー内のサイト内検索。/ と Cmd/Ctrl+K で開く）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1569 件 / E2E 29 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
+  - ユニットテスト 1737 件 / E2E 29 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - SiteDisclaimer.vue（全ページ共通の免責事項。app.vue に 1 行。固定サイドバーへは実測退避）
-  - test / typecheck / lint はいずれも 2026-09-07 時点で ✔（実測）
+  - test / typecheck / lint はいずれも 2026-09-11 時点で ✔（実測）
   - build は NUXT_SITE_URL の指定が必要（未指定だと sitemap の prerender で失敗）。test:e2e は ✔
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 59 本 exit 0 パス
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 65 本 exit 0 パス
 
-ベースラインテスト数: ユニット 1569 + E2E 29
+ベースラインテスト数: ユニット 1737 + E2E 29
 ```
+
+### §65. PSU（Professional Scrum with User Experience 完全ガイド）原本照合監査 exit 0 と見出し階層是正
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`Professional-Scrum-with-User-Experience.html`）と移行先 Vue SFC（`app/pages/professional-scrum-with-user-experience.vue`）を機械照合し、全要素（リスト 129, 表行 99, 段落 50, 見出し 38, 外部リンク 22, Mermaid 10, Callout 33, SVG 1）が 100% 一致して **exit 0** を達成。
+- **参考文献セクションの見出し階層是正（Q-3適合）**: 原本 HTML では `<h2>参考文献・情報源一覧</h2>` の直下に `<h4>`（「Scrum.org 公式」「Scrum Guide」等6件）が置かれており、`h2 -> h4` の見出し階層スキップが存在していた。アクセシビリティ標準（WCAG）および品質契約 Q-3 を満たすため、`audit_source_parity.mjs` の h4→h3 昇格許可機能（アクセシビリティ階層スキップ是正）に基づき、該当の 6 件を `<h3>` に昇格させた。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` に新シリーズ `so-user-experience`（「ユーザーエクスペリエンス」/ "USER EXPERIENCE"）を追加。Scrum.org 認定プログラム内の 8 番目のガイドとして登録した。これにより公開中ガイド総数は 64 → 65 件、資格ガイド総数は 40 → 41 件となった。
+- **原本アーカイブ**: `Professional-Scrum-with-User-Experience.html` および `Professional-Scrum-with-User-Experience.md` を `archive/Professional-Scrum-with-User-Experience/` へ移動し、`package.json` の `audit:psu` スクリプトをアーカイブ先パスに設定。
