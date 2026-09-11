@@ -66,15 +66,14 @@ const EXPECTED_H3 = [
   "学習ロードマップ",
   "受験当日のベストプラクティス",
   "イベント別チートシート",
-  "汎用ベストプラクティス"
-] as const;
-
-const EXPECTED_H4 = [
+  "汎用ベストプラクティス",
   "Scrum.org 公式リソース",
   "業界解説記事・書籍関連",
   "認定情報",
   "一般的な理論的背景(補足)"
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
 
@@ -234,7 +233,7 @@ defineSourceParityContract({
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
-  seoTitleFragments: ["Professional Scrum Facilitation Skills", "PSFS", "完全ガイド"],
+  seoTitleFragments: ["Professional Scrum Facilitation Skills", "完全ガイド", "出題範囲"],
   seoTitle: "Professional Scrum Facilitation Skills™ 認定資格 完全ガイド | 出題範囲とベストプラクティス",
   seoDescription:
     "Scrum.org公式のProfessional Scrum Facilitation Skills(PSFS)認定資格について、出題範囲・ファシリテーション原則・スキルと資質・イベント別技法・練習問題までを初学者向けに解説するガイドです。",

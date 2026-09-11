@@ -224,7 +224,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       ...GUIDE_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 60);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 61);
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -233,7 +233,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 36, programs: ["pmi", "scrum-alliance", "scrum-org"] },
+      { id: "certifications", count: 37, programs: ["pmi", "scrum-alliance", "scrum-org"] },
       { id: "books", count: 18, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
