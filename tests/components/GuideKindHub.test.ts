@@ -20,7 +20,7 @@ describe("GuideKindHub — 種別インデックス", () => {
 
     expect(wrapper.get("h1").text()).toBe("資格で学ぶ");
     expect(wrapper.get("[data-testid='hub-summary']").text()).toBe("公式の試験要項に基づく、認定資格の学習ガイド。");
-    expect(wrapper.get("[data-testid='hub-count']").text()).toBe("39 ガイド");
+    expect(wrapper.get("[data-testid='hub-count']").text()).toBe("40 ガイド");
   });
 
   it("所属プログラムをカードとして順序・遷移先・件数まで固定する", () => {

@@ -64,6 +64,10 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
         heading: "カンバン",
         guides: ["Professional Scrum with Kanban(PSK I)認定資格 完全ガイド"],
       },
+      {
+        heading: "スケーリング",
+        guides: ["Scaled Professional Scrum(SPS)認定 完全学習ガイド"],
+      },
     ]);
   });
 
