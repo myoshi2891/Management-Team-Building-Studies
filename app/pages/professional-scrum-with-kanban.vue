@@ -1052,7 +1052,9 @@ const DIAGRAM_EXPEDITE_LANE = `flowchart LR
     z-index: 20;
   }
 
-  :is(h2, h3, h4) {
+  /* サイドバーのハッシュリンクは <section id> を指すため、見出しと同じ退避量を
+     セクションにも与える（固定ヘッダーの下に潜り込ませない）。 */
+  :is(section, h2, h3, h4) {
     scroll-margin-top: calc(var(--global-nav-height) + 32px);
   }
 
