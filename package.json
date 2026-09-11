@@ -76,7 +76,8 @@
     "audit:psfs": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Professional-Scrum-Facilitation-Skills/Professional-Scrum-Facilitation-Skills.html app/pages/professional-scrum-facilitation-skills.vue",
     "audit:pspo": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Professional-Scrum-Product-Owner/Professional-Scrum-Product-Owner.html app/pages/professional-scrum-product-owner.vue",
     "audit:psk": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Professional-Scrum-with-Kanban/Professional-Scrum-with-Kanban.html app/pages/professional-scrum-with-kanban.vue",
-    "audit:sps": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scaled-professional-scrum-guide/Scaled-professional-scrum-guide.html app/pages/scaled-professional-scrum-guide.vue"
+    "audit:sps": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Scaled-professional-scrum-guide/Scaled-professional-scrum-guide.html app/pages/scaled-professional-scrum-guide.vue",
+    "audit:psu": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs Professional-Scrum-with-User-Experience.html app/pages/professional-scrum-with-user-experience.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
