@@ -36,7 +36,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
   });
 
   it("公開中ガイドを内容・順序・遷移先まで固定する", () => {
-    // category はカテゴリー表記ではなくシリーズ表記（セクション見出しとの重複を避ける）。
+    // category はカードのラベル。ホームのセクション見出しが種別なので、より細かいプログラム表記を出す。
     const wrapper = mountPage();
     const cards = wrapper.findAll("[data-testid='guide-card']");
 
@@ -50,279 +50,267 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     }))).toEqual([
       {
         title: "CAPM® 認定資格 完全ガイド",
-        category: "CAPM",
+        category: "PMI",
         href: "/capm",
         accentClass: "guide-card-indigo",
       },
       {
         title: "CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念",
-        category: "CAPM",
+        category: "PMI",
         href: "/certified-associate-in-project-management-domain1",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAPM® ドメイン2: 予測型・計画重視の手法",
-        category: "CAPM",
+        category: "PMI",
         href: "/certified-associate-in-project-management-domain2",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAPM® ドメイン3: アジャイルフレームワーク/方法論",
-        category: "CAPM",
+        category: "PMI",
         href: "/capm-domain3-agile-frameworks-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAPM® ドメイン4: ビジネス分析フレームワーク",
-        category: "CAPM",
+        category: "PMI",
         href: "/capm-domain4-business-analysis-frameworks",
         accentClass: "guide-card-gold",
       },
       {
         title: "PMP® 認定試験 完全攻略ガイド",
-        category: "PMP",
+        category: "PMI",
         href: "/pmp-certification-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "PMP® Domain I: People 完全攻略ガイド",
-        category: "PMP",
+        category: "PMI",
         href: "/pmp-domain1-people-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "PMP® Domain II: Process 完全解説ガイド",
-        category: "PMP",
+        category: "PMI",
         href: "/pmp-domain2-process-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "PMP® Domain III: Business Environment 徹底解説ガイド",
-        category: "PMP",
+        category: "PMI",
         href: "/pmp-domain3-business-environment-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "Certified ScrumMaster®(CSM®)完全ガイド",
-        category: "CSM / SCRUM",
+        category: "SCRUM ALLIANCE",
         href: "/csm-certified-scrummaster-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "Scrum Team とは何か ― 3つのアカウンタビリティ徹底解説",
-        category: "CSM / SCRUM",
+        category: "SCRUM ALLIANCE",
         href: "/csm-scrum-team-3-accountabilities",
         accentClass: "guide-card-gold",
       },
       {
         title: "Scrum理論の基礎(Scrum Theory) ― CSM®試験対応 初学者向け完全ガイド",
-        category: "CSM / SCRUM",
+        category: "SCRUM ALLIANCE",
         href: "/csm-scrum-theory-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "Scrum Artifacts と Commitments 完全ガイド",
-        category: "CSM / SCRUM",
+        category: "SCRUM ALLIANCE",
         href: "/csm-scrum-artifacts-and-commitments",
         accentClass: "guide-card-gold",
       },
       {
         title: "Scrum Events 完全ガイド",
-        category: "CSM / SCRUM",
+        category: "SCRUM ALLIANCE",
         href: "/scrum-events-csm-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "Scrum Master Core Competencies 完全解説ガイド",
-        category: "CSM / SCRUM",
+        category: "SCRUM ALLIANCE",
         href: "/csm-scrum-master-core-competencies",
         accentClass: "guide-card-gold",
       },
       {
-        title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
-        category: "CSM / SCRUM",
-        href: "/scrum-97-things-guide",
-        accentClass: "guide-card-forest",
-      },
-      {
-        title: "Certified Agile Facilitator(CAF)学習ガイド",
-        category: "CSM / SCRUM",
-        href: "/caf-certified-agile-facilitator-study-guide",
+        title: "Advanced Certified ScrumMaster (A-CSM) 学習ガイド",
+        category: "SCRUM ALLIANCE",
+        href: "/a-csm-advanced-certified-scrummaster-study-guide",
         accentClass: "guide-card-gold",
       },
       {
-        title: "Certified Scrum Developer®(CSD®) 完全学習ガイド",
-        category: "CSM / SCRUM",
-        href: "/csd-certified-scrum-developer-study-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
-        category: "CSM / SCRUM",
-        href: "/a-csd-advanced-certified-scrum-developer-study-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
-        title: "CSP-D® 認定資格 完全ガイド | Certified Scrum Professional - Developer",
-        category: "CSM / SCRUM",
-        href: "/csp-d-certified-scrum-professional-developer-study-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
-        title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
-        category: "CSM / SCRUM",
-        href: "/casp-certified-agile-scaling-practitioner-study-guide",
+        title: "CSP-SM® 認定資格 完全ガイド | Certified Scrum Professional ScrumMaster 学習ガイド",
+        category: "SCRUM ALLIANCE",
+        href: "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "Certified Scrum Product Owner®(CSPO®) 完全学習ガイド",
-        category: "PRODUCT OWNER",
+        category: "SCRUM ALLIANCE",
         href: "/cspo-certified-scrum-product-owner-study-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド",
-        category: "PRODUCT OWNER",
+        category: "SCRUM ALLIANCE",
         href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "CSP-PO® 認定資格 完全ガイド | Certified Scrum Professional - Product Owner",
-        category: "PRODUCT OWNER",
+        category: "SCRUM ALLIANCE",
         href: "/csp-po-certified-scrum-professional-product-owner-study-guide",
         accentClass: "guide-card-gold",
       },
       {
+        title: "Certified Scrum Developer®(CSD®) 完全学習ガイド",
+        category: "SCRUM ALLIANCE",
+        href: "/csd-certified-scrum-developer-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
+        category: "SCRUM ALLIANCE",
+        href: "/a-csd-advanced-certified-scrum-developer-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "CSP-D® 認定資格 完全ガイド | Certified Scrum Professional - Developer",
+        category: "SCRUM ALLIANCE",
+        href: "/csp-d-certified-scrum-professional-developer-study-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/cal1-certified-agile-leader-1-guide",
         accentClass: "guide-card-gold",
       },
       {
         title: "アジャイルリーダーシップの必要性を理解する",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/the-case-for-agile-leadership",
         accentClass: "guide-card-gold",
       },
       {
         title: "実践におけるリーダーシップ(Agile Leadership in Action)",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/agile-leadership-in-action",
         accentClass: "guide-card-gold",
       },
       {
         title: "第3章:アジャイルチームのリード(Leading Agile Teams)",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/cal1-chapter3-leading-agile-teams",
         accentClass: "guide-card-gold",
       },
       {
         title: "第4章: Leading Agile Organizations(アジャイル組織のリード)",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/cal1-chapter4-leading-agile-organizations",
         accentClass: "guide-card-gold",
       },
       {
         title: "Certified Agile Leader® 2 (CAL 2™) スタディガイド",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/cal2-part1-organizational-strategy-and-delivery",
         accentClass: "guide-card-gold",
       },
       {
         title: "CAL2 Part 2: リーダーとしての成長(Developing as a Leader)完全ガイド",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/cal2-part2-developing-as-a-leader",
         accentClass: "guide-card-gold",
       },
       {
         title: "Certified Agile Leader® 2 (CAL 2™) 学習ガイド",
-        category: "CAL 1 & 2",
+        category: "SCRUM ALLIANCE",
         href: "/cal2-certified-agile-leader-2-study-guide",
         accentClass: "guide-card-gold",
       },
       {
-        title: "AI駆動プロジェクトマネジメント実践ガイド",
-        category: "AI-PM",
-        href: "/ai-driven-project-management-guide",
-        accentClass: "guide-card-indigo",
+        title: "Certified Agile Facilitator(CAF)学習ガイド",
+        category: "SCRUM ALLIANCE",
+        href: "/caf-certified-agile-facilitator-study-guide",
+        accentClass: "guide-card-gold",
       },
       {
-        title: "エンジニアのためのマネジメントキャリアパス",
-        category: "ENGINEERING MANAGEMENT",
-        href: "/engineering-management-career-path",
-        accentClass: "guide-card-forest",
+        title: "Certified Agile Scaling Practitioner (CASP) 完全ガイド",
+        category: "SCRUM ALLIANCE",
+        href: "/casp-certified-agile-scaling-practitioner-study-guide",
+        accentClass: "guide-card-gold",
       },
       {
-        title: "エンジニアリングマネージャー入門完全ガイド",
-        category: "ENGINEERING MANAGEMENT",
-        href: "/engineering-manager-guide",
-        accentClass: "guide-card-indigo",
+        title: "Professional Scrum Master™ - AI Essentials 完全ガイド",
+        category: "SCRUM.ORG",
+        href: "/psm-ai-essentials-guide",
+        accentClass: "guide-card-gold",
       },
       {
-        title: "『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド",
-        category: "ENGINEERING MANAGEMENT",
-        href: "/managing-humans-best-practices-guide",
-        accentClass: "guide-card-plum",
-      },
-      {
-        title: "『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集",
-        category: "ENGINEERING MANAGEMENT",
-        href: "/mythical-man-month-guide",
+        title: "Professional Scrum Developer(PSD I)認定資格 学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-developer",
         accentClass: "guide-card-indigo",
       },
       {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
-        category: "ENGINEERING MANAGEMENT",
+        category: "MANAGEMENT",
         href: "/high-output-management-guide",
         accentClass: "guide-card-indigo",
       },
       {
         title: "An Elegant Puzzle: Systems of Engineering Management 徹底解説ガイド",
-        category: "ENGINEERING MANAGEMENT",
+        category: "MANAGEMENT",
         href: "/an-elegant-puzzle-guide",
         accentClass: "guide-card-indigo",
       },
       {
-        title: "エンジニアリングチームのリード術 完全ガイド",
-        category: "FIRST LEADERSHIP",
-        href: "/engineering-team-leadership-guide",
+        title: "『Managing Humans: More Biting and Humorous Tales of a Software Engineering Manager』完全ガイド",
+        category: "MANAGEMENT",
+        href: "/managing-humans-best-practices-guide",
         accentClass: "guide-card-plum",
       },
       {
-        title: "リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド",
-        category: "FIRST LEADERSHIP",
-        href: "/leadership-practices-guide",
-        accentClass: "guide-card-gold",
+        title: "『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集",
+        category: "MANAGEMENT",
+        href: "/mythical-man-month-guide",
+        accentClass: "guide-card-indigo",
       },
       {
-        title: "リーダーとしての最初の60日間",
-        category: "FIRST LEADERSHIP",
-        href: "/your-first-60-days-as-a-leader",
-        accentClass: "guide-card-forest",
-      },
-      {
-        title: "The Leadership Challenge Workbook 完全ガイド",
-        category: "FIRST LEADERSHIP",
-        href: "/leadership-challenge-workbook-guide",
-        accentClass: "guide-card-plum",
+        title: "エンジニアリングマネージャー入門完全ガイド",
+        category: "MANAGEMENT",
+        href: "/engineering-manager-guide",
+        accentClass: "guide-card-indigo",
       },
       {
         title: "エンジニアリング統括責任者の手引き",
-        category: "ORG & SCALE",
+        category: "LEADERSHIP",
         href: "/engineering-executive-playbook",
         accentClass: "guide-card-gold",
       },
       {
         title: "Elastic Leadership 実践ガイド",
-        category: "ORG & SCALE",
+        category: "LEADERSHIP",
         href: "/elastic-leadership-guide",
         accentClass: "guide-card-indigo",
       },
       {
-        title: "開発者とアーキテクトのためのコミュニケーションガイド",
-        category: "ORG & SCALE",
-        href: "/developer-architect-communication-guide",
-        accentClass: "guide-card-forest",
+        title: "The Leadership Challenge Workbook 完全ガイド",
+        category: "LEADERSHIP",
+        href: "/leadership-challenge-workbook-guide",
+        accentClass: "guide-card-plum",
+      },
+      {
+        title: "Radical Candor 完全ガイド ― 初学者のための実践フレームワーク",
+        category: "LEADERSHIP",
+        href: "/radical-candor-guide",
+        accentClass: "guide-card-gold",
       },
       {
         title: "Team Geek ― Googleのギークたちはいかにしてチームを作るのか",
@@ -341,12 +329,6 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         category: "TEAM CULTURE",
         href: "/peopleware-guide",
         accentClass: "guide-card-indigo",
-      },
-      {
-        title: "Radical Candor 完全ガイド ― 初学者のための実践フレームワーク",
-        category: "TEAM CULTURE",
-        href: "/radical-candor-guide",
-        accentClass: "guide-card-gold",
       },
       {
         title: "『NO RULES RULES』完全ガイド",
@@ -374,18 +356,62 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       },
       {
         title: "Lean UX 実践ガイド ― はじめての人のためのステップバイステップ入門",
-        category: "TEAM DESIGN",
+        category: "PRODUCT & AGILE",
         href: "/lean-ux-beginner-guide",
         accentClass: "guide-card-forest",
+      },
+      {
+        title: "スクラム実践者が知るべきベストプラクティス97 - 初学者のための完全ガイド",
+        category: "PRODUCT & AGILE",
+        href: "/scrum-97-things-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "エンジニアのためのマネジメントキャリアパス",
+        category: "ROLE & CAREER",
+        href: "/engineering-management-career-path",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "エンジニアリングチームのリード術 完全ガイド",
+        category: "ROLE & CAREER",
+        href: "/engineering-team-leadership-guide",
+        accentClass: "guide-card-plum",
+      },
+      {
+        title: "リーダーの作法 — はじめてのソフトウェアエンジニアリーダーのための実践ガイド",
+        category: "ROLE & CAREER",
+        href: "/leadership-practices-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
+        title: "リーダーとしての最初の60日間",
+        category: "ROLE & CAREER",
+        href: "/your-first-60-days-as-a-leader",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "開発者とアーキテクトのためのコミュニケーションガイド",
+        category: "ROLE & CAREER",
+        href: "/developer-architect-communication-guide",
+        accentClass: "guide-card-forest",
+      },
+      {
+        title: "AI駆動プロジェクトマネジメント実践ガイド",
+        category: "AI IN PRACTICE",
+        href: "/ai-driven-project-management-guide",
+        accentClass: "guide-card-indigo",
       },
     ]);
   });
 
-  it("ガイドをカテゴリーセクションへ分けて見出し・件数まで固定する", () => {
+  it("ガイドを種別セクションへ分けて見出し・件数・ハブへの導線まで固定する", () => {
     /*
-     * 30 枚近いカードを区切り無しで流すと、どこまでが何の領域か読み取れない。
-     * セクションの並びはナビのカテゴリー順と一致していなければならないため、
+     * 59 枚のカードを区切り無しで流すと、どこまでが何の領域か読み取れない。
+     * セクションの並びはナビの種別順と一致していなければならないため、
      * 見出しと件数を順序込みで固定する。
+     *
+     * プログラム単位の絞り込みはハブページが担うので、各セクションからハブへ抜ける導線を持つ。
      */
     const sections = mountPage().findAll("[data-testid='guide-category-section']");
 
@@ -393,17 +419,17 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       kicker: section.get(".section-kicker").text(),
       title: section.get("h3").text(),
       count: section.get("[data-testid='guide-category-count']").text(),
+      hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "PROJECT MANAGEMENT", title: "プロジェクトマネジメント", count: "33 ガイド", cards: 33 },
-      { kicker: "ENGINEERING MANAGEMENT", title: "エンジニアリングマネジメント", count: "6 ガイド", cards: 6 },
-      { kicker: "ENGINEERING LEADERSHIP", title: "リーダーシップ", count: "7 ガイド", cards: 7 },
-      { kicker: "TEAM BUILDING", title: "チームビルディング", count: "9 ガイド", cards: 9 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "35 ガイド", hub: "/certifications", cards: 35 },
+      { kicker: "BOOKS", title: "書籍で学ぶ", count: "18 ガイド", hub: "/books", cards: 18 },
+      { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);
   });
 
   it("MORE TO COME のカードはセクションの外に 1 つだけ置く", () => {
-    // 各セクション末尾に複製すると、同じ案内が 4 回並ぶ。
+    // 各セクション末尾に複製すると、同じ案内が 3 回並ぶ。
     const wrapper = mountPage();
 
     expect(wrapper.findAll(".guide-card-coming")).toHaveLength(1);
@@ -415,7 +441,8 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
     // nuxt 環境ではグローバル URL が jsdom 実装のため、new URL(相対, import.meta.url) は
     // file: ベースを無視して http://localhost:3000 で解決してしまう。パスに落としてから解決する。
     const testDir = dirname(fileURLToPath(import.meta.url));
-    const source = readFileSync(resolve(testDir, "../../app/pages/index.vue"), "utf8");
+    // 配色の定義はカードの意匠を持つ GuideCard.vue にある（ホームとハブで共有するため）。
+    const source = readFileSync(resolve(testDir, "../../app/components/GuideCard.vue"), "utf8");
     const usedAccents = [...new Set(
       mountPage()
         .findAll("[data-testid='guide-card']")
@@ -463,18 +490,41 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       "公開中のガイド",
       "知識を、現場で使える形へ",
     ]);
-    // カテゴリーセクション、MORE TO COMEカード、学習テーマが h3。カードの見出しはその下の h4。
+    // 種別セクション、MORE TO COME カード、学習テーマが h3。カードの見出しはその下の h4。
     expect(wrapper.findAll("h3").map((heading) => heading.text())).toEqual([
-      "プロジェクトマネジメント",
-      "エンジニアリングマネジメント",
-      "リーダーシップ",
-      "チームビルディング",
+      "資格で学ぶ",
+      "書籍で学ぶ",
+      "テーマで学ぶ",
       "学びの領域を拡張していきます",
       "体系的に理解する",
       "実務の判断に活かす",
       "次のキャリアを描く",
     ]);
     expect(wrapper.get("footer nav").attributes("aria-label")).toBe("フッターナビゲーション");
+  });
+
+  /*
+   * ページ末尾のフッターと共通の免責事項（SiteDisclaimer.vue）は、
+   * どちらも document 直下の <footer> = contentinfo ランドマークになる。
+   * 名前が無いと支援技術のランドマーク一覧で二つを区別できないため、
+   * ホーム側のフッターに固有のアクセシブル名を持たせる。
+   */
+  it("フッターに固有のアクセシブル名を持つ（免責事項の contentinfo と区別する）", () => {
+    const wrapper = mountPage();
+
+    expect(wrapper.get("footer.site-footer").attributes("aria-label")).toBe("サイトフッター");
+  });
+
+  /*
+   * 著作権表示は全ページ共通の免責事項（SiteDisclaimer.vue）が持つ。
+   * ホームのフッターにも置くと、ホームだけ同じ表示が二度出る。
+   */
+  it("著作権表示を持たない（共通の免責事項が担当する）", () => {
+    const wrapper = mountPage();
+    const footer = wrapper.get("footer");
+
+    expect(footer.findAll("small").map((element) => element.text())).toEqual([]);
+    expect(footer.text()).not.toContain("©");
   });
 
   it("SEOメタ情報を設定する", () => {

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Management Studies">
+  <!--
+    サイトのブランドマーク（SiteHeader.vue の .global-brand-mark）を favicon 用に再設計したもの。
+    配色は app/assets/css/main.css のトークンと同値:
+      #1F2C57 = color-indigo-dark / #B8802A = color-gold / #F6F7F9 = color-paper
+    16px でも判読できるよう、ヘッダー（白地・細い金リング・インディゴの M）を
+    反転させて「インディゴ塗り + 明色の M」にしている。
+    M は text 要素ではなくパスで描く（閲覧環境のフォントに依存させないため）。
+  -->
+  <circle cx="32" cy="32" r="32" fill="#1F2C57"/>
+  <circle cx="32" cy="32" r="28.4" fill="none" stroke="#B8802A" stroke-width="1.8"/>
+  <path d="M20 45 V21 L32 39 L44 21 V45"
+        fill="none" stroke="#F6F7F9" stroke-width="5"
+        stroke-linecap="butt" stroke-linejoin="miter"/>
+</svg>

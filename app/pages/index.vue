@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import { useSeoMeta } from "#imports";
-import { categoryCardLabel, groupGuidesByCategory, seriesCardLabel } from "~/utils/guide-catalog";
+import { groupGuidesByKind, programCardLabel } from "~/utils/guide-catalog";
 
 /*
  * カードの内容と並びはガイドカタログ（app/utils/guide-catalog.ts）が正。
- * ここに配列を持たないことで、グローバルナビとの二重管理と登録漏れをなくす。
+ * ここに配列を持たないことで、グローバルナビ・ハブページとの多重管理と登録漏れをなくす。
  *
- * セクションはカテゴリー単位。カード上の英語表記はシリーズがあればシリーズ表記を使う
- * （セクション見出しと同じ文字列がカード全部に並ぶ冗長を避けるため）。
+ * セクションは種別単位。カード上の英語表記にはプログラム表記を使う
+ * （セクション見出しが種別なので、より細かい粒度を出す）。
+ * プログラム単位の絞り込みはハブページが担うため、各セクションからハブへ抜ける導線を置く。
  */
-const guideSections = groupGuidesByCategory().map((group) => ({
-  id: group.category.id,
-  kicker: group.category.cardLabel,
-  title: group.category.navLabel,
+const guideSections = groupGuidesByKind().map((group) => ({
+  id: group.kind.id,
+  kicker: group.kind.cardLabel,
+  title: group.kind.navLabel,
+  hub: group.kind.to,
   count: group.guides.length,
   guides: group.guides.map((guide) => ({
-    ...guide,
-    category: guide.seriesId === undefined
-      ? categoryCardLabel(guide.categoryId)
-      : seriesCardLabel(guide.seriesId),
+    guide,
+    label: programCardLabel(guide.programId),
   })),
 }));
 
@@ -77,25 +77,24 @@ useSeoMeta({
             <p class="section-kicker">{{ section.kicker }}</p>
             <h3 :id="`guide-section-${section.id}`">{{ section.title }}</h3>
             <span class="category-count" data-testid="guide-category-count">{{ section.count }} ガイド</span>
+            <NuxtLink class="category-hub" data-testid="guide-section-hub" :to="section.hub">
+              一覧から探す <Icon name="tabler:arrow-right" aria-hidden="true" />
+            </NuxtLink>
           </div>
 
           <div class="guide-grid">
-            <article v-for="guide in section.guides" :key="guide.to" class="guide-card" :class="`guide-card-${guide.accent}`" data-testid="guide-card">
-              <NuxtLink :to="guide.to" :aria-label="`${guide.title}を読む`">
-                <div class="guide-card-top">
-                  <span class="guide-icon"><Icon :name="guide.icon" aria-hidden="true" /></span>
-                  <span class="guide-meta">{{ guide.meta }}</span>
-                </div>
-                <p class="guide-category">{{ guide.category }}</p>
-                <h4>{{ guide.title }}</h4>
-                <p class="guide-description">{{ guide.description }}</p>
-                <span class="guide-link">ガイドを読む <Icon name="tabler:arrow-up-right" aria-hidden="true" /></span>
-              </NuxtLink>
-            </article>
+            <!-- カードの意匠は GuideCard.vue が正。ここで書き下すとハブページと分裂する。 -->
+            <GuideCard
+              v-for="item in section.guides"
+              :key="item.guide.to"
+              :guide="item.guide"
+              :label="item.label"
+              heading-level="h4"
+            />
           </div>
         </section>
 
-        <!-- 各セクション末尾に複製すると同じ案内が 4 回並ぶため、セクションの外に 1 つだけ置く。 -->
+        <!-- 各セクション末尾に複製すると同じ案内が 3 回並ぶため、セクションの外に 1 つだけ置く。 -->
         <div class="guide-grid guide-grid-coming">
           <div class="guide-card guide-card-coming">
             <div class="coming-icon"><Icon name="tabler:plus" aria-hidden="true" /></div>
@@ -127,7 +126,7 @@ useSeoMeta({
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" aria-label="サイトフッター">
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="brand-mark" aria-hidden="true">M</span>
@@ -139,7 +138,6 @@ useSeoMeta({
           <NuxtLink to="/engineering-team-leadership-guide">Team Lead</NuxtLink>
           <NuxtLink to="/engineering-manager-guide">EM Guide</NuxtLink>
         </nav>
-        <small>© 2026 Management Studies</small>
       </div>
     </footer>
   </div>
@@ -197,34 +195,21 @@ useSeoMeta({
 .category-heading .section-kicker { margin: 0; }
 .category-heading h3 { margin: 0; font-family: var(--font-display); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
 .category-count { margin-left: auto; color: var(--color-ink-faint); font-size: 11px; letter-spacing: 0.08em; }
+/* 種別ごとのハブ（プログラム一覧）へ抜ける導線。件数の右隣に置く。 */
+.category-hub { display: inline-flex; align-items: center; gap: 6px; color: var(--color-indigo); font-size: 12px; font-weight: 700; }
+.category-hub svg { width: 15px; height: 15px; }
 .guide-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
 .guide-grid-coming { margin-top: 58px; }
-.guide-card { min-height: 378px; border: 1px solid var(--color-border); background: var(--color-paper-raised); }
+/*
+ * カードの意匠は app/components/GuideCard.vue が正。ここが持つのはグリッド上の配置だけ。
+ * 親の scoped CSS は子コンポーネントのルート要素へ届くため、配置はここで決められる。
+ */
 .guide-card:not(.guide-card-coming) { grid-column: span 4; }
 /* 公開ガイドと同じ 4 カラム幅で流し込み、最終行の余りを埋める */
 .guide-card-coming { grid-column: span 4; min-height: 180px; }
-.guide-card > a { position: relative; height: 100%; display: flex; flex-direction: column; padding: 31px 32px 27px; color: var(--color-ink); overflow: hidden; }
-.guide-card > a::after { content: ""; position: absolute; inset: auto 0 0; height: 4px; background: var(--card-accent, var(--color-indigo)); transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
-.guide-card > a:hover { text-decoration: none; }
-.guide-card > a:hover::after { transform: scaleX(1); }
-.guide-card > a:hover .guide-link svg { transform: translate(3px, -3px); }
-.guide-card-indigo { --card-accent: var(--color-indigo); }
-.guide-card-gold { --card-accent: var(--color-gold); }
-.guide-card-forest { --card-accent: var(--color-forest); }
-.guide-card-plum { --card-accent: var(--color-plum); }
-.guide-card-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 47px; }
-.guide-icon { width: 49px; height: 49px; display: grid; place-items: center; border-radius: 50%; background: var(--color-indigo-tint); color: var(--color-indigo); }
-.guide-card-gold .guide-icon { background: var(--color-gold-tint); color: var(--color-gold); }
-.guide-card-forest .guide-icon { background: var(--color-forest-tint); color: var(--color-forest); }
-.guide-card-plum .guide-icon { background: var(--color-plum-tint); color: var(--color-plum); }
-.guide-icon svg { width: 23px; height: 23px; }
-.guide-meta { color: var(--color-ink-faint); font-size: 11px; }
-.guide-category { margin: 0 0 12px; color: var(--card-accent, var(--color-gold)); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; }
-.guide-card h4 { margin: 0 0 17px; font-family: var(--font-display); font-size: 23px; font-weight: 600; line-height: 1.5; }
-.guide-description { margin: 0 0 26px; color: var(--color-ink-soft); font-size: 13px; line-height: 1.85; }
-.guide-link { display: flex; align-items: center; gap: 8px; margin-top: auto; color: var(--card-accent); font-size: 12px; font-weight: 700; }
-.guide-link svg { width: 16px; transition: transform 180ms ease; }
-.guide-card-coming { padding: 31px 23px; display: flex; flex-direction: column; justify-content: center; background: transparent; border-style: dashed; }
+/* MORE TO COME は GuideCard ではない素の div なので、枠と字面をここで持つ。 */
+.guide-category { margin: 0 0 12px; color: var(--color-gold); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; }
+.guide-card-coming { padding: 31px 23px; display: flex; flex-direction: column; justify-content: center; border: 1px dashed var(--color-border); background: transparent; }
 .coming-icon { width: 40px; height: 40px; display: grid; place-items: center; margin-bottom: 36px; border: 1px solid var(--color-border-strong); border-radius: 50%; color: var(--color-ink-faint); }
 .coming-icon svg { width: 18px; }
 .guide-card-coming h3 { font-size: 19px; }
@@ -249,12 +234,11 @@ useSeoMeta({
 .closing-message a:hover { text-decoration: none; border-color: white; }
 
 .site-footer { border-top: 1px solid var(--color-border); background: var(--color-paper-raised); }
-.footer-inner { min-height: 165px; display: grid; grid-template-columns: 1fr auto auto; gap: 50px; align-items: center; }
+.footer-inner { min-height: 165px; display: grid; grid-template-columns: 1fr auto; gap: 50px; align-items: center; }
 .footer-brand { display: flex; align-items: center; gap: 14px; }
 .footer-brand p { margin: 0; line-height: 1.45; }
 .footer-brand strong { font-family: var(--font-display); font-size: 16px; }
 .footer-brand span { color: var(--color-ink-faint); font-size: 11px; }
-.footer-inner > small { color: var(--color-ink-faint); font-size: 10px; }
 @keyframes orbit { to { transform: rotate(360deg); } }
 
 @media (max-width: 960px) {
@@ -265,8 +249,6 @@ useSeoMeta({
   .guide-card:not(.guide-card-coming) { grid-column: span 6; }
   .guide-card-coming { grid-column: span 6; min-height: 210px; }
   .approach-section { gap: 50px; }
-  .footer-inner { grid-template-columns: 1fr auto; }
-  .footer-inner > small { grid-column: 1 / -1; margin-top: -35px; }
 }
 
 @media (max-width: 720px) {
@@ -282,13 +264,11 @@ useSeoMeta({
   .category-count { margin-left: 0; }
   .section-heading > p { margin-top: 14px; }
   .guide-card:not(.guide-card-coming), .guide-card-coming { grid-column: 1 / -1; }
-  .guide-card { min-height: 350px; }
   .guide-card-coming { min-height: 230px; }
   .approach-section { grid-template-columns: 1fr; gap: 42px; padding-block: 78px; }
   .theme-item { grid-template-columns: 28px 42px 1fr; gap: 13px; }
   .closing-message { min-height: 340px; align-items: flex-start; flex-direction: column; justify-content: center; margin-bottom: 70px; padding: 42px 30px; }
   .footer-inner { grid-template-columns: 1fr; gap: 24px; align-content: center; padding-block: 42px; }
-  .footer-inner > small { grid-column: auto; margin-top: 0; }
 }
 
 @media (max-width: 430px) {

@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { GUIDES } from "../app/utils/guide-catalog";
+import { allSiteRoutes } from "../app/utils/guide-catalog";
 
 /*
  * 全ページ・全幅域での横スクロール禁止。
@@ -10,8 +10,9 @@ import { GUIDES } from "../app/utils/guide-catalog";
  *   テキストからは決定できない（静的検査は誤検知だらけでゲートにならないことを実測で確認した）。
  *   したがってここが唯一の機械的ゲートになる。
  *
- * 対象ページは guide-catalog の GUIDES から導出する。新規ガイドを GUIDES に登録すると
- * 自動的にこの契約の対象になる。裏返すと、GUIDES へ未登録のページは巡回されないため、
+ * 対象ページは guide-catalog の allSiteRoutes()（ホーム・種別インデックス・ハブ・全ガイド）
+ * から導出する。ガイドを GUIDES に、プログラムを GUIDE_PROGRAMS に登録すると自動的に
+ * この契約の対象になる。裏返すと、カタログへ未登録のページは巡回されないため、
  * カタログへの登録漏れそのものはこの spec では検知できない。
  *
  * 幅の選び方（すべて「過去に事故が出た帯」を含む）:
@@ -21,7 +22,7 @@ import { GUIDES } from "../app/utils/guide-catalog";
  */
 const WIDTHS = [1440, 1024, 390] as const;
 
-const PATHS = ["/", ...GUIDES.map((guide) => guide.to)];
+const PATHS = allSiteRoutes();
 
 /**
  * ドキュメントが横方向に溢れている量を返す。0 以下なら横スクロールは出ない。
@@ -32,6 +33,12 @@ async function horizontalOverflow(page: import("@playwright/test").Page): Promis
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
   );
 }
+
+/*
+ * 図の描画待ちの上限。テスト全体の時間予算にも同じ値を算入するため定数で持つ
+ * （直書きすると片方だけ変えたときに予算が静かに足りなくなる）。
+ */
+const DIAGRAM_WAIT_TIMEOUT_MS = 30_000;
 
 /**
  * Mermaid の描画完了を待つ。図は ClientOnly + onMounted の非同期描画なので、
@@ -48,11 +55,31 @@ async function waitForDiagrams(page: import("@playwright/test").Page): Promise<v
   // ここで待ち切らないと、失敗した図があるページだけ永久にタイムアウトする。
   await expect(page.locator(".mermaid-wrap svg, .mermaid-wrap .diagram-error")).toHaveCount(
     expected,
-    { timeout: 30_000 },
+    { timeout: DIAGRAM_WAIT_TIMEOUT_MS },
   );
 }
 
+/*
+ * 1 テストで全ページを巡回するため、所要時間はページ数に比例して伸びる。
+ * Playwright 既定の 30 秒は 58 ページの時点で使い切っており（実測 27〜28 秒。
+ * 他 spec と並列で走ると超えてタイムアウトする）、ガイドを追加するたびに
+ * 静かに越える。固定値を置くと同じことが再発するので、ページ数から導出する。
+ *
+ * 1 ページあたり 5 秒は、正常に描画されるページの巡回に十分な値（実測 0.5 秒前後）。
+ */
+const TIMEOUT_PER_PAGE_MS = 5_000;
+
+/*
+ * 図の描画が確定しないページが 1 枚あると、そのページだけで waitForDiagrams の
+ * 上限いっぱいを消費する。ページ単価にこれを織り込むと予算が桁違いに膨らむので、
+ * 「どこか 1 枚が上限まで待つ」ぶんだけを定数項として一度加算する。
+ * こうしておけば、上限を変えたときに巡回ぶんの予算が削られることもない。
+ */
 test.describe("横スクロールが出ない", () => {
+  test.describe.configure({
+    timeout: PATHS.length * TIMEOUT_PER_PAGE_MS + DIAGRAM_WAIT_TIMEOUT_MS,
+  });
+
   for (const width of WIDTHS) {
     test(`幅 ${width}px: 全 ${PATHS.length} ページ`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });

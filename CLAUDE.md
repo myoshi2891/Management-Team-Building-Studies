@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-最終更新: 2026-08-27
+最終更新: 2026-09-10
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -35,40 +35,60 @@ docs/PROGRESS.md                                 Nuxt 移行の進捗と「正�
 ```text
 app/app.vue                        <SiteHeader /> → <NuxtPage /> のアプリシェル
 app/assets/css/main.css            :root トークン + 基底要素（全ページ共有）
-app/pages/index.vue                ホーム（学習ライブラリ）。カテゴリー別セクションを guide-catalog から導出
+app/pages/index.vue                ホーム（学習ライブラリ）。種別セクションを guide-catalog から導出
 app/pages/capm.vue                 CAPM ガイド（移行済み）
 app/pages/engineering-management-career-path.vue  EM キャリアパスガイド（移行済み）
-app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。カテゴリー×シリーズのメガメニュー（導線は guide-catalog 由来）
+app/pages/{certifications,books,practices}/index.vue      種別ハブ（薄いラッパ）
+app/pages/{certifications,books,practices}/[program].vue  プログラムハブ（薄いラッパ。未知の program は validate で 404）
+app/components/SiteHeader.vue      全ページ共通のグローバルヘッダー。パネルはハブへのリンクのみ（導線は guide-catalog 由来）
+app/components/SiteSearch.vue      サイト内検索のダイアログ（ヘッダー内。/ と Cmd/Ctrl+K で開く）
+app/components/GuideCard.vue       ガイドカード。ホームとハブで共有（複製するとデザインが分裂する）
+app/components/GuideKindHub.vue    種別ハブの実体（配下のプログラム一覧）
+app/components/GuideProgramHub.vue プログラムハブの実体（シリーズ小見出し + ガイドカード）
 app/components/MermaidDiagram.vue  図解レイアウトの SSoT + svg 後処理
 app/composables/useActiveHeading.ts  TOC のスクロール連動
 app/plugins/mermaid.client.ts      mermaid.initialize を一度だけ実行
-app/utils/guide-catalog.ts         公開ガイド定義の SSoT（カテゴリー → シリーズ → ガイドの 3 階層）
+app/utils/guide-catalog.ts         公開ガイド定義の SSoT（種別 → プログラム → シリーズ → ガイドの 4 階層）
+app/utils/guide-search.ts          サイト内検索の絞り込み仕様の SSoT（DOM 非依存の純関数）
 app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 ```
 
 > [!IMPORTANT]
 > **新規ガイドページの登録先は `app/utils/guide-catalog.ts` の `GUIDES` 1 か所。**
-> ここに 1 件追加すれば、ホームのカード一覧（`app/pages/index.vue`）と
-> グローバルナビのドロップダウン（`app/components/SiteHeader.vue`）の両方が追随する。
+> ここに 1 件追加すれば、ホームのカード一覧（`app/pages/index.vue`）・
+> グローバルナビ（`app/components/SiteHeader.vue`）・種別ハブ・プログラムハブ・
+> サイト内検索（`app/utils/guide-search.ts`）がすべて追随する。
 > 登録しないとページはどこからも到達できない。
 > これらの導線は原本 HTML に存在しないため**原本照合監査では検知できない**。
 > 契約テスト（`tests/utils/guide-catalog.test.ts` / `tests/pages/index.test.ts` /
-> `tests/components/SiteHeader.test.ts`）で固定する。
+> `tests/components/SiteHeader.test.ts` / `tests/components/GuideProgramHub.test.ts`）で固定する。
 > 手順は `.claude/skills/nuxt-page-migration/SKILL.md` §5 Step 2.5。
 >
-> **シリーズを持つカテゴリーへ追加する場合は `seriesId` の指定が必須。**
-> シリーズ（`GUIDE_SERIES`）はカテゴリー内の小見出しで、グローバルナビのメガメニューの
-> カラムとホームのカード上の表記を決める。`seriesId` は省略できず、シリーズを持たない
-> カテゴリー（現在は `engineering-management` のみ）では `undefined` を明示する。
-> シリーズを持つカテゴリーで `undefined` にすると、ラベルの無いカラムとして黙って現れるため
-> `tests/utils/guide-catalog.test.ts` の契約テストで落ちる。
+> **カタログは 種別 → プログラム → シリーズ → ガイド の 4 階層。**
+> 種別（`GUIDE_KINDS`。資格 / 書籍 / テーマの 3 個で固定）はナビのトップレベル、
+> プログラム（`GUIDE_PROGRAMS`。認定団体・書籍テーマ）はハブページを 1 枚持つ単位、
+> シリーズ（`GUIDE_SERIES`）はハブページ内の小見出しにあたる。
 >
-> `GUIDES` の並び順は「カテゴリー順 → シリーズ順 → 定義順」を守る。
-> この不変条件により `seriesGroups` の平坦化が `guides` と一致し、
-> ナビ（シリーズ順に描画）とホーム（定義順に描画）で並び順が二重管理にならない。
+> **ナビはプログラムまでしか列挙しない**（パネルの行はハブページへのリンク）。
+> ガイドを並べると項目数がガイド数に比例して必ず破綻するため
+> （実測: 59 本でカラム数・カラム内件数の上限へ同時に張り付き、パネル高も 683px に達した）。
+> したがって**ガイドを何本足してもナビの DOM は変わらない**。この不変条件は
+> 「パネル内リンク数 = プログラム数 + 1」として `tests/components/SiteHeader.test.ts` が固定する。
 >
-> カテゴリーを増やす場合は同ファイルの `GUIDE_CATEGORIES` に追加する。
-> `cardLabel`（ホームのカードに出る英語表記）と `navLabel`（ナビの日本語表記）は 1:1 対応。
+> **`programId` / `seriesId` はいずれも省略不可。** すべてのプログラムがシリーズを持つため
+> 省略可にする理由が無く、必須にすることで未分類のガイドがハブにラベル無しで現れる余地を
+> 型の時点で消している。
+>
+> `GUIDES` の並び順は「種別順 → プログラム順 → シリーズ順 → 定義順」を守る。
+> この不変条件により `programGroups` / `seriesGroups` の平坦化が `guides` と一致し、
+> ナビ・ハブ・ホームで並び順が二重管理にならない。
+>
+> プログラムを増やす場合は `GUIDE_PROGRAMS` に追加する（`to` は必ず
+> `<種別の to>/<プログラムの id>`。種別ディレクトリ配下に置くことで 1 セグメントの
+> 既存ガイドルート（`/capm` 等）と構造的に衝突しない）。種別を増やす場合は `GUIDE_KINDS`。
+> 上限は 1 種別 8 プログラム・1 プログラム 8 シリーズ（`MAX_PROGRAMS_PER_KIND` /
+> `MAX_SERIES_PER_PROGRAM`）。超えたら閾値ではなく粒度を分割し直す。
+> `cardLabel`（カードに出る英語表記）と `navLabel`（ナビの日本語表記）は 1:1 対応。
 > シリーズも同じ 1:1 対応の `cardLabel` / `navLabel` を持つが、**アイコンは持たない**
 > （`.ts` へアイコン名を増やすほど本番だけ空白になる事故域が広がるため）。
 > アイコン名を `.ts` に置いている都合上、`nuxt.config.ts` の
@@ -112,7 +132,8 @@ CAPM・EM キャリアパスの 2 本は移行済み（最新状況は `docs/PRO
 - 移行の最大のリスクは**転写漏れ**。原本照合監査（`audit_source_parity.mjs`）の
   exit 0 を Green の前提条件とする
 - **どの幅でも横スクロールを出さない**。`e2e/no-horizontal-scroll.spec.ts` が
-  全ページ（`GUIDES` から自動導出）× 1440 / 1024 / 390px を実測し、これも Green の
+  全ページ（`allSiteRoutes()` から自動導出。ホーム・種別ハブ・プログラムハブ・全ガイド）
+  × 1440 / 1024 / 390px を実測し、これも Green の
   前提条件とする。横スクロールは実測でしか判定できないため静的検査では代替できない
   （実測: 静的パターン検査は 45 ページ中 35 ページを誤検知した）。
   `body { overflow-x: hidden }` による隠蔽は禁止。詳細は

@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSPO(Professional Scrum Product Owner)認定資格 完全ガイド | 価値最大化の思想から実践プラクティスまで</title>
+<meta name="description" content="Scrum.org公認 Professional Scrum Product Owner(PSPO I/II)認定試験の出題範囲を、価値最大化の本質からEBM、優先順位付け、スクラムイベントでの振る舞いまで体系的に解説する学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PSPO 完全ガイド</div>
+        <div class="brand-subtitle">Professional Scrum Product Owner</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#what-is-pspo"><i class="ti ti-certificate"></i>PSPO試験とPOの本質</a></li>
+      <li><a href="#vision-and-strategy"><i class="ti ti-route"></i>ビジョンと戦略</a></li>
+      <li><a href="#backlog-management"><i class="ti ti-list-check"></i>PBL管理と優先順位付け</a></li>
+      <li><a href="#evidence-based-management"><i class="ti ti-chart-pie"></i>EBM(エビデンスベースドマネジメント)</a></li>
+      <li><a href="#scrum-events"><i class="ti ti-timeline"></i>スクラムイベントとPOの振る舞い</a></li>
+      <li><a href="#exam-prep"><i class="ti ti-clipboard-check"></i>試験対策・頻出パターン</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考リソース</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum.org 公認資格 学習ガイド</div>
+      <h1>Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド</h1>
+      <p class="hero-lede">
+        価値最大化の思想から実践プラクティスまで、体系的に理解する ― 本ガイドは、Scrum.org 公認の「Professional Scrum Product Owner」認定試験(PSPO I / PSPO II)の出題範囲を、プロダクトマネジメントやアジャイルの初学者でも本質から理解できるよう構成した学習教材です。単なる用語暗記ではなく、「なぜそうなのか」を一貫して説明することを目指しています。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">80問</div><div class="stat-label">PSPO I 問題数の目安</div></div>
+        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">PSPO II 問題数の目安</div></div>
+        <div class="stat-card"><div class="stat-number">60分</div><div class="stat-label">PSPO I/II共通 制限時間の目安</div></div>
+        <div class="stat-card"><div class="stat-number">85%</div><div class="stat-label">PSPO I/II共通 合格ラインの目安</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは学習支援を目的とした非公式の解説資料です。試験の問題数・制限時間・合格ライン・出題形式などは Scrum.org の発表により変更される可能性があるため、受験前に必ず<a href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">Scrum.org 公式サイト</a>で最新情報をご確認ください。
+      </div>
+    </div>
+
+
+    <section id="what-is-pspo">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>PSPO 認定試験概要とプロダクトオーナーの本質</h2>
+
+      <h3>PSPO 試験とは何か</h3>
+      <p>Professional Scrum Product Owner(PSPO)は、Scrum.org が提供する認定試験の中でも「プロダクトの成功責任者」としての知識とマインドセットを問う試験群です。レベルは PSPO I / PSPO II / PSPO III の3段階があり、本ガイドではこのうち PSPO I と PSPO II を対象とします。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>PSPO I</th><th>PSPO II</th></tr></thead>
+          <tbody>
+            <tr><td>対象レベル</td><td>基礎〜実務初級</td><td>実務中級〜上級(戦略・組織視点)</td></tr>
+            <tr><td>出題形式</td><td>選択式(単一選択・複数選択・True/False)</td><td>Multiple Choice / Multiple Answer(一部の問題は部分点あり)。シナリオベースでより深い考察を要求</td></tr>
+            <tr><td>問題数の目安</td><td>80問</td><td>40問</td></tr>
+            <tr><td>制限時間の目安</td><td>60分</td><td>60分</td></tr>
+            <tr><td>合格ラインの目安</td><td>85%</td><td>85%</td></tr>
+            <tr><td>前提資格</td><td>なし(誰でも受験可)</td><td>実質的に PSPO I 相当の知識が前提</td></tr>
+            <tr><td>出題の重心</td><td>Scrum Guide の正確な理解、PBL管理、基本用語</td><td>戦略・EBM・組織スケール・ステークホルダー対応などの応用力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>PSPO 試験の再受験は原則として有料で、不合格の場合はあらためて受験料が発生します。ただし例外があり、Scrum.org 公式講座の受講者が受講後 14 日以内に PSPO I を受験して不合格となった場合は、追加費用なしで 2 回目を受験できます。いずれにせよ実質的に一発勝負に近い緊張感のある試験設計であるため、丸暗記ではなく Scrum Guide の一次情報に基づいた本質理解が合格への近道になります。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">Professional Scrum Product Owner Certifications</a></li>
+        </ul>
+      </div>
+
+      <h3>プロダクトオーナーの唯一の目的：価値の最大化</h3>
+      <p>Scrum Guide において、プロダクトオーナーの説明は非常にシンプルです。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>プロダクトオーナーは、<strong>プロダクトの価値を最大化する</strong>ことに責任を持つ。</p>
+      </div>
+
+      <p>この一文がすべての出発点です。ここで重要なのは、プロダクトオーナーの仕事が「バックログを綺麗に整理すること」でも「ステークホルダーの要望を漏れなく記録すること」でもなく、<strong>その先にある価値(ビジネス成果)を最大化すること</strong>にある、という点です。バックログ管理やステークホルダー調整は、価値最大化という目的を達成するための「手段」に過ぎません。</p>
+
+      <p>このマインドセットを言い換えると、プロダクトオーナーは「プロダクトというビジネスに対する意思決定権を持つミニ経営者(ミニCEO)」のような存在だと理解すると分かりやすくなります。ただし、これは比喩であり、Scrum Guide が定める権限(プロダクトバックログの内容・並び順・可視性に対する唯一の説明責任者であること)を超えるものではありません。</p>
+
+      <h3>アウトプットとアウトカムの違い</h3>
+      <p>初学者が最も陥りやすい誤解が、「アウトプット(output)＝仕事をした証」と「アウトカム(outcome)＝実際に得られた価値」の混同です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>アウトプット(Output)</th><th>アウトカム(Outcome)</th></tr></thead>
+          <tbody>
+            <tr><td>定義</td><td>作った成果物・機能・リリース件数</td><td>その成果物によって実際に変化したユーザー行動やビジネス指標</td></tr>
+            <tr><td>測定例</td><td>「今スプリントで5個の機能をリリースした」</td><td>「その機能によって解約率が2%改善した」</td></tr>
+            <tr><td>落とし穴</td><td>作ること自体が目的化しやすい(ベロシティ至上主義)</td><td>測定に時間がかかり、短期的には評価しにくい</td></tr>
+            <tr><td>PO の責務</td><td>開発チームと共に効率よく作る</td><td><strong>アウトプットが本当にアウトカムを生んだかを検証し続ける</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>真に価値を最大化するプロダクトオーナーは、「何を作ったか」ではなく「何が変わったか」を問い続けます。これは第4章で扱う Evidence-Based Management(EBM)の考え方と直結しています。</p>
+
+      <h3>プロダクトオーナーのアンチパターン</h3>
+      <p>PSPO 試験では、「正しいPOの振る舞い」と対比する形で、形骸化したPOのパターンを見抜く出題が頻出します。以下に代表的なアンチパターンを整理します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アンチパターン</th><th>特徴</th><th>引き起こされる弊害</th></tr></thead>
+          <tbody>
+            <tr><td><strong>御用聞きPO(Order Taker PO)</strong></td><td>ステークホルダーの要望をそのままバックログに転記するだけで、優先順位への意思決定をしない</td><td>バックログが「言われた順」になり、価値の高いものが埋もれる。No と言えないため、チームが疲弊する</td></tr>
+            <tr><td><strong>委員会PO(Committee PO)</strong></td><td>意思決定が複数人の合議制になっており、誰も最終責任を負わない</td><td>意思決定が遅延する。Scrum Guide が定める「単一の説明責任者」という原則に反する</td></tr>
+            <tr><td><strong>仕様書作成係PO(Backlog Administrator PO)</strong></td><td>詳細な仕様書を書くことに終始し、ビジネス成果への関心が薄い</td><td>プロダクトの「なぜ」が失われ、開発チームが単なる「作業者」になる</td></tr>
+            <tr><td><strong>権限のない代理PO(Proxy PO)</strong></td><td>実質的な意思決定権を持たず、真の意思決定者(経営層等)への取り次ぎ役に留まる</td><td>意思決定のたびに承認待ちが発生し、俊敏性が失われる</td></tr>
+            <tr><td><strong>不在PO(Absent PO)</strong></td><td>スプリントレビューやリファインメントに参加せず、開発チーム任せにする</td><td>開発チームが優先順位やビジネス文脈を推測で判断せざるを得なくなる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>一方、真のプロダクトオーナーは以下のような特徴を持ちます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>真のPOの特徴</th><th>具体的な振る舞い</th></tr></thead>
+          <tbody>
+            <tr><td>価値への説明責任を引き受ける</td><td>優先順位付けの理由を自分の言葉で説明できる</td></tr>
+            <tr><td>権限を持って意思決定する</td><td>ステークホルダーの要望に対して、根拠を持って「No」と言える</td></tr>
+            <tr><td>開発チームと協働する</td><td>リファインメントやレビューに積極的に参加し、対話を通じて理解を深める</td></tr>
+            <tr><td>データと仮説で判断する</td><td>経験や勘だけでなく、EBM の指標や実験結果を根拠にする</td></tr>
+            <tr><td>ビジョンを語り続ける</td><td>チームとステークホルダーの双方に、プロダクトの「なぜ」を繰り返し伝える</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></li>
+          <li><a href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">Professional Scrum Product Owner Certifications</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="vision-and-strategy">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 02</div>
+      <h2>プロダクトビジョンと戦略(Product Vision &amp; Strategy)</h2>
+
+      <h3>ビジョン・ビジネスゴール・プロダクトゴールの階層構造</h3>
+      <p>プロダクトオーナーが日々の優先順位付け(第3章)や実験(第4章)を正しく行うためには、その土台となる「なぜこのプロダクトが存在するのか」という階層構造を明確にしておく必要があります。</p>
+
+      <ul>
+        <li><strong>プロダクトビジョン(Product Vision)</strong>: プロダクトが将来実現したい世界観。数年単位の長期的な方向性であり、頻繁には変わらない。</li>
+        <li><strong>ビジネスゴール(Business Goal)</strong>: 組織全体の戦略目標。売上、市場シェア、顧客満足度など、経営レベルの指標に紐づく。</li>
+        <li><strong>プロダクトゴール(Product Goal)</strong>: Scrum Guide 2020 で正式に導入された概念。プロダクトの「将来の状態」を表す長期的な目標であり、プロダクトバックログ全体が向かう方向を示す「北極星」の役割を果たす。1つのプロダクトには常に1つのプロダクトゴールが存在する。</li>
+        <li><strong>スプリントゴール(Sprint Goal)</strong>: 1回のスプリントで達成したい単一の目的。プロダクトゴールに向けた「ひとつのステップ」であり、スプリントに一貫性と焦点をもたらす。</li>
+        <li><strong>プロダクトバックログアイテム(PBI)</strong>: スプリントゴールを達成するための具体的な作業単位。</li>
+      </ul>
+
+      <p>これらは上位から下位に向かって「why → what」が徐々に具体化されていく関係にあり、逆に下位から上位へと問いかけることで「このPBIは本当にプロダクトゴールに貢献しているか？」を常に検証できます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="visionHierarchy"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロダクトビジョンからプロダクトバックログアイテムまでの整合性フロー</div>
+      </div>
+
+      <p>この図が示す重要なポイントは、矢印が上から下へ一方通行ではないということです。スプリントレビューでの学びや市場からのフィードバックは、点線のようにプロダクトゴールやビジョンそのものを見直す材料になります。プロダクトオーナーは、この上り下りの往復を継続的に行う「翻訳者」の役割を担います。</p>
+
+      <h3>ロードマップ設計：フィーチャードリブンからアウトカムドリブンへ</h3>
+      <p>従来型のロードマップは「いつ・何を作るか」を並べた計画表(フィーチャードリブン・ロードマップ)になりがちです。しかしこの形式には次のような弱点があります。</p>
+
+      <ul>
+        <li>機能を作ること自体がゴール化し、「作ったのに使われない」機能が生まれやすい</li>
+        <li>市場や顧客の変化に対して計画の変更コストが高くなる</li>
+        <li>チームが「なぜ作るか」を理解しないまま「何を作るか」だけを渡される</li>
+      </ul>
+
+      <p>これに対して、PSPO が推奨するのは<strong>アウトカムドリブン・ロードマップ</strong>です。時間軸に沿って「達成したい成果」や「解決したい課題」を並べ、その成果を達成する手段(機能)はチームの裁量とディスカバリー活動に委ねます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>フィーチャードリブン・ロードマップ</th><th>アウトカムドリブン・ロードマップ</th></tr></thead>
+          <tbody>
+            <tr><td>軸になる単位</td><td>機能・リリース内容</td><td>達成したい成果・解決したい課題</td></tr>
+            <tr><td>柔軟性</td><td>低い(計画変更＝機能変更として認識される)</td><td>高い(同じ成果を別の手段で達成してもよい)</td></tr>
+            <tr><td>チームの動機付け</td><td>「言われたものを作る」意識になりやすい</td><td>「なぜ」を共有し、解決策を共に考える意識が生まれる</td></tr>
+            <tr><td>リスク</td><td>作っても価値が出ない可能性がある</td><td>成果に向けた仮説検証が前提になるため、無駄が出にくい</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>ターゲットユーザーの特定：ペルソナとカスタマージャーニーマップ</h3>
+      <p>価値を最大化するためには、「誰にとっての価値か」を明確にする必要があります。ここで有効なのが以下の2つのツールです。</p>
+
+      <ul>
+        <li><strong>ペルソナ(Persona)</strong>: ターゲットとなるユーザー像を、属性・目標・課題・行動パターンとして具体化した架空の人物像。チーム全員が「同じユーザー」を思い浮かべながら会話できるようにする効果がある。</li>
+        <li><strong>カスタマージャーニーマップ(Customer Journey Map)</strong>: ユーザーがプロダクトを認知してから利用・継続・離脱に至るまでの一連の体験を時系列で可視化したもの。各段階での感情や課題を洗い出すことで、優先順位付けの根拠(第3章参照)や新たなPBIの発見につながる。</li>
+      </ul>
+
+      <p>これらはあくまで意思決定を支援するための道具であり、作成すること自体が目的化しないよう注意が必要です。PSPO 試験では、「ペルソナやジャーニーマップは誰が作るべきか」という問いに対し、<strong>プロダクトオーナーが単独で作るのではなく、開発チームやステークホルダーを巻き込みながら共同で作り上げるべき</strong>という考え方が問われることがあります。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></li>
+          <li><a href="https://www.scrum.org/pathway/product-owner-learning-series" target="_blank" rel="noopener">Product Owner Learning Series</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="backlog-management">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 03</div>
+      <h2>プロダクトバックログ管理と優先順位付け(PBL Management &amp; Ordering)</h2>
+
+      <h3>プロダクトバックログの原則</h3>
+      <p>Scrum Guide において、プロダクトバックログは「プロダクトを改善するために必要な作業の、唯一かつ創発的で、順番付けされたリスト」と定義されます。ここから導かれる原則を整理します。</p>
+
+      <ul>
+        <li><strong>単一のバックログ(Single Source of Truth)</strong>: 1つのプロダクトに対してプロダクトバックログは1つだけ存在する(1プロダクト=1プロダクトバックログ。複数のスクラムチームが同じプロダクトに取り組む場合も、共有するプロダクトバックログは1つ)。部門ごと・チームごとに別々の優先順位リストを持つことは、優先順位の一貫性を破壊する。</li>
+        <li><strong>動的なリファインメント(Refinement)</strong>: プロダクトバックログは常に「生きている」ドキュメントであり、一度作って終わりではなく、継続的にPBIの詳細化・見積り・並び替えが行われる。リファインメントは公式のスクラムイベントではないが、通常継続的な活動として推奨される。</li>
+        <li><strong>DEEP 原則</strong>: 健全なプロダクトバックログが備えるべき性質の頭文字。
+          <ul>
+            <li><strong>D</strong>etailed appropriately(適切に詳細化されている): 直近取り組むPBIほど詳細に、将来のPBIほど粗く記述する</li>
+            <li><strong>E</strong>stimated(見積もられている): 開発チームが見積りを行い、規模感を共有している</li>
+            <li><strong>E</strong>mergent(創発的である): 学びや市場の変化に応じて常に変化し続ける</li>
+            <li><strong>P</strong>rioritized(優先順位付けされている): 単なる並び替えではなく、価値に基づいて順序付けられている</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>価値基準の優先順位付け(Ordering)テクニック</h3>
+      <p>プロダクトバックログの並び順(Ordering)を決める際、プロダクトオーナーは単一の基準だけでなく、複数の要素をバランスさせる必要があります。</p>
+
+      <ul>
+        <li><strong>価値(Value)</strong>: そのPBIが顧客・ビジネスにもたらす便益の大きさ</li>
+        <li><strong>リスク</strong>: 実現しないことによる機会損失、あるいは実現することで顕在化する技術的・市場的リスク</li>
+        <li><strong>依存関係</strong>: 他のPBIや外部要因(法規制、他チームの成果物など)との依存</li>
+        <li><strong>コスト・オブ・ディレイ(Cost of Delay, CoD)</strong>: そのPBIの実現を先延ばしにすることで失われる価値。「今やらないと、どれだけ損をするか」という時間軸を組み込んだ考え方</li>
+      </ul>
+
+      <p>これらを踏まえた代表的な優先順位付けフレームワークを比較します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>フレームワーク</th><th>概要</th><th>強み</th><th>弱み・注意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>MoSCoW</strong></td><td>Must / Should / Could / Won't の4区分に分類する</td><td>シンプルで合意形成がしやすい</td><td>相対的な優先度が曖昧になりやすく、「Must」が増えすぎる傾向がある</td></tr>
+            <tr><td><strong>Kano モデル</strong></td><td>機能を「当たり前品質」「一元的品質」「魅力的品質」「無関心品質」「逆品質」に分類し、顧客満足度への影響を分析する</td><td>顧客体験の質的な違いを捉えられる。「魅力的品質」の発見に有効</td><td>調査・分析にコストがかかり、頻繁な更新には向かない</td></tr>
+            <tr><td><strong>WSJF(Weighted Shortest Job First)</strong></td><td>CoD(ビジネス価値・時間的制約・リスク低減/機会獲得の合計)を、実装規模(Job Size)で割って優先度スコアを算出する</td><td>定量的な意思決定がしやすく、SAFe など大規模フレームワークでも採用される</td><td>スコアの入力値(価値やサイズ)自体が主観的見積りに依存する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>PSPO 試験では、「唯一絶対の優先順位付けフレームワークは存在せず、状況に応じて使い分けるべき」という前提が重視されます。フレームワークは意思決定を助ける道具であり、最終的な説明責任はあくまでプロダクトオーナー個人にあります。</p>
+
+      <h3>PBI(プロダクトバックログアイテム)の具体化</h3>
+
+      <h4>ユーザーストーリーと INVEST 原則</h4>
+      <p>PBI は多くの場合ユーザーストーリー形式(「〜として、〜したい。なぜなら〜だから」)で記述されますが、Scrum Guide 自体はユーザーストーリー形式を必須としていません。あくまで一般的なプラクティスの一つです。良いPBIの条件として広く使われるのが <strong>INVEST</strong> 原則です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>頭文字</th><th>意味</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>I</td><td>Independent(独立している)</td><td>他のPBIへの依存が少なく、単独で価値を提供・見積り可能</td></tr>
+            <tr><td>N</td><td>Negotiable(交渉可能)</td><td>詳細は固定仕様ではなく、対話を通じて調整可能</td></tr>
+            <tr><td>V</td><td>Valuable(価値がある)</td><td>ユーザーまたはビジネスにとって明確な価値を持つ</td></tr>
+            <tr><td>E</td><td>Estimable(見積り可能)</td><td>開発チームが規模感を見積れる程度に理解可能</td></tr>
+            <tr><td>S</td><td>Small(小さい)</td><td>1スプリント内で完了できる程度の大きさ</td></tr>
+            <tr><td>T</td><td>Testable(テスト可能)</td><td>完了したかどうかを検証できる明確な基準がある</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>受け入れ基準と Given-When-Then</h4>
+      <p>「テスト可能」であるための土台となるのが受け入れ基準(Acceptance Criteria)です。曖昧な自然文だけで済ませず、<strong>Given-When-Then</strong> 形式(振る舞い駆動開発, BDD に由来)で記述することで、開発チーム・QA・プロダクトオーナー間の認識齟齬を減らせます。</p>
+
+      <ul>
+        <li><strong>Given</strong>(前提条件): どのような状態から始まるか</li>
+        <li><strong>When</strong>(操作・イベント): 何が実行されるか</li>
+        <li><strong>Then</strong>(期待される結果): その結果どうなるべきか</li>
+      </ul>
+
+      <p>例えば「カート内商品の割引適用」というPBIであれば、「Given: カートに対象商品が入っている状態で／When: クーポンコードを入力すると／Then: 割引後の合計金額が表示される」のように記述します。この形式は「Doneの定義(Definition of Done)」とは別物である点に注意してください。受け入れ基準は個々のPBIに固有の合格条件であり、Doneの定義はインクリメントが満たすべき品質基準です。組織にDoneの定義の標準がある場合、Scrum Teamはそれを最低限の基準として適用しなければなりません。組織標準が存在しない場合は、Scrum Team自身がDoneの定義を作成します(詳細は第5章・第6章参照)。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></li>
+          <li><a href="https://www.scrum.org/pathway/product-owner-learning-series" target="_blank" rel="noopener">Product Owner Learning Series</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="evidence-based-management">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 04</div>
+      <h2>エビデンスベースドマネジメント(EBM: Evidence-Based Management)</h2>
+
+      <h3>経験主義に基づく意思決定</h3>
+      <p>Scrum そのものが経験主義(Empiricism)― 「知識は経験と観察から得られる」という考え方 ― に基づいています。EBM は、この経験主義をプロダクトの価値創出という文脈に適用するための、Scrum.org が提供する実践的なフレームワークです。</p>
+
+      <p>EBM の根底にある問いはシンプルです。「私たちは本当に、より多くの価値を顧客とビジネスにもたらせているか？ それをどうやって知るのか？」。売上や機能数といった単一の指標だけでは、この問いに正しく答えることはできません。EBM は、複数の視点(Key Value Areas)から複合的にプロダクトの健全性を測ることを提案します。</p>
+
+      <h3>4つの Key Value Areas(KVA)</h3>
+      <p>EBM は価値を測定する視点を4つの領域に分類します。それぞれ「今」と「未来」、「アウトプットの速さ」と「アウトプットを生み出す能力」という2つの軸で整理すると理解しやすくなります。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="ebmKva"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">EBM の4つの Key Value Areas(現在の価値軸と価値創出能力軸)</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>KVA</th><th>説明</th><th>具体的な指標例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Current Value(CV): 現在の価値</strong></td><td>プロダクトが「今この瞬間」顧客とビジネスに提供している価値の大きさ</td><td>顧客満足度スコア(NPS等)、収益、利用頻度・アクティブユーザー数、従業員満足度</td></tr>
+            <tr><td><strong>Unrealized Value(UV): 未実現の価値</strong></td><td>市場にまだ存在する、獲得できていない潜在的な価値の大きさ</td><td>対象市場シェアの余地、想定顧客に対する未獲得顧客の割合、追加収益ポテンシャル</td></tr>
+            <tr><td><strong>Time to Market(T2M): 市場投入までの時間</strong></td><td>アイデアから価値提供までの俊敏性・速度</td><td>リリース頻度、平均リードタイム、フィーチャーサイクルタイム、デプロイ頻度</td></tr>
+            <tr><td><strong>Ability to Innovate(A2I): 革新能力</strong></td><td>新しい価値を継続的に生み出すための組織・技術面での健全性</td><td>技術的負債の割合、欠陥(バグ)発生率、チームの自律性・裁量の度合い、実験に割ける時間の割合</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>これら4つは互いにトレードオフの関係を持つことがあります。例えば、T2M(速さ)を追い求めすぎて技術的負債を無視すると、中長期的に A2I(革新能力)を毀損し、結果として CV や UV も低下する、という悪循環が起こり得ます。プロダクトオーナーは、これらの指標を定点観測しながら、どこにテコ入れすべきかを判断する必要があります。</p>
+
+      <h3>EBM を実務でどう使うか</h3>
+      <p>EBM は「毎回すべての指標を完璧に計測せよ」という厳格なルールブックではなく、<strong>仮説検証のサイクルを回すための思考の道具</strong>です。実務では以下のような使い方が推奨されます。</p>
+
+      <ol>
+        <li>現状のKVAに関連する指標をいくつか選び、ベースラインを計測する</li>
+        <li>「この施策を実行すれば、この指標がこう変化するはずだ」という仮説を立てる(Build-Measure-Learn サイクル、第1章・第6章とも関連)</li>
+        <li>小さく実験し、実際の指標変化を観察する</li>
+        <li>学びをプロダクトバックログの優先順位付けやプロダクトゴールの見直しに反映する</li>
+      </ol>
+
+      <p>このサイクルこそが、第1章で述べた「アウトプットではなくアウトカムを問う」姿勢を実務に落とし込んだ姿です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">Evidence-Based Management Guide</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="scrum-events">
+      <div class="section-eyebrow"><i class="ti ti-timeline"></i>SECTION 05</div>
+      <h2>スクラムイベントとプロダクトオーナーの振る舞い</h2>
+
+      <p>各スクラムイベントにおいて、プロダクトオーナーがどのように関わるべきかは PSPO 試験の頻出テーマです。「参加が必須かどうか」「誰が意思決定するか」という観点を軸に整理します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="scrumEvents"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">スプリントを構成する4つのイベントとPOの関わり方</div>
+      </div>
+
+      <h3>スプリントプランニング(Sprint Planning)</h3>
+      <p>プロダクトオーナーは、なぜこのスプリントに価値があるのか(Topic 1: Why is this Sprint valuable?)を説明し、スプリントゴールの草案を提案します。ただし、スプリントゴールを最終的に確定させるのは<strong>スクラムチーム全体</strong>であり、どのPBIをどこまで取り組むかを選び、その届け方の計画を作るのは<strong>開発者(Developers)自身</strong>です。プロダクトオーナーの役割は次の通りです。</p>
+
+      <ul>
+        <li>プロダクトバックログの中から、次のスプリントで着手すべき価値の高いPBIを提示する</li>
+        <li>開発チームからの質問に答え、ビジネス上の文脈やスコープの意図を説明する</li>
+        <li>スコープと期間・品質のトレードオフについて交渉し、必要に応じて優先順位やスコープの調整に応じる</li>
+      </ul>
+
+      <p>ここでの重要な注意点は、<strong>プロダクトオーナーが開発チームに対して「これを全部やれ」と一方的に指示する立場ではない</strong>という点です。あくまで対話と交渉を通じて、双方が納得したスプリントゴールとプランを作り上げます。</p>
+
+      <h3>デイリースクラム(Daily Scrum)</h3>
+      <p>Scrum Guide 上、デイリースクラムは開発者(Developers)のためのイベントであり、プロダクトオーナーの参加は必須ではありません。ただし、開発チームから直接相談を受けた場合(要件の疑問、優先順位の確認など)には、可能な限り迅速に対応することが期待されます。プロダクトオーナー自身がデイリースクラムを「進捗報告会」や「管理者への報告の場」に変質させてしまうことは、Scrumの自己管理の原則に反するアンチパターンとして扱われます。</p>
+
+      <h3>スプリントレビュー(Sprint Review)</h3>
+      <p>スプリントレビューは単なる「デモ発表会」ではありません。Scrum Guide では、スプリントレビューを「検査に基づいて今後の適応を決める、作業セッション」と位置づけています。プロダクトオーナーにとっての実践的なポイントは以下の通りです。</p>
+
+      <ul>
+        <li>完成した成果物を実際に動かして見せるだけでなく、<strong>関連するステークホルダーを巻き込み、率直なフィードバックを引き出す場</strong>として設計する</li>
+        <li>プロダクトゴールに対する進捗状況を共有し、必要であればプロダクトゴール自体の見直しについても議論する</li>
+        <li>レビューで得られたフィードバックをその場でプロダクトバックログに反映し、次のスプリントプランニングにつなげる</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「デモ会で終わらせない」ためには、事前にステークホルダーへ検証したい仮説や意見を聞きたいポイントを明示しておく、レビューの後半に対話の時間を十分確保する、といった工夫が有効です。</p>
+      </div>
+
+      <h3>スプリントレトロスペクティブ(Sprint Retrospective)</h3>
+      <p>プロダクトオーナーはスクラムチームの一員として、レトロスペクティブに参加する義務があります。ここでの立場は「監督者」ではなく「チームメンバーの一人」です。プロダクトオーナー自身の振る舞い(優先順位の伝え方、ステークホルダーとの調整の仕方など)についても率直にフィードバックを受け、プロセス改善に貢献する姿勢が求められます。</p>
+
+      <h3>スプリントの中止(Cancelling a Sprint)</h3>
+      <p>Scrum Guide において、スプリントを中止できる権限を持つのは<strong>プロダクトオーナー</strong>のみです。スプリントゴールが意味をなさなくなった場合(市場環境の激変、経営方針の大転換など)に発動されうる、緊急避難的な手段です。ただし、これは頻繁に使うべき手段ではなく、通常は次のスプリントプランニングやスプリントレビューでの調整によって対応されるべきものである、という前提を理解しておく必要があります。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="exam-prep">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 06</div>
+      <h2>試験対策・頻出シチュエーション問題の解法パターン</h2>
+
+      <p>PSPO 試験、特に PSPO II では、単純な知識問題よりも「このシチュエーションでプロダクトオーナーはどう振る舞うべきか」を問うシナリオ問題が中心になります。ここでは典型的なトレードオフのパターンを整理します。</p>
+
+      <h3>ステークホルダーの要望とプロダクトゴールの衝突</h3>
+      <p>試験でよく出題される状況は、「有力なステークホルダー(経営層や大口顧客)が、プロダクトゴールと矛盾する機能を強く要求してくる」というものです。この場合の望ましい振る舞いは以下の通りです。</p>
+
+      <ul>
+        <li>要望を頭ごなしに拒否するのではなく、<strong>その要望の裏にある「本当の課題(Why)」を丁寧にヒアリングする</strong></li>
+        <li>その要望がプロダクトゴールにどう寄与する、あるいは矛盾するのかを、データや根拠を持って説明する</li>
+        <li>必要であれば、その要望を通すことで犠牲になるもの(他の優先度の高いPBI、プロダクトゴールの一貫性)を明確に提示する</li>
+        <li>最終的に、根拠を持って「今はやらない」という<strong>Noを言う勇気</strong>を持つ。ただし、これは「対話を拒否すること」とは異なる</li>
+      </ul>
+
+      <p>「PO はステークホルダーの言いなりになるべきではないが、対話を拒否してもいけない」という両立が、試験で問われる本質的なバランス感覚です。</p>
+
+      <h3>開発チームの見積りに対するPOの介入制限</h3>
+      <p>プロダクトオーナーは「価値」に責任を持ちますが、「どうやって作るか(How)」や「その作業にどれだけ時間がかかるか(見積り)」は開発チームの裁量領域です。試験では、「POが見積りを不服として一方的に数字を変更させようとする」ような選択肢は、明確な誤りとして扱われます。プロダクトオーナーにできることは以下の通りです。</p>
+
+      <ul>
+        <li>PBIのスコープや受け入れ基準を分割・調整し、見積りしやすい粒度にする</li>
+        <li>なぜその見積りになるのか、開発チームとの対話を通じて理解を深める</li>
+        <li>見積り自体を「約束」ではなく「不確実性を伴う予測」として扱う</li>
+      </ul>
+
+      <h3>リリース判定基準と「Doneの定義」の満たし方</h3>
+      <p>「PBI が完了したかどうか」を判断する基準には2つのレイヤーがあり、これらを混同しないことが試験対策上重要です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>基準</th><th>適用範囲</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>受け入れ基準(Acceptance Criteria)</strong></td><td>個々のPBIに固有</td><td>そのPBI固有の機能的な合格条件(第3章 Given-When-Then 参照)</td></tr>
+            <tr><td><strong>Doneの定義(Definition of Done)</strong></td><td>組織標準があればそれが最低限。無ければスクラムチームが定義し、同一プロダクトの複数チームは共通のDoneの定義に揃える</td><td>リリース可能な品質を保証するための普遍的な基準(例：テストが通っている、コードレビュー済み、ドキュメント更新済みなど)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>インクリメントが「Done」と判断されるためには、<strong>受け入れ基準を満たし、かつ Doneの定義も満たしている</strong>必要があります。片方だけでは不十分です。また、Doneの定義は組織に標準がある場合はそれが最低限の基準となり、標準が存在しない場合はスクラムチームが作成します(開発者はその基準に適合しなければなりません)。プロダクトオーナーが一方的に基準を緩めたり厳しくしたりできるものではない、という点も頻出の論点です。</p>
+
+      <h3>合格に向けた推奨学習ステップ</h3>
+
+      <ol class="step-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">The Scrum Guide を原文で複数回読み込む</div>
+            <div class="step-desc">翻訳や要約ではなく、一次情報の言葉遣いそのものが出題の根拠になります。特に「誰が」「何に対して」責任を持つのか、という主語と目的語の対応関係を正確に押さえてください。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">EBM Guide を読み、4つのKVAをそれぞれ具体的な指標とセットで説明できるようにする</div>
+            <div class="step-desc">第4章参照。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">公式のオープンアセスメント(無料の実力診断テスト)を繰り返し受験する</div>
+            <div class="step-desc">Scrum.org が提供する Product Owner Open や Evidence-Based Management Open などの無料アセスメントは、本試験の出題傾向を掴む上で非常に有効です。満点近くを安定して取れるようになるまで繰り返すことが推奨されます。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">アンチパターンを人に説明できるようにする</div>
+            <div class="step-desc">第1章のアンチパターン一覧を、自分の言葉で「なぜそれが問題なのか」まで説明できるようにしておくと、シナリオ問題への応用力が高まります。</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">実務経験と紐づける</div>
+            <div class="step-desc">可能であれば、自分の実務における優先順位付けの根拠やステークホルダー対応を、本ガイドのフレームワーク(第3章のCoD、第4章のEBMなど)に当てはめて振り返ってみると、知識が定着しやすくなります。</div>
+          </div>
+        </li>
+      </ol>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">Professional Scrum Product Owner Certifications</a></li>
+          <li><a href="https://www.scrumguides.org/" target="_blank" rel="noopener">The Scrum Guide</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 07</div>
+      <h2>参考リソース・公式リンク集</h2>
+
+      <p>本ガイドの解説・フレームワークは、以下の Scrum.org 公式リソースを一次情報として参照しています。試験直前の最終確認には、必ずこれらの一次情報にあたることを強く推奨します。</p>
+
+      <div class="ref-group">
+        <ul class="ref-list">
+          <li><span class="ref-name">PSPO 公式認定概要</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-product-owner-certifications</a></li>
+          <li><span class="ref-name">The Scrum Guide(スクラムガイド最新版)</span><a class="ref-url" href="https://www.scrumguides.org/" target="_blank" rel="noopener">https://www.scrumguides.org/</a></li>
+          <li><span class="ref-name">Evidence-Based Management Guide(EBM ガイド)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
+          <li><span class="ref-name">Product Owner Learning Series</span><a class="ref-url" href="https://www.scrum.org/pathway/product-owner-learning-series" target="_blank" rel="noopener">https://www.scrum.org/pathway/product-owner-learning-series</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <footer>
+      <p>本ガイドは学習目的で作成された非公式の教材です。試験の出題範囲・形式・合格基準は Scrum.org の発表により変更される場合があるため、受験前に必ず<a href="https://www.scrum.org/professional-scrum-product-owner-certifications" target="_blank" rel="noopener">公式サイト</a>で最新情報をご確認ください。</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+  visionHierarchy: `flowchart TD
+A["プロダクトビジョン 数年単位の世界観"] --> B["ビジネスゴール 組織の戦略目標"]
+B --> C["プロダクトゴール プロダクトの将来状態(北極星)"]
+C --> D["スプリントゴール 1スプリントの単一目的"]
+D --> E["プロダクトバックログアイテム 具体的な作業単位"]
+E -.->|"検証・学習をフィードバック"| C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A,B,D,E box;
+class C hub;`,
+  ebmKva: `flowchart LR
+subgraph 現在の価値軸
+CV["Current Value(CV) 現在提供している価値"]
+UV["Unrealized Value(UV) 未実現の潜在的価値"]
+end
+subgraph 価値創出能力軸
+T2M["Time to Market(T2M) 価値を届ける速さ"]
+A2I["Ability to Innovate(A2I) 新しい価値を生む組織能力"]
+end
+CV --- UV
+T2M --- A2I
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class CV,UV box;
+class T2M,A2I hub;`,
+  scrumEvents: `flowchart LR
+SP["Sprint Planning スプリントゴールの提案・交渉"] --> DS["Daily Scrum 参加義務なし・要請時に対応"]
+DS --> SR["Sprint Review フィードバック収集・バックログ調整"]
+SR --> Retro["Sprint Retrospective チームの一員として参加"]
+Retro -.->|"次のスプリントへ"| SP
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class SP,DS,SR,Retro box;`,
+
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

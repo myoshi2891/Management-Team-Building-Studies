@@ -2,6 +2,7 @@ import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
 import SiteHeader from "~/components/SiteHeader.vue";
+import { GUIDES, GUIDE_PROGRAMS } from "~/utils/guide-catalog";
 
 const { currentPath } = vi.hoisted(() => ({ currentPath: { value: "/capm" } }));
 mockNuxtImport("useRoute", () => () => ({
@@ -32,336 +33,148 @@ const mountHeader = (options: { attachTo?: Element } = {}) =>
     },
   });
 
-/** ドロップダウンのトリガー（カテゴリー見出し） */
+/** ドロップダウンのトリガー（種別見出し） */
 const triggers = (wrapper: ReturnType<typeof mountHeader>) =>
   wrapper.findAll("[data-testid='nav-category-trigger']");
 
-/** 指定カテゴリーのドロップダウン内リンク */
-const panelLinks = (wrapper: ReturnType<typeof mountHeader>, categoryId: string) =>
-  wrapper.get(`#nav-panel-${categoryId}`).findAll("a").map((link) => ({
-    label: link.text(),
+/**
+ * 指定種別のドロップダウン内リンク。
+ *
+ * textContent は要素間に空白を入れずに連結されるため、ラベル・件数・説明を
+ * まとめて 1 本の文字列で固定すると、区切りの無い読みにくい期待値になり、
+ * どの要素が欠けたのかも分からない。要素ごとに取り出して個別に固定する。
+ */
+const panelLinks = (wrapper: ReturnType<typeof mountHeader>, kindId: string) =>
+  wrapper.get(`#nav-panel-${kindId}`).findAll("a").map((link) => ({
+    label: link.find(".nav-program-label").exists()
+      ? link.get(".nav-program-label").text()
+      : link.text(),
+    summary: link.find(".nav-program-summary").exists()
+      ? link.get(".nav-program-summary").text()
+      : null,
     href: link.attributes("href"),
   }));
 
-/**
- * 指定カテゴリーのシリーズカラム。
- * 見出し・見出しとの a11y 紐付け・所属リンクをカラム単位で取り出す。
+/*
+ * ナビの契約は「ハブページへの有限個のリンクだけを出す」こと。
+ *
+ * 以前はここで全ガイドを列挙しており、その結果ナビの項目数がガイド数に比例した。
+ * ガイドの到達可能性を保証する役割はハブページ（GuideProgramHub）のテストへ移してある。
+ * このファイルが守るのは「ガイドが増えてもナビが太らない」という一点である。
  */
-const seriesColumns = (wrapper: ReturnType<typeof mountHeader>, categoryId: string) =>
-  wrapper.get(`#nav-panel-${categoryId}`).findAll(".nav-series").map((column) => ({
-    label: column.find(".nav-series-label").exists() ? column.get(".nav-series-label").text() : null,
-    labelledBy: column.get("ul").attributes("aria-labelledby") ?? null,
-    links: column.findAll("a").map((link) => ({ label: link.text(), href: link.attributes("href") })),
-  }));
-
-describe("SiteHeader — カテゴリー別ドロップダウンナビゲーション", () => {
-  it("ホームリンクとカテゴリートリガーを正しい順序で表示する", () => {
+describe("SiteHeader — 種別別ドロップダウンナビゲーション", () => {
+  it("ホームリンクと種別トリガーを正しい順序で表示する", () => {
     const wrapper = mountHeader();
 
     const home = wrapper.get("[data-testid='nav-home']");
     expect({ label: home.text(), href: home.attributes("href") }).toEqual({ label: "ホーム", href: "/" });
 
     expect(triggers(wrapper).map((trigger) => trigger.text())).toEqual([
-      "プロジェクトマネジメント",
-      "エンジニアリングマネジメント",
-      "リーダーシップ",
-      "チームビルディング",
+      "資格で学ぶ",
+      "書籍で学ぶ",
+      "テーマで学ぶ",
     ]);
   });
 
-  it("各カテゴリーのドロップダウンに属するガイドを順序・遷移先まで固定する", () => {
+  it("各種別のドロップダウンにハブへのリンクと総覧リンクだけを出す", () => {
     const wrapper = mountHeader();
 
-    expect(panelLinks(wrapper, "project-management")).toEqual([
-      { label: "CAPM 完全ガイド", href: "/capm" },
-      { label: "CAPM ドメイン1", href: "/certified-associate-in-project-management-domain1" },
-      { label: "CAPM ドメイン2", href: "/certified-associate-in-project-management-domain2" },
-      { label: "CAPM ドメイン3", href: "/capm-domain3-agile-frameworks-guide" },
-      { label: "CAPM ドメイン4", href: "/capm-domain4-business-analysis-frameworks" },
-      { label: "PMP 完全攻略", href: "/pmp-certification-guide" },
-      { label: "PMP ドメイン1", href: "/pmp-domain1-people-guide" },
-      { label: "PMP ドメイン2", href: "/pmp-domain2-process-guide" },
-      { label: "PMP ドメイン3", href: "/pmp-domain3-business-environment-guide" },
-      { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
-      { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
-      { label: "CSM Scrum理論", href: "/csm-scrum-theory-guide" },
-      { label: "CSM アーティファクト", href: "/csm-scrum-artifacts-and-commitments" },
-      { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
-      { label: "CSM コアコンピテンシー", href: "/csm-scrum-master-core-competencies" },
-      { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
-      { label: "CAF 完全ガイド", href: "/caf-certified-agile-facilitator-study-guide" },
-      { label: "CSD 完全ガイド", href: "/csd-certified-scrum-developer-study-guide" },
-      { label: "A-CSD 完全ガイド", href: "/a-csd-advanced-certified-scrum-developer-study-guide" },
-      { label: "CSP-D 完全ガイド", href: "/csp-d-certified-scrum-professional-developer-study-guide" },
-      { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
-      { label: "CSPO 完全ガイド", href: "/cspo-certified-scrum-product-owner-study-guide" },
-      { label: "A-CSPO 完全ガイド", href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide" },
-      { label: "CSP-PO 完全ガイド", href: "/csp-po-certified-scrum-professional-product-owner-study-guide" },
-      { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
-      { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
-      { label: "CAL1 第2章", href: "/agile-leadership-in-action" },
-      { label: "CAL1 第3章", href: "/cal1-chapter3-leading-agile-teams" },
-      { label: "CAL1 第4章", href: "/cal1-chapter4-leading-agile-organizations" },
-      { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
-      { label: "CAL2 Part 2", href: "/cal2-part2-developing-as-a-leader" },
-      { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
-      { label: "AI-PM 実践ガイド", href: "/ai-driven-project-management-guide" },
+    expect(panelLinks(wrapper, "certifications")).toEqual([
+      { label: "PMI 認定", summary: "CAPM・PMP の全出題ドメイン", href: "/certifications/pmi" },
+      { label: "Scrum Alliance 認定", summary: "CSM・CSPO・CSD・CAL の各体系", href: "/certifications/scrum-alliance" },
+      { label: "Scrum.org 認定", summary: "PSM・PSPO・PSD の各体系", href: "/certifications/scrum-org" },
+      { label: "資格で学ぶをすべて見る", summary: null, href: "/certifications" },
     ]);
-    expect(panelLinks(wrapper, "engineering-management")).toEqual([
-      { label: "EM キャリアパス", href: "/engineering-management-career-path" },
-      { label: "EM 入門", href: "/engineering-manager-guide" },
-      { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
-      { label: "人月の神話", href: "/mythical-man-month-guide" },
-      { label: "High Output Management", href: "/high-output-management-guide" },
-      { label: "An Elegant Puzzle", href: "/an-elegant-puzzle-guide" },
+
+    expect(panelLinks(wrapper, "books")).toEqual([
+      { label: "マネジメント", summary: "マネジメントの原典と実務書", href: "/books/management" },
+      { label: "リーダーシップ", summary: "リードの実践と対話の技術", href: "/books/leadership" },
+      { label: "チーム・組織文化", summary: "信頼・心理的安全性・組織文化", href: "/books/team" },
+      { label: "チーム設計", summary: "チーム構造とその変え方", href: "/books/org-design" },
+      { label: "プロダクト・アジャイル", summary: "プロダクト開発とアジャイル実践", href: "/books/product" },
+      { label: "書籍で学ぶをすべて見る", summary: null, href: "/books" },
     ]);
-    expect(panelLinks(wrapper, "engineering-leadership")).toEqual([
-      { label: "チームリード術", href: "/engineering-team-leadership-guide" },
-      { label: "リーダーの作法", href: "/leadership-practices-guide" },
-      { label: "最初の60日間", href: "/your-first-60-days-as-a-leader" },
-      { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
-      { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
-      { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
-      { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
-    ]);
-    expect(panelLinks(wrapper, "team-building")).toEqual([
-      { label: "Team Geek", href: "/team-geek-guide" },
-      { label: "Debugging Teams", href: "/debugging-teams-guide" },
-      { label: "Peopleware", href: "/peopleware-guide" },
-      { label: "Radical Candor", href: "/radical-candor-guide" },
-      { label: "No Rules Rules", href: "/no-rules-rules-guide" },
-      { label: "5つの機能不全", href: "/five-dysfunctions-of-a-team-guide" },
-      { label: "Team Topologies", href: "/team-topologies-guide" },
-      { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
-      { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
+
+    expect(panelLinks(wrapper, "practices")).toEqual([
+      { label: "役割とキャリア", summary: "リーダーの立ち上がりと役割間の協働", href: "/practices/career" },
+      { label: "AI 活用", summary: "AI を前提にした実務の進め方", href: "/practices/ai" },
+      { label: "テーマで学ぶをすべて見る", summary: null, href: "/practices" },
     ]);
   });
 
-  it("ドロップダウンをシリーズカラムへ分割する（見出し・a11y 紐付け・所属リンク）", () => {
+  it("ナビのリンク総数がガイド総数に依存しない", () => {
     /*
-     * カラム分割はドロップダウンが縦に伸び続けるのを防ぐための構造。
-     * 見出しだけ・件数だけの検証では、ガイドが別カラムへ紛れ込んでも通ってしまうため、
-     * 見出しと所属リンクを 1 つの構造として順序込みで固定する。
+     * このモデルが存在する理由そのもの。
+     * ホーム 1 + (各種別で プログラム数 + 総覧 1) がナビの全リンクであり、
+     * GUIDES が何本になってもこの式は変わらない。
+     * 実測でガイド列挙が復活していないことを示すため、件数の桁が違うことも固定する。
      */
     const wrapper = mountHeader();
+    const linkCount = wrapper.findAll("nav a").length;
 
-    expect(seriesColumns(wrapper, "project-management")).toEqual([
-      {
-        label: "CAPM",
-        labelledBy: "nav-series-capm",
-        links: [
-          { label: "CAPM 完全ガイド", href: "/capm" },
-          { label: "CAPM ドメイン1", href: "/certified-associate-in-project-management-domain1" },
-          { label: "CAPM ドメイン2", href: "/certified-associate-in-project-management-domain2" },
-          { label: "CAPM ドメイン3", href: "/capm-domain3-agile-frameworks-guide" },
-          { label: "CAPM ドメイン4", href: "/capm-domain4-business-analysis-frameworks" },
-        ],
-      },
-      {
-        label: "PMP",
-        labelledBy: "nav-series-pmp",
-        links: [
-          { label: "PMP 完全攻略", href: "/pmp-certification-guide" },
-          { label: "PMP ドメイン1", href: "/pmp-domain1-people-guide" },
-          { label: "PMP ドメイン2", href: "/pmp-domain2-process-guide" },
-          { label: "PMP ドメイン3", href: "/pmp-domain3-business-environment-guide" },
-        ],
-      },
-      {
-        label: "CSM / Scrum",
-        labelledBy: "nav-series-csm",
-        links: [
-          { label: "CSM 完全ガイド", href: "/csm-certified-scrummaster-guide" },
-          { label: "CSM 3つのアカウンタビリティ", href: "/csm-scrum-team-3-accountabilities" },
-          { label: "CSM Scrum理論", href: "/csm-scrum-theory-guide" },
-          { label: "CSM アーティファクト", href: "/csm-scrum-artifacts-and-commitments" },
-          { label: "CSM スクラムイベント", href: "/scrum-events-csm-guide" },
-          { label: "CSM コアコンピテンシー", href: "/csm-scrum-master-core-competencies" },
-          { label: "スクラム 97の知恵", href: "/scrum-97-things-guide" },
-          { label: "CAF 完全ガイド", href: "/caf-certified-agile-facilitator-study-guide" },
-          { label: "CSD 完全ガイド", href: "/csd-certified-scrum-developer-study-guide" },
-          { label: "A-CSD 完全ガイド", href: "/a-csd-advanced-certified-scrum-developer-study-guide" },
-          { label: "CSP-D 完全ガイド", href: "/csp-d-certified-scrum-professional-developer-study-guide" },
-          { label: "CASP 完全ガイド", href: "/casp-certified-agile-scaling-practitioner-study-guide" },
-        ],
-      },
-      {
-        label: "Product Owner",
-        labelledBy: "nav-series-product-owner",
-        links: [
-          { label: "CSPO 完全ガイド", href: "/cspo-certified-scrum-product-owner-study-guide" },
-          { label: "A-CSPO 完全ガイド", href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide" },
-          { label: "CSP-PO 完全ガイド", href: "/csp-po-certified-scrum-professional-product-owner-study-guide" },
-        ],
-      },
-      {
-        label: "CAL 1・2",
-        labelledBy: "nav-series-cal",
-        links: [
-          { label: "CAL1 完全ガイド", href: "/cal1-certified-agile-leader-1-guide" },
-          { label: "CAL1 第1章", href: "/the-case-for-agile-leadership" },
-          { label: "CAL1 第2章", href: "/agile-leadership-in-action" },
-          { label: "CAL1 第3章", href: "/cal1-chapter3-leading-agile-teams" },
-          { label: "CAL1 第4章", href: "/cal1-chapter4-leading-agile-organizations" },
-          { label: "CAL2 Part 1", href: "/cal2-part1-organizational-strategy-and-delivery" },
-          { label: "CAL2 Part 2", href: "/cal2-part2-developing-as-a-leader" },
-          { label: "CAL2 完全ガイド", href: "/cal2-certified-agile-leader-2-study-guide" },
-        ],
-      },
-      {
-        label: "AI-PM",
-        labelledBy: "nav-series-ai-pm",
-        links: [
-          { label: "AI-PM 実践ガイド", href: "/ai-driven-project-management-guide" },
-        ],
-      },
-    ]);
+    expect(linkCount).toBe(1 + GUIDE_PROGRAMS.length + 3);
+    expect(linkCount).toBeLessThan(GUIDES.length);
+  });
 
-    // シリーズ未定義のカテゴリーは、見出しの無い 1 カラム（分割前と同じ見た目）。
-    expect(seriesColumns(wrapper, "engineering-management")).toEqual([
-      {
-        label: null,
-        labelledBy: null,
-        links: [
-          { label: "EM キャリアパス", href: "/engineering-management-career-path" },
-          { label: "EM 入門", href: "/engineering-manager-guide" },
-          { label: "Managing Humans", href: "/managing-humans-best-practices-guide" },
-          { label: "人月の神話", href: "/mythical-man-month-guide" },
-          { label: "High Output Management", href: "/high-output-management-guide" },
-          { label: "An Elegant Puzzle", href: "/an-elegant-puzzle-guide" },
-        ],
-      },
-    ]);
+  it("ガイド本体へのリンクをナビに一切出さない（列挙モデルへの逆戻り検知）", () => {
+    const wrapper = mountHeader();
+    const hrefs = new Set(wrapper.findAll("nav a").map((link) => link.attributes("href")));
+    const leaked = GUIDES.map((guide) => guide.to).filter((to) => hrefs.has(to));
 
-    expect(seriesColumns(wrapper, "engineering-leadership")).toEqual([
-      {
-        label: "はじめてのリード",
-        labelledBy: "nav-series-first-leadership",
-        links: [
-          { label: "チームリード術", href: "/engineering-team-leadership-guide" },
-          { label: "リーダーの作法", href: "/leadership-practices-guide" },
-          { label: "最初の60日間", href: "/your-first-60-days-as-a-leader" },
-          { label: "Leadership Challenge", href: "/leadership-challenge-workbook-guide" },
-        ],
-      },
-      {
-        label: "組織・スケール",
-        labelledBy: "nav-series-exec-scale",
-        links: [
-          { label: "統括責任者の手引き", href: "/engineering-executive-playbook" },
-          { label: "Elastic Leadership", href: "/elastic-leadership-guide" },
-          { label: "開発者・アーキテクト", href: "/developer-architect-communication-guide" },
-        ],
-      },
-    ]);
-
-    expect(seriesColumns(wrapper, "team-building")).toEqual([
-      {
-        label: "チーム文化",
-        labelledBy: "nav-series-team-culture",
-        links: [
-          { label: "Team Geek", href: "/team-geek-guide" },
-          { label: "Debugging Teams", href: "/debugging-teams-guide" },
-          { label: "Peopleware", href: "/peopleware-guide" },
-          { label: "Radical Candor", href: "/radical-candor-guide" },
-          { label: "No Rules Rules", href: "/no-rules-rules-guide" },
-          { label: "5つの機能不全", href: "/five-dysfunctions-of-a-team-guide" },
-        ],
-      },
-      {
-        label: "チーム設計・変革",
-        labelledBy: "nav-series-team-design",
-        links: [
-          { label: "Team Topologies", href: "/team-topologies-guide" },
-          { label: "ダイナミック・リチーミング", href: "/dynamic-reteaming-guide" },
-          { label: "Lean UX 入門", href: "/lean-ux-beginner-guide" },
-        ],
-      },
-    ]);
+    expect(leaked).toEqual([]);
   });
 
   it("パネルのカラム数を data-columns として CSS へ渡す", () => {
-    // グリッドの列数は CSS 側で var(--nav-panel-columns) として使う。
-    // 属性が欠けると全カラムが 1 列に潰れるため、DOM 契約として固定する。
+    /*
+     * ハブ方式のパネルは 1 カラム固定（プログラムを縦に並べる）。
+     * 属性が欠けるとグリッドの列数が解決できないため、DOM 契約として固定する。
+     */
     const wrapper = mountHeader();
 
     expect(wrapper.findAll(".nav-dropdown").map((panel) => ({
       id: panel.attributes("id"),
       columns: panel.attributes("data-columns"),
     }))).toEqual([
-      { id: "nav-panel-project-management", columns: "6" },
-      { id: "nav-panel-engineering-management", columns: "1" },
-      { id: "nav-panel-engineering-leadership", columns: "2" },
-      { id: "nav-panel-team-building", columns: "2" },
+      { id: "nav-panel-certifications", columns: "1" },
+      { id: "nav-panel-books", columns: "1" },
+      { id: "nav-panel-practices", columns: "1" },
     ]);
   });
 
-  it("シリーズ見出しの id が重複しない（aria-labelledby の指し先が一意）", () => {
-    const ids = mountHeader().findAll(".nav-series-label").map((label) => label.attributes("id"));
-
-    expect(ids).toEqual([...new Set(ids)]);
-  });
-
-  it("すべての公開ガイドへ到達できる（登録漏れの検知）", () => {
+  it("各ハブリンクが件数を機械可読な形で持つ", () => {
+    // 件数はカタログから導出する。手書きすると増えるたびに静かにずれる。
     const wrapper = mountHeader();
 
-    expect(wrapper.findAll("nav a").map((link) => link.attributes("href"))).toEqual([
+    expect(wrapper.findAll("[data-testid='nav-program-count']").map((node) => ({
+      program: node.attributes("data-program"),
+      count: node.text(),
+    }))).toEqual(
+      GUIDE_PROGRAMS.map((program) => ({
+        program: program.id,
+        count: String(GUIDES.filter((guide) => guide.programId === program.id).length),
+      })),
+    );
+  });
+
+  it("すべてのハブへ到達できる（プログラム登録漏れの検知）", () => {
+    const wrapper = mountHeader();
+    const hrefs = wrapper.findAll("nav a").map((link) => link.attributes("href"));
+
+    expect(hrefs).toEqual([
       "/",
-      "/capm",
-      "/certified-associate-in-project-management-domain1",
-      "/certified-associate-in-project-management-domain2",
-      "/capm-domain3-agile-frameworks-guide",
-      "/capm-domain4-business-analysis-frameworks",
-      "/pmp-certification-guide",
-      "/pmp-domain1-people-guide",
-      "/pmp-domain2-process-guide",
-      "/pmp-domain3-business-environment-guide",
-      "/csm-certified-scrummaster-guide",
-      "/csm-scrum-team-3-accountabilities",
-      "/csm-scrum-theory-guide",
-      "/csm-scrum-artifacts-and-commitments",
-      "/scrum-events-csm-guide",
-      "/csm-scrum-master-core-competencies",
-      "/scrum-97-things-guide",
-      "/caf-certified-agile-facilitator-study-guide",
-      "/csd-certified-scrum-developer-study-guide",
-      "/a-csd-advanced-certified-scrum-developer-study-guide",
-      "/csp-d-certified-scrum-professional-developer-study-guide",
-      "/casp-certified-agile-scaling-practitioner-study-guide",
-      "/cspo-certified-scrum-product-owner-study-guide",
-      "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
-      "/csp-po-certified-scrum-professional-product-owner-study-guide",
-      "/cal1-certified-agile-leader-1-guide",
-      "/the-case-for-agile-leadership",
-      "/agile-leadership-in-action",
-      "/cal1-chapter3-leading-agile-teams",
-      "/cal1-chapter4-leading-agile-organizations",
-      "/cal2-part1-organizational-strategy-and-delivery",
-      "/cal2-part2-developing-as-a-leader",
-      "/cal2-certified-agile-leader-2-study-guide",
-      "/ai-driven-project-management-guide",
-      "/engineering-management-career-path",
-      "/engineering-manager-guide",
-      "/managing-humans-best-practices-guide",
-      "/mythical-man-month-guide",
-      "/high-output-management-guide",
-      "/an-elegant-puzzle-guide",
-      "/engineering-team-leadership-guide",
-      "/leadership-practices-guide",
-      "/your-first-60-days-as-a-leader",
-      "/leadership-challenge-workbook-guide",
-      "/engineering-executive-playbook",
-      "/elastic-leadership-guide",
-      "/developer-architect-communication-guide",
-      "/team-geek-guide",
-      "/debugging-teams-guide",
-      "/peopleware-guide",
-      "/radical-candor-guide",
-      "/no-rules-rules-guide",
-      "/five-dysfunctions-of-a-team-guide",
-      "/team-topologies-guide",
-      "/dynamic-reteaming-guide",
-      "/lean-ux-beginner-guide",
+      "/certifications/pmi",
+      "/certifications/scrum-alliance",
+      "/certifications/scrum-org",
+      "/certifications",
+      "/books/management",
+      "/books/leadership",
+      "/books/team",
+      "/books/org-design",
+      "/books/product",
+      "/books",
+      "/practices/career",
+      "/practices/ai",
+      "/practices",
     ]);
   });
 
@@ -369,37 +182,36 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     const wrapper = mountHeader();
 
     expect(triggers(wrapper).map((trigger) => trigger.attributes("aria-expanded")))
-      .toEqual(["false", "false", "false", "false"]);
+      .toEqual(["false", "false", "false"]);
   });
 
   it("トリガーの aria-controls が対応するパネルの id を指す", () => {
     const wrapper = mountHeader();
 
     expect(triggers(wrapper).map((trigger) => trigger.attributes("aria-controls"))).toEqual([
-      "nav-panel-project-management",
-      "nav-panel-engineering-management",
-      "nav-panel-engineering-leadership",
-      "nav-panel-team-building",
+      "nav-panel-certifications",
+      "nav-panel-books",
+      "nav-panel-practices",
     ]);
   });
 
-  it("トリガーを押すと当該カテゴリーだけが開く", async () => {
+  it("トリガーを押すと当該種別だけが開く", async () => {
     const wrapper = mountHeader();
 
     await triggers(wrapper)[1]!.trigger("click");
 
     expect(triggers(wrapper).map((trigger) => trigger.attributes("aria-expanded")))
-      .toEqual(["false", "true", "false", "false"]);
+      .toEqual(["false", "true", "false"]);
   });
 
-  it("別のトリガーを押すと開いていたカテゴリーは閉じる", async () => {
+  it("別のトリガーを押すと開いていた種別は閉じる", async () => {
     const wrapper = mountHeader();
 
     await triggers(wrapper)[1]!.trigger("click");
     await triggers(wrapper)[2]!.trigger("click");
 
     expect(triggers(wrapper).map((trigger) => trigger.attributes("aria-expanded")))
-      .toEqual(["false", "false", "true", "false"]);
+      .toEqual(["false", "false", "true"]);
   });
 
   it("同じトリガーを再度押すと閉じる", async () => {
@@ -409,7 +221,7 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     await triggers(wrapper)[0]!.trigger("click");
 
     expect(triggers(wrapper).map((trigger) => trigger.attributes("aria-expanded")))
-      .toEqual(["false", "false", "false", "false"]);
+      .toEqual(["false", "false", "false"]);
   });
 
   it("Escape キーで開いているドロップダウンを閉じる", async () => {
@@ -419,59 +231,22 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     await wrapper.get("nav").trigger("keydown.escape");
 
     expect(triggers(wrapper).map((trigger) => trigger.attributes("aria-expanded")))
-      .toEqual(["false", "false", "false", "false"]);
+      .toEqual(["false", "false", "false"]);
   });
 
-  it("現在のページを含むカテゴリーとそのリンクを通知する", () => {
+  it("ガイド閲覧中は、その所属種別とハブリンクを現在地として通知する", () => {
+    /*
+     * ナビはガイドを列挙しないので、現在地の手掛かりは種別トリガーとハブリンクしかない。
+     * ここが欠けると「今どのあたりを見ているか」がナビから完全に失われる。
+     * currentPath は /capm（PMI 認定）。
+     */
     const wrapper = mountHeader();
 
     expect(triggers(wrapper).map((trigger) => trigger.classes().includes("current")))
-      .toEqual([true, false, false, false]);
+      .toEqual([true, false, false]);
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
-      "page",
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
+      "true",
       undefined,
       undefined,
       undefined,
@@ -487,13 +262,28 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
     ]);
   });
 
+  it("ハブページ表示中は、そのハブリンクを現在地(page)として通知する", () => {
+    currentPath.value = "/books/team";
+    try {
+      const wrapper = mountHeader();
+
+      expect(triggers(wrapper).map((trigger) => trigger.classes().includes("current")))
+        .toEqual([false, true, false]);
+      // 祖先（ガイド閲覧中）は aria-current="true"、そのページ自身は "page" で区別する。
+      const teamHub = wrapper.findAll("nav a").find((link) => link.attributes("href") === "/books/team");
+      expect(teamHub?.attributes("aria-current")).toBe("page");
+    } finally {
+      currentPath.value = "/capm";
+    }
+  });
+
   it("ホーム表示時はホームリンクだけを現在地として通知する", () => {
     currentPath.value = "/";
     try {
       const wrapper = mountHeader();
 
       expect(triggers(wrapper).map((trigger) => trigger.classes().includes("current")))
-        .toEqual([false, false, false, false]);
+        .toEqual([false, false, false]);
       expect(wrapper.get("[data-testid='nav-home']").attributes("aria-current")).toBe("page");
     } finally {
       currentPath.value = "/capm";
@@ -512,6 +302,18 @@ describe("SiteHeader — カテゴリー別ドロップダウンナビゲーシ�
 
     expect(wrapper.get("[data-testid='nav-toggle']").attributes("aria-expanded")).toBe("true");
     expect(wrapper.get("[data-testid='nav-toggle']").attributes("aria-label")).toBe("ナビゲーションを閉じる");
+  });
+
+  it("ナビゲーション内にサイト内検索を組み込む", () => {
+    /*
+     * ハブ方式ではガイドが 1 クリック遠くなる。その代償を相殺する導線が検索であり、
+     * ヘッダーから欠けると 4 階層モデルの前提（回遊は検索が担う）が崩れる。
+     * 検索そのものの挙動は tests/components/SiteSearch.test.ts が固定するため、
+     * ここでは「ナビの中に居ること」だけを見る。
+     */
+    const wrapper = mountHeader();
+
+    expect(wrapper.get("nav").find("[data-testid='site-search-trigger']").exists()).toBe(true);
   });
 
   it("ブランドとナビゲーションにアクセシブルな名前を持つ", () => {
@@ -568,9 +370,9 @@ describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", (
     const wrapper = mountHeader({ attachTo: document.body });
 
     try {
-      const trigger = wrapper.get("#nav-trigger-project-management");
+      const trigger = wrapper.get("#nav-trigger-certifications");
       await trigger.trigger("click");
-      const link = wrapper.get("#nav-panel-project-management a");
+      const link = wrapper.get("#nav-panel-certifications a");
       (link.element as HTMLAnchorElement).focus();
 
       media.emitChange(false);
@@ -641,9 +443,9 @@ describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", (
       media.emitChange(false);
       await wrapper.vm.$nextTick();
 
-      const trigger = wrapper.get("#nav-trigger-project-management");
+      const trigger = wrapper.get("#nav-trigger-certifications");
       await trigger.trigger("click");
-      const link = wrapper.get("#nav-panel-project-management a").element as HTMLAnchorElement;
+      const link = wrapper.get("#nav-panel-certifications a").element as HTMLAnchorElement;
       link.focus();
 
       outside.dispatchEvent(new Event("pointerdown", { bubbles: true }));
@@ -664,9 +466,9 @@ describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", (
     const wrapper = mountHeader({ attachTo: document.body });
 
     try {
-      const trigger = wrapper.get("#nav-trigger-project-management");
+      const trigger = wrapper.get("#nav-trigger-certifications");
       await trigger.trigger("click");
-      const link = wrapper.get("#nav-panel-project-management a");
+      const link = wrapper.get("#nav-panel-certifications a");
       (link.element as HTMLAnchorElement).focus();
 
       media.emitChange(false);

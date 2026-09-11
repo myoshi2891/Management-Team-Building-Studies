@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { GUIDE_CATEGORIES, type GuideCategoryId } from "../app/utils/guide-catalog";
+import { GUIDE_KINDS, type GuideKindId } from "../app/utils/guide-catalog";
 
 /*
  * グローバルナビのスモーク。
@@ -12,13 +12,11 @@ import { GUIDE_CATEGORIES, type GuideCategoryId } from "../app/utils/guide-catal
  */
 
 /*
- * 巡回対象のカテゴリーは GUIDE_CATEGORIES（カテゴリー定義の SSoT）から導出する。
- * ここに固定配列を置くとカテゴリー追加時に二重管理になり、テストは Green のまま
- * 新カテゴリーのドロップダウンを一度も開かない（＝静かにカバレッジが欠ける）。
+ * 巡回対象の種別は GUIDE_KINDS（種別定義の SSoT）から導出する。
+ * ここに固定配列を置くと種別追加時に二重管理になり、テストは Green のまま
+ * 新種別のドロップダウンを一度も開かない（＝静かにカバレッジが欠ける）。
  */
-const CATEGORY_IDS: readonly GuideCategoryId[] = GUIDE_CATEGORIES.map(
-  (category) => category.id,
-);
+const KIND_IDS: readonly GuideKindId[] = GUIDE_KINDS.map((kind) => kind.id);
 
 const MOBILE = { width: 375, height: 720 };
 
@@ -46,6 +44,24 @@ async function openWithHover(page: Page, triggerId: string): Promise<void> {
   }).toPass({ timeout: 10_000 });
 }
 
+/*
+ * モバイルのハンバーガーを開く。hover / keyboard 版と同じハイドレーション競合があり、
+ * リスナーが付く前のタップはネイティブのクリックとして捨てられる
+ * （実測: 3 回に 1 回、ナビが開かないまま後続のトリガーが不可視でタイムアウトした）。
+ *
+ * 再試行を掛けるのは「最初の 1 タップ」だけに留める。ナビが可視になった時点で
+ * ハイドレーションは済んでおり、それ以降のタップは素のまま検証してよい
+ * （アコーディオン側にも再試行を掛けると、開いた直後に閉じる二重発火のバグを
+ *   再試行が覆い隠してしまう）。開いていれば何もしないので再試行で閉じない。
+ */
+async function openMobileNav(page: Page): Promise<void> {
+  const nav = page.locator("#global-nav");
+  await expect(async () => {
+    if (await nav.isHidden()) await page.locator("[data-testid='nav-toggle']").click({ timeout: 2_000 });
+    await expect(nav).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+}
+
 async function openWithKeyboard(page: Page, triggerId: string): Promise<void> {
   const trigger = page.locator(`#nav-trigger-${triggerId}`);
   await expect(async () => {
@@ -61,15 +77,21 @@ test("デスクトップ: hover でドロップダウンが開き、現在のペ
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/capm");
 
-  const trigger = page.locator("#nav-trigger-project-management");
-  const panel = page.locator("#nav-panel-project-management");
+  const trigger = page.locator("#nav-trigger-certifications");
+  const panel = page.locator("#nav-panel-certifications");
 
   await expect(trigger).toHaveClass(/current/);
   await expect(panel).toBeHidden();
 
-  await openWithHover(page, "project-management");
+  await openWithHover(page, "certifications");
   await expect(trigger).toHaveAttribute("aria-expanded", "true");
-  await expect(panel.locator("a.current")).toHaveAttribute("href", "/capm");
+  /*
+   * ナビはガイドを列挙しないため、現在地として点くのは所属ハブ（PMI 認定）。
+   * ハブ自身ではなく配下のガイドを見ているので aria-current は "page" ではなく "true"（祖先）。
+   */
+  const current = panel.locator("a.current");
+  await expect(current).toHaveAttribute("href", "/certifications/pmi");
+  await expect(current).toHaveAttribute("aria-current", "true");
 
   // パネルはヘッダーの下端より下に出る（ヘッダーに潜り込んで切れない）。
   // toBeVisible() は visibility が切り替わった時点で通るが、パネルは 160ms かけて
@@ -97,7 +119,7 @@ test("デスクトップ: パネルはトリガー基準に出て、はみ出す
     await page.goto("/");
     const container = (await page.locator(".global-header-inner").boundingBox())!;
 
-    for (const id of CATEGORY_IDS) {
+    for (const id of KIND_IDS) {
       await openWithHover(page, id);
       const panel = page.locator(`#nav-panel-${id}`);
       const trigger = (await page.locator(`#nav-trigger-${id}`).boundingBox())!;
@@ -123,10 +145,11 @@ test("デスクトップ: パネルはトリガー基準に出て、はみ出す
 /*
  * ドロップダウンを「開いた状態」の縦方向の契約。
  *
- * シリーズカラムは縦の肥大化を吸収するための構造だが、1 カラムへガイドが集中すると
- * その吸収が効かなくなる（実測: scrum シリーズが 14 件へ膨らみ、パネル全高が約 600px に達した）。
- * カラムあたりの件数上限は tests/utils/guide-catalog.test.ts が分類の契約として固定するが、
- * 「実際に描いたら画面を覆うか」は実レイアウトでしか判定できないため、ここで実測する。
+ * パネルはハブ（プログラム）へのリンクだけを並べるため、行数はガイド数ではなく
+ * プログラム数で決まる（旧メガメニューはガイドを列挙しており、実測でパネル全高が
+ * 683px に達して破綻した）。プログラム数の上限は tests/utils/guide-catalog.test.ts が
+ * 分類の契約として固定するが、「実際に描いたら画面を覆うか」は実レイアウトでしか
+ * 判定できないため、ここで実測する。
  *
  * 縦が最も厳しい常用構成として 1280x720 を使う。
  */
@@ -138,7 +161,7 @@ test("デスクトップ: どのパネルを開いても縦にビューポート
   const headerBox = (await page.locator("[data-site-header]").boundingBox())!;
   const available = viewport.height - headerBox.height;
 
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     await openWithHover(page, id);
 
     const panel = page.locator(`#nav-panel-${id}`);
@@ -167,7 +190,7 @@ test("デスクトップ: パネル内のアイコンが潰れず、ラベルが
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     await openWithHover(page, id);
     const squeezed = await page.locator(`#nav-panel-${id}`).evaluate((el) =>
       [...el.querySelectorAll("a")]
@@ -194,10 +217,10 @@ test("デスクトップ: Escape で閉じてトリガーへフォーカスが�
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  const trigger = page.locator("#nav-trigger-engineering-leadership");
-  const panel = page.locator("#nav-panel-engineering-leadership");
+  const trigger = page.locator("#nav-trigger-books");
+  const panel = page.locator("#nav-panel-books");
 
-  await openWithKeyboard(page, "engineering-leadership");
+  await openWithKeyboard(page, "books");
 
   await page.keyboard.press("Escape");
   await expect(panel).toBeHidden();
@@ -208,10 +231,10 @@ test("デスクトップ: 閉じているドロップダウンのリンクはタ
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  await page.locator("#nav-trigger-project-management").focus();
+  await page.locator("#nav-trigger-certifications").focus();
   await page.keyboard.press("Tab");
 
-  await expect(page.locator("#nav-trigger-engineering-management")).toBeFocused();
+  await expect(page.locator("#nav-trigger-books")).toBeFocused();
 });
 
 test("モバイル幅: ポインタデバイスでもタップでアコーディオンが開く", async ({ page }) => {
@@ -219,10 +242,9 @@ test("モバイル幅: ポインタデバイスでもタップでアコーディ
   await page.setViewportSize(MOBILE);
   await page.goto("/");
 
-  await page.locator("[data-testid='nav-toggle']").click();
-  await expect(page.locator("#global-nav")).toBeVisible();
+  await openMobileNav(page);
 
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     const trigger = page.locator(`#nav-trigger-${id}`);
     await trigger.click();
     await expect(trigger).toHaveAttribute("aria-expanded", "true");
@@ -237,12 +259,12 @@ test("モバイル幅: リンクをタップすると遷移してナビが閉じ
   await page.setViewportSize(MOBILE);
   await page.goto("/");
 
-  await page.locator("[data-testid='nav-toggle']").click();
-  await page.locator("#nav-trigger-team-building").click();
-  await page.locator("#nav-panel-team-building a").first().click();
+  await openMobileNav(page);
+  await page.locator("#nav-trigger-practices").click();
+  await page.locator("#nav-panel-practices a").first().click();
 
-  // カタログの並べ替えにより、チームビルディングの先頭は「チーム文化」シリーズの Team Geek。
-  await expect(page).toHaveURL(/\/team-geek-guide$/);
+  // ナビが並べるのはハブ（プログラム）だけなので、先頭は「テーマで学ぶ」の最初のハブ。
+  await expect(page).toHaveURL(/\/practices\/career$/);
   await expect(page.locator("#global-nav")).toBeHidden();
 });
 
@@ -282,19 +304,18 @@ test("モバイル幅: Escape でメニューが閉じて nav-toggle へフォ�
   await page.goto("/");
 
   const toggle = page.locator("[data-testid='nav-toggle']");
-  await toggle.click();
-  await expect(page.locator("#global-nav")).toBeVisible();
+  await openMobileNav(page);
 
   // カテゴリを開いてリンクにフォーカスを当てる
-  await page.locator("#nav-trigger-project-management").click();
-  const link = page.locator("#nav-panel-project-management a").first();
+  await page.locator("#nav-trigger-certifications").click();
+  const link = page.locator("#nav-panel-certifications a").first();
   await link.focus();
   await expect(link).toBeFocused();
 
   // Escape でパネルが閉じトリガーに戻る
   await page.keyboard.press("Escape");
-  await expect(page.locator("#nav-panel-project-management")).toBeHidden();
-  await expect(page.locator("#nav-trigger-project-management")).toBeFocused();
+  await expect(page.locator("#nav-panel-certifications")).toBeHidden();
+  await expect(page.locator("#nav-trigger-certifications")).toBeFocused();
 
   // もう一度 Escape でメニュー自体が閉じて nav-toggle に戻る
   await page.keyboard.press("Escape");
@@ -306,11 +327,11 @@ test("デスクトップ: 外側クリックでパネルが閉じトリガーへ
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto("/");
 
-  const trigger = page.locator("#nav-trigger-engineering-management");
-  const panel = page.locator("#nav-panel-engineering-management");
+  const trigger = page.locator("#nav-trigger-books");
+  const panel = page.locator("#nav-panel-books");
 
   // キーボードで開く（フォーカスがナビ内に入る）
-  await openWithKeyboard(page, "engineering-management");
+  await openWithKeyboard(page, "books");
 
   // パネル内のリンクにフォーカスを当ててから外側クリック。
   // クリック先は必ず <main> にする。`locator("main, body")` は CSS セレクタリストを
@@ -340,7 +361,7 @@ test("デスクトップ: どのパネルを開いても切り取られず、横
 
   // 右寄りのカテゴリーほどはみ出しやすいが、どれか 1 つを見るだけでは
   // カタログの並べ替えで検証対象が入れ替わってしまう。全カテゴリーを見る。
-  for (const id of CATEGORY_IDS) {
+  for (const id of KIND_IDS) {
     await openWithHover(page, id);
 
     const box = await page.locator(`#nav-panel-${id}`).boundingBox();
@@ -358,3 +379,60 @@ test("デスクトップ: どのパネルを開いても切り取られず、横
   }
 });
 
+
+/*
+ * サイト内検索のスモーク。
+ *
+ * ユニットテスト（tests/components/SiteSearch.test.ts）が開閉とキーボード操作を固定するが、
+ * 「実際に遷移するか」「パネルがヘッダーの overflow-x: clip で切り取られないか」は
+ * 実レイアウトと実ルーティングでしか判定できない。
+ * 検索はハブ方式でガイドが 1 クリック遠くなる代償を相殺する導線なので、
+ * ここが黙って壊れると回遊が成立しなくなる。
+ */
+test("デスクトップ: 検索から候補を選んでガイドへ遷移する", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const trigger = page.locator("[data-testid='site-search-trigger']");
+  const input = page.locator("[data-testid='site-search-input']");
+
+  /*
+   * SSG された HTML はボタンが押せる状態で先に描画されるため、goto() 直後のクリックは
+   * Vue のリスナーが付く前のネイティブ click になりうる。他のトリガーと同じく冪等に再試行する。
+   */
+  await expect(async () => {
+    if (await input.isHidden()) await trigger.click({ timeout: 2_000 });
+    await expect(input).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+
+  await input.fill("CAPM ド");
+
+  const options = page.locator("[role='option']");
+  await expect(options).toHaveCount(4);
+
+  // パネルがヘッダー内枠の右端をはみ出さない（overflow-x: clip で切り取られない）。
+  const container = (await page.locator(".global-header-inner").boundingBox())!;
+  const panel = (await page.locator(".site-search-panel").boundingBox())!;
+  expect(panel.x).toBeGreaterThanOrEqual(container.x - 0.5);
+  expect(panel.x + panel.width).toBeLessThanOrEqual(container.x + container.width + 0.5);
+
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/\/certified-associate-in-project-management-domain1$/);
+});
+
+test("デスクトップ: 検索は Escape で閉じてトリガーへフォーカスが戻る", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/");
+
+  const trigger = page.locator("[data-testid='site-search-trigger']");
+  const input = page.locator("[data-testid='site-search-input']");
+
+  await expect(async () => {
+    if (await input.isHidden()) await trigger.click({ timeout: 2_000 });
+    await expect(input).toBeVisible({ timeout: 500 });
+  }).toPass({ timeout: 10_000 });
+
+  await page.keyboard.press("Escape");
+  await expect(input).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
