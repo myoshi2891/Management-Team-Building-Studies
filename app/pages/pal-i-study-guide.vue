@@ -564,8 +564,7 @@ const DIAGRAM_ESCALATION_FLOW = `flowchart TB
 /* ===================== Main content ===================== */
 .main-content {
   margin-left: var(--sidebar-width);
-  max-width: 900px;
-  padding: 48px 48px 120px;
+  padding: 56px 72px 120px;
 }
 
 .hero {
