@@ -52,6 +52,10 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
         heading: "アジャイルリーダー",
         guides: ["PAL I(Professional Agile Leadership I)認定試験 学習ガイド"],
       },
+      {
+        heading: "ファシリテーション",
+        guides: ["Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド"],
+      },
     ]);
   });
 

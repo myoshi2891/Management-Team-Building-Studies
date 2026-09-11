@@ -265,6 +265,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-facilitation-skills",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
@@ -428,7 +434,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "36 ガイド", hub: "/certifications", cards: 36 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "37 ガイド", hub: "/certifications", cards: 37 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "18 ガイド", hub: "/books", cards: 18 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);
