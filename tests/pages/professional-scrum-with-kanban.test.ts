@@ -49,11 +49,10 @@ const EXPECTED_H3 = [
   "5-3. 緊急対応(Fast Track / Expediteレーン)の運用ルール",
   "6-1. 試験でよく出る誤解",
   "6-2. 合格に向けた推奨学習ステップ",
-] as const;
-
-const EXPECTED_H4 = [
   "Scrum.org 公式リソース",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
