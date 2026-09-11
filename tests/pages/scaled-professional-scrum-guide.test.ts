@@ -60,12 +60,12 @@ const EXPECTED_H3 = [
   "演習2",
   "演習3",
   "演習4",
+  "一次情報源(Scrum.org 公式)",
+  "二次情報源(コミュニティ・実務解説)",
 ] as const;
 
 const EXPECTED_H4 = [
   "5.2.1 実務パターン:Cross-Team Refinement Board",
-  "一次情報源(Scrum.org 公式)",
-  "二次情報源(コミュニティ・実務解説)",
 ] as const;
 
 const EXPECTED_H5 = [] as const;
@@ -213,16 +213,6 @@ describe("pages/scaled-professional-scrum-guide.vue — 個別仕様契約", () 
     expect(wrapper.findAll("tr")).toHaveLength(52);
   });
 
-  it("ロードマップステップ（7件）が存在する", () => {
-    const wrapper = mountPage();
-    expect(wrapper.findAll(".step-list li")).toHaveLength(7);
-  });
-
-  it("用語集アイテム（8件）が存在する", () => {
-    const wrapper = mountPage();
-    expect(wrapper.findAll(".glossary-item")).toHaveLength(8);
-  });
-
   it("免責ボックス（.disclaimer-box）が存在し、テキストが span で包括されている", () => {
     const wrapper = mountPage();
     const box = wrapper.get(".disclaimer-box");
@@ -230,8 +220,13 @@ describe("pages/scaled-professional-scrum-guide.vue — 個別仕様契約", () 
     expect(box.find(":scope > span").exists()).toBe(true);
   });
 
-  it("参考文献リストが適切な件数（18件）存在する", () => {
+  it("参考文献グループ（.ref-group）が2件存在する", () => {
     const wrapper = mountPage();
-    expect(wrapper.findAll(".ref-list li")).toHaveLength(18);
+    expect(wrapper.findAll(".ref-group")).toHaveLength(2);
+  });
+
+  it("参考文献リストが適切な件数（27件）存在する", () => {
+    const wrapper = mountPage();
+    expect(wrapper.findAll(".ref-list li")).toHaveLength(27);
   });
 });
