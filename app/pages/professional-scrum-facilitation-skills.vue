@@ -193,7 +193,7 @@ class H done;`;
       class="sidebar-overlay"
       aria-hidden="true"
       @click="closeSidebar"
-    ></div>
+    />
     <nav id="sidebar" class="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
       <div class="sidebar-brand">
         <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -996,61 +996,61 @@ class H done;`;
       </div>
 
       <p><strong>Q1.</strong> ファシリテーションの5原則に含まれないものはどれか。</p>
-      <p>A. Participatory　B. Healthy　C. Adaptation　D. Transparency　E. Purposeful</p>
+      <p>A. Participatory  B. Healthy  C. Adaptation  D. Transparency  E. Purposeful</p>
       <details><summary>解答と解説</summary>
         <p>正解: C(Adaptationはスクラムの経験主義の柱の一つであり、ファシリテーションの5原則には含まれない。5原則はParticipatory / Healthy / Transparency / Process / Purposefulの5つ。)</p>
       </details>
 
       <p><strong>Q2.</strong> チームの効果性が高く、状況の複雑さも低い場面で、一般的に推奨されるファシリテーションのレベルはどれか。</p>
-      <p>A. 強いファシリテーション　B. ファシリテーションなし　C. 中程度のファシリテーション　D. 常に強いファシリテーションが必要</p>
+      <p>A. 強いファシリテーション  B. ファシリテーションなし  C. 中程度のファシリテーション  D. 常に強いファシリテーションが必要</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Team EffectivenessとContextual Complexityの2軸モデルにおいて、両方が低リスクな組み合わせでは、明示的なファシリテーションはほとんど不要になる。)</p>
       </details>
 
       <p><strong>Q3.</strong> Sam Kanerの「参加型意思決定のダイヤモンド」における中間の混乱・摩擦の時期を何と呼ぶか。</p>
-      <p>A. Storming Zone　B. Groan Zone　C. Norming Phase　D. Conflict Bridge</p>
+      <p>A. Storming Zone  B. Groan Zone  C. Norming Phase  D. Conflict Bridge</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Groan Zoneは、発散から収束に至る過程で自然に生じる混乱の時期を指す。避けるべきものではなく、乗り越えるべきものとして扱う。)</p>
       </details>
 
       <p><strong>Q4.</strong> White Elephant技法の主な目的として最も適切なものはどれか。</p>
-      <p>A. 新しいアイデアを大量に生み出すこと　B. 全員が平等に関与しながら既存の項目を順序づけること　C. プロダクトバックログから項目を削除すること　D. 単一の提案への賛否を問うこと</p>
+      <p>A. 新しいアイデアを大量に生み出すこと  B. 全員が平等に関与しながら既存の項目を順序づけること  C. プロダクトバックログから項目を削除すること  D. 単一の提案への賛否を問うこと</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(White Elephantはアイデア創出の技法ではなく、既にある項目を全員参加で並べ替えるための技法である。)</p>
       </details>
 
       <p><strong>Q5.</strong> デイリースクラムのファシリテーターの焦点として最も適切でないものはどれか。</p>
-      <p>A. スプリントゴールへの集中を保つ　B. 各メンバーの進捗をステータス報告として発表させる　C. 品質と確約に焦点を当てた雰囲気をつくる　D. 必要な時だけ観察し質問する</p>
+      <p>A. スプリントゴールへの集中を保つ  B. 各メンバーの進捗をステータス報告として発表させる  C. 品質と確約に焦点を当てた雰囲気をつくる  D. 必要な時だけ観察し質問する</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Scrum.orgの公式ガイダンスでは、デイリースクラムがステータス報告会になることを避けるべきだと明記されている。)</p>
       </details>
 
       <p><strong>Q6.</strong> 「決定に進むことに異議がない」状態で意思決定を行うルールを何と呼ぶか。</p>
-      <p>A. 全会一致　B. コンセント　C. 多数決　D. 委任</p>
+      <p>A. 全会一致  B. コンセント  C. 多数決  D. 委任</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(コンセントは全員の積極的な賛成までは求めないが、決定に対する重大な異議がないことを確認する意思決定ルールである。)</p>
       </details>
 
       <p><strong>Q7.</strong> ファシリテーターが「中立性」を保つとはどういうことか、最も適切な説明はどれか。</p>
-      <p>A. 議論の内容について一切発言しないこと　B. プロセスの舵取りに専念し、議論の内容そのものに肩入れしないこと　C. 常に多数派の意見を支持すること　D. チームに代わって最終決定を下すこと</p>
+      <p>A. 議論の内容について一切発言しないこと  B. プロセスの舵取りに専念し、議論の内容そのものに肩入れしないこと  C. 常に多数派の意見を支持すること  D. チームに代わって最終決定を下すこと</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(中立性とは、発言を完全に禁じることではなく、コンテンツではなくプロセスのオーナーであり続けることを意味する。内容に関与したい場合は役割の切り替えを明示すべきである。)</p>
       </details>
 
       <p><strong>Q8.</strong> 「弱いアウトカム」の特徴として最も適切なものはどれか。</p>
-      <p>A. 参加者の懸念が十分に表に出され、確約された結論　B. 曖昧なまま終わり、参加者が本当には納得していない結論　C. Fist of Fiveで満場一致となった結論　D. タイムボックスより早く終わった結論</p>
+      <p>A. 参加者の懸念が十分に表に出され、確約された結論  B. 曖昧なまま終わり、参加者が本当には納得していない結論  C. Fist of Fiveで満場一致となった結論  D. タイムボックスより早く終わった結論</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(弱いアウトカムとは、表面的には決定したように見えても実際には確約が伴っていない結論を指す。タイムボックス終了間際の「とりあえずの決定」は弱いアウトカムに陥りやすい典型例。)</p>
       </details>
 
       <p><strong>Q9.</strong> スプリントレビューにおけるファシリテーターの焦点として最も適切なものはどれか。</p>
-      <p>A. できるだけ多くの機能をデモすること　B. 参加型でエネルギッシュな環境をつくり、ステークホルダーとの共感とシナジーを築くこと　C. スケジュール通りに終わらせることだけに集中すること　D. 開発チーム内の対立を解消すること</p>
+      <p>A. できるだけ多くの機能をデモすること  B. 参加型でエネルギッシュな環境をつくり、ステークホルダーとの共感とシナジーを築くこと  C. スケジュール通りに終わらせることだけに集中すること  D. 開発チーム内の対立を解消すること</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Sprint Reviewは一方向のデモではなく、フィードバックを引き出す協働的な学びの場として設計されるべきである。)</p>
       </details>
 
       <p><strong>Q10.</strong> グループの中で声の大きい人に他のメンバーが同調してしまい、本音を言えなくなる現象を何と呼ぶか。</p>
-      <p>A. Groan Zone　B. Groupthink(集団思考)　C. Forming　D. Consent</p>
+      <p>A. Groan Zone  B. Groupthink(集団思考)  C. Forming  D. Consent</p>
       <details><summary>解答と解説</summary>
         <p>正解: B(Groupthinkは、和を乱さないために本心とは異なる同意をしてしまう状態を指す。ファシリテーターはこれを防ぐため、個別に意見を書き出す時間を設けるなどの工夫を行う。)</p>
       </details>
