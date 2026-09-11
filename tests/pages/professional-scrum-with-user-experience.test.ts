@@ -11,7 +11,7 @@ const { seoMeta } = vi.hoisted(() => ({ seoMeta: vi.fn() }));
 mockNuxtImport("useSeoMeta", () => seoMeta);
 
 const EXPECTED_H1 = [
-  "Professional ScrumTM with User Experience(PSU I) 完全ガイド",
+  "Professional Scrum™ with User Experience(PSU I) 完全ガイド",
 ] as const;
 
 const EXPECTED_H2 = [
@@ -49,9 +49,6 @@ const EXPECTED_H3 = [
   "4.6 ユーザビリティテスト(Usability Testing)",
   "4.7 その他の関連ツール(補足)",
   "統合の要点まとめ表",
-] as const;
-
-const EXPECTED_H4 = [
   "Scrum.org 公式",
   "Scrum Guide",
   "Lean UX / 書籍",
@@ -59,6 +56,8 @@ const EXPECTED_H4 = [
   "ユーザビリティテスト",
   "受験体験記(参考・非公式)",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
