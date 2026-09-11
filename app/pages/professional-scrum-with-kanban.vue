@@ -1067,11 +1067,10 @@ const DIAGRAM_EXPEDITE_LANE = `flowchart LR
   }
 
   .mermaid-wrap {
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background: var(--color-paper-raised);
-    padding: 20px;
-    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
   }
 
   .disclaimer-box {
