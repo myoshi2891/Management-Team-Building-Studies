@@ -1218,7 +1218,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 ベースラインテスト数: ユニット 1737 + E2E 29
 ```
 
-### §65. PSU（Professional Scrum with User Experience 完全ガイド）原本照合監査 exit 0 と見出し階層是正
+### §69. PSU（Professional Scrum with User Experience 完全ガイド）原本照合監査 exit 0 と見出し階層是正
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`Professional-Scrum-with-User-Experience.html`）と移行先 Vue SFC（`app/pages/professional-scrum-with-user-experience.vue`）を機械照合し、全要素（リスト 129, 表行 99, 段落 50, 見出し 38, 外部リンク 22, Mermaid 10, Callout 33, SVG 1）が 100% 一致して **exit 0** を達成。
 - **参考文献セクションの見出し階層是正（Q-3適合）**: 原本 HTML では `<h2>参考文献・情報源一覧</h2>` の直下に `<h4>`（「Scrum.org 公式」「Scrum Guide」等6件）が置かれており、`h2 -> h4` の見出し階層スキップが存在していた。アクセシビリティ標準（WCAG）および品質契約 Q-3 を満たすため、`audit_source_parity.mjs` の h4→h3 昇格許可機能（アクセシビリティ階層スキップ是正）に基づき、該当の 6 件を `<h3>` に昇格させた。
