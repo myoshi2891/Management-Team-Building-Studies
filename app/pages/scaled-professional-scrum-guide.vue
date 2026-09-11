@@ -1102,7 +1102,6 @@ useSeoMeta({
 .main-content {
   margin-left: var(--sidebar-width);
   padding: 48px 48px 120px;
-  max-width: calc(880px + var(--sidebar-width));
 }
 
 .hero {
