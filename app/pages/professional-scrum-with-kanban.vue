@@ -1133,12 +1133,15 @@ const DIAGRAM_EXPEDITE_LANE = `flowchart LR
 
     .sidebar {
       transform: translateX(-100%);
-      transition: transform 0.25s ease;
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.25s ease, visibility 0.25s ease;
       z-index: 30;
     }
 
     .sidebar.open {
       transform: translateX(0);
+      visibility: visible;
     }
 
     .main-content {
