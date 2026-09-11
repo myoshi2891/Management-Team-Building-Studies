@@ -215,7 +215,7 @@ describe("pages/scaled-professional-scrum-guide.vue — 個別仕様契約", () 
 
   it("免責ボックス（.disclaimer-box）が存在し、テキストが span で包括されている", () => {
     const wrapper = mountPage();
-    const box = wrapper.get(".disclaimer-box");
+    const box = wrapper.find(".disclaimer-box");
     expect(box.exists()).toBe(true);
     expect(box.find(":scope > span").exists()).toBe(true);
   });
