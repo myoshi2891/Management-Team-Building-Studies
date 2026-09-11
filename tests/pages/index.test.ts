@@ -277,6 +277,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Scrum with Kanban(PSK I)認定資格 完全ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-with-kanban",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",

@@ -60,6 +60,10 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
         heading: "ファシリテーション",
         guides: ["Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド"],
       },
+      {
+        heading: "カンバン",
+        guides: ["Professional Scrum with Kanban(PSK I)認定資格 完全ガイド"],
+      },
     ]);
   });
 
