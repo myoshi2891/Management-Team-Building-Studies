@@ -686,3 +686,24 @@ test("matches short list items containing inline markup elements", () => {
 	assert.deepEqual(result.json.missingListItems, []);
 });
 
+
+test("does not double-count a plain short list item in the TSX text-node inventory", () => {
+	// 素の <li> は collectTextNodeKeys が既にキーを採っている。li 全体の結合キーを
+	// 無条件に足すと同じキーが 2 個積まれ、原本 2 回・移植先 1 回の欠落を素通しする。
+	const result = audit("<ul><li>Go</li><li>Go</li></ul>", "<ul><li>Go</li></ul>");
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});
+
+test("does not double-count a plain short list item in the Vue text-node inventory", () => {
+	const result = audit(
+		"<ul><li>Go</li><li>Go</li></ul>",
+		"<template><ul><li>Go</li></ul></template>",
+		"html",
+		"page.vue",
+	);
+
+	assert.equal(result.status, 1);
+	assert.deepEqual(result.json.missingListItems, ["Go"]);
+});

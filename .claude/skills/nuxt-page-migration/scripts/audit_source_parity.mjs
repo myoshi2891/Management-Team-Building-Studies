@@ -152,6 +152,24 @@ function collectTextNodeKeys(markup) {
 }
 
 /**
+ * Collects combined keys for composite list items only.
+ *
+ * 素の `<li>` は `collectTextNodeKeys` が同じキーを既に採取している。両方を足すと
+ * 同一キーが 2 重に積まれ、短い項目（`compare` のテキストノード経路）の残数が
+ * 水増しされて「原本に 2 回・移植先に 1 回」の欠落を素通しする。
+ *
+ * @param {string} markup - The markup to inspect.
+ * @param {string[]} textNodeKeys - Keys already collected as rendered text nodes.
+ * @returns {string[]} Combined keys of list items whose markup splits them into multiple text nodes.
+ */
+function collectCompositeListItemKeys(markup, textNodeKeys) {
+  const collected = new Set(textNodeKeys);
+  return extractTagContents(markup, "li")
+    .map(({ content }) => matchKey(stripMarkup(content)))
+    .filter((key) => key !== "" && !collected.has(key));
+}
+
+/**
  * Extracts JSX roots returned by functions so declarations, comparisons, and
  * other non-rendered TypeScript cannot contribute text-node matches.
  * @param {string} src - Complete TSX source.
@@ -691,16 +709,14 @@ function inventoryTsx(src) {
     normalizeElementContent(resolveStringConstants(content, constants))
   );
 
-  const liKeys = extractTagContents(returnedMarkup, "li")
-    .map(({ content }) => matchKey(stripMarkup(content)))
-    .filter(Boolean);
+  const textNodeKeys = collectTextNodeKeys(returnedMarkup);
 
   return {
     headings,
     // ページ側は <li> を使わずカード / div で組むことがあるため、
     // 本文全体の平坦化テキストを照合対象にする（マークアップ非依存の漏れ検知）。
     flatText: matchKey(stripMarkup(returnedMarkup)),
-    textNodeKeys: [...collectTextNodeKeys(returnedMarkup), ...liKeys],
+    textNodeKeys: [...textNodeKeys, ...collectCompositeListItemKeys(returnedMarkup, textNodeKeys)],
     listItems: countMatches(src, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
@@ -826,14 +842,12 @@ function inventoryVue(src) {
     normalizeElementContent(content)
   );
 
-  const liKeys = extractTagContents(template, "li")
-    .map(({ content }) => matchKey(stripMarkup(content)))
-    .filter(Boolean);
+  const textNodeKeys = collectTextNodeKeys(template);
 
   return {
     headings,
     flatText: matchKey(stripMarkup(template)),
-    textNodeKeys: [...collectTextNodeKeys(template), ...liKeys],
+    textNodeKeys: [...textNodeKeys, ...collectCompositeListItemKeys(template, textNodeKeys)],
     listItems: countMatches(template, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
