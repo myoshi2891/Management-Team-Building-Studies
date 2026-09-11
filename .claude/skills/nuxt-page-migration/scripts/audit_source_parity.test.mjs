@@ -673,3 +673,16 @@ test("human-readable output uses the audited page path instead of page.tsx", () 
 		rmSync(fixtureDir, { recursive: true, force: true });
 	}
 });
+
+test("matches short list items containing inline markup elements", () => {
+	const result = audit(
+		"<ul><li><strong>計測単位。</strong>日数</li></ul>",
+		"<template><ul><li><strong>計測単位。</strong>日数</li></ul></template>",
+		"html",
+		"page.vue",
+	);
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingListItems, []);
+});
+

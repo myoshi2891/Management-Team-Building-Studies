@@ -691,12 +691,16 @@ function inventoryTsx(src) {
     normalizeElementContent(resolveStringConstants(content, constants))
   );
 
+  const liKeys = extractTagContents(returnedMarkup, "li")
+    .map(({ content }) => matchKey(stripMarkup(content)))
+    .filter(Boolean);
+
   return {
     headings,
     // ページ側は <li> を使わずカード / div で組むことがあるため、
     // 本文全体の平坦化テキストを照合対象にする（マークアップ非依存の漏れ検知）。
     flatText: matchKey(stripMarkup(returnedMarkup)),
-    textNodeKeys: collectTextNodeKeys(returnedMarkup),
+    textNodeKeys: [...collectTextNodeKeys(returnedMarkup), ...liKeys],
     listItems: countMatches(src, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
@@ -822,10 +826,14 @@ function inventoryVue(src) {
     normalizeElementContent(content)
   );
 
+  const liKeys = extractTagContents(template, "li")
+    .map(({ content }) => matchKey(stripMarkup(content)))
+    .filter(Boolean);
+
   return {
     headings,
     flatText: matchKey(stripMarkup(template)),
-    textNodeKeys: collectTextNodeKeys(template),
+    textNodeKeys: [...collectTextNodeKeys(template), ...liKeys],
     listItems: countMatches(template, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
