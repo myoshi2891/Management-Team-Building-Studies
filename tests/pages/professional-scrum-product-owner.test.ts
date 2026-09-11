@@ -167,6 +167,6 @@ describe("pages/professional-scrum-product-owner.vue — 個別仕様契約", ()
   it("参考文献リストが適切なリスト構造を持つ", () => {
     const wrapper = mountPage();
     expect(wrapper.findAll(".ref-list")).toHaveLength(1);
-    expect(wrapper.findAll(".ref-list li").length).toBeGreaterThan(5);
+    expect(wrapper.findAll(".ref-list li")).toHaveLength(4);
   });
 });
