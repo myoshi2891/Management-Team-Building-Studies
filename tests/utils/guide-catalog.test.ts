@@ -222,7 +222,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       ...GUIDE_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 59);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 60);
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -231,7 +231,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 35, programs: ["pmi", "scrum-alliance", "scrum-org"] },
+      { id: "certifications", count: 36, programs: ["pmi", "scrum-alliance", "scrum-org"] },
       { id: "books", count: 18, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
@@ -412,8 +412,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     const group = programGroup("scrum-org");
 
     expect(group.program.navLabel).toBe("Scrum.org 認定");
-    expect(group.guides.map((guide) => guide.navLabel)).toEqual(["PSM-AI 完全ガイド", "PSD 完全ガイド"]);
-    expect(group.seriesGroups.map((item) => item.series.id)).toEqual(["so-scrum-master", "so-developer"]);
+    expect(group.guides.map((guide) => guide.navLabel)).toEqual(["PSM-AI 完全ガイド", "PSD 完全ガイド", "PAL I 完全ガイド"]);
+    expect(group.seriesGroups.map((item) => item.series.id)).toEqual(["so-scrum-master", "so-developer", "so-agile-leader"]);
   });
 
   it("種別に属するプログラムを順序込みで引ける", () => {
