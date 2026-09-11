@@ -707,3 +707,14 @@ test("does not double-count a plain short list item in the Vue text-node invento
 	assert.equal(result.status, 1);
 	assert.deepEqual(result.json.missingListItems, ["Go"]);
 });
+
+test("keeps a composite list item whose key matches a separate element's text node", () => {
+	// 結合キーの重複判定は「その <li> 自身のテキストノード」に限る。ページ全体の
+	// インベントリと突き合わせると、別要素が同じ正規化キーを持つだけで合成 <li> の
+	// キーが落ち、移植済みの項目を欠落と誤判定する。
+	const markup = "<ul><li>WIP制限</li><li><strong>WIP</strong>制限</li></ul>";
+	const result = audit(markup, `<template>${markup}</template>`, "html", "page.vue");
+
+	assert.equal(result.status, 0);
+	assert.deepEqual(result.json.missingListItems, []);
+});

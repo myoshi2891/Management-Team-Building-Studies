@@ -158,15 +158,21 @@ function collectTextNodeKeys(markup) {
  * 同一キーが 2 重に積まれ、短い項目（`compare` のテキストノード経路）の残数が
  * 水増しされて「原本に 2 回・移植先に 1 回」の欠落を素通しする。
  *
+ * 重複判定は **その `<li>` 自身のテキストノード** に限る。ページ全体のインベントリと
+ * 突き合わせると、別の要素が偶然同じ正規化キーを持つだけで合成 `<li>` のキーが落ち、
+ * 移植済みの項目を欠落と誤判定する。
+ *
  * @param {string} markup - The markup to inspect.
- * @param {string[]} textNodeKeys - Keys already collected as rendered text nodes.
  * @returns {string[]} Combined keys of list items whose markup splits them into multiple text nodes.
  */
-function collectCompositeListItemKeys(markup, textNodeKeys) {
-  const collected = new Set(textNodeKeys);
+function collectCompositeListItemKeys(markup) {
   return extractTagContents(markup, "li")
-    .map(({ content }) => matchKey(stripMarkup(content)))
-    .filter((key) => key !== "" && !collected.has(key));
+    .map(({ content }) => ({
+      key: matchKey(stripMarkup(content)),
+      ownKeys: new Set(collectTextNodeKeys(`<li>${content}</li>`)),
+    }))
+    .filter(({ key, ownKeys }) => key !== "" && !ownKeys.has(key))
+    .map(({ key }) => key);
 }
 
 /**
@@ -716,7 +722,7 @@ function inventoryTsx(src) {
     // ページ側は <li> を使わずカード / div で組むことがあるため、
     // 本文全体の平坦化テキストを照合対象にする（マークアップ非依存の漏れ検知）。
     flatText: matchKey(stripMarkup(returnedMarkup)),
-    textNodeKeys: [...textNodeKeys, ...collectCompositeListItemKeys(returnedMarkup, textNodeKeys)],
+    textNodeKeys: [...textNodeKeys, ...collectCompositeListItemKeys(returnedMarkup)],
     listItems: countMatches(src, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
@@ -847,7 +853,7 @@ function inventoryVue(src) {
   return {
     headings,
     flatText: matchKey(stripMarkup(template)),
-    textNodeKeys: [...textNodeKeys, ...collectCompositeListItemKeys(template, textNodeKeys)],
+    textNodeKeys: [...textNodeKeys, ...collectCompositeListItemKeys(template)],
     listItems: countMatches(template, /<li\b/g),
     codeBlocks: codeBlockTexts.length,
     tableRows: tableRowTexts.length,
