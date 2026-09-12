@@ -179,7 +179,7 @@ flowchart LR
     PV["Product Vision<br/>プロダクトビジョン<br/>（長期・恒久的な方向性）"] --> PB["Product Backlog<br/>プロダクトバックログ<br/>（創発的・順序付き）"]
     PB --> SB["Sprint Backlog<br/>スプリントバックログ"]
     SB --> INC["Increment<br/>インクリメント"]
-    PB -.->|"コミットメント"| PG["Product Goal<br/>プロダクトゴール<br/>（コミットメント／中期目標）"]
+    PB -.->|"コミットメント"| PG["Product Goal<br/>プロダクトゴール<br/>（コミットメント／長期目標）"]
     SB -.->|"コミットメント"| SG["Sprint Goal<br/>スプリントゴール<br/>（コミットメント）"]
     INC -.->|"コミットメント"| DoD["Definition of Done<br/>完成の定義（コミットメント）"]
 
