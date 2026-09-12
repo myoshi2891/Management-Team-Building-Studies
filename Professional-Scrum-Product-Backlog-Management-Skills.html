@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSPBM(Professional Scrum Product Backlog Management Skills)認定 完全ガイド | プロダクトバックログマネジメント実践知識</title>
+<meta name="description" content="Scrum.org Professional Scrum Product Backlog Management Skills(PSPBM)認定試験の出題範囲を、初学者向けに図解とベストプラクティス、一次情報ソース付きで解説する学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PSPBM&reg; 完全ガイド</div>
+        <div class="brand-subtitle">Product Backlog Management Skills</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-this-guide"><i class="ti ti-certificate"></i>本ガイドについて</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-clipboard-check"></i>認定試験の概要</a></li>
+      <li><a href="#competencies-framework"><i class="ti ti-building-bank"></i>Competencies フレームワーク</a></li>
+      <li><a href="#what-is-product-backlog"><i class="ti ti-clipboard-text"></i>Ch1: プロダクトバックログとは</a></li>
+      <li><a href="#product-vision-and-goal"><i class="ti ti-route"></i>Ch2: ビジョンとゴール</a></li>
+      <li><a href="#forming-the-backlog"><i class="ti ti-list-check"></i>Ch3: 形成(Forming)</a></li>
+      <li><a href="#refinement"><i class="ti ti-git-branch"></i>Ch4: リファインメント</a></li>
+      <li><a href="#ordering-and-prioritization"><i class="ti ti-chart-pie"></i>Ch5: 並び替え</a></li>
+      <li><a href="#stakeholders-and-customers"><i class="ti ti-calendar-event"></i>Ch6: ステークホルダー協働</a></li>
+      <li><a href="#empiricism-and-ebm"><i class="ti ti-timeline"></i>Ch7: 経験主義とEBM</a></li>
+      <li><a href="#ai-and-backlog-management"><i class="ti ti-refresh"></i>Ch8: AI時代の管理</a></li>
+      <li><a href="#misconceptions-and-antipatterns"><i class="ti ti-flag-3"></i>Ch9: 誤解とアンチパターン</a></li>
+      <li><a href="#exam-prep-tips"><i class="ti ti-map-2"></i>Ch10: 試験対策</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum.org 公式認定試験ガイド</div>
+      <h1>Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド</h1>
+      <p class="hero-lede">
+        対象読者: Scrum Master・Product Owner・ビジネスアナリスト・開発者など、プロダクトバックログの取り扱いを体系的に学びたいすべての初学者。出題範囲の一次情報は<a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">scrum.org公式ページ(Professional Scrum Product Backlog Management Skills Certification)</a>です。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">20問</div><div class="stat-label">出題数(選択式・英語)</div></div>
+        <div class="stat-card"><div class="stat-number">30分</div><div class="stat-label">制限時間</div></div>
+        <div class="stat-card"><div class="stat-number">85%</div><div class="stat-label">合格基準</div></div>
+        <div class="stat-card"><div class="stat-number">Intermediate</div><div class="stat-label">難易度レベル</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは学習支援を目的とした非公式の解説資料です。試験の正式な出題範囲・最新情報は必ず<a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>でご確認ください。
+      </div>
+    </div>
+
+    <!-- ===================== 01. About This Guide ===================== -->
+    <section id="about-this-guide">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>本ガイドについて</h2>
+
+      <p>このガイドは、Scrum.org が提供する<strong>Professional Scrum Product Backlog Management Skills(PSPBM Skills)</strong>認定試験の出題領域を、初学者でも段階的に理解できるよう再構成した学習教材です。各章は以下の3要素で構成しています。</p>
+
+      <ul>
+        <li><strong>概念解説:</strong> Scrum Guide および Scrum.org 公式リソースに基づく定義</li>
+        <li><strong>ベストプラクティス:</strong> 実務で使われている具体的な技法・進め方</li>
+        <li><strong>ソース:</strong> 各主張の根拠となる一次・準一次情報のURL</li>
+      </ul>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>PSPBM Skills は Scrum Guide の知識に加え、Scrum.org が公開する<strong>Professional Scrum Competencies</strong>の一部領域を出題範囲として明示的に参照する試験です。単なる用語暗記ではなく、「プロダクトバックログをどう形成し、リファインし、並び替え、ステークホルダーと協働しながら価値を最大化するか」という実践スキルが問われます。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 02. Exam Overview ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 02</div>
+      <h2>認定試験の概要</h2>
+
+      <h3>試験基本情報</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>正式名称</td><td>Professional Scrum Product Backlog Management Skills&trade;(PSPBM Skills)</td></tr>
+            <tr><td>提供元</td><td>Scrum.org</td></tr>
+            <tr><td>初回提供開始日</td><td>2023年9月27日</td></tr>
+            <tr><td>難易度レベル</td><td>Intermediate(中級)</td></tr>
+            <tr><td>出題形式</td><td>選択式(Multiple Choice)、英語のみ</td></tr>
+            <tr><td>問題数</td><td>20問</td></tr>
+            <tr><td>制限時間</td><td>30分</td></tr>
+            <tr><td>合格基準</td><td>85%以上の正答率</td></tr>
+            <tr><td>受験形式</td><td>オンライン、受験者が任意の場所・タイミングで受験可能(試験会場への訪問は不要)</td></tr>
+            <tr><td>有効期限</td><td>受験権利(アセスメント)そのものに有効期限なし、合格後の認定に更新義務・更新費用なし</td></tr>
+            <tr><td>前提資格</td><td>必須ではないが、PSM I(Professional Scrum Master I)または PSPO I(Professional Scrum Product Owner I)の取得が推奨される</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>出題は「Scrum Guide の暗記」だけでは対応しきれません。PSM I や PSPO I で問われるような Scrum フレームワークの基礎理解を土台としたうえで、プロダクトバックログに関する実務知識(リファインメント技法、並び替え手法、ステークホルダー協働、経験主義の適用)が上乗せされる出題になります。まず土台となる Scrum の基礎を固めてから本ガイドの各章に進むことを推奨します。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">scrum.org — PSPBM Skills Certification</a></li>
+          <li><a href="https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill" target="_blank" rel="noopener">Credly — PSPBM バッジ発行条件</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">TheScrumMaster.co.uk — 試験形式の解説</a></li>
+        </ul>
+      </div>
+
+      <h3>認定が証明する能力</h3>
+
+      <p>Scrum.org は、PSPBM Skills 認定の取得によって以下の理解が示されるとしています。</p>
+
+      <ul>
+        <li>透明性が確保され、かつ価値に焦点を当てたプロダクトバックログを効果的にマネジメントする能力</li>
+        <li>カスタマーのニーズを捉える技法</li>
+        <li>プロダクトバックログのリファインメント技法</li>
+        <li>ステークホルダーの期待値をマネジメントする技法</li>
+        <li>経験主義(empiricism)を競争優位として活用する技法</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">scrum.org — PSPBM Skills Certification</a></li>
+        </ul>
+      </div>
+
+      <h3>対応する公式トレーニングコース</h3>
+
+      <p>Scrum.org は本認定に対応する1日制のコース「Professional Scrum Product Backlog Management Skills」を提供しています。<strong>講師によるライブコース(instructor-led)の参加者</strong>は、受講後14日以内にアセスメントを受験して85%未満だった場合に限り、追加費用なしで2回目の受験機会が付与されます。自己学習型(self-paced)のコース参加者にはこの特典は付かず、受験機会は1回です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/" target="_blank" rel="noopener">Xebia Academy — PSPBMS トレーニング概要</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 03. Professional Scrum Competencies Framework ===================== -->
+    <section id="competencies-framework">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
+      <h2>Professional Scrum Competencies フレームワーク</h2>
+
+      <p>Scrum.org は、個人のスキル成長を導くモデルとして<strong>Professional Scrum Competencies</strong>(プロフェッショナル・スクラム・コンピテンシー)を定義しています。すべての認定試験・コースウェアはこのコンピテンシーモデルを前提に設計されており、PSPBM Skills もその一部を出題範囲として明示しています。</p>
+
+      <h3>5つのコンピテンシー全体像</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="competenciesOverview"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Professional Scrum Competencies の5領域と、その土台となる関係</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>コンピテンシー</th><th>含まれる Focus Area</th></tr></thead>
+          <tbody>
+            <tr><td>Understanding and Applying the Scrum Framework</td><td>Empiricism、Scrum Values、Scrum Team、Events、Artifacts、Done、Scaling</td></tr>
+            <tr><td>Developing People and Teams</td><td>Self-Managing Teams、Facilitation、Leadership Styles、Coaching and Mentoring</td></tr>
+            <tr><td><strong>Managing Products with Agility</strong></td><td><strong>Forecasting &amp; Release Planning、Product Vision、Product Value、Product Backlog Management、Business Strategy、Stakeholders &amp; Customers</strong></td></tr>
+            <tr><td>Developing and Delivering Products Professionally</td><td>Emergent Software Development、Managing Technical Risk、Continuous Quality、Continuous Integration、Continuous Delivery、Optimizing Flow</td></tr>
+            <tr><td>Evolving the Agile Organization</td><td>Organizational Design &amp; Culture ほか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">scrum.org — The Professional Scrum Competencies</a></li>
+        </ul>
+      </div>
+
+      <h3>PSPBM Skills が重点的に問う Focus Area</h3>
+
+      <p>公式に PSPBM Skills の Focus Area として挙げられているのは、<strong>Product Backlog Management</strong> と <strong>Stakeholders &amp; Customers</strong> の2つだけです。加えて、土台となる「Understanding and Applying the Scrum Framework」(Empiricism・Artifacts・Events の基礎)の理解が前提とされます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>公式の Focus Area</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Product Backlog Management</td><td>プロダクトバックログの形成、リファインメント、並び替えを継続的に行い、透明性と価値を保つ活動</td></tr>
+            <tr><td>Stakeholders &amp; Customers</td><td>プロダクトバックログの内容に影響を与える多様なステークホルダー・カスタマーとの協働</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>次の3つは同じ「Managing Products with Agility」コンピテンシー配下にありますが、<strong>PSPBM Skills の出題範囲としては公式に挙げられていません</strong>。プロダクトバックログ管理の背景を理解するための周辺知識として扱ってください。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>周辺のコンピテンシー文脈(出題範囲外)</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Product Value</td><td>提供した価値・実現しうる価値を継続的に定義し、測定し、検証する活動</td></tr>
+            <tr><td>Product Vision</td><td>プロダクトが届けるべき価値と、その届け先を表現する将来像</td></tr>
+            <tr><td>Forecasting &amp; Release Planning</td><td>反復的・漸進的アプローチによるリリース計画とステークホルダーへの見通し提示</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">scrum.org — Professional Scrum Competency: Managing Products with Agility</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 04. Chapter 1: What Is a Product Backlog ===================== -->
+    <section id="what-is-product-backlog">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 04</div>
+      <h2>Chapter 1: プロダクトバックログとは何か</h2>
+
+      <h3>Scrum Guide における定義</h3>
+
+      <p>Scrum Guide(2020年版)は、プロダクトバックログを「プロダクトを改善するために必要なものをまとめた、創発的(emergent)で順序付けられた(ordered)リスト」であり、「Scrum Team が行うすべての作業の唯一の情報源(single source of work)」と位置づけています。複数のチームが同一プロダクトに取り組む場合でも、プロダクトバックログは1つだけ存在します。</p>
+
+      <p>重要な性質は次の2点です。</p>
+
+      <ul>
+        <li><strong>創発的(Emergent):</strong> プロダクトバックログは完成することがなく、プロダクトが存在する限り存在し続け、常に変化し続ける</li>
+        <li><strong>順序付けられている(Ordered):</strong> 項目には「優先度カテゴリ」ではなく、明確な並び順(順位)がある</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「優先度(priority)」という言葉は High/Medium/Low のようなカテゴリ分類を連想させますが、プロダクトバックログは<strong>厳密な1本の順序リスト</strong>です。2つの項目が同じ優先度ということはあり得ません。曖昧な優先度ラベルではなく、上から下までの明確な並び順で管理することが、透明性を高める第一歩です。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020(日本語版含む)</a></li>
+          <li><a href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">scrum.org — What is a Product Backlog?</a></li>
+        </ul>
+      </div>
+
+      <h3>Product Owner の説明責任</h3>
+
+      <p>Scrum Guide は、Product Owner がプロダクトの価値を最大化する説明責任(accountable)を負うと定め、その一部として効果的なプロダクトバックログマネジメントを次の4つの活動で構成しています。</p>
+
+      <ol>
+        <li>プロダクトゴールを策定し、明確に伝達すること</li>
+        <li>プロダクトバックログ項目を作成し、明確に伝達すること</li>
+        <li>プロダクトバックログ項目を並び替えること</li>
+        <li>プロダクトバックログが透明で、可視化され、理解されている状態を保つこと</li>
+      </ol>
+
+      <p>Product Owner はこれらの作業を自ら行うことも、他者に委任することもできますが、<strong>説明責任そのものは常に Product Owner に残ります</strong>。また、Product Owner は1人の人間であり、委員会ではありません。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>実務では Product Owner が単独ですべてのプロダクトバックログ項目を書き上げるのではなく、Developers・Scrum Master・ステークホルダーの知見を集めながら形成・リファインするのが一般的です。ただし「誰が作業したか」に関わらず、最終的な内容・並び順に対する説明責任は Product Owner から離れません。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf" target="_blank" rel="noopener">Scrum Guide 2020 PDF(英語)</a></li>
+        </ul>
+      </div>
+
+      <h3>コミットメント: プロダクトゴール</h3>
+
+      <p>2020年版 Scrum Guide で追加された概念が、プロダクトバックログの<strong>コミットメント(Commitment)</strong>である「<strong>プロダクトゴール(Product Goal)</strong>」です。プロダクトゴールはプロダクトの将来のある状態を表し、Scrum Team が計画を立てる際の目標となります。プロダクトゴールはプロダクトバックログの中に存在し、それ以外のプロダクトバックログ項目は「プロダクトゴールを達成するために何が必要か」を定義する形で創発していきます。</p>
+
+      <p>プロダクトゴールは長期的な目標であり、Scrum Team は次のプロダクトゴールに着手する前に、1つのプロダクトゴールを達成するか、放棄する必要があります。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="artifactsFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Product Vision から Increment までのアーティファクトとコミットメントの関係</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020</a></li>
+          <li><a href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">scrum.org — What is a Product Backlog?</a></li>
+        </ul>
+      </div>
+
+      <h3>良いプロダクトバックログの4条件: DEEP モデル</h3>
+
+      <p>Product Owner Roman Pichler と Mike Cohn が提唱した<strong>DEEP</strong>は、良いプロダクトバックログが備えるべき4つの性質の頭文字です。Scrum Guide 公式の用語ではありませんが、実務・多くの認定対策資料で広く参照される補助モデルです。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>文字</th><th>意味</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>D</strong></td><td>Detailed appropriately(適切に詳細化)</td><td>上位(近い将来に着手する)項目ほど詳細に、下位項目ほど粗く記述する</td></tr>
+            <tr><td><strong>E</strong></td><td>Emergent(創発的)</td><td>新しい学びに応じて項目が追加・削除・変更され続ける</td></tr>
+            <tr><td><strong>E</strong></td><td>Estimated(見積もられている)</td><td>すべての項目に粗いサイズ感があり、上位ほど精緻な見積りになる</td></tr>
+            <tr><td><strong>P</strong></td><td>Prioritized(並び替えられている)</td><td>最も価値の高い項目が上位に来るよう常に並び替えられている</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「D」(適切な詳細化)と「E」(創発性)は見落とされがちですが、これらを軽視すると、遠い未来の項目まで過剰に詳細化してしまい、後で無駄になる作業(ウォーターフォール的な要件定義の再来)を生みます。「Just enough, just in time(必要な分だけ、必要なタイミングで)」の原則を徹底しましょう。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.romanpichler.com/blog/make-the-product-backlog-deep/" target="_blank" rel="noopener">Roman Pichler — Make Your Product Backlog DEEP</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 05. Chapter 2: Product Vision and Product Goal ===================== -->
+    <section id="product-vision-and-goal">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 05</div>
+      <h2>Chapter 2: プロダクトビジョンとプロダクトゴール</h2>
+
+      <h3>プロダクトという単位</h3>
+
+      <p>Scrum Guide は「プロダクト」を「価値を届けるための乗り物(vehicle)」と定義し、明確な境界、既知のステークホルダー、明確に定義されたユーザーまたはカスタマーを持つものとしています。プロダクトはサービスであっても、物理的な製品であっても、より抽象的な何かであっても構いません。</p>
+
+      <h3>ビジョン・ゴール・戦略の関係</h3>
+
+      <p>Managing Products with Agility コンピテンシーの Focus Area「Product Vision」は、プロダクトが誰に対してどんな価値を届けるのかを表現する将来像です。プロダクトゴールはこのビジョンを実現する過程における、より具体的・中期的な到達点(コミットメント)と位置づけられます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>レイヤー</th><th>時間軸</th><th>役割</th></tr></thead>
+          <tbody>
+            <tr><td>Product Vision(プロダクトビジョン)</td><td>長期・恒久的</td><td>プロダクトが存在する理由と、届ける価値・対象を表現する</td></tr>
+            <tr><td>Business Strategy(ビジネス戦略)</td><td>中〜長期</td><td>ビジョンを市場・競合環境の中でどう実現するかの方針</td></tr>
+            <tr><td>Product Goal(プロダクトゴール)</td><td>中期(複数スプリントにまたがる)</td><td>Scrum Team が今取り組んでいる具体的な到達点。プロダクトバックログ内のコミットメント</td></tr>
+            <tr><td>Sprint Goal(スプリントゴール)</td><td>短期(1スプリント)</td><td>プロダクトゴールに向けた、そのスプリントでの具体的な貢献</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>プロダクトゴールを設定する際は「機能の羅列」ではなく、「なぜこの機能群が必要なのか」という価値の仮説を言語化しましょう。良いプロダクトゴールは、Developers がプロダクトバックログ項目の並び替えや取捨選択について自律的に判断できるだけの、十分な文脈を提供します。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">scrum.org — Professional Scrum Competency: Managing Products with Agility</a></li>
+          <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 06. Chapter 3: Forming the Product Backlog ===================== -->
+    <section id="forming-the-backlog">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 06</div>
+      <h2>Chapter 3: プロダクトバックログの形成(Forming)</h2>
+
+      <p>「形成(Forming)」とは、アイデア・ニーズ・課題をプロダクトバックログ項目という実行可能な単位に変換していく最初の活動です。</p>
+
+      <h3>カスタマー・ステークホルダーのニーズを捉える技法</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>ユーザーインタビュー</td><td>カスタマー・ユーザーに直接ヒアリングし、課題・行動・動機を理解する</td></tr>
+            <tr><td>ユーザーストーリーマッピング</td><td>ユーザーの行動フローに沿ってプロダクトバックログ項目をマッピングし、全体像とリリース単位を可視化する</td></tr>
+            <tr><td>オポチュニティ(機会)バックログ</td><td>まだプロダクトバックログに正式に取り込む前の、検証されていないアイデア・課題を蓄積する場所として分離管理する</td></tr>
+            <tr><td>ペルソナ・ジャーニーマップ</td><td>対象ユーザー像と体験の流れを明文化し、項目の背景にある「誰のためか」を明確にする</td></tr>
+            <tr><td>データ・利用状況分析</td><td>実際のプロダクト利用データから課題・機会を発見する(経験主義に基づくニーズ発見)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>すべてのアイデアを直接プロダクトバックログに追加すると、バックログが肥大化し透明性が損なわれます。検証前のアイデアは別建ての「オポチュニティバックログ」で管理し、価値の仮説が固まった段階でプロダクトバックログ項目へ昇格させる運用が有効です。</p>
+      </div>
+
+      <h3>プロダクトバックログ項目(PBI)の属性</h3>
+
+      <p>Scrum Guide は PBI が持つ属性を厳密に規定していませんが、一般的に以下の属性が用いられます(ドメインによって変わることが明記されています)。</p>
+
+      <ul>
+        <li><strong>説明(Description):</strong> 何を、なぜ実現するのか</li>
+        <li><strong>順序(Order):</strong> バックログ内での並び順</li>
+        <li><strong>サイズ(Size):</strong> 相対的な規模感(ストーリーポイントなど)</li>
+        <li><strong>価値(Value):</strong> プロダクトゴール・ビジネス目標への貢献度</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/product-backlog-refinement" target="_blank" rel="noopener">scrum.org — Product Backlog Refinement</a></li>
+          <li><a href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">scrum.org — What is a Product Backlog?</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 07. Chapter 4: Refinement ===================== -->
+    <section id="refinement">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 07</div>
+      <h2>Chapter 4: リファインメント(Refinement)</h2>
+
+      <h3>定義と位置づけ</h3>
+
+      <p>Scrum Guide(2020年版)は、プロダクトバックログのリファインメントを「プロダクトバックログ項目をより小さく、より正確な項目に分解し、詳細化していく行為」と定義しています。これは説明・順序・サイズなどの詳細を追加し続ける継続的な活動であり、<strong>スプリントの中で必要に応じて行われる継続的活動であり、Scrum の公式イベント(Event)ではありません</strong>。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス(時間配分の目安)</div>
+        <p>Developers がリファインメントに費やす時間の目安として、スプリントキャパシティの<strong>約10%以内</strong>にとどめることが多くの実務者・トレーナーから推奨されています。これは Scrum Guide の必須ルールではなく、経験則としてのガイドラインです。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/what-product-backlog-refinement" target="_blank" rel="noopener">scrum.org — What Is Product Backlog Refinement?</a></li>
+          <li><a href="https://www.scrum.org/resources/product-backlog-refinement" target="_blank" rel="noopener">scrum.org — Product Backlog Refinement</a></li>
+        </ul>
+      </div>
+
+      <h3>リファインメントの5つの戦略</h3>
+
+      <p>Scrum.org が公開するブログでは、リファインメントを構成する活動として以下の5つを紹介しています。</p>
+
+      <ol>
+        <li><strong>Gaining insights(洞察を得る):</strong> ステークホルダーとの対話を通じて、成功仮説・成功基準を明確にする</li>
+        <li><strong>Ordering the Product Backlog(並び替える):</strong> 新しい情報に基づいて順序を更新する</li>
+        <li><strong>Estimating Product Backlog items(見積もる):</strong> 規模感を明らかにする</li>
+        <li><strong>Breaking down of Product Backlog items(分割する):</strong> 大きな項目を小さく実行可能な単位にする</li>
+        <li><strong>Eliminating dependencies(依存関係を解消する):</strong> 項目間の依存を減らし、独立して着手できるようにする</li>
+      </ol>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement" target="_blank" rel="noopener">scrum.org — 5 Strategies for Product Backlog Refinement</a></li>
+        </ul>
+      </div>
+
+      <h3>プロダクトバックログ項目の分割技法</h3>
+
+      <p>大きすぎる項目(エピック)は、1スプリント以内に完成できるサイズまで分割する必要があります。分割は「機能単位の垂直分割(Vertical Slicing)」で行うことが原則であり、UI層・データ層といった技術レイヤー単位の水平分割(Horizontal Slicing)は避けるべきとされています。</p>
+
+      <h4>SPIDR(Mike Cohn)</h4>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>頭文字</th><th>技法</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>S</td><td>Spikes(スパイク)</td><td>未知の技術的・調査的な部分を、知識獲得のための調査活動として切り出す</td></tr>
+            <tr><td>P</td><td>Paths(パス)</td><td>処理経路・ユーザーの選択肢ごとに項目を分ける</td></tr>
+            <tr><td>I</td><td>Interfaces(インターフェース)</td><td>対応するUI・チャネル・プラットフォームごとに分ける</td></tr>
+            <tr><td>D</td><td>Data(データ)</td><td>対応するデータの種類・範囲ごとに分ける(頻出データを先に)</td></tr>
+            <tr><td>R</td><td>Rules(ルール)</td><td>対応するビジネスルールの範囲を段階的に広げる形で分ける</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Richard Lawrence の分割パターン(抜粋)</h4>
+
+      <ul>
+        <li>Workflow Steps(ワークフローの各ステップで分割)</li>
+        <li>Business Rule Variations(ビジネスルールのバリエーションで分割)</li>
+        <li>Major Effort(作業量が突出して大きい部分を切り出す)</li>
+        <li>Simple/Complex(単純なケースと複雑なケースを分ける)</li>
+        <li>Data Entry Methods(データ入力手段ごとに分割)</li>
+        <li>Deferred Performance(性能要件を後回しにする段階分割)</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="splittingDecisionFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">SPIDR に基づくプロダクトバックログ項目の分割判断フロー</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>分割の目的は「作業を小さくすること」自体ではなく、<strong>分割後も各項目が独立して価値を生み、ユーザーに意味のある形で確認できること</strong>です。垂直分割を徹底し、「フロントエンドだけ作る」「バックエンドだけ作る」のような技術レイヤーでの分割(水平分割)は避けましょう。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.mountaingoatsoftware.com/agile/five-simple-but-powerful-ways-to-split-user-stories" target="_blank" rel="noopener">Mountain Goat Software(Mike Cohn) — SPIDR: Five Simple but Powerful Ways to Split User Stories</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement" target="_blank" rel="noopener">scrum.org — 5 Strategies for Product Backlog Refinement(垂直分割の原則)</a></li>
+        </ul>
+      </div>
+
+      <h3>INVEST 基準(項目の品質チェック)</h3>
+
+      <p>良いプロダクトバックログ項目(特にユーザーストーリー形式のもの)が満たすべき性質として、以下の INVEST 基準が広く使われます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>文字</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>I</td><td>Independent(独立している)</td></tr>
+            <tr><td>N</td><td>Negotiable(交渉可能である)</td></tr>
+            <tr><td>V</td><td>Valuable(価値がある)</td></tr>
+            <tr><td>E</td><td>Estimable(見積り可能である)</td></tr>
+            <tr><td>S</td><td>Small(十分に小さい)</td></tr>
+            <tr><td>T</td><td>Testable(テスト可能である)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>INVEST は Bill Wake が提唱した概念で、DEEP がバックログ全体の品質基準であるのに対し、INVEST は個々の項目単位の品質基準という関係にあります。</p>
+      </div>
+
+      <h3>見積り(Estimating)</h3>
+
+      <p>2020年版 Scrum Guide では「estimate(見積り)」という単語自体が本文から削除され、リファインメントで追加する詳細は「description・order・size」という言葉に置き換えられました。これは見積り手法(ストーリーポイント、理想日数、#NoEstimates など)を Scrum Team 自身が選べるようにするための変更であり、見積りという行為自体を禁止するものではありません。<strong>サイズの見積りは、実際に作業を行う Developers が行う責任を持ちます。</strong></p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/forum/scrum-forum/45798/product-backlog-refinement-details" target="_blank" rel="noopener">scrum.org フォーラム — Product Backlog Refinement details(2017年版と2020年版の比較)</a></li>
+        </ul>
+      </div>
+
+      <h3>Definition of Ready(DoR)について</h3>
+
+      <p>「Definition of Ready(レディの定義)」は、プロダクトバックログ項目がスプリントプランニングで選択可能な状態を判断するための、チーム独自の合意事項として広く実務で使われる概念です。ただし、<strong>Definition of Ready は Scrum Guide が定めるコミットメントではありません</strong>(Scrum Guide 公式のコミットメントは Product Goal・Sprint Goal・Definition of Done の3つのみ)。試験対策上は、この違いを明確に区別しておくことが重要です。</p>
+    </section>
+
+    <!-- ===================== 08. Chapter 5: Ordering and Prioritization ===================== -->
+    <section id="ordering-and-prioritization">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 08</div>
+      <h2>Chapter 5: 並び替えと優先順位付け(Ordering)</h2>
+
+      <h3>「順序」であって「優先度カテゴリ」ではない</h3>
+
+      <p>繰り返しになりますが、プロダクトバックログは<strong>厳密な1本の順序リスト</strong>です。実務ではしばしば「優先順位付け(Prioritization)」という言葉が使われますが、試験対策上は「複数の項目が同じ優先度を持つことはない、常に明確な順序がある」という Scrum Guide の考え方を正確に理解しておく必要があります。</p>
+
+      <h3>代表的な並び替え・優先順位付け技法</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th><th>主な出典・提唱元</th></tr></thead>
+          <tbody>
+            <tr><td>MoSCoW法</td><td>Must / Should / Could / Won't の4区分で要求を分類する</td><td>Dai Clegg(DSDM)</td></tr>
+            <tr><td>Kano Model(狩野モデル)</td><td>「当たり前品質」「一元的品質」「魅力的品質」など顧客満足への影響で機能を分類する</td><td>狩野紀昭</td></tr>
+            <tr><td>Value vs. Effort(価値対労力マトリクス)</td><td>価値と実装コストの2軸で項目をプロットし、費用対効果の高い項目を優先する</td><td>一般的なプロダクトマネジメント手法</td></tr>
+            <tr><td>Cost of Delay(遅延コスト)</td><td>「その項目の実現を遅らせることで失われる価値」を定量化し、優先順位判断に使う</td><td>Donald Reinertsen</td></tr>
+            <tr><td>WSJF(Weighted Shortest Job First)</td><td>Cost of Delay を Job Size(作業量)で割った値で優先順位を決める。SAFe で採用される手法</td><td>SAFe(Scaled Agile Framework)</td></tr>
+            <tr><td>Buy a Feature</td><td>ステークホルダーに仮想予算を配分してもらい、機能への支持度を可視化する参加型技法</td><td>Luke Hohmann</td></tr>
+            <tr><td>Weighted Scoring(重み付けスコアリング)</td><td>複数の評価軸に重みを付けてスコア化し、総合順位を出す</td><td>一般的なプロダクトマネジメント手法</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足(試験対策上の注意)</div>
+        <p>WSJF・Cost of Delay は SAFe(Scaled Agile Framework)の文脈でよく紹介される手法であり、<strong>Scrum Guide 自体が規定する公式手法ではありません</strong>。PSPBM Skills は Scrum.org の認定であるため、出題の中心は「Scrum の原則(価値・経験主義に基づく並び替え)」であり、特定のフレームワーク固有の計算式そのものよりも、「なぜ並び替えるのか」「何を根拠に並び替えるのか」という考え方の理解が重視されます。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://framework.scaledagile.com/wsjf" target="_blank" rel="noopener">Scaled Agile Framework — WSJF</a></li>
+          <li><a href="https://scrum-master.org/en/what-is-wsjf-weighted-shortest-job-first-safe/" target="_blank" rel="noopener">scrum-master.org — WSJFの計算式</a></li>
+        </ul>
+      </div>
+
+      <h3>並び替えの判断材料</h3>
+
+      <p>Product Owner が並び替えを行う際に考慮すべき代表的な観点は次の通りです。</p>
+
+      <ul>
+        <li><strong>価値(Value):</strong> ビジネス価値・顧客価値への貢献度</li>
+        <li><strong>リスクの低減(Risk Reduction):</strong> 技術的・市場的な不確実性を早期に解消できるか</li>
+        <li><strong>依存関係(Dependencies):</strong> 他の項目やチームとの依存関係</li>
+        <li><strong>学習の機会(Learning Opportunity):</strong> 仮説検証によって得られる知見の大きさ</li>
+        <li><strong>コスト・労力(Cost / Effort):</strong> 実現にかかる工数</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「声の大きいステークホルダーの要望を最上位に置く」といった政治的な判断ではなく、価値・リスク低減・学習機会を軸にした透明な根拠を持って並び替えを行い、その根拠をステークホルダーに説明できる状態を保つことが、Product Owner の信頼構築につながります。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 09. Chapter 6: Stakeholders and Customers ===================== -->
+    <section id="stakeholders-and-customers">
+      <div class="section-eyebrow"><i class="ti ti-calendar-event"></i>SECTION 09</div>
+      <h2>Chapter 6: ステークホルダーとカスタマーとの協働</h2>
+
+      <h3>なぜステークホルダー協働がプロダクトバックログマネジメントの核なのか</h3>
+
+      <p>Managing Products with Agility コンピテンシーは、効果的なプロダクトバックログマネジメントには「Scrum Team を含む多様なステークホルダー・カスタマーからの入力と協働」が不可欠であるとしています。ステークホルダーが必要とする透明性のレベルは一様ではなく、相手に応じた手法を選ぶ必要があります。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">scrum.org — Professional Scrum Competency: Managing Products with Agility</a></li>
+        </ul>
+      </div>
+
+      <h3>ステークホルダー識別・関与の技法</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>ステークホルダーマッピング</td><td>関係者を洗い出し、関心度・影響力などの軸で整理する</td></tr>
+            <tr><td>Power/Interest グリッド</td><td>「影響力」と「関心度」の2軸でステークホルダーを4象限に分類し、関与の濃淡を決める</td></tr>
+            <tr><td>ステークホルダーインタビュー</td><td>個別に期待値・懸念点をヒアリングする</td></tr>
+            <tr><td>プロダクトバックログの公開・共有</td><td>プロダクトバックログ自体を可視化し、誰でも状況を把握できるようにする</td></tr>
+            <tr><td>Sprint Review への招待</td><td>動くインクリメントに対するフィードバックを得る最重要の場として活用する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>コミュニケーションのリズム</h3>
+
+      <p>Scrum の公式イベントの中で、ステークホルダーとの協働が最も強く組み込まれているのが<strong>Sprint Review</strong>です。Sprint Review はインクリメントを検査し、今後の適応を判断するための協働セッションであり、進捗報告会ではありません。Product Owner はここで得たフィードバックをプロダクトバックログの並び替え・内容更新に反映します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="stakeholderCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ステークホルダーのフィードバックからバックログ更新までの協働サイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>ステークホルダー全員に同じ深さの関与を求める必要はありません。Power/Interest グリッドなどで関与の濃淡を決め、影響力・関心度が高い層には密なコミュニケーション(定例の1on1やレビューへの招待)、それ以外の層には公開情報(バックログの共有、ニュースレター等)による透明性確保、といった使い分けが有効です。</p>
+      </div>
+
+      <h3>期待値マネジメントとコンフリクトの扱い</h3>
+
+      <p>複数のステークホルダーが異なる優先順位を主張することは日常的に起こります。Product Owner はこうした対立を「誰の声が大きいか」ではなく、プロダクトゴール・測定可能な価値・経験主義に基づく根拠に立ち返って調整する役割を担います。</p>
+    </section>
+
+    <!-- ===================== 10. Chapter 7: Empiricism and Evidence-Based Management ===================== -->
+    <section id="empiricism-and-ebm">
+      <div class="section-eyebrow"><i class="ti ti-timeline"></i>SECTION 10</div>
+      <h2>Chapter 7: 経験主義とEvidence-Based Managementによる価値最大化</h2>
+
+      <h3>経験主義の3本柱をプロダクトバックログに適用する</h3>
+
+      <p>Scrum は経験主義(Empiricism)に基づくフレームワークであり、その3本柱は<strong>透明性(Transparency)・検査(Inspection)・適応(Adaptation)</strong>です。プロダクトバックログマネジメントにおいては、次のように現れます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>柱</th><th>プロダクトバックログにおける現れ方</th></tr></thead>
+          <tbody>
+            <tr><td>透明性</td><td>プロダクトバックログの内容・並び順が誰にでも理解できる形で公開されている</td></tr>
+            <tr><td>検査</td><td>Sprint Review などでインクリメントとプロダクトバックログの妥当性を定期的に確認する</td></tr>
+            <tr><td>適応</td><td>検査で得た学びをもとに、プロダクトバックログの内容・並び順・プロダクトゴールを更新する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Evidence-Based Management(EBM)</h3>
+
+      <p><strong>Evidence-Based Management(EBM)</strong>は、Ken Schwaber と Scrum.org が開発した、組織がプロダクト提供から得る価値を測定・向上させるためのフレームワークです。実験と頻繁な検査を通じてリスクを低減し、意思決定を改善することを重視します。EBM は4つの<strong>主要価値領域(Key Value Areas, KVA)</strong>で構成されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>KVA</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Current Value(CV)</strong></td><td>現在、顧客・ユーザーに届いている価値</td></tr>
+            <tr><td><strong>Unrealized Value(UV)</strong></td><td>潜在的なニーズをすべて満たした場合に実現しうる、未実現の価値</td></tr>
+            <tr><td><strong>Ability to Innovate(A2I)</strong></td><td>顧客・ユーザーのニーズによりよく応える新しい能力を届ける組織の能力</td></tr>
+            <tr><td><strong>Time to Market(T2M)</strong></td><td>新しい能力・サービス・プロダクトを迅速に届ける能力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="ebmKvaDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Evidence-Based Management の4つの Key Value Areas とバックログ意思決定の関係</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>ベロシティ(Velocity)は「チームがどれだけ作業をこなしたか」という<strong>内部の出力(アウトプット)指標</strong>であり、顧客に届いた価値そのもの(アウトカム)を測るものではありません。プロダクトバックログの意思決定にベロシティだけを根拠にするのは誤りで、EBM の KVA のような<strong>アウトカム指標</strong>と組み合わせて価値を検証することが推奨されます。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">scrum.org — Evidence-Based Management&trade;(EBM)</a></li>
+        </ul>
+      </div>
+
+      <h3>経験主義を競争優位として活かす</h3>
+
+      <p>PSPBM Skills のコース説明では、学習目標の一つとして「データに基づく意思決定と継続的な学習が、いかに競争優位につながるかを理解する」ことが挙げられています。これは、プロダクトバックログの並び替えや取捨選択を、憶測や声の大きさではなく、実データ・実験結果に基づいて行うという姿勢そのものを指します。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states" target="_blank" rel="noopener">Agilemania — PSPBM Certification Course Objectives</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Chapter 8: AI and Backlog Management ===================== -->
+    <section id="ai-and-backlog-management">
+      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 11</div>
+      <h2>Chapter 8: AI時代のプロダクトバックログマネジメント</h2>
+
+      <p>近年の PSPBM 関連トレーニングでは、学習目標の一つとして「AI がリファインメント・優先順位付け・意思決定をどのように簡素化しうるか」という観点が明示的に含まれるようになっています。これは Scrum Guide 本体の内容ではなく、近年のコースアップデートで扱われるようになったトピックである点に注意してください。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>以下は Scrum.org 公式のコース説明ページを参照元とする、トレーニングベンダーが公開しているコース目標の要約であり、Scrum Guide の公式規定ではありません。試験本体がAI活用の細部をどこまで問うかは公開されていないため、「経験主義・データ駆動の意思決定の延長線上にAI活用がある」という位置づけで理解しておくのが安全です。</p>
+      </div>
+
+      <ul>
+        <li>リファインメント時の項目分割・書き起こしの効率化にAIを補助的に使う</li>
+        <li>優先順位付けの判断材料となるデータ分析・傾向抽出をAIで補助する</li>
+        <li>ステークホルダーからのフィードバックの要約・傾向分析にAIを活用する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AIはあくまで「意思決定を支援する道具」であり、プロダクトバックログの内容・並び順に対する説明責任は Product Owner に残り続けます。AIが提示した分析結果や生成した項目案も、経験主義の3本柱(透明性・検査・適応)のプロセスに組み込み、人間による検証を経て取り込むべきです。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states" target="_blank" rel="noopener">Agilemania — PSPBM Certification Course Objectives(AI活用への言及)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Chapter 9: Misconceptions and Anti-patterns ===================== -->
+    <section id="misconceptions-and-antipatterns">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 12</div>
+      <h2>Chapter 9: よくある誤解とアンチパターン</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤解・アンチパターン</th><th>正しい理解</th></tr></thead>
+          <tbody>
+            <tr><td>プロダクトバックログは固定された要件仕様書である</td><td>プロダクトバックログは創発的であり、常に変化し続ける。完成することはない</td></tr>
+            <tr><td>項目には High/Medium/Low のような優先度カテゴリを付ければよい</td><td>プロダクトバックログは厳密な1本の順序リストであり、同じ順位の項目は存在しない</td></tr>
+            <tr><td>リファインメントは決まったイベントとして週1回だけ行うものである</td><td>リファインメントはScrumの公式イベントではなく、スプリント中に必要に応じて継続的に行う活動である</td></tr>
+            <tr><td>Product Owner が1人で黙々とバックログを書く</td><td>内容の作成自体はDevelopers・ステークホルダーと協働してよいが、説明責任はProduct Ownerに残る</td></tr>
+            <tr><td>見積りが付いていない項目は着手できない</td><td>見積りの精度は上位項目ほど高ければよく、下位項目は粗い見積りで十分。見積り手法自体もチームが選択できる</td></tr>
+            <tr><td>ベロシティを上げることが価値の証明になる</td><td>ベロシティは内部の出力指標に過ぎず、顧客への実際の価値提供(アウトカム)を直接示すものではない</td></tr>
+            <tr><td>ステークホルダー全員に同じ深さで対応する必要がある</td><td>影響力・関心度に応じて関与の濃淡を使い分けるのが実務上有効</td></tr>
+            <tr><td>Definition of Ready はScrum Guideが定めるコミットメントである</td><td>Definition of Ready はチーム独自の合意事項であり、Scrum Guide公式のコミットメントは Product Goal・Sprint Goal・Definition of Doneの3つのみ</td></tr>
+            <tr><td>大きな項目は技術レイヤー(フロント/バック)で分割すればよい</td><td>分割は原則として垂直分割(機能単位)で行い、各分割後も独立して価値を確認できる形にする</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Chapter 10: Exam Preparation Tips ===================== -->
+    <section id="exam-prep-tips">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 13</div>
+      <h2>Chapter 10: 試験対策のポイント</h2>
+
+      <h3>学習の進め方</h3>
+
+      <ol>
+        <li>まず PSM I または PSPO I レベルの Scrum Guide 理解(Events・Artifacts・Accountabilities・経験主義)を固める</li>
+        <li>本ガイドの Chapter 1〜3 でプロダクトバックログとプロダクトゴールの位置づけを正確に理解する</li>
+        <li>Chapter 4〜5 のリファインメント・並び替え技法を、実際の職場の具体例に当てはめて練習する</li>
+        <li>Chapter 6〜7 のステークホルダー協働・EBM を、抽象論ではなく「自分ならどう説明するか」の言葉で整理する</li>
+        <li>Chapter 9 の誤解一覧を見て、即座に正しい理解を口頭で説明できるか自己チェックする</li>
+      </ol>
+
+      <h3>頻出のひっかけパターン</h3>
+
+      <ul>
+        <li>「優先度(priority)」という言葉が使われている選択肢に対して、「同じ優先度の項目が複数存在してよい」という誤った前提が紛れ込んでいないか注意する</li>
+        <li>「リファインメントはイベントである」という誤った前提を含む選択肢に注意する</li>
+        <li>「見積り＝ストーリーポイントのみ」という決めつけに注意する(見積り手法はチームが選択できる)</li>
+        <li>「並び替えは Product Owner が単独で決める孤立した作業である」という誤った前提に注意する(協働は前提だが、説明責任はProduct Ownerにある、という両立関係を正確に理解する)</li>
+        <li>EBM の4つの KVA の名称と意味を正確に区別できるようにしておく(Current Value と Unrealized Value の違いなど)</li>
+      </ul>
+
+      <h3>推奨される準備の組み合わせ</h3>
+
+      <ul>
+        <li>公式コース「Professional Scrum Product Backlog Management Skills」の受講(受講後14日以内の受験で再受験権が付与される特典あり)</li>
+        <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020</a> の通読(プロダクトバックログ・プロダクトゴール・Product Owner の説明責任の箇所を重点的に)</li>
+        <li><a href="https://www.scrum.org/resources" target="_blank" rel="noopener">scrum.org のブログ・リソースページ</a>(本ガイドで引用したリソース群)の一次情報確認</li>
+        <li>自分の実務のプロダクトバックログを題材に、DEEP・INVEST・SPIDR を実際に当てはめてみる練習</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">TheScrumMaster.co.uk — How To Pass The PSPBM Skills Assessment</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 14. Glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 14</div>
+      <h2>用語集</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Product Backlog(プロダクトバックログ)</div><div class="g-def">プロダクトを改善するために必要なものをまとめた、創発的・順序付きのリスト</div></div>
+        <div class="glossary-item"><div class="g-term">Product Backlog Item, PBI(プロダクトバックログ項目)</div><div class="g-def">プロダクトバックログを構成する個々の項目</div></div>
+        <div class="glossary-item"><div class="g-term">Product Goal(プロダクトゴール)</div><div class="g-def">プロダクトバックログのコミットメント。プロダクトの将来のある状態を表す中期的な目標</div></div>
+        <div class="glossary-item"><div class="g-term">Product Owner(プロダクトオーナー)</div><div class="g-def">プロダクトの価値最大化に説明責任を負うScrum Teamのアカウンタビリティ</div></div>
+        <div class="glossary-item"><div class="g-term">Refinement(リファインメント)</div><div class="g-def">プロダクトバックログ項目をより小さく、より正確な項目に分解・詳細化する継続的活動</div></div>
+        <div class="glossary-item"><div class="g-term">Ordering(並び替え)</div><div class="g-def">プロダクトバックログ項目に明確な順序を与える活動(優先度カテゴリではない)</div></div>
+        <div class="glossary-item"><div class="g-term">Empiricism(経験主義)</div><div class="g-def">透明性・検査・適応の3本柱に基づく意思決定の考え方</div></div>
+        <div class="glossary-item"><div class="g-term">Evidence-Based Management, EBM(エビデンスベースドマネジメント)</div><div class="g-def">実験と頻繁な検査により価値を測定・向上させるためのフレームワーク</div></div>
+        <div class="glossary-item"><div class="g-term">Key Value Area, KVA(主要価値領域)</div><div class="g-def">EBMにおける4つの価値測定領域(CV・UV・A2I・T2M)</div></div>
+        <div class="glossary-item"><div class="g-term">DEEP</div><div class="g-def">良いプロダクトバックログが備えるべき4性質(Detailed appropriately, Emergent, Estimated, Prioritized)</div></div>
+        <div class="glossary-item"><div class="g-term">INVEST</div><div class="g-def">良いプロダクトバックログ項目が備えるべき6性質</div></div>
+        <div class="glossary-item"><div class="g-term">SPIDR</div><div class="g-def">項目分割の5技法(Spikes, Paths, Interfaces, Data, Rules)</div></div>
+        <div class="glossary-item"><div class="g-term">Stakeholder(ステークホルダー)</div><div class="g-def">プロダクトの成果に関心・影響力を持つ、Scrum Team外部の関係者</div></div>
+        <div class="glossary-item"><div class="g-term">Definition of Ready, DoR(レディの定義)</div><div class="g-def">チーム独自に合意する、項目着手可能と判断する基準(Scrum Guide公式のコミットメントではない)</div></div>
+        <div class="glossary-item"><div class="g-term">Vertical Slicing(垂直分割)</div><div class="g-def">技術レイヤーではなく機能単位で項目を分割し、各分割後も独立した価値を確認できるようにする考え方</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== 15. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 15</div>
+      <h2>参考文献・ソースURL一覧</h2>
+
+      <div class="ref-group">
+        <ul class="ref-list">
+          <li><span class="ref-name">scrum.org — Professional Scrum Product Backlog Management Skills Certification(公式試験ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification</a></li>
+          <li><span class="ref-name">scrum.org — The Professional Scrum Competencies(コンピテンシー全体像)</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+          <li><span class="ref-name">scrum.org — Professional Scrum Competency: Managing Products with Agility</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility</a></li>
+          <li><span class="ref-name">Scrum Guide 2020(英語・公式)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+          <li><span class="ref-name">Scrum Guide 2020 PDF(英語版)</span><a class="ref-url" href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf" target="_blank" rel="noopener">https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf</a></li>
+          <li><span class="ref-name">scrum.org — What is a Product Backlog?</span><a class="ref-url" href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">https://www.scrum.org/resources/what-is-a-product-backlog</a></li>
+          <li><span class="ref-name">scrum.org — Product Backlog Refinement</span><a class="ref-url" href="https://www.scrum.org/resources/product-backlog-refinement" target="_blank" rel="noopener">https://www.scrum.org/resources/product-backlog-refinement</a></li>
+          <li><span class="ref-name">scrum.org — What Is Product Backlog Refinement?</span><a class="ref-url" href="https://www.scrum.org/resources/blog/what-product-backlog-refinement" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/what-product-backlog-refinement</a></li>
+          <li><span class="ref-name">scrum.org — 5 Strategies for Product Backlog Refinement</span><a class="ref-url" href="https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement</a></li>
+          <li><span class="ref-name">scrum.org フォーラム — Product Backlog Refinement details(2017年版と2020年版の違い)</span><a class="ref-url" href="https://www.scrum.org/forum/scrum-forum/45798/product-backlog-refinement-details" target="_blank" rel="noopener">https://www.scrum.org/forum/scrum-forum/45798/product-backlog-refinement-details</a></li>
+          <li><span class="ref-name">scrum.org — Evidence-Based Management&trade;(EBM)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          <li><span class="ref-name">Credly — PSPBM Skills バッジ発行条件</span><a class="ref-url" href="https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill" target="_blank" rel="noopener">https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill</a></li>
+          <li><span class="ref-name">scrum.org(TheScrumMaster.co.uk寄稿) — How To Pass The PSPBM Skills Assessment</span><a class="ref-url" href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills</a></li>
+          <li><span class="ref-name">Xebia Academy — PSPBMS トレーニング概要</span><a class="ref-url" href="https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/</a></li>
+          <li><span class="ref-name">Agilemania — PSPBM Certification Course Objectives(コース目標の例)</span><a class="ref-url" href="https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states" target="_blank" rel="noopener">https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states</a></li>
+          <li><span class="ref-name">Roman Pichler — Make Your Product Backlog DEEP</span><a class="ref-url" href="https://www.romanpichler.com/blog/make-the-product-backlog-deep/" target="_blank" rel="noopener">https://www.romanpichler.com/blog/make-the-product-backlog-deep/</a></li>
+          <li><span class="ref-name">Mountain Goat Software(Mike Cohn) — SPIDR: Five Simple but Powerful Ways to Split User Stories</span><a class="ref-url" href="https://www.mountaingoatsoftware.com/agile/five-simple-but-powerful-ways-to-split-user-stories" target="_blank" rel="noopener">https://www.mountaingoatsoftware.com/agile/five-simple-but-powerful-ways-to-split-user-stories</a></li>
+          <li><span class="ref-name">Scaled Agile Framework — WSJF(補足: SAFe固有の手法)</span><a class="ref-url" href="https://framework.scaledagile.com/wsjf" target="_blank" rel="noopener">https://framework.scaledagile.com/wsjf</a></li>
+          <li><span class="ref-name">scrum-master.org — WSJFの計算式(補足)</span><a class="ref-url" href="https://scrum-master.org/en/what-is-wsjf-weighted-shortest-job-first-safe/" target="_blank" rel="noopener">https://scrum-master.org/en/what-is-wsjf-weighted-shortest-job-first-safe/</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Professional Scrum Product Backlog Management Skills、PSPBM、Scrum.org は Scrum.org の商標です。本ガイドは学習支援を目的とした二次資料であり、Scrum.org とは関係のない非公式コンテンツです。試験の正式な出題範囲・最新情報は必ず<a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>でご確認ください。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    competenciesOverview: `flowchart TB
+    A["Understanding and Applying the Scrum Framework<br/>Scrumフレームワークの理解と適用<br/>すべての土台"]
+    B["Developing People and Teams<br/>人とチームの育成"]
+    C["Managing Products with Agility<br/>アジリティを持ったプロダクトマネジメント<br/>PSPBM Skillsの主領域"]
+    D["Developing and Delivering Products Professionally<br/>プロフェッショナルなプロダクト開発と提供"]
+    E["Evolving the Agile Organization<br/>アジャイル組織への進化"]
+
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A hub;
+    class C done;
+    class B,D,E box;`,
+
+    artifactsFlow: `flowchart LR
+    PV["Product Vision<br/>プロダクトビジョン<br/>長期・恒久的な方向性"] --> PG["Product Goal<br/>プロダクトゴール<br/>コミットメント 中期目標"]
+    PG --> PB["Product Backlog<br/>プロダクトバックログ<br/>創発的・順序付き"]
+    PB --> SG["Sprint Goal<br/>スプリントゴール<br/>コミットメント"]
+    SG --> SB["Sprint Backlog<br/>スプリントバックログ"]
+    SB --> DoD["Definition of Done<br/>完成の定義 コミットメント"]
+    DoD --> INC["Increment<br/>インクリメント"]
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PG,SG,DoD hub;
+    class PV,PB,SB,INC box;`,
+
+    splittingDecisionFlow: `flowchart TD
+    START["大きすぎるPBI<br/>Epicレベル"] --> Q1{"未知の技術的<br/>不確実性がある?"}
+    Q1 -- "はい" --> SP["Spike調査として切り出す"]
+    Q1 -- "いいえ" --> Q2{"複数の処理経路や<br/>選択肢がある?"}
+    Q2 -- "はい" --> PA["Pathごとに分割"]
+    Q2 -- "いいえ" --> Q3{"複数のUIや<br/>チャネルに対応?"}
+    Q3 -- "はい" --> IF["Interfaceごとに分割"]
+    Q3 -- "いいえ" --> Q4{"扱うデータの種類が<br/>複数ある?"}
+    Q4 -- "はい" --> DA["Dataの種類ごとに分割"]
+    Q4 -- "いいえ" --> Q5{"複雑なビジネスルールを<br/>多く含む?"}
+    Q5 -- "はい" --> RU["Ruleの適用範囲で段階分割"]
+    Q5 -- "いいえ" --> READY["1スプリントで完成可能な<br/>サイズと判断"]
+
+    SP --> READY
+    PA --> READY
+    IF --> READY
+    DA --> READY
+    RU --> READY
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class Q1,Q2,Q3,Q4,Q5 hub;
+    class SP,PA,IF,DA,RU box;
+    class READY done;`,
+
+    stakeholderCycle: `flowchart LR
+    A["ステークホルダーの<br/>ニーズ・フィードバック"] --> B["プロダクトバックログの<br/>形成 リファインメント"]
+    B --> C["並び替え<br/>価値順"]
+    C --> D["Sprintでの実施<br/>Increment作成"]
+    D --> E["Sprint Reviewでの<br/>検査と協働"]
+    E --> A
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class A,B,C,D,E box;`,
+
+    ebmKvaDiagram: `flowchart TB
+    subgraph EBM["Evidence-Based Managementの4つのKey Value Areas"]
+        CV["Current Value<br/>現在届いている価値"]
+        UV["Unrealized Value<br/>未実現の価値"]
+        A2I["Ability to Innovate<br/>革新する能力"]
+        T2M["Time to Market<br/>市場投入までの速度"]
+    end
+    CV -.->|"継続測定"| DECISION["プロダクトバックログの<br/>内容・並び順の意思決定"]
+    UV -.->|"継続測定"| DECISION
+    A2I -.->|"継続測定"| DECISION
+    T2M -.->|"継続測定"| DECISION
+    DECISION -->|"実験・リリース"| CV
+
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class CV,UV,A2I,T2M hub;
+    class DECISION box;`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
