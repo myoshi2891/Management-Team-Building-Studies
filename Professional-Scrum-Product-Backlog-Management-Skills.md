@@ -176,12 +176,12 @@ Product Owner はこれらの作業を自ら行うことも、他者に委任す
 
 ```mermaid
 flowchart LR
-    PV["Product Vision<br/>プロダクトビジョン<br/>（長期・恒久的な方向性）"] --> PG["Product Goal<br/>プロダクトゴール<br/>（コミットメント／中期目標）"]
-    PG --> PB["Product Backlog<br/>プロダクトバックログ<br/>（創発的・順序付き）"]
-    PB --> SG["Sprint Goal<br/>スプリントゴール<br/>（コミットメント）"]
-    SG --> SB["Sprint Backlog<br/>スプリントバックログ"]
-    SB --> DoD["Definition of Done<br/>完成の定義（コミットメント）"]
-    DoD --> INC["Increment<br/>インクリメント"]
+    PV["Product Vision<br/>プロダクトビジョン<br/>（長期・恒久的な方向性）"] --> PB["Product Backlog<br/>プロダクトバックログ<br/>（創発的・順序付き）"]
+    PB --> SB["Sprint Backlog<br/>スプリントバックログ"]
+    SB --> INC["Increment<br/>インクリメント"]
+    PB -.->|"コミットメント"| PG["Product Goal<br/>プロダクトゴール<br/>（コミットメント／長期目標）"]
+    SB -.->|"コミットメント"| SG["Sprint Goal<br/>スプリントゴール<br/>（コミットメント）"]
+    INC -.->|"コミットメント"| DoD["Definition of Done<br/>完成の定義（コミットメント）"]
 
     classDef commit fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef artifact fill:#EEF1F8,stroke:#2E3F72,color:#161B26

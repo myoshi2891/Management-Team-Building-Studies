@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Product Discovery and Validation(PPDV)認定試験 学習ガイド | Scrum.org公式アセスメント</title>
+<meta name="description" content="Scrum.org Professional Product Discovery and Validation(PPDV)認定試験の初学者向け学習ガイド。ダブルダイヤモンド、Discovery/Validation技法、EBM、ベストプラクティスと一次情報源のURLを解説。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PPDV™ 学習ガイド</div>
+        <div class="brand-subtitle">Product Discovery and Validation</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#how-to-use"><i class="ti ti-map-2"></i>このガイドの読み方</a></li>
+      <li><a href="#ppdv-overview"><i class="ti ti-certificate"></i>第1章: 試験の概要</a></li>
+      <li><a href="#double-diamond"><i class="ti ti-route"></i>第2章: ダブルダイヤモンド</a></li>
+      <li><a href="#problem-vs-solution"><i class="ti ti-clipboard-text"></i>第3章: 問題vsソリューション</a></li>
+      <li><a href="#discovery-techniques"><i class="ti ti-search"></i>第4章: Discovery技法</a></li>
+      <li><a href="#validation-techniques"><i class="ti ti-flask"></i>第5章: Validation技法</a></li>
+      <li><a href="#scrum-integration"><i class="ti ti-git-branch"></i>第6章: Scrum統合</a></li>
+      <li><a href="#myths-antipatterns"><i class="ti ti-alert-triangle"></i>第7章: 誤解・アンチパターン</a></li>
+      <li><a href="#exam-prep"><i class="ti ti-clipboard-check"></i>第8章: 試験対策</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・ソース一覧</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>SCRUM.ORG 公式アセスメント</div>
+      <h1>Professional Product Discovery and Validation™ 認定試験 学習ガイド</h1>
+      <p class="hero-lede">
+        初学者向け・ステップバイステップ解説版。対象試験: <a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Certification</a>(Scrum.org)
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">20問</div><div class="stat-label">出題数</div></div>
+        <div class="stat-card"><div class="stat-number">30分</div><div class="stat-label">制限時間</div></div>
+        <div class="stat-card"><div class="stat-number">85%以上</div><div class="stat-label">合格ライン</div></div>
+        <div class="stat-card"><div class="stat-number">生涯有効</div><div class="stat-label">資格の有効期限(失効なし)</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドはPPDV認定試験の学習補助を目的として作成した二次資料です。最新の出題範囲・試験形式は必ず<a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>で確認してください。
+      </div>
+    </div>
+
+    <!-- ===================== 01. How to Use This Guide ===================== -->
+    <section id="how-to-use">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 01</div>
+      <h2>このガイドの読み方</h2>
+
+      <p>PPDV認定試験は、プロダクトの「発見(Discovery)」と「検証(Validation)」に関する知識と、それをいつ・どのように使うべきかの判断力を問う試験です。単なる用語暗記ではなく、「この状況ではどの手法を選ぶべきか」を問われる問題が中心になります。</p>
+
+      <p>このガイドは以下の構成で進みます。</p>
+
+      <ol>
+        <li>第1章: 試験の全体像(形式・対象者・学習目標)</li>
+        <li>第2章: PPDVの土台となる考え方「ダブルダイヤモンド」</li>
+        <li>第3章: 問題 vs ソリューション(課題の定式化)</li>
+        <li>第4章: Discovery(発見)技法群</li>
+        <li>第5章: Validation(検証)技法群</li>
+        <li>第6章: Scrumチームでの実践への統合</li>
+        <li>第7章: よくある誤解・アンチパターン</li>
+        <li>第8章: 試験対策の進め方</li>
+        <li>参考文献・ソース一覧</li>
+      </ol>
+
+      <p>各章の末尾に<strong>ベストプラクティス</strong>と<strong>ソース</strong>を明記しているので、根拠を辿りながら学習してください。</p>
+    </section>
+
+    <!-- ===================== 02. Chapter 1: Overview ===================== -->
+    <section id="ppdv-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 02</div>
+      <h2>第1章: PPDV認定試験の概要</h2>
+
+      <h3>1.1 PPDVとは何か</h3>
+      <p>PPDV(Professional Product Discovery and Validation)は、Scrum.orgが提供する認定資格です。プロダクトオーナーやプロダクトマネージャー、ビジネスアナリスト、プロダクトチームのメンバーが、ユーザーや顧客から学びながら「市場に届けるべき正しいプロダクト機能」を見極める力を証明するための試験です。</p>
+      <p>Scrum.orgの公式ページでは、この認定は「発見・検証技法をどう使うか、いつ使うかについての知識」を検証し、さらに「発見・検証スキルを適用して価値創出を高める能力」もテストすると説明されています。受講は必須ではありませんが、公式トレーニングクラスの受講が強く推奨されています。</p>
+
+      <h3>1.2 試験の基本情報</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>出題数</td><td>20問</td></tr>
+            <tr><td>制限時間</td><td>30分</td></tr>
+            <tr><td>合格ライン</td><td>85%以上</td></tr>
+            <tr><td>資格の有効期限</td><td>生涯有効(失効なし)</td></tr>
+            <tr><td>受験の前提条件</td><td>明確な必須要件はないが、Professional Scrum Product Owner I(PSPO I)や同等のトレーニング受講が推奨される</td></tr>
+            <tr><td>フィードバック形式</td><td>正誤の詳細は開示されないが、「Professional Scrum Competencies(プロフェッショナル・スクラム・コンピテンシー)」の観点別に成績のブレークダウンが提供される</td></tr>
+            <tr><td>受験資格の入手方法</td><td>公式PPDVトレーニング受講者には無料の受験権が付与される。受講なしでも購入して受験可能</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.3 対象者</h3>
+      <p>この試験・研修は主に以下の役割の人を対象に設計されています。</p>
+      <ul>
+        <li>プロダクトオーナー(Product Owner)</li>
+        <li>プロダクトマネージャー</li>
+        <li>ビジネスアナリスト</li>
+        <li>発見・検証プロセスに関わるプロダクトチーム全体</li>
+      </ul>
+      <p>新規プロダクト開発(グリーンフィールド)だけでなく、既存プロダクトの機能拡張・改善にも適用できる内容として設計されています。</p>
+
+      <h3>1.4 公式の学習目標(Course Learning Objectives)</h3>
+      <p>Scrum.org公式コースページに掲載されている学習目標は次の4点です。</p>
+      <ol>
+        <li>ユーザーのニーズ・欲求に関する仮説を検証する実験を意図的に設計することで、ユーザー価値の創出を高める</li>
+        <li>検証によって得られたエビデンスに基づいてのみ投資判断を行うことで、無駄を減らしROIを改善する</li>
+        <li>意見ではなくデータを用いて主要なステークホルダーと関わることで、組織のコラボレーションと連携を改善する</li>
+        <li>「実行すべきタスク」ではなく「解決すべき問題」として仕事を再定義することで、創造性を引き出す</li>
+      </ol>
+      <p>試験の出題は、この4つのコース学習目標そのものではなく、Professional Product Ownership™のCapabilities and Skillsに基づいています。公式アセスメントのブループリントは「Engage with Vision(ビジョンへの関与)」「Evolve with Validation(検証による進化)」「Lead to Value(価値へ導く)」の3カテゴリで構成されており、本ガイドの各章もこのブループリントに沿って対応づけています。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「手法を知っている」ことと「状況に応じて適切な手法を選べる」ことは別スキルと捉え、各技法を学ぶ際は必ず<strong>「どんな状況でこれを使うか / 使わないか」</strong>をセットで整理する</li>
+          <li>前提知識としてProfessional Scrum(Scrumの基本イベント・作成物・価値基準)とProduct Ownership(PSPO Iレベル)を先に固めておくと、Discovery/Validationの技法がスムーズに理解できる</li>
+          <li>学習中は「タスクではなく問題を解く」という学習目標4を常に意識し、機能一覧ではなく「解くべき課題」を起点に技法を整理する</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Certification(Scrum.org 公式試験ページ)</a></li>
+          <li><a href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Training(Scrum.org 公式コースページ・学習目標記載)</a></li>
+          <li><a href="https://www.credly.com/org/scrum-org/badge/professional-product-discovery-and-validation" target="_blank" rel="noopener">Professional Product Discovery and Validation™(Credly バッジ説明)</a></li>
+          <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDV認定・試験形式(20問/30分/85%/生涯有効)の記載(ScrumDojo.cz、Scrum.org Professional Training Networkパートナー)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 03. Chapter 2: Double Diamond ===================== -->
+    <section id="double-diamond">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <h2>第2章: PPDVの土台となる考え方 — ダブルダイヤモンド</h2>
+
+      <h3>2.1 ダブルダイヤモンドとは</h3>
+      <p>PPDVのコース構成は、イギリスのDesign Councilが2004〜2005年にかけて11のグローバル企業(LEGO、Sony、Microsoftなど)の実際のデザインプロセスを調査してまとめた<strong>ダブルダイヤモンドモデル</strong>に沿っています。このモデルは「発散(Divergent Thinking)」と「収束(Convergent Thinking)」を2回繰り返す構造を持ち、4つのフェーズで構成されます。</p>
+
+      <ul>
+        <li><strong>Discover(発見)</strong>: 課題領域を幅広く探索する(発散)</li>
+        <li><strong>Define(定義)</strong>: 探索した情報から解くべき問題を絞り込む(収束)</li>
+        <li><strong>Develop(開発)</strong>: 解決策の選択肢を幅広く発想・試作する(発散)</li>
+        <li><strong>Deliver(提供)</strong>: 有望な解決策に絞り込み、テスト・実装・提供する(収束)</li>
+      </ul>
+
+      <p>最初のダイヤモンドは「正しい問題」を見つけるための問題空間、2つ目のダイヤモンドは「正しい解決策」を見つけるための解決空間を表します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="doubleDiamond"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ダブルダイヤモンド: 問題空間(Discover→Define)と解決空間(Develop→Deliver)</div>
+      </div>
+
+      <p>PPDVコースの構成(ScrumDojo.czの公式パートナーによる解説)は、このダブルダイヤモンドの4フェーズすべてを、顧客ニーズの探索から優先順位付け、実験の定式化、検証までひと通り扱う設計になっています。</p>
+
+      <h3>2.2 Discovery(発見)とは何か</h3>
+      <p>Scrum.org CEOのDave Westは公式ブログで、Product Discoveryを次のように定義しています。</p>
+      <p>プロダクトディスカバリーとは、解く価値のある問題と、作る価値のある解決策を見つけるために不確実性を減らしていく、エビデンスに基づいた(evidence-informed)プロセスであり、非線形な一連の活動として、機能横断チームによって行われるものである。</p>
+      <p>この定義には3つの重要な要素があります。</p>
+      <ol>
+        <li><strong>エビデンス・インフォームド(evidence-informed)であり、エビデンス・ベースド(evidence-based)ではない</strong> — エビデンスは意思決定の材料にはなるが、最終的に決めるのは人であるという考え方</li>
+        <li><strong>活動は非線形</strong> — 1980年代のウォーターフォール的な「理解フェーズ→実現フェーズ」という一直線の流れではなく、様々な活動が並行・反復しながらチームの理解を深めていく</li>
+        <li><strong>機能横断チームが担う</strong> — 専門家が要件を調査して開発チームに引き渡す分業モデルではなく、デジタル時代には多様なスキルを持つチームが一体となって進める必要がある</li>
+      </ol>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Discoveryを「開発の前工程」として切り離さず、ダブルダイヤモンドの4フェーズを反復的に回す発想を持つ</li>
+          <li>「エビデンスに基づいて決める」のではなく「エビデンスを判断材料の一つとして人が決める」というスタンスを意識し、データ至上主義に陥らない</li>
+          <li>Discovery活動を特定の役割(POだけ等)に閉じ込めず、機能横断チーム全体の共同責任として設計する</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.designcouncil.org.uk/resources/framework-for-innovation/" target="_blank" rel="noopener">Framework for Innovation: Design Council's evolved Double Diamond(Design Council 公式)</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">Product Discovery and Validation in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+          <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">ダブルダイヤモンドを用いたPPDVコース構成の解説(ScrumDojo.cz)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 04. Chapter 3: Problem vs Solution ===================== -->
+    <section id="problem-vs-solution">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 04</div>
+      <h2>第3章: 問題 vs ソリューション(Problem vs Solution)</h2>
+
+      <p>ダブルダイヤモンドの最初の「問題空間」に対応する領域です。多くのプロダクトチームは、ユーザーの本当の課題を確認する前に解決策(機能)の話を始めてしまいます。PPDVはまずこの順序を正すところから始まります。</p>
+
+      <h3>3.1 問題・ニーズの定式化</h3>
+      <p>「なぜこの機能が必要か」を、特定のソリューションを前提とせずに言語化する練習です。ソリューションから入ると、チームは代替案を検討する視野を失い、その機能に固執してしまいます。「問題を解く」というフレームに立ち戻ることで、チームの創造性とオーナーシップを引き出せます(第1章で見た公式学習目標4に対応)。</p>
+
+      <h3>3.2 ビジネス問題ステートメント(Business Problem Statement)</h3>
+      <p>課題を関係者間で共有可能な形に整理するためのテンプレートです。一般的には以下の要素を含みます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>記述内容の例</th></tr></thead>
+          <tbody>
+            <tr><td>現状(Current State)</td><td>今、何が起きているか。誰が、どのような状況に置かれているか</td></tr>
+            <tr><td>望ましい状態(Desired State)</td><td>本来どうあるべきか。理想の状態は何か</td></tr>
+            <tr><td>ギャップの影響(Impact / Gap)</td><td>現状と理想の差が放置された場合、誰に・どんな悪影響があるか</td></tr>
+            <tr><td>影響を受ける対象(Who is affected)</td><td>どのユーザー・顧客セグメントが対象か</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>このテンプレートを埋めることで、チームは「なぜ取り組む価値があるのか」を、特定の解決策を仮定せずに説明できるようになります。</p>
+
+      <h3>3.3 感情・印象から測定可能な事実へ</h3>
+      <p>ステークホルダーの意見や個人の印象(「〜だと思う」「〜な気がする」)だけで優先順位を決めるのではなく、それらを検証可能な仮説に変換し、データや観察に基づく事実へ置き換えていくプロセスです。第5章で扱う仮説・実験の技法は、まさにこの「印象→事実」への変換を支える道具になります。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>要求(Requirement)や機能アイデアが出てきたら、まず「これはどんな問題を解決しようとしているのか」を1文で書き出す習慣をつける</li>
+          <li>ビジネス問題ステートメントは「現状」「理想」「影響」「対象者」の4点を関係者全員で合意してから次のフェーズ(Discovery)に進む</li>
+          <li>ステークホルダーの意見は「仮説」として扱い、「事実」として扱わない。意見は検証対象のインプットであり、結論ではない</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDVコース公式トピック一覧(Problem vs Solution章の構成、ScrumDojo.cz)</a></li>
+          <li><a href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Training(学習目標「タスクではなく問題として仕事を再定義する」、Scrum.org公式)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 05. Chapter 4: Discovery Techniques ===================== -->
+    <section id="discovery-techniques">
+      <div class="section-eyebrow"><i class="ti ti-search"></i>SECTION 05</div>
+      <h2>第4章: Discovery(発見)技法</h2>
+
+      <p>ダブルダイヤモンドの「Discover→Define」に対応する技法群です。ユーザー・顧客の実像を把握し、取り組むべき課題を絞り込むための道具を扱います。</p>
+
+      <h3>4.1 Proto Persona(プロトペルソナ)vs Persona(ペルソナ)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>プロトペルソナ</th><th>ペルソナ</th></tr></thead>
+          <tbody>
+            <tr><td>情報源</td><td>チーム内の仮説・経験・推測</td><td>実際のユーザーインタビューやリサーチデータ</td></tr>
+            <tr><td>作成タイミング</td><td>Discoveryの初期段階、リサーチ着手前</td><td>リサーチを行い、パターンを検証した後</td></tr>
+            <tr><td>目的</td><td>チームの前提を可視化し、リサーチで確認すべき仮説を洗い出す</td><td>検証済みのユーザー理解をチーム・組織で共有する</td></tr>
+            <tr><td>精度・信頼度</td><td>低い(あくまで仮説)</td><td>高い(エビデンスに基づく)</td></tr>
+            <tr><td>更新の仕方</td><td>リサーチ結果をもとに随時修正・破棄される前提</td><td>継続的なリサーチで裏付けを補強していく</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>ベストプラクティス</strong>: プロトペルソナは「完成品」ではなく「検証すべき仮説の一覧」として扱う。プロトペルソナのまま意思決定の根拠にしてしまうことが、Discoveryにおける典型的な落とし穴。</p>
+
+      <h3>4.2 Customer Journey Map vs User Story Map</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>Customer Journey Map</th><th>User Story Map</th></tr></thead>
+          <tbody>
+            <tr><td>焦点</td><td>顧客の体験・感情・行動の時系列変化</td><td>プロダクトの機能・ユーザーストーリーの構造</td></tr>
+            <tr><td>視点</td><td>顧客視点(顧客が何を経験するか)</td><td>プロダクトチーム視点(何を作るか)</td></tr>
+            <tr><td>主な用途</td><td>ペインポイントや機会をDiscoveryで発見する</td><td>バックログを整理し、リリース計画を立てる(Delivery寄り)</td></tr>
+            <tr><td>提唱者・出典</td><td>サービスデザイン領域で発展した手法</td><td>Jeff Patton(『User Story Mapping』)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>顧客ジャーニーマップの例をMermaidの<code>journey</code>図で示します(値は説明用の相対スコアです)。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="journeyMap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">新規ユーザーのオンボーディング体験の例(Customer Journey Map)</div>
+      </div>
+
+      <p><strong>ベストプラクティス</strong>: Customer Journey MapはDiscovery(課題発見)、User Story MapはDelivery(実装計画)という役割分担を意識し、両者を混同しない。ジャーニーマップで見つけたペインポイントを、ストーリーマップ上のどこに位置づけるかを紐づけると、発見から実装への橋渡しがしやすくなる。</p>
+
+      <h3>4.3 Impact Map(インパクトマップ)</h3>
+      <p>Impact Mappingは、Gojko Adzicが2012年に著書『Impact Mapping: Making a Big Impact with Software Products and Projects』で提唱した戦略立案技法です。ビジネスゴールと、それを実現するための手段との関係を可視化するマインドマップ型のツールで、次の4つの問いに沿って構造化されます。</p>
+      <ul>
+        <li><strong>Why(なぜ)</strong>: 達成したいビジネスゴールは何か(マップの中心)</li>
+        <li><strong>Who(誰が)</strong>: そのゴールに影響を与えられるアクター(顧客、ユーザー、内部関係者など)は誰か</li>
+        <li><strong>How(どのように)</strong>: そのアクターにどのような行動変化(インパクト)を起こしてほしいか</li>
+        <li><strong>What(何を)</strong>: そのインパクトを引き起こすために、チームは何を提供・実装するか</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="impactMap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Impact Mapの構造: Why → Who → How → What</div>
+      </div>
+
+      <p><strong>ベストプラクティス</strong>: 「What(機能一覧)」から作り始めない。必ず「Why(ゴール)」を最初に固定し、Who→How→Whatの順に発想することで、機能が本当にゴールに貢献しているかを常に説明できる状態を保つ。</p>
+
+      <h3>4.4 Empathy Map(エンパシーマップ)</h3>
+      <p>Empathy Mapは、デザインコンサルティング会社XPLANEのDave Grayが考案し、2010年の書籍『Gamestorming』(Dave Gray, Sunni Brown, James Macanufo 著)で広く知られるようになったツールです。ユーザーへの理解を、次の4象限(拡張版では6区分)に整理します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>象限</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Says(言う)</td><td>ユーザーが実際にインタビュー等で発言したこと</td></tr>
+            <tr><td>Thinks(思う)</td><td>発言はしないが、心の中で考えていると推測されること</td></tr>
+            <tr><td>Does(行う)</td><td>ユーザーが実際に取る行動</td></tr>
+            <tr><td>Feels(感じる)</td><td>ユーザーの感情状態</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>拡張版(Pains / Gains を追加した6区分)は、次章のValue Proposition Canvasの「Customer Profile」と対応関係にあります。</p>
+      <p><strong>ベストプラクティス</strong>: Empathy Mapは実際のユーザーリサーチ(インタビュー・観察)の結果を整理するために使う。リサーチなしにチームの想像だけで埋めると、プロトペルソナと同様「未検証の仮説」に過ぎないことを忘れない。</p>
+
+      <h3>4.5 Value Proposition Canvas(バリュー・プロポジション・キャンバス)</h3>
+      <p>Alexander OsterwalderとYves Pigneurが2014年の著書『Value Proposition Design』で発表したツールで、Strategyzer社によって維持・提供されています。Business Model Canvasの「顧客セグメント」と「価値提案」の2ブロックを深掘りするための拡張ツールという位置づけです。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>サイド</th><th>構成要素</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>Customer Profile(顧客プロファイル)</td><td>Customer Jobs</td><td>顧客が片付けたい機能的・感情的・社会的な「ジョブ」</td></tr>
+            <tr><td></td><td>Pains(痛み)</td><td>ジョブを遂行する上での障害・リスク・不満</td></tr>
+            <tr><td></td><td>Gains(利得)</td><td>ジョブを遂行する上で顧客が期待する成果・メリット</td></tr>
+            <tr><td>Value Map(価値マップ)</td><td>Products &amp; Services</td><td>提供するプロダクト・サービス</td></tr>
+            <tr><td></td><td>Pain Relievers</td><td>Painsをどう和らげるか</td></tr>
+            <tr><td></td><td>Gain Creators</td><td>Gainsをどう生み出すか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>両サイドが噛み合っている状態を「フィット(Fit)」と呼び、これはいわゆる「Problem-Solution Fit」の考え方に対応します(第5.7節で詳述)。</p>
+      <p><strong>ベストプラクティス</strong>: 1枚のキャンバスは必ず単一の顧客セグメントに絞って作成する。複数セグメントを1枚に混在させることと、記憶だけで(顧客インタビューなしで)埋めてしまうことが、最もよくある失敗パターンとされている。</p>
+
+      <h3>4.6 Curve of Truth(Truth Curve / 真実の曲線)</h3>
+      <p>Giff Constableが著書『Talking to Humans』で提唱した概念で、Jeff Gothelfらプロダクトコミュニティによって広く紹介されています。実験にかける労力(横軸: Effort / Fidelity)と、そこから得られる学びの信頼度(縦軸: Confidence / Truth)の関係を表す考え方です。</p>
+      <p>労力の低い実験から高い実験まで、代表的な手法を並べると次のような順序になります。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="truthCurve"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Curve of Truth: 労力の低い実験から高い実験への順序</div>
+      </div>
+
+      <p>Curve of Truthの重要な示唆は、「労力をかけすぎても、かけなさすぎても失敗する」という点です。エビデンスに対して投資が過少だと根拠のないまま構築するリスクを負い、逆にエビデンスに対して投資が過大だと、学習の機会を逃したり分析麻痺(Analysis Paralysis)に陥ったりします。</p>
+      <p><strong>ベストプラクティス</strong>: 検証したい仮説の「不確実性の高さ」と「間違っていた場合のコストの大きさ」に応じて、曲線上のどのレベルの実験を選ぶかを意図的に決める。確信度が低い段階でいきなり高コストな実験(実製品の構築など)に飛びつかない。</p>
+
+      <h3>4.7 Jobs-to-be-Done(JTBD)によるセグメンテーション</h3>
+      <p>Clayton Christensenが『イノベーションのジレンマ』などで発展させた理論で、「顧客は製品を買うのではなく、特定の"ジョブ(片付けたい用事)"を片付けるために製品を"雇用(hire)"する」という考え方です。有名な事例として、ファストフードチェーンのミルクシェイクの売上向上を検討した調査があります。従来の年齢・性別などのデモグラフィック属性ではなく、「朝の通勤中に手持ち無沙汰を紛らわせながら小腹を満たす」という"ジョブ"の観点で購買者を分析したところ、製品改善の方向性(より濃く、より長く楽しめるシェイクにする)が明確になったという事例です。</p>
+      <p>JTBDによるセグメンテーションは、年齢・性別・職業などの属性ではなく「片付けたいジョブが同じかどうか」で顧客をグルーピングする点が従来のセグメンテーションとの違いです。</p>
+      <p><strong>ベストプラクティス</strong>: セグメンテーションの軸を「誰であるか(デモグラフィック)」ではなく「何を成し遂げたいか(ジョブ)」に置き換える。ユーザーインタビューでは「その状況で他に何を検討したか/しなかったか」を尋ねることで、真のジョブ(代替候補との比較軸)を掘り下げる。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://gojko.net/books/impact-mapping/" target="_blank" rel="noopener">Impact Mapping(Gojko Adzic 公式サイト)</a></li>
+          <li><a href="https://openpracticelibrary.com/practice/impact-mapping/" target="_blank" rel="noopener">Impact Mapping 概説(Open Practice Library)</a></li>
+          <li><a href="https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/" target="_blank" rel="noopener">The Empathy Map: A Human-Centered Tool(XPLANE 公式ブログ、考案の経緯)</a></li>
+          <li><a href="https://www.strategyzer.com/library/value-proposition-design-book-summary" target="_blank" rel="noopener">Value Proposition Canvas Book Summary(Strategyzer 公式)</a></li>
+          <li><a href="https://jeffgothelf.com/blog/the-truth-curve/" target="_blank" rel="noopener">The Truth Curve(Jeff Gothelf 公式ブログ、Giff Constable『Talking to Humans』の紹介)</a></li>
+          <li><a href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener">Jobs To Be Done / ミルクシェイクの事例(HBS Working Knowledge)</a></li>
+          <li><a href="https://www.jpattonassociates.com/story-mapping/" target="_blank" rel="noopener">User Story Mapping(Jeff Patton &amp; Associates 公式)</a></li>
+          <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDVコース公式トピック一覧(Discovery章の構成、ScrumDojo.cz)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 06. Chapter 5: Validation Techniques ===================== -->
+    <section id="validation-techniques">
+      <div class="section-eyebrow"><i class="ti ti-flask"></i>SECTION 06</div>
+      <h2>第5章: Validation(検証)技法</h2>
+
+      <p>ダブルダイヤモンドの「Develop→Deliver」に対応する技法群です。Discoveryで見えてきた仮説を、実験を通じて検証(または反証)し、投資判断につなげます。</p>
+
+      <h3>5.1 仮説と実験の定式化</h3>
+      <p>検証の出発点は、あいまいな期待を「反証可能な仮説」に変換することです。一般的な仮説ステートメントのフォーマットは次のような形を取ります。</p>
+      <p>私たちは、[特定の顧客セグメント]が[特定の行動]を取ると信じている。なぜなら[理由・提供価値]があるからだ。これが正しいことは、[測定可能な指標]が[しきい値]に達したときにわかる。</p>
+      <p>このフォーマットにより、「誰の」「どんな行動を」「なぜ」「どう測るか」の4点が明確になり、次に紹介するTest Cardにそのまま接続できます。</p>
+
+      <h3>5.2 実験技法(Experimentation Techniques)の全体像</h3>
+      <p>Build-Measure-Learnのループ(Eric Ries『The Lean Startup』)を小さく素早く回すことが検証の基本サイクルです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="buildMeasureLearn"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Build-Measure-Learnのループ</div>
+      </div>
+
+      <p>代表的な実験手法は4.6節のCurve of Truthで整理した通り、インタビューからWizard of Ozまで労力順に並べられます。状況(不確実性の大きさ、失敗した場合のコスト)に応じて適切なレベルの実験を選択します。</p>
+
+      <h3>5.3 Concierge MVP と Wizard of Oz</h3>
+      <p>いずれもEric Riesの『The Lean Startup』で紹介された、Minimum Viable Product(MVP)の一種です。どちらも「まだ自動化されていない仕組みを、人手で肩代わりする」という共通点がありますが、決定的な違いは「手作業であることを顧客に開示するかどうか」です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>Concierge MVP(コンシェルジュMVP)</th><th>Wizard of Oz MVP</th></tr></thead>
+          <tbody>
+            <tr><td>顧客への開示</td><td>手作業であることを顧客に明示する</td><td>自動化された製品であるかのように見せる(隠す)</td></tr>
+            <tr><td>目的</td><td>一対一の手厚いサービスを通じて、需要そのものを検証する</td><td>完成品としての体験・価値提案を検証する</td></tr>
+            <tr><td>代表例</td><td>Food on the Table(人手で顧客ごとに献立と買い物リストを作成)</td><td>Zappos(在庫を持たず、注文が入るたびに近隣店舗で靴を購入して発送)</td></tr>
+            <tr><td>リスク</td><td>顧客体験がスケール後と異なる可能性がある</td><td>隠していた事実が発覚した際に信頼を損なうリスクがある</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>ベストプラクティス</strong>: どちらの手法も「本格的なシステムを作る前に、価値仮説そのものを検証する」ために使う。エンジニアリング投資を先送りしながら「本当に欲しがられているか」を確かめられる場合に適している。ただし、いつまでも手作業に頼り続けると、成長モデルなきまま小さな黒字事業に満足してしまうリスクがある点にも注意する。</p>
+
+      <h3>5.4 Test Card + Learning Card(Strategyzer)</h3>
+      <p>Strategyzer社が提供する、実験を設計・記録するための対の様式です。</p>
+
+      <h4>Test Card(実験を設計する)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要素</th><th>記述内容の型</th></tr></thead>
+          <tbody>
+            <tr><td>① 仮説(Hypothesis)</td><td>私たちは〜と信じている(We believe that ...)</td></tr>
+            <tr><td>② テスト方法(Test)</td><td>それを確かめるために、私たちは〜を行う(To verify that, we will ...)</td></tr>
+            <tr><td>③ 指標(Metric)</td><td>そして〜を計測する(And measure ...)</td></tr>
+            <tr><td>④ 成功基準(Criteria)</td><td>〜であれば、私たちは正しい(We are right if ...)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>このほか、テストコスト・データ信頼性・実施にかかる時間なども併記する形式が提供されています。</p>
+
+      <h4>Learning Card(実験結果を記録する)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ステップ</th><th>記述内容の型</th></tr></thead>
+          <tbody>
+            <tr><td>1. 仮説</td><td>私たちは〜と信じていた(We believed that ...)</td></tr>
+            <tr><td>2. 観察</td><td>私たちは〜を観察した(We observed ...)</td></tr>
+            <tr><td>3. 学びと洞察</td><td>そこから〜を学んだ(From that we learned that ...)</td></tr>
+            <tr><td>4. 意思決定とアクション</td><td>したがって、私たちは〜を行う(Therefore we will ...)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="testLearningCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Test CardとLearning Cardによる実験サイクル</div>
+      </div>
+
+      <p><strong>ベストプラクティス</strong>: Test Cardは実験を「実施する前」に必ず埋める。特に④の成功基準(何が起きれば正しいと判断するか)を事前に定義しておくことで、結果が出た後に都合よく解釈してしまう(結論ありきの後付け解釈)ことを防げる。</p>
+
+      <h3>5.5 導入・行動の測定(Measuring Adoption and Behavior)</h3>
+      <p>実験や機能リリース後、実際にユーザーがそれを使い続けているか(導入・定着)を観察・測定するプロセスです。「作った機能が使われているか」「使われているならなぜか、使われていないならなぜか」を継続的に確認し、継続(Persevere)、方向転換(Pivot)、撤退(Kill)のいずれかを判断する材料にします。</p>
+      <p><strong>ベストプラクティス</strong>: 「リリースした」ことと「価値を生んでいる」ことを混同しない。アウトプット(機能を出荷した数)ではなく、アウトカム(実際の行動変化・顧客成果)を測定する。次節のEBMはこの考え方を組織レベルに拡張したフレームワークです。</p>
+
+      <h3>5.6 Evidence-Based Management™(EBM)</h3>
+      <p>EBMは、Scrum共同考案者のKen SchwaberとScrum.orgが開発したフレームワークで、組織がプロダクト提供から得ている価値を測定・向上させるための考え方です。2015年に初版が公開され、2018年、2020年、2024年に更新されています。</p>
+      <p>EBMの中核にあるのが<strong>4つのKey Value Areas(KVA、重要な価値領域)</strong>です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>KVA</th><th>焦点</th><th>代表的な指標の例</th></tr></thead>
+          <tbody>
+            <tr><td>Current Value(CV, 現在の価値)</td><td>現時点で顧客に届けている価値</td><td>顧客満足度、利用率、収益</td></tr>
+            <tr><td>Unrealized Value(UV, 未実現の価値)</td><td>まだ実現できていない潜在的な価値・市場機会</td><td>対応できていない顧客セグメント、市場シェアの伸びしろ</td></tr>
+            <tr><td>Time-to-Market(T2M, 市場投入までの時間)</td><td>価値を届けるまでの組織の応答速度</td><td>リリース頻度、サイクルタイム</td></tr>
+            <tr><td>Ability to Innovate(A2I, 革新する能力)</td><td>継続的に新しい価値を生み出す組織の実効力</td><td>技術的負債の量、実験の実施数</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="ebmKva"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">EBMの4つのKey Value Areas</div>
+      </div>
+
+      <p>EBMは特定のKey Value Measures(具体的指標)を規定しません。組織ごとの状況に合わせて、各KVAに紐づく指標を選び、仮説を立てて小さな実験を行い、結果を測定し、目標を検査・適応していくプロセスそのものがEBMの実践です。</p>
+      <p><strong>ベストプラクティス</strong>: 4つのKVAをバランスよく見る。Current Value(今の稼ぎ)だけを追うと将来の成長機会(Unrealized Value)を見落とし、逆にT2MやA2Iのような組織能力の指標だけを見ると、実際に顧客に価値が届いているかを見失う。</p>
+
+      <h3>5.7 Problem-Solution Fit から Product-Market Fit へ</h3>
+      <p>検証の進み方は、一般に次のような段階を踏みます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="fitProgression"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Problem-Solution FitからProduct-Market Fitへの段階</div>
+      </div>
+
+      <ul>
+        <li><strong>Problem-Solution Fit</strong>: 特定した課題に対して、その解決策が本当に効くと言えるかどうかの適合。Value Proposition Canvas(4.5節)の「Customer Profile」と「Value Map」が噛み合っている状態に相当します。</li>
+        <li><strong>Product-Market Fit</strong>: 解決策が、対象市場全体で持続的に受け入れられるかどうかの適合。ここまで来て初めて、スケールに向けた投資判断が正当化されます。</li>
+      </ul>
+
+      <p><strong>ベストプラクティス</strong>: Problem-Solution Fitを確認する前に、スケールを前提とした大規模な開発投資を行わない。第4.6節のCurve of Truthに沿って、段階に応じた検証の深さで進める。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.shortform.com/blog/concierge-mvp/" target="_blank" rel="noopener">The Lean Startup - MVP, Concierge MVP, Wizard of Oz の解説(Eric Ries著、要約記事経由)</a></li>
+          <li><a href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">Validate your ideas with the Test Card(Strategyzer 公式ブログ)</a></li>
+          <li><a href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">Capture insights with the Learning Card(Strategyzer 公式ブログ)</a></li>
+          <li><a href="https://assets.strategyzer.com/assets/resources/the-test-card.pdf" target="_blank" rel="noopener">Test Card テンプレートPDF(Strategyzer 公式)</a></li>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">Evidence-Based Management™(EBM)(Scrum.org 公式リソースページ)</a></li>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">The Evidence-Based Management Guide 2020(Scrum.org 公式PDF)</a></li>
+          <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDVコース公式トピック一覧(Validation章の構成、ScrumDojo.cz)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 07. Chapter 6: Scrum Integration ===================== -->
+    <section id="scrum-integration">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 07</div>
+      <h2>第6章: Scrumチームでの実践への統合</h2>
+
+      <p>PPDVは単発の手法集ではなく、Scrumの日常的な営みにDiscoveryとValidationをどう組み込むかを重視しています。</p>
+
+      <h3>6.1 Discoveryは「フェーズ」ではなく「並行する活動」</h3>
+      <p>Dave Westのブログによれば、優れたScrumチームはDiscoveryを常に行っており、特定のスプリントだけが「発見フェーズ」というわけではありません。むしろ、あるスプリントは相対的にDiscoveryの比重が大きく、別のスプリントはDeliveryの比重が大きい、というグラデーションで進みます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="dualTrackSprints"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">複数スプリントにまたがるDiscoveryとDeliveryの並行進行</div>
+      </div>
+
+      <h3>6.2 3つの地平線(Three Horizons)</h3>
+      <p>Dave Westのブログでは、成熟したScrumチームが同時に扱う3つの「地平線(Horizon)」という考え方が紹介されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>地平線</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Horizon 1</td><td>今のプロダクトにある不具合・課題への対応</td></tr>
+            <tr><td>Horizon 2</td><td>十分に理解されており、今のリリース・プロダクトの地平線で中心となる機能</td></tr>
+            <tr><td>Horizon 3</td><td>将来に向けた大胆なアイデアや実験</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>プロダクトに大きな品質課題がなければ、スプリントゴールの中心はHorizon 2に置かれますが、Horizon 1とHorizon 3も無視できません。Horizon 3での探索的な気づきが、将来のHorizon 2の仕事の質を高めることにもつながります。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「Discoveryスプリント」と「Deliveryスプリント」を分離した二段階Scrum(Design Sprint型の運用)は、公式ブログでも「懸念すべき考え方」として明示的に指摘されている。DiscoveryとDeliveryは同じスプリントの中で並行して進める</li>
+          <li>Product Goalを軸に、チームが自律的にDiscovery/Delivery活動の配分を調整できるようにする</li>
+          <li>3つの地平線を意識的にバックログや会話の中で区別し、目先の不具合対応だけに時間を奪われないようにする</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">Dispelling Myths of Product Discovery in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">Product Discovery and Validation in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 08. Chapter 7: Myths & Anti-patterns ===================== -->
+    <section id="myths-antipatterns">
+      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 08</div>
+      <h2>第7章: よくある誤解・アンチパターン</h2>
+
+      <p>Scrum.org公式ブログ「Dispelling Myths of Product Discovery in Scrum」で取り上げられている、Discoveryにまつわる代表的な誤解を整理します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤解(Myth)</th><th>実際のところ(Reality)</th></tr></thead>
+          <tbody>
+            <tr><td>Discoveryは独立した「フェーズ」であり、スプリントの中では行えない</td><td>優れたScrumチームは常にDiscoveryを行っている。スプリントごとにDiscoveryとDeliveryの比重が変わるだけで、両者は並行する</td></tr>
+            <tr><td>Discoveryはグリーンフィールド(新規プロダクト)にしか適用できない</td><td>既存プロダクトの改善・拡張にも同様にDiscoveryは有効であり、大小どちらの課題にも適用できる</td></tr>
+            <tr><td>Definition of Done(完成の定義)があるとDiscoveryができなくなる</td><td>DoDは成果物の品質基準であり、Discovery活動そのものを妨げる制約ではない</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>このほか、本ガイドの中で繰り返し触れてきた次のようなアンチパターンにも注意してください。</p>
+      <ul>
+        <li>ソリューション(機能)から会話を始め、問題を後付けで説明する(第3章)</li>
+        <li>プロトペルソナやEmpathy Mapを、リサーチなしの想像だけで「完成品」として扱う(第4章)</li>
+        <li>Test Cardの成功基準を決めずに実験を始め、結果を都合よく解釈する(第5.4節)</li>
+        <li>アウトプット(機能数・リリース数)だけを追い、アウトカム(顧客の行動変化・価値)を測定しない(第5.5〜5.6節)</li>
+        <li>Problem-Solution Fitの検証前に、Product-Market Fitを前提とした大規模投資を行う(第5.7節)</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">Dispelling Myths of Product Discovery in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 09. Chapter 8: Exam Prep ===================== -->
+    <section id="exam-prep">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 09</div>
+      <h2>第8章: 試験対策の進め方</h2>
+
+      <h3>8.1 学習ステップ(推奨の順序)</h3>
+      <ol class="step-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">土台を固める</div>
+            <div class="step-desc">Scrumの基本(イベント・作成物・価値基準)とProduct Ownershipの基礎を先に押さえる</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">ダブルダイヤモンドで全体地図を持つ</div>
+            <div class="step-desc">第2章の4フェーズ(Discover/Define/Develop/Deliver)を頭に入れ、以降の技法がどのフェーズに属するかを常にマッピングしながら学ぶ</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">各技法を「定義→目的→ベストプラクティス」の3点セットで覚える</div>
+            <div class="step-desc">用語の暗記ではなく、「なぜその技法が必要か」「他の似た技法とどう違うか」を比較しながら学ぶ(第4・5章の比較表を活用)</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <div class="step-title">ケーススタディで手法を適用する練習をする</div>
+            <div class="step-desc">架空のプロダクト課題を1つ設定し、Business Problem Statement→Impact Map→Value Proposition Canvas→Test Card→Learning Cardという一連の流れを自分で書き出してみる(公式コースもケーススタディ形式で進行する)</div>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <div class="step-title">アンチパターンを逆引きで復習する</div>
+            <div class="step-desc">第7章の「誤解 vs 実際」を見て、なぜそれが誤解なのかを自分の言葉で説明できるようにする</div>
+          </div>
+        </li>
+      </ol>
+
+      <h3>8.2 出題傾向への向き合い方</h3>
+      <p>Scrum.org公式ページの記載によれば、PPDVは「多くの設問が、潜在顧客・既存ユーザーをどう活用して市場に正しいプロダクト機能を届けるかを考えさせる」形式です。つまり、単一の正解を選ぶ知識問題よりも、<strong>状況設定に対して最も適切な技法・進め方を選ぶ判断問題</strong>が中心になると想定して学習するのが効果的です。</p>
+      <ul>
+        <li>「この局面で使うべき技法はどれか」を問う問題に備え、各技法の<strong>適用タイミング</strong>を意識して整理する</li>
+        <li>「この技法とこの技法の違いは何か」を問う問題に備え、本ガイドの比較表(Proto Persona vs Persona、Journey Map vs Story Map、Concierge MVP vs Wizard of Oz など)を繰り返し復習する</li>
+        <li>「このシナリオでの適切な次の一手は何か」を問う問題に備え、Curve of Truthのように「段階に応じた選択」を要求する考え方に慣れておく</li>
+      </ul>
+
+      <h3>8.3 受験の実務情報</h3>
+      <ul>
+        <li>20問・30分・合格ライン85%という短時間集中型の試験のため、時間配分よりも一問一問への理解の正確さが重要になる</li>
+        <li>合格後の資格は生涯有効(失効なし)</li>
+        <li>公式トレーニングを14日以内に受験して不合格だった場合、無料の再受験権が付与されるという運用を行っているトレーニングパートナーもある(パートナーごとの条件は個別に確認すること)</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Certification(出題傾向の説明、Scrum.org 公式)</a></li>
+          <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDV試験形式・再受験条件(ScrumDojo.cz、Scrum.org Professional Training Networkパートナー)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 10. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 10</div>
+      <h2>参考文献・ソース一覧</h2>
+
+      <div class="ref-group">
+        <h4>Scrum.org 公式ソース</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Professional Product Discovery and Validation™ Certification(試験公式ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification</a></li>
+          <li><span class="ref-name">Professional Product Discovery and Validation™ Training(コース公式ページ)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-product-discovery-and-validation-training</a></li>
+          <li><span class="ref-name">Product Discovery and Validation in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum</a></li>
+          <li><span class="ref-name">Dispelling Myths of Product Discovery in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum</a></li>
+          <li><span class="ref-name">Scrum.org Launches New Professional Product Ownership Initiative(PPDVコースの発表記事)</span><a class="ref-url" href="https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility" target="_blank" rel="noopener">https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility</a></li>
+          <li><span class="ref-name">Evidence-Based Management™(EBM)概要ページ</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          <li><span class="ref-name">The Evidence-Based Management Guide 2020(PDF)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
+          <li><span class="ref-name">The Creation of the Professional Product Discovery and Validation Course(開発秘話ポッドキャスト)</span><a class="ref-url" href="https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course" target="_blank" rel="noopener">https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>認定研修パートナー(Scrum.org Professional Training Network)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ScrumDojo.cz - Professional Product Discovery and Validation™(コース詳細・試験形式)</span><a class="ref-url" href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation</a></li>
+          <li><span class="ref-name">Xebia Academy - Professional Product Discovery and Validation (PPDV)</span><a class="ref-url" href="https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/</a></li>
+          <li><span class="ref-name">Responsive Advisors - PPDV Training</span><a class="ref-url" href="https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/" target="_blank" rel="noopener">https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>各技法の原典・一次情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Framework for Innovation(Double Diamond, Design Council 公式)</span><a class="ref-url" href="https://www.designcouncil.org.uk/resources/framework-for-innovation/" target="_blank" rel="noopener">https://www.designcouncil.org.uk/resources/framework-for-innovation/</a></li>
+          <li><span class="ref-name">Impact Mapping(Gojko Adzic 公式サイト)</span><a class="ref-url" href="https://gojko.net/books/impact-mapping/" target="_blank" rel="noopener">https://gojko.net/books/impact-mapping/</a></li>
+          <li><span class="ref-name">The Empathy Map: A Human-Centered Tool(XPLANE 公式ブログ)</span><a class="ref-url" href="https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/" target="_blank" rel="noopener">https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/</a></li>
+          <li><span class="ref-name">Value Proposition Design Book Summary(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/value-proposition-design-book-summary" target="_blank" rel="noopener">https://www.strategyzer.com/library/value-proposition-design-book-summary</a></li>
+          <li><span class="ref-name">Validate your ideas with the Test Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card</a></li>
+          <li><span class="ref-name">Capture insights with the Learning Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card</a></li>
+          <li><span class="ref-name">The Truth Curve(Jeff Gothelf 公式ブログ、Giff Constable "Talking to Humans" の紹介)</span><a class="ref-url" href="https://jeffgothelf.com/blog/the-truth-curve/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/the-truth-curve/</a></li>
+          <li><span class="ref-name">Jobs To Be Done / ミルクシェイクの事例(Harvard Business School Working Knowledge)</span><a class="ref-url" href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener">https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing</a></li>
+          <li><span class="ref-name">User Story Mapping(Jeff Patton &amp; Associates 公式)</span><a class="ref-url" href="https://www.jpattonassociates.com/story-mapping/" target="_blank" rel="noopener">https://www.jpattonassociates.com/story-mapping/</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      本ガイドはPPDV認定試験の学習補助を目的として作成した二次資料です。最新の出題範囲・試験形式は必ず<a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>で確認してください。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    doubleDiamond: `flowchart LR
+subgraph DD1["第1のダイヤモンド: 問題空間"]
+direction LR
+A["Discover 発散: 広く探索する"] --> B["Define 収束: 問題を定義する"]
+end
+subgraph DD2["第2のダイヤモンド: 解決空間"]
+direction LR
+C["Develop 発散: 解決策を発想する"] --> E["Deliver 収束: テストし届ける"]
+end
+B --> C
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class A,B,C,E box;`,
+
+    journeyMap: `journey
+title 新規ユーザーのオンボーディング体験の例
+section 認知
+広告を見る: 3: ユーザー
+製品ページを訪問: 4: ユーザー
+section 検討
+価格を比較する: 2: ユーザー
+レビューを読む: 3: ユーザー
+section 利用開始
+サインアップする: 4: ユーザー
+初期設定を行う: 2: ユーザー
+section 定着
+主要機能を使う: 5: ユーザー`,
+
+    impactMap: `flowchart TB
+Why["Why: ビジネスゴール"] --> Who1["Who: アクターA"]
+Why --> Who2["Who: アクターB"]
+Who1 --> How1["How: 望む行動変化1"]
+Who2 --> How2["How: 望む行動変化2"]
+How1 --> What1["What: 施策候補1"]
+How1 --> What2["What: 施策候補2"]
+How2 --> What3["What: 施策候補3"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Who1,Who2,How1,How2,What1,What2,What3 box;
+class Why hub;`,
+
+    truthCurve: `flowchart LR
+A["インタビュー"] --> B["ペーパープロトタイプ"]
+B --> C["広告出稿 クリック計測"]
+C --> D["ランディングページ テスト"]
+D --> E["タスク完了テスト ユーザビリティテスト"]
+E --> F["プロトタイプ"]
+F --> G["事前販売 Pre-selling"]
+G --> H["コンシェルジュMVP"]
+H --> I["Wizard of Oz"]
+I --> J["実製品 / 実事業"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E,F,G,H,I box;
+class J done;`,
+
+    buildMeasureLearn: `flowchart LR
+Idea["アイデア / 仮説"] --> Build["Build 最小の実験を構築する"]
+Build --> Measure["Measure データを計測する"]
+Measure --> Learn["Learn 学びを得る"]
+Learn -->|"仮説を更新"| Idea
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class Idea,Build,Measure,Learn box;`,
+
+    testLearningCycle: `flowchart LR
+TC["Test Card 仮説とテスト方法を設計"] --> EXP["実験を実施する"]
+EXP --> LC["Learning Card 観察と学びを記録"]
+LC -->|"意思決定"| NEXT["次のアクション: 継続 / ピボット / 中止"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class TC,EXP,LC box;
+class NEXT done;`,
+
+    ebmKva: `flowchart TB
+subgraph Market["市場に対する価値(何を届けているか)"]
+CV["Current Value 現在の価値"]
+UV["Unrealized Value 未実現の価値"]
+end
+subgraph Org["価値を届ける組織能力(どう届けているか)"]
+T2M["Time-to-Market 市場投入までの時間"]
+A2I["Ability to Innovate 革新する能力"]
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class CV,UV box;
+class T2M,A2I hub;`,
+
+    fitProgression: `flowchart LR
+A["課題の発見 Problem"] --> B{"Problem-Solution Fit 課題と解決策が噛み合っているか"}
+B -->|"検証できた"| C["Product-Market Fit 製品と市場が噛み合っているか"]
+C --> D["スケール・成長"]
+B -->|"検証できない"| A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A box;
+class B hub;
+class C box;
+class D done;`,
+
+    dualTrackSprints: `flowchart TB
+subgraph S1["Sprint 1"]
+Dis1["Discovery活動"]
+Del1["Delivery活動"]
+end
+subgraph S2["Sprint 2"]
+Dis2["Discovery活動"]
+Del2["Delivery活動"]
+end
+subgraph S3["Sprint 3"]
+Dis3["Discovery活動"]
+Del3["Delivery活動"]
+end
+Dis1 -.->|"検証済みの気づき"| Del2
+Dis2 -.->|"検証済みの気づき"| Del3
+Del1 --> Del2
+Del2 --> Del3
+Dis1 --> Dis2
+Dis2 --> Dis3
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Dis1,Dis2,Dis3 hub;
+class Del1,Del2,Del3 box;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

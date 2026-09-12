@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSPO-AI Essentials® 認定資格 完全ガイド | Professional Scrum Product Owner - AI Essentials 学習ガイド</title>
+<meta name="description" content="Scrum.org Professional Scrum Product Owner - AI Essentials認定資格の非公式学習ガイド。AI Theory and Primer、AI Security and Ethics、AI Product Ownershipの3カテゴリを初学者向けに解説します。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PSPO-AI Essentials 完全ガイド</div>
+        <div class="brand-subtitle">AI理論・倫理・プロダクトオーナーシップ</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#how-to-use"><i class="ti ti-route"></i>このガイドの使い方</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>第1部 試験の全体像</a></li>
+      <li><a href="#ai-theory-primer"><i class="ti ti-brain"></i>第2部 AI理論の基礎</a></li>
+      <li><a href="#ai-security-ethics"><i class="ti ti-shield-check"></i>第3部 セキュリティと倫理</a></li>
+      <li><a href="#ai-product-ownership"><i class="ti ti-git-branch"></i>第4部 AIとプロダクトオーナーシップ</a></li>
+      <li><a href="#best-practices-summary"><i class="ti ti-list-check"></i>第5部 ベストプラクティス総まとめ</a></li>
+      <li><a href="#exam-prep"><i class="ti ti-clipboard-check"></i>第6部 試験対策</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>第7部 参考文献</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum.org 公式認定資格 / 非公式学習ガイド</div>
+      <h1>Professional Scrum Product Owner™ - AI Essentials 完全学習ガイド</h1>
+      <p class="hero-lede">
+        世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、初学者にもわかりやすいように、出題範囲の各項目を一つひとつ丁寧に解説する学習ガイドです。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">20問</div><div class="stat-label">出題数</div></div>
+        <div class="stat-card"><div class="stat-number">30分</div><div class="stat-label">制限時間</div></div>
+        <div class="stat-card"><div class="stat-number">85%以上</div><div class="stat-label">合格ライン</div></div>
+        <div class="stat-card"><div class="stat-number">3カテゴリ</div><div class="stat-label">出題カテゴリ数</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドはScrum.org公式サイトおよび関連の一次情報を調査・要約した非公式の自主学習教材です。Scrum.orgによる公式認定はしていません。試験の実際の設問・正答を示すものではなく、あくまで概念理解と復習のための資料としてご利用ください。参照した公式ページ（出発点）：<a href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">Professional Scrum Product Owner - AI Essentials Certification</a>
+      </div>
+    </div>
+
+    <!-- ===================== 0. How to Use This Guide ===================== -->
+    <section id="how-to-use">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 00</div>
+      <h2>このガイドの使い方</h2>
+
+      <p>PSPO-AI Essentials は、Scrum.org が発行する認定資格の中でもかなり特殊な位置づけです。他の多くの Scrum.org 認定(PSM I や PSPO I など)は誰でもオンラインで受験できますが、この資格は<strong>公式トレーニング「Professional Scrum Product Owner™ - AI Essentials Training」を受講した人だけ</strong>が受験できる、コース連動型(course-gated)の認定です。</p>
+
+      <p>つまり本ガイドは、</p>
+
+      <ul>
+        <li>これから公式トレーニングの受講を検討している人が、事前に全体像をつかむため</li>
+        <li>公式トレーニングを受講済みで、Exam Code を受け取った後に復習するため</li>
+        <li>実務でAIをプロダクトオーナーシップに活かしたいが、体系的に整理された情報が欲しい人のため</li>
+      </ul>
+
+      <p>に構成しています。試験そのものは公式コースの受講が前提となるため、本ガイドを読むだけで受験できるわけではない点に注意してください。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <ul>
+          <li><strong>本ガイドの構成方針：</strong>ASCIIアートは一切使用せず、フローチャートはすべて Mermaid 記法で記述しています。</li>
+          <li>比較・一覧情報はすべて Markdown の表で整理しています。</li>
+          <li>英語の専門用語(Machine Learning, Generative AI, Agentic AI, LLM, Hallucination など)はあえて日本語に無理に置き換えず、そのまま併記しています。実務や試験でそのまま英語表記に出会うことが多いためです。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 1. Exam Overview ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>第1部：認定試験の全体像</h2>
+
+      <h3>1.1 PSPO-AI Essentials とは何か</h3>
+      <p>Professional Scrum Product Owner™ - AI Essentials(PSPO-AI Essentials)は、Scrum.org が2025年6月に新設した認定資格です。従来の「プロダクトオーナーとしてのScrumの理解」を問う PSPO I / II / III とは異なり、<strong>Professional Scrum Product Ownership の枠組みの中で、AI(人工知能)をどのように責任を持って探求・評価・統合できるか</strong>を検証するものです。</p>
+
+      <p>具体的には、次の3つの目的に沿ってAIを活用する力が問われます。</p>
+
+      <ul>
+        <li>プロダクトディスカバリー(Product Discovery)の強化</li>
+        <li>顧客理解(Customer Understanding)の深化</li>
+        <li>実験・検証(Experimentation)と意思決定の高速化</li>
+      </ul>
+
+      <p>これらすべてを「responsible and ethical manner(責任を持って、倫理的に)」行うことが強調されている点が、このAI Essentials系認定に共通する特徴です。</p>
+
+      <h3>1.2 受験資格・前提条件</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>受験資格</td><td>Professional Scrum Product Owner™ - AI Essentials Training(公式トレーニング)の受講者のみ</td></tr>
+            <tr><td>前提知識</td><td>事前のAI・データサイエンスの知識は不要(コース側の前提)</td></tr>
+            <tr><td>受験権利の取得方法</td><td>コース受講後にScrum.orgからExam Codeが発行される</td></tr>
+            <tr><td>受験回数</td><td>1回無料。Exam Codeは無期限に有効で、Exam Code受領から14日以内に受験して不合格だった場合は無料の再受験が1回付与される</td></tr>
+            <tr><td>受験言語</td><td>英語のみ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Exam Codeは無期限に有効ですが、無料の再受験権が付与されるのは「Exam Code受領から14日以内に受験して不合格だった場合」に限られます。学習のモチベーションが高いコース受講直後、できるだけ早いタイミングで受験する計画を立てるのが得策です。</p>
+      </div>
+
+      <h3>1.3 試験形式・出題範囲</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>出題形式</td><td>Multiple Choice(選択式)</td></tr>
+            <tr><td>問題数</td><td>20問</td></tr>
+            <tr><td>制限時間</td><td>30分</td></tr>
+            <tr><td>合格ライン</td><td>85%以上(20問中17問以上の正答が目安)</td></tr>
+            <tr><td>言語</td><td>英語</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>出題は、次の3つのカテゴリに分類されています。この3カテゴリの構成そのものが、学習範囲を整理するうえで最も重要な地図になります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>カテゴリ</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AI Theory and Primer</strong></td><td>AIの基礎知識。歴史、機械学習・深層学習・生成AI・エージェンティックAIの違い、LLMや拡散モデルの仕組み、プロンプトエンジニアリングとトークン化など</td></tr>
+            <tr><td><strong>AI Security and Ethics</strong></td><td>責任あるAI利用、AIのリスク(バイアス・ハルシネーションなど)、データプライバシーとセキュリティ、AIに関する法規制の概観</td></tr>
+            <tr><td><strong>AI Product Ownership</strong></td><td>プロダクトオーナーの各スタンス(Visionary, Customer Representative, Experimenter, Decision Maker, Collaborator & Influencer, Orchestrator)にAIをどう組み込むか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">Scrum.org「Professional Scrum Product Owner™ - AI Essentials Certification」公式ページ</a></li>
+        </ul>
+      </div>
+
+      <h3>1.4 PSPO I / II / III との違い・位置づけ</h3>
+      <p>PSPO-AI Essentials は、PSPO I(基礎)・PSPO II(応用)・PSPO III(卓越)の縦のレベル系列とは別軸にある、<strong>横方向の専門特化(AI)系認定</strong>です。公式サイトでも「PSPO™ および PSPO-Advanced コースの上に積み上げる形で、プロダクトオーナーの各スタンスの中でAIをどう応用するかを掘り下げる」と説明されています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="pspoRelation"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PSPO I/II/III とPSPO-AI Essentialsの位置づけ</div>
+      </div>
+
+      <p>同様の「AI Essentials」シリーズは、Scrum Master向けの PSM-AI Essentials も存在し、Product Owner版とほぼ同じ設計思想(3カテゴリ、course-gated、85%合格ライン)で作られています。</p>
+
+      <h3>1.5 コースの7セクション構成</h3>
+      <p>Scrum.org 公式ブログ(VLOGシリーズ)によれば、PSPO-AI Essentials のトレーニングは次の7つのセクションで構成されています。これは試験の「AI Product Ownership」カテゴリの土台であり、本ガイドの第4部もこの構成に沿って解説します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>セクション</th><th>テーマ</th><th>学ぶこと(要約)</th></tr></thead>
+          <tbody>
+            <tr><td>Section 1</td><td>The Visionary Product Owner</td><td>AIでプロダクトビジョン・戦略・ロードマップを効果的に伝える。AIアバターの作成</td></tr>
+            <tr><td>Section 2</td><td>The Customer Representative</td><td>AIで顧客の課題・痛み・機会を理解し、プロダクトディスカバリーを強化。ユーザーペルソナ作成の実習</td></tr>
+            <tr><td>Section 3</td><td>The Experimenter</td><td>AIでアイデアをブレインストーミングし、検証可能な仮説を立てる。モックアップ生成の実習</td></tr>
+            <tr><td>Section 4</td><td>The Decision Maker</td><td>AIを知識豊富なアシスタントとして、プロダクトバックログ管理の意思決定を高度化</td></tr>
+            <tr><td>Section 5</td><td>The Collaborator & Influencer</td><td>AIで顧客インタビューの質を高め、会議の文字起こし・要点抽出・感情分析を行う。ステークホルダー要望管理アプリの実習</td></tr>
+            <tr><td>Section 6</td><td>The Orchestrator</td><td>AIツールの基礎知識を広げ、状況に応じて最適なツールを選定・設定する。AIエージェント構築の実習</td></tr>
+            <tr><td>Section 7</td><td>AI Theory, Ethics, and Security</td><td>AIの歴史、ANI/生成AI/AGIなどの分類、LLMや拡散モデルの理解、モデルの学習方法、プロンプトエンジニアリングとトークン化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained" target="_blank" rel="noopener">Scrum.org Blog「[VLOG] The Why and What of the PSPO-AI Essentials Course, Explained」</a></li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="courseSections"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PSPO-AI Essentialsコースの7セクション構成</div>
+      </div>
+    </section>
+
+    <!-- ===================== 2. AI Theory and Primer ===================== -->
+    <section id="ai-theory-primer">
+      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 02</div>
+      <h2>第2部：AI Theory and Primer(AI理論の基礎)</h2>
+
+      <p>このカテゴリでは、プロダクトオーナーが「AIを使う人」から一歩進んで「AIの仕組みを理解して説明できる人」になるための基礎知識が問われます。エンジニアほど深い数学的理解は不要ですが、正確な言葉の定義を押さえることが得点に直結します。</p>
+
+      <h3>2.1 AIの全体像と歴史のポイント</h3>
+      <p>AI(Artificial Intelligence)は、機械が人間の知的な作業(学習・推論・判断・生成)を模倣・実行する技術全般を指す、非常に広い概念です。1950年代のチューリングテストや初期のルールベースAI(記号主義AI)から始まり、2010年代のディープラーニングのブレイクスルー、2020年代の生成AI(Generative AI)の爆発的普及、そして直近のエージェンティックAI(Agentic AI)へと発展してきました。</p>
+
+      <p>試験対策としては「年号を暗記する」ことよりも、<strong>AIの各世代がそれぞれ何を新しく可能にしたか</strong>という流れを理解することが重要です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="aiEvolution"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">AIの進化の流れ(ルールベースAIからエージェンティックAIまで)</div>
+      </div>
+
+      <h3>2.2 AIの分類：ANI・AGI・ASI</h3>
+      <p>AIはその汎用性のレベルによって、大きく3つに分類されます。試験の「AI Theory and Primer」カテゴリで最も基本的な区分です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>正式名称</th><th>説明</th><th>現状</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ANI</strong></td><td>Artificial Narrow Intelligence(特化型AI)</td><td>特定のタスクに特化したAI。画像認識、翻訳、チャットボットなど、現在私たちが使っているAIのほぼすべて</td><td>実用化済み</td></tr>
+            <tr><td><strong>AGI</strong></td><td>Artificial General Intelligence(汎用人工知能)</td><td>人間と同等の幅広い知的タスクをこなせるAI</td><td>研究・議論段階</td></tr>
+            <tr><td><strong>ASI</strong></td><td>Artificial Superintelligence(超知能)</td><td>あらゆる面で人間の知能を超えるAI</td><td>理論・将来予測の段階</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>現在プロダクトオーナーが業務で扱うChatGPTやCopilotなどの生成AIツールは、いずれも「非常に高性能なANI」に分類されます。「AGIだから何でもできる」という誤解は、AIの限界(Discernment＝出力の見極め)を軽視するリスクにつながるため、試験でもよく問われるポイントです。</p>
+      </div>
+
+      <h3>2.3 機械学習(Machine Learning)の基礎</h3>
+      <p>機械学習は、明示的なルールをプログラムするのではなく、<strong>データからパターンを学習</strong>することでタスクを実行できるようにする技術です。学習の与え方によって、大きく3つの方式に分かれます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学習方式</th><th>説明</th><th>プロダクトオーナー実務での例</th></tr></thead>
+          <tbody>
+            <tr><td>教師あり学習(Supervised Learning)</td><td>正解ラベル付きのデータで学習する</td><td>過去のバグ報告から重大度を自動分類するモデル</td></tr>
+            <tr><td>教師なし学習(Unsupervised Learning)</td><td>ラベルなしデータからパターン・クラスタを発見する</td><td>ユーザー行動ログから未知のユーザーセグメントを発見する</td></tr>
+            <tr><td>強化学習(Reinforcement Learning)</td><td>試行錯誤と報酬によって方策を最適化する</td><td>レコメンドエンジンのクリック率最適化</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.4 深層学習(Deep Learning)とニューラルネットワーク</h3>
+      <p>深層学習は機械学習の一分野で、人間の脳の神経細胞(ニューロン)の仕組みを模した「ニューラルネットワーク」を何層にも重ねることで、画像・音声・テキストのような複雑で非構造なデータから高精度にパターンを学習する技術です。現在広く使われている生成AI(LLMを含む)の多くは、この深層学習の延長線上にあります。</p>
+
+      <p>プロダクトオーナーとして覚えておくべきポイントは、「深層学習モデルの精度は、学習データの質と量に大きく依存する」ということです。これは第3部で扱うバイアスの問題に直結します。</p>
+
+      <h3>2.5 生成AI(Generative AI)の仕組み</h3>
+      <p>生成AI(Generative AI)は、既存のデータのパターンを学習し、それに基づいて<strong>新しいコンテンツ(テキスト・画像・音声・動画・コードなど)を生成</strong>するAIです。ChatGPT、Claude、Gemini、Copilot、Synthesia(動画生成)などが代表例です。</p>
+
+      <p>生成AIの中核技術には主に2つの系統があります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>モデルの系統</th><th>主な用途</th><th>代表的な仕組み</th></tr></thead>
+          <tbody>
+            <tr><td><strong>LLM(Large Language Model：大規模言語モデル)</strong></td><td>テキスト生成、要約、翻訳、コード生成</td><td>Transformerアーキテクチャに基づき、直前までのトークン列から次のトークンを確率的に予測する</td></tr>
+            <tr><td><strong>拡散モデル(Diffusion Model)</strong></td><td>画像・動画・音声生成</td><td>ノイズを段階的に除去していくプロセスを学習し、ノイズからコンテンツを「復元」するように生成する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.6 エージェンティックAI(Agentic AI)とは</h3>
+      <p>エージェンティックAI(Agentic AI)は、生成AIをさらに一歩進め、<strong>与えられたゴールに向けて、自律的に計画を立て、複数のステップにわたってツールを呼び出し、行動を実行する</strong>AIシステムです。単発の質問に単発で答える生成AIとは異なり、フィードバックの収集→分析→ドラフト作成→登録、のような一連のワークフローを人間の逐一の指示なしにこなせる点が特徴です。</p>
+
+      <p>第4部で扱う「The Orchestrator」スタンスでは、まさにこのエージェンティックAIを使って、ユーザーフィードバックのレビューからドラフトのプロダクトバックログアイテム(PBI)作成までを自動化する実習が想定されています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="agenticSequence"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">AIエージェントによるフィードバック分析からPBI作成までの流れ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>エージェンティックAIは強力な一方、自律性が高いほど「意図しない行動」のリスクも高まります。プロダクトオーナーは、AIエージェントに委任する範囲(Delegationのスコープ)を明確に設計し、Product Backlogへの反映など重要な意思決定の最終確認は必ず人間が行うという原則を崩さないことがベストプラクティスです。</p>
+      </div>
+
+      <h3>2.7 プロンプトエンジニアリングとトークン化(Tokenization)</h3>
+      <p><strong>トークン化(Tokenization)</strong>とは、自然言語の文章をモデルが処理できる最小単位(トークン)に分割する処理です。英語ではおおむね単語や部分語がトークンになり、日本語では文字や文節に近い単位に分割されることが多くなります。LLMは、入力されたトークン列をもとに、次に来る可能性が高いトークンを確率的に予測し、それを繰り返すことで文章を生成します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="tokenizationFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロンプトからトークン化・推論・出力までの流れ</div>
+      </div>
+
+      <p><strong>プロンプトエンジニアリング(Prompt Engineering)</strong>は、モデルから望ましい出力を引き出すために、指示文(プロンプト)を設計・改善する技術です。プロダクトオーナーにとっては、コーディングスキルよりも重要度の高い実務スキルと位置づけられています。</p>
+
+      <h3>2.8 効果的なプロンプトのベストプラクティス</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原則</th><th>内容</th><th>具体例</th></tr></thead>
+          <tbody>
+            <tr><td>役割(Role)を与える</td><td>モデルにどんな立場で回答してほしいかを明示する</td><td>「あなたは経験豊富なプロダクトオーナーです」</td></tr>
+            <tr><td>文脈(Context)を与える</td><td>背景情報・制約条件を具体的に伝える</td><td>対象プロダクト、顧客セグメント、既存のPBLの状況など</td></tr>
+            <tr><td>期待する出力形式を指定する</td><td>表・箇条書き・特定のフォーマットを指示する</td><td>「ユーザーストーリー形式で、受け入れ基準を3つ添えて」</td></tr>
+            <tr><td>例を示す(Few-shot)</td><td>望ましい出力の例を1〜2個提示する</td><td>過去の優れたユーザーストーリーの例を貼り付ける</td></tr>
+            <tr><td>段階的に指示する</td><td>複雑なタスクは一度に全部頼まず、ステップに分ける</td><td>「まず仮説を3つ挙げて。その後、私が選んだ1つを深掘りして」</td></tr>
+            <tr><td>出力を検証する前提で使う</td><td>生成された内容を鵜呑みにせず、人間が確認する</td><td>事実確認が必要な統計・引用は必ずソースを確認する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained" target="_blank" rel="noopener">Scrum.org Blog「[VLOG] The Why and What of the PSPO-AI Essentials Course, Explained」(Section 7の内容要約)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 3. AI Security and Ethics ===================== -->
+    <section id="ai-security-ethics">
+      <div class="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 03</div>
+      <h2>第3部：AI Security and Ethics(AIのセキュリティと倫理)</h2>
+
+      <p>このカテゴリは、PSPO-AI Essentials 試験で問われる評価カテゴリの1つとして位置づけられている、セキュリティと倫理に関する領域です。プロダクトオーナーは「AIを使えるかどうか」だけでなく「AIを安全に、責任を持って使えるかどうか」まで問われます。</p>
+
+      <h3>3.1 Responsible AI(責任あるAI)の基本姿勢</h3>
+      <p>Responsible AI とは、AIを開発・活用する際に、公平性・透明性・説明責任・プライバシー保護・安全性を確保しようとする実践全般を指す考え方です。プロダクトオーナーの文脈では、次の問いを常に自分に投げかける姿勢がこれにあたります。</p>
+
+      <ul>
+        <li>このAI出力を、そのまま顧客やステークホルダーに見せてよいか？</li>
+        <li>このAIに入力したデータは、機密情報や個人情報を含んでいないか？</li>
+        <li>このAI提案には、特定の集団に不利益なバイアスが含まれていないか？</li>
+        <li>最終的な意思決定の責任は誰にあるか(＝常に人間、特にプロダクトオーナー自身)？</li>
+      </ul>
+
+      <h3>3.2 4D AI Fluency Framework(AI流暢性の4Dフレームワーク)</h3>
+      <p>Scrum.orgのブログ記事「The Product Owner's AI Start Checklist」でも紹介されている代表的なフレームワークが、Anthropic社の研究者らが提唱した<strong>4D Framework(AI Fluency Framework)</strong>です。AIとの関わり方を「effective(効果的)・efficient(効率的)・ethical(倫理的)・safe(安全)」の4条件で捉え、それを実現するための4つの能力(4つのD)を定義しています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>能力(4D)</th><th>意味</th><th>プロダクトオーナーの実務での問い</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Delegation(委任)</strong></td><td>何をAIに任せ、何を自分でやるかを見極める</td><td>このタスクはAIに任せてよい定型作業か、それとも人間の判断が不可欠な意思決定か？</td></tr>
+            <tr><td><strong>Description(説明)</strong></td><td>AIに目的・文脈・制約を明確に伝える</td><td>プロンプトに、達成したいゴールと守るべき制約を十分に含めたか？</td></tr>
+            <tr><td><strong>Discernment(見極め)</strong></td><td>AIの出力の品質・妥当性を批判的に評価する</td><td>この出力は事実に基づいているか、ハルシネーションを含んでいないか？</td></tr>
+            <tr><td><strong>Diligence(責任)</strong></td><td>AIとの協働の結果に責任を持つ</td><td>最終的にこの成果物を提出・公開する責任は自分にあると自覚しているか？</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="fourDFramework"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">4D AI Fluency Frameworkのサイクル</div>
+      </div>
+
+      <p>またこのフレームワークでは、AIとの関わり方を3つのモードに整理しています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>モード</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>Automation(自動化)</td><td>人間の指示に基づき、AIが特定のタスクを実行する</td></tr>
+            <tr><td>Augmentation(拡張)</td><td>人間とAIが思考のパートナーとして協働する</td></tr>
+            <tr><td>Agency(自律)</td><td>人間がAIを設定し、AIが将来のタスクを自律的に代行する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework" target="_blank" rel="noopener">Anthropic「AI Fluency: Framework & Foundations」(Rick Dakan, Joseph Feller と Anthropic による共同開発。CC BY-NC-SA 4.0 ライセンスで公開)</a></li>
+        </ul>
+      </div>
+
+      <h3>3.3 ハルシネーション(Hallucination)とバイアス(Bias)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>リスク</th><th>説明</th><th>プロダクトオーナーへの示唆</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ハルシネーション(Hallucination)</strong></td><td>AIが事実に基づかない、もっともらしい誤った情報を生成する現象</td><td>統計・引用・法規制など、事実確認が重要な情報は必ず一次情報で裏取りする</td></tr>
+            <tr><td><strong>アルゴリズミック・バイアス(Algorithmic Bias)</strong></td><td>学習データの偏りが、特定の属性・集団に不利益な出力として現れる現象</td><td>ユーザーペルソナ生成や優先順位付けにAIを使う際、特定の顧客層が過小評価・過大評価されていないか検証する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Scrum.orgのブログ「The Augmented Product Owner: Amplifying Scrum with AI」でも、AIに大量のユーザーストーリーを生成させることは可能でも、深い文脈を欠いたユーザーストーリーには価値がないこと、そしてアルゴリズミック・バイアスへの警戒と、AIへの過度な依存が人間の創造性・批判的思考力を弱めるリスクが指摘されています。</p>
+
+      <h3>3.4 データプライバシーとセキュリティ</h3>
+      <p>生成AIツールに入力したデータは、ツールやプラン(無料版・有料版・エンタープライズ版)によって、モデルの再学習に利用されたり、ベンダー側に保存されたりする可能性があります。プロダクトオーナーが特に注意すべきデータの例は次のとおりです。</p>
+
+      <ul>
+        <li>未公開のプロダクトロードマップ・事業戦略</li>
+        <li>顧客の個人情報(PII：Personally Identifiable Information)</li>
+        <li>契約情報・価格情報など、社外秘の商用データ</li>
+        <li>社内システムの認証情報・ソースコードの機密部分</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>データ分類の第一歩：</strong>チームで「どのデータならAIツールに入力してよいか」を分類する簡単なガイドラインを最初に作ることが、Ethical AI実践の出発点として推奨されています。組織のセキュリティポリシーやAIツールの利用規約(データの学習利用有無など)を確認したうえで、チームメンバー全員が同じ基準を持つことが重要です。</p>
+      </div>
+
+      <h3>3.5 4つのガードレール(Ethical AI for Product Owners)</h3>
+      <p>Scrum.orgブログ「Ethical AI for Product Owners & Product Managers」では、プロダクトオーナー・プロダクトマネージャーがAIを倫理的に活用するための4つのガードレールが提示されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ガードレール</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>データプライバシーの確保(Ensuring Data Privacy)</td><td>AIに共有してよいデータの範囲を明確なプロトコルとして定める</td></tr>
+            <tr><td>人間の価値の保持(Preserving Human Value)</td><td>顧客への共感・人間的な判断をAIに委譲しすぎない</td></tr>
+            <tr><td>AI出力の検証(Validating AI Outputs)</td><td>AIが生成した情報・提案を鵜呑みにせず、事実確認と妥当性検証を行う</td></tr>
+            <tr><td>AIの関与の透明な帰属(Transparently Attributing AI's Role)</td><td>成果物のどの部分がAI生成か、ステークホルダーに対して透明性を保つ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/ethical-ai-product-owners-product-managers" target="_blank" rel="noopener">Scrum.org Blog「Ethical AI for Product Owners & Product Managers」(PST Stefan Wolpers)</a></li>
+        </ul>
+      </div>
+
+      <h3>3.6 規制・法令の概観</h3>
+      <p>試験の「AI Security and Ethics」カテゴリでは、詳細な法律知識までは求められませんが、代表的な規制・ガバナンスフレームワークの「存在と目的」を把握しておくことが望まれます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>フレームワーク</th><th>発行主体</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td><strong>NIST AI RMF</strong>(AI Risk Management Framework)</td><td>米国国立標準技術研究所(NIST)</td><td>「Govern(統治)・Map(特定)・Measure(測定)・Manage(管理)」の4機能でAIリスクを管理する、任意(voluntary)のフレームワーク</td></tr>
+            <tr><td><strong>EU AI Act</strong></td><td>欧州連合(EU)</td><td>AIシステムをリスクの大きさに応じて4段階(許容不可・高リスク・限定的リスク・最小リスク)に分類し、義務を課す世界初の包括的AI法規制</td></tr>
+            <tr><td><strong>ISO/IEC 42001</strong></td><td>国際標準化機構(ISO)</td><td>AIマネジメントシステムに関する国際規格。組織がAIを責任を持って開発・運用するための体制構築を規定</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="nistRmf"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">NIST AI RMFの4機能サイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>法規制の暗記よりも、「なぜこうした規制が必要とされているか(リスクベースでAIを管理する、という共通の考え方)」を理解しておくことが試験にも実務にも有効です。特にEU圏の顧客を持つプロダクトを担当している場合、EU AI Actのリスク分類がプロダクト要件そのものに直結することがあります。</p>
+      </div>
+
+      <h3>3.7 プロダクトオーナーの説明責任(Accountability)</h3>
+      <p>Scrum Guideは、プロダクトオーナーが唯一、プロダクトバックログ管理の説明責任(Accountability)を持つと定義しています。AIをどれだけ活用しても、この説明責任がAIに移譲されることはありません。Scrum.orgブログ「The Augmented Product Owner: Amplifying Scrum with AI」でも、「プロダクトオーナーはプロダクトの成功に対する説明責任を保持し続けるべきであり、AIはあくまでツールであって、中核的な責任を委譲する相手ではない」と明確に述べられています。</p>
+
+      <p>Sprint ReviewやRetrospectiveのような透明性・検査の場は、AIの活用がチームにとってプラスに働いているかを定期的に点検する自然な機会として活用できます。</p>
+    </section>
+
+    <!-- ===================== 4. AI Product Ownership ===================== -->
+    <section id="ai-product-ownership">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 04</div>
+      <h2>第4部：AI Product Ownership(AIを活用したプロダクトオーナーシップ)</h2>
+
+      <p>伝統的にプロダクトオーナーには、Scrum.orgが提唱する6つの「望ましいスタンス(Preferred Stances)」——The Visionary、The Collaborator、The Customer Representative、The Decision Maker、The Experimenter、The Influencer——があります。PSPO-AI Essentials コースでは、これらのスタンスにAIをどう組み込むかを具体的に学び、さらに新しいスタンスとして<strong>The Orchestrator</strong>を加えています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="stancesWheel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">価値の最大化を中心に据えたプロダクトオーナーの6+1スタンス</div>
+      </div>
+
+      <h3>4.1 The Visionary(ビジョナリー)× AI</h3>
+      <p><strong>本来のスタンス：</strong>プロダクトのビジョン・戦略・目標をステークホルダー全員に明確に伝える役割。</p>
+
+      <p><strong>AIによる強化ポイント：</strong></p>
+      <ul>
+        <li>プロダクトビジョン・ロードマップの草案作成をAIとの壁打ちで加速する</li>
+        <li>複雑な戦略メッセージを、対象オーディエンス(経営層・開発チーム・顧客)ごとに異なるトーンで再構成する</li>
+        <li>「AIアバター」(自分の分身となる動画・音声コンテンツ)を作成し、ビジョンメッセージをスケーラブルに発信する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AIにビジョンの「文章」を書かせることはできますが、ビジョンの「意思決定」自体は必ず人間が行うべきです。AIは伝達手段の高速化・多様化に使い、ビジョンの本質的な方向性は自分自身の判断に委ねましょう。</p>
+      </div>
+
+      <h3>4.2 The Customer Representative(顧客代表)× AI</h3>
+      <p><strong>本来のスタンス：</strong>顧客の課題・ニーズ・行動を深く理解し、チームに橋渡しする役割。</p>
+
+      <p><strong>AIによる強化ポイント：</strong></p>
+      <ul>
+        <li>インタビューやアンケートの生データから、顧客の課題・痛み・機会を要約させる</li>
+        <li>AIを使ってユーザーペルソナのドラフトを作成し、チームで議論するたたき台にする</li>
+        <li>市場調査データから、傾向やインサイトを高速に抽出する</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="customerFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">顧客インタビューデータからペルソナ確定までの流れ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AI生成のペルソナは「仮説」として扱い、必ず実際の顧客データ・インタビューで検証するプロセスを組み込むこと。AIは調査を速くしますが、実際の顧客の声に取って代わるものではありません。</p>
+      </div>
+
+      <h3>4.3 The Experimenter(実験者)× AI</h3>
+      <p><strong>本来のスタンス：</strong>仮説と検証を通じて、価値を発見していく役割。「何がわかっていて、何がわかっていないか」を明確にする。</p>
+
+      <p><strong>AIによる強化ポイント：</strong></p>
+      <ul>
+        <li>新機能・新プロダクトのアイデアをAIとブレインストーミングする</li>
+        <li>検証可能な仮説(Hypothesis)の形に、アイデアを構造化する</li>
+        <li>AIプロトタイピングツール(例：Bolt.newのようなノーコード生成ツール)で、数分単位でモックアップやテスト用の簡易サイトを作成する</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AIでモックアップ生成が高速化すればするほど、「作ってから考える」誘惑が強まります。必ず仮説(何を検証したいのか)を先に明文化してからプロトタイピングに入ることで、目的のない量産を防ぎます。</p>
+      </div>
+
+      <h3>4.4 The Decision Maker(意思決定者)× AI</h3>
+      <p><strong>本来のスタンス：</strong>日々、プロダクトバックログの並び替えや優先順位付けなど、あらゆる意思決定を行う役割。</p>
+
+      <p><strong>AIによる強化ポイント：</strong></p>
+      <ul>
+        <li>過去のデータ(利用状況、サポート問い合わせ、売上インパクトなど)をAIに分析させ、優先順位付けの判断材料を増やす</li>
+        <li>MoSCoWやKano分析などの優先順位付けフレームワークに、AIが抽出したインサイトを組み込む</li>
+        <li>リスクの洗い出しと影響度評価をAIと一緒に検討する</li>
+      </ul>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>優先順位付けフレームワーク</th><th>概要</th><th>AIの活用余地</th></tr></thead>
+          <tbody>
+            <tr><td>MoSCoW</td><td>Must / Should / Could / Won't で分類</td><td>各PBIの分類理由の草案作成、過去データとの整合性チェック</td></tr>
+            <tr><td>Kano分析</td><td>基本機能・満足度向上機能・魅力的機能を区別</td><td>顧客フィードバックからKanoカテゴリの傾向を推定</td></tr>
+            <tr><td>WSJF(重み付き最短ジョブ優先)</td><td>コスト・オブ・ディレイと作業規模の比から算出</td><td>各要素のスコアリング根拠データの整理・要約</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AIは「意思決定のための材料」を高速に用意してくれますが、最終的な優先順位の決定という<strong>説明責任そのもの</strong>は常にプロダクトオーナーに残ります(3.7節参照)。AIの推奨をそのまま採用するのではなく、なぜその優先順位にしたのかを自分の言葉で説明できる状態を保つことが重要です。</p>
+      </div>
+
+      <h3>4.5 The Collaborator & Influencer(協働者・インフルエンサー)× AI</h3>
+      <p><strong>本来のスタンス：</strong>The Collaboratorはチームと協力してゴールを定義する役割、The Influencerはステークホルダーをビジョン・戦略・目標のもとに整合させる役割です。PSPO-AI Essentialsコースでは、この2つのスタンスがAI活用の観点でまとめて扱われています。</p>
+
+      <p><strong>AIによる強化ポイント：</strong></p>
+      <ul>
+        <li>顧客インタビューやステークホルダーミーティングをAIで文字起こしし、要点とアクションアイテムを自動抽出する</li>
+        <li>会話や文章の感情分析(Sentiment Analysis)を行い、ステークホルダーの温度感を把握する</li>
+        <li>ステークホルダーからの要望を収集・分類・トラッキングするアプリケーションをAIの支援で構築する</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="collaboratorFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">対話からステークホルダー要望のトラッキングまでの流れ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>感情分析やAIによる要約は、あくまで「一次スクリーニング」の道具として使い、重要なステークホルダーとの関係構築そのものは対面・人間同士のコミュニケーションを軸に置きましょう。AIの要約結果に頼りすぎると、ニュアンスの取りこぼしに気づきにくくなります。</p>
+      </div>
+
+      <h3>4.6 The Orchestrator(オーケストレーター)— AI時代の新スタンス</h3>
+      <p><strong>新設のスタンス：</strong>PSPO-AI Essentialsコースで追加された、従来の6スタンスにはなかった新しい役割です。プロダクトオーナー自身が「AIツールの選定者・設定者・監督者」としてふるまうスタンスを指します。</p>
+
+      <p><strong>主な活動：</strong></p>
+      <ul>
+        <li>状況や目的に応じて、最適なAIツールを選定する(LLMチャットツール、動画生成、プロトタイピング、コラボレーション、文字起こしなど、用途ごとに適したツールは異なる)</li>
+        <li>選んだAIツールをセットアップ・設定し、チームが使いやすい状態に整える</li>
+        <li>AIエージェントを構築し、定型的なワークフロー(フィードバック分析→ドラフトPBI作成など)を自動化する</li>
+      </ul>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用途カテゴリ</th><th>代表的なツールの例</th></tr></thead>
+          <tbody>
+            <tr><td>汎用LLMチャット</td><td>ChatGPT, Claude, Gemini, Copilot</td></tr>
+            <tr><td>動画生成</td><td>Synthesia</td></tr>
+            <tr><td>プロトタイピング</td><td>Bolt.new, Typeform</td></tr>
+            <tr><td>コラボレーション</td><td>Mural AI, Miro AI</td></tr>
+            <tr><td>会議の文字起こし・要約</td><td>NotebookLM</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english" target="_blank" rel="noopener">Prowareness(Scrum.org認定パートナー)コース案内ページに記載のツール例、Scrum.org公式ブログのコース紹介記事</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>ツールは頻繁にアップデートされるため、「特定のツール名」を覚えるより、「用途ごとにどんな種類のツールが必要になるか」という分類軸を理解しておくことが、長期的に役立つ知識になります。</p>
+      </div>
+
+      <h3>4.7 誤解されたスタンスとAI利用の落とし穴</h3>
+      <p>Scrum.orgのスタンス関連ブログでは、望ましいスタンスの対比として「誤解されたスタンス(Misunderstood Stances)」——The Clerk(事務員)、The Manager(管理者)、The Project Manager、The Subject Matter Expertなど——も紹介されています。AIを誤用すると、せっかくの効率化ツールが、むしろこうした望ましくないスタンスを助長するリスクがあります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤解されたスタンス</th><th>AI誤用によって陥りやすいパターン</th></tr></thead>
+          <tbody>
+            <tr><td>The Clerk(事務員)</td><td>AIが生成した大量のユーザーストーリーやPBIを、内容を吟味せずそのままバックログに登録してしまう</td></tr>
+            <tr><td>The Manager(管理者)</td><td>AIの分析結果を根拠に、チームへ一方的にタスクを割り振るような使い方をしてしまう</td></tr>
+            <tr><td>The Subject Matter Expert(専門家への依存)</td><td>顧客理解をAI要約だけで済ませ、自ら顧客と対話する機会を減らしてしまう</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AI活用の目的は「望ましいスタンス(Visionary, Collaborator, Customer Representative, Decision Maker, Experimenter, Influencer, Orchestrator)を強化すること」であり、「作業量を増やして誤解されたスタンスに逆戻りすること」ではない、という原則を常に意識しましょう。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Best Practices Summary ===================== -->
+    <section id="best-practices-summary">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 05</div>
+      <h2>第5部：ベストプラクティス総まとめ表</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>領域</th><th>ベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td>AI Theory</td><td>ANI・AGI・ASIの違いを理解し、現行の生成AIは高性能なANIであるという前提を忘れない</td></tr>
+            <tr><td>AI Theory</td><td>プロンプトには役割・文脈・出力形式・例を含め、複雑なタスクは段階的に指示する</td></tr>
+            <tr><td>AI Theory</td><td>エージェンティックAIに委任する範囲は明確に定義し、重要な意思決定は人間が最終確認する</td></tr>
+            <tr><td>AI Security and Ethics</td><td>4D Framework(Delegation, Description, Discernment, Diligence)を意思決定の型として使う</td></tr>
+            <tr><td>AI Security and Ethics</td><td>ハルシネーションのリスクを前提に、事実情報は一次ソースで検証する</td></tr>
+            <tr><td>AI Security and Ethics</td><td>チームで「AIに入力してよいデータ」の分類基準を先に合意しておく</td></tr>
+            <tr><td>AI Security and Ethics</td><td>AI出力のうちどの部分がAI生成かを、ステークホルダーに対して透明に伝える</td></tr>
+            <tr><td>AI Product Ownership</td><td>AIはビジョン伝達・顧客理解・仮説検証・意思決定材料の準備を加速するが、最終判断と説明責任は常にプロダクトオーナーが持つ</td></tr>
+            <tr><td>AI Product Ownership</td><td>AI生成のペルソナ・優先順位付けの根拠は、必ず実データ・実際の対話で検証してから確定する</td></tr>
+            <tr><td>AI Product Ownership</td><td>ツール選定は「用途カテゴリ」で考え、特定ツールへの過度な依存を避ける</td></tr>
+            <tr><td>組織・チーム</td><td>Sprint ReviewやRetrospectiveで、AI活用がチームに有益かどうかを定期的に検査する</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Exam Prep ===================== -->
+    <section id="exam-prep">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 06</div>
+      <h2>第6部：試験対策とシナリオ思考トレーニング</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>重要な注意：</strong>以下は実際の試験問題ではなく、本ガイドの著者が学習目的で作成した練習用のシナリオ例です。試験の実際の設問内容・正答を示すものではありません。</p>
+      </div>
+
+      <h3>6.1 学習の進め方</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="studyPlan"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">公式トレーニング受講から受験までの学習の進め方</div>
+      </div>
+
+      <h3>6.2 出題されやすい思考パターン</h3>
+      <p>PSPO-AI Essentials の試験は Multiple Choice ですが、単純な用語の暗記だけでなく、「このような場面でプロダクトオーナーはどう行動すべきか」というシナリオベースの判断力を問う傾向が、Scrum.org系の他の認定試験(PSPO I/IIなど)と共通していると考えられます。学習の際は、以下のような自問自答を繰り返すと効果的です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>出題されやすい観点</th><th>自問の型</th></tr></thead>
+          <tbody>
+            <tr><td>用語の正確な理解</td><td>「この選択肢の中で、Agentic AIを正しく説明しているのはどれか？」</td></tr>
+            <tr><td>責任の所在</td><td>「AIが提案した優先順位付けをそのままチームに伝えるのは適切か？」</td></tr>
+            <tr><td>リスク認識</td><td>「この状況でプロダクトオーナーが最初に確認すべきリスクは何か？」</td></tr>
+            <tr><td>スタンスとの対応</td><td>「この行動は、6つの望ましいスタンス＋Orchestratorのうち、どれに最も近いか？」</td></tr>
+            <tr><td>倫理・セキュリティ</td><td>「このデータをAIツールに入力する前に、何を確認すべきか？」</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.3 練習シナリオ例(自作・非公式)</h3>
+      <p><strong>シナリオ1：</strong>あなたはプロダクトオーナーです。チームメンバーが「AIに未公開の来期ロードマップと顧客の契約金額を入力して、競合分析のレポートを作らせました」と報告してきました。あなたが最初に取るべき行動として最も適切なものはどれか、を考えてみましょう。</p>
+
+      <ul>
+        <li>選択肢の方向性の例：ただちに使用しているAIツールのデータ取り扱いポリシーと、入力した情報の機密レベルを確認する(3.4節・3.5節の「データプライバシーの確保」ガードレールに対応)</li>
+      </ul>
+
+      <p><strong>シナリオ2：</strong>The Decision Maker のスタンスで、AIが「機能Aを最優先にすべき」と提案してきました。あなたはこの提案をどう扱うべきか、を考えてみましょう。</p>
+
+      <ul>
+        <li>選択肢の方向性の例：AIの提案の根拠データを確認し、自分自身の判断とEBM(Evidence-Based Management)の観点を踏まえて最終決定を行う(4.4節・3.7節に対応)</li>
+      </ul>
+
+      <p>このように、各シナリオを「どの部(AI Theory / AI Security and Ethics / AI Product Ownership)のどの原則に対応するか」を紐づけながら復習すると、記憶が定着しやすくなります。</p>
+    </section>
+
+    <!-- ===================== 7. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 07</div>
+      <h2>第7部：参考文献・公式ソース一覧</h2>
+
+      <div class="ref-group">
+        <h4>Scrum.org 公式ページ(PSPO-AI Essentials 関連)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">認定試験ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification</a></li>
+          <li><span class="ref-name">コースページ(例)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training</a></li>
+          <li><span class="ref-name">コース新設アナウンス</span><a class="ref-url" href="https://www.scrum.org/resources/scrumorg-announces-new-ai-training-product-owners" target="_blank" rel="noopener">https://www.scrum.org/resources/scrumorg-announces-new-ai-training-product-owners</a></li>
+          <li><span class="ref-name">コース構成解説VLOG</span><a class="ref-url" href="https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained</a></li>
+          <li><span class="ref-name">Product Owner's AI Start Checklist</span><a class="ref-url" href="https://www.scrum.org/resources/blog/product-owners-ai-start-checklist" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/product-owners-ai-start-checklist</a></li>
+          <li><span class="ref-name">Ethical AI for Product Owners & Product Managers</span><a class="ref-url" href="https://www.scrum.org/resources/blog/ethical-ai-product-owners-product-managers" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/ethical-ai-product-owners-product-managers</a></li>
+          <li><span class="ref-name">The Augmented Product Owner: Amplifying Scrum with AI</span><a class="ref-url" href="https://www.scrum.org/resources/blog/augmented-product-owner-amplifying-scrum-ai" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/augmented-product-owner-amplifying-scrum-ai</a></li>
+          <li><span class="ref-name">The Crossroads of Product Ownership and AI</span><a class="ref-url" href="https://www.scrum.org/resources/blog/crossroads-product-ownership-and-ai" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/crossroads-product-ownership-and-ai</a></li>
+          <li><span class="ref-name">Professional Scrum Certifications 一覧</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-certifications" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-certifications</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>Product Owner スタンス関連(Scrum.org)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Stances of the Product Owner</span><a class="ref-url" href="https://www.scrum.org/resources/blog/stances-product-owner" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/stances-product-owner</a></li>
+          <li><span class="ref-name">What is a Product Owner?</span><a class="ref-url" href="https://www.scrum.org/resources/what-is-a-product-owner" target="_blank" rel="noopener">https://www.scrum.org/resources/what-is-a-product-owner</a></li>
+          <li><span class="ref-name">The Experimenter(A Preferred Product Owner Stance)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/experimenter-preferred-product-owner-stance" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/experimenter-preferred-product-owner-stance</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>Scrumの一次情報</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">The Scrum Guide(公式)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+          <li><span class="ref-name">Evidence-Based Management Guide(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>AI理論・倫理・フレームワーク関連</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Anthropic「AI Fluency: Framework & Foundations」(4D Framework 公式コース)</span><a class="ref-url" href="https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework" target="_blank" rel="noopener">https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework</a></li>
+          <li><span class="ref-name">Anthropic「The AI Fluency Framework」公式PDF</span><a class="ref-url" href="https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf" target="_blank" rel="noopener">https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf</a></li>
+          <li><span class="ref-name">NIST AI Risk Management Framework</span><a class="ref-url" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">https://www.nist.gov/itl/ai-risk-management-framework</a></li>
+          <li><span class="ref-name">EU AI Act(欧州委員会 公式ポリシーページ)</span><a class="ref-url" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Xebia Academy コース紹介</span><a class="ref-url" href="https://academy.xebia.com/training/professional-scrum-product-owner-ai-essentials-training/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-scrum-product-owner-ai-essentials-training/</a></li>
+          <li><span class="ref-name">Prowareness コース紹介(ツール一覧の出典)</span><a class="ref-url" href="https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english" target="_blank" rel="noopener">https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english</a></li>
+          <li><span class="ref-name">tryscrum.com コース紹介</span><a class="ref-url" href="https://tryscrum.com/certifications/agile/scrum/product-owner/professional-scrum-product-owner-ai-essentials-training/" target="_blank" rel="noopener">https://tryscrum.com/certifications/agile/scrum/product-owner/professional-scrum-product-owner-ai-essentials-training/</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>免責事項：</strong>本ガイドは独自に公開情報を調査・要約したものであり、Scrum.orgによる公式監修を受けたものではありません。試験の出題内容・合格基準・受験条件は変更される可能性があるため、最新情報は必ず上記の公式ページでご確認ください。</p>
+      </div>
+    </section>
+
+    <footer>
+      Professional Scrum Product Owner™、PSPO™、Scrum.org は Scrum.org の商標です。本ページは非公式の学習支援資料であり、Scrum.orgによる公式監修を受けていません。最新の試験情報は<a href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>でご確認ください。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    pspoRelation: `flowchart LR
+A["PSPO I 基礎"] --> B["PSPO II 応用"]
+B --> C["PSPO III 卓越"]
+A -.->|"AI適用を深掘り"| D["PSPO-AI Essentials"]
+B -.->|"AI適用を深掘り"| D
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A,B,C box;
+class D hub;`,
+
+    courseSections: `flowchart TD
+S1["Section1 Visionary"] --> S2["Section2 Customer Representative"]
+S2 --> S3["Section3 Experimenter"]
+S3 --> S4["Section4 Decision Maker"]
+S4 --> S5["Section5 Collaborator and Influencer"]
+S5 --> S6["Section6 Orchestrator"]
+S6 --> S7["Section7 AI Theory Ethics Security"]
+S7 -.->|"基礎知識として全体を支える"| S1
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4,S5,S6 box;
+class S7 hub;`,
+
+    aiEvolution: `flowchart LR
+A["ルールベースAI 記号主義"] --> B["機械学習 Machine Learning"]
+B --> C["深層学習 Deep Learning"]
+C --> D["生成AI Generative AI"]
+D --> E["エージェンティックAI Agentic AI"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;
+class E done;`,
+
+    agenticSequence: `sequenceDiagram
+participant PO as Product Owner
+participant Agent as AI Agent
+participant PBL as Product Backlog
+PO->>Agent: ユーザーフィードバックの収集と分析を依頼
+Agent->>Agent: 繰り返し発生する課題パターンを特定
+Agent->>PO: 課題パターンのサマリーを提示
+PO->>Agent: ドラフトPBIの作成を依頼
+Agent->>PBL: ドラフトPBIを追加
+PO->>PBL: 内容を精査しOrderingを確定`,
+
+    tokenizationFlow: `flowchart LR
+A["自然言語プロンプト"] --> B["トークン化 Tokenization"]
+B --> C["モデル推論 LLM Inference"]
+C --> D["次トークンの確率予測を繰り返す"]
+D --> E["トークン列をデコード"]
+E --> F["自然言語の出力"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E box;
+class F done;`,
+
+    fourDFramework: `flowchart LR
+D1["Delegation 委任"] --> D2["Description 説明"]
+D2 --> D3["Discernment 見極め"]
+D3 --> D4["Diligence 責任"]
+D4 -.->|"次のタスクへ活かす"| D1
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class D1,D2,D3 box;
+class D4 hub;`,
+
+    nistRmf: `flowchart TD
+Gov["Govern 統治"] --> Map["Map リスクの特定"]
+Map --> Meas["Measure 測定"]
+Meas --> Man["Manage 管理"]
+Man -.->|"継続的に見直す"| Gov
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Map,Meas,Man box;
+class Gov hub;`,
+
+    stancesWheel: `flowchart TD
+V["価値の最大化 Value Maximization"]
+V --> S1["The Visionary"]
+V --> S2["The Customer Representative"]
+V --> S3["The Experimenter"]
+V --> S4["The Decision Maker"]
+V --> S5["The Collaborator"]
+V --> S6["The Influencer"]
+V --> S7["The Orchestrator"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4,S5,S6,S7 box;
+class V hub;`,
+
+    customerFlow: `flowchart LR
+A["顧客インタビューデータ"] --> B["AIによる要約 分析"]
+B --> C["ユーザーペルソナのドラフト"]
+C --> D["チームでのレビューと検証"]
+D --> E["確定したペルソナをディスカバリーに活用"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;
+class E done;`,
+
+    collaboratorFlow: `flowchart TD
+Meet["ステークホルダーとの対話 会議"] --> Trans["AIによる文字起こし"]
+Trans --> Sum["要点とアクションアイテムの抽出"]
+Sum --> Sent["感情分析によるトーンの把握"]
+Sent --> Track["要望の分類 優先度付けとトラッキング"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Meet,Trans,Sum,Sent box;
+class Track done;`,
+
+    studyPlan: `flowchart TD
+A["公式トレーニングを受講する"] --> B["Exam Codeを受領する"]
+B --> C["本ガイドで3カテゴリを復習する"]
+C --> D["Scrum GuideとEBM Guideを再読する"]
+D --> E["自分の言葉で各スタンスのAI活用例を説明できるか確認する"]
+E --> F["練習シナリオで自己チェックする"]
+F --> G["14日以内を目安に受験する"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E,F box;
+class G done;`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

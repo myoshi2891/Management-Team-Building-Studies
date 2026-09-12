@@ -351,8 +351,9 @@ flowchart TD
     V --> S2["The Customer Representative"]
     V --> S3["The Experimenter"]
     V --> S4["The Decision Maker"]
-    V --> S5["The Collaborator and Influencer"]
-    V --> S6["The Orchestrator"]
+    V --> S5["The Collaborator"]
+    V --> S6["The Influencer"]
+    V --> S7["The Orchestrator"]
 ```
 
 ### 4.1 The Visionary（ビジョナリー）× AI
