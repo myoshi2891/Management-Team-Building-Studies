@@ -798,7 +798,7 @@
       <div class="callout source">
         <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
         <ul>
-          <li><a href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org(Scrum Guide 経験主義の記述)</a></li>
+          <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide 経験主義の記述)</a></li>
           <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
         </ul>
       </div>
@@ -1054,7 +1054,7 @@
         <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
-          <li><a href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org(Scrum Guide: Sprint Reviewの目的)</a></li>
+          <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide: Sprint Reviewの目的)</a></li>
         </ul>
       </div>
     </section>
@@ -1208,7 +1208,7 @@
         <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
-          <li><a href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org(Scrum Guide 2020: Product Goal / Sprint Goalの定義)</a></li>
+          <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide 2020: Product Goal / Sprint Goalの定義)</a></li>
           <li><a href="https://www.infoq.com/articles/agile-goals-okr/" target="_blank" rel="noopener">https://www.infoq.com/articles/agile-goals-okr/(OKRとアジャイル目標設定に関する補足情報)</a></li>
         </ul>
       </div>
@@ -1345,7 +1345,7 @@
           <li><span class="ref-name">Pitfalls (challenges) of implementing EBM(公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm</a></li>
           <li><span class="ref-name">How To Pass The PAL-EBM Assessment(公式ブログ・受験対策)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment</a></li>
           <li><span class="ref-name">Professional Scrum Competencies(コンピテンシーモデル)</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
-          <li><span class="ref-name">Scrum Guide(経験主義・Scrumの基礎)</span><a class="ref-url" href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org</a></li>
+          <li><span class="ref-name">Scrum Guide(経験主義・Scrumの基礎)</span><a class="ref-url" href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide</a></li>
         </ul>
       </div>
 
@@ -1536,19 +1536,16 @@ class F done;`,
 
     goalHierarchy: `flowchart TB
 A["組織のビジョン・戦略目標"] --> B["Product Goal プロダクトゴール"]
-B --> C["Product Backlog"]
-C --> D["Sprint Goal スプリントゴール"]
-D --> E["Sprint Backlog"]
-E --> F["Increment"]
-F --> G["Sprint Reviewでの検査"]
-G --> H["適応 Product Backlog・戦略の見直し"]
-H --> B
+B --> C["Sprint Goal スプリントゴール"]
+C --> D["Sprint Reviewでの検査"]
+D --> E["適応 Product Backlog・戦略の見直し"]
+E --> B
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class A hub;
-class B,C,D,E,F,G,H box;`,
+class B,C,D,E box;`,
 
     studyPriority: `flowchart TB
 A["最優先 4つのKVAの定義と市場価値・組織能力の分類"] --> B["優先 EBMの基本サイクルと経験主義の3本柱"]

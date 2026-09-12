@@ -177,7 +177,7 @@ flowchart LR
 > - 「適応」を行わない検査は意味がない。検査結果が許容範囲外だった場合の意思決定プロセスをあらかじめ決めておく。
 
 **参考ソース**
-- https://www.scrum.org（Scrum Guide 経験主義の記述）
+- https://www.scrum.org/resources/scrum-guide（Scrum Guide 経験主義の記述）
 - https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management
 
 ---
@@ -408,7 +408,7 @@ flowchart LR
 
 **参考ソース**
 - https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management
-- https://www.scrum.org（Scrum Guide: Sprint Reviewの目的）
+- https://www.scrum.org/resources/scrum-guide（Scrum Guide: Sprint Reviewの目的）
 
 ---
 
@@ -516,13 +516,10 @@ Scrum Guide（2020年版）では、組織のビジョンからSprint Goalに至
 ```mermaid
 flowchart TB
     A["組織のビジョン<br/>／戦略目標"] --> B["Product Goal<br/>プロダクトゴール"]
-    B --> C["Product Backlog"]
-    C --> D["Sprint Goal<br/>スプリントゴール"]
-    D --> E["Sprint Backlog"]
-    E --> F["Increment"]
-    F --> G["Sprint Reviewでの<br/>検査"]
-    G --> H["適応：Product Backlog<br/>／戦略の見直し"]
-    H --> B
+    B --> C["Sprint Goal<br/>スプリントゴール"]
+    C --> D["Sprint Reviewでの<br/>検査"]
+    D --> E["適応：Product Backlog<br/>／戦略の見直し"]
+    E --> B
 ```
 
 ### 11.2 目標を「良いもの」にする観点
@@ -545,7 +542,7 @@ OKR（Objectives and Key Results）は、GoogleやLinkedInなど多くの企業�
 
 **参考ソース**
 - https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management
-- https://www.scrum.org（Scrum Guide 2020: Product Goal / Sprint Goalの定義）
+- https://www.scrum.org/resources/scrum-guide（Scrum Guide 2020: Product Goal / Sprint Goalの定義）
 - https://www.infoq.com/articles/agile-goals-okr/（OKRとアジャイル目標設定に関する補足情報）
 
 ---
@@ -664,7 +661,7 @@ flowchart TB
 - Professional Scrum Competencies（コンピテンシーモデル）
   https://www.scrum.org/professional-scrum-competencies
 - Scrum Guide（経験主義・Scrumの基礎）
-  https://www.scrum.org
+  https://www.scrum.org/resources/scrum-guide
 
 ### 補足・解説記事（二次情報、理解の補強用）
 
