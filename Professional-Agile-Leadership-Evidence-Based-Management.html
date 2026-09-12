@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAL-EBM™ 認定資格 完全ガイド | Evidence-Based Management™ で読み解くアジャイルリーダーシップ</title>
+<meta name="description" content="Scrum.org の Professional Agile Leadership - Evidence-Based Management (PAL-EBM) 認定について、経験主義、4つの主要価値領域(KVA)、仮説検証、目標設定までを初学者向けにステップバイステップで解説する学習ガイドです。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PAL-EBM™ 完全ガイド</div>
+        <div class="brand-subtitle">Evidence-Based Management</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>1. 試験概要</a></li>
+      <li><a href="#focus-areas"><i class="ti ti-sitemap"></i>2. 出題範囲の全体像</a></li>
+      <li><a href="#empiricism"><i class="ti ti-refresh"></i>3. 経験主義</a></li>
+      <li><a href="#what-is-ebm"><i class="ti ti-target"></i>4. EBMとは何か</a></li>
+      <li><a href="#four-kvas"><i class="ti ti-chart-pie"></i>5. 4つの主要価値領域</a></li>
+      <li><a href="#product-value"><i class="ti ti-package"></i>6. プロダクトバリュー</a></li>
+      <li><a href="#business-strategy"><i class="ti ti-trending-up"></i>7. ビジネス戦略とUV</a></li>
+      <li><a href="#stakeholders-customers"><i class="ti ti-users"></i>8. ステークホルダーと顧客管理</a></li>
+      <li><a href="#portfolio-planning"><i class="ti ti-briefcase"></i>9. ポートフォリオプランニング</a></li>
+      <li><a href="#hypotheses"><i class="ti ti-flask"></i>10. 仮説形成と検証</a></li>
+      <li><a href="#goals"><i class="ti ti-flag-3"></i>11. 目標の設定・検査・適応</a></li>
+      <li><a href="#exam-strategy"><i class="ti ti-clipboard-check"></i>12. 試験対策</a></li>
+      <li><a href="#study-plan"><i class="ti ti-route"></i>13. 学習ステップ</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>14. 用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>15. 参考文献・ソースURL</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>Scrum.org 公式アセスメント</div>
+      <h1>Professional Agile Leadership™ - Evidence-Based Management™(PAL-EBM)認定 完全ガイド</h1>
+      <p class="hero-lede">
+        本ガイドは <a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">Scrum.org 公式アセスメントページ</a> および Scrum.org が公開する Evidence-Based Management™ Guide、公式ブログ等の一次情報をもとに、初学者が「なぜ経験主義的な組織運営が必要なのか」から「4つの主要価値領域(KVA)をどう実務に落とし込むか」までをステップバイステップで理解できるよう構成しています。各章末に根拠ソースのURLを明記しています。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">制限時間60分</div></div>
+        <div class="stat-card"><div class="stat-number">85%以上</div><div class="stat-label">合格ライン</div></div>
+        <div class="stat-card"><div class="stat-number">USD 200</div><div class="stat-label">受験費用</div></div>
+        <div class="stat-card"><div class="stat-number">無期限</div><div class="stat-label">認定の有効期限</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは教育・学習支援を目的とした非公式の解説資料です。試験の出題形式・合格基準・受験料等は変更される場合があるため、必ず<a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">Scrum.org公式サイト</a>で最新情報をご確認ください。
+      </div>
+    </div>
+
+    <!-- ===================== 1. Exam Overview ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>試験概要</h2>
+
+      <h3>1.1 PAL-EBMとは</h3>
+      <p>PAL-EBM(Professional Agile Leadership™ - Evidence-Based Management™)は、Scrum.org が提供する認定資格の1つです。組織が顧客アウトカム(customer outcomes)、組織能力(organizational capabilities)、ビジネス成果(business results)を継続的に改善するために、なぜ経験主義的アプローチ(empirical approach)が有効なのかについて、応用レベルの理解を証明する資格です。</p>
+      <p>対象は Scrum Master、Product Owner、チームリード、コーチ、コンサルタント、そして組織の意思決定に関わるエグゼクティブ／マネージャーです。PAL Iが「リーダーシップと自己管理型チームの育成」に焦点を当てるのに対し、PAL-EBMは「Evidence-Based Management™ フレームワークを用いた価値の測定と組織アジリティの向上」に焦点を当てます。</p>
+
+      <h3>1.2 試験の基本情報</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>試験名</td><td>Professional Agile Leadership™ - Evidence-Based Management™(PAL-EBM)</td></tr>
+            <tr><td>提供元</td><td>Scrum.org</td></tr>
+            <tr><td>レベル</td><td>Intermediate(中級)</td></tr>
+            <tr><td>出題数</td><td>40問</td></tr>
+            <tr><td>制限時間</td><td>60分</td></tr>
+            <tr><td>出題形式</td><td>選択式(Multiple Choice)、複数選択(Multiple Answer)、True/False</td></tr>
+            <tr><td>合格ライン</td><td>85%以上</td></tr>
+            <tr><td>受験費用</td><td>USD 200</td></tr>
+            <tr><td>言語</td><td>英語</td></tr>
+            <tr><td>有効期限</td><td>なし(一度取得すると失効しない)</td></tr>
+            <tr><td>受験場所</td><td>オンライン(自宅や職場から受験可能、試験会場への訪問不要)</td></tr>
+            <tr><td>前提条件</td><td>公式には必須のトレーニング受講条件はないが、PAL-EBMクラスの受講が強く推奨されている</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>出典：Scrum.orgアセスメントページおよびScrum.org公式ブログ「How To Pass The PAL-EBM Assessment」に基づく。</p>
+
+      <h3>1.3 他のPAL系認定との違い</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>認定</th><th>主な焦点</th></tr></thead>
+          <tbody>
+            <tr><td>PAL I(Professional Agile Leadership I)</td><td>自己管理型チームの育成、権限移譲、組織的インペディメントの除去</td></tr>
+            <tr><td>PAL-EBM(本ガイドの対象)</td><td>Evidence-Based Management™フレームワークによる価値の測定、仮説駆動の意思決定</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.4 認定取得までの流れ</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="certRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PAL-EBM認定取得までのステップ</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 2. Focus Areas Map ===================== -->
+    <section id="focus-areas">
+      <div class="section-eyebrow"><i class="ti ti-sitemap"></i>SECTION 02</div>
+      <h2>出題範囲(Focus Areas)の全体像</h2>
+
+      <p>PAL-EBMの出題範囲は、Scrum.orgが定義する「Professional Scrum Competencies(プロフェッショナル・スクラム・コンピテンシー)」モデルの中から、EBMに関連するFocus Areaと、コンピテンシーモデルには明示されていない追加トピック(Additional Topics)から構成されます。</p>
+
+      <h3>2.1 出題範囲マップ</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>コンピテンシー領域</th><th>Focus Area</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Understanding and Applying the Scrum Framework(スクラムフレームワークの理解と適用)</td><td>Empiricism(経験主義)</td><td>なぜ・いつ経験主義が必要かを説明できる</td></tr>
+            <tr><td>Managing Products with Agility(アジリティをもったプロダクトマネジメント)</td><td>Product Value(プロダクトバリュー)</td><td>プロダクトが提供する価値を評価する方法</td></tr>
+            <tr><td>同上</td><td>Business Strategy(ビジネス戦略)</td><td>Unrealized Valueの概念を機会追求に応用する</td></tr>
+            <tr><td>同上</td><td>Stakeholders &amp; Customers(ステークホルダーと顧客)</td><td>Current Value、Unrealized Valueをステークホルダー・顧客管理に応用する</td></tr>
+            <tr><td>Evolving the Agile Organization(アジャイル組織への進化)</td><td>Portfolio Planning(ポートフォリオプランニング)</td><td>リーン・アジャイル原則をビジネス便益最大化の投資に適用する</td></tr>
+            <tr><td>同上</td><td>Evidence-Based Management™</td><td>EBMフレームワークの概念理解</td></tr>
+            <tr><td>Additional Topics(コンピテンシーモデル外の追加トピック)</td><td>Forming &amp; Evaluating Hypotheses(仮説の形成と検証)</td><td>短く焦点を絞った実験を通じて望む成果に近づく</td></tr>
+            <tr><td>同上</td><td>Setting, Inspecting &amp; Adapting Goals(目標の設定・検査・適応)</td><td>複雑な世界で経験主義を使い目標に向かって進む方法</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.2 出題範囲の構造図</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="focusAreaTree"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PAL-EBM 出題範囲の構造(コンピテンシー領域とFocus Areaの対応)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>試験対策では「どのFocus Areaの、どの概念が問われているか」をまず特定する癖をつけると、選択肢の絞り込みが速くなります。特にScrumシナリオの選択肢が複数正解に見える場合、「これはCurrent Valueの話かUnrealized Valueの話か」「これはT2MかA2Iか」という軸で切り分けると精度が上がります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 3. Empiricism ===================== -->
+    <section id="empiricism">
+      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 03</div>
+      <h2>経験主義(Empiricism)― なぜ、いつ必要か</h2>
+
+      <h3>3.1 経験主義の3本柱</h3>
+      <p>Scrum GuideおよびEBM Guideが共通して基盤とするのが「経験主義(Empiricism)」です。経験主義とは、知識は経験から生まれ、意思決定は観察された事実(evidence)に基づくべきという考え方です。Scrumはこの経験主義を支える3本柱の上に成り立っています。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>柱</th><th>意味</th><th>EBMにおける位置づけ</th></tr></thead>
+          <tbody>
+            <tr><td>Transparency(透明性)</td><td>プロセスと成果物が、それを見る人全員に見える形で共有されていること</td><td>KVAの測定結果を関係者全員に公開することが前提になる</td></tr>
+            <tr><td>Inspection(検査)</td><td>進捗や成果物を頻繁かつ注意深く検査し、望ましくない差異を検出すること</td><td>Sprint ReviewなどでKVAの測定値を検査する</td></tr>
+            <tr><td>Adaptation(適応)</td><td>検査の結果、プロセスや成果物が許容範囲外だと判断された場合に速やかに調整すること</td><td>測定結果に基づき戦略・バックログ・投資配分を調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.2 なぜ「複雑な問題」に経験主義が必要なのか</h3>
+      <p>ソフトウェアプロダクト開発や組織変革は「複雑(complex)」な問題領域に属することが多く、事前に全ての要件・結果を正確に予測することができません。これに対し、伝統的なマネジメント手法の多くは「定義的(defined)プロセス制御」、つまり「決められた通りに実行すれば決められた結果が出る」という前提に立っています。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アプローチ</th><th>前提</th><th>適した問題領域</th><th>リスク</th></tr></thead>
+          <tbody>
+            <tr><td>定義的プロセス制御(伝統的マネジメント)</td><td>インプットとプロセスが同じならアウトプットも同じになる</td><td>単純(simple)〜煩雑(complicated)な問題</td><td>複雑な問題に適用すると予測が外れやすい</td></tr>
+            <tr><td>経験主義的プロセス制御(Scrum / EBM)</td><td>結果は不確実なので、頻繁な検査と適応で軌道修正する</td><td>複雑(complex)な問題</td><td>短いサイクルでの検査・適応の規律が必要</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.3 検査と適応のサイクル</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="empiricismLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">透明性・検査・適応の循環サイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>測定指標(メトリクス)は必ず「誰が見ても同じ意味に解釈できる」形で公開する。</strong>透明性の担保につながる。</li>
+          <li><strong>検査の頻度は、変化のスピードと不確実性の高さに応じて設計する。</strong>Sprint Reviewはその代表的なイベントの一つ。</li>
+          <li><strong>「適応」を行わない検査は意味がない。</strong>検査結果が許容範囲外だった場合の意思決定プロセスをあらかじめ決めておく。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org(Scrum Guide 経験主義の記述)</a></li>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 4. What is EBM ===================== -->
+    <section id="what-is-ebm">
+      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 04</div>
+      <h2>Evidence-Based Management™(EBM)とは何か</h2>
+
+      <h3>4.1 定義と目的</h3>
+      <p>Evidence-Based Management™(EBM)は、Ken SchwaberとScrum.orgが開発したフレームワークで、正式名称は<strong>「The Evidence-Based Management Guide: Improving Value Delivery Under Conditions of Uncertainty」</strong>です。組織が不確実性の高い状況下でプロダクト提供から得られる価値を測定・管理・向上させるための経験主義的アプローチを提供します。</p>
+      <p>EBMの目的は、意思決定を「勘」や「権威」ではなく「観察可能な証拠(evidence)」に基づかせることで、リスクを低減し、戦略目標に向けたアジリティを高めることです。</p>
+
+      <h3>4.2 EBMの基本サイクル</h3>
+      <p>EBMは「目標を設定する → 測定する → 実験する → 学習し改善する」というサイクルを繰り返します。これは経験主義の3本柱(透明性・検査・適応)を組織レベルの価値提供に応用したものです。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="ebmCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">EBMの基本サイクル(測定から学習・改善まで)</div>
+      </div>
+
+      <h3>4.3 EBMが解決しようとする課題</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>課題</th><th>EBMによるアプローチ</th></tr></thead>
+          <tbody>
+            <tr><td>「忙しく働いているのに価値が出ているか分からない」</td><td>アウトプット指標ではなくアウトカム指標(4つのKVA)で価値を可視化する</td></tr>
+            <tr><td>「大規模な投資判断が勘や政治力で決まる」</td><td>小さな実験と測定結果というevidenceに基づいて意思決定する</td></tr>
+            <tr><td>「イノベーションが停滞している」</td><td>Ability to Innovate(A2I)を明示的に測定・改善対象にする</td></tr>
+            <tr><td>「市場機会を逃している」</td><td>Unrealized Value(UV)として機会のギャップを可視化する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>EBMは「特定の指標セットを導入すること」がゴールではない。</strong>組織の戦略目標に紐づく、その組織固有の測定指標を見つけることが本質。</li>
+          <li><strong>測定すること自体を目的化しない。</strong>「何を改善したいのか」を先に定義し、そのための指標を選ぶ順序を守る。</li>
+          <li><strong>EBM Guideの最新版では具体的な指標例は「付録(Appendix)の参考例」という位置づけである。</strong>組織はそれをそのまま採用するのではなく自組織のコンテキストに合わせて選定することが推奨されている。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management(EBM Guideダウンロードページ)</a></li>
+          <li><a href="https://www.infoq.com/articles/evidence-based-management-guide-updated" target="_blank" rel="noopener">https://www.infoq.com/articles/evidence-based-management-guide-updated</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Four Key Value Areas ===================== -->
+    <section id="four-kvas">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 05</div>
+      <h2>4つの主要価値領域(Key Value Areas, KVA)</h2>
+
+      <p>PAL-EBM試験における最重要トピックです。EBMは価値を4つの「主要価値領域(Key Value Areas, KVA)」に分解して捉えます。2つは「市場に向き合う価値(Market Value)」、残り2つは「価値を提供する組織能力(Ability to Deliver Value)」に関するものです。</p>
+
+      <h3>5.1 全体マップ</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="kvaMap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">4つのKVAの全体マップ(市場価値と価値提供能力)</div>
+      </div>
+
+      <h3>5.2 各KVAの定義と問いかけ</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>KVA</th><th>問いかけ</th><th>定義</th><th>分類</th></tr></thead>
+          <tbody>
+            <tr><td>Current Value(CV)</td><td>「今、顧客に届けている価値は何か？」</td><td>プロダクトが現時点で顧客・利用者に提供している価値の大きさ</td><td>市場価値</td></tr>
+            <tr><td>Unrealized Value(UV)</td><td>「まだ捉えられていない価値・機会はどれだけあるか？」</td><td>すべての潜在顧客・利用者のニーズを満たした場合に実現しうる価値と、現状とのギャップ</td><td>市場価値</td></tr>
+            <tr><td>Time-to-Market(T2M)</td><td>「新しい価値をどれだけ速く届けられるか？」</td><td>組織が新しい機能・サービス・プロダクトを届け、そこから学習するまでの速さ・応答性</td><td>組織能力</td></tr>
+            <tr><td>Ability to Innovate(A2I)</td><td>「新しい価値を生み出す力はどれだけあるか？」</td><td>組織が新しい能力を効果的に届け続けられるかどうかの実効性(技術的負債や運用上のムダに影響を受ける)</td><td>組織能力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.3 各KVAの詳細とベストプラクティス</h3>
+      <h4>Current Value(CV)</h4>
+      <p>現在プロダクトが提供している価値のスナップショット。顧客満足度、利用状況(テレメトリデータ)、収益指標などから構成されることが多い。</p>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>稼働率や機能数のような「アウトプット」ではなく、顧客が実際にどう使い、どう満足しているかという「アウトカム」ベースで測定する。</p>
+      </div>
+
+      <h4>Unrealized Value(UV)</h4>
+      <p>「今のプロダクトが全ての潜在顧客・全てのニーズを満たしたら、どれだけの価値を実現できるか」という理論上の上限と、現状とのギャップ。新機能や新市場セグメント、新しいプロダクトラインの可能性を評価する際の拠り所になる。</p>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>UVは「絶対に正確に測れる数値」ではなく、意思決定の方向づけに使う指標として扱う。市場調査・顧客インタビュー・競合分析などの定性情報も組み合わせる。</p>
+      </div>
+
+      <h4>Time-to-Market(T2M)</h4>
+      <p>新しい価値を市場に届け、そこからフィードバック・学習を得るまでの速さ。サイクルタイム、リリース頻度などで測定されることが多い。</p>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>T2Mを短縮すること自体が目的化しないよう注意する。速く届けても学びを得られなければ意味がない。「届ける速さ」と「学ぶ速さ」をセットで捉える。</p>
+      </div>
+
+      <h4>Ability to Innovate(A2I)</h4>
+      <p>組織が新しい能力・機能を効果的に届け続けられる実効性。技術的負債、本番障害の傾向、運用上のムダなどに直接影響を受ける。</p>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>短期的なデリバリー速度を優先するあまり技術的負債を放置すると、中長期的にA2Iが低下する。EBMでは技術的負債の削減も価値提供能力への投資として扱う。</p>
+      </div>
+
+      <h3>5.4 よくある誤解(試験の落とし穴)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤解</th><th>正しい理解</th></tr></thead>
+          <tbody>
+            <tr><td>ベロシティ(Velocity)はEBMの価値指標である</td><td>ベロシティはチーム内部のキャパシティ計画のための相対指標であり、顧客価値・品質・ビジネス成果を測るものではない</td></tr>
+            <tr><td>KVAはどれか1つだけ改善すれば良い</td><td>4つのKVAはトレードオフの関係にあることが多く、バランスを見ながら測定・改善する必要がある</td></tr>
+            <tr><td>EBM Guideが定める指標をそのまま使うべき</td><td>EBM Guide付録の指標例はあくまで「例」であり、組織固有のコンテキストに合わせて選定すべきもの</td></tr>
+            <tr><td>Unrealized Valueは正確に算出できる確定値である</td><td>UVは意思決定の方向性を示す推定値であり、仮説検証を通じて更新され続けるもの</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm</a></li>
+          <li><a href="https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Product Value ===================== -->
+    <section id="product-value">
+      <div class="section-eyebrow"><i class="ti ti-package"></i>SECTION 06</div>
+      <h2>プロダクトバリュー(Product Value)の評価方法</h2>
+
+      <p>Focus Area「Managing Products with Agility」の一部で、プロダクトが提供する価値を評価する多様な方法を扱います。</p>
+
+      <h3>6.1 アウトプット指標とアウトカム指標</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>種類</th><th>説明</th><th>例</th><th>落とし穴</th></tr></thead>
+          <tbody>
+            <tr><td>アウトプット指標(Output)</td><td>チームが「作った量・こなした量」を表す</td><td>ベロシティ、完了ストーリーポイント数、リリース回数</td><td>顧客価値と相関しない場合がある</td></tr>
+            <tr><td>アウトカム指標(Outcome)</td><td>顧客・ビジネスに実際に起きた「変化」を表す</td><td>顧客満足度、継続利用率、収益への貢献</td><td>測定に時間がかかる／因果関係の特定が難しい</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.2 プロダクトバリューをKVAで捉える</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="productValueFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロダクトバリューをCurrent Value / Unrealized Valueで捉える流れ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>単一の指標に依存せず、CV/UVの両面から「今」と「これから」をセットで評価する。</strong></li>
+          <li><strong>顧客の声(定性データ)とテレメトリ(定量データ)を組み合わせることで、指標の解釈精度を高める。</strong></li>
+          <li><strong>Product Ownerは、プロダクトバックログの並び替え判断にCV/UVの測定結果を反映させる。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Business Strategy ===================== -->
+    <section id="business-strategy">
+      <div class="section-eyebrow"><i class="ti ti-trending-up"></i>SECTION 07</div>
+      <h2>ビジネス戦略とUnrealized Value</h2>
+
+      <p>Focus Area「Business Strategy」では、Unrealized Valueの概念を「潜在的な機会の追求」にどう応用するかが問われます。</p>
+
+      <h3>7.1 機会のギャップという考え方</h3>
+      <p>顧客・利用者が「今体験していること」と「本来体験したいこと」の間にギャップがあるとき、そのギャップこそがUnrealized Valueであり、戦略的な投資機会の源泉になります。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="opportunityGap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">機会のギャップからUnrealized Valueを捉え、戦略へ反映する流れ</div>
+      </div>
+
+      <h3>7.2 戦略判断への活かし方</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>状況</th><th>戦略的示唆</th></tr></thead>
+          <tbody>
+            <tr><td>CVは高いがUVも大きい</td><td>既存顧客基盤を維持しつつ、新市場・新機能への投資余地がある</td></tr>
+            <tr><td>CVが低くUVが大きい</td><td>現行プロダクトが市場ニーズとズレている可能性があり、方向転換(ピボット)の検討材料になる</td></tr>
+            <tr><td>CV・UVともに小さい</td><td>市場自体が縮小している、またはプロダクトのポジショニングを見直す必要がある可能性</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>戦略立案時にUVを「確定した機会」として扱わず、仮説として検証対象にする。</strong></li>
+          <li><strong>市場セグメントごとにCV/UVを分解して評価すると、画一的な打ち手を避けられる。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 8. Stakeholders & Customers ===================== -->
+    <section id="stakeholders-customers">
+      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 08</div>
+      <h2>ステークホルダーと顧客管理</h2>
+
+      <p>Focus Area「Stakeholders &amp; Customers」では、Current ValueとUnrealized Valueの概念をステークホルダー・顧客管理にどう応用するかが問われます。</p>
+
+      <h3>8.1 Sprint Reviewを起点とするフィードバックループ</h3>
+      <p>Scrumの中で、ステークホルダー・顧客と直接対話し、プロダクトの現在価値と将来価値についてのフィードバックを得る中心的なイベントがSprint Reviewです。EBMの観点では、Sprint ReviewはCV/UVの測定結果を検査し、次の適応(バックログの調整、戦略の見直し)につなげる重要な機会として位置づけられます。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="sprintReviewLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Sprint Reviewを起点とするフィードバックループ</div>
+      </div>
+
+      <h3>8.2 ステークホルダーマッピングの観点</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>影響力(Influence)</td><td>意思決定にどれだけ影響を与えられるか</td></tr>
+            <tr><td>関心(Interest)</td><td>プロダクトの成果にどれだけ関心を持っているか</td></tr>
+            <tr><td>価値の受益者か</td><td>Current Value / Unrealized Valueの直接の受益者かどうか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>ステークホルダーごとに「どのKVAに関心があるか」を把握しておく。</strong>対話の焦点を絞りやすい(例：経営層はUV・A2I、現場顧客はCVに関心が強い傾向)。</li>
+          <li><strong>Sprint Reviewを単なる進捗報告の場にせず、測定結果に基づく意思決定の場として設計する。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org(Scrum Guide: Sprint Reviewの目的)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 9. Portfolio Planning ===================== -->
+    <section id="portfolio-planning">
+      <div class="section-eyebrow"><i class="ti ti-briefcase"></i>SECTION 09</div>
+      <h2>ポートフォリオプランニング(Evolving the Agile Organization)</h2>
+
+      <p>Focus Area「Portfolio Planning」では、リーン・アジャイル原則を「最大のビジネス便益を追求する投資判断」にどう適用するかが問われます。</p>
+
+      <h3>9.1 伝統的な予算配分とリーン・アジャイルな投資の違い</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>伝統的な年次予算配分</th><th>リーン・アジャイルな投資</th></tr></thead>
+          <tbody>
+            <tr><td>意思決定のタイミング</td><td>年1回、まとめて決定</td><td>継続的に、小さな単位で決定</td></tr>
+            <tr><td>投資判断の根拠</td><td>事前の見積もり・事業計画</td><td>実験と測定によるevidence</td></tr>
+            <tr><td>リスクの取り方</td><td>大きな投資を一度に実行(ビッグバン)</td><td>小さく投資し、学びながら追加投資するかを判断</td></tr>
+            <tr><td>変更への対応</td><td>計画変更のコストが高い</td><td>短いサイクルで方向転換しやすい</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>9.2 段階的投資(インクリメンタル・ファンディング)の考え方</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="portfolioFunding"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">段階的投資(インクリメンタル・ファンディング)の意思決定フロー</div>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>EBM Guide本体には明記されない、実務でよく併用される考え方として、ポートフォリオの優先順位付けにおいては、Donald G. Reinertsenが提唱する「Cost of Delay(遅延コスト)」のようなリーン・プロダクト開発フローの経済的概念が、PAL-EBMトレーニングや実務の場でしばしば補完的に紹介されます。これはScrum.orgの公式EBM Guideそのものの用語ではない点に注意してください。</p>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>大きな投資判断を一度に行わず、小さく投資して測定し、evidenceに基づいて追加投資するかを判断する。</strong></li>
+          <li><strong>ポートフォリオレベルでもCV/UV/T2M/A2Iの4つの視点でイニシアチブを評価する。</strong>単一指標(例：ROIの見積もりのみ)に偏らないようにする。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Forming & Evaluating Hypotheses ===================== -->
+    <section id="hypotheses">
+      <div class="section-eyebrow"><i class="ti ti-flask"></i>SECTION 10</div>
+      <h2>仮説形成と検証(Forming &amp; Evaluating Hypotheses)</h2>
+
+      <p>Additional Topicsの1つ。短く焦点を絞った実験を行い、望むアウトカムに向けて前進するための考え方です。</p>
+
+      <h3>10.1 仮説ステートメントの型</h3>
+      <p>多くのアジャイル組織で使われる仮説記述の型は、概ね以下のような構造を取ります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要素</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>We believe that(私たちは〜と信じている)</td><td>実施しようとしている施策</td></tr>
+            <tr><td>will result in(〜という結果をもたらす)</td><td>期待するアウトカム</td></tr>
+            <tr><td>We will know this is true when(これが真であると分かるのは)</td><td>観測可能な測定指標・シグナル</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>10.2 仮説駆動のループ</h3>
+      <p>小さな実験を通じて学び、次のアクションにつなげるサイクルは、Eric Riesが提唱した「Build-Measure-Learn」ループなど、リーンスタートアップの実務でも広く使われている考え方と親和性があります(EBM Guide自体が定義する専用の図ではなく、業界で広く参照される補完的フレームワークです)。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="hypothesisLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">仮説形成から検証・学習までのループ</div>
+      </div>
+
+      <h3>10.3 良い実験設計のチェックポイント</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>チェック項目</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>スコープは十分小さいか</td><td>学びを得るまでの時間とコストを最小化できているか</td></tr>
+            <tr><td>測定可能な指標が定義されているか</td><td>「成功／失敗」を判断できる具体的なシグナルがあるか</td></tr>
+            <tr><td>撤退基準(何をもって実験を止めるか)が事前に決まっているか</td><td>サンクコストに引きずられず判断できるか</td></tr>
+            <tr><td>KVAとの紐付けが明確か</td><td>実験結果がどのKVAに影響するのかが説明できるか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>実験は「証明すること」ではなく「学ぶこと」が目的であると組織内で共通認識を持つ。</strong></li>
+          <li><strong>失敗した実験も評価対象にする文化を作る。</strong>懲罰的な評価をしない。</li>
+          <li><strong>1つの実験に複数の変数を混在させない。</strong>何が結果に影響したのかを特定できなくなる。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Setting, Inspecting & Adapting Goals ===================== -->
+    <section id="goals">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 11</div>
+      <h2>目標の設定・検査・適応(Setting, Inspecting &amp; Adapting Goals)</h2>
+
+      <p>Additional Topicsのもう1つの柱。複雑な世界で、経験主義を用いてどのように目標に向かって進むかを扱います。</p>
+
+      <h3>11.1 Scrumにおける目標の階層</h3>
+      <p>Scrum Guide(2020年版)では、組織のビジョンからSprint Goalに至るまで、目標が階層的につながっていることが強調されています。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="goalHierarchy"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">組織のビジョンからSprint Goalまでの目標階層</div>
+      </div>
+
+      <h3>11.2 目標を「良いもの」にする観点</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>測定可能性</td><td>到達したかどうかを検査できる形になっているか</td></tr>
+            <tr><td>経験主義との整合</td><td>固定的な計画ではなく、学びに応じて調整できる余地があるか</td></tr>
+            <tr><td>KVAとの接続</td><td>目標が最終的にどのKVA(顧客価値・組織能力)に貢献するか説明できるか</td></tr>
+            <tr><td>短いサイクルでの検査</td><td>年単位ではなく、Sprintなど短い単位で進捗を検査できるか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>11.3 補完的な目標設定フレームワーク(OKR)について</h3>
+      <p>OKR(Objectives and Key Results)は、GoogleやLinkedInなど多くの企業で採用されている目標設定フレームワークで、ScrumのProduct Goal／Sprint Goalの階層と組み合わせて使われることがあります。ただし、OKRはScrum GuideやEBM Guideが定義する公式要素ではなく、実務で広く使われている補完的な手法として理解しておくとよいでしょう。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>目標は上位(組織戦略)から下位(Sprint Goal)まで、一直線に「なぜこの作業をしているのか」を説明できるようにする。</strong></li>
+          <li><strong>目標の検査サイクルを短くし、Sprint Reviewや定期的なレトロスペクティブで実際の測定結果と突き合わせる。</strong></li>
+          <li><strong>「目標を達成すること」自体を目的化せず、目標達成が最終的にどのKVAの改善につながるかを常に問い直す。</strong></li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><a href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org(Scrum Guide 2020: Product Goal / Sprint Goalの定義)</a></li>
+          <li><a href="https://www.infoq.com/articles/agile-goals-okr/" target="_blank" rel="noopener">https://www.infoq.com/articles/agile-goals-okr/(OKRとアジャイル目標設定に関する補足情報)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Exam Strategy ===================== -->
+    <section id="exam-strategy">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 12</div>
+      <h2>試験対策：シナリオ問題の解き方</h2>
+
+      <p>PAL-EBMは単純な用語暗記ではなく、シナリオに対してどう考え・解釈するかを問う設問が中心です。「あなたの経験に基づいてEBMの原則にどう沿って対応するか」を問う形式である点が公式に明記されています。</p>
+
+      <h3>12.1 出題形式の特徴</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>形式</th><th>特徴</th></tr></thead>
+          <tbody>
+            <tr><td>Multiple Choice(単一選択)</td><td>1つの正解を選ぶ標準的な形式</td></tr>
+            <tr><td>Multiple Answer(複数選択)</td><td>複数の正解をすべて選ぶ必要がある形式。部分点がない場合が多いため注意</td></tr>
+            <tr><td>True/False</td><td>記述の正誤を判断する形式</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>12.2 よくある「落とし穴」パターン</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>パターン</th><th>対処法</th></tr></thead>
+          <tbody>
+            <tr><td>もっともらしいがEBMの公式定義とズレた選択肢が混じっている</td><td>4つのKVAの正式な定義(本ガイド第5章)に立ち返って照合する</td></tr>
+            <tr><td>アウトプット指標をアウトカム指標として扱う選択肢</td><td>「顧客・ビジネスにとっての変化を表しているか」を基準に判別する</td></tr>
+            <tr><td>「唯一絶対の正解プロセス」を示唆する選択肢</td><td>Scrum/EBMは経験主義に基づくため、文脈依存であることを前提に、最も原則に沿った選択肢を選ぶ</td></tr>
+            <tr><td>特定の指標(例：ベロシティ)を価値指標として扱う選択肢</td><td>ベロシティは内部の相対的キャパシティ指標であり、顧客価値・ビジネス成果の指標ではないことを思い出す</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>12.3 学習の優先順位(頻出度の目安)</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="studyPriority"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">試験対策における学習の優先順位</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>公式のScrum Open Assessment(無料)で、Scrumフレームワーク自体の理解度をまず確認する。</strong></li>
+          <li><strong>EBM Guideの原文を最低1回は通読し、4つのKVAの定義を「自分の言葉で」説明できる状態にする。</strong></li>
+          <li><strong>過去に受験した人のブログ記事等は参考程度に留める。</strong>非公式な問題集の内容を暗記することに時間を使いすぎない(設問プールは非公開かつ変動する)。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment</a></li>
+          <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Study Roadmap ===================== -->
+    <section id="study-plan">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 13</div>
+      <h2>学習ステップ(初学者向けロードマップ)</h2>
+
+      <p>初めてEBM・PAL-EBMに触れる方向けの、ステップバイステップの学習の進め方です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ステップ</th><th>やること</th><th>目的</th></tr></thead>
+          <tbody>
+            <tr><td>Step 1</td><td>Scrum Guide(公式・無料)を通読する</td><td>経験主義、Scrumの役割・イベント・作成物の基礎を固める</td></tr>
+            <tr><td>Step 2</td><td>Scrum Open AssessmentやPSM関連の無料アセスメントで基礎理解を確認する</td><td>前提知識の抜け漏れを可視化する</td></tr>
+            <tr><td>Step 3</td><td>EBM Guide(公式・無料)を通読する</td><td>4つのKVAの定義、EBMの基本サイクルを理解する</td></tr>
+            <tr><td>Step 4</td><td>本ガイドの第5章〜第11章を用いて、各Focus Areaごとに「なぜそれが重要か」を自分の言葉でまとめる</td><td>単なる暗記ではなく応用可能な理解にする</td></tr>
+            <tr><td>Step 5</td><td>自分の実務・過去のプロジェクトを題材に、CV/UV/T2M/A2Iを当てはめてみる</td><td>シナリオ問題への対応力を養う</td></tr>
+            <tr><td>Step 6</td><td>可能であればPAL-EBM公式クラスを受講する</td><td>実務家との議論を通じて理解を深め、受験パスコードを取得する</td></tr>
+            <tr><td>Step 7</td><td>本試験を受験する(60分・40問・85%以上)</td><td>認定取得</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>EBMは「知識」よりも「組織の中でどう適用するか」を問う色合いが強い資格です。学習の各段階で、必ず「これは自分の組織・チームだったらどう当てはまるか」を自問しながら進めると定着が早まります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+          <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 14. Glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 14</div>
+      <h2>用語集(Glossary)</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Empiricism(経験主義)</div><div class="g-def">知識は経験から生まれ、意思決定は観察された事実に基づくべきとする考え方。透明性・検査・適応の3本柱で構成される</div></div>
+        <div class="glossary-item"><div class="g-term">Evidence-Based Management™(EBM)</div><div class="g-def">Ken SchwaberとScrum.orgが開発した、価値提供を測定・管理・向上させるための経験主義的フレームワーク</div></div>
+        <div class="glossary-item"><div class="g-term">Key Value Area(KVA)</div><div class="g-def">EBMが価値を捉えるための4つの領域(CV, UV, T2M, A2I)の総称</div></div>
+        <div class="glossary-item"><div class="g-term">Current Value(CV)</div><div class="g-def">プロダクトが現時点で提供している価値</div></div>
+        <div class="glossary-item"><div class="g-term">Unrealized Value(UV)</div><div class="g-def">潜在顧客の全ニーズを満たした場合に実現しうる価値と現状のギャップ</div></div>
+        <div class="glossary-item"><div class="g-term">Time-to-Market(T2M)</div><div class="g-def">新しい価値を届け、フィードバックを得るまでの速さ・応答性</div></div>
+        <div class="glossary-item"><div class="g-term">Ability to Innovate(A2I)</div><div class="g-def">組織が新しい能力を効果的に届け続ける実効性</div></div>
+        <div class="glossary-item"><div class="g-term">Hypothesis-Driven Development</div><div class="g-def">施策を仮説として扱い、実験と測定を通じて検証しながら進める開発アプローチ</div></div>
+        <div class="glossary-item"><div class="g-term">Product Goal</div><div class="g-def">プロダクトが向かう将来の状態を表す、Product Backlogの長期的な目的地</div></div>
+        <div class="glossary-item"><div class="g-term">Sprint Goal</div><div class="g-def">そのSprintで達成したい単一の目的</div></div>
+        <div class="glossary-item"><div class="g-term">Portfolio Planning</div><div class="g-def">複数のプロダクト・イニシアチブに対する投資配分の意思決定プロセス</div></div>
+        <div class="glossary-item"><div class="g-term">OKR(Objectives and Key Results)</div><div class="g-def">目標(Objective)と主要な結果(Key Results)で構成される、実務で広く使われる目標設定フレームワーク(Scrum公式要素ではない)</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== 15. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 15</div>
+      <h2>参考文献・ソースURL一覧</h2>
+
+      <p>以下は本ガイド作成にあたって参照した一次情報・公式情報源です。学習の際は、可能な限りこれらの一次情報にあたることを強く推奨します。</p>
+
+      <div class="ref-group">
+        <h4>Scrum.org 公式情報</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PAL-EBM 公式アセスメントページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+          <li><span class="ref-name">PAL-EBM 学習用の推奨リソース一覧(Focus Areas詳細)</span><a class="ref-url" href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          <li><span class="ref-name">Evidence-Based Management™ Guide(ダウンロードページ)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          <li><span class="ref-name">How to Measure Value with Evidence-Based Management(ワークショップ資料)</span><a class="ref-url" href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
+          <li><span class="ref-name">3 Questions to Consider When Getting Started with EBM(公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm</a></li>
+          <li><span class="ref-name">Pitfalls (challenges) of implementing EBM(公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm</a></li>
+          <li><span class="ref-name">How To Pass The PAL-EBM Assessment(公式ブログ・受験対策)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment</a></li>
+          <li><span class="ref-name">Professional Scrum Competencies(コンピテンシーモデル)</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+          <li><span class="ref-name">Scrum Guide(経験主義・Scrumの基礎)</span><a class="ref-url" href="https://www.scrum.org" target="_blank" rel="noopener">https://www.scrum.org</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>補足・解説記事(二次情報、理解の補強用)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">InfoQ「Evidence-Based Management Guide - Updated」</span><a class="ref-url" href="https://www.infoq.com/articles/evidence-based-management-guide-updated" target="_blank" rel="noopener">https://www.infoq.com/articles/evidence-based-management-guide-updated</a></li>
+          <li><span class="ref-name">InfoQ「Evidence Based Management with scrum.org」(Podcast)</span><a class="ref-url" href="https://www.infoq.com/podcasts/evidence-based-management" target="_blank" rel="noopener">https://www.infoq.com/podcasts/evidence-based-management</a></li>
+          <li><span class="ref-name">InfoQ「Agile Goal Setting with OKR」(OKRとアジャイル目標設定の補足)</span><a class="ref-url" href="https://www.infoq.com/articles/agile-goals-okr/" target="_blank" rel="noopener">https://www.infoq.com/articles/agile-goals-okr/</a></li>
+          <li><span class="ref-name">The Scrum Master「What are the four Key Value Areas (KVAs) in EBM, and what do they represent?」</span><a class="ref-url" href="https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>二次情報(ブログ・スクール等)はあくまで理解を助けるための補足資料です。試験対策における一次情報は、常にScrum.org公式のEBM Guideとアセスメントページを優先してください。EBM Guideは版によって内容が更新される(例：Unrealized ValueがKVAとして追加された経緯があります)ため、学習時は必ず最新版を参照するようにしてください。</p>
+      </div>
+    </section>
+
+
+    <footer>
+      Professional Agile Leadership™、Evidence-Based Management™、PAL-EBM、Scrum、Scrum.org は Scrum.org の商標です。本ガイドは非公式の学習教材であり、Scrum.org との提携・承認関係はありません。最新の試験情報は必ず公式サイトをご確認ください。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    certRoadmap: `flowchart TB
+A["Scrum Guideを理解する 経験主義の基礎"] --> B["EBM Guideを精読する 一次情報として最重要"]
+B --> C["Focus Areas別に公式資料を学習する"]
+C --> D["PAL-EBMクラスを受講 任意だが推奨"]
+D --> E["Scrum Open Assessments 無料で理解度を確認"]
+E --> F["シナリオ問題形式に慣れる"]
+F --> G["PAL-EBM本試験を受験 60分・40問・85%以上"]
+G --> H{"合格スコア85%以上?"}
+H -- Yes --> I["PAL-EBM認定取得 無期限で有効"]
+H -- No --> J["公式には再受験に別料金が必要な場合あり"]
+J --> C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,G,H,J box;
+class I done;`,
+
+    focusAreaTree: `flowchart TB
+ROOT["PAL-EBM 出題範囲"]
+ROOT --> C1["Scrumフレームワークの理解と適用"]
+ROOT --> C2["アジリティをもったプロダクトマネジメント"]
+ROOT --> C3["アジャイル組織への進化"]
+ROOT --> C4["追加トピック"]
+C1 --> F1["Empiricism 経験主義"]
+C2 --> F2["Product Value プロダクトバリュー"]
+C2 --> F3["Business Strategy ビジネス戦略"]
+C2 --> F4["Stakeholders & Customers ステークホルダーと顧客"]
+C3 --> F5["Portfolio Planning ポートフォリオプランニング"]
+C3 --> F6["Evidence-Based Management"]
+C4 --> F7["Forming & Evaluating Hypotheses"]
+C4 --> F8["Setting, Inspecting & Adapting Goals"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class ROOT hub;
+class C1,C2,C3,C4,F1,F2,F3,F4,F5,F6,F7,F8 box;`,
+
+    empiricismLoop: `flowchart LR
+A["透明性 Transparency"] --> B["検査 Inspection"]
+B --> C["適応 Adaptation"]
+C --> A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C box;`,
+
+    ebmCycle: `flowchart TB
+A["現状を測定する Current Valueなど"] --> B["ギャップを特定する 目標と現状の差"]
+B --> C["仮説を立てる Hypothesis"]
+C --> D["小さく焦点を絞った実験を行う"]
+D --> E["結果を測定・検査する"]
+E --> F{"仮説は支持されたか?"}
+F -- Yes --> G["組織の意思決定・投資配分に反映する"]
+F -- No --> H["学びを得て次の仮説を形成する"]
+G --> A
+H --> C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,H box;
+class G done;`,
+
+    kvaMap: `flowchart TB
+subgraph MV["市場価値 Market Value 顧客視点"]
+CV["Current Value 現在価値"]
+UV["Unrealized Value 未実現価値"]
+end
+subgraph AD["価値提供能力 Ability to Deliver Value 組織視点"]
+T2M["Time-to-Market 市場投入までの時間"]
+A2I["Ability to Innovate イノベーション能力"]
+end
+MV -. 相互に影響 .- AD
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class CV,UV,T2M,A2I box;`,
+
+    productValueFlow: `flowchart LR
+A["プロダクトが今提供している価値"] -->|Current Valueとして測定| B["現状の把握"]
+C["まだ満たされていないニーズ・機会"] -->|Unrealized Valueとして測定| D["投資判断の材料"]
+B --> E["Sprint Reviewでの検査・適応"]
+D --> E
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,C,B,D box;
+class E hub;`,
+
+    opportunityGap: `flowchart TB
+A["潜在顧客全体のニーズ・市場機会"] --> B["現在満たせている部分 = Current Value"]
+A --> C["まだ満たせていない部分 = Unrealized Value 機会のギャップ"]
+C --> D["仮説形成"]
+D --> E["小さな実験"]
+E --> F["学習した内容を戦略・ロードマップに反映"]
+F --> B
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;`,
+
+    sprintReviewLoop: `flowchart LR
+A["Increment"] --> B["Sprint Review"]
+C["CV・UVの測定データ"] --> B
+D["ステークホルダーのフィードバック"] --> B
+B --> E["Product Backlogの調整 適応"]
+B --> F["戦略・優先順位の見直し"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,C,D,E,F box;
+class B hub;`,
+
+    portfolioFunding: `flowchart TB
+A["ポートフォリオ全体の候補となる機会・イニシアチブ"] --> B["小さな投資で仮説を検証"]
+B --> C{"evidenceは投資継続を支持するか?"}
+C -- Yes --> D["投資を段階的に増やす"]
+C -- No --> E["投資を停止し学びを他の機会に活かす"]
+D --> F["Current Value・Unrealized Valueの再測定"]
+F --> C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;`,
+
+    hypothesisLoop: `flowchart LR
+A["仮説を立てる Hypothesis"] --> B["最小限の実験を設計・実施する"]
+B --> C["結果を測定する KVAへの影響を確認"]
+C --> D["学びを得る"]
+D --> E{"仮説は支持されたか?"}
+E -- Yes --> F["スケールする・意思決定に反映する"]
+E -- No --> G["仮説を修正する"]
+F --> A
+G --> A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,G box;
+class F done;`,
+
+    goalHierarchy: `flowchart TB
+A["組織のビジョン・戦略目標"] --> B["Product Goal プロダクトゴール"]
+B --> C["Product Backlog"]
+C --> D["Sprint Goal スプリントゴール"]
+D --> E["Sprint Backlog"]
+E --> F["Increment"]
+F --> G["Sprint Reviewでの検査"]
+G --> H["適応 Product Backlog・戦略の見直し"]
+H --> B
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,G,H box;`,
+
+    studyPriority: `flowchart TB
+A["最優先 4つのKVAの定義と市場価値・組織能力の分類"] --> B["優先 EBMの基本サイクルと経験主義の3本柱"]
+B --> C["優先 仮説形成・実験設計の基本パターン"]
+C --> D["補強 目標階層 Vision→Product Goal→Sprint Goal"]
+D --> E["補強 ポートフォリオ投資のリーン原則"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E box;`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
