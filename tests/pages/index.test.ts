@@ -247,6 +247,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Professional Scrum Master(PSM)認定ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-master",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Professional Scrum Master™ - AI Essentials 完全ガイド",
         category: "SCRUM.ORG",
         href: "/psm-ai-essentials-guide",

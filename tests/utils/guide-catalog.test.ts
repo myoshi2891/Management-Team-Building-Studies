@@ -138,6 +138,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/cal2-certified-agile-leader-2-study-guide", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL2 完全ガイド" },
       { to: "/caf-certified-agile-facilitator-study-guide", programId: "scrum-alliance", seriesId: "sa-facilitation", navLabel: "CAF 完全ガイド" },
       { to: "/casp-certified-agile-scaling-practitioner-study-guide", programId: "scrum-alliance", seriesId: "sa-facilitation", navLabel: "CASP 完全ガイド" },
+      { to: "/professional-scrum-master", programId: "scrum-org", seriesId: "so-scrum-master", navLabel: "PSM 完全ガイド" },
       { to: "/psm-ai-essentials-guide", programId: "scrum-org", seriesId: "so-scrum-master", navLabel: "PSM-AI 完全ガイド" },
       { to: "/professional-scrum-product-owner", programId: "scrum-org", seriesId: "so-product-owner", navLabel: "PSPO 完全ガイド" },
       { to: "/professional-scrum-developer", programId: "scrum-org", seriesId: "so-developer", navLabel: "PSD 完全ガイド" },
