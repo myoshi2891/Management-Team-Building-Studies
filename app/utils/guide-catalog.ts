@@ -656,6 +656,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/professional-agile-leadership-evidence-based-management",
+    programId: "scrum-org",
+    seriesId: "so-agile-leader",
+    navLabel: "PAL-EBM 完全ガイド",
+    title: "PAL-EBM™ 認定資格 完全ガイド | Evidence-Based Management™ で読み解くアジャイルリーダーシップ",
+    description: "Scrum.org の Professional Agile Leadership - Evidence-Based Management (PAL-EBM) 認定について、経験主義、4つの主要価値領域(KVA)、仮説検証、目標設定までを初学者向けにステップバイステップで解説する学習ガイドです。",
+    meta: "15セクション",
+    icon: "tabler:chart-pie",
+    accent: "indigo",
+  },
+  {
     to: "/professional-scrum-facilitation-skills",
     programId: "scrum-org",
     seriesId: "so-facilitation",
