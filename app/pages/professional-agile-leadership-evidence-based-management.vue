@@ -88,6 +88,35 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class ROOT hub;
 class C1,C2,C3,C4,F1,F2,F3,F4,F5,F6,F7,F8 box;`;
+
+const DIAGRAM_EMPIRICISM_LOOP = `flowchart LR
+A["透明性 Transparency"] --> B["検査 Inspection"]
+B --> C["適応 Adaptation"]
+C --> A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C box;`;
+
+const DIAGRAM_EBM_CYCLE = `flowchart TB
+A["現状を測定する Current Valueなど"] --> B["ギャップを特定する 目標と現状の差"]
+B --> C["仮説を立てる Hypothesis"]
+C --> D["小さく焦点を絞った実験を行う"]
+D --> E["結果を測定・検査する"]
+E --> F{"仮説は支持されたか?"}
+F -- Yes --> G["組織の意思決定・投資配分に反映する"]
+F -- No --> H["学びを得て次の仮説を形成する"]
+G --> A
+H --> C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,H box;
+class G done;`;
 </script>
 
 <template>
@@ -214,7 +243,7 @@ class C1,C2,C3,C4,F1,F2,F3,F4,F5,F6,F7,F8 box;`;
           <div class="diagram-caption">PAL-EBM認定取得までのステップ</div>
         </div>
 
-        <div class="callout source" data-variant="source">
+        <div class="callout source" data-variant="source" data-testid="callout">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
@@ -255,17 +284,123 @@ class C1,C2,C3,C4,F1,F2,F3,F4,F5,F6,F7,F8 box;`;
           <div class="diagram-caption">PAL-EBM 出題範囲の構造(コンピテンシー領域とFocus Areaの対応)</div>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <p>試験対策では「どのFocus Areaの、どの概念が問われているか」をまず特定する癖をつけると、選択肢の絞り込みが速くなります。特にScrumシナリオの選択肢が複数正解に見える場合、「これはCurrent Valueの話かUnrealized Valueの話か」「これはT2MかA2Iか」という軸で切り分けると精度が上がります。</p>
         </div>
 
-        <div class="callout source" data-variant="source">
+        <div class="callout source" data-variant="source" data-testid="callout">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
             <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
             <li><a href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 3. Empiricism ===================== -->
+      <section id="empiricism">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 03</div>
+        <h2>経験主義(Empiricism)― なぜ、いつ必要か</h2>
+
+        <h3>3.1 経験主義の3本柱</h3>
+        <p>Scrum GuideおよびEBM Guideが共通して基盤とするのが「経験主義(Empiricism)」です。経験主義とは、知識は経験から生まれ、意思決定は観察された事実(evidence)に基づくべきという考え方です。Scrumはこの経験主義を支える3本柱の上に成り立っています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">柱</th><th scope="col">意味</th><th scope="col">EBMにおける位置づけ</th></tr></thead>
+            <tbody>
+              <tr><td>Transparency(透明性)</td><td>プロセスと成果物が、それを見る人全員に見える形で共有されていること</td><td>KVAの測定結果を関係者全員に公開することが前提になる</td></tr>
+              <tr><td>Inspection(検査)</td><td>進捗や成果物を頻繁かつ注意深く検査し、望ましくない差異を検出すること</td><td>Sprint ReviewなどでKVAの測定値を検査する</td></tr>
+              <tr><td>Adaptation(適応)</td><td>検査の結果、プロセスや成果物が許容範囲外だと判断された場合に速やかに調整すること</td><td>測定結果に基づき戦略・バックログ・投資配分を調整する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.2 なぜ「複雑な問題」に経験主義が必要なのか</h3>
+        <p>ソフトウェアプロダクト開発や組織変革は「複雑(complex)」な問題領域に属することが多く、事前に全ての要件・結果を正確に予測することができません。これに対し、伝統的なマネジメント手法の多くは「定義的(defined)プロセス制御」、つまり「決められた通りに実行すれば決められた結果が出る」という前提に立っています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">アプローチ</th><th scope="col">前提</th><th scope="col">適した問題領域</th><th scope="col">リスク</th></tr></thead>
+            <tbody>
+              <tr><td>定義的プロセス制御(伝統的マネジメント)</td><td>インプットとプロセスが同じならアウトプットも同じになる</td><td>単純(simple)〜煩雑(complicated)な問題</td><td>複雑な問題に適用すると予測が外れやすい</td></tr>
+              <tr><td>経験主義的プロセス制御(Scrum / EBM)</td><td>結果は不確実なので、頻繁な検査と適応で軌道修正する</td><td>複雑(complex)な問題</td><td>短いサイクルでの検査・適応の規律が必要</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>3.3 検査と適応のサイクル</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EMPIRICISM_LOOP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">透明性・検査・適応の循環サイクル</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>測定指標(メトリクス)は必ず「誰が見ても同じ意味に解釈できる」形で公開する。</strong>透明性の担保につながる。</li>
+            <li><strong>検査の頻度は、変化のスピードと不確実性の高さに応じて設計する。</strong>Sprint Reviewはその代表的なイベントの一つ。</li>
+            <li><strong>「適応」を行わない検査は意味がない。</strong>検査結果が許容範囲外だった場合の意思決定プロセスをあらかじめ決めておく。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide 経験主義の記述)</a></li>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 4. What is EBM ===================== -->
+      <section id="what-is-ebm">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 04</div>
+        <h2>Evidence-Based Management™(EBM)とは何か</h2>
+
+        <h3>4.1 定義と目的</h3>
+        <p>Evidence-Based Management™(EBM)は、Ken SchwaberとScrum.orgが開発したフレームワークで、正式名称は<strong>「The Evidence-Based Management Guide: Improving Value Delivery Under Conditions of Uncertainty」</strong>です。組織が不確実性の高い状況下でプロダクト提供から得られる価値を測定・管理・向上させるための経験主義的アプローチを提供します。</p>
+        <p>EBMの目的は、意思決定を「勘」や「権威」ではなく「観察可能な証拠(evidence)」に基づかせることで、リスクを低減し、戦略目標に向けたアジリティを高めることです。</p>
+
+        <h3>4.2 EBMの基本サイクル</h3>
+        <p>EBMは「目標を設定する → 測定する → 実験する → 学習し改善する」というサイクルを繰り返します。これは経験主義の3本柱(透明性・検査・適応)を組織レベルの価値提供に応用したものです。</p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EBM_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">EBMの基本サイクル(測定から学習・改善まで)</div>
+        </div>
+
+        <h3>4.3 EBMが解決しようとする課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">課題</th><th scope="col">EBMによるアプローチ</th></tr></thead>
+            <tbody>
+              <tr><td>「忙しく働いているのに価値が出ているか分からない」</td><td>アウトプット指標ではなくアウトカム指標(4つのKVA)で価値を可視化する</td></tr>
+              <tr><td>「大規模な投資判断が勘や政治力で決まる」</td><td>小さな実験と測定結果というevidenceに基づいて意思決定する</td></tr>
+              <tr><td>「イノベーションが停滞している」</td><td>Ability to Innovate(A2I)を明示的に測定・改善対象にする</td></tr>
+              <tr><td>「市場機会を逃している」</td><td>Unrealized Value(UV)として機会のギャップを可視化する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>EBMは「特定の指標セットを導入すること」がゴールではない。</strong>組織の戦略目標に紐づく、その組織固有の測定指標を見つけることが本質。</li>
+            <li><strong>測定すること自体を目的化しない。</strong>「何を改善したいのか」を先に定義し、そのための指標を選ぶ順序を守る。</li>
+            <li><strong>EBM Guideの最新版では具体的な指標例は「付録(Appendix)の参考例」という位置づけである。</strong>組織はそれをそのまま採用するのではなく自組織のコンテキストに合わせて選定することが推奨されている。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management(EBM Guideダウンロードページ)</a></li>
+            <li><a href="https://www.infoq.com/articles/evidence-based-management-guide-updated" target="_blank" rel="noopener">https://www.infoq.com/articles/evidence-based-management-guide-updated</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm</a></li>
           </ul>
         </div>
       </section>
