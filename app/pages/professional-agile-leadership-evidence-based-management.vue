@@ -172,6 +172,50 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class A,C,D,E,F box;
 class B hub;`;
+
+const DIAGRAM_PORTFOLIO_FUNDING = `flowchart TB
+A["ポートフォリオ全体の候補となる機会・イニシアチブ"] --> B["小さな投資で仮説を検証"]
+B --> C{"evidenceは投資継続を支持するか?"}
+C -- Yes --> D["投資を段階的に増やす"]
+C -- No --> E["投資を停止し学びを他の機会に活かす"]
+D --> F["Current Value・Unrealized Valueの再測定"]
+F --> C
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;`;
+
+const DIAGRAM_HYPOTHESIS_LOOP = `flowchart LR
+A["仮説を立てる Hypothesis"] --> B["最小限の実験を設計・実施する"]
+B --> C["結果を測定する KVAへの影響を確認"]
+C --> D["学びを得る"]
+D --> E{"仮説は支持されたか?"}
+E -- Yes --> F["スケールする・意思決定に反映する"]
+E -- No --> G["仮説を修正する"]
+F --> A
+G --> A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,G box;
+class F done;`;
+
+const DIAGRAM_GOAL_HIERARCHY = `flowchart TB
+A["組織のビジョン・戦略目標"] --> B["Product Goal プロダクトゴール"]
+B --> C["Sprint Goal スプリントゴール"]
+C --> D["Sprint Reviewでの検査"]
+D --> E["適応 Product Backlog・戦略の見直し"]
+E --> B
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E box;`;
 </script>
 
 <template>
@@ -671,6 +715,167 @@ class B hub;`;
           <ul>
             <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
             <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide: Sprint Reviewの目的)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 9. Portfolio Planning ===================== -->
+      <section id="portfolio-planning">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:briefcase" aria-hidden="true" />SECTION 09</div>
+        <h2>ポートフォリオプランニング(Evolving the Agile Organization)</h2>
+
+        <p>Focus Area「Portfolio Planning」では、リーン・アジャイル原則を「最大のビジネス便益を追求する投資判断」にどう適用するかが問われます。</p>
+
+        <h3>9.1 伝統的な予算配分とリーン・アジャイルな投資の違い</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">観点</th><th scope="col">伝統的な年次予算配分</th><th scope="col">リーン・アジャイルな投資</th></tr></thead>
+            <tbody>
+              <tr><td>意思決定のタイミング</td><td>年1回、まとめて決定</td><td>継続的に、小さな単位で決定</td></tr>
+              <tr><td>投資判断の根拠</td><td>事前の見積もり・事業計画</td><td>実験と測定によるevidence</td></tr>
+              <tr><td>リスクの取り方</td><td>大きな投資を一度に実行(ビッグバン)</td><td>小さく投資し、学びながら追加投資するかを判断</td></tr>
+              <tr><td>変更への対応</td><td>計画変更のコストが高い</td><td>短いサイクルで方向転換しやすい</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>9.2 段階的投資(インクリメンタル・ファンディング)の考え方</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PORTFOLIO_FUNDING" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">段階的投資(インクリメンタル・ファンディング)の意思決定フロー</div>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>EBM Guide本体には明記されない、実務でよく併用される考え方として、ポートフォリオの優先順位付けにおいては、Donald G. Reinertsenが提唱する「Cost of Delay(遅延コスト)」のようなリーン・プロダクト開発フローの経済的概念が、PAL-EBMトレーニングや実務の場でしばしば補完的に紹介されます。これはScrum.orgの公式EBM Guideそのものの用語ではない点に注意してください。</p>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>大きな投資判断を一度に行わず、小さく投資して測定し、evidenceに基づいて追加投資するかを判断する。</strong></li>
+            <li><strong>ポートフォリオレベルでもCV/UV/T2M/A2Iの4つの視点でイニシアチブを評価する。</strong>単一指標(例：ROIの見積もりのみ)に偏らないようにする。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 10. Forming & Evaluating Hypotheses ===================== -->
+      <section id="hypotheses">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flask" aria-hidden="true" />SECTION 10</div>
+        <h2>仮説形成と検証(Forming &amp; Evaluating Hypotheses)</h2>
+
+        <p>Additional Topicsの1つ。短く焦点を絞った実験を行い、望むアウトカムに向けて前進するための考え方です。</p>
+
+        <h3>10.1 仮説ステートメントの型</h3>
+        <p>多くのアジャイル組織で使われる仮説記述の型は、概ね以下のような構造を取ります。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">要素</th><th scope="col">内容</th></tr></thead>
+            <tbody>
+              <tr><td>We believe that(私たちは〜と信じている)</td><td>実施しようとしている施策</td></tr>
+              <tr><td>will result in(〜という結果をもたらす)</td><td>期待するアウトカム</td></tr>
+              <tr><td>We will know this is true when(これが真であると分かるのは)</td><td>観測可能な測定指標・シグナル</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>10.2 仮説駆動のループ</h3>
+        <p>小さな実験を通じて学び、次のアクションにつなげるサイクルは、Eric Riesが提唱した「Build-Measure-Learn」ループなど、リーンスタートアップの実務でも広く使われている考え方と親和性があります(EBM Guide自体が定義する専用の図ではなく、業界で広く参照される補完的フレームワークです)。</p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_HYPOTHESIS_LOOP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">仮説形成から検証・学習までのループ</div>
+        </div>
+
+        <h3>10.3 良い実験設計のチェックポイント</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">チェック項目</th><th scope="col">説明</th></tr></thead>
+            <tbody>
+              <tr><td>スコープは十分小さいか</td><td>学びを得るまでの時間とコストを最小化できているか</td></tr>
+              <tr><td>測定可能な指標が定義されているか</td><td>「成功／失敗」を判断できる具体的なシグナルがあるか</td></tr>
+              <tr><td>撤退基準(何をもって実験を止めるか)が事前に決まっているか</td><td>サンクコストに引きずられず判断できるか</td></tr>
+              <tr><td>KVAとの紐付けが明確か</td><td>実験結果がどのKVAに影響するのかが説明できるか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>実験は「証明すること」ではなく「学ぶこと」が目的であると組織内で共通認識を持つ。</strong></li>
+            <li><strong>失敗した実験も評価対象にする文化を作る。</strong>懲罰的な評価をしない。</li>
+            <li><strong>1つの実験に複数の変数を混在させない。</strong>何が結果に影響したのかを特定できなくなる。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 11. Setting, Inspecting & Adapting Goals ===================== -->
+      <section id="goals">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 11</div>
+        <h2>目標の設定・検査・適応(Setting, Inspecting &amp; Adapting Goals)</h2>
+
+        <p>Additional Topicsのもう1つの柱。複雑な世界で、経験主義を用いてどのように目標に向かって進むかを扱います。</p>
+
+        <h3>11.1 Scrumにおける目標の階層</h3>
+        <p>Scrum Guide(2020年版)では、組織のビジョンからSprint Goalに至るまで、目標が階層的につながっていることが強調されています。</p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_GOAL_HIERARCHY" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">組織のビジョンからSprint Goalまでの目標階層</div>
+        </div>
+
+        <h3>11.2 目標を「良いもの」にする観点</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">観点</th><th scope="col">説明</th></tr></thead>
+            <tbody>
+              <tr><td>測定可能性</td><td>到達したかどうかを検査できる形になっているか</td></tr>
+              <tr><td>経験主義との整合</td><td>固定的な計画ではなく、学びに応じて調整できる余地があるか</td></tr>
+              <tr><td>KVAとの接続</td><td>目標が最終的にどのKVA(顧客価値・組織能力)に貢献するか説明できるか</td></tr>
+              <tr><td>短いサイクルでの検査</td><td>年単位ではなく、Sprintなど短い単位で進捗を検査できるか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>11.3 補完的な目標設定フレームワーク(OKR)について</h3>
+        <p>OKR(Objectives and Key Results)は、GoogleやLinkedInなど多くの企業で採用されている目標設定フレームワークで、ScrumのProduct Goal／Sprint Goalの階層と組み合わせて使われることがあります。ただし、OKRはScrum GuideやEBM Guideが定義する公式要素ではなく、実務で広く使われている補完的な手法として理解しておくとよいでしょう。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>目標は上位(組織戦略)から下位(Sprint Goal)まで、一直線に「なぜこの作業をしているのか」を説明できるようにする。</strong></li>
+            <li><strong>目標の検査サイクルを短くし、Sprint Reviewや定期的なレトロスペクティブで実際の測定結果と突き合わせる。</strong></li>
+            <li><strong>「目標を達成すること」自体を目的化せず、目標達成が最終的にどのKVAの改善につながるかを常に問い直す。</strong></li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide 2020: Product Goal / Sprint Goalの定義)</a></li>
+            <li><a href="https://www.infoq.com/articles/agile-goals-okr/" target="_blank" rel="noopener">https://www.infoq.com/articles/agile-goals-okr/(OKRとアジャイル目標設定に関する補足情報)</a></li>
           </ul>
         </div>
       </section>

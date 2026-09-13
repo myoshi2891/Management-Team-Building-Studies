@@ -146,7 +146,7 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrum.org/resources/evidence-based-management",
   "https://www.scrum.org/resources/how-measure-value-evidence-based-management",
   "https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm",
-  "https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent",
+  "https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/",
   "https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management",
   "https://www.scrum.org/resources/how-measure-value-evidence-based-management",
   "https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management",
@@ -159,7 +159,7 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrum.org/resources/evidence-based-management",
   "https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management",
   "https://www.scrum.org/resources/scrum-guide",
-  "https://www.infoq.com/articles/agile-goals-okr",
+  "https://www.infoq.com/articles/agile-goals-okr/",
   "https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment",
   "https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification",
   "https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification",
@@ -175,7 +175,7 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrum.org/resources/scrum-guide",
   "https://www.infoq.com/articles/evidence-based-management-guide-updated",
   "https://www.infoq.com/podcasts/evidence-based-management",
-  "https://www.infoq.com/articles/agile-goals-okr",
+  "https://www.infoq.com/articles/agile-goals-okr/",
   "https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/",
 ] as const;
 
