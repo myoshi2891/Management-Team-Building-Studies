@@ -54,7 +54,10 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
       },
       {
         heading: "アジャイルリーダー",
-        guides: ["PAL I(Professional Agile Leadership I)認定試験 学習ガイド"],
+        guides: [
+          "PAL I(Professional Agile Leadership I)認定試験 学習ガイド",
+          "PAL-EBM™ 認定資格 完全ガイド | Evidence-Based Management™ で読み解くアジャイルリーダーシップ",
+        ],
       },
       {
         heading: "ファシリテーション",
