@@ -1323,7 +1323,7 @@ p {
   max-width: 100%;
   margin: 20px 0 28px;
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--color-paper-raised);
 }
 
@@ -1334,22 +1334,20 @@ table {
   text-align: left;
 }
 
-thead tr {
+thead th {
   background: var(--color-paper-sunken);
-  border-bottom: 1px solid var(--color-border);
-}
-
-th {
-  padding: 12px 16px;
+  text-align: left;
   font-weight: 600;
   color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
   white-space: nowrap;
 }
 
-td {
+tbody td {
   padding: 12px 16px;
   border-bottom: 1px solid var(--color-border);
-  color: var(--color-ink);
+  color: var(--color-ink-soft);
   vertical-align: top;
   line-height: 1.6;
 }
@@ -1358,47 +1356,40 @@ tbody tr:last-child td {
   border-bottom: none;
 }
 
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong,
+th strong {
+  color: var(--color-ink);
+}
+
 /* ===================== Diagrams ===================== */
 .mermaid-wrap {
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--color-paper-raised);
-  padding: 20px;
-  margin: 24px 0;
+  padding: 28px;
+  margin: 28px 0;
 }
 
 .diagram-caption {
   text-align: center;
   font-size: 16px;
   color: var(--color-ink-faint);
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 /* ===================== Callouts ===================== */
 .callout {
-  border-radius: 10px;
-  padding: 18px 22px;
-  margin: 24px 0;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.callout.source {
   border: 1px solid var(--color-border);
-  background: var(--color-paper-sunken);
-  color: var(--color-ink-soft);
-}
-
-.callout.practice {
-  border: 1px solid var(--color-gold-tint);
-  background: #FCF8F0;
-  color: var(--color-ink);
-}
-
-.callout.note {
-  border: 1px solid var(--color-info-border);
-  background: var(--color-info-bg);
-  color: var(--color-info-text);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+  line-height: 1.7;
 }
 
 .callout-title {
@@ -1407,28 +1398,146 @@ tbody tr:last-child td {
   gap: 8px;
   font-weight: 600;
   font-size: 16px;
-  margin-bottom: 8px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
 }
 
-.callout.source .callout-title {
-  color: var(--color-ink-soft);
+.callout-title :deep(.iconify) {
+  font-size: 18px;
+  flex: none;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
 }
 
 .callout.practice .callout-title {
   color: var(--color-gold);
 }
 
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source a:hover {
+  text-decoration: underline;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
 .callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Glossary ===================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 4px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h3,
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+.ref-list .ref-url:hover {
+  text-decoration: underline;
   color: var(--color-indigo);
 }
 
-.callout ul {
-  margin: 8px 0 0;
-  padding-left: 20px;
-}
-
-.callout li {
-  margin: 4px 0;
+/* ===================== Footer ===================== */
+footer,
+.doc-footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  line-height: 1.7;
 }
 
 /* ===================== Responsive ===================== */
@@ -1462,6 +1571,9 @@ tbody tr:last-child td {
   }
   .stat-row {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .glossary-grid {
+    grid-template-columns: 1fr;
   }
 }
 

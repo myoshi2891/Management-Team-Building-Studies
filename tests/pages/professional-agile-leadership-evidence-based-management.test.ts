@@ -403,3 +403,73 @@ describe("pages/professional-agile-leadership-evidence-based-management.vue — 
     }
   });
 });
+
+describe("pages/professional-agile-leadership-evidence-based-management.vue — コンポーネント構造契約", () => {
+  const mountPage = createMountPage(Page);
+
+  it("用語集（Section 14）が glossary-grid と glossary-item（12件）で構造化されている", () => {
+    const wrapper = mountPage();
+    const glossary = wrapper.find("#glossary");
+    expect(glossary.exists()).toBe(true);
+    const grid = glossary.find(".glossary-grid");
+    expect(grid.exists()).toBe(true);
+    const items = grid.findAll(".glossary-item");
+    expect(items.length).toBe(12);
+    for (const item of items) {
+      expect(item.find(".g-term").exists()).toBe(true);
+      expect(item.find(".g-def").exists()).toBe(true);
+    }
+  });
+
+  it("参考文献（Section 15）が ref-group, ref-list, ref-name, ref-url で構造化されている", () => {
+    const wrapper = mountPage();
+    const references = wrapper.find("#references");
+    expect(references.exists()).toBe(true);
+    const groups = references.findAll(".ref-group");
+    expect(groups.length).toBe(2);
+    const lists = references.findAll(".ref-list");
+    expect(lists.length).toBe(2);
+    const names = references.findAll(".ref-name");
+    const urls = references.findAll(".ref-url");
+    expect(names.length).toBe(13);
+    expect(urls.length).toBe(13);
+  });
+
+  it("フッターが doc-footer クラスを持つ", () => {
+    const wrapper = mountPage();
+    expect(wrapper.find("footer.doc-footer").exists()).toBe(true);
+  });
+});
+
+describe("pages/professional-agile-leadership-evidence-based-management.vue — スタイル完全性契約", () => {
+  it("原本必須の CSS セレクタが scoped style 内に定義されている", async () => {
+    const fs = await import("node:fs/promises");
+    const content = await fs.readFile(
+      "app/pages/professional-agile-leadership-evidence-based-management.vue",
+      "utf-8"
+    );
+    const styleSection = content.slice(content.indexOf("<style scoped>"));
+
+    const REQUIRED_SELECTORS = [
+      ".glossary-grid",
+      ".glossary-item",
+      ".glossary-item .g-term",
+      ".glossary-item .g-def",
+      ".ref-group",
+      ".ref-list",
+      ".ref-list .ref-name",
+      ".ref-list .ref-url",
+      ".callout.source",
+      ".callout.practice",
+      ".callout.note",
+      ".callout.source ul",
+      ".callout.source a",
+      ".doc-footer",
+      "tbody tr:nth-child(even)",
+    ];
+
+    for (const selector of REQUIRED_SELECTORS) {
+      expect(styleSection).toContain(selector);
+    }
+  });
+});
