@@ -389,11 +389,6 @@ class S9 done;`;
           </table>
         </div>
 
-        <div class="callout practice" data-testid="callout" data-variant="practice">
-          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
-          <p>Scrum Guide 2020 では「ロール(Role)」という用語が「アカウンタビリティ(Accountability)」に置き換えられました。役職や肩書きではなく「果たすべき説明責任」であることを意識してください。また、PO と SM を一人が兼任することは、価値の最大化とプロセスの規律の間の健全な緊張関係を損なうため避けるべきです。</p>
-        </div>
-
         <h3>3.3 よくある誤解</h3>
         <div class="table-wrap">
           <table>
@@ -404,11 +399,6 @@ class S9 done;`;
               <tr><td>開発者は「実装だけする人」であり、計画やプロセス改善には関与しなくてよい</td><td>開発者はスプリント計画、Done基準の遵守、日々の進捗適応すべてに責任を持つ自己管理チームの一員である</td></tr>
             </tbody>
           </table>
-        </div>
-
-        <div class="callout practice" data-testid="callout" data-variant="practice">
-          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
-          <p>PSM I の試験では、「スクラムマスターがタスクを割り振る」「POが技術的なアーキテクチャを決定する」といった選択肢が典型的な誤答(ディストラクター)として頻出します。「自己管理型チーム」の原則に照らし、誰に決定権があるかを常に判断してください。</p>
         </div>
       </section>
 
@@ -758,6 +748,133 @@ class S9 done;`;
             <li>減点方式ではないため、分からない問題でも必ず何かを選択して解答する</li>
           </ul>
         </div>
+      </section>
+
+      <!-- ===================== 9. PSM II Exam Prep ===================== -->
+      <section id="psm2-exam-prep">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 09</div>
+        <h2>PSM II 試験対策</h2>
+
+        <h3>9.1 試験概要</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>受験料</td><td>$250 USD/回</td></tr>
+              <tr><td>制限時間</td><td>90分</td></tr>
+              <tr><td>問題数</td><td>30問(一部の設問に部分点あり)</td></tr>
+              <tr><td>出題形式</td><td>択一式・複数選択・True/False</td></tr>
+              <tr><td>合格基準</td><td>85%(26/30問相当)</td></tr>
+              <tr><td>難易度</td><td>応用(Advanced)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-scrum-master-ii-certification" target="_blank" rel="noopener">PSM II 公式ページ</a></li>
+          </ul>
+        </div>
+
+        <h3>9.2 PSM I との違い</h3>
+        <p>PSM I が「Scrum フレームワークを理解しているか」を問うのに対し、PSM II は「変化を望まない組織の中で、実際に Scrum を適用できるか」を問う、シナリオベースの試験です。ある学習リソースでは、出題トピックのうちフレームワーク自体に関するものは一部にとどまり、残りの多くはセルフマネジメント・リーダーシップスタイル・ファシリテーション・コーチング・メンタリング・プロダクトバックログマネジメント・ステークホルダー対応・技術的リスク・組織設計といった応用テーマに及ぶと分析されています。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース(非公式の分析記事)</div>
+          <ul>
+            <li><a href="https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/" target="_blank" rel="noopener">PSM II Is Not a Harder Version of PSM I(certificationbox.com)</a></li>
+          </ul>
+        </div>
+
+        <p><strong>PSM II で特に重視される周辺知識</strong></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>テーマ</th><th>学習のポイント</th></tr></thead>
+            <tbody>
+              <tr><td>リーダーシップスタイル</td><td>指示型・コーチ型・支援型・委任型など、チームの成熟度に応じてスタイルを使い分ける考え方(Situational Leadershipなど)を理解する</td></tr>
+              <tr><td>チームの発達段階</td><td>フォーミング・ストーミング・ノーミング・パフォーミングといったチーム形成のモデル(Tuckmanモデル等)を理解し、各段階でスクラムマスターが果たす役割を考える</td></tr>
+              <tr><td>コンフリクトマネジメント</td><td>チーム内外の対立を回避するのではなく、建設的に扱うファシリテーション技法</td></tr>
+              <tr><td>組織設計</td><td>コンウェイの法則(組織構造がシステム設計に影響する)などを踏まえ、チームトポロジーがスクラムチームの自己管理に与える影響を考える</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>上記の周辺理論は Scrum Guide そのものには明記されていない補助的な知識ですが、PSM II の対策コースや学習コミュニティで広く参照されています。</p>
+        </div>
+
+        <h3>9.3 学習ステップ</h3>
+        <ol>
+          <li>PSM I の内容を完全に定着させる(PSM II はその上に応用力を積む試験)</li>
+          <li>シナリオ問題を数多く解き、「正しいスクラムマスターの振る舞い」を選ぶ感覚を養う</li>
+          <li>8つのスタンスを状況ごとに使い分ける練習をする(本ガイド第6章参照)</li>
+          <li>実務経験を棚卸しし、過去に経験したチームの課題をスクラムの原則に照らして振り返る</li>
+          <li>90分で30問というペース(1問あたり平均3分)に慣れるため、じっくり読む練習をする</li>
+        </ol>
+
+        <h3>9.4 出題傾向の例(オリジナル作成の演習問題)</h3>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>以下は本ガイド独自に作成した練習問題であり、実際の試験問題そのものではありません。</p>
+        </div>
+        <p><strong>Q. 開発者たちがデイリースクラムをスクラムマスターへの進捗報告の場として運用している。スクラムマスターが最初に取るべき行動として最も適切なものはどれか。</strong></p>
+        <ul>
+          <li>A. デイリースクラムの進行を自分が引き継ぎ、報告形式を維持する</li>
+          <li>B. デイリースクラムの目的(自己管理による24時間先の計画の適応)についてチームと対話し、本来の姿に気づいてもらう</li>
+          <li>C. デイリースクラム自体を廃止する</li>
+          <li>D. プロダクトオーナーに報告するよう指示を変更する</li>
+        </ul>
+        <p><strong>解答例と解説:</strong> 正解は B です。スクラムマスターは答えを一方的に押し付けるのではなく、チーム自身が本来の目的に気づき、自己管理として運用を改善できるよう対話とコーチングで支援します。</p>
+      </section>
+
+      <!-- ===================== 10. PSM III Exam Prep ===================== -->
+      <section id="psm3-exam-prep">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:pencil" aria-hidden="true" />SECTION 10</div>
+        <h2>PSM III 試験対策</h2>
+
+        <h3>10.1 試験概要</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>受験料</td><td>$500 USD/回</td></tr>
+              <tr><td>制限時間</td><td>150分(2.5時間)</td></tr>
+              <tr><td>問題数</td><td>24問(すべてエッセイ形式)</td></tr>
+              <tr><td>出題形式</td><td>記述式のみ。すべて自分でタイプ入力する必要があり、事前に用意した文章の貼り付けは不可</td></tr>
+              <tr><td>採点方法</td><td>Scrum専門家チームによる手動採点。各回答は基準を満たす / 上回る / 満たさないで評価され、全体として合否が判定される</td></tr>
+              <tr><td>合否判定結果の通知</td><td>採点完了まで約4週間</td></tr>
+              <tr><td>難易度</td><td>エキスパート(Expert)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-scrum-master-iii-certification" target="_blank" rel="noopener">PSM III 公式ページ</a></li>
+          </ul>
+        </div>
+
+        <h3>10.2 エッセイ対策のベストプラクティス</h3>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>時間配分を事前に決める</strong>: 24問を150分で解くため、1問あたり平均6分強。長さより「要点が明確な回答」を優先する</li>
+            <li><strong>Scrum Guide の用語を正確に使う</strong>: 独自の言い回しではなく、Guide に定義された用語(アカウンタビリティ、コミットメント等)を正確に使用する</li>
+            <li><strong>実体験に基づいて具体的に書く</strong>: 抽象論だけでなく、複数チームや複雑な組織状況にどう向き合ったかの経験に基づいた記述が評価されやすい</li>
+            <li><strong>箇条書きを活用する</strong>: 文章力より論理構成の明確さが重視されるため、要点を箇条書きで整理して書く</li>
+            <li><strong>表現の正確さより本質を優先する</strong>: 文法や誤字は採点基準ではないため、時間を文章の推敲よりも内容の充実に使う</li>
+          </ul>
+        </div>
+
+        <h3>10.3 学習ステップ</h3>
+        <ol>
+          <li>PSM II までの知識を完全に体系化する</li>
+          <li>複数チーム・複雑な組織における「システミックな障害物」の解消経験を言語化しておく</li>
+          <li>サンプルのエッセイ問題(Scrum.org フォーラムや実践者のブログで共有されているもの)を実際に時間を計って書いてみる</li>
+          <li>書いた回答を Scrum Guide の原則と照らし合わせ、逸脱がないか自己レビューする</li>
+          <li>可能であれば同じ資格を持つ実践者コミュニティにレビューを依頼する</li>
+        </ol>
       </section>
     </main>
   </div>
