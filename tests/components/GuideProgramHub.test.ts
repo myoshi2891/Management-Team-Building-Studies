@@ -42,7 +42,10 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
     }))).toEqual([
       {
         heading: "スクラムマスター",
-        guides: ["Professional Scrum Master™ - AI Essentials 完全ガイド"],
+        guides: [
+          "Professional Scrum Master(PSM)認定ガイド",
+          "Professional Scrum Master™ - AI Essentials 完全ガイド",
+        ],
       },
       {
         heading: "プロダクトオーナー",
@@ -82,7 +85,7 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
     expect(mountHub("pmi").get("[data-testid='hub-count']").text()).toBe("9 ガイド");
   });
 
-  it("全プログラムを合わせると公開ガイド 65 本すべてへ到達できる（登録漏れの検知）", () => {
+  it("全プログラムを合わせると公開ガイド 66 本すべてへ到達できる（登録漏れの検知）", () => {
     /*
      * 弱い契約（件数一致のみ）にすると、同じガイドが 2 か所に出て 1 本消えた場合を素通しする。
      * 遷移先の集合と順序の双方をカタログと突き合わせる。
