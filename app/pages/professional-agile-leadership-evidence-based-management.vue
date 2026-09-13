@@ -216,6 +216,18 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class A hub;
 class B,C,D,E box;`;
+
+const DIAGRAM_STUDY_PRIORITY = `flowchart TB
+A["最優先 4つのKVAの定義と市場価値・組織能力の分類"] --> B["優先 EBMの基本サイクルと経験主義の3本柱"]
+B --> C["優先 仮説形成・実験設計の基本パターン"]
+C --> D["補強 目標階層 Vision→Product Goal→Sprint Goal"]
+D --> E["補強 ポートフォリオ投資のリーン原則"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E box;`;
 </script>
 
 <template>
@@ -879,6 +891,163 @@ class B,C,D,E box;`;
           </ul>
         </div>
       </section>
+
+      <!-- ===================== 12. Exam Strategy ===================== -->
+      <section id="exam-strategy">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 12</div>
+        <h2>試験対策：シナリオ問題の解き方</h2>
+
+        <p>PAL-EBMは単純な用語暗記ではなく、シナリオに対してどう考え・解釈するかを問う設問が中心です。「あなたの経験に基づいてEBMの原則にどう沿って対応するか」を問う形式である点が公式に明記されています。</p>
+
+        <h3>12.1 出題形式の特徴</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">形式</th><th scope="col">特徴</th></tr></thead>
+            <tbody>
+              <tr><td>Multiple Choice(単一選択)</td><td>1つの正解を選ぶ標準的な形式</td></tr>
+              <tr><td>Multiple Answer(複数選択)</td><td>複数の正解をすべて選ぶ必要がある形式。部分点がない場合が多いため注意</td></tr>
+              <tr><td>True/False</td><td>記述の正誤を判断する形式</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>12.2 よくある「落とし穴」パターン</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">パターン</th><th scope="col">対処法</th></tr></thead>
+            <tbody>
+              <tr><td>もっともらしいがEBMの公式定義とズレた選択肢が混じっている</td><td>4つのKVAの正式な定義(本ガイド第5章)に立ち返って照合する</td></tr>
+              <tr><td>アウトプット指標をアウトカム指標として扱う選択肢</td><td>「顧客・ビジネスにとっての変化を表しているか」を基準に判別する</td></tr>
+              <tr><td>「唯一絶対の正解プロセス」を示唆する選択肢</td><td>Scrum/EBMは経験主義に基づくため、文脈依存であることを前提に、最も原則に沿った選択肢を選ぶ</td></tr>
+              <tr><td>特定の指標(例：ベロシティ)を価値指標として扱う選択肢</td><td>ベロシティは内部の相対的キャパシティ指標であり、顧客価値・ビジネス成果の指標ではないことを思い出す</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>12.3 学習の優先順位(頻出度の目安)</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_STUDY_PRIORITY" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">試験対策における学習の優先順位</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>公式のScrum Open Assessment(無料)で、Scrumフレームワーク自体の理解度をまず確認する。</strong></li>
+            <li><strong>EBM Guideの原文を最低1回は通読し、4つのKVAの定義を「自分の言葉で」説明できる状態にする。</strong></li>
+            <li><strong>過去に受験した人のブログ記事等は参考程度に留める。</strong>非公式な問題集の内容を暗記することに時間を使いすぎない(設問プールは非公開かつ変動する)。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment</a></li>
+            <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 13. Study Roadmap ===================== -->
+      <section id="study-plan">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 13</div>
+        <h2>学習ステップ(初学者向けロードマップ)</h2>
+
+        <p>初めてEBM・PAL-EBMに触れる方向けの、ステップバイステップの学習の進め方です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">ステップ</th><th scope="col">やること</th><th scope="col">目的</th></tr></thead>
+            <tbody>
+              <tr><td>Step 1</td><td>Scrum Guide(公式・無料)を通読する</td><td>経験主義、Scrumの役割・イベント・作成物の基礎を固める</td></tr>
+              <tr><td>Step 2</td><td>Scrum Open AssessmentやPSM関連の無料アセスメントで基礎理解を確認する</td><td>前提知識の抜け漏れを可視化する</td></tr>
+              <tr><td>Step 3</td><td>EBM Guide(公式・無料)を通読する</td><td>4つのKVAの定義、EBMの基本サイクルを理解する</td></tr>
+              <tr><td>Step 4</td><td>本ガイドの第5章〜第11章を用いて、各Focus Areaごとに「なぜそれが重要か」を自分の言葉でまとめる</td><td>単なる暗記ではなく応用可能な理解にする</td></tr>
+              <tr><td>Step 5</td><td>自分の実務・過去のプロジェクトを題材に、CV/UV/T2M/A2Iを当てはめてみる</td><td>シナリオ問題への対応力を養う</td></tr>
+              <tr><td>Step 6</td><td>可能であればPAL-EBM公式クラスを受講する</td><td>実務家との議論を通じて理解を深め、受験パスコードを取得する</td></tr>
+              <tr><td>Step 7</td><td>本試験を受験する(60分・40問・85%以上)</td><td>認定取得</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>EBMは「知識」よりも「組織の中でどう適用するか」を問う色合いが強い資格です。学習の各段階で、必ず「これは自分の組織・チームだったらどう当てはまるか」を自問しながら進めると定着が早まります。</p>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 14. Glossary ===================== -->
+      <section id="glossary">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 14</div>
+        <h2>用語集(Glossary)</h2>
+
+        <div class="glossary-grid">
+          <div class="glossary-item"><div class="g-term">Empiricism(経験主義)</div><div class="g-def">知識は経験から生まれ、意思決定は観察された事実に基づくべきとする考え方。透明性・検査・適応の3本柱で構成される</div></div>
+          <div class="glossary-item"><div class="g-term">Evidence-Based Management™(EBM)</div><div class="g-def">Ken SchwaberとScrum.orgが開発した、価値提供を測定・管理・向上させるための経験主義的フレームワーク</div></div>
+          <div class="glossary-item"><div class="g-term">Key Value Area(KVA)</div><div class="g-def">EBMが価値を捉えるための4つの領域(CV, UV, T2M, A2I)の総称</div></div>
+          <div class="glossary-item"><div class="g-term">Current Value(CV)</div><div class="g-def">プロダクトが現時点で提供している価値</div></div>
+          <div class="glossary-item"><div class="g-term">Unrealized Value(UV)</div><div class="g-def">潜在顧客の全ニーズを満たした場合に実現しうる価値と現状のギャップ</div></div>
+          <div class="glossary-item"><div class="g-term">Time-to-Market(T2M)</div><div class="g-def">新しい価値を届け、フィードバックを得るまでの速さ・応答性</div></div>
+          <div class="glossary-item"><div class="g-term">Ability to Innovate(A2I)</div><div class="g-def">組織が新しい能力を効果的に届け続ける実効性</div></div>
+          <div class="glossary-item"><div class="g-term">Hypothesis-Driven Development</div><div class="g-def">施策を仮説として扱い、実験と測定を通じて検証しながら進める開発アプローチ</div></div>
+          <div class="glossary-item"><div class="g-term">Product Goal</div><div class="g-def">プロダクトが向かう将来の状態を表す、Product Backlogの長期的な目的地</div></div>
+          <div class="glossary-item"><div class="g-term">Sprint Goal</div><div class="g-def">そのSprintで達成したい単一の目的</div></div>
+          <div class="glossary-item"><div class="g-term">Portfolio Planning</div><div class="g-def">複数のプロダクト・イニシアチブに対する投資配分の意思決定プロセス</div></div>
+          <div class="glossary-item"><div class="g-term">OKR(Objectives and Key Results)</div><div class="g-def">目標(Objective)と主要な結果(Key Results)で構成される、実務で広く使われる目標設定フレームワーク(Scrum公式要素ではない)</div></div>
+        </div>
+      </section>
+
+      <!-- ===================== 15. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 15</div>
+        <h2>参考文献・ソースURL一覧</h2>
+
+        <p>以下は本ガイド作成にあたって参照した一次情報・公式情報源です。学習の際は、可能な限りこれらの一次情報にあたることを強く推奨します。</p>
+
+        <div class="ref-group">
+          <h3>Scrum.org 公式情報</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">PAL-EBM 公式アセスメントページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-agile-leadership-evidence-based-management-certification</a></li>
+            <li><span class="ref-name">PAL-EBM 学習用の推奨リソース一覧(Focus Areas詳細)</span><a class="ref-url" href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><span class="ref-name">Evidence-Based Management™ Guide(ダウンロードページ)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+            <li><span class="ref-name">How to Measure Value with Evidence-Based Management(ワークショップ資料)</span><a class="ref-url" href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
+            <li><span class="ref-name">3 Questions to Consider When Getting Started with EBM(公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm</a></li>
+            <li><span class="ref-name">Pitfalls (challenges) of implementing EBM(公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm</a></li>
+            <li><span class="ref-name">How To Pass The PAL-EBM Assessment(公式ブログ・受験対策)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-agile-leadership-evidence-based-management-pal-ebm-assessment</a></li>
+            <li><span class="ref-name">Professional Scrum Competencies(コンピテンシーモデル)</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+            <li><span class="ref-name">Scrum Guide(経験主義・Scrumの基礎)</span><a class="ref-url" href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>補足・解説記事(二次情報、理解の補強用)</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">InfoQ「Evidence-Based Management Guide - Updated」</span><a class="ref-url" href="https://www.infoq.com/articles/evidence-based-management-guide-updated" target="_blank" rel="noopener">https://www.infoq.com/articles/evidence-based-management-guide-updated</a></li>
+            <li><span class="ref-name">InfoQ「Evidence Based Management with scrum.org」(Podcast)</span><a class="ref-url" href="https://www.infoq.com/podcasts/evidence-based-management" target="_blank" rel="noopener">https://www.infoq.com/podcasts/evidence-based-management</a></li>
+            <li><span class="ref-name">InfoQ「Agile Goal Setting with OKR」(OKRとアジャイル目標設定の補足)</span><a class="ref-url" href="https://www.infoq.com/articles/agile-goals-okr/" target="_blank" rel="noopener">https://www.infoq.com/articles/agile-goals-okr/</a></li>
+            <li><span class="ref-name">The Scrum Master「What are the four Key Value Areas (KVAs) in EBM, and what do they represent?」</span><a class="ref-url" href="https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/</a></li>
+          </ul>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>二次情報(ブログ・スクール等)はあくまで理解を助けるための補足資料です。試験対策における一次情報は、常にScrum.org公式のEBM Guideとアセスメントページを優先してください。EBM Guideは版によって内容が更新される(例：Unrealized ValueがKVAとして追加された経緯があります)ため、学習時は必ず最新版を参照するようにしてください。</p>
+        </div>
+      </section>
+
+      <footer class="doc-footer">
+        Professional Agile Leadership™、Evidence-Based Management™、PAL-EBM、Scrum、Scrum.org は Scrum.org の商標です。本ガイドは非公式の学習教材であり、Scrum.org との提携・承認関係はありません。最新の試験情報は必ず公式サイトをご確認ください。
+      </footer>
     </main>
   </div>
 </template>
