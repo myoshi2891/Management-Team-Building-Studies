@@ -687,6 +687,78 @@ class S9 done;`;
           </table>
         </div>
       </section>
+
+      <!-- ===================== 8. PSM I Exam Prep ===================== -->
+      <section id="psm1-exam-prep">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 08</div>
+        <h2>PSM I 試験対策</h2>
+
+        <h3>8.1 試験概要</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>受験料</td><td>$200 USD/回</td></tr>
+              <tr><td>制限時間</td><td>60分</td></tr>
+              <tr><td>問題数</td><td>80問</td></tr>
+              <tr><td>出題形式</td><td>択一式・複数選択・True/False</td></tr>
+              <tr><td>合格基準</td><td>85%(68/80問)</td></tr>
+              <tr><td>難易度</td><td>基礎(Fundamental)</td></tr>
+              <tr><td>主な参照資料</td><td>Scrum Guide 2020(全13ページ)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-scrum-master-i-certification" target="_blank" rel="noopener">PSM I 公式ページ</a></li>
+          </ul>
+        </div>
+
+        <h3>8.2 主な出題範囲</h3>
+        <ul>
+          <li>スクラムの理論(経験主義・リーン思考・3本柱・5つの価値基準)</li>
+          <li>スクラムチームとアカウンタビリティ(PO・SM・開発者)</li>
+          <li>5つのスクラムイベントの目的・タイムボックス・参加者</li>
+          <li>3つの作成物と3つのコミットメント</li>
+          <li>スクラムマスターのアカウンタビリティと組織への奉仕</li>
+          <li>Scrum Guide 内の正確な用語・定義(「must」と「should」の違いに注意)</li>
+        </ul>
+
+        <h3>8.3 出題傾向の例(オリジナル作成の演習問題)</h3>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>以下は本ガイド独自に作成した練習問題であり、実際の試験問題そのものではありません。出題の「雰囲気」をつかむための例としてご利用ください。</p>
+        </div>
+        <p><strong>Q. スプリントレビューの説明として最も適切なものはどれか(複数選択)。</strong></p>
+        <ul>
+          <li>A. プロダクトオーナーだけが参加する社内報告会である</li>
+          <li>B. インクリメントを検査し、プロダクトバックログを適応させるための共同作業セッションである</li>
+          <li>C. 未完成の作業も進捗として発表してよい</li>
+          <li>D. スプリントレビューの結果、プロダクトバックログが更新されることがある</li>
+        </ul>
+        <p><strong>解答例と解説:</strong> 正解は B と D です。スプリントレビューは単なる報告会ではなく、ステークホルダーとスクラムチームが共同で検査と適応を行う場です。完成の定義を満たしていない作業物は提示すべきではありません(Cは誤り)。</p>
+
+        <h3>8.4 学習ステップ(5ステップ)</h3>
+        <ol>
+          <li><strong>Scrum Guide 2020 を通読する</strong>: まずは全体像を掴むために最初から最後まで一読する</li>
+          <li><strong>精読して用語を正確に覚える</strong>: 「must」「should」「may」などの助動詞のニュアンスの違いに注意しながら再読する</li>
+          <li><strong>Scrum Open(無料の練習問題)を解く</strong>: Scrum.org が無料公開している Scrum Open で理解度を確認する</li>
+          <li><strong>間違えた箇所を Scrum Guide に立ち返って確認する</strong>: 暗記でなく、なぜその答えになるのかを Guide の文言で確認する</li>
+          <li><strong>時間配分の練習をする</strong>: 80問を60分で解くため、1問あたり45秒程度のペース感覚を模擬試験で養う</li>
+        </ol>
+
+        <h3>8.5 受験当日のベストプラクティス</h3>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>迷った問題は一旦保留し、確実に分かる問題から解答して時間切れを防ぐ</li>
+            <li>「best」「most appropriate」のような相対評価を求める設問では、消去法で明確に誤っている選択肢を除外する</li>
+            <li>複数選択(Multiple Answer)は、選択数が指定される場合があるため見落とさない</li>
+            <li>減点方式ではないため、分からない問題でも必ず何かを選択して解答する</li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
 </template>
