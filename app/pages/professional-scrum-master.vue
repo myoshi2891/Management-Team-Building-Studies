@@ -876,6 +876,87 @@ class S9 done;`;
           <li>可能であれば同じ資格を持つ実践者コミュニティにレビューを依頼する</li>
         </ol>
       </section>
+
+      <!-- ===================== 11. Nexus Scaling ===================== -->
+      <section id="nexus-scaling">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 11</div>
+        <h2>スケーリングへの橋渡し(Nexus)</h2>
+
+        <p>PSM III で扱われる「複数チーム・複雑な組織状況」の理解を深めるうえで、Scrum.org が提供する<strong>Nexus フレームワーク</strong>の知識が役立ちます。Nexus は Scrum を最小限に拡張し、約3〜9個のスクラムチームが単一のプロダクトバックログから統合されたインクリメントを届けられるようにするためのフレームワークです。Nexus 自体を体系的に学ぶ場合は、Scaled Professional Scrum(SPS)認定の学習が推奨されます。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">Scaled Professional Scrum™ Certification(Scrum.org)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 12. Study Roadmap ===================== -->
+      <section id="study-roadmap">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 12</div>
+        <h2>学習ロードマップ</h2>
+
+        <p>以下は、初学者が PSM I 合格からスクラムマスターとしての実務経験を積み、PSM II・III へとステップアップしていく際の標準的な流れです。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_STUDY_ROADMAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">PSM I 合格から PSM III 合格までの9段階の学習ロードマップ</div>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>Step 1〜3:暗記ではなく「なぜそう定義されているのか」を理解することに時間をかける</li>
+            <li>Step 4:資格取得だけで終わらせず、実際のスクラムイベントで8つのスタンスを意識的に使い分ける</li>
+            <li>Step 5〜6:過去の実務経験を「Scrum Guide の原則に照らすとどう説明できるか」という視点で棚卸しする</li>
+            <li>Step 7〜9:複数チームを跨いだ障害物解消やチェンジエージェントとしての働きかけの経験を、具体的なエピソードとして言語化しておく</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 13. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 13</div>
+        <h2>参考文献・出典</h2>
+
+        <div class="ref-group">
+          <h3>一次情報源(Scrum.org / 公式スクラムガイド)</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">Professional Scrum Master Assessments 概要ページ</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments</a></li>
+            <li><span class="ref-name">PSM I 認定ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-master-i-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-master-i-certification</a></li>
+            <li><span class="ref-name">PSM II 認定ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-master-ii-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-master-ii-certification</a></li>
+            <li><span class="ref-name">PSM III 認定ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-master-iii-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-master-iii-certification</a></li>
+            <li><span class="ref-name">Scaled Professional Scrum™ Certification(Nexus)</span><a class="ref-url" href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/scaled-professional-scrum-certification</a></li>
+            <li><span class="ref-name">The 8 Stances of a Scrum Master(Barry Overeem, Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/8-stances-scrum-master" target="_blank" rel="noopener">https://www.scrum.org/resources/8-stances-scrum-master</a></li>
+            <li><span class="ref-name">Scrum Guide 2020(英語版・公式)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+            <li><span class="ref-name">スクラムガイド 2020年11月版(日本語版・公式PDF)</span><a class="ref-url" href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf" target="_blank" rel="noopener">https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h3>補足情報源(非公式の学習・分析リソース)</h3>
+          <ul class="ref-list">
+            <li><span class="ref-name">PSM II Is Not a Harder Version of PSM I(certificationbox.com)</span><a class="ref-url" href="https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/" target="_blank" rel="noopener">https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/</a></li>
+            <li><span class="ref-name">How To Pass The Professional Scrum Master II (PSM II) Assessment(TheScrumMaster.co.uk)</span><a class="ref-url" href="https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-ii-psm-ii-assessment-from-scrum-org/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-ii-psm-ii-assessment-from-scrum-org/</a></li>
+            <li><span class="ref-name">How To Pass The Professional Scrum Master III (PSM III) Assessment(TheScrumMaster.co.uk)</span><a class="ref-url" href="https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-iii-psm-iii-assessment-from-scrum-org/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-iii-psm-iii-assessment-from-scrum-org/</a></li>
+          </ul>
+        </div>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>本ガイド中の演習問題(第8章・第9章)はすべて筆者が独自に作成したオリジナル問題であり、Scrum.org の実際の試験問題を再現したものではありません。試験対策としては、必ず一次情報源である Scrum Guide 本文および公式アセスメントページを確認してください。また、PSM II・III の「非公式の学習・分析リソース」に基づく内容(第9章のリーダーシップスタイル等)は、Scrum Guide 本体には明記されていない補助的な知見である点にご留意ください。</p>
+        </div>
+      </section>
+
+      <footer>
+        Professional Scrum Master、PSM、Scrum.org は Scrum.org の登録商標です。本ガイドは非公式の学習支援資料であり、Scrum.org の公式教材ではありません。出題範囲・料金・試験形式は変更される場合があるため、最新情報は必ず<a href="https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
+      </footer>
     </main>
   </div>
 </template>
@@ -1267,6 +1348,53 @@ tr:last-child td {
   color: var(--color-ink-faint);
   font-size: 14px;
   padding: 24px 0;
+}
+
+/* Reference list */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h3,
+.ref-group h4 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
 }
 
 /* Responsive */

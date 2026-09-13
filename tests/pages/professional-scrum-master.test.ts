@@ -67,12 +67,11 @@ const EXPECTED_H3 = [
   "10.1 試験概要",
   "10.2 エッセイ対策のベストプラクティス",
   "10.3 学習ステップ",
-] as const;
-
-const EXPECTED_H4 = [
   "一次情報源(Scrum.org / 公式スクラムガイド)",
   "補足情報源(非公式の学習・分析リソース)",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
