@@ -133,6 +133,45 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class CV,UV,T2M,A2I box;`;
+
+const DIAGRAM_PRODUCT_VALUE_FLOW = `flowchart LR
+A["プロダクトが今提供している価値"] -->|Current Valueとして測定| B["現状の把握"]
+C["まだ満たされていないニーズ・機会"] -->|Unrealized Valueとして測定| D["投資判断の材料"]
+B --> E["Sprint Reviewでの検査・適応"]
+D --> E
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,C,B,D box;
+class E hub;`;
+
+const DIAGRAM_OPPORTUNITY_GAP = `flowchart TB
+A["潜在顧客全体のニーズ・市場機会"] --> B["現在満たせている部分 = Current Value"]
+A --> C["まだ満たせていない部分 = Unrealized Value 機会のギャップ"]
+C --> D["仮説形成"]
+D --> E["小さな実験"]
+E --> F["学習した内容を戦略・ロードマップに反映"]
+F --> B
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;`;
+
+const DIAGRAM_SPRINT_REVIEW_LOOP = `flowchart LR
+A["Increment"] --> B["Sprint Review"]
+C["CV・UVの測定データ"] --> B
+D["ステークホルダーのフィードバック"] --> B
+B --> E["Product Backlogの調整 適応"]
+B --> F["戦略・優先順位の見直し"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,C,D,E,F box;
+class B hub;`;
 </script>
 
 <template>
@@ -498,6 +537,140 @@ class CV,UV,T2M,A2I box;`;
             <li><a href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
             <li><a href="https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm</a></li>
             <li><a href="https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 6. Product Value ===================== -->
+      <section id="product-value">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:package" aria-hidden="true" />SECTION 06</div>
+        <h2>プロダクトバリュー(Product Value)の評価方法</h2>
+
+        <p>Focus Area「Managing Products with Agility」の一部で、プロダクトが提供する価値を評価する多様な方法を扱います。</p>
+
+        <h3>6.1 アウトプット指標とアウトカム指標</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">種類</th><th scope="col">説明</th><th scope="col">例</th><th scope="col">落とし穴</th></tr></thead>
+            <tbody>
+              <tr><td>アウトプット指標(Output)</td><td>チームが「作った量・こなした量」を表す</td><td>ベロシティ、完了ストーリーポイント数、リリース回数</td><td>顧客価値と相関しない場合がある</td></tr>
+              <tr><td>アウトカム指標(Outcome)</td><td>顧客・ビジネスに実際に起きた「変化」を表す</td><td>顧客満足度、継続利用率、収益への貢献</td><td>測定に時間がかかる／因果関係の特定が難しい</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.2 プロダクトバリューをKVAで捉える</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PRODUCT_VALUE_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">プロダクトバリューをCurrent Value / Unrealized Valueで捉える流れ</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>単一の指標に依存せず、CV/UVの両面から「今」と「これから」をセットで評価する。</strong></li>
+            <li><strong>顧客の声(定性データ)とテレメトリ(定量データ)を組み合わせることで、指標の解釈精度を高める。</strong></li>
+            <li><strong>Product Ownerは、プロダクトバックログの並び替え判断にCV/UVの測定結果を反映させる。</strong></li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 7. Business Strategy ===================== -->
+      <section id="business-strategy">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:trending-up" aria-hidden="true" />SECTION 07</div>
+        <h2>ビジネス戦略とUnrealized Value</h2>
+
+        <p>Focus Area「Business Strategy」では、Unrealized Valueの概念を「潜在的な機会の追求」にどう応用するかが問われます。</p>
+
+        <h3>7.1 機会のギャップという考え方</h3>
+        <p>顧客・利用者が「今体験していること」と「本来体験したいこと」の間にギャップがあるとき、そのギャップこそがUnrealized Valueであり、戦略的な投資機会の源泉になります。</p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_OPPORTUNITY_GAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">機会のギャップからUnrealized Valueを捉え、戦略へ反映する流れ</div>
+        </div>
+
+        <h3>7.2 戦略判断への活かし方</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">状況</th><th scope="col">戦略的示唆</th></tr></thead>
+            <tbody>
+              <tr><td>CVは高いがUVも大きい</td><td>既存顧客基盤を維持しつつ、新市場・新機能への投資余地がある</td></tr>
+              <tr><td>CVが低くUVが大きい</td><td>現行プロダクトが市場ニーズとズレている可能性があり、方向転換(ピボット)の検討材料になる</td></tr>
+              <tr><td>CV・UVともに小さい</td><td>市場自体が縮小している、またはプロダクトのポジショニングを見直す必要がある可能性</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>戦略立案時にUVを「確定した機会」として扱わず、仮説として検証対象にする。</strong></li>
+            <li><strong>市場セグメントごとにCV/UVを分解して評価すると、画一的な打ち手を避けられる。</strong></li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 8. Stakeholders & Customers ===================== -->
+      <section id="stakeholders-customers">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" aria-hidden="true" />SECTION 08</div>
+        <h2>ステークホルダーと顧客管理</h2>
+
+        <p>Focus Area「Stakeholders &amp; Customers」では、Current ValueとUnrealized Valueの概念をステークホルダー・顧客管理にどう応用するかが問われます。</p>
+
+        <h3>8.1 Sprint Reviewを起点とするフィードバックループ</h3>
+        <p>Scrumの中で、ステークホルダー・顧客と直接対話し、プロダクトの現在価値と将来価値についてのフィードバックを得る中心的なイベントがSprint Reviewです。EBMの観点では、Sprint ReviewはCV/UVの測定結果を検査し、次の適応(バックログの調整、戦略の見直し)につなげる重要な機会として位置づけられます。</p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SPRINT_REVIEW_LOOP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">Sprint Reviewを起点とするフィードバックループ</div>
+        </div>
+
+        <h3>8.2 ステークホルダーマッピングの観点</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">観点</th><th scope="col">説明</th></tr></thead>
+            <tbody>
+              <tr><td>影響力(Influence)</td><td>意思決定にどれだけ影響を与えられるか</td></tr>
+              <tr><td>関心(Interest)</td><td>プロダクトの成果にどれだけ関心を持っているか</td></tr>
+              <tr><td>価値の受益者か</td><td>Current Value / Unrealized Valueの直接の受益者かどうか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ステークホルダーごとに「どのKVAに関心があるか」を把握しておく。</strong>対話の焦点を絞りやすい(例：経営層はUV・A2I、現場顧客はCVに関心が強い傾向)。</li>
+            <li><strong>Sprint Reviewを単なる進捗報告の場にせず、測定結果に基づく意思決定の場として設計する。</strong></li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/suggested-resources-professional-agile-leadershiptm-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/scrum-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/scrum-guide(Scrum Guide: Sprint Reviewの目的)</a></li>
           </ul>
         </div>
       </section>
