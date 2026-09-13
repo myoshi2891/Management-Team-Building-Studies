@@ -411,6 +411,164 @@ class S9 done;`;
           <p>PSM I の試験では、「スクラムマスターがタスクを割り振る」「POが技術的なアーキテクチャを決定する」といった選択肢が典型的な誤答(ディストラクター)として頻出します。「自己管理型チーム」の原則に照らし、誰に決定権があるかを常に判断してください。</p>
         </div>
       </section>
+
+      <!-- ===================== 4. Scrum Events ===================== -->
+      <section id="scrum-events">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:calendar-event" aria-hidden="true" />SECTION 04</div>
+        <h2>スクラムイベント</h2>
+
+        <p>Scrum には無駄を減らし、透明性を確保するための5つのイベント(Sprint を含む)があります。すべてタイムボックス化されており、必要以上に長くならないよう設計されています。</p>
+
+        <h3>4.0 スプリントサイクル全体図</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SPRINT_CYCLE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">プロダクトバックログからインクリメントまでのスプリントサイクル</div>
+        </div>
+
+        <h3>4.1 スプリント(Sprint)</h3>
+        <p>すべてのイベントを内包する「コンテナイベント」。1か月以内の固定された長さで、アイデアを価値に変換する一貫性のある機会を作ります。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>タイムボックス</td><td>1か月以内(通常1〜4週間、多くの現場では2週間)</td></tr>
+              <tr><td>目的</td><td>一貫した学習と価値提供のリズムを作る</td></tr>
+              <tr><td>重要な原則</td><td>スプリント中はスプリントゴールを危険にさらすような変更はしない / 品質目標を下げない / スコープはプロダクトオーナーと開発者の間で明確化し、再交渉し続けてよい</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>スプリント期間は固定し、途中で安易に延長・短縮しない(リズムの崩壊はチームの学習サイクルを乱す)</li>
+            <li>スプリントゴールが陳腐化した(obsolete になった)場合にのみスプリントのキャンセルを検討する。キャンセルの権限を持つのはプロダクトオーナーだけである(頻発する場合は計画の粒度を見直す)</li>
+            <li>スプリント開始・終了日を固定し、カレンダーで関係者に周知する</li>
+          </ul>
+        </div>
+
+        <h3>4.2 スプリントプランニング(Sprint Planning)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>トピック</th><th>問い</th><th>主な参加者</th></tr></thead>
+            <tbody>
+              <tr><td>トピック1:Why(このスプリントが価値を持つ理由)</td><td>なぜこのスプリントは価値があるのか</td><td>プロダクトオーナーが提案し、チーム全体で合意</td></tr>
+              <tr><td>トピック2:What(今スプリントで何を完成させるか)</td><td>何を「完成」とするのか</td><td>開発者が主導し、プロダクトオーナーと対話</td></tr>
+              <tr><td>トピック3:How(選択した作業をどう成し遂げるか)</td><td>どのように作業を成し遂げるか</td><td>開発者が計画する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>タイムボックスは1か月スプリントで最大8時間(期間が短ければ比例して短縮)</li>
+            <li>「トピック1(Why)」を省略し、いきなりタスク分解から入らない(スプリントゴールなき計画は形骸化しやすい)</li>
+            <li>スプリントゴールは1文で言い切れるレベルまでシンプルにする</li>
+          </ul>
+        </div>
+
+        <h3>4.3 デイリースクラム(Daily Scrum)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>タイムボックス</td><td>15分</td></tr>
+              <tr><td>目的</td><td>スプリントゴールに向けた進捗を検査し、翌24時間の計画を適応させる</td></tr>
+              <tr><td>参加者</td><td>開発者(Scrum Guide 2020 以降、進行の義務は開発者にある)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>「昨日やったこと・今日やること・障害物」という3つの質問形式は必須ではなく、チームに合った形式に適応してよい</li>
+            <li>スクラムマスターへの「進捗報告会」にしない(あくまでチームが自分たちのために行う検査と適応の場)</li>
+            <li>議論が必要な話題は「駐車場(Parking Lot)」に出し、デイリースクラム後に関係者だけで別途話し合う</li>
+          </ul>
+        </div>
+
+        <h3>4.4 スプリントレビュー(Sprint Review)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>タイムボックス</td><td>1か月スプリントで最大4時間</td></tr>
+              <tr><td>目的</td><td>インクリメントを検査し、プロダクトバックログを適応させる。単なるデモではなく、ステークホルダーとの共同作業セッション</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>「発表会」ではなく「ワーキングセッション」として設計する(フィードバックを引き出す双方向の対話にする)</li>
+            <li>市場動向・予算・想定タイムライン・競合状況など、プロダクトバックログを取り巻く状況も一緒に検査する</li>
+            <li>完成していないものはデモしない(「完成の定義」を満たしたものだけを提示する)</li>
+          </ul>
+        </div>
+
+        <h3>4.5 スプリントレトロスペクティブ(Sprint Retrospective)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>タイムボックス</td><td>1か月スプリントで最大3時間</td></tr>
+              <tr><td>目的</td><td>品質と効果を高める方法を計画する。個人・相互作用・プロセス・ツール・完成の定義について検査する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>代表的なファシリテーション手法:KPT(Keep/Problem/Try)、Start-Stop-Continue、セイルボート(Sailboat)などを状況に応じて使い分ける</li>
+            <li>出てきた改善アクションのうち最もインパクトが大きいものに絞り、次のスプリントバックログに組み込む</li>
+            <li>「犯人探し」にせず、心理的安全性を保つグラウンドルールを最初に共有する</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 5. Scrum Artifacts ===================== -->
+      <section id="scrum-artifacts">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 05</div>
+        <h2>スクラムの作成物とコミットメント</h2>
+
+        <p>各作成物には、進捗を測るための透明性を高める「コミットメント」が対応付けられています。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>作成物</th><th>コミットメント</th><th>表すもの</th></tr></thead>
+            <tbody>
+              <tr><td>プロダクトバックログ</td><td>プロダクトゴール(Product Goal)</td><td>プロダクトの将来の状態、中長期の目的地</td></tr>
+              <tr><td>スプリントバックログ</td><td>スプリントゴール(Sprint Goal)</td><td>このスプリントで達成する単一の目的</td></tr>
+              <tr><td>インクリメント</td><td>完成の定義(Definition of Done)</td><td>成果物がプロダクトに求められる品質基準を満たしているかの検証可能な条件</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.1 プロダクトバックログ & プロダクトゴール</h3>
+        <p>プロダクトバックログは、プロダクトを改善するために必要なものを含む、創発的で並び替え可能なリストです。プロダクトゴールはプロダクトバックログの長期的な目的地であり、次に達成すべき単一のターゲットです。</p>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <p>定期的なリファインメント(洗練)を通じて、直近のアイテムほど詳細で見積り可能な状態を保つ。プロダクトゴールを達成するまでは、次のゴールに着手しない。</p>
+        </div>
+
+        <h3>5.2 スプリントバックログ & スプリントゴール</h3>
+        <p>スプリントバックログは、スプリントゴール(Why)・選択されたプロダクトバックログアイテム(What)・インクリメントを届けるための実行可能な計画(How)から構成されます。</p>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <p>スプリントバックログはスプリント中に開発者がリアルタイムで更新する「生きた計画」として扱う。作り込みすぎた事前計画に固執しない。</p>
+        </div>
+
+        <h3>5.3 インクリメント & 完成の定義</h3>
+        <p>インクリメントは、これまでのすべてのインクリメントの合計であり、完成の定義を満たした具体的な足がかりです。複数のインクリメントがスプリント内で生まれることもあります。</p>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <p>組織全体の標準がある場合、完成の定義はそれを下回ってはならない(下回る場合は「リリース可能」と呼べない)。スクラムチームに完成の定義が存在しない場合、開発者がプロダクトに適した完成の定義を作成しなければならない。</p>
+        </div>
+      </section>
     </main>
   </div>
 </template>
