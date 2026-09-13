@@ -569,6 +569,124 @@ class S9 done;`;
           <p>組織全体の標準がある場合、完成の定義はそれを下回ってはならない(下回る場合は「リリース可能」と呼べない)。スクラムチームに完成の定義が存在しない場合、開発者がプロダクトに適した完成の定義を作成しなければならない。</p>
         </div>
       </section>
+
+      <!-- ===================== 6. Scrum Master Role ===================== -->
+      <section id="scrum-master-role">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:compass" aria-hidden="true" />SECTION 06</div>
+        <h2>スクラムマスターの役割とサーバントリーダーシップ</h2>
+
+        <p>PSM 試験群の核心テーマです。スクラムマスターは、スクラムの理論とプラクティスの理解と実践を、スクラムチームおよび組織全体に確立する責任を負う<strong>真のリーダー(true leader)</strong>と定義されます。管理権限を持つマネージャーではなく、奉仕を通じて影響力を発揮する存在です。</p>
+
+        <h3>6.1 3つの奉仕対象</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SM_SERVICE_AREAS" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">スクラムマスターが奉仕する3つの対象:スクラムチーム・プロダクトオーナー・組織</div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>奉仕対象</th><th>具体的な支援内容</th></tr></thead>
+            <tbody>
+              <tr><td>スクラムチーム</td><td>自己管理を指導する / 障害物を取り除く / すべてのスクラムイベントが前向きかつ生産的でタイムボックス内に収まるよう支援する</td></tr>
+              <tr><td>プロダクトオーナー</td><td>効果的なプロダクトゴールの定義とプロダクトバックログ管理の方法を探すことを支援する / 明確で簡潔なプロダクトバックログアイテムの必要性をチームに理解してもらう / 長期的なプロダクト計画を組織内の文脈で理解してもらう</td></tr>
+              <tr><td>組織</td><td>組織へのスクラム導入を指導・トレーニング・コーチする / 組織におけるスクラムの実施方法を計画・助言する / ステークホルダーとスクラムチームの間の障壁を取り除く</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.2 サーバントリーダーシップとは</h3>
+        <p>サーバントリーダーシップとは「まず奉仕し、その結果として導く」という考え方です。地位や権限による統制ではなく、信頼・尊敬・影響力によってチームと組織を動かします。アジャイル宣言の背後にある原則のうち、「動機づけられた人々を中心にプロジェクトを構築する。彼らが必要とする環境と支援を与え、仕事が無事終わるまで彼らを信頼する」という一節は、この考え方と深く結びついています。</p>
+
+        <h3>6.3 スクラムマスターの8つのスタンス</h3>
+        <p>Scrum.org の Professional Scrum Trainer である Barry Overeem が提唱した、実務上の振る舞いの型が「8つのスタンス」です。公式試験の出題範囲そのものではありませんが、Scrum.org のリソースとして公開されており、PSM II・III で問われる「状況に応じた振る舞いの使い分け」を理解する上で広く参照されています。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SM_STANCES" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">スクラムマスターの8つのスタンス(Barry Overeem, Scrum.org)</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>スタンス</th><th>発揮される場面の例</th><th>ベストプラクティス</th></tr></thead>
+            <tbody>
+              <tr><td>サーバントリーダー</td><td>チームが困難な決断を迫られている場面</td><td>自分の意見を押し付けず、チームが最善の判断を下せるよう支援に徹する</td></tr>
+              <tr><td>ファシリテーター</td><td>スプリントレビューやレトロスペクティブの進行</td><td>中立的な立場を保ち、特定の意見に偏らない進行技法(サイレントブレインストーミングなど)を使う</td></tr>
+              <tr><td>コーチ</td><td>チームが同じ問題を繰り返している場面</td><td>答えを与えず、問いかけによって気づきを引き出す(コーチングとティーチングを混同しない)</td></tr>
+              <tr><td>マネージャー</td><td>チームの自己組織化の境界を定める必要がある場面</td><td>「何を管理し、何をチームに委ねるか」の境界を明確にし、過干渉を避ける</td></tr>
+              <tr><td>メンター</td><td>経験の浅いメンバーがアジャイルプラクティスに悩んでいる場面</td><td>自身の経験を一方的に語らず、相手の状況に合わせて選択的に共有する</td></tr>
+              <tr><td>ティーチャー</td><td>組織全体がスクラムの原則を誤解している場面</td><td>Scrum Guide に立ち返り、具体例を用いて経験主義の考え方を分かりやすく伝える</td></tr>
+              <tr><td>障害物の除去者</td><td>チーム外の要因(承認プロセスの遅延など)で進捗が止まっている場面</td><td>チームが自力で解決できる障害物とスクラムマスターが介入すべき障害物を見極める</td></tr>
+              <tr><td>チェンジエージェント</td><td>組織構造がスクラムチームの自己管理を阻害している場面</td><td>一足飛びの改革を狙わず、影響力の輪の中から小さな変化を積み重ねる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.4 ファシリテーション技法のベストプラクティス</h3>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>発散と収束を意識する</strong>: ブレインストーミングなど意見を広げるフェーズと、優先順位付けなど収束させるフェーズを明確に分ける</li>
+            <li><strong>サイレントスタート</strong>: 発言力の強い人の意見に引きずられないよう、まず個人で書き出す時間を設けてから共有する</li>
+            <li><strong>タイムボックスの可視化</strong>: 残り時間をタイマーで共有し、議論の停滞を防ぐ</li>
+            <li><strong>決定事項の記録</strong>: 合意した内容とネクストアクションを必ず明文化し、次のイベントで検査できるようにする</li>
+          </ul>
+        </div>
+
+        <h3>6.5 コーチング・メンタリング・ティーチングの違い</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>アプローチ</th><th>焦点</th><th>進め方</th></tr></thead>
+            <tbody>
+              <tr><td>コーチング(Coaching)</td><td>相手の中にある答えを引き出す</td><td>問いかけを中心とし、直接的な助言は控える</td></tr>
+              <tr><td>メンタリング(Mentoring)</td><td>自身の経験を伝える</td><td>実体験や知見を共有し、相手の意思決定を支援する</td></tr>
+              <tr><td>ティーチング(Teaching)</td><td>知識やスキルを教える</td><td>明確な答えのある事柄について体系的に説明する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6.6 障害物(Impediment)除去のベストプラクティス</h3>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:check" aria-hidden="true" />ベストプラクティス</div>
+          <ol>
+            <li><strong>可視化する</strong>: 障害物リストを作り、チーム全員が状況を把握できるようにする</li>
+            <li><strong>切り分ける</strong>: チームが自力で解決できるものと、スクラムマスターの介入が必要なものを区別する</li>
+            <li><strong>優先順位をつける</strong>: スプリントゴールの達成に対するインパクトの大きさで対応順を決める</li>
+            <li><strong>エスカレーションする</strong>: 組織的な障害物は、権限を持つステークホルダーへ適切に働きかける</li>
+            <li><strong>再発防止を検討する</strong>: レトロスペクティブで根本原因を扱い、同じ障害物が繰り返し発生しない仕組みを作る</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================== 7. Anti-patterns ===================== -->
+      <section id="anti-patterns">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" aria-hidden="true" />SECTION 07</div>
+        <h2>よくあるアンチパターンと対処法</h2>
+
+        <p>PSM II・III では、以下のようなアンチパターンをシナリオ問題の中で見抜けるかが問われます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>アンチパターン</th><th>症状</th><th>スクラムマスターの対処</th></tr></thead>
+            <tbody>
+              <tr><td>ScrumBut</td><td>「Scrumをやっているが、○○の部分だけは違う」という部分適用により経験主義が機能しなくなる状態</td><td>なぜそのプラクティスが必要なのかを説明し、逸脱によるリスクを透明化する</td></tr>
+              <tr><td>Zombie Scrum</td><td>イベントの形式だけをこなし、検査と適応による実質的な価値創出が起きていない状態</td><td>各イベントの「目的」に立ち返り、形骸化した儀式ではなく本来の意図を取り戻す</td></tr>
+              <tr><td>ウォーターマロン・ステータス</td><td>表面上(緑)は順調に見えるが、内部(赤)は問題だらけの報告</td><td>定性的な自己申告だけでなく、実際のインクリメントや検証可能な指標で進捗を確認する</td></tr>
+              <tr><td>ミニウォーターフォール・スプリント</td><td>スプリント内で「設計→開発→テスト」を順番に行い、最終盤にまとめてテストする</td><td>スプリント内で継続的に統合・テストを行う技術プラクティス(CI/CDなど)の導入を支援する</td></tr>
+              <tr><td>スクラムマスター=書記・秘書化</td><td>議事録係やスケジュール調整係に終始し、本来のコーチング・ファシリテーションの役割を果たしていない</td><td>自身の役割を「サーバントリーダー」として再定義し、雑務は他のメンバーと分担する</td></tr>
+              <tr><td>プロキシプロダクトオーナー</td><td>POが意思決定権を持たず、上位の承認待ちで判断が遅延する</td><td>POが実際に意思決定できる権限を持てるよう、組織に働きかける</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
   </div>
 </template>
@@ -836,7 +954,7 @@ p {
   margin: 0 0 16px;
 }
 
-ul {
+ul, ol {
   padding-left: 24px;
   margin: 0 0 16px;
 }
