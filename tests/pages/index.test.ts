@@ -271,6 +271,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "PAL-EBM™ 認定資格 完全ガイド | Evidence-Based Management™ で読み解くアジャイルリーダーシップ",
+        category: "SCRUM.ORG",
+        href: "/professional-agile-leadership-evidence-based-management",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Professional Scrum Facilitation Skills™ 認定資格 完全対策ガイド",
         category: "SCRUM.ORG",
         href: "/professional-scrum-facilitation-skills",
