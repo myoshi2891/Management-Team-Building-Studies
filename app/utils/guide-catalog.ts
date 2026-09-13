@@ -612,6 +612,17 @@ export const GUIDES = [
     accent: "gold",
   },
   {
+    to: "/professional-scrum-master",
+    programId: "scrum-org",
+    seriesId: "so-scrum-master",
+    navLabel: "PSM 完全ガイド",
+    title: "Professional Scrum Master(PSM)認定ガイド",
+    description: "Scrum.org Professional Scrum Master(PSM I/II/III)認定について、Scrumの理論的基盤から試験対策・ベストプラクティスまでを解説する初学者向け完全ガイド。",
+    meta: "13セクション",
+    icon: "tabler:certificate",
+    accent: "gold",
+  },
+  {
     to: "/psm-ai-essentials-guide",
     programId: "scrum-org",
     seriesId: "so-scrum-master",
