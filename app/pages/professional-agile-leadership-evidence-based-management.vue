@@ -117,6 +117,22 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class A hub;
 class B,C,D,E,F,H box;
 class G done;`;
+
+const DIAGRAM_KVA_MAP = `flowchart TB
+subgraph MV["市場価値 Market Value 顧客視点"]
+CV["Current Value 現在価値"]
+UV["Unrealized Value 未実現価値"]
+end
+subgraph AD["価値提供能力 Ability to Deliver Value 組織視点"]
+T2M["Time-to-Market 市場投入までの時間"]
+A2I["Ability to Innovate イノベーション能力"]
+end
+MV -. 相互に影響 .- AD
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class CV,UV,T2M,A2I box;`;
 </script>
 
 <template>
@@ -401,6 +417,87 @@ class G done;`;
             <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management(EBM Guideダウンロードページ)</a></li>
             <li><a href="https://www.infoq.com/articles/evidence-based-management-guide-updated" target="_blank" rel="noopener">https://www.infoq.com/articles/evidence-based-management-guide-updated</a></li>
             <li><a href="https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/3-questions-consider-when-getting-started-evidence-based-management-ebm</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 5. Four Key Value Areas ===================== -->
+      <section id="four-kvas">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 05</div>
+        <h2>4つの主要価値領域(Key Value Areas, KVA)</h2>
+
+        <p>PAL-EBM試験における最重要トピックです。EBMは価値を4つの「主要価値領域(Key Value Areas, KVA)」に分解して捉えます。2つは「市場に向き合う価値(Market Value)」、残り2つは「価値を提供する組織能力(Ability to Deliver Value)」に関するものです。</p>
+
+        <h3>5.1 全体マップ</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_KVA_MAP" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+          </ClientOnly>
+          <div class="diagram-caption">4つのKVAの全体マップ(市場価値と価値提供能力)</div>
+        </div>
+
+        <h3>5.2 各KVAの定義と問いかけ</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">KVA</th><th scope="col">問いかけ</th><th scope="col">定義</th><th scope="col">分類</th></tr></thead>
+            <tbody>
+              <tr><td>Current Value(CV)</td><td>「今、顧客に届けている価値は何か？」</td><td>プロダクトが現時点で顧客・利用者に提供している価値の大きさ</td><td>市場価値</td></tr>
+              <tr><td>Unrealized Value(UV)</td><td>「まだ捉えられていない価値・機会はどれだけあるか？」</td><td>すべての潜在顧客・利用者のニーズを満たした場合に実現しうる価値と、現状とのギャップ</td><td>市場価値</td></tr>
+              <tr><td>Time-to-Market(T2M)</td><td>「新しい価値をどれだけ速く届けられるか？」</td><td>組織が新しい機能・サービス・プロダクトを届け、そこから学習するまでの速さ・応答性</td><td>組織能力</td></tr>
+              <tr><td>Ability to Innovate(A2I)</td><td>「新しい価値を生み出す力はどれだけあるか？」</td><td>組織が新しい能力を効果的に届け続けられるかどうかの実効性(技術的負債や運用上のムダに影響を受ける)</td><td>組織能力</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.3 各KVAの詳細とベストプラクティス</h3>
+        <h4>Current Value(CV)</h4>
+        <p>現在プロダクトが提供している価値のスナップショット。顧客満足度、利用状況(テレメトリデータ)、収益指標などから構成されることが多い。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>稼働率や機能数のような「アウトプット」ではなく、顧客が実際にどう使い、どう満足しているかという「アウトカム」ベースで測定する。</p>
+        </div>
+
+        <h4>Unrealized Value(UV)</h4>
+        <p>「今のプロダクトが全ての潜在顧客・全てのニーズを満たしたら、どれだけの価値を実現できるか」という理論上の上限と、現状とのギャップ。新機能や新市場セグメント、新しいプロダクトラインの可能性を評価する際の拠り所になる。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>UVは「絶対に正確に測れる数値」ではなく、意思決定の方向づけに使う指標として扱う。市場調査・顧客インタビュー・競合分析などの定性情報も組み合わせる。</p>
+        </div>
+
+        <h4>Time-to-Market(T2M)</h4>
+        <p>新しい価値を市場に届け、そこからフィードバック・学習を得るまでの速さ。サイクルタイム、リリース頻度などで測定されることが多い。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>T2Mを短縮すること自体が目的化しないよう注意する。速く届けても学びを得られなければ意味がない。「届ける速さ」と「学ぶ速さ」をセットで捉える。</p>
+        </div>
+
+        <h4>Ability to Innovate(A2I)</h4>
+        <p>組織が新しい能力・機能を効果的に届け続けられる実効性。技術的負債、本番障害の傾向、運用上のムダなどに直接影響を受ける。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>短期的なデリバリー速度を優先するあまり技術的負債を放置すると、中長期的にA2Iが低下する。EBMでは技術的負債の削減も価値提供能力への投資として扱う。</p>
+        </div>
+
+        <h3>5.4 よくある誤解(試験の落とし穴)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">誤解</th><th scope="col">正しい理解</th></tr></thead>
+            <tbody>
+              <tr><td>ベロシティ(Velocity)はEBMの価値指標である</td><td>ベロシティはチーム内部のキャパシティ計画のための相対指標であり、顧客価値・品質・ビジネス成果を測るものではない</td></tr>
+              <tr><td>KVAはどれか1つだけ改善すれば良い</td><td>4つのKVAはトレードオフの関係にあることが多く、バランスを見ながら測定・改善する必要がある</td></tr>
+              <tr><td>EBM Guideが定める指標をそのまま使うべき</td><td>EBM Guide付録の指標例はあくまで「例」であり、組織固有のコンテキストに合わせて選定すべきもの</td></tr>
+              <tr><td>Unrealized Valueは正確に算出できる確定値である</td><td>UVは意思決定の方向性を示す推定値であり、仮説検証を通じて更新され続けるもの</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/how-measure-value-evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/how-measure-value-evidence-based-management</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/pitfalls-challenges-implementing-ebm</a></li>
+            <li><a href="https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/</a></li>
           </ul>
         </div>
       </section>

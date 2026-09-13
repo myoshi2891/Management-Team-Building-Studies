@@ -176,7 +176,7 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.infoq.com/articles/evidence-based-management-guide-updated",
   "https://www.infoq.com/podcasts/evidence-based-management",
   "https://www.infoq.com/articles/agile-goals-okr",
-  "https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent",
+  "https://www.thescrummaster.co.uk/docs/what-are-the-four-key-value-areas-kvas-in-ebm-and-what-do-they-represent/",
 ] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
