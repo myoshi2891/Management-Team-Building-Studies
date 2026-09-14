@@ -378,20 +378,197 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
       <!-- ===================== 04. What Is Product Backlog ===================== -->
       <section id="what-is-product-backlog">
-        <div class="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 04</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 04</div>
         <h2>Chapter 1: プロダクトバックログとは何か</h2>
+
+        <h3>Scrum Guide における定義</h3>
+
+        <p>Scrum Guide(2020年版)は、プロダクトバックログを「プロダクトを改善するために必要なものをまとめた、創発的(emergent)で順序付けられた(ordered)リスト」であり、「Scrum Team が行うすべての作業の唯一の情報源(single source of work)」と位置づけています。複数のチームが同一プロダクトに取り組む場合でも、プロダクトバックログは1つだけ存在します。</p>
+
+        <p>重要な性質は次の2点です。</p>
+
+        <ul>
+          <li><strong>創発的(Emergent):</strong> プロダクトバックログは完成することがなく、プロダクトが存在する限り存在し続け、常に変化し続ける</li>
+          <li><strong>順序付けられている(Ordered):</strong> 項目には「優先度カテゴリ」ではなく、明確な並び順(順位)がある</li>
+        </ul>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>「優先度(priority)」という言葉は High/Medium/Low のようなカテゴリ分類を連想させますが、プロダクトバックログは<strong>厳密な1本の順序リスト</strong>です。2つの項目が同じ優先度ということはあり得ません。曖昧な優先度ラベルではなく、上から下までの明確な並び順で管理することが、透明性を高める第一歩です。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020(日本語版含む)</a></li>
+            <li><a href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">scrum.org — What is a Product Backlog?</a></li>
+          </ul>
+        </div>
+
+        <h3>Product Owner の説明責任</h3>
+
+        <p>Scrum Guide は、Product Owner がプロダクトの価値を最大化する説明責任(accountable)を負うと定め、その一部として効果的なプロダクトバックログマネジメントを次の4つの活動で構成しています。</p>
+
+        <ol>
+          <li>プロダクトゴールを策定し、明確に伝達すること</li>
+          <li>プロダクトバックログ項目を作成し、明確に伝達すること</li>
+          <li>プロダクトバックログ項目を並び替えること</li>
+          <li>プロダクトバックログが透明で、可視化され、理解されている状態を保つこと</li>
+        </ol>
+
+        <p>Product Owner はこれらの作業を自ら行うことも、他者に委任することもできますが、<strong>説明責任そのものは常に Product Owner に残ります</strong>。また、Product Owner は1人の人間であり、委員会ではありません。</p>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>実務では Product Owner が単独ですべてのプロダクトバックログ項目を書き上げるのではなく、Developers・Scrum Master・ステークホルダーの知見を集めながら形成・リファインするのが一般的です。ただし「誰が作業したか」に関わらず、最終的な内容・並び順に対する説明責任は Product Owner から離れません。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf" target="_blank" rel="noopener">Scrum Guide 2020 PDF(英語)</a></li>
+          </ul>
+        </div>
+
+        <h3>コミットメント: プロダクトゴール</h3>
+
+        <p>2020年版 Scrum Guide で追加された概念が、プロダクトバックログの<strong>コミットメント(Commitment)</strong>である「<strong>プロダクトゴール(Product Goal)</strong>」です。プロダクトゴールはプロダクトの将来のある状態を表し、Scrum Team が計画を立てる際の目標となります。プロダクトゴールはプロダクトバックログの中に存在し、それ以外のプロダクトバックログ項目は「プロダクトゴールを達成するために何が必要か」を定義する形で創発していきます。</p>
+
+        <p>プロダクトゴールは長期的な目標であり、Scrum Team は次のプロダクトゴールに着手する前に、1つのプロダクトゴールを達成するか、放棄する必要があります。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ARTIFACTS_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Product Vision から Increment までのアーティファクトとコミットメントの関係</div>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020</a></li>
+            <li><a href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">scrum.org — What is a Product Backlog?</a></li>
+          </ul>
+        </div>
+
+        <h3>良いプロダクトバックログの4条件: DEEP モデル</h3>
+
+        <p>Product Owner Roman Pichler と Mike Cohn が提唱した<strong>DEEP</strong>は、良いプロダクトバックログが備えるべき4つの性質の頭文字です。Scrum Guide 公式の用語ではありませんが、実務・多くの認定対策資料で広く参照される補助モデルです。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>文字</th><th>意味</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><strong>D</strong></td><td>Detailed appropriately(適切に詳細化)</td><td>上位(近い将来に着手する)項目ほど詳細に、下位項目ほど粗く記述する</td></tr>
+              <tr><td><strong>E</strong></td><td>Emergent(創発的)</td><td>新しい学びに応じて項目が追加・削除・変更され続ける</td></tr>
+              <tr><td><strong>E</strong></td><td>Estimated(見積もられている)</td><td>すべての項目に粗いサイズ感があり、上位ほど精緻な見積りになる</td></tr>
+              <tr><td><strong>P</strong></td><td>Prioritized(並び替えられている)</td><td>最も価値の高い項目が上位に来るよう常に並び替えられている</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>「D」(適切な詳細化)と「E」(創発性)は見落とされがちですが、これらを軽視すると、遠い未来の項目まで過剰に詳細化してしまい、後で無駄になる作業(ウォーターフォール的な要件定義の再来)を生みます。「Just enough, just in time(必要な分だけ、必要なタイミングで)」の原則を徹底しましょう。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.romanpichler.com/blog/make-the-product-backlog-deep/" target="_blank" rel="noopener">Roman Pichler — Make Your Product Backlog DEEP</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 05. Product Vision and Goal ===================== -->
       <section id="product-vision-and-goal">
-        <div class="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 05</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 05</div>
         <h2>Chapter 2: プロダクトビジョンとプロダクトゴール</h2>
+
+        <h3>プロダクトという単位</h3>
+
+        <p>Scrum Guide は「プロダクト」を「価値を届けるための乗り物(vehicle)」と定義し、明確な境界、既知のステークホルダー、明確に定義されたユーザーまたはカスタマーを持つものとしています。プロダクトはサービスであっても、物理的な製品であっても、より抽象的な何かであっても構いません。</p>
+
+        <h3>ビジョン・ゴール・戦略の関係</h3>
+
+        <p>Managing Products with Agility コンピテンシーの Focus Area「Product Vision」は、プロダクトが誰に対してどんな価値を届けるのかを表現する将来像です。プロダクトゴールはこのビジョンを実現する過程における、より具体的・中期的な到達点(コミットメント)と位置づけられます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>レイヤー</th><th>時間軸</th><th>役割</th></tr></thead>
+            <tbody>
+              <tr><td>Product Vision(プロダクトビジョン)</td><td>長期・恒久的</td><td>プロダクトが存在する理由と、届ける価値・対象を表現する</td></tr>
+              <tr><td>Business Strategy(ビジネス戦略)</td><td>中〜長期</td><td>ビジョンを市場・競合環境の中でどう実現するかの方針</td></tr>
+              <tr><td>Product Goal(プロダクトゴール)</td><td>中期(複数スプリントにまたがる)</td><td>Scrum Team が今取り組んでいる具体的な到達点。プロダクトバックログ内のコミットメント</td></tr>
+              <tr><td>Sprint Goal(スプリントゴール)</td><td>短期(1スプリント)</td><td>プロダクトゴールに向けた、そのスプリントでの具体的な貢献</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>プロダクトゴールを設定する際は「機能の羅列」ではなく、「なぜこの機能群が必要なのか」という価値の仮説を言語化しましょう。良いプロダクトゴールは、Developers がプロダクトバックログ項目の並び替えや取捨選択について自律的に判断できるだけの、十分な文脈を提供します。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">scrum.org — Professional Scrum Competency: Managing Products with Agility</a></li>
+            <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 06. Forming the Backlog ===================== -->
       <section id="forming-the-backlog">
-        <div class="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 06</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 06</div>
         <h2>Chapter 3: プロダクトバックログの形成(Forming)</h2>
+
+        <p>「形成(Forming)」とは、アイデア・ニーズ・課題をプロダクトバックログ項目という実行可能な単位に変換していく最初の活動です。</p>
+
+        <h3>カスタマー・ステークホルダーのニーズを捉える技法</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>技法</th><th>概要</th></tr></thead>
+            <tbody>
+              <tr><td>ユーザーインタビュー</td><td>カスタマー・ユーザーに直接ヒアリングし、課題・行動・動機を理解する</td></tr>
+              <tr><td>ユーザーストーリーマッピング</td><td>ユーザーの行動フローに沿ってプロダクトバックログ項目をマッピングし、全体像とリリース単位を可視化する</td></tr>
+              <tr><td>オポチュニティ(機会)バックログ</td><td>まだプロダクトバックログに正式に取り込む前の、検証されていないアイデア・課題を蓄積する場所として分離管理する</td></tr>
+              <tr><td>ペルソナ・ジャーニーマップ</td><td>対象ユーザー像と体験の流れを明文化し、項目の背景にある「誰のためか」を明確にする</td></tr>
+              <tr><td>データ・利用状況分析</td><td>実際のプロダクト利用データから課題・機会を発見する(経験主義に基づくニーズ発見)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>すべてのアイデアを直接プロダクトバックログに追加すると、バックログが肥大化し透明性が損なわれます。検証前のアイデアは別建ての「オポチュニティバックログ」で管理し、価値の仮説が固まった段階でプロダクトバックログ項目へ昇格させる運用が有効です。</p>
+        </div>
+
+        <h3>プロダクトバックログ項目(PBI)の属性</h3>
+
+        <p>Scrum Guide は PBI が持つ属性を厳密に規定していませんが、一般的に以下の属性が用いられます(ドメインによって変わることが明記されています)。</p>
+
+        <ul>
+          <li><strong>説明(Description):</strong> 何を、なぜ実現するのか</li>
+          <li><strong>順序(Order):</strong> バックログ内での並び順</li>
+          <li><strong>サイズ(Size):</strong> 相対的な規模感(ストーリーポイントなど)</li>
+          <li><strong>価値(Value):</strong> プロダクトゴール・ビジネス目標への貢献度</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/product-backlog-refinement" target="_blank" rel="noopener">scrum.org — Product Backlog Refinement</a></li>
+            <li><a href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">scrum.org — What is a Product Backlog?</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 07. Refinement ===================== -->
