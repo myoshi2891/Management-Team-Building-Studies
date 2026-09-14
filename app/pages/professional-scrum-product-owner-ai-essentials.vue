@@ -181,7 +181,7 @@ class G done;`;
       class="sidebar-toggle"
       aria-label="目次を開閉する"
       :aria-expanded="sidebarOpen"
-      aria-controls="guide-sidebar"
+      aria-controls="sidebar"
       @click="sidebarOpen = !sidebarOpen"
     >
       <Icon name="tabler:menu-2" aria-hidden="true" />
@@ -195,109 +195,123 @@ class G done;`;
       @click="closeSidebar"
     />
 
+    <!-- Sidebar -->
     <nav
-      id="guide-sidebar"
+      id="sidebar"
       class="sidebar sidebar-nav"
       :class="{ 'is-open': sidebarOpen }"
-      aria-label="ガイドの目次"
+      aria-label="目次"
     >
       <div class="sidebar-header">
-        <span class="sidebar-title">目次</span>
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4" />
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1" />
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">PSPO-AI Essentials 完全ガイド</div>
+            <div class="brand-subtitle">AI理論・倫理・プロダクトオーナーシップ</div>
+          </div>
+        </div>
         <button
           type="button"
           class="sidebar-close"
-          aria-label="目次を閉じる"
+          aria-label="サイドバーを閉じる"
           @click="closeSidebar"
         >
           <Icon name="tabler:x" aria-hidden="true" />
         </button>
       </div>
-      <ul class="toc-list">
+
+      <ul class="sidebar-nav">
         <li>
           <a
             href="#how-to-use"
             :class="{ active: activeId === 'how-to-use' || !activeId }"
             @click="closeSidebar"
-          >このガイドの使い方</a>
+          ><Icon name="tabler:route" aria-hidden="true" />このガイドの使い方</a>
         </li>
         <li>
           <a
             href="#exam-overview"
             :class="{ active: activeId === 'exam-overview' }"
             @click="closeSidebar"
-          >第1部：認定試験の全体像</a>
+          ><Icon name="tabler:certificate" aria-hidden="true" />第1部 試験の全体像</a>
         </li>
         <li>
           <a
             href="#ai-theory-primer"
             :class="{ active: activeId === 'ai-theory-primer' }"
             @click="closeSidebar"
-          >第2部：AI Theory and Primer(AI理論の基礎)</a>
+          ><Icon name="tabler:brain" aria-hidden="true" />第2部 AI理論の基礎</a>
         </li>
         <li>
           <a
             href="#ai-security-ethics"
             :class="{ active: activeId === 'ai-security-ethics' }"
             @click="closeSidebar"
-          >第3部：AI Security and Ethics(AIのセキュリティと倫理)</a>
+          ><Icon name="tabler:shield-check" aria-hidden="true" />第3部 セキュリティと倫理</a>
         </li>
         <li>
           <a
             href="#ai-product-ownership"
             :class="{ active: activeId === 'ai-product-ownership' }"
             @click="closeSidebar"
-          >第4部：AI Product Ownership(AIを活用したプロダクトオーナーシップ)</a>
+          ><Icon name="tabler:git-branch" aria-hidden="true" />第4部 AIとプロダクトオーナーシップ</a>
         </li>
         <li>
           <a
             href="#best-practices-summary"
             :class="{ active: activeId === 'best-practices-summary' }"
             @click="closeSidebar"
-          >第5部：ベストプラクティス総まとめ表</a>
+          ><Icon name="tabler:list-check" aria-hidden="true" />第5部 ベストプラクティス総まとめ</a>
         </li>
         <li>
           <a
             href="#exam-prep"
             :class="{ active: activeId === 'exam-prep' }"
             @click="closeSidebar"
-          >第6部：試験対策とシナリオ思考トレーニング</a>
+          ><Icon name="tabler:clipboard-check" aria-hidden="true" />第6部 試験対策</a>
         </li>
         <li>
           <a
             href="#references"
             :class="{ active: activeId === 'references' }"
             @click="closeSidebar"
-          >第7部：参考文献・公式ソース一覧</a>
+          ><Icon name="tabler:link" aria-hidden="true" />第7部 参考文献</a>
         </li>
       </ul>
     </nav>
 
+    <!-- Main Content -->
     <main class="content">
+      <!-- Hero -->
       <header class="hero">
         <div class="hero-eyebrow">
-          <span class="badge badge-primary">Scrum.org</span>
-          <span class="badge badge-secondary">AI Essentials</span>
+          <Icon name="tabler:award" aria-hidden="true" />
+          Scrum.org 公式認定資格 / 非公式学習ガイド
         </div>
         <h1>Professional Scrum Product Owner™ - AI Essentials 完全学習ガイド</h1>
-        <p class="hero-subtitle">
-          AI時代のプロダクトオーナーシップを基礎から実践まで体系的に学ぶための非公式学習ガイド
+        <p class="hero-lede">
+          世界トップクラスのソフトウェアエンジニア兼スクラムマスターの視点から、初学者にもわかりやすいように、出題範囲の各項目を一つひとつ丁寧に解説する学習ガイドです。
         </p>
-        <div class="hero-meta">
-          <span class="meta-item"><Icon name="tabler:book" aria-hidden="true" />8セクション構成</span>
-          <span class="meta-item"><Icon name="tabler:certificate" aria-hidden="true" />コース受講者限定認定</span>
-          <span class="meta-item"><Icon name="tabler:clock" aria-hidden="true" />試験時間 30分・20問</span>
-          <span class="meta-item"><Icon name="tabler:award" aria-hidden="true" />合格ライン 85%</span>
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-number">20問</div><div class="stat-label">出題数</div></div>
+          <div class="stat-card"><div class="stat-number">30分</div><div class="stat-label">制限時間</div></div>
+          <div class="stat-card"><div class="stat-number">85%以上</div><div class="stat-label">合格ライン</div></div>
+          <div class="stat-card"><div class="stat-number">3カテゴリ</div><div class="stat-label">出題カテゴリ数</div></div>
         </div>
         <div class="disclaimer-box">
           <Icon name="tabler:info-circle" aria-hidden="true" />
-          <span>本ガイドは、Scrum.org™ の公式「Professional Scrum Product Owner™ - AI Essentials」認定試験および公式コース「Professional Scrum Product Owner™ - AI Essentials Training」の内容に基づく、非公式の日本語学習ガイドです。Scrum.org 公式の一次情報、関連書籍、関連フレームワーク(NIST AI RMF、EU AI Act、Anthropic 4D AI Fluency Frameworkなど)の公開情報を参照し、初学者が体系的に学べるよう構成しています。最新の公式情報は <a href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">Scrum.org 公式サイト</a> をご確認ください。</span>
+          <span>本ガイドはScrum.org公式サイトおよび関連の一次情報を調査・要約した非公式の自主学習教材です。Scrum.orgによる公式認定はしていません。試験の実際の設問・正答を示すものではなく、あくまで概念理解と復習のための資料としてご利用ください。参照した公式ページ（出発点）：<a href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">Professional Scrum Product Owner - AI Essentials Certification</a></span>
         </div>
       </header>
 
       <article class="doc">
         <!-- Section 1 -->
         <section id="how-to-use">
-          <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 00</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 00</div>
           <h2>このガイドの使い方</h2>
 
           <p>PSPO-AI Essentials は、Scrum.org が発行する認定資格の中でもかなり特殊な位置づけです。他の多くの Scrum.org 認定(PSM I や PSPO I など)は誰でもオンラインで受験できますが、この資格は<strong>公式トレーニング「Professional Scrum Product Owner™ - AI Essentials Training」を受講した人だけ</strong>が受験できる、コース連動型(course-gated)の認定です。</p>
@@ -324,13 +338,11 @@ class G done;`;
 
         <!-- Section 2 -->
         <section id="exam-overview">
-          <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 01</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
           <h2>第1部：認定試験の全体像</h2>
 
-          <p>Scrum.org は2024年秋、AIに関する2つの Essentials 認定を新設しました。1つはスクラムマスター向けの PSM-AI Essentials、もう1つが本ガイドが扱うプロダクトオーナー向けの <strong>PSPO-AI Essentials(Professional Scrum Product Owner™ - AI Essentials)</strong> です。</p>
-
           <h3>1.1 PSPO-AI Essentials とは何か</h3>
-          <p>PSPO-AI Essentials は、「プロダクトオーナーがAIを日々の実務にどのように責任を持って取り入れ、プロダクト価値を最大化できるか」を証明する認定資格です。Scrum.org の公式発表によれば、単にプロンプトの書き方を学ぶ資格ではなく、<strong>AIをScrumフレームワークおよびプロダクトマネジメントの実践にどう統合するか</strong>に焦点を当てています。</p>
+          <p>Professional Scrum Product Owner™ - AI Essentials(PSPO-AI Essentials)は、Scrum.org が2025年6月に新設した認定資格です。従来の「プロダクトオーナーとしてのScrumの理解」を問う PSPO I / II / III とは異なり、<strong>Professional Scrum Product Ownership の枠組みの中で、AI(人工知能)をどのように責任を持って探求・評価・統合できるか</strong>を検証するものです。</p>
 
           <p>具体的には、次の3つの目的に沿ってAIを活用する力が問われます。</p>
 
@@ -1056,21 +1068,41 @@ class G done;`;
 }
 
 .sidebar-header {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--color-border, #e2e8f0);
 }
 
-.sidebar-title {
-  font-size: 16px;
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+.brand-text .brand-title {
   font-weight: 700;
+  font-size: 14px;
   color: var(--color-ink, #0f172a);
+  letter-spacing: 0.02em;
+}
+
+.brand-text .brand-subtitle {
+  font-size: 11px;
+  color: var(--color-ink-muted, #64748b);
+  margin-top: 2px;
 }
 
 .sidebar-close {
+  display: none;
   background: none;
   border: none;
   font-size: 20px;
@@ -1079,36 +1111,40 @@ class G done;`;
   padding: 4px;
 }
 
-.toc-list {
+.sidebar-nav {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.toc-list li {
-  margin-bottom: 6px;
+.sidebar-nav li {
+  margin: 4px 0;
 }
 
-.toc-list a {
-  display: block;
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   color: var(--color-ink-muted, #64748b);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.4;
   text-decoration: none;
+  border-left: 2px solid transparent;
   transition: all 0.15s ease;
 }
 
-.toc-list a:hover {
-  color: var(--color-indigo, #3b82f6);
+.sidebar-nav a:hover {
   background: var(--color-indigo-subtle, #eff6ff);
+  color: var(--color-indigo, #2e3f72);
 }
 
-.toc-list a.active {
-  color: var(--color-indigo, #3b82f6);
+.sidebar-nav a.active {
   background: var(--color-indigo-subtle, #eff6ff);
+  color: var(--color-indigo, #2e3f72);
   font-weight: 600;
+  border-left: 2px solid var(--color-indigo, #2e3f72);
 }
 
 .content {
@@ -1126,32 +1162,18 @@ class G done;`;
 }
 
 .hero-eyebrow {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #b8802a;
+  text-transform: uppercase;
   margin-bottom: 16px;
 }
 
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.badge-primary {
-  background: #2e3f72;
-  color: #ffffff;
-}
-
-.badge-secondary {
-  background: #eef1f8;
-  color: #2e3f72;
-}
-
-h1 {
+.hero h1 {
   font-size: 32px;
   font-weight: 800;
   line-height: 1.3;
@@ -1159,30 +1181,38 @@ h1 {
   margin-bottom: 16px;
 }
 
-.hero-subtitle {
-  font-size: 18px;
+.hero-lede {
+  font-size: 16px;
+  color: var(--color-ink-muted, #64748b);
+  margin: 0 0 24px;
   line-height: 1.6;
-  color: var(--color-ink-muted, #475569);
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 16px;
   margin-bottom: 24px;
 }
 
-.hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 28px;
+.stat-card {
+  border: 1px solid var(--color-border, #e2e8f0);
+  background: var(--color-surface, #ffffff);
+  border-radius: 10px;
+  padding: 16px 18px;
 }
 
-.meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
+.stat-card .stat-number {
+  font-weight: 700;
+  font-size: 24px;
+  color: #2e3f72;
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
   color: var(--color-ink-muted, #64748b);
-  background: var(--color-surface, #ffffff);
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--color-border, #e2e8f0);
+  margin-top: 6px;
 }
 
 .disclaimer-box {
@@ -1428,6 +1458,14 @@ tbody tr:last-child td {
     display: flex;
   }
 
+  .sidebar-close {
+    display: block;
+  }
+
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .sidebar-overlay {
     position: fixed;
     inset: 0;
@@ -1437,6 +1475,12 @@ tbody tr:last-child td {
 
   .content {
     padding: 24px 20px 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
   }
 }
 </style>
