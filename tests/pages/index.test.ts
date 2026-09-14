@@ -271,6 +271,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Scrum Product Owner™ - AI Essentials 完全学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-product-owner-ai-essentials",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Professional Scrum Developer(PSD I)認定資格 学習ガイド",
         category: "SCRUM.ORG",
         href: "/professional-scrum-developer",

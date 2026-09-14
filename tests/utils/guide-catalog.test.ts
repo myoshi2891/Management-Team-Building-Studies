@@ -142,6 +142,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/psm-ai-essentials-guide", programId: "scrum-org", seriesId: "so-scrum-master", navLabel: "PSM-AI 完全ガイド" },
       { to: "/professional-scrum-product-owner", programId: "scrum-org", seriesId: "so-product-owner", navLabel: "PSPO 完全ガイド" },
       { to: "/professional-scrum-product-backlog-management-skills", programId: "scrum-org", seriesId: "so-product-owner", navLabel: "PSPBM 完全ガイド" },
+      { to: "/professional-scrum-product-owner-ai-essentials", programId: "scrum-org", seriesId: "so-product-owner", navLabel: "PSPO-AI 完全ガイド" },
       { to: "/professional-scrum-developer", programId: "scrum-org", seriesId: "so-developer", navLabel: "PSD 完全ガイド" },
       { to: "/pal-i-study-guide", programId: "scrum-org", seriesId: "so-agile-leader", navLabel: "PAL I 完全ガイド" },
       { to: "/professional-agile-leadership-evidence-based-management", programId: "scrum-org", seriesId: "so-agile-leader", navLabel: "PAL-EBM 完全ガイド" },
