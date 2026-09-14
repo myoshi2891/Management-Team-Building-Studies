@@ -1433,7 +1433,6 @@ class S9 done;`;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
     .sidebar { transition: none; }
   }
 </style>

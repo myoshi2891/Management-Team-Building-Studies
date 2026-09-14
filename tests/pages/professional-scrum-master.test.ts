@@ -134,13 +134,23 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
   "https://www.scrum.org/assessments/professional-scrum-master-ii-certification",
   "https://www.scrum.org/assessments/professional-scrum-master-iii-certification",
+  "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
+  "https://www.scrum.org/assessments/professional-scrum-master-ii-certification",
   "https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/",
+  "https://www.scrum.org/assessments/professional-scrum-master-iii-certification",
+  "https://www.scrum.org/assessments/scaled-professional-scrum-certification",
+  "https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments",
+  "https://www.scrum.org/assessments/professional-scrum-master-i-certification",
+  "https://www.scrum.org/assessments/professional-scrum-master-ii-certification",
+  "https://www.scrum.org/assessments/professional-scrum-master-iii-certification",
   "https://www.scrum.org/assessments/scaled-professional-scrum-certification",
   "https://www.scrum.org/resources/8-stances-scrum-master",
   "https://scrumguides.org/scrum-guide.html",
   "https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf",
+  "https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/",
   "https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-ii-psm-ii-assessment-from-scrum-org/",
   "https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-iii-psm-iii-assessment-from-scrum-org/",
+  "https://www.scrum.org/professional-scrum-certifications/professional-scrum-master-assessments",
 ] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
