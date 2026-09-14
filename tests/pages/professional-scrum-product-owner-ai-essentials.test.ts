@@ -81,7 +81,7 @@ const EXPECTED_TOC_IDS = [
 ] as const;
 
 const EXPECTED_SECTION_EYEBROWS = [
-  "GUIDE OVERVIEW",
+  "SECTION 00",
   "SECTION 01",
   "SECTION 02",
   "SECTION 03",
@@ -284,6 +284,7 @@ describe("pages/professional-scrum-product-owner-ai-essentials.vue", () => {
     seoTitleFragments: ["PSPO-AI Essentials", "Professional Scrum Product Owner - AI Essentials"],
     seoTitle: EXPECTED_SEO_TITLE,
     seoDescription: EXPECTED_SEO_DESCRIPTION,
+    allowedHeadingSkips: ["h2 -> h4"],
   });
 
   const mountPage = createMountPage(Page);

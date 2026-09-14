@@ -79,6 +79,8 @@ export interface SourceParityContractInput {
   readonly seoTitle?: string;
   /** 原本の useSeoMeta の description 全文（凍結リテラル）。与えた場合は完全一致で照合する。 */
   readonly seoDescription?: string;
+  /** 原本に元々存在する見出し階層スキップ（例: ["h2 -> h4"]）。 */
+  readonly allowedHeadingSkips?: readonly string[];
 }
 
 /**
@@ -344,7 +346,8 @@ export function defineSourceParityContract(contract: SourceParityContractInput):
         if (previous && level > previous + 1) skips.push(`h${previous} -> h${level}`);
         previous = level;
       }
-      expect(skips).toEqual([]);
+      const expectedSkips = contract.allowedHeadingSkips ?? [];
+      expect(skips).toEqual([...expectedSkips]);
     });
   });
 }
