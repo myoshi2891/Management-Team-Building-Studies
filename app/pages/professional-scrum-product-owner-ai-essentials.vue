@@ -1150,9 +1150,8 @@ class G done;`;
 .content {
   flex: 1;
   min-width: 0;
-  padding: 32px 48px 64px;
-  max-width: 960px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 40px 56px 96px;
 }
 
 .hero {
