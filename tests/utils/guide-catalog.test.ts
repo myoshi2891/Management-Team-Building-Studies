@@ -430,7 +430,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     const group = programGroup("scrum-org");
 
     expect(group.program.navLabel).toBe("Scrum.org 認定");
-    expect(group.guides.map((guide) => guide.navLabel)).toEqual(["PSM 完全ガイド", "PSM-AI 完全ガイド", "PSPO 完全ガイド", "PSD 完全ガイド", "PAL I 完全ガイド", "PAL-EBM 完全ガイド", "PSFS 完全ガイド", "PSK 完全ガイド", "SPS 完全ガイド", "PSU 完全ガイド"]);
+    expect(group.guides.map((guide) => guide.navLabel)).toEqual(["PSM 完全ガイド", "PSM-AI 完全ガイド", "PSPO 完全ガイド", "PSPBM 完全ガイド", "PSD 完全ガイド", "PAL I 完全ガイド", "PAL-EBM 完全ガイド", "PSFS 完全ガイド", "PSK 完全ガイド", "SPS 完全ガイド", "PSU 完全ガイド"]);
     expect(group.seriesGroups.map((item) => item.series.id)).toEqual(["so-scrum-master", "so-product-owner", "so-developer", "so-agile-leader", "so-facilitation", "so-kanban", "so-scaling", "so-user-experience"]);
   });
 

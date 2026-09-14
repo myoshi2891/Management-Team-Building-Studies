@@ -645,6 +645,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/professional-scrum-product-backlog-management-skills",
+    programId: "scrum-org",
+    seriesId: "so-product-owner",
+    navLabel: "PSPBM 完全ガイド",
+    title: "Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド",
+    description: "Scrum.org Professional Scrum Product Backlog Management Skills(PSPBM)認定試験の出題範囲を、初学者向けに図解とベストプラクティス、一次情報ソース付きで解説する学習ガイド。",
+    meta: "15セクション",
+    icon: "tabler:list-check",
+    accent: "indigo",
+  },
+  {
     to: "/professional-scrum-developer",
     programId: "scrum-org",
     seriesId: "so-developer",
