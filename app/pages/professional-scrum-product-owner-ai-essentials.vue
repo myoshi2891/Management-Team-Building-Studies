@@ -705,17 +705,173 @@ class G done;`;
           <p>Sprint ReviewやRetrospectiveのような透明性・検査の場は、AIの活用がチームにとってプラスに働いているかを定期的に点検する自然な機会として活用できます。</p>
         </section>
 
-        <!-- Section 5 (Placeholder for Step 5) -->
+        <!-- Section 5 -->
         <section id="ai-product-ownership">
-          <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 04</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 04</div>
           <h2>第4部：AI Product Ownership(AIを活用したプロダクトオーナーシップ)</h2>
+
+          <p>伝統的にプロダクトオーナーには、Scrum.orgが提唱する6つの「望ましいスタンス(Preferred Stances)」——The Visionary、The Collaborator、The Customer Representative、The Decision Maker、The Experimenter、The Influencer——があります。PSPO-AI Essentials コースでは、これらのスタンスにAIをどう組み込むかを具体的に学び、さらに新しいスタンスとして<strong>The Orchestrator</strong>を加えています。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STANCES_WHEEL" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">価値の最大化を中心に据えたプロダクトオーナーの6+1スタンス</div>
+          </div>
+
           <h3>4.1 The Visionary(ビジョナリー)× AI</h3>
+          <p><strong>本来のスタンス：</strong>プロダクトのビジョン・戦略・目標をステークホルダー全員に明確に伝える役割。</p>
+
+          <p><strong>AIによる強化ポイント：</strong></p>
+          <ul>
+            <li>プロダクトビジョン・ロードマップの草案作成をAIとの壁打ちで加速する</li>
+            <li>複雑な戦略メッセージを、対象オーディエンス(経営層・開発チーム・顧客)ごとに異なるトーンで再構成する</li>
+            <li>「AIアバター」(自分の分身となる動画・音声コンテンツ)を作成し、ビジョンメッセージをスケーラブルに発信する</li>
+          </ul>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>AIにビジョンの「文章」を書かせることはできますが、ビジョンの「意思決定」自体は必ず人間が行うべきです。AIは伝達手段の高速化・多様化に使い、ビジョンの本質的な方向性は自分自身の判断に委ねましょう。</p>
+          </div>
+
           <h3>4.2 The Customer Representative(顧客代表)× AI</h3>
+          <p><strong>本来のスタンス：</strong>顧客の課題・ニーズ・行動を深く理解し、チームに橋渡しする役割。</p>
+
+          <p><strong>AIによる強化ポイント：</strong></p>
+          <ul>
+            <li>インタビューやアンケートの生データから、顧客の課題・痛み・機会を要約させる</li>
+            <li>AIを使ってユーザーペルソナのドラフトを作成し、チームで議論するたたき台にする</li>
+            <li>市場調査データから、傾向やインサイトを高速に抽出する</li>
+          </ul>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_CUSTOMER_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">顧客インタビューデータからペルソナ確定までの流れ</div>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>AI生成のペルソナは「仮説」として扱い、必ず実際の顧客データ・インタビューで検証するプロセスを組み込むこと。AIは調査を速くしますが、実際の顧客の声に取って代わるものではありません。</p>
+          </div>
+
           <h3>4.3 The Experimenter(実験者)× AI</h3>
+          <p><strong>本来のスタンス：</strong>仮説と検証を通じて、価値を発見していく役割。「何がわかっていて、何がわかっていないか」を明確にする。</p>
+
+          <p><strong>AIによる強化ポイント：</strong></p>
+          <ul>
+            <li>新機能・新プロダクトのアイデアをAIとブレインストーミングする</li>
+            <li>検証可能な仮説(Hypothesis)の形に、アイデアを構造化する</li>
+            <li>AIプロトタイピングツール(例：Bolt.newのようなノーコード生成ツール)で、数分単位でモックアップやテスト用の簡易サイトを作成する</li>
+          </ul>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>AIでモックアップ生成が高速化すればするほど、「作ってから考える」誘惑が強まります。必ず仮説(何を検証したいのか)を先に明文化してからプロトタイピングに入ることで、目的のない量産を防ぎます。</p>
+          </div>
+
           <h3>4.4 The Decision Maker(意思決定者)× AI</h3>
+          <p><strong>本来のスタンス：</strong>日々、プロダクトバックログの並び替えや優先順位付けなど、あらゆる意思決定を行う役割。</p>
+
+          <p><strong>AIによる強化ポイント：</strong></p>
+          <ul>
+            <li>過去のデータ(利用状況、サポート問い合わせ、売上インパクトなど)をAIに分析させ、優先順位付けの判断材料を増やす</li>
+            <li>MoSCoWやKano分析などの優先順位付けフレームワークに、AIが抽出したインサイトを組み込む</li>
+            <li>リスクの洗い出しと影響度評価をAIと一緒に検討する</li>
+          </ul>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>優先順位付けフレームワーク</th><th>概要</th><th>AIの活用余地</th></tr></thead>
+              <tbody>
+                <tr><td>MoSCoW</td><td>Must / Should / Could / Won't で分類</td><td>各PBIの分類理由の草案作成、過去データとの整合性チェック</td></tr>
+                <tr><td>Kano分析</td><td>基本機能・満足度向上機能・魅力的機能を区別</td><td>顧客フィードバックからKanoカテゴリの傾向を推定</td></tr>
+                <tr><td>WSJF(重み付き最短ジョブ優先)</td><td>コスト・オブ・ディレイと作業規模の比から算出</td><td>各要素のスコアリング根拠データの整理・要約</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>AIは「意思決定のための材料」を高速に用意してくれますが、最終的な優先順位の決定という<strong>説明責任そのもの</strong>は常にプロダクトオーナーに残ります(3.7節参照)。AIの推奨をそのまま採用するのではなく、なぜその優先順位にしたのかを自分の言葉で説明できる状態を保つことが重要です。</p>
+          </div>
+
           <h3>4.5 The Collaborator & Influencer(協働者・インフルエンサー)× AI</h3>
+          <p><strong>本来のスタンス：</strong>The Collaboratorはチームと協力してゴールを定義する役割、The Influencerはステークホルダーをビジョン・戦略・目標のもとに整合させる役割です。PSPO-AI Essentialsコースでは、この2つのスタンスがAI活用の観点でまとめて扱われています。</p>
+
+          <p><strong>AIによる強化ポイント：</strong></p>
+          <ul>
+            <li>顧客インタビューやステークホルダーミーティングをAIで文字起こしし、要点とアクションアイテムを自動抽出する</li>
+            <li>会話や文章の感情分析(Sentiment Analysis)を行い、ステークホルダーの温度感を把握する</li>
+            <li>ステークホルダーからの要望を収集・分類・トラッキングするアプリケーションをAIの支援で構築する</li>
+          </ul>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_COLLABORATOR_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">対話からステークホルダー要望のトラッキングまでの流れ</div>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>感情分析やAIによる要約は、あくまで「一次スクリーニング」の道具として使い、重要なステークホルダーとの関係構築そのものは対面・人間同士のコミュニケーションを軸に置きましょう。AIの要約結果に頼りすぎると、ニュアンスの取りこぼしに気づきにくくなります。</p>
+          </div>
+
           <h3>4.6 The Orchestrator(オーケストレーター)— AI時代の新スタンス</h3>
+          <p><strong>新設のスタンス：</strong>PSPO-AI Essentialsコースで追加された、従来の6スタンスにはなかった新しい役割です。プロダクトオーナー自身が「AIツールの選定者・設定者・監督者」としてふるまうスタンスを指します。</p>
+
+          <p><strong>主な活動：</strong></p>
+          <ul>
+            <li>状況や目的に応じて、最適なAIツールを選定する(LLMチャットツール、動画生成、プロトタイピング、コラボレーション、文字起こしなど、用途ごとに適したツールは異なる)</li>
+            <li>選んだAIツールをセットアップ・設定し、チームが使いやすい状態に整える</li>
+            <li>AIエージェントを構築し、定型的なワークフロー(フィードバック分析→ドラフトPBI作成など)を自動化する</li>
+          </ul>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>用途カテゴリ</th><th>代表的なツールの例</th></tr></thead>
+              <tbody>
+                <tr><td>汎用LLMチャット</td><td>ChatGPT, Claude, Gemini, Copilot</td></tr>
+                <tr><td>動画生成</td><td>Synthesia</td></tr>
+                <tr><td>プロトタイピング</td><td>Bolt.new, Typeform</td></tr>
+                <tr><td>コラボレーション</td><td>Mural AI, Miro AI</td></tr>
+                <tr><td>会議の文字起こし・要約</td><td>NotebookLM</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" /><span data-testid="callout-label">ソース</span></div>
+            <ul>
+              <li><a href="https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english" target="_blank" rel="noopener">Prowareness(Scrum.org認定パートナー)コース案内ページに記載のツール例、Scrum.org公式ブログのコース紹介記事</a></li>
+            </ul>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>ツールは頻繁にアップデートされるため、「特定のツール名」を覚えるより、「用途ごとにどんな種類のツールが必要になるか」という分類軸を理解しておくことが、長期的に役立つ知識になります。</p>
+          </div>
+
           <h3>4.7 誤解されたスタンスとAI利用の落とし穴</h3>
+          <p>Scrum.orgのスタンス関連ブログでは、望ましいスタンスの対比として「誤解されたスタンス(Misunderstood Stances)」——The Clerk(事務員)、The Manager(管理者)、The Project Manager、The Subject Matter Expertなど——も紹介されています。AIを誤用すると、せっかくの効率化ツールが、むしろこうした望ましくないスタンスを助長するリスクがあります。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>誤解されたスタンス</th><th>AI誤用によって陥りやすいパターン</th></tr></thead>
+              <tbody>
+                <tr><td>The Clerk(事務員)</td><td>AIが生成した大量のユーザーストーリーやPBIを、内容を吟味せずそのままバックログに登録してしまう</td></tr>
+                <tr><td>The Manager(管理者)</td><td>AIの分析結果を根拠に、チームへ一方的にタスクを割り振るような使い方をしてしまう</td></tr>
+                <tr><td>The Subject Matter Expert(専門家への依存)</td><td>顧客理解をAI要約だけで済ませ、自ら顧客と対話する機会を減らしてしまう</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>AI活用の目的は「望ましいスタンス(Visionary, Collaborator, Customer Representative, Decision Maker, Experimenter, Influencer, Orchestrator)を強化すること」であり、「作業量を増やして誤解されたスタンスに逆戻りすること」ではない、という原則を常に意識しましょう。</p>
+          </div>
         </section>
 
         <!-- Section 6 (Placeholder for Step 6) -->
