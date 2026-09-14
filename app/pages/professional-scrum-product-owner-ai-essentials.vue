@@ -197,7 +197,7 @@ class G done;`;
 
     <nav
       id="guide-sidebar"
-      class="sidebar"
+      class="sidebar sidebar-nav"
       :class="{ 'is-open': sidebarOpen }"
       aria-label="ガイドの目次"
     >
@@ -440,18 +440,128 @@ class G done;`;
           </div>
         </section>
 
-        <!-- Section 3 (Placeholder for Step 3) -->
+        <!-- Section 3 -->
         <section id="ai-theory-primer">
           <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 02</div>
           <h2>第2部：AI Theory and Primer(AI理論の基礎)</h2>
+
+          <p>このカテゴリでは、プロダクトオーナーが「AIを使う人」から一歩進んで「AIの仕組みを理解して説明できる人」になるための基礎知識が問われます。エンジニアほど深い数学的理解は不要ですが、正確な言葉の定義を押さえることが得点に直結します。</p>
+
           <h3>2.1 AIの全体像と歴史のポイント</h3>
+          <p>AI(Artificial Intelligence)は、機械が人間の知的な作業(学習・推論・判断・生成)を模倣・実行する技術全般を指す、非常に広い概念です。1950年代のチューリングテストや初期のルールベースAI(記号主義AI)から始まり、2010年代のディープラーニングのブレイクスルー、2020年代の生成AI(Generative AI)の爆発的普及、そして直近のエージェンティックAI(Agentic AI)へと発展してきました。</p>
+
+          <p>試験対策としては「年号を暗記する」ことよりも、<strong>AIの各世代がそれぞれ何を新しく可能にしたか</strong>という流れを理解することが重要です。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_AI_EVOLUTION" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">AIの進化の流れ(ルールベースAIからエージェンティックAIまで)</div>
+          </div>
+
           <h3>2.2 AIの分類：ANI・AGI・ASI</h3>
+          <p>AIはその汎用性のレベルによって、大きく3つに分類されます。試験の「AI Theory and Primer」カテゴリで最も基本的な区分です。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>分類</th><th>正式名称</th><th>説明</th><th>現状</th></tr></thead>
+              <tbody>
+                <tr><td><strong>ANI</strong></td><td>Artificial Narrow Intelligence(特化型AI)</td><td>特定のタスクに特化したAI。画像認識、翻訳、チャットボットなど、現在私たちが使っているAIのほぼすべて</td><td>実用化済み</td></tr>
+                <tr><td><strong>AGI</strong></td><td>Artificial General Intelligence(汎用人工知能)</td><td>人間と同等の幅広い知的タスクをこなせるAI</td><td>研究・議論段階</td></tr>
+                <tr><td><strong>ASI</strong></td><td>Artificial Superintelligence(超知能)</td><td>あらゆる面で人間の知能を超えるAI</td><td>理論・将来予測の段階</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>現在プロダクトオーナーが業務で扱うChatGPTやCopilotなどの生成AIツールは、いずれも「非常に高性能なANI」に分類されます。「AGIだから何でもできる」という誤解は、AIの限界(Discernment＝出力の見極め)を軽視するリスクにつながるため、試験でもよく問われるポイントです。</p>
+          </div>
+
           <h3>2.3 機械学習(Machine Learning)の基礎</h3>
+          <p>機械学習は、明示的なルールをプログラムするのではなく、<strong>データからパターンを学習</strong>することでタスクを実行できるようにする技術です。学習の与え方によって、大きく3つの方式に分かれます。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>学習方式</th><th>説明</th><th>プロダクトオーナー実務での例</th></tr></thead>
+              <tbody>
+                <tr><td>教師あり学習(Supervised Learning)</td><td>正解ラベル付きのデータで学習する</td><td>過去のバグ報告から重大度を自動分類するモデル</td></tr>
+                <tr><td>教師なし学習(Unsupervised Learning)</td><td>ラベルなしデータからパターン・クラスタを発見する</td><td>ユーザー行動ログから未知のユーザーセグメントを発見する</td></tr>
+                <tr><td>強化学習(Reinforcement Learning)</td><td>試行錯誤と報酬によって方策を最適化する</td><td>レコメンドエンジンのクリック率最適化</td></tr>
+              </tbody>
+            </table>
+          </div>
+
           <h3>2.4 深層学習(Deep Learning)とニューラルネットワーク</h3>
+          <p>深層学習は機械学習の一分野で、人間の脳の神経細胞(ニューロン)の仕組みを模した「ニューラルネットワーク」を何層にも重ねることで、画像・音声・テキストのような複雑で非構造なデータから高精度にパターンを学習する技術です。現在広く使われている生成AI(LLMを含む)の多くは、この深層学習の延長線上にあります。</p>
+
+          <p>プロダクトオーナーとして覚えておくべきポイントは、「深層学習モデルの精度は、学習データの質と量に大きく依存する」ということです。これは第3部で扱うバイアスの問題に直結します。</p>
+
           <h3>2.5 生成AI(Generative AI)の仕組み</h3>
+          <p>生成AI(Generative AI)は、既存のデータのパターンを学習し、それに基づいて<strong>新しいコンテンツ(テキスト・画像・音声・動画・コードなど)を生成</strong>するAIです。ChatGPT、Claude、Gemini、Copilot、Synthesia(動画生成)などが代表例です。</p>
+
+          <p>生成AIの中核技術には主に2つの系統があります。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>モデルの系統</th><th>主な用途</th><th>代表的な仕組み</th></tr></thead>
+              <tbody>
+                <tr><td><strong>LLM(Large Language Model：大規模言語モデル)</strong></td><td>テキスト生成、要約、翻訳、コード生成</td><td>Transformerアーキテクチャに基づき、直前までのトークン列から次のトークンを確率的に予測する</td></tr>
+                <tr><td><strong>拡散モデル(Diffusion Model)</strong></td><td>画像・動画・音声生成</td><td>ノイズを段階的に除去していくプロセスを学習し、ノイズからコンテンツを「復元」するように生成する</td></tr>
+              </tbody>
+            </table>
+          </div>
+
           <h3>2.6 エージェンティックAI(Agentic AI)とは</h3>
+          <p>エージェンティックAI(Agentic AI)は、生成AIをさらに一歩進め、<strong>与えられたゴールに向けて、自律的に計画を立て、複数のステップにわたってツールを呼び出し、行動を実行する</strong>AIシステムです。単発の質問に単発で答える生成AIとは異なり、フィードバックの収集→分析→ドラフト作成→登録、のような一連のワークフローを人間の逐一の指示なしにこなせる点が特徴です。</p>
+
+          <p>第4部で扱う「The Orchestrator」スタンスでは、まさにこのエージェンティックAIを使って、ユーザーフィードバックのレビューからドラフトのプロダクトバックログアイテム(PBI)作成までを自動化する実習が想定されています。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_AGENTIC_SEQUENCE" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">AIエージェントによるフィードバック分析からPBI作成までの流れ</div>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>エージェンティックAIは強力な一方、自律性が高いほど「意図しない行動」のリスクも高まります。プロダクトオーナーは、AIエージェントに委任する範囲(Delegationのスコープ)を明確に設計し、Product Backlogへの反映など重要な意思決定の最終確認は必ず人間が行うという原則を崩さないことがベストプラクティスです。</p>
+          </div>
+
           <h3>2.7 プロンプトエンジニアリングとトークン化(Tokenization)</h3>
+          <p><strong>トークン化(Tokenization)</strong>とは、自然言語の文章をモデルが処理できる最小単位(トークン)に分割する処理です。英語ではおおむね単語や部分語がトークンになり、日本語では文字や文節に近い単位に分割されることが多くなります。LLMは、入力されたトークン列をもとに、次に来る可能性が高いトークンを確率的に予測し、それを繰り返すことで文章を生成します。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_TOKENIZATION_FLOW" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">プロンプトからトークン化・推論・出力までの流れ</div>
+          </div>
+
+          <p><strong>プロンプトエンジニアリング(Prompt Engineering)</strong>は、モデルから望ましい出力を引き出すために、指示文(プロンプト)を設計・改善する技術です。プロダクトオーナーにとっては、コーディングスキルよりも重要度の高い実務スキルと位置づけられています。</p>
+
           <h3>2.8 効果的なプロンプトのベストプラクティス</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>原則</th><th>内容</th><th>具体例</th></tr></thead>
+              <tbody>
+                <tr><td>役割(Role)を与える</td><td>モデルにどんな立場で回答してほしいかを明示する</td><td>「あなたは経験豊富なプロダクトオーナーです」</td></tr>
+                <tr><td>文脈(Context)を与える</td><td>背景情報・制約条件を具体的に伝える</td><td>対象プロダクト、顧客セグメント、既存のPBLの状況など</td></tr>
+                <tr><td>期待する出力形式を指定する</td><td>表・箇条書き・特定のフォーマットを指示する</td><td>「ユーザーストーリー形式で、受け入れ基準を3つ添えて」</td></tr>
+                <tr><td>例を示す(Few-shot)</td><td>望ましい出力の例を1〜2個提示する</td><td>過去の優れたユーザーストーリーの例を貼り付ける</td></tr>
+                <tr><td>段階的に指示する</td><td>複雑なタスクは一度に全部頼まず、ステップに分ける</td><td>「まず仮説を3つ挙げて。その後、私が選んだ1つを深掘りして」</td></tr>
+                <tr><td>出力を検証する前提で使う</td><td>生成された内容を鵜呑みにせず、人間が確認する</td><td>事実確認が必要な統計・引用は必ずソースを確認する</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" /><span data-testid="callout-label">ソース</span></div>
+            <ul>
+              <li><a href="https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained" target="_blank" rel="noopener">Scrum.org Blog「[VLOG] The Why and What of the PSPO-AI Essentials Course, Explained」(Section 7の内容要約)</a></li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 4 (Placeholder for Step 4) -->
