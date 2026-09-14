@@ -49,7 +49,10 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
       },
       {
         heading: "プロダクトオーナー",
-        guides: ["Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド"],
+        guides: [
+          "Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド",
+          "Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド",
+        ],
       },
       {
         heading: "ディベロッパー",
