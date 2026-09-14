@@ -656,6 +656,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/professional-scrum-product-owner-ai-essentials",
+    programId: "scrum-org",
+    seriesId: "so-product-owner",
+    navLabel: "PSPO-AI 完全ガイド",
+    title: "Professional Scrum Product Owner™ - AI Essentials 完全学習ガイド",
+    description: "Scrum.org Professional Scrum Product Owner - AI Essentials認定資格の非公式学習ガイド。AI Theory and Primer、AI Security and Ethics、AI Product Ownershipの3カテゴリを初学者向けに解説します。",
+    meta: "8セクション",
+    icon: "tabler:robot",
+    accent: "indigo",
+  },
+  {
     to: "/professional-scrum-developer",
     programId: "scrum-org",
     seriesId: "so-developer",
