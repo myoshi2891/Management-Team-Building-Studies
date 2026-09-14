@@ -564,17 +564,145 @@ class G done;`;
           </div>
         </section>
 
-        <!-- Section 4 (Placeholder for Step 4) -->
+        <!-- Section 4 -->
         <section id="ai-security-ethics">
           <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 03</div>
           <h2>第3部：AI Security and Ethics(AIのセキュリティと倫理)</h2>
+
+          <p>このカテゴリは、PSPO-AI Essentials 試験で問われる評価カテゴリの1つとして位置づけられている、セキュリティと倫理に関する領域です。プロダクトオーナーは「AIを使えるかどうか」だけでなく「AIを安全に、責任を持って使えるかどうか」まで問われます。</p>
+
           <h3>3.1 Responsible AI(責任あるAI)の基本姿勢</h3>
+          <p>Responsible AI とは、AIを開発・活用する際に、公平性・透明性・説明責任・プライバシー保護・安全性を確保しようとする実践全般を指す考え方です。プロダクトオーナーの文脈では、次の問いを常に自分に投げかける姿勢がこれにあたります。</p>
+
+          <ul>
+            <li>このAI出力を、そのまま顧客やステークホルダーに見せてよいか？</li>
+            <li>このAIに入力したデータは、機密情報や個人情報を含んでいないか？</li>
+            <li>このAI提案には、特定の集団に不利益なバイアスが含まれていないか？</li>
+            <li>最終的な意思決定の責任は誰にあるか(＝常に人間、特にプロダクトオーナー自身)？</li>
+          </ul>
+
           <h3>3.2 4D AI Fluency Framework(AI流暢性の4Dフレームワーク)</h3>
+          <p>Scrum.orgのブログ記事「The Product Owner's AI Start Checklist」でも紹介されている代表的なフレームワークが、Anthropic社の研究者らが提唱した<strong>4D Framework(AI Fluency Framework)</strong>です。AIとの関わり方を「effective(効果的)・efficient(効率的)・ethical(倫理的)・safe(安全)」の4条件で捉え、それを実現するための4つの能力(4つのD)を定義しています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>能力(4D)</th><th>意味</th><th>プロダクトオーナーの実務での問い</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Delegation(委任)</strong></td><td>何をAIに任せ、何を自分でやるかを見極める</td><td>このタスクはAIに任せてよい定型作業か、それとも人間の判断が不可欠な意思決定か？</td></tr>
+                <tr><td><strong>Description(説明)</strong></td><td>AIに目的・文脈・制約を明確に伝える</td><td>プロンプトに、達成したいゴールと守るべき制約を十分に含めたか？</td></tr>
+                <tr><td><strong>Discernment(見極め)</strong></td><td>AIの出力の品質・妥当性を批判的に評価する</td><td>この出力は事実に基づいているか、ハルシネーションを含んでいないか？</td></tr>
+                <tr><td><strong>Diligence(責任)</strong></td><td>AIとの協働の結果に責任を持つ</td><td>最終的にこの成果物を提出・公開する責任は自分にあると自覚しているか？</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUR_D_FRAMEWORK" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">4D AI Fluency Frameworkのサイクル</div>
+          </div>
+
+          <p>またこのフレームワークでは、AIとの関わり方を3つのモードに整理しています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>モード</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>Automation(自動化)</td><td>人間の指示に基づき、AIが特定のタスクを実行する</td></tr>
+                <tr><td>Augmentation(拡張)</td><td>人間とAIが思考のパートナーとして協働する</td></tr>
+                <tr><td>Agency(自律)</td><td>人間がAIを設定し、AIが将来のタスクを自律的に代行する</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" /><span data-testid="callout-label">ソース</span></div>
+            <ul>
+              <li><a href="https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework" target="_blank" rel="noopener">Anthropic「AI Fluency: Framework & Foundations」(Rick Dakan, Joseph Feller と Anthropic による共同開発。CC BY-NC-SA 4.0 ライセンスで公開)</a></li>
+            </ul>
+          </div>
+
           <h3>3.3 ハルシネーション(Hallucination)とバイアス(Bias)</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>リスク</th><th>説明</th><th>プロダクトオーナーへの示唆</th></tr></thead>
+              <tbody>
+                <tr><td><strong>ハルシネーション(Hallucination)</strong></td><td>AIが事実に基づかない、もっともらしい誤った情報を生成する現象</td><td>統計・引用・法規制など、事実確認が重要な情報は必ず一次情報で裏取りする</td></tr>
+                <tr><td><strong>アルゴリズミック・バイアス(Algorithmic Bias)</strong></td><td>学習データの偏りが、特定の属性・集団に不利益な出力として現れる現象</td><td>ユーザーペルソナ生成や優先順位付けにAIを使う際、特定の顧客層が過小評価・過大評価されていないか検証する</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Scrum.orgのブログ「The Augmented Product Owner: Amplifying Scrum with AI」でも、AIに大量のユーザーストーリーを生成させることは可能でも、深い文脈を欠いたユーザーストーリーには価値がないこと、そしてアルゴリズミック・バイアスへの警戒と、AIへの過度な依存が人間の創造性・批判的思考力を弱めるリスクが指摘されています。</p>
+
           <h3>3.4 データプライバシーとセキュリティ</h3>
+          <p>生成AIツールに入力したデータは、ツールやプラン(無料版・有料版・エンタープライズ版)によって、モデルの再学習に利用されたり、ベンダー側に保存されたりする可能性があります。プロダクトオーナーが特に注意すべきデータの例は次のとおりです。</p>
+
+          <ul>
+            <li>未公開のプロダクトロードマップ・事業戦略</li>
+            <li>顧客の個人情報(PII：Personally Identifiable Information)</li>
+            <li>契約情報・価格情報など、社外秘の商用データ</li>
+            <li>社内システムの認証情報・ソースコードの機密部分</li>
+          </ul>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p><strong>データ分類の第一歩：</strong>チームで「どのデータならAIツールに入力してよいか」を分類する簡単なガイドラインを最初に作ることが、Ethical AI実践の出発点として推奨されています。組織のセキュリティポリシーやAIツールの利用規約(データの学習利用有無など)を確認したうえで、チームメンバー全員が同じ基準を持つことが重要です。</p>
+          </div>
+
           <h3>3.5 4つのガードレール(Ethical AI for Product Owners)</h3>
+          <p>Scrum.orgブログ「Ethical AI for Product Owners & Product Managers」では、プロダクトオーナー・プロダクトマネージャーがAIを倫理的に活用するための4つのガードレールが提示されています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ガードレール</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>データプライバシーの確保(Ensuring Data Privacy)</td><td>AIに共有してよいデータの範囲を明確なプロトコルとして定める</td></tr>
+                <tr><td>人間の価値の保持(Preserving Human Value)</td><td>顧客への共感・人間的な判断をAIに委譲しすぎない</td></tr>
+                <tr><td>AI出力の検証(Validating AI Outputs)</td><td>AIが生成した情報・提案を鵜呑みにせず、事実確認と妥当性検証を行う</td></tr>
+                <tr><td>AIの関与の透明な帰属(Transparently Attributing AI's Role)</td><td>成果物のどの部分がAI生成か、ステークホルダーに対して透明性を保つ</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" /><span data-testid="callout-label">ソース</span></div>
+            <ul>
+              <li><a href="https://www.scrum.org/resources/blog/ethical-ai-product-owners-product-managers" target="_blank" rel="noopener">Scrum.org Blog「Ethical AI for Product Owners & Product Managers」(PST Stefan Wolpers)</a></li>
+            </ul>
+          </div>
+
           <h3>3.6 規制・法令の概観</h3>
+          <p>試験の「AI Security and Ethics」カテゴリでは、詳細な法律知識までは求められませんが、代表的な規制・ガバナンスフレームワークの「存在と目的」を把握しておくことが望まれます。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>フレームワーク</th><th>発行主体</th><th>概要</th></tr></thead>
+              <tbody>
+                <tr><td><strong>NIST AI RMF</strong>(AI Risk Management Framework)</td><td>米国国立標準技術研究所(NIST)</td><td>「Govern(統治)・Map(特定)・Measure(測定)・Manage(管理)」の4機能でAIリスクを管理する、任意(voluntary)のフレームワーク</td></tr>
+                <tr><td><strong>EU AI Act</strong></td><td>欧州連合(EU)</td><td>AIシステムをリスクの大きさに応じて4段階(許容不可・高リスク・限定的リスク・最小リスク)に分類し、義務を課す世界初の包括的AI法規制</td></tr>
+                <tr><td><strong>ISO/IEC 42001</strong></td><td>国際標準化機構(ISO)</td><td>AIマネジメントシステムに関する国際規格。組織がAIを責任を持って開発・運用するための体制構築を規定</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_NIST_RMF" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">NIST AI RMFの4機能サイクル</div>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+            <p>法規制の暗記よりも、「なぜこうした規制が必要とされているか(リスクベースでAIを管理する、という共通の考え方)」を理解しておくことが試験にも実務にも有効です。特にEU圏の顧客を持つプロダクトを担当している場合、EU AI Actのリスク分類がプロダクト要件そのものに直結することがあります。</p>
+          </div>
+
           <h3>3.7 プロダクトオーナーの説明責任(Accountability)</h3>
+          <p>Scrum Guideは、プロダクトオーナーが唯一、プロダクトバックログ管理の説明責任(Accountability)を持つと定義しています。AIをどれだけ活用しても、この説明責任がAIに移譲されることはありません。Scrum.orgブログ「The Augmented Product Owner: Amplifying Scrum with AI」でも、「プロダクトオーナーはプロダクトの成功に対する説明責任を保持し続けるべきであり、AIはあくまでツールであって、中核的な責任を委譲する相手ではない」と明確に述べられています。</p>
+
+          <p>Sprint ReviewやRetrospectiveのような透明性・検査の場は、AIの活用がチームにとってプラスに働いているかを定期的に点検する自然な機会として活用できます。</p>
         </section>
 
         <!-- Section 5 (Placeholder for Step 5) -->
