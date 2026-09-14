@@ -102,6 +102,7 @@ const DIAGRAM_SPLITTING_DECISION_FLOW = `flowchart TD
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
     class Q1,Q2,Q3,Q4,Q5 hub;
     class SP,PA,IF,DA,RU box;
     class READY done;`;
@@ -130,6 +131,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
     DECISION -->|"実験・リリース"| CV
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
     class CV,UV,A2I,T2M hub;
     class DECISION box;`;
 </script>
@@ -894,20 +896,98 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
       <!-- ===================== 11. AI and Backlog Management ===================== -->
       <section id="ai-and-backlog-management">
-        <div class="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 11</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 11</div>
         <h2>Chapter 8: AI時代のプロダクトバックログマネジメント</h2>
+
+        <p>近年の PSPBM 関連トレーニングでは、学習目標の一つとして「AI がリファインメント・優先順位付け・意思決定をどのように簡素化しうるか」という観点が明示的に含まれるようになっています。これは Scrum Guide 本体の内容ではなく、近年のコースアップデートで扱われるようになったトピックである点に注意してください。</p>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>以下は Scrum.org 公式のコース説明ページを参照元とする、トレーニングベンダーが公開しているコース目標の要約であり、Scrum Guide の公式規定ではありません。試験本体がAI活用の細部をどこまで問うかは公開されていないため、「経験主義・データ駆動の意思決定の延長線上にAI活用がある」という位置づけで理解しておくのが安全です。</p>
+        </div>
+
+        <ul>
+          <li>リファインメント時の項目分割・書き起こしの効率化にAIを補助的に使う</li>
+          <li>優先順位付けの判断材料となるデータ分析・傾向抽出をAIで補助する</li>
+          <li>ステークホルダーからのフィードバックの要約・傾向分析にAIを活用する</li>
+        </ul>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>AIはあくまで「意思決定を支援する道具」であり、プロダクトバックログの内容・並び順に対する説明責任は Product Owner に残り続けます。AIが提示した分析結果や生成した項目案も、経験主義の3本柱(透明性・検査・適応)のプロセスに組み込み、人間による検証を経て取り込むべきです。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states" target="_blank" rel="noopener">Agilemania — PSPBM Certification Course Objectives(AI活用への言及)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 12. Misconceptions and Antipatterns ===================== -->
       <section id="misconceptions-and-antipatterns">
-        <div class="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 12</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 12</div>
         <h2>Chapter 9: よくある誤解とアンチパターン</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>誤解・アンチパターン</th><th>正しい理解</th></tr></thead>
+            <tbody>
+              <tr><td>プロダクトバックログは固定された要件仕様書である</td><td>プロダクトバックログは創発的であり、常に変化し続ける。完成することはない</td></tr>
+              <tr><td>項目には High/Medium/Low のような優先度カテゴリを付ければよい</td><td>プロダクトバックログは厳密な1本の順序リストであり、同じ順位の項目は存在しない</td></tr>
+              <tr><td>リファインメントは決まったイベントとして週1回だけ行うものである</td><td>リファインメントはScrumの公式イベントではなく、スプリント中に必要に応じて継続的に行う活動である</td></tr>
+              <tr><td>Product Owner が1人で黙々とバックログを書く</td><td>内容の作成自体はDevelopers・ステークホルダーと協働してよいが、説明責任はProduct Ownerに残る</td></tr>
+              <tr><td>見積りが付いていない項目は着手できない</td><td>見積りの精度は上位項目ほど高ければよく、下位項目は粗い見積りで十分。見積り手法自体もチームが選択できる</td></tr>
+              <tr><td>ベロシティを上げることが価値の証明になる</td><td>ベロシティは内部の出力指標に過ぎず、顧客への実際の価値提供(アウトカム)を直接示すものではない</td></tr>
+              <tr><td>ステークホルダー全員に同じ深さで対応する必要がある</td><td>影響力・関心度に応じて関与の濃淡を使い分けるのが実務上有効</td></tr>
+              <tr><td>Definition of Ready はScrum Guideが定めるコミットメントである</td><td>Definition of Ready はチーム独自の合意事項であり、Scrum Guide公式のコミットメントは Product Goal・Sprint Goal・Definition of Doneの3つのみ</td></tr>
+              <tr><td>大きな項目は技術レイヤー(フロント/バック)で分割すればよい</td><td>分割は原則として垂直分割(機能単位)で行い、各分割後も独立して価値を確認できる形にする</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <!-- ===================== 13. Exam Prep Tips ===================== -->
       <section id="exam-prep-tips">
-        <div class="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 13</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 13</div>
         <h2>Chapter 10: 試験対策のポイント</h2>
+
+        <h3>学習の進め方</h3>
+
+        <ol>
+          <li>まず PSM I または PSPO I レベルの Scrum Guide 理解(Events・Artifacts・Accountabilities・経験主義)を固める</li>
+          <li>本ガイドの Chapter 1〜3 でプロダクトバックログとプロダクトゴールの位置づけを正確に理解する</li>
+          <li>Chapter 4〜5 のリファインメント・並び替え技法を、実際の職場の具体例に当てはめて練習する</li>
+          <li>Chapter 6〜7 のステークホルダー協働・EBM を、抽象論ではなく「自分ならどう説明するか」の言葉で整理する</li>
+          <li>Chapter 9 の誤解一覧を見て、即座に正しい理解を口頭で説明できるか自己チェックする</li>
+        </ol>
+
+        <h3>頻出のひっかけパターン</h3>
+
+        <ul>
+          <li>「優先度(priority)」という言葉が使われている選択肢に対して、「同じ優先度の項目が複数存在してよい」という誤った前提が紛れ込んでいないか注意する</li>
+          <li>「リファインメントはイベントである」という誤った前提を含む選択肢に注意する</li>
+          <li>「見積り＝ストーリーポイントのみ」という決めつけに注意する(見積り手法はチームが選択できる)</li>
+          <li>「並び替えは Product Owner が単独で決める孤立した作業である」という誤った前提に注意する(協働は前提だが、説明責任はProduct Ownerにある、という両立関係を正確に理解する)</li>
+          <li>EBM の4つの KVA の名称と意味を正確に区別できるようにしておく(Current Value と Unrealized Value の違いなど)</li>
+        </ul>
+
+        <h3>推奨される準備の組み合わせ</h3>
+
+        <ul>
+          <li>公式コース「Professional Scrum Product Backlog Management Skills」の受講(受講後14日以内の受験で再受験権が付与される特典あり)</li>
+          <li><a href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">Scrum Guide 2020</a> の通読(プロダクトバックログ・プロダクトゴール・Product Owner の説明責任の箇所を重点的に)</li>
+          <li><a href="https://www.scrum.org/resources" target="_blank" rel="noopener">scrum.org のブログ・リソースページ</a>(本ガイドで引用したリソース群)の一次情報確認</li>
+          <li>自分の実務のプロダクトバックログを題材に、DEEP・INVEST・SPIDR を実際に当てはめてみる練習</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">TheScrumMaster.co.uk — How To Pass The PSPBM Skills Assessment</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 14. Glossary ===================== -->
