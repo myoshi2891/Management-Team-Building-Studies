@@ -992,15 +992,61 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
       <!-- ===================== 14. Glossary ===================== -->
       <section id="glossary">
-        <div class="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 14</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 14</div>
         <h2>用語集</h2>
+
+        <div class="glossary-grid">
+          <div class="glossary-item"><div class="g-term">Product Backlog(プロダクトバックログ)</div><div class="g-def">プロダクトを改善するために必要なものをまとめた、創発的・順序付きのリスト</div></div>
+          <div class="glossary-item"><div class="g-term">Product Backlog Item, PBI(プロダクトバックログ項目)</div><div class="g-def">プロダクトバックログを構成する個々の項目</div></div>
+          <div class="glossary-item"><div class="g-term">Product Goal(プロダクトゴール)</div><div class="g-def">プロダクトバックログのコミットメント。プロダクトの将来のある状態を表す中期的な目標</div></div>
+          <div class="glossary-item"><div class="g-term">Product Owner(プロダクトオーナー)</div><div class="g-def">プロダクトの価値最大化に説明責任を負うScrum Teamのアカウンタビリティ</div></div>
+          <div class="glossary-item"><div class="g-term">Refinement(リファインメント)</div><div class="g-def">プロダクトバックログ項目をより小さく、より正確な項目に分解・詳細化する継続的活動</div></div>
+          <div class="glossary-item"><div class="g-term">Ordering(並び替え)</div><div class="g-def">プロダクトバックログ項目に明確な順序を与える活動(優先度カテゴリではない)</div></div>
+          <div class="glossary-item"><div class="g-term">Empiricism(経験主義)</div><div class="g-def">透明性・検査・適応の3本柱に基づく意思決定の考え方</div></div>
+          <div class="glossary-item"><div class="g-term">Evidence-Based Management, EBM(エビデンスベースドマネジメント)</div><div class="g-def">実験と頻繁な検査により価値を測定・向上させるためのフレームワーク</div></div>
+          <div class="glossary-item"><div class="g-term">Key Value Area, KVA(主要価値領域)</div><div class="g-def">EBMにおける4つの価値測定領域(CV・UV・A2I・T2M)</div></div>
+          <div class="glossary-item"><div class="g-term">DEEP</div><div class="g-def">良いプロダクトバックログが備えるべき4性質(Detailed appropriately, Emergent, Estimated, Prioritized)</div></div>
+          <div class="glossary-item"><div class="g-term">INVEST</div><div class="g-def">良いプロダクトバックログ項目が備えるべき6性質</div></div>
+          <div class="glossary-item"><div class="g-term">SPIDR</div><div class="g-def">項目分割の5技法(Spikes, Paths, Interfaces, Data, Rules)</div></div>
+          <div class="glossary-item"><div class="g-term">Stakeholder(ステークホルダー)</div><div class="g-def">プロダクトの成果に関心・影響力を持つ、Scrum Team外部の関係者</div></div>
+          <div class="glossary-item"><div class="g-term">Definition of Ready, DoR(レディの定義)</div><div class="g-def">チーム独自に合意する、項目着手可能と判断する基準(Scrum Guide公式のコミットメントではない)</div></div>
+          <div class="glossary-item"><div class="g-term">Vertical Slicing(垂直分割)</div><div class="g-def">技術レイヤーではなく機能単位で項目を分割し、各分割後も独立した価値を確認できるようにする考え方</div></div>
+        </div>
       </section>
 
       <!-- ===================== 15. References ===================== -->
       <section id="references">
-        <div class="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 15</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 15</div>
         <h2>参考文献・ソースURL一覧</h2>
+
+        <div class="ref-group">
+          <ul class="ref-list">
+            <li><span class="ref-name">scrum.org — Professional Scrum Product Backlog Management Skills Certification(公式試験ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification</a></li>
+            <li><span class="ref-name">scrum.org — The Professional Scrum Competencies(コンピテンシー全体像)</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies</a></li>
+            <li><span class="ref-name">scrum.org — Professional Scrum Competency: Managing Products with Agility</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility</a></li>
+            <li><span class="ref-name">Scrum Guide 2020(英語・公式)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+            <li><span class="ref-name">Scrum Guide 2020 PDF(英語版)</span><a class="ref-url" href="https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf" target="_blank" rel="noopener">https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-US.pdf</a></li>
+            <li><span class="ref-name">scrum.org — What is a Product Backlog?</span><a class="ref-url" href="https://www.scrum.org/resources/what-is-a-product-backlog" target="_blank" rel="noopener">https://www.scrum.org/resources/what-is-a-product-backlog</a></li>
+            <li><span class="ref-name">scrum.org — Product Backlog Refinement</span><a class="ref-url" href="https://www.scrum.org/resources/product-backlog-refinement" target="_blank" rel="noopener">https://www.scrum.org/resources/product-backlog-refinement</a></li>
+            <li><span class="ref-name">scrum.org — What Is Product Backlog Refinement?</span><a class="ref-url" href="https://www.scrum.org/resources/blog/what-product-backlog-refinement" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/what-product-backlog-refinement</a></li>
+            <li><span class="ref-name">scrum.org — 5 Strategies for Product Backlog Refinement</span><a class="ref-url" href="https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/5-strategies-product-backlog-refinement</a></li>
+            <li><span class="ref-name">scrum.org フォーラム — Product Backlog Refinement details(2017年版と2020年版の違い)</span><a class="ref-url" href="https://www.scrum.org/forum/scrum-forum/45798/product-backlog-refinement-details" target="_blank" rel="noopener">https://www.scrum.org/forum/scrum-forum/45798/product-backlog-refinement-details</a></li>
+            <li><span class="ref-name">scrum.org — Evidence-Based Management&trade;(EBM)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+            <li><span class="ref-name">Credly — PSPBM Skills バッジ発行条件</span><a class="ref-url" href="https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill" target="_blank" rel="noopener">https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill</a></li>
+            <li><span class="ref-name">scrum.org(TheScrumMaster.co.uk寄稿) — How To Pass The PSPBM Skills Assessment</span><a class="ref-url" href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills</a></li>
+            <li><span class="ref-name">Xebia Academy — PSPBMS トレーニング概要</span><a class="ref-url" href="https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/</a></li>
+            <li><span class="ref-name">Agilemania — PSPBM Certification Course Objectives(コース目標の例)</span><a class="ref-url" href="https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states" target="_blank" rel="noopener">https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states</a></li>
+            <li><span class="ref-name">Roman Pichler — Make Your Product Backlog DEEP</span><a class="ref-url" href="https://www.romanpichler.com/blog/make-the-product-backlog-deep/" target="_blank" rel="noopener">https://www.romanpichler.com/blog/make-the-product-backlog-deep/</a></li>
+            <li><span class="ref-name">Mountain Goat Software(Mike Cohn) — SPIDR: Five Simple but Powerful Ways to Split User Stories</span><a class="ref-url" href="https://www.mountaingoatsoftware.com/agile/five-simple-but-powerful-ways-to-split-user-stories" target="_blank" rel="noopener">https://www.mountaingoatsoftware.com/agile/five-simple-but-powerful-ways-to-split-user-stories</a></li>
+            <li><span class="ref-name">Scaled Agile Framework — WSJF(補足: SAFe固有の手法)</span><a class="ref-url" href="https://framework.scaledagile.com/wsjf" target="_blank" rel="noopener">https://framework.scaledagile.com/wsjf</a></li>
+            <li><span class="ref-name">scrum-master.org — WSJFの計算式(補足)</span><a class="ref-url" href="https://scrum-master.org/en/what-is-wsjf-weighted-shortest-job-first-safe/" target="_blank" rel="noopener">https://scrum-master.org/en/what-is-wsjf-weighted-shortest-job-first-safe/</a></li>
+          </ul>
+        </div>
       </section>
+
+      <footer>
+        Professional Scrum Product Backlog Management Skills、PSPBM、Scrum.org は Scrum.org の商標です。本ガイドは学習支援を目的とした二次資料であり、Scrum.org とは関係のない非公式コンテンツです。試験の正式な出題範囲・最新情報は必ず<a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>でご確認ください。
+      </footer>
     </main>
   </div>
 </template>
@@ -1357,6 +1403,52 @@ li {
   margin-bottom: 8px;
 }
 
+/* ===================== Glossary ===================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 4px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group { margin-bottom: 28px; }
+.ref-group h4 { margin-top: 0; }
+.ref-list { list-style: none; margin: 0; padding: 0; }
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+.ref-list li:last-child { border-bottom: none; }
+.ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+.ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
 /* ===================== Responsive ===================== */
 @media (max-width: 980px) {
   .sidebar-toggle {
@@ -1407,6 +1499,7 @@ li {
 
 @media (max-width: 560px) {
   .stat-row { grid-template-columns: 1fr; }
+  .glossary-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
