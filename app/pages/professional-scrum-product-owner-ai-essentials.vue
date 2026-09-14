@@ -874,30 +874,142 @@ class G done;`;
           </div>
         </section>
 
-        <!-- Section 6 (Placeholder for Step 6) -->
+        <!-- Section 6 -->
         <section id="best-practices-summary">
-          <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 05</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 05</div>
           <h2>第5部：ベストプラクティス総まとめ表</h2>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>領域</th><th>ベストプラクティス</th></tr></thead>
+              <tbody>
+                <tr><td>AI Theory</td><td>ANI・AGI・ASIの違いを理解し、現行の生成AIは高性能なANIであるという前提を忘れない</td></tr>
+                <tr><td>AI Theory</td><td>プロンプトには役割・文脈・出力形式・例を含め、複雑なタスクは段階的に指示する</td></tr>
+                <tr><td>AI Theory</td><td>エージェンティックAIに委任する範囲は明確に定義し、重要な意思決定は人間が最終確認する</td></tr>
+                <tr><td>AI Security and Ethics</td><td>4D Framework(Delegation, Description, Discernment, Diligence)を意思決定の型として使う</td></tr>
+                <tr><td>AI Security and Ethics</td><td>ハルシネーションのリスクを前提に、事実情報は一次ソースで検証する</td></tr>
+                <tr><td>AI Security and Ethics</td><td>チームで「AIに入力してよいデータ」の分類基準を先に合意しておく</td></tr>
+                <tr><td>AI Security and Ethics</td><td>AI出力のうちどの部分がAI生成かを、ステークホルダーに対して透明に伝える</td></tr>
+                <tr><td>AI Product Ownership</td><td>AIはビジョン伝達・顧客理解・仮説検証・意思決定材料の準備を加速するが、最終判断と説明責任は常にプロダクトオーナーが持つ</td></tr>
+                <tr><td>AI Product Ownership</td><td>AI生成のペルソナ・優先順位付けの根拠は、必ず実データ・実際の対話で検証してから確定する</td></tr>
+                <tr><td>AI Product Ownership</td><td>ツール選定は「用途カテゴリ」で考え、特定ツールへの過度な依存を避ける</td></tr>
+                <tr><td>組織・チーム</td><td>Sprint ReviewやRetrospectiveで、AI活用がチームに有益かどうかを定期的に検査する</td></tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
-        <!-- Section 7 (Placeholder for Step 6) -->
+        <!-- Section 7 -->
         <section id="exam-prep">
-          <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 06</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 06</div>
           <h2>第6部：試験対策とシナリオ思考トレーニング</h2>
+
+          <div class="callout note" data-testid="callout" data-variant="note">
+            <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" /><span data-testid="callout-label">補足</span></div>
+            <p><strong>重要な注意：</strong>以下は実際の試験問題ではなく、本ガイドの著者が学習目的で作成した練習用のシナリオ例です。試験の実際の設問内容・正答を示すものではありません。</p>
+          </div>
+
           <h3>6.1 学習の進め方</h3>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STUDY_PLAN" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
+            </ClientOnly>
+            <div class="diagram-caption">公式トレーニング受講から受験までの学習の進め方</div>
+          </div>
+
           <h3>6.2 出題されやすい思考パターン</h3>
+          <p>PSPO-AI Essentials の試験は Multiple Choice ですが、単純な用語の暗記だけでなく、「このような場面でプロダクトオーナーはどう行動すべきか」というシナリオベースの判断力を問う傾向が、Scrum.org系の他の認定試験(PSPO I/IIなど)と共通していると考えられます。学習の際は、以下のような自問自答を繰り返すと効果的です。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>出題されやすい観点</th><th>自問の型</th></tr></thead>
+              <tbody>
+                <tr><td>用語の正確な理解</td><td>「この選択肢の中で、Agentic AIを正しく説明しているのはどれか？」</td></tr>
+                <tr><td>責任の所在</td><td>「AIが提案した優先順位付けをそのままチームに伝えるのは適切か？」</td></tr>
+                <tr><td>リスク認識</td><td>「この状況でプロダクトオーナーが最初に確認すべきリスクは何か？」</td></tr>
+                <tr><td>スタンスとの対応</td><td>「この行動は、6つの望ましいスタンス＋Orchestratorのうち、どれに最も近いか？」</td></tr>
+                <tr><td>倫理・セキュリティ</td><td>「このデータをAIツールに入力する前に、何を確認すべきか？」</td></tr>
+              </tbody>
+            </table>
+          </div>
+
           <h3>6.3 練習シナリオ例(自作・非公式)</h3>
+          <p><strong>シナリオ1：</strong>あなたはプロダクトオーナーです。チームメンバーが「AIに未公開の来期ロードマップと顧客の契約金額を入力して、競合分析のレポートを作らせました」と報告してきました。あなたが最初に取るべき行動として最も適切なものはどれか、を考えてみましょう。</p>
+
+          <ul>
+            <li>選択肢の方向性の例：ただちに使用しているAIツールのデータ取り扱いポリシーと、入力した情報の機密レベルを確認する(3.4節・3.5節の「データプライバシーの確保」ガードレールに対応)</li>
+          </ul>
+
+          <p><strong>シナリオ2：</strong>The Decision Maker のスタンスで、AIが「機能Aを最優先にすべき」と提案してきました。あなたはこの提案をどう扱うべきか、を考えてみましょう。</p>
+
+          <ul>
+            <li>選択肢の方向性の例：AIの提案の根拠データを確認し、自分自身の判断とEBM(Evidence-Based Management)の観点を踏まえて最終決定を行う(4.4節・3.7節に対応)</li>
+          </ul>
+
+          <p>このように、各シナリオを「どの部(AI Theory / AI Security and Ethics / AI Product Ownership)のどの原則に対応するか」を紐づけながら復習すると、記憶が定着しやすくなります。</p>
         </section>
 
-        <!-- Section 8 (Placeholder for Step 6) -->
+        <!-- Section 8 -->
         <section id="references">
-          <div class="section-eyebrow" data-testid="section-eyebrow">SECTION 07</div>
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 07</div>
           <h2>第7部：参考文献・公式ソース一覧</h2>
-          <h4>Scrum.org 公式ページ(PSPO-AI Essentials 関連)</h4>
-          <h4>Product Owner スタンス関連(Scrum.org)</h4>
-          <h4>Scrumの一次情報</h4>
-          <h4>AI理論・倫理・フレームワーク関連</h4>
-          <h4>補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)</h4>
+
+          <div class="ref-group">
+            <h4>Scrum.org 公式ページ(PSPO-AI Essentials 関連)</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">認定試験ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification</a></li>
+              <li><span class="ref-name">コースページ(例)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training</a></li>
+              <li><span class="ref-name">コース新設アナウンス</span><a class="ref-url" href="https://www.scrum.org/resources/scrumorg-announces-new-ai-training-product-owners" target="_blank" rel="noopener">https://www.scrum.org/resources/scrumorg-announces-new-ai-training-product-owners</a></li>
+              <li><span class="ref-name">コース構成解説VLOG</span><a class="ref-url" href="https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/vlog-why-what-pspo-ai-essentials-course-explained</a></li>
+              <li><span class="ref-name">Product Owner's AI Start Checklist</span><a class="ref-url" href="https://www.scrum.org/resources/blog/product-owners-ai-start-checklist" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/product-owners-ai-start-checklist</a></li>
+              <li><span class="ref-name">Ethical AI for Product Owners & Product Managers</span><a class="ref-url" href="https://www.scrum.org/resources/blog/ethical-ai-product-owners-product-managers" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/ethical-ai-product-owners-product-managers</a></li>
+              <li><span class="ref-name">The Augmented Product Owner: Amplifying Scrum with AI</span><a class="ref-url" href="https://www.scrum.org/resources/blog/augmented-product-owner-amplifying-scrum-ai" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/augmented-product-owner-amplifying-scrum-ai</a></li>
+              <li><span class="ref-name">The Crossroads of Product Ownership and AI</span><a class="ref-url" href="https://www.scrum.org/resources/blog/crossroads-product-ownership-and-ai" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/crossroads-product-ownership-and-ai</a></li>
+              <li><span class="ref-name">Professional Scrum Certifications 一覧</span><a class="ref-url" href="https://www.scrum.org/professional-scrum-certifications" target="_blank" rel="noopener">https://www.scrum.org/professional-scrum-certifications</a></li>
+            </ul>
+          </div>
+
+          <div class="ref-group">
+            <h4>Product Owner スタンス関連(Scrum.org)</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">Stances of the Product Owner</span><a class="ref-url" href="https://www.scrum.org/resources/blog/stances-product-owner" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/stances-product-owner</a></li>
+              <li><span class="ref-name">What is a Product Owner?</span><a class="ref-url" href="https://www.scrum.org/resources/what-is-a-product-owner" target="_blank" rel="noopener">https://www.scrum.org/resources/what-is-a-product-owner</a></li>
+              <li><span class="ref-name">The Experimenter(A Preferred Product Owner Stance)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/experimenter-preferred-product-owner-stance" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/experimenter-preferred-product-owner-stance</a></li>
+            </ul>
+          </div>
+
+          <div class="ref-group">
+            <h4>Scrumの一次情報</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">The Scrum Guide(公式)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
+              <li><span class="ref-name">Evidence-Based Management Guide(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
+            </ul>
+          </div>
+
+          <div class="ref-group">
+            <h4>AI理論・倫理・フレームワーク関連</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">Anthropic「AI Fluency: Framework & Foundations」(4D Framework 公式コース)</span><a class="ref-url" href="https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework" target="_blank" rel="noopener">https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework</a></li>
+              <li><span class="ref-name">Anthropic「The AI Fluency Framework」公式PDF</span><a class="ref-url" href="https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf" target="_blank" rel="noopener">https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf</a></li>
+              <li><span class="ref-name">NIST AI Risk Management Framework</span><a class="ref-url" href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">https://www.nist.gov/itl/ai-risk-management-framework</a></li>
+              <li><span class="ref-name">EU AI Act(欧州委員会 公式ポリシーページ)</span><a class="ref-url" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noopener">https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a></li>
+            </ul>
+          </div>
+
+          <div class="ref-group">
+            <h4>補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">Xebia Academy コース紹介</span><a class="ref-url" href="https://academy.xebia.com/training/professional-scrum-product-owner-ai-essentials-training/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-scrum-product-owner-ai-essentials-training/</a></li>
+              <li><span class="ref-name">Prowareness コース紹介(ツール一覧の出典)</span><a class="ref-url" href="https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english" target="_blank" rel="noopener">https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english</a></li>
+              <li><span class="ref-name">tryscrum.com コース紹介</span><a class="ref-url" href="https://tryscrum.com/certifications/agile/scrum/product-owner/professional-scrum-product-owner-ai-essentials-training/" target="_blank" rel="noopener">https://tryscrum.com/certifications/agile/scrum/product-owner/professional-scrum-product-owner-ai-essentials-training/</a></li>
+            </ul>
+          </div>
+
+          <div class="callout note" data-testid="callout" data-variant="note">
+            <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" /><span data-testid="callout-label">補足</span></div>
+            <p><strong>免責事項：</strong>本ガイドは独自に公開情報を調査・要約したものであり、Scrum.orgによる公式監修を受けたものではありません。試験の出題内容・合格基準・受験条件は変更される可能性があるため、最新情報は必ず上記の公式ページでご確認ください。</p>
+          </div>
         </section>
       </article>
     </main>
@@ -1254,6 +1366,43 @@ tbody tr:last-child td {
   color: var(--color-ink-muted, #64748b);
   margin-top: 12px;
   font-weight: 500;
+}
+
+/* Reference list */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink, #0f172a);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint, #64748b);
+  word-break: break-all;
 }
 
 @media (max-width: 980px) {

@@ -16,13 +16,13 @@ const EXPECTED_H1 = [
 
 const EXPECTED_H2 = [
   "このガイドの使い方",
-  "第1部:認定試験の全体像",
-  "第2部:AI Theory and Primer(AI理論の基礎)",
-  "第3部:AI Security and Ethics(AIのセキュリティと倫理)",
-  "第4部:AI Product Ownership(AIを活用したプロダクトオーナーシップ)",
-  "第5部:ベストプラクティス総まとめ表",
-  "第6部:試験対策とシナリオ思考トレーニング",
-  "第7部:参考文献・公式ソース一覧",
+  "第1部：認定試験の全体像",
+  "第2部：AI Theory and Primer(AI理論の基礎)",
+  "第3部：AI Security and Ethics(AIのセキュリティと倫理)",
+  "第4部：AI Product Ownership(AIを活用したプロダクトオーナーシップ)",
+  "第5部：ベストプラクティス総まとめ表",
+  "第6部：試験対策とシナリオ思考トレーニング",
+  "第7部：参考文献・公式ソース一覧",
 ] as const;
 
 const EXPECTED_H3 = [
@@ -32,7 +32,7 @@ const EXPECTED_H3 = [
   "1.4 PSPO I / II / III との違い・位置づけ",
   "1.5 コースの7セクション構成",
   "2.1 AIの全体像と歴史のポイント",
-  "2.2 AIの分類:ANI・AGI・ASI",
+  "2.2 AIの分類：ANI・AGI・ASI",
   "2.3 機械学習(Machine Learning)の基礎",
   "2.4 深層学習(Deep Learning)とニューラルネットワーク",
   "2.5 生成AI(Generative AI)の仕組み",
@@ -63,7 +63,7 @@ const EXPECTED_H4 = [
   "Product Owner スタンス関連(Scrum.org)",
   "Scrumの一次情報",
   "AI理論・倫理・フレームワーク関連",
-  "補足:コースパートナーによる紹介ページ(ツール例・学習目標の参照用)",
+  "補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)",
 ] as const;
 
 const EXPECTED_H5 = [] as const;
