@@ -212,20 +212,168 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
       <!-- ===================== 01. About This Guide ===================== -->
       <section id="about-this-guide">
-        <div class="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
         <h2>本ガイドについて</h2>
+
+        <p>このガイドは、Scrum.org が提供する<strong>Professional Scrum Product Backlog Management Skills(PSPBM Skills)</strong>認定試験の出題領域を、初学者でも段階的に理解できるよう再構成した学習教材です。各章は以下の3要素で構成しています。</p>
+
+        <ul>
+          <li><strong>概念解説:</strong> Scrum Guide および Scrum.org 公式リソースに基づく定義</li>
+          <li><strong>ベストプラクティス:</strong> 実務で使われている具体的な技法・進め方</li>
+          <li><strong>ソース:</strong> 各主張の根拠となる一次・準一次情報のURL</li>
+        </ul>
+
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p>PSPBM Skills は Scrum Guide の知識に加え、Scrum.org が公開する<strong>Professional Scrum Competencies</strong>の一部領域を出題範囲として明示的に参照する試験です。単なる用語暗記ではなく、「プロダクトバックログをどう形成し、リファインし、並び替え、ステークホルダーと協働しながら価値を最大化するか」という実践スキルが問われます。</p>
+        </div>
       </section>
 
       <!-- ===================== 02. Exam Overview ===================== -->
       <section id="exam-overview">
-        <div class="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 02</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 02</div>
         <h2>認定試験の概要</h2>
+
+        <h3>試験基本情報</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>正式名称</td><td>Professional Scrum Product Backlog Management Skills&trade;(PSPBM Skills)</td></tr>
+              <tr><td>提供元</td><td>Scrum.org</td></tr>
+              <tr><td>初回提供開始日</td><td>2023年9月27日</td></tr>
+              <tr><td>難易度レベル</td><td>Intermediate(中級)</td></tr>
+              <tr><td>出題形式</td><td>選択式(Multiple Choice)、英語のみ</td></tr>
+              <tr><td>問題数</td><td>20問</td></tr>
+              <tr><td>制限時間</td><td>30分</td></tr>
+              <tr><td>合格基準</td><td>85%以上の正答率</td></tr>
+              <tr><td>受験形式</td><td>オンライン、受験者が任意の場所・タイミングで受験可能(試験会場への訪問は不要)</td></tr>
+              <tr><td>有効期限</td><td>受験権利(アセスメント)そのものに有効期限なし、合格後の認定に更新義務・更新費用なし</td></tr>
+              <tr><td>前提資格</td><td>必須ではないが、PSM I(Professional Scrum Master I)または PSPO I(Professional Scrum Product Owner I)の取得が推奨される</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>出題は「Scrum Guide の暗記」だけでは対応しきれません。PSM I や PSPO I で問われるような Scrum フレームワークの基礎理解を土台としたうえで、プロダクトバックログに関する実務知識(リファインメント技法、並び替え手法、ステークホルダー協働、経験主義の適用)が上乗せされる出題になります。まず土台となる Scrum の基礎を固めてから本ガイドの各章に進むことを推奨します。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">scrum.org — PSPBM Skills Certification</a></li>
+            <li><a href="https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill" target="_blank" rel="noopener">Credly — PSPBM バッジ発行条件</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">TheScrumMaster.co.uk — 試験形式の解説</a></li>
+          </ul>
+        </div>
+
+        <h3>認定が証明する能力</h3>
+
+        <p>Scrum.org は、PSPBM Skills 認定の取得によって以下の理解が示されるとしています。</p>
+
+        <ul>
+          <li>透明性が確保され、かつ価値に焦点を当てたプロダクトバックログを効果的にマネジメントする能力</li>
+          <li>カスタマーのニーズを捉える技法</li>
+          <li>プロダクトバックログのリファインメント技法</li>
+          <li>ステークホルダーの期待値をマネジメントする技法</li>
+          <li>経験主義(empiricism)を競争優位として活用する技法</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">scrum.org — PSPBM Skills Certification</a></li>
+          </ul>
+        </div>
+
+        <h3>対応する公式トレーニングコース</h3>
+
+        <p>Scrum.org は本認定に対応する1日制のコース「Professional Scrum Product Backlog Management Skills」を提供しています。<strong>講師によるライブコース(instructor-led)の参加者</strong>は、受講後14日以内にアセスメントを受験して85%未満だった場合に限り、追加費用なしで2回目の受験機会が付与されます。自己学習型(self-paced)のコース参加者にはこの特典は付かず、受験機会は1回です。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://academy.xebia.com/training/professional-scrum-product-backlog-management-skills-pspbms/" target="_blank" rel="noopener">Xebia Academy — PSPBMS トレーニング概要</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 03. Competencies Framework ===================== -->
       <section id="competencies-framework">
-        <div class="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 03</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 03</div>
         <h2>Professional Scrum Competencies フレームワーク</h2>
+
+        <p>Scrum.org は、個人のスキル成長を導くモデルとして<strong>Professional Scrum Competencies</strong>(プロフェッショナル・スクラム・コンピテンシー)を定義しています。すべての認定試験・コースウェアはこのコンピテンシーモデルを前提に設計されており、PSPBM Skills もその一部を出題範囲として明示しています。</p>
+
+        <h3>5つのコンピテンシー全体像</h3>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_COMPETENCIES_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Professional Scrum Competencies の5領域と、その土台となる関係</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>コンピテンシー</th><th>含まれる Focus Area</th></tr></thead>
+            <tbody>
+              <tr><td>Understanding and Applying the Scrum Framework</td><td>Empiricism、Scrum Values、Scrum Team、Events、Artifacts、Done、Scaling</td></tr>
+              <tr><td>Developing People and Teams</td><td>Self-Managing Teams、Facilitation、Leadership Styles、Coaching and Mentoring</td></tr>
+              <tr><td><strong>Managing Products with Agility</strong></td><td><strong>Forecasting &amp; Release Planning、Product Vision、Product Value、Product Backlog Management、Business Strategy、Stakeholders &amp; Customers</strong></td></tr>
+              <tr><td>Developing and Delivering Products Professionally</td><td>Emergent Software Development、Managing Technical Risk、Continuous Quality、Continuous Integration、Continuous Delivery、Optimizing Flow</td></tr>
+              <tr><td>Evolving the Agile Organization</td><td>Organizational Design &amp; Culture ほか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">scrum.org — The Professional Scrum Competencies</a></li>
+          </ul>
+        </div>
+
+        <h3>PSPBM Skills が重点的に問う Focus Area</h3>
+
+        <p>公式に PSPBM Skills の Focus Area として挙げられているのは、<strong>Product Backlog Management</strong> と <strong>Stakeholders &amp; Customers</strong> の2つだけです。加えて、土台となる「Understanding and Applying the Scrum Framework」(Empiricism・Artifacts・Events の基礎)の理解が前提とされます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>公式の Focus Area</th><th>概要</th></tr></thead>
+            <tbody>
+              <tr><td>Product Backlog Management</td><td>プロダクトバックログの形成、リファインメント、並び替えを継続的に行い、透明性と価値を保つ活動</td></tr>
+              <tr><td>Stakeholders &amp; Customers</td><td>プロダクトバックログの内容に影響を与える多様なステークホルダー・カスタマーとの協働</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>次の3つは同じ「Managing Products with Agility」コンピテンシー配下にありますが、<strong>PSPBM Skills の出題範囲としては公式に挙げられていません</strong>。プロダクトバックログ管理の背景を理解するための周辺知識として扱ってください。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>周辺のコンピテンシー文脈(出題範囲外)</th><th>概要</th></tr></thead>
+            <tbody>
+              <tr><td>Product Value</td><td>提供した価値・実現しうる価値を継続的に定義し、測定し、検証する活動</td></tr>
+              <tr><td>Product Vision</td><td>プロダクトが届けるべき価値と、その届け先を表現する将来像</td></tr>
+              <tr><td>Forecasting &amp; Release Planning</td><td>反復的・漸進的アプローチによるリリース計画とステークホルダーへの見通し提示</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">scrum.org — Professional Scrum Competency: Managing Products with Agility</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 04. What Is Product Backlog ===================== -->
