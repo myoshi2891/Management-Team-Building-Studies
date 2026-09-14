@@ -765,14 +765,131 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
       <!-- ===================== 09. Stakeholders and Customers ===================== -->
       <section id="stakeholders-and-customers">
-        <div class="section-eyebrow"><Icon name="tabler:calendar-event" aria-hidden="true" />SECTION 09</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:calendar-event" aria-hidden="true" />SECTION 09</div>
         <h2>Chapter 6: ステークホルダーとカスタマーとの協働</h2>
+
+        <h3>なぜステークホルダー協働がプロダクトバックログマネジメントの核なのか</h3>
+
+        <p>Managing Products with Agility コンピテンシーは、効果的なプロダクトバックログマネジメントには「Scrum Team を含む多様なステークホルダー・カスタマーからの入力と協働」が不可欠であるとしています。ステークホルダーが必要とする透明性のレベルは一様ではなく、相手に応じた手法を選ぶ必要があります。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/professional-scrum-competencies/managing-products-with-agility" target="_blank" rel="noopener">scrum.org — Professional Scrum Competency: Managing Products with Agility</a></li>
+          </ul>
+        </div>
+
+        <h3>ステークホルダー識別・関与の技法</h3>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>技法</th><th>概要</th></tr></thead>
+            <tbody>
+              <tr><td>ステークホルダーマッピング</td><td>関係者を洗い出し、関心度・影響力などの軸で整理する</td></tr>
+              <tr><td>Power/Interest グリッド</td><td>「影響力」と「関心度」の2軸でステークホルダーを4象限に分類し、関与の濃淡を決める</td></tr>
+              <tr><td>ステークホルダーインタビュー</td><td>個別に期待値・懸念点をヒアリングする</td></tr>
+              <tr><td>プロダクトバックログの公開・共有</td><td>プロダクトバックログ自体を可視化し、誰でも状況を把握できるようにする</td></tr>
+              <tr><td>Sprint Review への招待</td><td>動くインクリメントに対するフィードバックを得る最重要の場として活用する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>コミュニケーションのリズム</h3>
+
+        <p>Scrum の公式イベントの中で、ステークホルダーとの協働が最も強く組み込まれているのが<strong>Sprint Review</strong>です。Sprint Review はインクリメントを検査し、今後の適応を判断するための協働セッションであり、進捗報告会ではありません。Product Owner はここで得たフィードバックをプロダクトバックログの並び替え・内容更新に反映します。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STAKEHOLDER_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">ステークホルダーのフィードバックからバックログ更新までの協働サイクル</div>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>ステークホルダー全員に同じ深さの関与を求める必要はありません。Power/Interest グリッドなどで関与の濃淡を決め、影響力・関心度が高い層には密なコミュニケーション(定例の1on1やレビューへの招待)、それ以外の層には公開情報(バックログの共有、ニュースレター等)による透明性確保、といった使い分けが有効です。</p>
+        </div>
+
+        <h3>期待値マネジメントとコンフリクトの扱い</h3>
+
+        <p>複数のステークホルダーが異なる優先順位を主張することは日常的に起こります。Product Owner はこうした対立を「誰の声が大きいか」ではなく、プロダクトゴール・測定可能な価値・経験主義に基づく根拠に立ち返って調整する役割を担います。</p>
       </section>
 
       <!-- ===================== 10. Empiricism and EBM ===================== -->
       <section id="empiricism-and-ebm">
-        <div class="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 10</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 10</div>
         <h2>Chapter 7: 経験主義とEvidence-Based Managementによる価値最大化</h2>
+
+        <h3>経験主義の3本柱をプロダクトバックログに適用する</h3>
+
+        <p>Scrum は経験主義(Empiricism)に基づくフレームワークであり、その3本柱は<strong>透明性(Transparency)・検査(Inspection)・適応(Adaptation)</strong>です。プロダクトバックログマネジメントにおいては、次のように現れます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>柱</th><th>プロダクトバックログにおける現れ方</th></tr></thead>
+            <tbody>
+              <tr><td>透明性</td><td>プロダクトバックログの内容・並び順が誰にでも理解できる形で公開されている</td></tr>
+              <tr><td>検査</td><td>Sprint Review などでインクリメントとプロダクトバックログの妥当性を定期的に確認する</td></tr>
+              <tr><td>適応</td><td>検査で得た学びをもとに、プロダクトバックログの内容・並び順・プロダクトゴールを更新する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Evidence-Based Management(EBM)</h3>
+
+        <p><strong>Evidence-Based Management(EBM)</strong>は、Ken Schwaber と Scrum.org が開発した、組織がプロダクト提供から得る価値を測定・向上させるためのフレームワークです。実験と頻繁な検査を通じてリスクを低減し、意思決定を改善することを重視します。EBM は4つの<strong>主要価値領域(Key Value Areas, KVA)</strong>で構成されます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>KVA</th><th>意味</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Current Value(CV)</strong></td><td>現在、顧客・ユーザーに届いている価値</td></tr>
+              <tr><td><strong>Unrealized Value(UV)</strong></td><td>潜在的なニーズをすべて満たした場合に実現しうる、未実現の価値</td></tr>
+              <tr><td><strong>Ability to Innovate(A2I)</strong></td><td>顧客・ユーザーのニーズによりよく応える新しい能力を届ける組織の能力</td></tr>
+              <tr><td><strong>Time to Market(T2M)</strong></td><td>新しい能力・サービス・プロダクトを迅速に届ける能力</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_EBM_KVA_DIAGRAM" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Evidence-Based Management の4つの Key Value Areas とバックログ意思決定の関係</div>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>ベロシティ(Velocity)は「チームがどれだけ作業をこなしたか」という<strong>内部の出力(アウトプット)指標</strong>であり、顧客に届いた価値そのもの(アウトカム)を測るものではありません。プロダクトバックログの意思決定にベロシティだけを根拠にするのは誤りで、EBM の KVA のような<strong>アウトカム指標</strong>と組み合わせて価値を検証することが推奨されます。</p>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">scrum.org — Evidence-Based Management&trade;(EBM)</a></li>
+          </ul>
+        </div>
+
+        <h3>経験主義を競争優位として活かす</h3>
+
+        <p>PSPBM Skills のコース説明では、学習目標の一つとして「データに基づく意思決定と継続的な学習が、いかに競争優位につながるかを理解する」ことが挙げられています。これは、プロダクトバックログの並び替えや取捨選択を、憶測や声の大きさではなく、実データ・実験結果に基づいて行うという姿勢そのものを指します。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://agilemania.com/professional-scrum-product-backlogmanagement-skills-pspbms-training-united-states" target="_blank" rel="noopener">Agilemania — PSPBM Certification Course Objectives</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 11. AI and Backlog Management ===================== -->
