@@ -91,6 +91,7 @@ Experience の syllabus は「Category 1: Key ITIL terms and definitions」の�
 ### 2.1 ITIL Guiding Principles（ITIL指導原則）
 
 #### 定義
+
 組織の状況によらず、あらゆる意思決定を導く7つの推奨事項。
 
 | 原則 | 一言でいうと |
@@ -104,6 +105,7 @@ Experience の syllabus は「Category 1: Key ITIL terms and definitions」の�
 | Optimize and automate | 人手作業を最適化してから自動化する |
 
 #### Experience 文脈での理由
+
 Experience management は「Start where you are（既存の体験データを評価する）」「Progress iteratively with feedback（小さく試して学ぶ）」と特に強く結びつきます。後述の **notice–interpret–hypothesize–experiment ループ**（4.5節）はこの2原則の具体的な実装形と言えます。
 
 ### 2.2 Product・Service・Digital Product/Service の定義
@@ -154,13 +156,16 @@ Guiding Principles・Governance・Product and Service Lifecycle・Practices・Co
 ### 3.1 「Experience（体験）」を人間の反応として定義する
 
 #### 定義
+
 ITIL (Version 5) における Experience とは、単なる「満足度」ではなく、**anticipation（予期）・perception（知覚）・evaluation（評価）** という3つのプロセスを通じて生まれる、**feelings（感情）・thoughts（思考）・bodily states（身体的反応）** の総体として定義されます。
 
 #### なぜこの定義が重要か（理由）
+
 - 「体験＝アンケートの点数」という誤解を避けるため。ITIL は Experience を **人間の内的反応そのもの** として扱い、測定値（メトリクス）はその反応の一部を映す "仮説" にすぎないと位置づけます（3.1.2 で詳述）。
 - この定義があるからこそ、後述の「Experience Capture は本質的に不完全である」という重要な考え方（4.1節）が導き出されます。
 
 #### 具体例
+
 レンタカー予約アプリ（Car Rental Scenario）で、ユーザーが予約完了画面を見た瞬間：
 - **Anticipation**：予約前に「スムーズに終わるだろう」と期待していた
 - **Perception**：実際の画面の読み込み速度・UI のわかりやすさを知覚する
@@ -171,9 +176,11 @@ ITIL (Version 5) における Experience とは、単なる「満足度」では
 ### 3.2 Digital Experience と Digital Experience System
 
 #### 定義
+
 Digital experience（デジタル体験）とは、デジタル製品・サービスとのインタラクションに対する feelings・thoughts・bodily responses（身体反応）。これが積み重なって **digital experience system**（デジタル体験を生み出す一連の要素の集合）を構成します。
 
 #### なぜ重要か
+
 Trust（信頼）と Value（価値）は、機能要件の充足だけでは生まれません。ログイン画面の応答速度、通知のトーン、エラーメッセージの分かりやすさなど、**一つひとつのデジタル接点の質の総和** が信頼と価値co-creation（共創）を左右します。
 
 > ✅ ベストプラクティス：デジタルプロダクトの UX 改善プロジェクトでは、機能要件（Functional Requirement）のチェックリストとは別に「Experience チェックリスト」（応答速度・トーン・エラー文言・通知頻度など）を用意し、Design レビューで両方を確認する。
@@ -188,6 +195,7 @@ Trust（信頼）と Value（価値）は、機能要件の充足だけでは生
 ### 4.1 主要ステークホルダーと「Tensions（緊張関係）」── BL2
 
 #### 定義
+
 ITIL Experience は、consumer 側・provider 側それぞれに複数の役割を定義し、役割間に **必然的に生じる利害の緊張関係（tension）** を明示的に扱います。
 
 ```mermaid
@@ -224,6 +232,7 @@ flowchart TB
 | Enabler | 技術基盤・ツールで提供を下支えする | 技術的な理想解と、Agent が実際に運用できる複雑さの間で衝突する |
 
 #### なぜ Tension を明示するのか（理由）
+
 体験は「誰か一人の満足」では測れません。Customer が満足していても User が不満なら Experience は失敗です。ITIL Experience はこの **構造的な利害対立を隠さず可視化する** ことで、改善の優先順位付けを現実的にします。
 
 > ✅ ベストプラクティス：Experience 改善の施策を立てる際は、必ず「誰の Experience が良くなり、誰の Tension が高まるか」を1枚のステークホルダーマップに書き出してからレビューする。
@@ -236,6 +245,7 @@ flowchart TB
 ### 4.2 Experience と ITIL Four Dimensions ── BL2〜BL3
 
 #### 定義
+
 Experience は独立した1機能ではなく、**Four Dimensions すべてに統合され、反映される** という考え方（Assessment Criteria 2.2.1、BL2）。さらに Four Dimensions を「Governance のレンズ」として Experience 改善に **適用する**（2.2.6、BL3）ことが求められます。
 
 ```mermaid
@@ -266,6 +276,7 @@ flowchart TB
 ### 4.3 ITIL Product and Service Lifecycle の中での Experience ── BL2〜BL4
 
 #### 定義：Value Chain Activities が生む "Experience Moments"
+
 8段階の Product and Service Lifecycle（2.3節参照）の **どの活動でも** experience moments（体験の瞬間）が発生します（Assessment Criteria 2.3.1、BL2）。
 
 #### Functional Interactions と Relational Interactions の違い（重要：BL4で差別化が問われる）
@@ -315,9 +326,11 @@ flowchart LR
 ### 5.1 Experience Capture の基本概念と「メトリクスは仮説である」── BL2
 
 #### 定義
+
 Experience Capture（体験の捕捉）とは、人間の内的反応（3.1節参照）を、観測可能なデータへと変換する試みです。
 
 #### なぜ「メトリクスは仮説」なのか（極めて重要な理由）
+
 Experience は本質的に主観的・多面的な人間の反応であり、**どのようなメトリクス（CSAT・NPS・行動ログなど）も、その反応の一部しか捉えられません**。ITIL (Version 5) はこれを率直に認め、「メトリクスは人間の体験全体を代表する仮説（hypothesis）にすぎない」と位置づけます（Assessment Criteria 3.1.2）。
 
 > ✅ ベストプラクティス：単一の指標（例：NPS）だけで意思決定せず、複数の Evidence（証拠）を組み合わせて「仮説の確からしさ」を評価する。
@@ -364,10 +377,12 @@ Experience は本質的に主観的・多面的な人間の反応であり、**�
 ### 5.5 データ品質の評価：Trustworthiness と Coherence ── BL3（適用）
 
 #### 定義
+
 - **Trustworthiness（信頼性）**：データの出所・収集方法が信頼できるか（バイアス・サンプルサイズ・収集タイミングなど）。
 - **Coherence（一貫性）**：複数のデータソース間で矛盾がないか、文脈と整合しているか。
 
 #### 具体例（適用シナリオ）
+
 レンタカーアプリで「アプリの評価は4.8/5だが、サポートへの苦情が急増している」場合：
 - Trustworthiness の観点：評価スコアは新規ユーザーのみのバイアスがないか確認する
 - Coherence の観点：評価スコア（数値シグナル）と苦情内容（物語的シグナル）が矛盾しているため、追加調査が必要と判断する
@@ -385,6 +400,7 @@ Experience は本質的に主観的・多面的な人間の反応であり、**�
 - データ収集はするが、誰もアクション（改善）に結びつけない「収集のための収集」
 
 #### 捕捉に関わる役割・ツール
+
 組織構造（Organizations and people 次元）と情報技術（Information and technology 次元）の両方から、誰がデータを収集し、どのツール（アンケートツール、行動分析ツール、AI分析基盤）を使うかを明確に定義することが求められます。
 
 **出典**：
@@ -419,11 +435,13 @@ flowchart LR
 体験の観点では、Collaborative な関係ほど Relational Interaction（4.3節）の比重が高まり、Trust（信頼）が体験全体の質を左右するようになります。
 
 #### Service Agreement の視点
+
 SLA などの Agreement を「機能要件の約束」としてだけでなく、**「体験面の期待値をすり合わせる場」** として捉えることが Experience の文脈での新しい視点です（6.6節・4.3節の Broken Expectations とも関連）。
 
 ### 6.2 Service Journey の7ステップ ── BL2
 
 #### 定義
+
 Service Journey とは、consumer と provider の関係が時間とともにどう進展するかを表す、7段階のモデルです。
 
 ```mermaid
@@ -455,6 +473,7 @@ flowchart LR
 ### 6.3 Consumer Stakeholder Journey と Provider Stakeholder Journey ── BL2〜BL3
 
 #### 定義
+
 7ステップの Service Journey を、**Consumer 側（User/Customer/Customer Sponsor）** と **Provider 側（Agent/Principal/Provider Sponsor/Enabler）** それぞれの視点で描いたものが Stakeholder Journey です。各ジャーニーには固有の **Concerns（懸念事項）** と **Anti-patterns（よくある失敗パターン）** があります。
 
 #### Consumer 側ジャーニーの例（Customer の視点）
@@ -472,6 +491,7 @@ flowchart LR
 | Co-create段階でエスカレーションが多発していないか | Reflect段階の振り返りを形骸化させ、同じ問題を繰り返す |
 
 #### ITIL Service Journey Model の適用（Assessment Criteria 4.4.3、BL3）
+
 Provider・Consumer 双方の Journey を重ね合わせ、**どのステップで、どちらの視点の体験シグナルが弱いか** をマッピングするのが Service Journey Model の実務的な使い方です。
 
 > ✅ ベストプラクティス：四半期ごとに Consumer Journey と Provider Journey を並べてレビューし、双方の「Concerns」が一致しているステップ（＝優先改善ポイント）を特定する。
@@ -488,6 +508,7 @@ Provider・Consumer 双方の Journey を重ね合わせ、**どのステップ�
 #### notice – interpret – hypothesize – experiment ループ（Assessment Criteria 4.5.1、BL3：適用）
 
 #### 定義
+
 ITIL Continual Improvement Model の中で、Experience に特化した4段階の改善ループ。
 
 ```mermaid
@@ -515,6 +536,7 @@ flowchart TB
 > 💡 試験対策メモ：この対比（by the system / to the system）は BL4 のため、単なる用語暗記ではなく「このシナリオはどちらに該当するか判定させる」設問が出やすい重要ポイントです。
 
 #### Trust と Psychological Safety（心理的安全性）の役割（Assessment Criteria 4.5.3、BL2）
+
 Experience 改善を組織で継続するには、**改善提案をした人が非難されない心理的安全性** が不可欠です。心理的安全性が低い組織では、Notice（気づき）の段階でネガティブなシグナルが報告されず、改善ループそのものが機能しません。
 
 > ✅ ベストプラクティス：Reflect（6.2節）のセッションを「誰の責任か」を問う場ではなく、「次に何を試すか」を決める場として明示的に運営する（心理的安全性の担保）。
@@ -529,14 +551,17 @@ Experience 改善を組織で継続するには、**改善提案をした人が�
 ### 7.1 AI が Experience Management にもたらす価値 ── BL2
 
 #### 定義
+
 AI は Experience Capture（データ収集・解釈の自動化）、Personalization（個別最適化）、Predictive Insight（予兆検知）など複数の面で Experience Management を支援します。
 
 #### 理由
+
 人間の体験は膨大かつ多面的（4つの Domain × 3層データ × Numerical/Narrative シグナル）であるため、AIなしでは大規模に "capture" しきれません。一方で、AIの使い方を誤ると、5.1節の「メトリクスは仮説にすぎない」という原則を無視した過信（AIが出した数値を絶対視すること）につながるリスクもあります。
 
 ### 7.2 ITIL AI Capability Model（6Cモデル）── BL2
 
 #### 定義
+
 Information and Technology 次元（2.4節）の中核をなす、AI の機能を6つに分類するモデル。
 
 ```mermaid
@@ -567,9 +592,11 @@ flowchart TB
 ### 7.3 AI Governance と Digital Ethics（Assessment Criteria 5.1.2, 5.2.2）── BL2
 
 #### 定義
+
 AI Governance（AIガバナンス）とは、AI活用がもたらす便益とリスクをバランスさせる意思決定の枠組み。関連する4つの視点（Decision authority & risk management／Ethical principles／Data governance／Regulatory compliance）が相互に依存する形で構成されます。
 
 #### Experience の文脈での理由
+
 Experience Managementでは、AIが Cognition（分析）・Communication（対話）を担う場面が増えるほど、「AIの判断・応答が利用者の Trust（信頼）にどう影響するか」というガバナンス課題が直結します。透明性のないAI活用（例：AIが対応していることを隠す）は、それ自体が Broken Expectations（4.3節）や Trust の毀損につながります。
 
 > ✅ ベストプラクティス：AIチャットボット（Communication機能）を導入する際は、利用者に「AIが対応している」ことを明示し、いつでも人間に切り替えられる導線を用意する（透明性の確保＝Digital Ethicsの実践）。
@@ -586,9 +613,11 @@ Experience Managementでは、AIが Cognition（分析）・Communication（対�
 ### 8.1 ITIL と DevOps ── BL2
 
 #### 定義と理由
+
 ITIL と DevOps は競合するフレームワークではなく、**相互補完的（complementary）** です。ITIL が「何を・なぜ・誰のために管理するか」（Product and Service Lifecycle、Governance）を扱うのに対し、DevOps は「どう素早く安全にデリバリーするか」（CI/CD、自動化）を扱います。
 
 #### Experience の文脈での接続点
+
 DevOps の高頻度リリースサイクルは、6.4節の **notice–interpret–hypothesize–experiment ループ** を高速に回す土台になります。Experiment（小さく試す）フェーズは、DevOps の Feature Flag やカナリアリリースと自然に対応します。
 
 > ✅ ベストプラクティス：Experiment フェーズの施策は、DevOpsチームのFeature Flag基盤に乗せることで、Notice段階に戻るまでのサイクルタイムを短縮する。
@@ -596,6 +625,7 @@ DevOps の高頻度リリースサイクルは、6.4節の **notice–interpret�
 ### 8.2 ITIL と PRINCE2（プロジェクトマネジメント）── BL2
 
 #### 定義と理由
+
 ITIL Experience の syllabus は「なぜProduct and Service Lifecycleの管理においてプロジェクトマネジメントが重要か」（Assessment Criteria 6.2.1）を問います。Onboard（5.2節）のような、体験に大きな影響を与える移行作業は、しばしば **プロジェクトとして計画・統制する必要** があります。PRINCE2 の「ステージゲート」「例外による管理」といった原則は、Onboard段階の体験リスクを制御する上で有効です。
 
 > ✅ ベストプラクティス：大規模な Onboard（移行）を伴う契約では、PRINCE2のステージゲートを設け、各ゲートで「体験面のKPI」（例：初回ログイン成功率）を通過条件に含める。

@@ -42,6 +42,7 @@
 ---
 
 <a id="0章"></a>
+
 ## 第0章：ITIL Service (Version 5) 試験の全体像
 
 ### 0.1 このモジュールは何を証明する資格か
@@ -104,10 +105,12 @@ flowchart TB
     MP1 --> MP["ITIL Managing Professional<br/>(Version 5)"]
     MP2 --> MP
     MP3 --> MP
+    SL2 --> MP
     SL1 --> SLD["ITIL Strategic Leader<br/>(Version 5)"]
     SL2 --> SLD
     MP --> MST["ITIL Master (Version 5)"]
     SLD --> MST
+    PM --> MST
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -119,11 +122,12 @@ flowchart TB
     class MST done
 ```
 
-**読み方のポイント**：Product・Service・Experience の3モジュールをすべて取得すると「ITIL Managing Professional」称号が得られます。同様に Strategy・Transformation を取得すると「ITIL Strategic Leader」となり、両方を揃えると最上位の「ITIL Master」に到達します。Service モジュール単体でも実務知識として十分に価値がありますが、資格戦略上は Product・Experience とセットで捉えると学習効率が上がります。
+**読み方のポイント**：Product・Service・Experience・Transformation の4モジュールをすべて取得すると「ITIL Managing Professional」称号が得られます。同様に Strategy・Transformation を取得すると「ITIL Strategic Leader」となり、Practice Manager・Managing Professional・Strategic Leader の3つを揃えると最上位の「ITIL Master」に到達します。Service モジュール単体でも実務知識として十分に価値がありますが、資格戦略上は Product・Experience・Transformation とセットで捉えると学習効率が上がります。
 
 ---
 
 <a id="1章"></a>
+
 ## 第1章：前提知識の総復習——ITIL Version 5 の全体構造
 
 Service モジュールの各章に入る前に、ITIL (Version 5) の土台となる概念を整理しておきます。すでに Foundation を取得済みの方は復習として、ITIL 4 からの移行者は「何が変わったか」の確認として読んでください。
@@ -379,6 +383,7 @@ Service モジュールでは、これらのプラクティスが PSLM の Deliv
 ---
 
 <a id="2章"></a>
+
 ## 第2章：Module 1 — デジタル製品とサービスの主要概念
 
 ### 2.1 このモジュールの狙い
@@ -467,6 +472,7 @@ flowchart TB
 ---
 
 <a id="3章"></a>
+
 ## 第3章：Module 2 — Discover（発見）
 
 ### 3.1 目的（Purpose）
@@ -527,6 +533,7 @@ flowchart TB
 ---
 
 <a id="4章"></a>
+
 ## 第4章：Module 3 — Design（設計）
 
 ### 4.1 目的（Purpose）
@@ -586,6 +593,7 @@ flowchart TB
 ---
 
 <a id="5章"></a>
+
 ## 第5章：Module 4 — Acquire（獲得）
 
 ### 5.1 目的（Purpose）
@@ -651,6 +659,7 @@ flowchart TB
 ---
 
 <a id="6章"></a>
+
 ## 第6章：Module 5 — Build（構築）
 
 ### 6.1 目的（Purpose）
@@ -713,6 +722,7 @@ flowchart TB
 ---
 
 <a id="7章"></a>
+
 ## 第7章：Module 6 — Transition（移行）
 
 ### 7.1 目的（Purpose）
@@ -776,6 +786,7 @@ flowchart TB
 ---
 
 <a id="8章"></a>
+
 ## 第8章：Module 7 — Operate（運用）
 
 Operate は、PeopleCert の紹介文にある「運用の信頼性（operational reliability）」を直接担う、Service モジュールの中核的な活動です。
@@ -840,6 +851,7 @@ flowchart TB
 ---
 
 <a id="9章"></a>
+
 ## 第9章：Module 8 — Deliver（提供）
 
 ### 9.1 目的（Purpose）
@@ -902,6 +914,7 @@ flowchart TB
 ---
 
 <a id="10章"></a>
+
 ## 第10章：Module 9 — Support（サポート）
 
 ### 10.1 目的（Purpose）
@@ -973,6 +986,7 @@ flowchart TB
 ---
 
 <a id="11章"></a>
+
 ## 第11章：Module 10 — ライフサイクル管理・AI・他フレームワーク統合
 
 ### 11.1 エンドツーエンドのライフサイクル管理
@@ -1097,6 +1111,7 @@ DevOps・PRINCE2・Agile・ITIL (Version 5) といった複数のフレームワ
 ---
 
 <a id="12章"></a>
+
 ## 第12章：ベストプラクティス総まとめ
 
 第3章〜第10章で解説した PSLM 8段階のベストプラクティスを、1枚の早見表として整理します。試験直前の復習や、実務導入時のチェックリストとして活用してください。
@@ -1126,6 +1141,7 @@ DevOps・PRINCE2・Agile・ITIL (Version 5) といった複数のフレームワ
 ---
 
 <a id="13章"></a>
+
 ## 第13章：試験対策のポイント
 
 ### 13.1 試験の性質を理解する
@@ -1169,6 +1185,7 @@ flowchart TB
 ---
 
 <a id="付録"></a>
+
 ## 付録：用語集
 
 | 用語（英語） | 日本語訳・説明 |
@@ -1221,6 +1238,7 @@ flowchart TB
 ---
 
 <a id="参考文献"></a>
+
 ## 参考文献・ソース URL 一覧
 
 本ガイドの作成にあたり参照した情報源を、性質ごとに分類して掲載します。ITIL (Version 5) は2026年に公開された新しいスキームであるため、PeopleCert・itil.com による一次情報に加えて、PeopleCert 認定トレーニング機関（ATO）や業界メディアによる解説記事も参照しています。最終的な正確性の確認には、必ず公式刊行物（Official eBook／Learner Workbook）をご参照ください。

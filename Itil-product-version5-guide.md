@@ -1,5 +1,6 @@
 # ITIL® Product (Version 5) 学習ガイド
-### デジタルプロダクトを「統合されたバリューストリーム」としてマネジメントする — 初学者向け徹底解説
+
+## デジタルプロダクトを「統合されたバリューストリーム」としてマネジメントする — 初学者向け徹底解説
 
 ---
 
@@ -14,7 +15,7 @@
 
 1. [ITIL Product (Version 5)とは何か](#1-itil-product-version-5とは何か)
 2. [試験概要と出題形式](#2-試験概要と出題形式)
-3. [基礎概念:デジタルプロダクトとサービス(Category 1)](#3-基礎概念デジタルプロダクトとサービスcategory-1)
+3. [基礎概念:デジタルプロダクトとサービス(Category 1)](#section3-basic-concepts)
 4. [ITIL Product and Service Lifecycle Model全体像](#4-itil-product-and-service-lifecycle-model全体像)
 5. [Discover(発見)活動](#5-discover発見活動)
 6. [Design(設計)活動](#6-design設計活動)
@@ -154,6 +155,8 @@ flowchart TB
 - ITIL® Product (Version 5) — Oxford College of Technology — https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-product-version-5/
 
 ---
+
+<a id="section3-basic-concepts"></a>
 
 ## 3. 基礎概念:デジタルプロダクトとサービス(Category 1)
 
