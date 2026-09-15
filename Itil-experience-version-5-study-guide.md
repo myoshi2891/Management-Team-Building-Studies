@@ -626,7 +626,7 @@ DevOps の高頻度リリースサイクルは、6.4節の **notice–interpret�
 
 #### 定義と理由
 
-ITIL Experience の syllabus は「なぜProduct and Service Lifecycleの管理においてプロジェクトマネジメントが重要か」（Assessment Criteria 6.2.1）を問います。Onboard（5.2節）のような、体験に大きな影響を与える移行作業は、しばしば **プロジェクトとして計画・統制する必要** があります。PRINCE2 の「ステージゲート」「例外による管理」といった原則は、Onboard段階の体験リスクを制御する上で有効です。
+ITIL Experience の syllabus は「なぜProduct and Service Lifecycleの管理においてプロジェクトマネジメントが重要か」（Assessment Criteria 6.2.1）を問います。Onboard（6.2節）のような、体験に大きな影響を与える移行作業は、しばしば **プロジェクトとして計画・統制する必要** があります。PRINCE2 の「ステージゲート」「例外による管理」といった原則は、Onboard段階の体験リスクを制御する上で有効です。
 
 > ✅ ベストプラクティス：大規模な Onboard（移行）を伴う契約では、PRINCE2のステージゲートを設け、各ゲートで「体験面のKPI」（例：初回ログイン成功率）を通過条件に含める。
 
