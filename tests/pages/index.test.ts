@@ -289,7 +289,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
-        title: "PAL-EBM™ 認定資格 完全ガイド | Evidence-Based Management™ で読み解くアジャイルリーダーシップ",
+        title: "Professional Agile Leadership™ - Evidence-Based Management™(PAL-EBM)認定 完全ガイド",
         category: "SCRUM.ORG",
         href: "/professional-agile-leadership-evidence-based-management",
         accentClass: "guide-card-indigo",
