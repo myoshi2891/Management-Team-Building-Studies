@@ -138,6 +138,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
 <template>
   <div class="layout">
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
     <div
       v-if="sidebarOpen"
       class="sidebar-overlay"
@@ -191,7 +192,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
     </nav>
 
     <!-- ===================== Main content ===================== -->
-    <main class="main-content">
+    <main id="main-content" class="main-content">
       <div class="hero">
         <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公式認定試験ガイド</div>
         <h1>Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド</h1>
@@ -1056,6 +1057,14 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 .layout {
   display: block;
 }
+
+.skip-link {
+  position: absolute; top: -48px; left: 0; z-index: 40;
+  background: var(--color-paper-raised); color: var(--color-indigo);
+  padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: var(--global-nav-height); }
 
 .sidebar-overlay {
   display: none;
