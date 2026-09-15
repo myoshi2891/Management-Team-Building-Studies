@@ -414,12 +414,14 @@ flowchart LR
     E["Execute<br/>実行<br/>選定したアプローチでの遂行"]:::hub
     S["Synthesize<br/>統合<br/>変化と既存運用のバランス"]:::hub
     R["Reflect<br/>振り返り<br/>持続可能性と長期的妥当性の維持"]:::done
+    O["Observe<br/>戦略策定サイクル<br/>次の観察へ学習を還元"]:::box
 
     P --> E --> S --> R
-    R -.策定サイクルへの学習還元.-> P
+    R -.策定サイクルへの学習還元.-> O
 
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
 ```
 
 ### 8.1 Plan（実装計画）
