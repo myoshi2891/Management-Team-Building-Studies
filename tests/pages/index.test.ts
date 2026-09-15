@@ -247,6 +247,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "Professional Scrum Master(PSM)認定ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-master",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "Professional Scrum Master™ - AI Essentials 完全ガイド",
         category: "SCRUM.ORG",
         href: "/psm-ai-essentials-guide",
@@ -259,6 +265,18 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-product-backlog-management-skills",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Professional Scrum Product Owner™ - AI Essentials 完全学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-scrum-product-owner-ai-essentials",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Professional Scrum Developer(PSD I)認定資格 学習ガイド",
         category: "SCRUM.ORG",
         href: "/professional-scrum-developer",
@@ -268,6 +286,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         title: "PAL I(Professional Agile Leadership I)認定試験 学習ガイド",
         category: "SCRUM.ORG",
         href: "/pal-i-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "Professional Agile Leadership™ - Evidence-Based Management™(PAL-EBM)認定 完全ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-agile-leadership-evidence-based-management",
         accentClass: "guide-card-indigo",
       },
       {
@@ -458,7 +482,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "41 ガイド", hub: "/certifications", cards: 41 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "45 ガイド", hub: "/certifications", cards: 45 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "18 ガイド", hub: "/books", cards: 18 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);
