@@ -1124,7 +1124,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 9405a69
+コードコミット HEAD: 4d60f7f
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
@@ -1213,13 +1213,13 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   - SiteHeader.vue（全ページ共通グローバルナビ。種別ごとのパネルはハブページへのリンクのみを列挙し、モバイルはアコーディオン）
   - SiteSearch.vue（ヘッダー内のサイト内検索。/ と Cmd/Ctrl+K で開く）
   - MermaidDiagram.vue / useActiveHeading.ts
-  - ユニットテスト 1737 件 / E2E 29 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
+  - ユニットテスト 1839 件 / E2E 29 件（全ページ x 3 幅の横スクロール禁止ゲートを含む）
   - SiteDisclaimer.vue（全ページ共通の免責事項。app.vue に 1 行。固定サイドバーへは実測退避）
   - test / typecheck / lint はいずれも 2026-09-11 時点で ✔（実測）
   - build は NUXT_SITE_URL の指定が必要（未指定だと sitemap の prerender で失敗）。test:e2e は ✔
-  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 65 本 exit 0 パス
+  - 全ページ型検査 (nuxi typecheck) / リンター (eslint) / 原本照合監査は全 69 本 exit 0 パス
 
-ベースラインテスト数: ユニット 1737 + E2E 29
+ベースラインテスト数: ユニット 1839 + E2E 29
 ```
 
 ### §69. PSU（Professional Scrum with User Experience 完全ガイド）原本照合監査 exit 0 と見出し階層是正
@@ -1233,7 +1233,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`Professional-Scrum-Master.html`）と移行先 Vue SFC（`app/pages/professional-scrum-master.vue`）を機械照合し、全要素（リスト 109, 表行 110, 段落 34, 見出し 52, 外部リンク 12, Mermaid 6, Callout 23, SVG 1）が 100% 一致して **exit 0** を達成。
 - **参考文献セクションの見出し階層是正（Q-3適合）**: 原本 HTML では `<h2>参考文献・出典</h2>` の直下に `<h4>`（「一次情報源(Scrum.org / 公式スクラムガイド)」「補足情報源(非公式の学習・分析リソース)」の2件）が置かれており、`h2 -> h4` の見出し階層スキップが存在していた。アクセシビリティ標準（WCAG）および品質契約 Q-3 を満たすため、`audit_source_parity.mjs` の h4→h3 昇格許可機能（アクセシビリティ階層スキップ是正）に基づき、該当の 2 件を `<h3>` に昇格させた。
-- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-scrum-master`（「スクラムマスター」/ "SCRUM MASTER"。PSM-AI が既に登録済み）に PSM を追加登録した。Scrum.org 認定プログラム内のガイドとして登録した。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-scrum-master`（「スクラムマスター」/ "SCRUM MASTER"。PSM-AI が既に登録済み）に PSM を追加登録した。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 66 → 67 件、資格ガイド総数は 42 → 43 件となった。
 - **原本アーカイブ**: `Professional-Scrum-Master.html` および `Professional-Scrum-Master.md` を `archive/Professional-Scrum-Master/` へ移動し、`package.json` の `audit:psm` スクリプトをアーカイブ先パスに設定。
 
 ### §71. PSPBM（Professional Scrum Product Backlog Management Skills 認定 完全学習ガイド）原本照合監査 exit 0
@@ -1262,3 +1262,8 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   10. `style(pspo-ai): expand main content to full width` (`be75454`)
   11. `style(pspo-ai): apply authentic typography, color palette and component styles` (`4d60f7f`)
 
+### §73. PAL-EBM（Professional Agile Leadership - Evidence-Based Management 認定 完全ガイド）原本照合監査 exit 0
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Professional-Agile-Leadership-Evidence-Based-Management/Professional-Agile-Leadership-Evidence-Based-Management.html`）と移行先 Vue SFC（`app/pages/professional-agile-leadership-evidence-based-management.vue`）を機械照合し、全要素（リスト 83, 表行 94, 段落 38, 見出し 55, 外部リンク 17, Mermaid 12, Callout 30, SVG 1）が 100% 一致して **exit 0** を達成。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-agile-leader`（「アジャイルリーダー」/ "AGILE LEADER"。PAL-I が既に登録済み）に PAL-EBM を追加登録した。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 65 → 66 件、資格ガイド総数は 41 → 42 件となった。
+- **原本アーカイブ**: `Professional-Agile-Leadership-Evidence-Based-Management.html` および `Professional-Agile-Leadership-Evidence-Based-Management.md` を `archive/Professional-Agile-Leadership-Evidence-Based-Management/` へ移動し、`package.json` の `audit:pal-ebm` スクリプトをアーカイブ先パスに設定。
