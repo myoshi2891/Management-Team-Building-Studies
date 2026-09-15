@@ -272,7 +272,7 @@ class S9 done;`;
               <tr><td>採点方法</td><td>即時自動採点</td><td>即時自動採点</td><td>Scrum専門家チームによる手動採点(結果通知まで約4週間)</td></tr>
               <tr><td>前提資格</td><td>なし</td><td>なし(PSM I 取得が推奨)</td><td>なし(PSM II 取得が推奨)</td></tr>
               <tr><td>有効期限</td><td>なし(生涯有効)</td><td>なし(生涯有効)</td><td>なし(生涯有効)</td></tr>
-              <tr><td>対応言語</td><td>英語・日本語・簡体字中国語(scrum.org.cn 経由)</td><td>英語のみ</td><td>英語のみ</td></tr>
+              <tr><td>対応言語</td><td>英語・日本語・簡体字中国語(scrum.org.cn 経由)</td><td>英語・簡体字中国語(scrum.org.cn 経由)</td><td>英語のみ</td></tr>
               <tr><td>デジタル資格</td><td>Credly バッジ付与</td><td>Credly バッジ付与</td><td>Credly バッジ付与</td></tr>
             </tbody>
           </table>
