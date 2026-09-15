@@ -849,7 +849,7 @@ class B,C,D,E box;`;
         <p>Additional Topicsのもう1つの柱。複雑な世界で、経験主義を用いてどのように目標に向かって進むかを扱います。</p>
 
         <h3>11.1 Scrumにおける目標の階層</h3>
-        <p>Scrum Guide(2020年版)では、組織のビジョンからSprint Goalに至るまで、目標が階層的につながっていることが強調されています。</p>
+        <p>EBMでは、組織の目標を<strong>戦略目標(Strategic Goal)</strong>・<strong>中間目標(Intermediate Goal)</strong>・<strong>即時実行目標(Immediate Tactical Goal)</strong>の3層で捉えます。Scrum GuideのProduct GoalやSprint Goalは、これらの組織目標と文脈的に整合づけて運用されますが、Scrum Guide自体がそれらを1つの公式な階層として定義しているわけではない点に注意してください。</p>
         <div class="mermaid-wrap">
           <ClientOnly>
             <MermaidDiagram :chart="DIAGRAM_GOAL_HIERARCHY" theme="base" :theme-variables="MERMAID_THEME_VARIABLES" />
