@@ -87,6 +87,7 @@
 | `archive/Professional-Agile-Leadership-Evidence-Based-Management/Professional-Agile-Leadership-Evidence-Based-Management.html` | `app/pages/professional-agile-leadership-evidence-based-management.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Master/Professional-Scrum-Master.html` | `app/pages/professional-scrum-master.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Product-Backlog-Management-Skills/Professional-Scrum-Product-Backlog-Management-Skills.html` | `app/pages/professional-scrum-product-backlog-management-skills.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Professional-Scrum-Product-Owner-AI-Essentials/Professional-Scrum-Product-Owner-AI-Essentials.html` | `app/pages/professional-scrum-product-owner-ai-essentials.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -1238,14 +1239,14 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 ### §71. PSPBM（Professional Scrum Product Backlog Management Skills 認定 完全学習ガイド）原本照合監査 exit 0
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`Professional-Scrum-Product-Backlog-Management-Skills.html`）と移行先 Vue SFC（`app/pages/professional-scrum-product-backlog-management-skills.vue`）を機械照合し、全要素（リスト 115, 表行 87, 段落 49, 見出し 50, 外部リンク 21, Mermaid 5, Callout 37, SVG 1）が 100% 一致して **exit 0** を達成。
-- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-product-owner`（「プロダクトオーナー」/ "PRODUCT OWNER"）に PSPBM を追加登録。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 66 → 67 件、資格ガイド総数は 43 → 44 件となった。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-product-owner`（「プロダクトオーナー」/ "PRODUCT OWNER"）に PSPBM を追加登録。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 67 → 68 件、資格ガイド総数は 43 → 44 件となった。
 - **原本アーカイブ**: `Professional-Scrum-Product-Backlog-Management-Skills.html` および `Professional-Scrum-Product-Backlog-Management-Skills.md` を `archive/Professional-Scrum-Product-Backlog-Management-Skills/` へ移動し、`package.json` の `audit:pspbm` スクリプトをアーカイブ先パスに設定。
 
 ### §72. PSPO-AI（Professional Scrum Product Owner - AI Essentials 認定 完全学習ガイド）原本照合監査 exit 0 と移行完了
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Professional-Scrum-Product-Owner-AI-Essentials/Professional-Scrum-Product-Owner-AI-Essentials.html`）と移行先 Vue SFC（`app/pages/professional-scrum-product-owner-ai-essentials.vue`）を機械照合し、全要素（リスト 72, 表行 95, 段落 66, 見出し 44, 外部リンク 22, Mermaid 11, Callout 21, SVG 1）が 100% 一致して **exit 0** を達成。
 - **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション、Heroの stat-row、7つのセクションと参考文献リスト群を漏れなく転写。
-- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-product-owner`（「プロダクトオーナー」/ "PRODUCT OWNER"）に PSPO-AI を追加登録。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 67 → 68 件、資格ガイド総数は 44 → 45 件となった。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-product-owner`（「プロダクトオーナー」/ "PRODUCT OWNER"）に PSPO-AI を追加登録。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 68 → 69 件、資格ガイド総数は 44 → 45 件となった。
 - **契約テスト（S/C/D/Q/N）**: `tests/pages/professional-scrum-product-owner-ai-essentials.test.ts` で全 24 件のテストが Green。
 - **原本アーカイブ**: `Professional-Scrum-Product-Owner-AI-Essentials.html` および `Professional-Scrum-Product-Owner-AI-Essentials.md` を `archive/Professional-Scrum-Product-Owner-AI-Essentials/` へ移動し、`package.json` の `audit:pspo-ai` スクリプトをアーカイブ先パスに設定。
 - **コミット履歴**:
