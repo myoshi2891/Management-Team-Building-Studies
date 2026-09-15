@@ -345,12 +345,13 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
         <h3>PSPBM Skills が重点的に問う Focus Area</h3>
 
-        <p>公式に PSPBM Skills の Focus Area として挙げられているのは、<strong>Product Backlog Management</strong> と <strong>Stakeholders &amp; Customers</strong> の2つだけです。加えて、土台となる「Understanding and Applying the Scrum Framework」(Empiricism・Artifacts・Events の基礎)の理解が前提とされます。</p>
+        <p>公式に PSPBM Skills の Focus Area として挙げられているのは、<strong>The Product Backlog</strong>・<strong>Product Backlog Management</strong>・<strong>Stakeholders &amp; Customers</strong> の3つです。加えて、土台となる「Understanding and Applying the Scrum Framework」(Empiricism・Artifacts・Events の基礎)の理解が前提とされます。</p>
 
         <div class="table-wrap">
           <table>
             <thead><tr><th>公式の Focus Area</th><th>概要</th></tr></thead>
             <tbody>
+              <tr><td>The Product Backlog</td><td>プロダクトバックログそのものの性質(創発的・順序付けられた単一のリスト)と、Product Goal を含むコミットメントの位置づけ</td></tr>
               <tr><td>Product Backlog Management</td><td>プロダクトバックログの形成、リファインメント、並び替えを継続的に行い、透明性と価値を保つ活動</td></tr>
               <tr><td>Stakeholders &amp; Customers</td><td>プロダクトバックログの内容に影響を与える多様なステークホルダー・カスタマーとの協働</td></tr>
             </tbody>
