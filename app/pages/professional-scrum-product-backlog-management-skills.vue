@@ -192,7 +192,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
     </nav>
 
     <!-- ===================== Main content ===================== -->
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" tabindex="-1">
       <div class="hero">
         <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公式認定試験ガイド</div>
         <h1>Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド</h1>

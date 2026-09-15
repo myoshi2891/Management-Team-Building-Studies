@@ -284,7 +284,7 @@ class B,C,D,E box;`;
     </nav>
 
     <!-- ===================== Main content ===================== -->
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" tabindex="-1">
       <div class="hero">
         <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公式アセスメント</div>
         <h1>Professional Agile Leadership™ - Evidence-Based Management™(PAL-EBM)認定 完全ガイド</h1>
