@@ -65,7 +65,7 @@ ITIL (Version 5) の試験は、単純暗記だけでなく「理解」「応用
 | BL3 | Apply | 実際のシナリオに概念を **適用できる** |
 | BL4 | Analyse / Distinguish / Differentiate | 情報を **分析し、行動の妥当性を判断できる** |
 
-ITIL Experience の syllabus では BL1〜BL4 すべてが使用されますが、大半（後述の通り約80%以上）が **BL2（理解）** に集中しており、BL3（適用）と BL4（分析）は「Stakeholder role mapping」「経験の摩擦点の分析」「継続的改善ループの適用」などピンポイントで登場します。
+ITIL Experience の syllabus では BL1〜BL4 すべてが使用され、多くの Assessment Criteria が **BL2（理解）** を基礎として設計されています。BL3（適用）と BL4（分析）は「Stakeholder role mapping」「経験の摩擦点の分析」「継続的改善ループの適用」などピンポイントで登場します。
 
 ### 1.3 設問タイプ（4種類）
 
@@ -655,7 +655,7 @@ ITIL Experience の syllabus は「なぜProduct and Service Lifecycleの管理�
 
 1. **オープンブックだが時間との勝負**：90分で40問（1問あたり約2分15秒）。Official Book の目次構成を事前に把握し、「どのセクション番号にどの概念があるか」を素早く引ける状態にしておく（本ガイドの各節に記載した節番号 `(2.x, 3.x…)` は Official Book の章立てに対応）。
 2. **Car Rental Scenario を軽視しない**：最低1問は "Experience" パートを参照する設計になっているため、Scenarioの登場人物（User/Customer/Agent等）を Journey上の役割として素早く同定できるようにする。
-3. **BL2（Understand/Explain）が最頻出**：まずは全項目をBL2レベル（人に説明できるレベル）で押さえる。
+3. **BL2（Understand/Explain）が基礎**：まずは全項目をBL2レベル（人に説明できるレベル）で押さえる。
 4. **BL3/BL4は「適用」「差別化」の練習問題を重点的に**：特に以下は要注意。
    - Functional vs Relational Interaction の差別化（2.3.5, BL4）
    - Four Dimensions を governance lens として適用する（2.2.6, BL3）

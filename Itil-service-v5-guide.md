@@ -1072,30 +1072,33 @@ ITIL (Version 5) と DevOps は競合するフレームワークではなく、*
 
 ### 11.5 PRINCE2 との関係
 
-PRINCE2（PRojects IN Controlled Environments）はプロジェクトマネジメントのフレームワークであり、ITIL (Version 5) はサービスマネジメントのフレームワークです。両者は同じライフサイクルの異なるフェーズを担当します。
+PRINCE2（PRojects IN Controlled Environments）はプロジェクトマネジメントのフレームワークです。ITIL (Version 5) はサービスマネジメントのフレームワークとして、Discover から Support までの PSLM 全体を対象とします。両者は単一の引き継ぎ点で分かれるのではなく、PRINCE2 は期限付きのプロジェクト活動として PSLM の複数の活動を補完的に支援する、という関係になります。
 
 ```mermaid
 flowchart LR
+    subgraph I["ITIL (Version 5) の管掌範囲(PSLM 全体)"]
+        direction LR
+        IT1["Discover"] --> IT2["Design"] --> IT3["Acquire"] --> IT4["Build"] --> IT5["Transition"] --> IT6["Operate"] --> IT7["Deliver"] --> IT8["Support"]
+    end
     subgraph P["PRINCE2 の管掌範囲"]
         direction LR
         PR1["プロジェクト開始"] --> PR2["管理・統制された<br/>実行"] --> PR3["プロジェクト<br/>クロージャー"]
     end
-    subgraph I["ITIL (Version 5) の管掌範囲"]
-        direction LR
-        IT1["Operate"] --> IT2["Deliver"] --> IT3["Support"]
-    end
-    PR3 -->|"成果物(新規/変更システム)の<br/>引き継ぎ"| IT1
+    PR1 -.->|"計画的な立ち上げの支援"| IT2
+    PR2 -.->|"統制された実行の支援"| IT4
+    PR2 -.->|"統制された実行の支援"| IT5
+    PR3 -.->|"成果物(新規/変更システム)の<br/>引き継ぎ"| IT6
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     class PR1,PR2,PR3 box
-    class IT1,IT2,IT3 hub
+    class IT1,IT2,IT3,IT4,IT5,IT6,IT7,IT8 hub
 ```
 
-- **PRINCE2**：明確な開始・中間・終了を持つ、期限付きの取り組み（例：新しい CRM システムの導入）を担う
-- **ITIL (Version 5)**：終わりのない継続的な取り組み（例：導入された CRM サービスの日々の運用・保守・改善）を担う
+- **PRINCE2**：明確な開始・中間・終了を持つ、期限付きの取り組み（例：新しい CRM システムの導入）を、Design・Build・Transition など PSLM の複数段階にまたがって支援する
+- **ITIL (Version 5)**：終わりのない継続的な取り組みとして、Discover から Support までの PSLM 全体を対象とする
 
-統合が機能するのは「引き継ぎの瞬間」です。PRINCE2 がプロジェクトの成果物（製品・変更）を届け、ITIL (Version 5) がそれを受け取ってサービスとして運用・サポート・改善していく、という明確な橋渡しが必要です。
+統合が機能するのは「単一の引き継ぎの瞬間」ではなく、PSLM の複数段階にわたる連携です。PRINCE2 が各段階のプロジェクト活動(立ち上げ・統制された実行・成果物の引き継ぎ)を担い、ITIL (Version 5) がそれを PSLM の該当段階で受け取ってサービスとして運用・サポート・改善していく、という継続的な橋渡しが必要です。
 
 ### 11.6 共通する原則
 
