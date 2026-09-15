@@ -968,7 +968,7 @@ class G done;`;
           <h2>第7部：参考文献・公式ソース一覧</h2>
 
           <div class="ref-group">
-            <h4>Scrum.org 公式ページ(PSPO-AI Essentials 関連)</h4>
+            <h3>Scrum.org 公式ページ(PSPO-AI Essentials 関連)</h3>
             <ul class="ref-list">
               <li><span class="ref-name">認定試験ページ</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification</a></li>
               <li><span class="ref-name">コースページ(例)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-scrum-product-owner-ai-essentials-training</a></li>
@@ -983,7 +983,7 @@ class G done;`;
           </div>
 
           <div class="ref-group">
-            <h4>Product Owner スタンス関連(Scrum.org)</h4>
+            <h3>Product Owner スタンス関連(Scrum.org)</h3>
             <ul class="ref-list">
               <li><span class="ref-name">Stances of the Product Owner</span><a class="ref-url" href="https://www.scrum.org/resources/blog/stances-product-owner" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/stances-product-owner</a></li>
               <li><span class="ref-name">What is a Product Owner?</span><a class="ref-url" href="https://www.scrum.org/resources/what-is-a-product-owner" target="_blank" rel="noopener">https://www.scrum.org/resources/what-is-a-product-owner</a></li>
@@ -992,7 +992,7 @@ class G done;`;
           </div>
 
           <div class="ref-group">
-            <h4>Scrumの一次情報</h4>
+            <h3>Scrumの一次情報</h3>
             <ul class="ref-list">
               <li><span class="ref-name">The Scrum Guide(公式)</span><a class="ref-url" href="https://scrumguides.org/scrum-guide.html" target="_blank" rel="noopener">https://scrumguides.org/scrum-guide.html</a></li>
               <li><span class="ref-name">Evidence-Based Management Guide(Scrum.org)</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
@@ -1000,7 +1000,7 @@ class G done;`;
           </div>
 
           <div class="ref-group">
-            <h4>AI理論・倫理・フレームワーク関連</h4>
+            <h3>AI理論・倫理・フレームワーク関連</h3>
             <ul class="ref-list">
               <li><span class="ref-name">Anthropic「AI Fluency: Framework & Foundations」(4D Framework 公式コース)</span><a class="ref-url" href="https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework" target="_blank" rel="noopener">https://academy.claude.com/courses/ai-fluency-framework-foundations/the-4d-framework</a></li>
               <li><span class="ref-name">Anthropic「The AI Fluency Framework」公式PDF</span><a class="ref-url" href="https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf" target="_blank" rel="noopener">https://www-cdn.anthropic.com/334975cdec18f744b4fa511dc8518bd8d119d29d.pdf</a></li>
@@ -1010,7 +1010,7 @@ class G done;`;
           </div>
 
           <div class="ref-group">
-            <h4>補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)</h4>
+            <h3>補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)</h3>
             <ul class="ref-list">
               <li><span class="ref-name">Xebia Academy コース紹介</span><a class="ref-url" href="https://academy.xebia.com/training/professional-scrum-product-owner-ai-essentials-training/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-scrum-product-owner-ai-essentials-training/</a></li>
               <li><span class="ref-name">Prowareness コース紹介(ツール一覧の出典)</span><a class="ref-url" href="https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english" target="_blank" rel="noopener">https://www.prowareness.com/academy/en/trainingen/professional-scrum-product-owner-ai-essentials-pspo-ai-english</a></li>

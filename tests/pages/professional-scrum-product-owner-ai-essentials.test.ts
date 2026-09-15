@@ -56,15 +56,14 @@ const EXPECTED_H3 = [
   "6.1 学習の進め方",
   "6.2 出題されやすい思考パターン",
   "6.3 練習シナリオ例(自作・非公式)",
-] as const;
-
-const EXPECTED_H4 = [
   "Scrum.org 公式ページ(PSPO-AI Essentials 関連)",
   "Product Owner スタンス関連(Scrum.org)",
   "Scrumの一次情報",
   "AI理論・倫理・フレームワーク関連",
   "補足：コースパートナーによる紹介ページ(ツール例・学習目標の参照用)",
 ] as const;
+
+const EXPECTED_H4 = [] as const;
 
 const EXPECTED_H5 = [] as const;
 const EXPECTED_H6 = [] as const;
@@ -284,7 +283,6 @@ describe("pages/professional-scrum-product-owner-ai-essentials.vue", () => {
     seoTitleFragments: ["PSPO-AI Essentials", "Professional Scrum Product Owner - AI Essentials"],
     seoTitle: EXPECTED_SEO_TITLE,
     seoDescription: EXPECTED_SEO_DESCRIPTION,
-    allowedHeadingSkips: ["h2 -> h4"],
   });
 
   const mountPage = createMountPage(Page);
