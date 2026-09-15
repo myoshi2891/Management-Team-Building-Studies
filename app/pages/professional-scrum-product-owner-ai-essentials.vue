@@ -1323,7 +1323,7 @@ class G done;`;
   margin-bottom: 10px;
 }
 
-:is(h2, h3, h4) {
+:is(h2, h3, h4, .doc section) {
   scroll-margin-top: calc(var(--global-nav-height, 64px) + 32px);
   color: var(--color-ink);
 }
