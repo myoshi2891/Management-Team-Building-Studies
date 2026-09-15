@@ -256,7 +256,7 @@ flowchart LR
         direction LR
         P1["Plan"] --- P2["Improve"] --- P3["Engage"] --- P4["Design &<br/>Transition"] --- P5["Obtain/<br/>Build"] --- P6["Deliver &<br/>Support"]
     end
-    SVC -->|"より詳細な<br/>8段階モデルへ分解"| PSLM["Product and Service<br/>Lifecycle Model(PSLM)"]
+    SVC -.->|"階層の異なる概念として併存<br/>(分解関係ではない)"| PSLM["Product and Service<br/>Lifecycle Model(PSLM)"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
