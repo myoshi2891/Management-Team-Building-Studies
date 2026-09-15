@@ -1229,20 +1229,26 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 - **カタログ体系への追加**: `app/utils/guide-catalog.ts` に新シリーズ `so-user-experience`（「ユーザーエクスペリエンス」/ "USER EXPERIENCE"）を追加。Scrum.org 認定プログラム内の 8 番目のガイドとして登録した。これにより公開中ガイド総数は 64 → 65 件、資格ガイド総数は 40 → 41 件となった。
 - **原本アーカイブ**: `Professional-Scrum-with-User-Experience.html` および `Professional-Scrum-with-User-Experience.md` を `archive/Professional-Scrum-with-User-Experience/` へ移動し、`package.json` の `audit:psu` スクリプトをアーカイブ先パスに設定。
 
-### §70. PSM（Professional Scrum Master 認定ガイド）原本照合監査 exit 0 と見出し階層是正
+### §70. PAL-EBM（Professional Agile Leadership - Evidence-Based Management 認定 完全ガイド）原本照合監査 exit 0
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Professional-Agile-Leadership-Evidence-Based-Management/Professional-Agile-Leadership-Evidence-Based-Management.html`）と移行先 Vue SFC（`app/pages/professional-agile-leadership-evidence-based-management.vue`）を機械照合し、全要素（リスト 83, 表行 94, 段落 38, 見出し 55, 外部リンク 17, Mermaid 12, Callout 30, SVG 1）が 100% 一致して **exit 0** を達成。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-agile-leader`（「アジャイルリーダー」/ "AGILE LEADER"。PAL-I が既に登録済み）に PAL-EBM を追加登録した。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 65 → 66 件、資格ガイド総数は 41 → 42 件となった。
+- **原本アーカイブ**: `Professional-Agile-Leadership-Evidence-Based-Management.html` および `Professional-Agile-Leadership-Evidence-Based-Management.md` を `archive/Professional-Agile-Leadership-Evidence-Based-Management/` へ移動し、`package.json` の `audit:pal-ebm` スクリプトをアーカイブ先パスに設定。
+
+### §71. PSM（Professional Scrum Master 認定ガイド）原本照合監査 exit 0 と見出し階層是正
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`Professional-Scrum-Master.html`）と移行先 Vue SFC（`app/pages/professional-scrum-master.vue`）を機械照合し、全要素（リスト 109, 表行 110, 段落 34, 見出し 52, 外部リンク 12, Mermaid 6, Callout 23, SVG 1）が 100% 一致して **exit 0** を達成。
 - **参考文献セクションの見出し階層是正（Q-3適合）**: 原本 HTML では `<h2>参考文献・出典</h2>` の直下に `<h4>`（「一次情報源(Scrum.org / 公式スクラムガイド)」「補足情報源(非公式の学習・分析リソース)」の2件）が置かれており、`h2 -> h4` の見出し階層スキップが存在していた。アクセシビリティ標準（WCAG）および品質契約 Q-3 を満たすため、`audit_source_parity.mjs` の h4→h3 昇格許可機能（アクセシビリティ階層スキップ是正）に基づき、該当の 2 件を `<h3>` に昇格させた。
 - **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-scrum-master`（「スクラムマスター」/ "SCRUM MASTER"。PSM-AI が既に登録済み）に PSM を追加登録した。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 66 → 67 件、資格ガイド総数は 42 → 43 件となった。
 - **原本アーカイブ**: `Professional-Scrum-Master.html` および `Professional-Scrum-Master.md` を `archive/Professional-Scrum-Master/` へ移動し、`package.json` の `audit:psm` スクリプトをアーカイブ先パスに設定。
 
-### §71. PSPBM（Professional Scrum Product Backlog Management Skills 認定 完全学習ガイド）原本照合監査 exit 0
+### §72. PSPBM（Professional Scrum Product Backlog Management Skills 認定 完全学習ガイド）原本照合監査 exit 0
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`Professional-Scrum-Product-Backlog-Management-Skills.html`）と移行先 Vue SFC（`app/pages/professional-scrum-product-backlog-management-skills.vue`）を機械照合し、全要素（リスト 115, 表行 87, 段落 49, 見出し 50, 外部リンク 21, Mermaid 5, Callout 37, SVG 1）が 100% 一致して **exit 0** を達成。
 - **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-product-owner`（「プロダクトオーナー」/ "PRODUCT OWNER"）に PSPBM を追加登録。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 67 → 68 件、資格ガイド総数は 43 → 44 件となった。
 - **原本アーカイブ**: `Professional-Scrum-Product-Backlog-Management-Skills.html` および `Professional-Scrum-Product-Backlog-Management-Skills.md` を `archive/Professional-Scrum-Product-Backlog-Management-Skills/` へ移動し、`package.json` の `audit:pspbm` スクリプトをアーカイブ先パスに設定。
 
-### §72. PSPO-AI（Professional Scrum Product Owner - AI Essentials 認定 完全学習ガイド）原本照合監査 exit 0 と移行完了
+### §73. PSPO-AI（Professional Scrum Product Owner - AI Essentials 認定 完全学習ガイド）原本照合監査 exit 0 と移行完了
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Professional-Scrum-Product-Owner-AI-Essentials/Professional-Scrum-Product-Owner-AI-Essentials.html`）と移行先 Vue SFC（`app/pages/professional-scrum-product-owner-ai-essentials.vue`）を機械照合し、全要素（リスト 72, 表行 95, 段落 66, 見出し 44, 外部リンク 22, Mermaid 11, Callout 21, SVG 1）が 100% 一致して **exit 0** を達成。
 - **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション、Heroの stat-row、7つのセクションと参考文献リスト群を漏れなく転写。
@@ -1262,8 +1268,15 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   10. `style(pspo-ai): expand main content to full width` (`be75454`)
   11. `style(pspo-ai): apply authentic typography, color palette and component styles` (`4d60f7f`)
 
-### §73. PAL-EBM（Professional Agile Leadership - Evidence-Based Management 認定 完全ガイド）原本照合監査 exit 0
+### §74. コードレビュー指摘に基づく内容正確性の修正（PAL-EBM・PSPBM）
 
-- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Professional-Agile-Leadership-Evidence-Based-Management/Professional-Agile-Leadership-Evidence-Based-Management.html`）と移行先 Vue SFC（`app/pages/professional-agile-leadership-evidence-based-management.vue`）を機械照合し、全要素（リスト 83, 表行 94, 段落 38, 見出し 55, 外部リンク 17, Mermaid 12, Callout 30, SVG 1）が 100% 一致して **exit 0** を達成。
-- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存シリーズ `so-agile-leader`（「アジャイルリーダー」/ "AGILE LEADER"。PAL-I が既に登録済み）に PAL-EBM を追加登録した。Scrum.org 認定プログラム内のガイドとして登録した。これにより公開中ガイド総数は 65 → 66 件、資格ガイド総数は 41 → 42 件となった。
-- **原本アーカイブ**: `Professional-Agile-Leadership-Evidence-Based-Management.html` および `Professional-Agile-Leadership-Evidence-Based-Management.md` を `archive/Professional-Agile-Leadership-Evidence-Based-Management/` へ移動し、`package.json` の `audit:pal-ebm` スクリプトをアーカイブ先パスに設定。
+原本と移行先の間で意図的に文言を変更した箇所。`audit:pal-ebm` / `audit:pspbm` は
+この差分のみを理由に非 0 で終了するが、いずれも移行漏れではなく事実正確性の是正。
+
+| ページ | 変更内容 | 理由 |
+|---|---|---|
+| `professional-agile-leadership-evidence-based-management.vue`（§11.1） | 「Scrum Guide(2020年版)では、組織のビジョンからSprint Goalに至るまで目標が階層的につながっていることが強調されている」という記述を削除し、EBMの戦略目標・中間目標・即時実行目標の3層とScrum Product/Sprint Goalが文脈的に整合する旨に修正 | Scrum Guide 2020 はこの組織ビジョン起点の階層を公式には定義していない。該当階層はEBM Guideの概念であり、Scrum Guideの定義として誤帰属していた |
+| `professional-scrum-product-backlog-management-skills.vue`（Competencies Framework） | PSPBM Skills の公式 Focus Area を「Product Backlog Management」「Stakeholders & Customers」の2つから、「The Product Backlog」を加えた3つに修正し、表に行を追加 | scrum.org の Managing Products with Agility コンピテンシーページに基づく是正。原本 HTML 自体が古い記載だったため原本と一致しなくなる |
+
+原本 HTML（`archive/.../*.html`）側は本セッションでは更新していない。原本自体の修正が
+必要かはユーザー判断を要するため、次回セッションで確認すること。
