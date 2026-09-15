@@ -24,7 +24,7 @@
 9. [Transition(移行)活動](#9-transition移行活動)
 10. [Operate(運用)活動](#10-operate運用活動)
 11. [Deliver(提供)活動](#11-deliver提供活動)
-12. [Support(サポート)活動](#12-support サポート活動)
+12. [Support(サポート)活動](#12-supportサポート活動)
 13. [ライフサイクル全体のマネジメント(Category 10.1)](#13-ライフサイクル全体のマネジメントcategory-101)
 14. [ITIL・AI・他フレームワークとの関係(Category 10.2)](#14-itilai他フレームワークとの関係category-102)
 15. [学習・試験対策チェックリスト](#15-学習試験対策チェックリスト)
@@ -193,12 +193,13 @@ ITIL(Version 5)においても、価値は組織が一方的に「提供」す�
 
 ### 3.4 ITIL Product and Service Lifecycle Modelの目的と範囲
 
-ITIL(Version 5)最大の構造的変化は、ITIL 4の「Service Value Chain(6活動)」が、**「ITIL Product and Service Lifecycle Model」(8活動)**に置き換えられたことです。
+ITIL(Version 5)最大の構造的な追加は、Service Value System(SVS)の中核である「Service Value Chain(6活動)」をそのまま残したうえで、これと併存する形で**「ITIL Product and Service Lifecycle Model」(8活動)**という、プロダクトとサービスを統合したライフサイクルモデルが新設されたことです。
 
-| | ITIL 4: Service Value Chain | ITIL(Version 5): Product and Service Lifecycle Model |
+| | Service Value Chain(ITIL 4から継続) | Product and Service Lifecycle Model(Version 5で新設) |
 |---|---|---|
 | 活動数 | 6(Plan, Improve, Engage, Design & Transition, Obtain/Build, Deliver & Support) | 8(Discover, Design, Acquire, Build, Transition, Operate, Deliver, Support) |
-| 主眼 | サービスバリューチェーン | プロダクトとサービスを一体とした、より粒度の細かいライフサイクル |
+| 主眼 | 組織全体のサービスバリューチェーン | プロダクトとサービスを一体とした、より粒度の細かい統合ライフサイクル |
+| 位置づけ | Service Value System(SVS)の中核として存続 | SVS内でバリューチェーン活動をより具体的に実行する、実務に近いモデルとして併存 |
 | 流れ方 | 非線形・反復的 | 非線形・反復的(バリューストリームとして自由に組合せ可能) |
 
 この8活動は、**厳密な順序を持つ直線的プロセスではなく**、組織が状況に応じて組み合わせる「部品」です。この組合せ方こそが後述の**バリューストリーム(Value Stream)**であり、Category 10で詳しく扱います。
