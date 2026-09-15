@@ -99,7 +99,7 @@ ITIL(Version 5)は、ITIL 4までの「プロダクト」と「サービス」�
 | 問題数 | 40問(各1点、減点方式なし) |
 | 試験時間 | 90分(非母語受験者は+25%の113分) |
 | 出題形式 | オープンブック(**ITIL® Product Official Book**のみ持ち込み可、書き込み可) |
-| 合格ライン | 執筆時点でTBC(Take2再受験制度あり) |
+| 合格ライン | 70%(Take2再受験制度あり) |
 | Bloom's Level | BL2(理解)とBL3(適用)の混在 |
 | シナリオ | "ITIL Car Rental Scenario"を全問共通の背景情報として使用。加えて"ICR's Unified Mobile App: A Product Lifecycle Journey"シナリオも一部設問で使用 |
 
@@ -1013,7 +1013,7 @@ flowchart TB
 16. ITIL 4 vs ITIL 5 (Version 5): What Changed and Which to Take in 2026 — CertEmpire
     https://certempire.com/itil-4-vs-itil-5/
 
-> **注記**: 上記16.2の記事は、いずれもPeopleCert非公式の第三者による解説記事です。内容の正確性・最新性は執筆時点(2026年9月)のものであり、試験の正式な出題範囲・配点は必ず**PeopleCert公式シラバス(16.1の1〜2)**および**ITIL® Product (Version 5) Official Book**で確認してください。特に合格ライン・配点比率は執筆時点でTBC(未確定)であり、受験前に最新の公式情報を確認することを強く推奨します。
+> **注記**: 上記16.2の記事は、いずれもPeopleCert非公式の第三者による解説記事です。内容の正確性・最新性は執筆時点(2026年9月)のものであり、試験の正式な出題範囲・配点は必ず**PeopleCert公式シラバス(16.1の1〜2)**および**ITIL® Product (Version 5) Official Book**で確認してください。特に配点比率は執筆時点でTBC(未確定)であり、受験前に最新の公式情報を確認することを強く推奨します。
 
 ---
 

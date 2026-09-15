@@ -290,11 +290,11 @@ flowchart TB
 
 #### 典型的な Experience Frictions（摩擦）と緩和策（Assessment Criteria 2.3.3、BL4：分析して緩和策を提案する）
 
-| Friction（摩擦） | 発生しやすい Lifecycle 段階 | 緩和策（ベストプラクティス） |
+| Friction（摩擦） | 発生しやすい Service Journey 段階 | 緩和策（ベストプラクティス） |
 |---|---|---|
 | Broken expectations（期待の破綻） | Agree／Onboard | Agree 段階で SLA・体験の期待値を明文化し、Onboard 前にレビューする |
 | Unclear agreements（不明確な合意） | Agree | サービスアグリーメントに「体験面の合意事項」（応答時間、トーン等）も含める |
-| Poor reflection loops（振り返りループの欠如） | Reflect／Support | 定期的な Reflect ステップを制度化し、フィードバックを次サイクルの Design にフィードバックする |
+| Poor reflection loops（振り返りループの欠如） | Reflect | 定期的な Reflect ステップを制度化し、フィードバックを次サイクルの Design にフィードバックする |
 
 #### Stakeholder Role Mapping の適用（Assessment Criteria 2.3.4、BL3：適用）
 
@@ -304,12 +304,12 @@ Journey の各ステップで、User／Customer／Customer Sponsor／Agent／Pri
 flowchart LR
     subgraph Journey["Product and Service Lifecycle across the journey"]
         direction LR
-        S1["Discover"] --> S2["Design"] --> S3["Acquire/Build"] --> S4["Transition"] --> S5["Operate"] --> S6["Deliver"] --> S7["Support"]
+        S1["Discover"] --> S2["Design"] --> S3["Acquire"] --> S4["Build"] --> S5["Transition"] --> S6["Operate"] --> S7["Deliver"] --> S8["Support"]
     end
-    U["User: 使いやすさへの信頼"] -.-> S5
-    CU["Customer: 成果達成への信頼"] -.-> S6
-    AG["Agent: 現実的な運用可能性への信頼"] -.-> S5
-    PR["Principal: 品質保証への信頼"] -.-> S7
+    U["User: 使いやすさへの信頼"] -.-> S6
+    CU["Customer: 成果達成への信頼"] -.-> S7
+    AG["Agent: 現実的な運用可能性への信頼"] -.-> S6
+    PR["Principal: 品質保証への信頼"] -.-> S8
 ```
 
 > ✅ ベストプラクティス：新サービスをリリースする前に、Discover〜Support の各段階で「この段階で、どのステークホルダーの、どんな信頼が試されるか」を一覧化するワークショップを実施する。
