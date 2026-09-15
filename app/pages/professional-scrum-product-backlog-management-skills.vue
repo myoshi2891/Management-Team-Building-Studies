@@ -267,7 +267,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
           <ul>
             <li><a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">scrum.org — PSPBM Skills Certification</a></li>
             <li><a href="https://www.credly.com/org/scrum-org/badge/professional-scrum-product-backlog-management-skill" target="_blank" rel="noopener">Credly — PSPBM バッジ発行条件</a></li>
-            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">TheScrumMaster.co.uk — 試験形式の解説</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">scrum.org(TheScrumMaster.co.uk寄稿) — 試験形式の解説</a></li>
           </ul>
         </div>
 
@@ -985,7 +985,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
         <div class="callout source" data-testid="callout" data-variant="source">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
-            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">TheScrumMaster.co.uk — How To Pass The PSPBM Skills Assessment</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/how-pass-professional-scrum-product-backlog-management-skills-pspbm-skills" target="_blank" rel="noopener">scrum.org(TheScrumMaster.co.uk寄稿) — How To Pass The PSPBM Skills Assessment</a></li>
           </ul>
         </div>
       </section>
@@ -1479,12 +1479,15 @@ footer {
 
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
     z-index: 30;
   }
 
   .sidebar.open {
     transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.25s ease, visibility 0s linear;
   }
 
   .main-content {
