@@ -232,6 +232,7 @@ class B,C,D,E box;`;
 
 <template>
   <div class="layout">
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
     <button
       ref="sidebarToggle"
       type="button"
@@ -283,7 +284,7 @@ class B,C,D,E box;`;
     </nav>
 
     <!-- ===================== Main content ===================== -->
-    <main id="main-content" class="main-content">
+    <main id="main-content" class="main-content" tabindex="-1">
       <div class="hero">
         <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公式アセスメント</div>
         <h1>Professional Agile Leadership™ - Evidence-Based Management™(PAL-EBM)認定 完全ガイド</h1>
@@ -1056,6 +1057,14 @@ class B,C,D,E box;`;
 .layout {
   display: block;
 }
+
+.skip-link {
+  position: absolute; top: -48px; left: 0; z-index: 40;
+  background: var(--color-paper-raised); color: var(--color-indigo);
+  padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: var(--global-nav-height); }
 
 /* ===================== Sidebar ===================== */
 .sidebar {
