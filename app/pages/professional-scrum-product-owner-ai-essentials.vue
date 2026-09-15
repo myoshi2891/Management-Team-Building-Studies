@@ -175,6 +175,7 @@ class G done;`;
 
 <template>
   <div class="page-wrapper">
+    <a href="#main-content" class="skip-link">本文へスキップ</a>
     <button
       ref="sidebarToggle"
       type="button"
@@ -285,7 +286,7 @@ class G done;`;
     </nav>
 
     <!-- Main Content -->
-    <main class="content">
+    <main id="main-content" class="content">
       <!-- Hero -->
       <header class="hero">
         <div class="hero-eyebrow">
@@ -1080,6 +1081,14 @@ class G done;`;
   -webkit-font-smoothing: antialiased;
 }
 
+.skip-link {
+  position: absolute; top: -48px; left: 0; z-index: 40;
+  background: var(--color-paper-raised); color: var(--color-indigo);
+  padding: 12px 20px; border: 1px solid var(--color-border); border-radius: 0 0 8px 0;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: var(--global-nav-height, 64px); }
+
 .sidebar-toggle {
   display: none;
   position: fixed;
@@ -1573,12 +1582,14 @@ td strong, th strong {
     left: calc(-1 * var(--sidebar-width, 288px));
     height: calc(100vh - var(--global-nav-height, 64px));
     z-index: 100;
-    transition: left 0.3s ease;
+    visibility: hidden;
+    transition: left 0.3s ease, visibility 0.3s ease;
     box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
   }
 
   .sidebar.is-open {
     left: 0;
+    visibility: visible;
   }
 
   .sidebar-close {
