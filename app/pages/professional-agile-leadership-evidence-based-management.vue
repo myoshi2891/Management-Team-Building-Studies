@@ -1596,5 +1596,9 @@ footer,
   .sidebar {
     transition: none;
   }
+
+  .skip-link {
+    transition: none;
+  }
 }
 </style>
