@@ -1,5 +1,6 @@
 # ITIL Transformation（Version 5）学習ガイド
-### 初学者向け ステップバイステップ解説
+
+初学者向け ステップバイステップ解説
 
 ---
 
@@ -168,7 +169,7 @@ flowchart LR
 > **ベストプラクティス**
 > - Transformationの企画段階で、この3領域のうち「今回の取り組みはどれに該当するか」を明文化しておくと、スコープのブレを防ぎやすい
 > - ③のように複数のステークホルダーにまたがる全体最適を狙う場合ほど、後述するGovernance PatternsとExecution Patternsの使い分けが重要になる
-
+>
 > **ソース**
 > - [ITIL® Transformation Course & Examination | ITSM Hub](https://www.itsmhub.com/products/itil-transformation-course-examination)
 
@@ -236,7 +237,7 @@ flowchart LR
 > **ベストプラクティス**
 > - 「この状況は詳細な計画が有効な領域か、それとも試しながら学ぶしかない領域か」を最初に見極めることが、無駄な計画コストや、逆に無計画な混乱を避ける鍵になる
 > - 1つのTransformationプログラムの中でも、サブテーマごとに複雑性のレベルが異なることがある。全体を一律の手法で進めようとせず、部分ごとに適したアプローチを並行させる（第4章・第6章で扱うModelとPatternsが、このための道具立てとなる）
-
+>
 > **ソース**
 > - [ITIL® Transformation (Version 5) course | QA](https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/)
 > - [ITIL Transformation | A Continual Approach to Change（Kaimar Karu, Lead Author）| itil.com](https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5)
@@ -282,7 +283,7 @@ flowchart TB
 > **ベストプラクティス**
 > - 4層モデルを「フェーズ（順番に一度だけ通過する工程）」として運用しないこと。特にGovernanceとLearningの往復（フィードバックループ）を止めてしまうと、当初の前提が古いまま変革が進み、環境変化に対応できなくなる
 > - Positioningを軽視して直接Executionに入ると、状況認識のズレによって後工程での手戻りが発生しやすい。小規模なTransformationであっても、Positioningに相当する状況整理のステップを省略しないことが推奨される
-
+>
 > **ソース**
 > - [ITIL® Transformation (Version 5) e-Learning+ | Advanced Training](https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/)
 > - [ITIL Transformation (Version 5) Practice Tests | Udemy](https://www.udemy.com/course/itil-transformation-version-5-practice-tests/)
@@ -334,7 +335,7 @@ flowchart LR
 > - Transformationの立ち上げ時に、「このTransformationはBAU Governanceのどの部分と衝突しうるか」を明示的に洗い出す。承認フロー、予算執行のタイミング、報告様式などは特に衝突が起きやすい領域である
 > - 衝突を解消する際は、どちらか一方を全面的に廃止するのではなく、「最小限の重複」で両立させるブリッジ（報告テンプレートの共通化、既存委員会への定期報告枠の追加など）を設計することが推奨される
 > - Transformation Governanceは恒久的な仕組みではなく、Transformationの完了・定着とともにBAU Governanceへ統合されるべきものであることを、関係者に事前に合意しておく
-
+>
 > **ソース**
 > - [ITIL Transformation | A Continual Approach to Change（Kaimar Karu, Lead Author）| itil.com](https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5)
 
@@ -372,15 +373,15 @@ flowchart TB
 > **Initiation Patterns － ベストプラクティス**
 > - Transformationの立ち上げ前に、「なぜ今この変革が必要なのか」「何を期待しているのか」をステークホルダー間で言語化し、認識のズレを可視化する
 > - 過去の失敗した変革の経験がある組織では、その原因（多くの場合、将来の運用モデルを前提として計画してしまい、その前提が数年後に崩れること）を振り返り、同じ轍を踏まない設計にする
-
+>
 > **Governance Patterns － ベストプラクティス**
 > - BAU Governanceの承認フローをそのままTransformationに適用しようとせず、まず両者のギャップをアセスメントする
 > - Governanceの緊張を「対立」ではなく「橋渡しが必要な設計課題」として捉え、双方の代表者を交えて解決策を設計する
-
+>
 > **Execution Patterns － ベストプラクティス**
 > - 単一の実行方法論（例：純粋なウォーターフォールのプロジェクト管理、あるいは純粋なアジャイル）に固執せず、状況に応じてProject/Programme Managementと探索的・反応的なアプローチを併用する
 > - 並行して走る複数の実行アプローチの間で、フィードバックループを定期的に設け、学習を横展開する仕組みを作る
-
+>
 > **ソース**
 > - [ITIL Transformation | A Continual Approach to Change（Kaimar Karu, Lead Author）| itil.com](https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5)
 > - [ITIL (Version 5) Transformation Training Course | ITSM Academy](https://itsmacademy.com/itil-transformation-course)
@@ -415,7 +416,7 @@ flowchart LR
 > - Governanceの意思決定機関（委員会等）に、Transformationの進捗と学習結果を定期的にフィードバックする場を設け、戦略レベルの前提を継続的に更新する
 > - 「誰が何を承認できるか」をTransformationの規模に応じて事前に定義し、小さな意思決定のたびに上位の委員会を待つ必要がないようにする（権限委譲の設計）
 > - AccountableとResponsibleを明確に分離する（例：RACI／RASCIの活用。第10章参照）ことで、Governanceのボトルネックを避ける
-
+>
 > **ソース**
 > - [ITIL Transformation (Version 5) | peoplecert.org](https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173)
 
@@ -456,7 +457,7 @@ flowchart TB
 > - 複数のワークストリームを並行させる場合、「どのワークストリームがどの実行アプローチを採用しているか」を関係者全員が把握できるよう可視化する
 > - ワークストリーム間の依存関係（あるチームの成果物が別チームの前提になっているなど）を定期的に棚卸しし、フィードバックループのタイミングで調整する
 > - 混沌とした状況（インシデント対応に近い緊急事態）が発生した場合は、まず安定化を最優先し、通常のTransformation実行アプローチに戻すタイミングを明確に判断する
-
+>
 > **ソース**
 > - [ITIL Transformation | A Continual Approach to Change | itil.com](https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5)
 
@@ -499,7 +500,7 @@ flowchart LR
 > - Transformation開始時点で「何をもって成功とみなすか」の測定基準を、Governanceレイヤーの合意事項として明文化しておく（後付けで基準を作ると、恣意的な評価になりやすい）
 > - 測定結果が思わしくない場合でも、それを個人の失敗として扱うのではなく、Transformation Model自体へのフィードバック（アプローチの見直し）として扱う文化を作る
 > - Learningの内容を次のTransformation Initiativeの立ち上げ（Initiation Patterns）に活かす仕組みを用意し、組織が同じ問題を繰り返し経験することを防ぐ
-
+>
 > **ソース**
 > - [ITIL Transformation (Version 5) | itil.com](https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5)
 
@@ -562,7 +563,7 @@ flowchart LR
 Practice単位の能力評価（Capability Criteria）はLevel 2から採点が始まり、あるレベルの基準をすべて満たさなければ次のレベルには進めない、という積み上げ式の評価ルールになっている。
 
 > **ベストプラクティス**：Transformationの開始前にITIL Maturity Modelで現状のベースラインを測定し、Transformation完了後に再評価することで、成果を客観的に示すエビデンスとして使う
-
+>
 > **ソース**：[Introduction to the ITIL Maturity Model（PeopleCert公式PDF）](https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf)
 
 ### 10-4. Theory of Constraints（制約理論）
@@ -584,7 +585,7 @@ Responsible（実行責任）・Accountable（説明責任）・Consulted（相�
 | I（Informed） | 結果を事後に知らされる人 |
 
 > **ベストプラクティス**：Transformation Governanceの緊張が生じやすい意思決定ポイント（予算承認、リリース判断など）について、事前にRACI／RASCIを作成し、「誰がAccountableか」を1人に絞り込んでおく
-
+>
 > **ソース**：[ITIL® Transformation (Version 5) | QA](https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/)
 
 ---
@@ -635,7 +636,7 @@ AIがもたらす機会・影響の大きさが未知数である場合、ITIL T
 ITIL AI Capability Modelを補完するものとして、AI活用の適切なGovernanceアプローチを決めるための「ITIL AI Governance Improvement Model」が用意されている（独立した認定「ITIL AI Governance（Version 5）」で詳細に扱われる領域であり、ITIL Transformationの前提資格とはならない）。4つのステップ（アセスメント／要求定義と設計調整／改善の実装／継続的なガバナンス維持）で構成される、とされている。
 
 > **ベストプラクティス**：AI Governanceを別モジュールの話として切り離さず、Transformation Governance（第5章・第7章）の一部としてAIに関する意思決定基準（誰がAIの出力をレビューするか、誰が上書き権限を持つか）を組み込む
-
+>
 > **ソース**
 > - [ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4 | ITSM.tools](https://itsm.tools/itil-version-5-vs-itil-4-key-changes/)
 > - [Information and Technology in ITIL Version 5 | PMG Academy](https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/)
@@ -669,7 +670,7 @@ flowchart TB
 > **ベストプラクティス**
 > - 「ITILか、PRINCE2か、Agileか」という二者択一で考えず、Transformationのどのワークストリームにどのフレームワークを充てるかを、第8章の「複数アプローチの並行運用」の考え方で設計する
 > - 既存のフレームワークをすでに組織で運用している場合、ITIL Transformationを新たな別レイヤーとして重ねるのではなく、Governance PatternsとExecution Patternsを使って既存の仕組みとの整合を取ることを優先する
-
+>
 > **ソース**
 > - [ITIL (Version 5) Transformation Training Course | ITSM Academy](https://itsmacademy.com/itil-transformation-course)
 > - [ITIL® Transformation Course & Examination | ITSM Hub](https://www.itsmhub.com/products/itil-transformation-course-examination)

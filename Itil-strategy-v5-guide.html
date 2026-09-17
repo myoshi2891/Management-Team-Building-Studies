@@ -1314,12 +1314,15 @@ P["Plan 実装計画 目標からイニシアチブへの翻訳"]
 E["Execute 実行 選定したアプローチでの遂行"]
 S["Synthesize 統合 変化と既存運用のバランス"]
 R["Reflect 振り返り 持続可能性と長期的妥当性の維持"]
+OBS["Observe 観察（策定サイクル） 外部・内部環境の情報収集"]
 P --> E --> S --> R
-R -.->|"策定サイクルへの学習還元"| P
+R -.->|"策定サイクルへの学習還元"| OBS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class P,E,S hub;
-class R done;`,
+class R done;
+class OBS box;`,
     strategicCapabilitiesMap: `
 flowchart TB
 CAP["戦略的能力 Strategic Capabilities"]
