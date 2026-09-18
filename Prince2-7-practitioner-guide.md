@@ -799,7 +799,6 @@ Quality Practice(プロダクトが品質基準を満たすかの検証)とProgr
 Business Case(継続的正当性の再確認)とProgress(実績評価)が中心。Sustainability Management Approachで設定されたサステナビリティトレランスの見直しもこのプロセスで行われます。
 
 > **重要な例外**: 最終ステージの終わりでは、SBではなく**Closing a Project(CP)**が実施されます(次ステージが存在しないため)。
-
 > **Practitioner頻出パターン**: 「ステージが完了する前に、Project Boardの承認なしにProject Managerが次ステージの作業を開始した」→「段階による管理」原則とSBプロセスの重大な違反。
 
 ---
