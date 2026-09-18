@@ -80,7 +80,7 @@ PRINCE2 Agile Foundation は、世界で最も広く使われているプロジ�
 > **出典:** PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf ,
 > https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf
-
+>
 > **注記 (バージョンに関する留意点):** 公開されている Candidate Syllabus の文書は、試験時間・問題数・合格ラインについて「50問・55%合格」という記載になっている一方、PeopleCert の現行の製品ページ(Version 2)では「40問・60分・60%合格」と案内されています。これは Version 2 化に伴う試験運用パラメータの更新が、シラバス文書側にまだ反映されていない版が流通していることを示しています。出題範囲(LO1〜LO5)やテーマ構成そのものに大きな変更はないと考えられますが、**受験直前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus と試験概要を確認してください。**
 
 ### 0.4 学習の全体マップ
@@ -128,7 +128,7 @@ PRINCE2 では、**プロジェクト (Project)** を「合意されたビジネ
 | 7 | プロジェクト環境に合わせたテーラリング (Tailor to suit the project environment) | プロジェクトの規模・複雑さ・重要性・能力・リスクに応じて手法を調整する |
 
 > **ベストプラクティス:** 7原則の中でも「例外による管理」と「プロジェクト環境に合わせたテーラリング」は、後述するアジャイルとの親和性が特に高い原則です。自己組織化チームへの権限委譲(=例外による管理)と、状況に応じた運用調整(=テーラリング)は、PRINCE2 Agile を理解する上での重要な橋渡しになります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 1.1 (7原則の一覧)<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -147,7 +147,7 @@ PRINCE2 では、**プロジェクト (Project)** を「合意されたビジネ
 | 7 | 進捗 (Progress) | 計画に対する実績を監視し、継続の可否を判断し、コントロールを行う仕組み |
 
 > **ベストプラクティス:** テーマは独立した「知識エリア」ではなく、相互に密接に連動しています。例えばリスクの深刻化はビジネスケースの見直しを引き起こし、それが進捗コントロールでの意思決定につながる、というように連鎖します。7テーマを暗記する際は「単独の定義」よりも「テーマ同士のつながり」を意識すると、第3部のアジャイル適用の理解が格段に深まります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 1.2<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -183,7 +183,7 @@ flowchart TB
 | 7 | Closing a Project (終結) | プロジェクトを正式に終結し、成果と教訓を確定する |
 
 > **ベストプラクティス:** アジャイルなプロダクトチームは Managing Product Delivery と Controlling a Stage の間を、スプリントや反復のサイクルとして日々経験することになります。この2プロセスの「反復のリズム」こそが、PRINCE2 の段階的な統制とアジャイルのタイムボックスが接続する最重要ポイントです。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 1.3<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -202,7 +202,7 @@ flowchart TB
 | ワークパッケージ (Work Package) | チームマネージャー(または個人)に委任される作業内容の合意文書 |
 
 > **ベストプラクティス:** アジャイル文脈では、これらの文書を「一度作って終わり」の静的なものと捉えず、継続的に更新される「生きた(living)」情報源として運用します。特にハイライトレポートやチェックポイントレポートは、情報ラジエーター(Information Radiator)やバーンチャートで代替・補強されることが多く、第3部で詳しく解説します。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 1.4<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -218,7 +218,7 @@ flowchart TB
 | Team Manager (チームマネージャー) | ワークパッケージを受け取り、プロダクトの作成を管理する(アジャイルでは Scrum Master がこの役割を兼ねることが多い) |
 
 > **ベストプラクティス:** アジャイルなデリバリーチームでは「チームマネージャー」という肩書きは使われず、Scrum Master やプロダクトオーナーといったアジャイル固有の呼称が使われます。試験対策としては、PRINCE2 の役割名とアジャイルでの一般的な呼称の「対応関係」を意識して覚えると混乱を避けられます(詳細は 2.4 節)。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 1.5<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -246,7 +246,7 @@ PRINCE2 Agile では、BAU との違いを踏まえた上で、プロジェク�
 | Lean Startup (リーンスタートアップ) | 「構築・計測・学習」のループを回し、最小限の実用可能なプロダクト(MVP)で仮説検証を行う考え方 | 不確実性の高い新規プロダクト開発において、ビジネスケースの検証やプロダクトプロダクト記述書の初期定義に活用される |
 
 > **ベストプラクティス:** 試験では「どのアジャイル手法をどの場面で使うか」を問う設問が出ます。目安として、**要件が比較的明確で反復的に作り込む場合は Scrum**、**継続的なフローで優先順位が流動的な場合は Kanban**、**そもそも何を作るべきかが不確実な場合は Lean Startup** という使い分けを覚えておくと判断しやすくなります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 2.2<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -286,7 +286,7 @@ flowchart TB
 | 8 | プロジェクトでアジャイルを使うかどうかは「はい/いいえ」の二択ではなく、「どの程度(どれくらいの強さで)」使うかという程度問題である |
 
 > **ベストプラクティス:** 8つのガイダンスポイントの中でも、特に5・7・8番目は試験で頻出です。「アジャイル=Scrumではない」「アジャイルは程度問題である」という2点を軸に理解しておくと、選択式問題の誤答選択肢(ディストラクター)を見抜きやすくなります。
-
+>
 > **出典:** AXELOS 公式オンライン出版「PRINCE2 Agile」第3.6節 (Important points about PRINCE2 Agile and this manual)<br>
 > https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25
 
@@ -302,7 +302,7 @@ Foundation シラバスでは、デリバリーチームに関わる次の4つ�
 | Supplier Representative (サプライヤー代表) | 提供側の技術的な意思決定を代表する |
 
 > **ベストプラクティス:** 実務では、これらの役割に加えて **Product Owner(プロダクトオーナー)** と **Scrum Master** という呼称がよく使われます。Foundation レベルでは上記4ロールの「責任の性質」を理解することが優先されますが、Product Owner ≒ Customer Representative、Scrum Master ≒ Team Manager(のアジャイル版)という対応関係を押さえておくと、Practitioner レベルへの橋渡しがスムーズになります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 2.4<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -328,7 +328,7 @@ PRINCE2 の7原則は、アジャイル文脈でも一切省略されません�
 | テーラリング | アジャイル自体がテーラリングの一形態であり、Agilometer(5.1節)を使って適用度合いを調整する |
 
 > **ベストプラクティス:** 「アジャイルは PRINCE2 の原則を弱める」という誤解は試験でよく狙われるひっかけです。実際は逆で、アジャイルは原則(特に例外による管理と経験からの学習)を、より高頻度・高強度で実践する手段だと理解しておきましょう。
-
+>
 > **出典:** AXELOS 公式オンライン出版「PRINCE2 Agile」第7章 (Agile and the PRINCE2 principles)<br>
 > https://publications.axelos.com/PRINCE2Agile2016/
 
@@ -345,7 +345,7 @@ PRINCE2 Agile は、特定の技法だけでなく「振る舞い(Behaviours)」
 | 5 | Exploration (探求) | 頻繁な反復とフィードバックループを通じて、学びながら前進する姿勢 |
 
 > **ベストプラクティス:** 5つの振る舞いは互いに補強し合う関係にあります。例えば Transparency がなければ Collaboration は機能せず、Self-organization がなければ Exploration から得た学びをチームが素早く活かせません。試験では単独の定義よりも「なぜこの振る舞いが必要か」という文脈理解が問われます。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 3.2<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -362,7 +362,7 @@ PRINCE2 Agile は、特定の技法だけでなく「振る舞い(Behaviours)」
 | 進捗 | バーンチャート、カンバンボード、情報ラジエーターといったアジャイル指標を用いて、稼働しているプロダクトそのものを進捗の証拠とする |
 
 > **ベストプラクティス:** 各テーマの調整は「PRINCE2 の目的を変えずに、実現手段をアジャイルの技法に置き換える」という発想で理解すると覚えやすくなります。目的(なぜそのテーマが必要か)は変わらず、手段(どう実現するか)がアジャイルの技法に置き換わる、という構造は7テーマすべてに共通しています。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 3.3<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -379,7 +379,7 @@ PRINCE2 Agile は、特定の技法だけでなく「振る舞い(Behaviours)」
 | Closing a Project | 漸進的リリースを通じてベネフィットの多くはすでに実現されていることが多く、終結時は正式な受け入れ確認と運用への移行、最終ふりかえりに重点が置かれる |
 
 > **ベストプラクティス:** 7プロセスの中でも Directing a Project と Controlling a Stage は、アジャイル化によってプロジェクトマネージャーとプロジェクトボードの「関わり方」が最も大きく変わる部分です。「詳細な統制」から「頻度は高いが軽量な協働」への転換を意識しておきましょう。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 3.4<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -396,7 +396,7 @@ PRINCE2 Agile は、特定の技法だけでなく「振る舞い(Behaviours)」
 | ワークパッケージ | 個別の技術仕様よりも、対象スプリントのユーザーストーリー群と Definition of Done への参照で構成する |
 
 > **ベストプラクティス:** 管理プロダクトのテーラリングにおいて重要なのは「文書を減らすこと」自体が目的ではなく、「同じガバナンス上の目的を、より軽量な手段で達成すること」が目的だという点です。文書を省略した結果、意思決定に必要な情報が失われてしまっては本末転倒です。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 3.5<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -426,7 +426,7 @@ PRINCE2 Agile では、プロジェクトのパフォーマンスを構成する
 | 5 | 顧客はすべてを必要としているわけではないと理解する (Accept that the customer doesn't need everything) | 優先順位の低い要求は削ってもよいという前提を関係者全員で共有する |
 
 > **ベストプラクティス:** ヘキサゴンと5つのターゲットは Foundation 試験の頻出テーマです。「なぜスコープを柔軟にするのか」という問いに対して、常に「5つのターゲットを守るため」という因果関係で答えられるようにしておくと、シナリオ形式の設問にも対応しやすくなります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 3.6<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -452,7 +452,7 @@ Foundation 試験では、以下の基本用語の定義を正確に再認でき
 | ウォーターフォール手法 (Waterfall Methodology) | 要件定義・設計・実装・テストといった工程を順番に一度ずつ進める、伝統的な開発アプローチ |
 
 > **ベストプラクティス:** 用語の暗記は「単語カード」的な学習だけでなく、実際の一文の中で使ってみることをお勧めします。例えば「スプリントの終わりに、チームはベロシティを記録し、次のリリースバックログの計画に活かす」のように、複数の用語を組み合わせた文を自分で作ると、用語同士の関係性が定着しやすくなります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 4.1 (Glossary)<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -526,7 +526,7 @@ flowchart LR
 チームが自分たちの働き方について合意する取り決めです。稼働時間、コミュニケーションのルール、品質基準の運用方法などを含み、自己組織化(Self-organization)を支える基盤になります。
 
 > **ベストプラクティス:** 4.2節の技法はいずれも独立した知識ではなく、3.3節・3.4節で見たテーマ・プロセスのアジャイルガイダンスを実現するための「道具箱」です。「このテーマ・プロセスを実現するために、どの技法が使えるか」という対応関係を意識して学習すると、知識が有機的につながります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 4.2<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -561,7 +561,7 @@ Agilometer は、プロジェクトがどの程度アジャイルに適してい
 各スライダーを評価し、六角形のレーダーチャートのような形で可視化することで、プロジェクトチームは「どの領域に追加のガイダンスやリスク対応が必要か」を早期に把握できます。
 
 > **ベストプラクティス:** Agilometer は一度きりの評価ではなく、プロジェクトを通じて定期的に再評価すべきものです。スコアが低い項目があっても「アジャイルを使うべきではない」という結論に直結するわけではなく、「その領域に追加のガイダンス・緩和策が必要」というシグナルとして扱うのが正しい使い方です。
-
+>
 > **出典:** AXELOS 公式オンライン出版「PRINCE2 Agile」第6章 (Fix and flex: what can and cannot be varied?)<br>
 > https://publications.axelos.com/PRINCE2Agile2016/
 
@@ -577,7 +577,7 @@ PRINCE2 Agile では、要求事項の優先順位付け技法として **MoSCoW
 | Won't have this time (今回は対象外) | 今回のタイムボックスでは扱わないと合意された要求 |
 
 > **ベストプラクティス:** 「Must have」の割合をタイムボックスの作業量の60%程度に抑え、残りを Should/Could に配分するという目安がよく使われます。Must have の比率が高すぎると、3.6節で見た「スコープを柔軟にする」余地がなくなり、期限や品質を守れなくなるリスクが高まります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 5.2<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
@@ -592,7 +592,7 @@ PRINCE2 Agile では、要求事項の優先順位付け技法として **MoSCoW
 小さく・頻繁にプロダクトをリリースすることで、早い段階からフィードバックを得て、リスクを低減し、ベネフィットを早期に実現するという考え方です。
 
 > **ベストプラクティス:** リリース頻度を上げることは、3.6節の5つのターゲットのうち「変化を受け入れる」「顧客はすべてを必要としているわけではないと理解する」を実現するための最も直接的な手段です。リリースの粒度を小さくするほど、方向修正のコストは小さくなります。
-
+>
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 5.3–5.4<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
