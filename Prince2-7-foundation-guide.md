@@ -43,11 +43,11 @@ PRINCE2(**PR**ojects **IN** **C**ontrolled **E**nvironments)は、英国発祥�
 
 ```mermaid
 flowchart TB
-    A["7つの原則\nPrinciples"] --> D["PRINCE2の統合構造"]
-    B["人\nPeople"] --> D
-    C["7つのプラクティス\nPractices"] --> D
-    E["7つのプロセス\nProcesses"] --> D
-    D --> F["テーラリング\nTailoring"]
+    A["7つの原則<br/>Principles"] --> D["PRINCE2の統合構造"]
+    B["人<br/>People"] --> D
+    C["7つのプラクティス<br/>Practices"] --> D
+    E["7つのプロセス<br/>Processes"] --> D
+    D --> F["テーラリング<br/>Tailoring"]
 ```
 
 > **ベストプラクティス:** 原則は「守るべき絶対条件」、プラクティスは「継続的に扱うべき観点」、プロセスは「実行の手順」と整理して覚えると混同しにくい。試験でも「これは原則か、プラクティスか」を問う設問が頻出する。
@@ -98,7 +98,7 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    Corp["コーポレート/\nプログラムマネジメント"] -->|プロジェクトトレランスを設定| Board["プロジェクトボード"]
+    Corp["コーポレート/<br/>プログラムマネジメント"] -->|プロジェクトトレランスを設定| Board["プロジェクトボード"]
     Board -->|ステージトレランスを設定| PM["プロジェクトマネージャー"]
     PM -->|ワークパッケージトレランスを設定| TM["チームマネージャー"]
     TM -->|"トレランス逸脱の予測"| PM
@@ -120,9 +120,9 @@ flowchart LR
 
 PRINCE2 7版最大の変更点の一つが、この「People」章の新設です。従来版は手法・統制プロセスに重点を置いていましたが、V7では「プロジェクトを成功させるのは結局は人である」という前提を明示しました。
 
-### 3.1 構成する3つのテーマ
+### 3.1 Peopleに関する3つの活動
 
-| テーマ | 内容 |
+| 活動 | 内容 |
 |---|---|
 | Leading Successful Change(効果的な変革のリード) | プロジェクトはアウトプット提供だけでなく、組織における行動・文化の変化を伴う。変革管理の観点(ステークホルダーの受容度、抵抗への対処)を統合する |
 | Leading Successful Teams(効果的なチームのリード) | チーム形成、動機づけ、心理的安全性、分散/バーチャルチームのマネジメントなど |
@@ -186,9 +186,9 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    Corp["コーポレート/プログラムマネジメント\n(プロジェクト外)"]
+    Corp["コーポレート/プログラムマネジメント<br/>(プロジェクト外)"]
     subgraph Direct["指揮レベル"]
-        Board["プロジェクトボード\n(Executive / Senior User / Senior Supplier)"]
+        Board["プロジェクトボード<br/>(Executive / Senior User / Senior Supplier)"]
     end
     subgraph Manage["管理レベル"]
         PM["プロジェクトマネージャー"]
@@ -216,10 +216,10 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    PPD["プロジェクト・プロダクト\nディスクリプション"] --> PBS["プロダクト・ブレイクダウン\nストラクチャー"]
-    PBS --> PD["各プロダクトの\nディスクリプション"]
-    PD --> PFD["プロダクト・フロー\nダイアグラム"]
-    PFD --> SCHEDULE["スケジュール化・\n見積り"]
+    PPD["プロジェクト・プロダクト<br/>ディスクリプション"] --> PBS["プロダクト・ブレイクダウン<br/>ストラクチャー"]
+    PBS --> PD["各プロダクトの<br/>ディスクリプション"]
+    PD --> PFD["プロダクト・フロー<br/>ダイアグラム"]
+    PFD --> SCHEDULE["スケジュール化・<br/>見積り"]
 ```
 
 > **ベストプラクティス:** 「タスクから計画する」のではなく「必要なプロダクトから逆算して計画する」ことがPRINCE2流の要点。試験でも「プロダクトベース・プランニングの最初のステップ」がよく問われる。
@@ -239,9 +239,9 @@ flowchart LR
 ```mermaid
 flowchart LR
     CQE["顧客の品質期待"] --> AC["受け入れ基準"]
-    AC --> QMA["品質マネジメント\nアプローチ"]
-    QMA --> PD2["プロダクト・\nディスクリプション\n(品質基準/方法/責任)"]
-    PD2 --> QR["品質レジスター\n(実施記録)"]
+    AC --> QMA["品質マネジメント<br/>アプローチ"]
+    QMA --> PD2["プロダクト・<br/>ディスクリプション<br/>(品質基準/方法/責任)"]
+    PD2 --> QR["品質レジスター<br/>(実施記録)"]
 ```
 
 > **ベストプラクティス:** 品質基準は「測定可能」でなければならない。「使いやすいこと」ではなく「操作完了までのクリック数が3回以内であること」のように具体化する。
@@ -258,7 +258,7 @@ flowchart TB
     AS --> PLAN["計画 (Plan)"]
     PLAN --> IMP["実行 (Implement)"]
     IMP --> ID
-    COMM["コミュニケーション\n(全ステップに継続的に関与)"] -.-> ID
+    COMM["コミュニケーション<br/>(全ステップに継続的に関与)"] -.-> ID
     COMM -.-> AS
     COMM -.-> PLAN
     COMM -.-> IMP
@@ -332,16 +332,16 @@ PRINCE2の全プラクティス・プロセスは、以下の3系統の「マネ
 ```mermaid
 flowchart TB
     MP["マネジメント製品"]
-    MP --> BL["ベースライン\n(Baselines)"]
-    MP --> REC["記録類\n(Project Log: レジスター/ログ)"]
-    MP --> REP["報告類\n(Reports)"]
+    MP --> BL["ベースライン<br/>(Baselines)"]
+    MP --> REC["記録類<br/>(Project Log: レジスター/ログ)"]
+    MP --> REP["報告類<br/>(Reports)"]
 
     BL --> BL1["ビジネスケース"]
-    BL --> BL2["各種マネジメント・アプローチ\n(Benefits/Change/Commercial/\nCommunication/Digital and Data/\nIssue/Quality/Risk/Sustainability)"]
+    BL --> BL2["各種マネジメント・アプローチ<br/>(Benefits/Change/Commercial/<br/>Communication/Digital and Data/<br/>Issue/Quality/Risk/Sustainability)"]
     BL --> BL3["プラン (Project/Stage/Team)"]
     BL --> BL4["プロダクト・ディスクリプション"]
     BL --> BL5["プロジェクトブリーフ"]
-    BL --> BL6["プロジェクト・イニシエーション\nドキュメンテーション (PID)"]
+    BL --> BL6["プロジェクト・イニシエーション<br/>ドキュメンテーション (PID)"]
 
     REC --> REC1["デイリーログ"]
     REC --> REC2["課題レジスター"]
