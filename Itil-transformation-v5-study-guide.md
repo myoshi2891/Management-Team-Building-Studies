@@ -12,7 +12,7 @@
 - **免責事項**：本ガイドは PeopleCert / ITIL 公式サイトおよび公認トレーニングプロバイダが公開しているシラバス概要・記事をもとに独自にまとめた学習補助教材であり、PeopleCert International Ltd. が発行する有償の公式教材（Official eBook、Learner Workbook、Quick Reference Guide）の代替にはならない。特に「Transformation Model の4層に含まれる12ステージそれぞれの名称・詳細な活動内容」は有償の公式教材にのみ収録されている粒度の情報であるため、本ガイドでは層（レイヤー）単位の概念構造までを解説し、ステージ単位の一次情報は出典として公式教材への参照を明示するにとどめる
 
 > **本ガイドの前提知識**
-> ITIL Transformation は ITIL Foundation の知識（ITIL Value System、Guiding Principles、Four Dimensions of Service Management、Product and Service Lifecycle）を前提として設計されている。これらの用語に不安がある場合は、先に ITIL Foundation（Version 5）の学習ガイドを参照することを推奨する。
+> ITIL Transformation は ITIL Foundation の知識（ITIL Value System、Guiding Principles、Four Dimensions of Product and Service Management、Product and Service Lifecycle）を前提として設計されている。これらの用語に不安がある場合は、先に ITIL Foundation（Version 5）の学習ガイドを参照することを推奨する。
 
 ---
 
