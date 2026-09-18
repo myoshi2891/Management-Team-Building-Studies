@@ -134,13 +134,13 @@ flowchart LR
     subgraph VS["ITIL Value System"]
         GP["Guiding Principles"]
         GOV["Governance"]
-        SVC["Service Value Chain"]
+        SVC["Service Value Chain\n(ITIL 4)"]
         PRAC["Practices"]
         CI["Continual Improvement"]
     end
     VS --> PSL["Product and Service Lifecycle"]
     PSL --> TR["ITIL Transformation\n変革の実行と学習"]
-    FD["Four Dimensions of\nService Management"] -.適用.-> TR
+    FD["Four Dimensions of\nProduct and Service Management"] -.適用.-> TR
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
