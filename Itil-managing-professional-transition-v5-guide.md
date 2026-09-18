@@ -36,26 +36,47 @@
 
 ### 1.2 認定の位置づけ
 
-MPT は「研修1本＋試験2本」で構成されるパッケージです。両方の試験に合格すると **ITIL Managing Professional (Version 5)** の資格が得られます。さらに、ITIL 4 Master または ITIL v3 Master を保有していた場合、この2試験合格が **ITIL Master (Version 5)**（ITIL 最高位資格）へのアップグレード経路にもなります。
+MPT は「研修1本＋試験2本」で構成されるパッケージです。両方の試験に合格すると **ITIL Managing Professional (Version 5)** の資格が得られます。ITIL 最高位資格 **ITIL Master (Version 5)** に到達するには、これに加えて **ITIL Practice Manager (Version 5)** と **ITIL Strategic Leader (Version 5)** の2資格も必要です（3資格必須）。ただし、保有していた前提資格によってMPT経由での到達範囲が異なります。
+
+- **ITIL 4 Master 保有者**: MPTの2試験合格により、Managing Professional に加えて Practice Manager・Strategic Leader も同時に認定され、**ITIL Master (Version 5) まで一括で到達**します。
+- **ITIL v3 Master 保有者**: MPTの2試験合格で得られるのは Managing Professional（および中核モジュール Transformation の認定）までです。Master に到達するには、Practice Manager と Strategic Leader を**別途個別に取得**する必要があります。
 
 ```mermaid
-flowchart TD
-    A["ITIL v3 Expert / ITIL v3 Master"] --> C{"前提資格を保持しているか"}
-    B["ITIL 4 Managing Professional / ITIL 4 Master"] --> C
-    C -->|Yes| D["ITIL Managing Professional Transition Version 5 研修受講"]
-    D --> E["Exam 1: ITIL Transformation Version 5"]
-    D --> F["Exam 2: MPT - Product, Service, Experience Version 5"]
-    E --> G["両試験合格"]
-    F --> G
-    G --> H["ITIL Managing Professional Version 5 認定"]
-    H --> I["ITIL 4 Master / v3 Master 保持者は<br/>ITIL Master Version 5 への道が開く"]
+flowchart TB
+    subgraph RouteGeneral["ルート1: 一般的なFoundationルート(前提資格なし)"]
+        direction TB
+        FG["ITIL Foundation Version 5"] --> FG2["Product/Service/Experience/<br/>Transformationを個別取得"]
+        FG2 --> FG3["Managing Professional Version 5"]
+        FG --> FG4["Strategy/Transformationを個別取得"]
+        FG4 --> FG5["Strategic Leader Version 5"]
+        FG --> FG6["Practice Managerモジュールを個別取得"]
+        FG6 --> FG7["Practice Manager Version 5"]
+        FG3 --> FG8["ITIL Master Version 5"]
+        FG5 --> FG8
+        FG7 --> FG8
+    end
+
+    subgraph Route4["ルート2: ITIL 4 Masterからの移行"]
+        direction TB
+        M4["ITIL 4 Master 保有"] --> MPT4["MPT研修 + Exam1/Exam2 合格"]
+        MPT4 --> M4R["Managing Professional・Practice Manager・<br/>Strategic Leaderを一括認定"]
+        M4R --> M4M["ITIL Master Version 5"]
+    end
+
+    subgraph RouteV3["ルート3: ITIL v3 Masterからの移行"]
+        direction TB
+        M3["ITIL v3 Master 保有<br/>(v3 Expertも同様にMPまで)"] --> MPT3["MPT研修 + Exam1/Exam2 合格"]
+        MPT3 --> M3R["Managing Professional Version 5 認定<br/>(Transformationも認定済み)"]
+        M3R --> M3S["Practice Manager・Strategic Leaderを<br/>別途個別取得"]
+        M3S --> M3M["ITIL Master Version 5"]
+    end
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
-    class A,B,C box
-    class D,E,F hub
-    class G,H,I done
+    class FG,FG2,FG4,FG6,M4,M3 box
+    class MPT4,MPT3,M3R,M3S hub
+    class FG3,FG5,FG7,FG8,M4R,M4M,M3M done
 ```
 
 ### 1.3 試験構成の全体比較
@@ -101,10 +122,10 @@ MPT を学ぶ前提として、ITIL がどのように進化してきたかを�
 |---|---|---|---|
 | 中核モデル | Service Lifecycle（5段階: Strategy/Design/Transition/Operation/CSI） | Service Value System + Service Value Chain（6活動） | ITIL Value System (ITIL VS) + Product and Service Lifecycle Model／PSLM（8活動） |
 | 対象範囲 | ITサービスマネジメント | ITサービスマネジメント（原則・プラクティス体系） | デジタル**プロダクト**とサービスの統合マネジメント |
-| AIの扱い | 想定なし | 言及なし | Four Dimensionsの「組織と人材」に明示的に統合、専用のAI Governanceモジュールも新設 |
+| AIの扱い | 想定なし | 言及なし | Four Dimensionsの「情報と技術」にAI Capability Model(6Cモデル)を新設、「組織と人材」には人とAIの協働を明示的に統合、専用のAI Governanceモジュールも新設 |
 | Guiding Principles | なし（v3独自の原則） | 7原則 | 7原則を**そのまま継承**（変更なし） |
 | 管理プラクティス | 26プロセス+機能 | 34プラクティス | 34プラクティス名を**そのまま継承** |
-| 認定体系 | Foundation→Practitioner→Intermediate→Expert→Master | Foundation→Specialist/Strategist/Leader→Master | Foundation→Product/Service/Experience/Transformation（Managing Professional）→Strategy（Strategic Leader）→Master |
+| 認定体系 | Foundation→Practitioner→Intermediate→Expert→Master | Foundation→Specialist/Strategist/Leader→Master | Foundation→Practice Manager／Product・Service・Experience・Transformation（Managing Professional）／Strategy・Transformation（Strategic Leader）→Master（Practice Manager+Managing Professional+Strategic Leaderの3資格が必須） |
 
 > **ベストプラクティス:** 試験対策としては「何が変わったか」だけでなく「何が変わっていないか」を明確に区別して覚えることが得点に直結します。Guiding Principlesと34プラクティス名は据え置きのため、既存のITIL 4知識はそのまま活用できます。
 
@@ -134,13 +155,13 @@ ITIL 4 の Service Value System (SVS) の名称が **ITIL Value System (ITIL VS)
 
 ### 3.3 Four Dimensions of Product and Service Management
 
-4つの側面自体はITIL 4から継続していますが、Version 5では「組織と人材」の次元にAIの扱いが明示的に組み込まれた点が変更点です。
+4つの側面自体はITIL 4から継続していますが、Version 5では「情報と技術」の次元にAI Capability Model（6Cモデル）が新設され、「組織と人材」の次元には人とAIの協働という観点が明示的に組み込まれた点が変更点です。
 
 ```mermaid
 flowchart TB
     Center["ITIL Value System"]
     Center --> D1["Organizations and People<br/>（組織と人材／AIとの協働を含む）"]
-    Center --> D2["Information and Technology"]
+    Center --> D2["Information and Technology<br/>（AI Capability Model／6Cモデルを含む）"]
     Center --> D3["Partners and Suppliers"]
     Center --> D4["Value Streams and Processes"]
 
