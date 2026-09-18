@@ -76,10 +76,10 @@ ITIL Foundation試験が主に「知識（Recall）」と「理解（Comprehensi
 
 ```mermaid
 flowchart TD
-    F["ITIL Foundation\n(Version 5)\nまたは いずれかのITIL 4認定"] --> T["ITIL Transformation\n(Version 5)\n共通コアモジュール"]
-    T --> PM["Practice Manager\ndesignation"]
-    T --> MP["ITIL Managing Professional\n(Version 5)\ndesignation"]
-    T --> SL["Strategic Leader\ndesignation"]
+    F["ITIL Foundation<br/>(Version 5)<br/>または いずれかのITIL 4認定"] --> T["ITIL Transformation<br/>(Version 5)<br/>共通コアモジュール"]
+    T --> PM["Practice Manager<br/>designation"]
+    T --> MP["ITIL Managing Professional<br/>(Version 5)<br/>designation"]
+    T --> SL["Strategic Leader<br/>designation"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -134,13 +134,13 @@ flowchart LR
     subgraph VS["ITIL Value System"]
         GP["Guiding Principles"]
         GOV["Governance"]
-        SVC["Service Value Chain\n(ITIL 4)"]
+        SVC["Service Value Chain<br/>(ITIL 4)"]
         PRAC["Practices"]
         CI["Continual Improvement"]
     end
     VS --> PSL["Product and Service Lifecycle"]
-    PSL --> TR["ITIL Transformation\n変革の実行と学習"]
-    FD["Four Dimensions of\nProduct and Service Management"] -.適用.-> TR
+    PSL --> TR["ITIL Transformation<br/>変革の実行と学習"]
+    FD["Four Dimensions of<br/>Product and Service Management"] -.適用.-> TR
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -199,11 +199,11 @@ ITIL Transformationのガイダンスは、次の2種類の読み手を意識し
 
 ```mermaid
 flowchart TD
-    T["ITIL Transformation\nガイダンス"] --> A1["説明責任を持つ人々\nAccountable / Responsible\nシニアリーダー・スポンサー"]
-    T --> A2["変革の影響を受ける人々\nProduct / Service Delivery側\nBAU業務の担当者"]
+    T["ITIL Transformation<br/>ガイダンス"] --> A1["説明責任を持つ人々<br/>Accountable / Responsible<br/>シニアリーダー・スポンサー"]
+    T --> A2["変革の影響を受ける人々<br/>Product / Service Delivery側<br/>BAU業務の担当者"]
 
-    A1 --> N1["取り組みの整合性・調整・\nBAUとの両立を担保する"]
-    A2 --> N2["何が・なぜ起きているかを理解し、\n変革中も安定運用を守る"]
+    A1 --> N1["取り組みの整合性・調整・<br/>BAUとの両立を担保する"]
+    A2 --> N2["何が・なぜ起きているかを理解し、<br/>変革中も安定運用を守る"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -224,9 +224,9 @@ Transformationが扱う状況は、見通しの立てやすい秩序だった（
 
 ```mermaid
 flowchart LR
-    O["秩序だった環境\nOrdered / Predictable\n因果関係が明確"] -->|詳細な計画が有効| P1["Plan-drivenな\nアプローチ\n(例: Project / Programme Management)"]
-    C["複雑な環境\nComplex\n因果関係は事後的にしか分からない"] -->|試行→観察→適応| P2["探索的・反復的な\nアプローチ\n(例: 小さな実験、フィードバックループ)"]
-    X["混沌とした環境\nChaotic\n即断即決が必要"] -->|まず安定化| P3["緊急対応で\n状況を安定化してから\n次のアプローチへ"]
+    O["秩序だった環境<br/>Ordered / Predictable<br/>因果関係が明確"] -->|詳細な計画が有効| P1["Plan-drivenな<br/>アプローチ<br/>(例: Project / Programme Management)"]
+    C["複雑な環境<br/>Complex<br/>因果関係は事後的にしか分からない"] -->|試行→観察→適応| P2["探索的・反復的な<br/>アプローチ<br/>(例: 小さな実験、フィードバックループ)"]
+    X["混沌とした環境<br/>Chaotic<br/>即断即決が必要"] -->|まず安定化| P3["緊急対応で<br/>状況を安定化してから<br/>次のアプローチへ"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
@@ -263,9 +263,9 @@ ITIL Transformation Modelは、Governance・Positioning・Execution・Learning�
 
 ```mermaid
 flowchart TB
-    G["Governance\n方向づけ・意思決定"] --> P["Positioning\n状況理解・立ち位置の明確化"]
-    P --> E["Execution\n実行（複数アプローチの並行運用）"]
-    E --> L["Learning\n測定・評価・学習"]
+    G["Governance<br/>方向づけ・意思決定"] --> P["Positioning<br/>状況理解・立ち位置の明確化"]
+    P --> E["Execution<br/>実行（複数アプローチの並行運用）"]
+    E --> L["Learning<br/>測定・評価・学習"]
     L --> G
     L -.フィードバック.-> P
     L -.フィードバック.-> E
@@ -309,8 +309,8 @@ flowchart LR
         B3["承認プロセス・資金モデル"]
     end
     subgraph TRG["Transformation Governance"]
-        T1["アジャイル等\n柔軟な働き方"]
-        T2["Transformation固有の\n意思決定基準"]
+        T1["アジャイル等<br/>柔軟な働き方"]
+        T2["Transformation固有の<br/>意思決定基準"]
     end
     BAU <-->|緊張関係 Tension| TRG
     BAU -.Bridge:重複を最小化しつつ両立.-> TRG
@@ -356,9 +356,9 @@ ITIL Transformationモジュールの中核をなすのが、Initiation Patterns
 
 ```mermaid
 flowchart TB
-    IP["Initiation Patterns\n出発点の理解"] --> GP["Governance Patterns\nBAUとTransformation\nGovernanceの橋渡し"]
-    GP --> EP["Execution Patterns\n複数アプローチの並行実行\n+ フィードバックループ"]
-    TK["Toolkit\nVSM / OKR / ITIL Maturity Model等"] -.横断的に支援.-> IP
+    IP["Initiation Patterns<br/>出発点の理解"] --> GP["Governance Patterns<br/>BAUとTransformation<br/>Governanceの橋渡し"]
+    GP --> EP["Execution Patterns<br/>複数アプローチの並行実行<br/>+ フィードバックループ"]
+    TK["Toolkit<br/>VSM / OKR / ITIL Maturity Model等"] -.横断的に支援.-> IP
     TK -.横断的に支援.-> GP
     TK -.横断的に支援.-> EP
 
@@ -405,7 +405,7 @@ Governanceが「統制」だけに偏ると変革は硬直化し、「有効化�
 
 ```mermaid
 flowchart LR
-    S["戦略レベル\n(なぜやるか / Why)"] --> T["戦術レベル\n(どう進めるか / How)"] --> O["実行レベル\n(何をやるか / What)"]
+    S["戦略レベル<br/>(なぜやるか / Why)"] --> T["戦術レベル<br/>(どう進めるか / How)"] --> O["実行レベル<br/>(何をやるか / What)"]
     O -.実績・学習.-> S
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -440,11 +440,11 @@ ITIL Transformationの実行に関する考え方の核心は、「1つの実行
 flowchart TB
     subgraph EX["Execution（並行運用）"]
         direction LR
-        A1["ワークストリームA\nProject管理型"]
-        A2["ワークストリームB\n探索的・反復型"]
-        A3["ワークストリームC\n緊急対応型"]
+        A1["ワークストリームA<br/>Project管理型"]
+        A2["ワークストリームB<br/>探索的・反復型"]
+        A3["ワークストリームC<br/>緊急対応型"]
     end
-    EX --> FB["共通のフィードバックループ\n定期的な同期・調整"]
+    EX --> FB["共通のフィードバックループ<br/>定期的な同期・調整"]
     FB --> EX
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -477,9 +477,9 @@ flowchart TB
 
 ```mermaid
 flowchart LR
-    M["測定\nMeasurement\n(指標・データ収集)"] --> E["評価\nEvaluation\n(結果の解釈)"]
-    E --> L["学習\nLearning\n(組織知への変換)"]
-    L --> D["意思決定への反映\nGovernance / Execution\nへのフィードバック"]
+    M["測定<br/>Measurement<br/>(指標・データ収集)"] --> E["評価<br/>Evaluation<br/>(結果の解釈)"]
+    E --> L["学習<br/>Learning<br/>(組織知への変換)"]
+    L --> D["意思決定への反映<br/>Governance / Execution<br/>へのフィードバック"]
     D -.次サイクルへ.-> M
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -552,7 +552,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    L1["Level 1\nInitial"] --> L2["Level 2\nManaged"] --> L3["Level 3\nDefined"] --> L4["Level 4\nQuantitative"] --> L5["Level 5\nOptimizing"]
+    L1["Level 1<br/>Initial"] --> L2["Level 2<br/>Managed"] --> L3["Level 3<br/>Defined"] --> L4["Level 4<br/>Quantitative"] --> L5["Level 5<br/>Optimizing"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
@@ -609,13 +609,13 @@ ITIL（Version 5）のFour Dimensionsのうち「情報と技術（Information a
 
 ```mermaid
 flowchart TB
-    AI["ITIL AI Capability Model\n(6Cモデル)"]
-    AI --> C1["Creation\n創出"]
-    AI --> C2["Curation\nキュレーション"]
-    AI --> C3["Clarification\n明確化"]
-    AI --> C4["Cognition\n認知"]
-    AI --> C5["Communication\nコミュニケーション"]
-    AI --> C6["Coordination\n調整"]
+    AI["ITIL AI Capability Model<br/>(6Cモデル)"]
+    AI --> C1["Creation<br/>創出"]
+    AI --> C2["Curation<br/>キュレーション"]
+    AI --> C3["Clarification<br/>明確化"]
+    AI --> C4["Cognition<br/>認知"]
+    AI --> C5["Communication<br/>コミュニケーション"]
+    AI --> C6["Coordination<br/>調整"]
 
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -657,9 +657,9 @@ ITIL Transformationは、「ITILの他にどんな方法論を使っている組
 
 ```mermaid
 flowchart TB
-    T["ITIL Transformation Model"] --> P["PRINCE2\n計画・統制"]
-    T --> D["DevOps\n継続的デリバリー・自動化"]
-    T --> A["Agile\n探索的・反復的な実行"]
+    T["ITIL Transformation Model"] --> P["PRINCE2<br/>計画・統制"]
+    T --> D["DevOps<br/>継続的デリバリー・自動化"]
+    T --> A["Agile<br/>探索的・反復的な実行"]
 
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
@@ -683,11 +683,11 @@ flowchart TB
 
 ```mermaid
 flowchart TD
-    S1["Step 1\nITIL Foundation (Version 5)の\n知識を再確認する"] --> S2["Step 2\n本ガイドで\nTransformation Modelの\n4層構造を理解する"]
-    S2 --> S3["Step 3\n3つのPatterns\n(Initiation/Governance/Execution)\nの違いを整理する"]
-    S3 --> S4["Step 4\nToolkit（VSM/OKR/\nITIL Maturity Model等）を\n実例で使ってみる"]
-    S4 --> S5["Step 5\nシナリオ問題で\nBloom's Level 3-4\n(適用・分析)を練習する"]
-    S5 --> S6["Step 6\n公式Mock Examで\n時間配分（90分/40問）を\n確認する"]
+    S1["Step 1<br/>ITIL Foundation (Version 5)の<br/>知識を再確認する"] --> S2["Step 2<br/>本ガイドで<br/>Transformation Modelの<br/>4層構造を理解する"]
+    S2 --> S3["Step 3<br/>3つのPatterns<br/>(Initiation/Governance/Execution)<br/>の違いを整理する"]
+    S3 --> S4["Step 4<br/>Toolkit（VSM/OKR/<br/>ITIL Maturity Model等）を<br/>実例で使ってみる"]
+    S4 --> S5["Step 5<br/>シナリオ問題で<br/>Bloom's Level 3-4<br/>(適用・分析)を練習する"]
+    S5 --> S6["Step 6<br/>公式Mock Examで<br/>時間配分（90分/40問）を<br/>確認する"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
