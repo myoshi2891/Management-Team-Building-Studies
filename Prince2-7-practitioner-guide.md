@@ -460,7 +460,7 @@ flowchart LR
     E -.->|継続的に反復| A
 ```
 
-- **脅威(Threat)への対応戦略の例**: 回避(Avoid)、低減(Reduce)、転嫁(Transfer)、受容(Accept)、コンティンジェンシー確保(Fallback/Share)
+- **脅威(Threat)への対応戦略の例**: 回避(Avoid)、低減(Reduce)、転嫁(Transfer)、共有(Share)、受容(Accept)、コンティンジェンシー計画の準備(Prepare contingent plans)
 - **好機(Opportunity)への対応戦略の例**: 活用(Exploit)、強化(Enhance)、共有(Share)、拒否(Reject)
 - PRINCE2の大きな特徴は、**脅威だけでなく「好機」も積極的に管理対象とする**点です。多くの現場ではリスク=脅威と捉えがちですが、Practitioner試験では好機を見落としているシナリオが誤りとして問われます。
 

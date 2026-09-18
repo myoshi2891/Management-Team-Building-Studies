@@ -93,7 +93,6 @@ flowchart LR
 
 Foundation は「知識の再認・理解 (recall と comprehension)」を問う試験であるのに対し、Practitioner はケーススタディに基づく「適用力」を問う試験です。Foundation の内容を土台として、まず全体像を正確に押さえることが Practitioner 合格への近道です。
 
-
 ---
 
 ## 1. 第1部: PRINCE2 の基礎知識 (Learning Outcome 1)
@@ -222,7 +221,6 @@ flowchart TB
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 1.5<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
-
 ---
 
 ## 2. 第2部: PRINCE2 Agile の基本概念 (Learning Outcome 2)
@@ -305,7 +303,6 @@ Foundation シラバスでは、デリバリーチームに関わる次の4つ�
 >
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 2.4<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
-
 
 ---
 
@@ -430,7 +427,6 @@ PRINCE2 Agile では、プロジェクトのパフォーマンスを構成する
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 3.6<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
 
-
 ---
 
 ## 4. 第4部: アジャイルの実践用語と技法 (Learning Outcome 4)
@@ -529,7 +525,6 @@ flowchart LR
 >
 > **出典:** PeopleCert / AXELOS 公式シラバス Learning Outcome 4.2<br>
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf
-
 
 ---
 
