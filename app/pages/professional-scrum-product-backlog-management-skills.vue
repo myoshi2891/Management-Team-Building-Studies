@@ -1517,5 +1517,6 @@ footer {
 
 @media (prefers-reduced-motion: reduce) {
   .sidebar { transition: none; }
+  .skip-link { transition: none; }
 }
 </style>
