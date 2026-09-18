@@ -105,7 +105,7 @@ flowchart LR
 
 ### 2.4 Strategic Leaderパスにおける位置づけ
 
-ITIL Strategyは、ITIL Product・ITIL Service・ITIL Experienceで構成される Managing Professional パスの一段上、組織の方向性そのものを扱う **Strategic Leader** パスに属する。対象者は組織のあらゆる階層で戦略的責任を持つリーダー、戦略実行に戦術的責任を持つ専門家、戦略目標の支援に運用的責任を持つ専門家である。
+ITIL Strategyは、組織の方向性そのものを扱う **Strategic Leader** パスに属するモジュールである。Strategic Leaderの称号は、前提資格である**ITIL Foundation**を基盤に、**ITIL Strategy**と全designation共通の中核モジュールである**ITIL Transformation**の2つを取得することで得られる。ITIL Product・ITIL Service・ITIL Experience・ITIL Transformationの4モジュールで構成される Managing Professional パスとは上下関係ではなく、並列の別個の認定ストリームである。対象者は組織のあらゆる階層で戦略的責任を持つリーダー、戦略実行に戦術的責任を持つ専門家、戦略目標の支援に運用的責任を持つ専門家である。
 
 ---
 
