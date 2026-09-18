@@ -186,6 +186,23 @@
     cursor: pointer;
   }
 
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 100;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 8px;
+  }
+
   /* ===================== Main content ===================== */
   .main-content {
     margin-left: var(--sidebar-width);
@@ -587,6 +604,7 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
@@ -627,7 +645,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" tabindex="-1">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert ITIL Strategic Leader Pathway</div>
