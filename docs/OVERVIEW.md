@@ -45,7 +45,7 @@ flowchart LR
 | フレームワーク | Nuxt 4.5.2（Vue 3.5.41） |
 | 言語 | TypeScript |
 | パッケージ管理 | bun（npm代替可） |
-| テスト | Vitest 4.1.10 / Playwright 1.62.1 |
+| テスト | Vitest 4.1.11 / Playwright 1.62.1 |
 | 図解 | Mermaid 11.16.1（npm同梱） |
 
 前提条件・制約:
