@@ -51,6 +51,8 @@ flowchart TB
         FG4 --> FG5["Strategic Leader Version 5"]
         FG --> FG6["Practice Managerモジュールを個別取得"]
         FG6 --> FG7["Practice Manager Version 5"]
+        FG --> FGT["ITIL Transformation (Version 5)"]
+        FGT --> FG7
         FG3 --> FG8["ITIL Master Version 5"]
         FG5 --> FG8
         FG7 --> FG8
@@ -74,7 +76,7 @@ flowchart TB
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
-    class FG,FG2,FG4,FG6,M4,M3 box
+    class FG,FG2,FG4,FG6,FGT,M4,M3 box
     class MPT4,MPT3,M3R,M3S hub
     class FG3,FG5,FG7,FG8,M4R,M4M,M3M done
 ```
@@ -294,7 +296,7 @@ AIはTransformationにおいても、変革準備・実行そのものを支援�
 
 ### 5.2 Product and Service Lifecycle Model (PSLM) — 8つの活動
 
-ITIL 4 の Service Value Chain（6活動：Plan, Improve, Engage, Design & Transition, Obtain & Build, Deliver & Support）は、Version 5 で **Product and Service Lifecycle Model（PSLM）** に置き換えられ、**8つの反復的（iterative）な活動** として再定義されました。
+ITIL 4 の Service Value Chain（6活動：Plan, Improve, Engage, Design & Transition, Obtain & Build, Deliver & Support）は、Version 5 でも中核の運用モデルとして維持されています。これに加えて、Version 5 では新たに **Product and Service Lifecycle Model（PSLM）** が導入され、プロダクト/サービス単位の視点から**8つの反復的（iterative）な活動**として整理されました。
 
 固定された一方向の手順ではなく、必要に応じてどの活動からどの活動へも行き来できる**循環的・生態系的（ecosystem）なモデル**である点が最大の特徴です。
 
