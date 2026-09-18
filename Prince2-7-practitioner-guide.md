@@ -340,7 +340,7 @@ flowchart TB
 
 - 4つの管理レベル(Corporate/Programme、Directing、Managing、Delivering)に沿って役割を配置する
 - 役割は「人」ではなく「機能」として定義し、1人が複数役割を兼任することも、1つの役割を複数人で分担することも可能(ただし利害相反に注意)
-- Project Assurance(プロジェクトアシュアランス)はProject Manager配下ではなく、Project Boardから独立した形で運用する
+- Project Assurance(プロジェクトアシュアランス)はProject Managerからは独立した立場を保ちつつ、Project Boardに対して独立した視点を提供する形で運用する
 
 #### テーラリングの考慮点
 
@@ -461,7 +461,7 @@ flowchart LR
 ```
 
 - **脅威(Threat)への対応戦略の例**: 回避(Avoid)、低減(Reduce)、転嫁(Transfer)、受容(Accept)、コンティンジェンシー確保(Fallback/Share)
-- **好機(Opportunity)への対応戦略の例**: 活用(Exploit)、強化(Enhance)、共有(Share)、受容(Reject/Accept)
+- **好機(Opportunity)への対応戦略の例**: 活用(Exploit)、強化(Enhance)、共有(Share)、拒否(Reject)
 - PRINCE2の大きな特徴は、**脅威だけでなく「好機」も積極的に管理対象とする**点です。多くの現場ではリスク=脅威と捉えがちですが、Practitioner試験では好機を見落としているシナリオが誤りとして問われます。
 
 #### テーラリングの考慮点

@@ -449,7 +449,6 @@ flowchart TB
 
     SU --> DP1 --> IP --> DP2 --> CS
     SB --> DP3 --> CS
-    SB -.->|次ステージへ| CS
     CS --> CP --> DP5
 ```
 
