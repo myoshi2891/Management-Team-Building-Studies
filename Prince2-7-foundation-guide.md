@@ -37,7 +37,7 @@
 
 PRINCE2(**PR**ojects **IN** **C**ontrolled **E**nvironments)は、英国発祥で世界的に採用されているプロジェクトマネジメント手法です。業種・規模を問わず適用できる「汎用フレームワーク」であり、公式マニュアル『Managing Successful Projects with PRINCE2』第7版が拠り所となります。
 
-- プロジェクトの定義:「ビジネス上の成果物(プロダクト)を、合意された事業計画にもとづいて創出するために編成された、一時的な組織」
+- プロジェクトの定義:「ビジネス上の成果物(プロダクト)を、合意されたビジネスケースにもとづいて創出するために編成された、一時的な組織」
 - **プロジェクトは"一時的"** であり、日常業務(BAU: Business As Usual)とは異なる。
 - PRINCE2は**プロセスベース**の手法であり、原則・プラクティス・プロセスが相互に関係し合う構造を持つ。
 
@@ -132,7 +132,7 @@ PRINCE2 7版最大の変更点の一つが、この「People」章の新設で�
 
 ### 3.2 コミュニケーション・マネジメント・アプローチ
 
-- V7では、ステークホルダーとの情報共有方法を定める文書として **Communication Management Approach(コミュニケーション・マネジメント・アプローチ)** が新設された(V6の「Communication Management Strategy」に相当する位置づけを持つマネジメント・アプローチ群の1つ)。
+- ステークホルダーとの情報共有方法を定める文書 **Communication Management Approach(コミュニケーション・マネジメント・アプローチ)** はV6で導入された用語で、V7でもそのまま引き継がれている(V5では「Communication Management Strategy」と呼ばれていた)。
 - 内容:誰に・何を・いつ・どの手段で・誰が責任を持つか、を定義する。
 
 (出典: [Managing Successful Projects with PRINCE2 7th Edition 目次(scribd)](https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked)、[knowledgetrain.co.uk PRINCE2マニュアル解説](https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2))
@@ -357,7 +357,7 @@ flowchart TB
     REP --> REP5["エンドプロジェクト報告"]
 ```
 
-> **補足(V7の用語変化):** V6の「戦略(Strategy)」系文書(例:リスクマネジメント戦略)は、V7では **「マネジメント・アプローチ(Management Approach)」** という総称に整理され、新たに **サステナビリティ・マネジメント・アプローチ** と **デジタル&データ・マネジメント・アプローチ** が加わっている。
+> **補足(用語の変遷とV7での新設):** 「戦略(Strategy)」から**「マネジメント・アプローチ(Management Approach)」**への改称はV6(2017年版)で行われ、V7では引き続きこの呼称が使われている。V7ではこれに加えて、**コマーシャル・マネジメント・アプローチ**、**デジタル&データ・マネジメント・アプローチ**、**サステナビリティ・マネジメント・アプローチ**の3つが新設された。
 > (出典: [prince2.wiki — Define roles, responsibilities and relationships](https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/))
 
 **プロジェクト・イニシエーション・ドキュメンテーション(PID)の主な構成**
@@ -383,7 +383,7 @@ PRINCE2の原則③「明確な役割と責任」を具体化したのがこの�
 | 指揮 | **シニアサプライヤー (Senior Supplier)** | サプライヤー | プロダクトの技術的実現可能性・品質・リソースの確保 |
 | 管理 | **プロジェクトマネージャー (Project Manager)** | — | 日々のプロジェクト運営。計画・監視・統制・報告 |
 | 実行 | **チームマネージャー (Team Manager)** | — | ワークパッケージの実行管理。チームへの割当と統制 |
-| 支援 | **プロジェクトアシュアランス (Project Assurance)** | ビジネス/ユーザー/サプライヤー | プロジェクトボードに代わる独立した視点でのチェック機能 |
+| 支援 | **プロジェクトアシュアランス (Project Assurance)** | ビジネス/ユーザー/サプライヤー | プロジェクトボードに代わって(委任を受けて)チェックを行う機能。プロジェクトマネージャーからは独立 |
 | 支援 | **チェンジオーソリティ (Change Authority)** | — | 変更要求・仕様逸脱の承認権限(委譲された場合) |
 | 支援 | **プロジェクトサポート (Project Support)** | — | 管理事務(ログ・レジスターの維持、会議調整、ツール運用等) |
 
