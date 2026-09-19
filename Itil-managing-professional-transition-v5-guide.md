@@ -38,6 +38,7 @@
 
 MPT は「研修1本＋試験2本」で構成されるパッケージです。両方の試験に合格すると **ITIL Managing Professional (Version 5)** の資格が得られます。ITIL 最高位資格 **ITIL Master (Version 5)** に到達するには、これに加えて **ITIL Practice Manager (Version 5)** と **ITIL Strategic Leader (Version 5)** の2資格も必要です（3資格必須）。ただし、保有していた前提資格によってMPT経由での到達範囲が異なります。
 
+- **ITIL 4 Managing Professional 保有者**: MPTの2試験合格で得られるのは Managing Professional (Version 5) までです。Master に到達するには、Practice Manager と Strategic Leader を**別途個別に取得**する必要があります。
 - **ITIL 4 Master 保有者**: MPTの2試験合格により、Managing Professional に加えて Practice Manager・Strategic Leader も同時に認定され、**ITIL Master (Version 5) まで一括で到達**します。
 - **ITIL v3 Master 保有者**: MPTの2試験合格で得られるのは Managing Professional（および中核モジュール Transformation の認定）までです。Master に到達するには、Practice Manager と Strategic Leader を**別途個別に取得**する必要があります。
 
@@ -60,14 +61,22 @@ flowchart TB
         FG7 --> FG8
     end
 
-    subgraph Route4["ルート2: ITIL 4 Masterからの移行"]
+    subgraph Route4MP["ルート2: ITIL 4 Managing Professionalからの移行"]
+        direction TB
+        MP4["ITIL 4 Managing Professional 保有"] --> MPT4MP["MPT研修 + Exam1/Exam2 合格"]
+        MPT4MP --> MP4R["Managing Professional Version 5 認定"]
+        MP4R --> MP4S["Practice Manager・Strategic Leaderを<br/>別途個別取得"]
+        MP4S --> MP4M["ITIL Master Version 5"]
+    end
+
+    subgraph Route4["ルート3: ITIL 4 Masterからの移行"]
         direction TB
         M4["ITIL 4 Master 保有"] --> MPT4["MPT研修 + Exam1/Exam2 合格"]
         MPT4 --> M4R["Managing Professional・Practice Manager・<br/>Strategic Leaderを一括認定"]
         M4R --> M4M["ITIL Master Version 5"]
     end
 
-    subgraph RouteV3["ルート3: ITIL v3 Masterからの移行"]
+    subgraph RouteV3["ルート4: ITIL v3 Masterからの移行"]
         direction TB
         M3["ITIL v3 Master 保有<br/>(v3 Expertも同様にMPまで)"] --> MPT3["MPT研修 + Exam1/Exam2 合格"]
         MPT3 --> M3R["Managing Professional Version 5 認定<br/>(Transformationも認定済み)"]
@@ -78,9 +87,9 @@ flowchart TB
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
-    class FG,FG2,FG4,FG6,FGT,M4,M3 box
-    class MPT4,MPT3,M3R,M3S hub
-    class FG3,FG5,FG7,FG8,M4R,M4M,M3M done
+    class FG,FG2,FG4,FG6,FGT,MP4,M4,M3 box
+    class MPT4MP,MP4R,MP4S,MPT4,MPT3,M3R,M3S hub
+    class FG3,FG5,FG7,FG8,MP4M,M4R,M4M,M3M done
 ```
 
 ### 1.3 試験構成の全体比較
@@ -96,7 +105,7 @@ MPT は2つの独立した試験から構成され、**どちらから先に受�
 | 合格基準 | 70% | 70% |
 | 出題スタイル | シナリオベース（ケーススタディ形式） | シナリオベース（例: レンタカー会社ケース）＋ Experience セクション |
 | 受験方式 | オンライン監督下試験（PeopleCert経由） | オンライン監督下試験（PeopleCert経由） |
-| 主な学習範囲 | Transformation Model、governance／execution／learning、変革パターン | PSLM 8活動、バリューストリーム、Experience Model、サービスジャーニー |
+| 主な学習範囲 | Transformation Model の4 Layer（Governance／Positioning／Execution／Learning）、変革パターン | PSLM 8活動、バリューストリーム、Experience Model、サービスジャーニー |
 
 > **ベストプラクティス:** 2試験は独立採点のため、得意分野から着手する戦略が有効です。「変革・組織改革」の経験が長い方は Transformation から、「プロダクト/サービス運用」の実務経験が長い方は PSE から始めると学習の立ち上がりが早くなります。
 
@@ -249,8 +258,8 @@ flowchart TB
 |---|---|
 | 混乱している（Confused）・状況がまだ理解されていない | まず状況を正しく分類することを最優先し、分類結果に応じたアプローチを選択する |
 | 秩序立っている・予測可能（Ordered） | 詳細な事前計画、明確なガバナンス、既知のベストプラクティスの適用 |
-| 複雑・不確実性が高い | 小さな実験、反復的な学習、適応型ガバナンス |
-| 混沌としている | 即座の安定化を最優先し、状況を落ち着かせてから通常のアプローチへ移行 |
+| 複雑・不確実性が高い（Complex） | 小さな実験、反復的な学習、適応型ガバナンス |
+| 混沌としている（Chaotic） | 即座の安定化を最優先し、状況を落ち着かせてから通常のアプローチへ移行 |
 
 > **ベストプラクティス:** 「すべての変革に同じテンプレートを当てはめない」ことが最重要原則です。秩序立った環境で通用した詳細計画型のガバナンスを、混沌とした環境にそのまま適用すると失敗しやすい、という因果関係を理解しておきましょう。
 

@@ -90,12 +90,14 @@ flowchart TD
     MP --> MASTER
     SL --> MASTER
 
-    EXISTMP4["ITIL 4 Managing Professional 保有"] --> MPT4["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)"]
-    EXIST4["ITIL 4 Master 保有"] --> MPT4
-    MPT4 --> MP
-    MPT4 --> PM
-    MPT4 --> SL
-    MPT4 --> MASTER
+    EXISTMP4["ITIL 4 Managing Professional 保有"] --> MPT4MP["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)<br/>(MPのみ。PM・SLは別途取得)"]
+    MPT4MP --> MP
+
+    EXIST4["ITIL 4 Master 保有"] --> MPT4M["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)<br/>(MP・PM・SLを一括認定)"]
+    MPT4M --> MP
+    MPT4M --> PM
+    MPT4M --> SL
+    MPT4M --> MASTER
 
     EXISTV3["ITIL v3 Expert/Master 保有"] --> MPTV3["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)<br/>(Transformationも認定済み)"]
     MPTV3 --> MP
@@ -108,7 +110,7 @@ flowchart TD
     class T hub
     class PM,MP,SL box
     class MASTER done
-    class EXISTMP4,EXIST4,MPT4,EXISTV3,MPTV3 alt
+    class EXISTMP4,MPT4MP,EXIST4,MPT4M,EXISTV3,MPTV3 alt
 ```
 
 ITIL Managing Professional（Version 5）designationを取得するには、ITIL Foundation（Version 5）またはいずれかのITIL 4認定を前提として、ITIL Transformationに加えてITIL Product・Service・Experienceの各モジュールにも合格する必要がある。ただし、既存のITIL 4 Managing Professional／MasterまたはITIL v3 Expert／Masterの有資格者は、Product・Service・Experienceの3モジュールに代えて「ITIL Managing Professional Transition－Product, Service, Experience（Version 5）」試験（Transformationとは別に受験）1本に合格することで移行できる（Take2オプションではTransformationとTransition試験の再受験権をセットで購入できる）。

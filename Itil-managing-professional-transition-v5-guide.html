@@ -777,6 +777,7 @@
       <h3>認定の位置づけ</h3>
       <p>MPT は「研修1本 + 試験2本」で構成されるパッケージです。両方の試験に合格すると <strong>ITIL Managing Professional (Version 5)</strong> の資格が得られます。ITIL 最高位資格 <strong>ITIL Master (Version 5)</strong> に到達するには、これに加えて <strong>ITIL Practice Manager (Version 5)</strong> と <strong>ITIL Strategic Leader (Version 5)</strong> の2資格も必要です(3資格必須)。ただし、保有していた前提資格によってMPT経由での到達範囲が異なります。</p>
       <ul>
+        <li><strong>ITIL 4 Managing Professional 保有者:</strong> MPTの2試験合格で得られるのは Managing Professional (Version 5) までです。Master に到達するには、Practice Manager と Strategic Leader を<strong>別途個別に取得</strong>する必要があります。</li>
         <li><strong>ITIL 4 Master 保有者:</strong> MPTの2試験合格により、Managing Professional に加えて Practice Manager・Strategic Leader も同時に認定され、<strong>ITIL Master (Version 5) まで一括で到達</strong>します。</li>
         <li><strong>ITIL v3 Master 保有者:</strong> MPTの2試験合格で得られるのは Managing Professional(および中核モジュール Transformation の認定)までです。Master に到達するには、Practice Manager と Strategic Leader を<strong>別途個別に取得</strong>する必要があります。</li>
       </ul>
@@ -800,7 +801,7 @@
             <tr><td>合格基準</td><td>70%</td><td>70%</td></tr>
             <tr><td>出題スタイル</td><td>シナリオベース(ケーススタディ形式)</td><td>シナリオベース(例: レンタカー会社ケース) + Experience セクション</td></tr>
             <tr><td>受験方式</td><td>オンライン監督下試験(PeopleCert経由)</td><td>オンライン監督下試験(PeopleCert経由)</td></tr>
-            <tr><td>主な学習範囲</td><td>Transformation Model、governance / execution / learning、変革パターン</td><td>PSLM 8活動、バリューストリーム、Experience Model、サービスジャーニー</td></tr>
+            <tr><td>主な学習範囲</td><td>Transformation Model の4 Layer(Governance / Positioning / Execution / Learning)、変革パターン</td><td>PSLM 8活動、バリューストリーム、Experience Model、サービスジャーニー</td></tr>
           </tbody>
         </table>
       </div>
@@ -955,8 +956,8 @@
           <thead><tr><th>コンテキストの性質</th><th>適したアプローチの傾向</th></tr></thead>
           <tbody>
             <tr><td>秩序立っている・予測可能</td><td>詳細な事前計画、明確なガバナンス、既知のベストプラクティスの適用</td></tr>
-            <tr><td>複雑・不確実性が高い</td><td>小さな実験、反復的な学習、適応型ガバナンス</td></tr>
-            <tr><td>混沌としている</td><td>即座の安定化を最優先し、状況を落ち着かせてから通常のアプローチへ移行</td></tr>
+            <tr><td>複雑・不確実性が高い(Complex)</td><td>小さな実験、反復的な学習、適応型ガバナンス</td></tr>
+            <tr><td>混沌としている(Chaotic)</td><td>即座の安定化を最優先し、状況を落ち着かせてから通常のアプローチへ移行</td></tr>
           </tbody>
         </table>
       </div>
@@ -1512,13 +1513,20 @@ FG3 --> FG8["ITIL Master Version 5"]
 FG5 --> FG8
 FG7 --> FG8
 end
-subgraph Route4["ルート2: ITIL 4 Masterからの移行"]
+subgraph Route4MP["ルート2: ITIL 4 Managing Professionalからの移行"]
+direction TB
+MP4["ITIL 4 Managing Professional 保有"] --> MPT4MP["MPT研修 + Exam1/Exam2 合格"]
+MPT4MP --> MP4R["Managing Professional Version 5 認定"]
+MP4R --> MP4S["Practice Manager・Strategic Leaderを 別途個別取得"]
+MP4S --> MP4M["ITIL Master Version 5"]
+end
+subgraph Route4["ルート3: ITIL 4 Masterからの移行"]
 direction TB
 M4["ITIL 4 Master 保有"] --> MPT4["MPT研修 + Exam1/Exam2 合格"]
 MPT4 --> M4R["Managing Professional・Practice Manager・ Strategic Leaderを一括認定"]
 M4R --> M4M["ITIL Master Version 5"]
 end
-subgraph RouteV3["ルート3: ITIL v3 Masterからの移行"]
+subgraph RouteV3["ルート4: ITIL v3 Masterからの移行"]
 direction TB
 M3["ITIL v3 Master 保有 (v3 Expertも同様にMPまで)"] --> MPT3["MPT研修 + Exam1/Exam2 合格"]
 MPT3 --> M3R["Managing Professional Version 5 認定 (Transformationも認定済み)"]
@@ -1528,9 +1536,9 @@ end
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class FG,FG2,FG4,FG6,M4,M3 box;
-class MPT4,MPT3,M3R,M3S hub;
-class FG3,FG5,FG7,FG8,M4R,M4M,M3M done;`,
+class FG,FG2,FG4,FG6,MP4,M4,M3 box;
+class MPT4MP,MP4R,MP4S,MPT4,MPT3,M3R,M3S hub;
+class FG3,FG5,FG7,FG8,MP4M,M4R,M4M,M3M done;`,
 
     fourDimensions: `flowchart TB
 Center["ITIL Value System"]
