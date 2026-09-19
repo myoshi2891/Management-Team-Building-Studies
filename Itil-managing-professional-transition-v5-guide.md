@@ -45,14 +45,15 @@ MPT は「研修1本＋試験2本」で構成されるパッケージです。�
 flowchart TB
     subgraph RouteGeneral["ルート1: 一般的なFoundationルート(前提資格なし)"]
         direction TB
-        FG["ITIL Foundation Version 5"] --> FG2["Product/Service/Experience/<br/>Transformationを個別取得"]
+        FG["ITIL Foundation Version 5"] --> FG2["Product/Service/Experienceを個別取得"]
         FG2 --> FG3["Managing Professional Version 5"]
-        FG --> FG4["Strategy/Transformationを個別取得"]
+        FG --> FG4["Strategyを個別取得"]
         FG4 --> FG5["Strategic Leader Version 5"]
         FG --> FG6["Practice Managerモジュールを個別取得"]
         FG6 --> FG7["Practice Manager Version 5"]
         FG --> FGT["ITIL Transformation (Version 5)"]
-        FGT --> FG7
+        FGT --> FG3
+        FGT --> FG5
         FG3 --> FG8["ITIL Master Version 5"]
         FG5 --> FG8
         FG7 --> FG8
