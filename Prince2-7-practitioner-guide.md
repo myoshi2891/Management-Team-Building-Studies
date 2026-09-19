@@ -27,7 +27,7 @@
 
 PRINCE2 7 Practitionerは、プロジェクトマネージャーおよびプロジェクトマネージャーを目指す人を主な対象とした資格です。それに加えて、プロジェクトの設計・開発・提供に関わる以下のような役割の人にも関連します。
 
-- プロジェクトボードメンバー(例: Senior Responsible Owner)
+- プロジェクトボードメンバー(Executive、Senior User、Senior Supplier)
 - チームマネージャー(例: Product Delivery Manager)
 - プロジェクトアシュアランス(例: Business Change Analyst)
 - プロジェクトサポート(例: PMO要員)
@@ -475,7 +475,7 @@ flowchart LR
 
 ### 5.6 Issues(課題)
 
-**目的**: すでに発生した課題に対応し、プロジェクトのベースライン(合意済みの計画・仕様)への変更をコントロールする。V6の「Change(変更)」テーマから改称。
+**目的**: プロジェクトに影響を与えうる問題・懸念、ビジネス機会、変更要求、仕様不適合を捕捉・評価して対応し、プロジェクトのベースライン(合意済みの計画・仕様)への変更をコントロールする。すでに発生した事象だけでなく、これから影響しうる事象も対象に含む。V6の「Change(変更)」テーマから改称。
 
 #### 主要な管理プロダクト
 
@@ -493,13 +493,14 @@ flowchart LR
 
 #### 効果的な管理と技法
 
-課題は大きく3種類に分類されます。
+課題は大きく4種類に分類されます。
 
 | 課題の種類 | 内容 |
 |---|---|
 | Request for Change(変更要求) | スコープ・仕様の変更を求めるもの |
 | Off-specification(仕様不適合) | 合意された仕様を満たせない、または満たせなくなったプロダクト |
 | Problem/Concern(問題・懸念) | 上記以外の、対応が必要な事項全般 |
+| Business Opportunity(ビジネス機会) | 追求すればプロジェクトや組織に便益をもたらしうる、計画外の好機 |
 
 課題対応の標準的な手続き:
 
@@ -718,7 +719,7 @@ flowchart TD
 | 項目 | 内容 |
 |---|---|
 | 主な活動 | ワークパッケージの承認(Authorize a Work Package)、進捗のレビュー、課題・リスクの捕捉と評価、Highlight Reportの作成、必要に応じたException Reportの作成、是正措置の実施 |
-| トリガー | ステージの開始(SBまたはIPで承認された後) |
+| トリガー | ステージの開始(Project BoardがDPでステージ承認を行った後) |
 
 #### RACI(目安)
 
@@ -952,13 +953,13 @@ flowchart TB
 
 ### 9.3 「テーラリングのしすぎ」も誤りになりうる
 
-Practitioner試験では、テーラリングを口実に**PRINCE2の最低限の要件すら満たさなくなっている**選択肢が誤答として用意されることがあります。たとえば以下は「テーラリングの逸脱」であり、正しいテーラリングではありません。
+Practitioner試験では、テーラリングを口実に**7つの原則や合意済みトレランスが成り立たなくなっている**選択肢が誤答として用意されることがあります。テーラリングで調整してよいのは、管理プロダクトや活動の**形式・詳細度・頻度**であり、原則そのものは外せません。たとえば以下は「テーラリングの逸脱」です。
 
-- ビジネスケースを完全に省略する(簡略化は可、省略は不可)
-- 役割の責任を誰にも割り当てない(兼任・統合は可、責任の消失は不可)
-- 例外時のエスカレーションの仕組み自体をなくす(頻度・粒度の調整は可)
+- 継続的なビジネス上の正当化を判断するのに必要な情報が失われる(ビジネスケースを独立した文書にせずPIDへ統合する、口頭で合意するといった形式の変更は可。判断材料そのものが残らなくなるのが不可)
+- 説明責任の所在が不明確になる(兼任・統合は可、誰が何に責任を負うか分からなくなるのが不可)
+- トレランス逸脱時に上位へ判断を仰ぐ手段が無くなる(報告の頻度・粒度・様式の調整は可)
 
-> **試験テクニック**: 「テーラリングとして適切か」を問う設問では、まず「PRINCE2の最低限の要件(Minimum Requirements)を満たしているか」を確認し、満たしたうえで「プロジェクトの文脈に合っているか」を判断する、という2段階で考えると精度が上がります。
+> **試験テクニック**: 「テーラリングとして適切か」を問う設問では、まず「7つの原則と合意済みトレランスが保たれているか」を確認し、満たしたうえで「形式・詳細度・頻度がプロジェクトの文脈に合っているか」を判断する、という2段階で考えると精度が上がります。
 
 ---
 
@@ -1012,10 +1013,12 @@ flowchart TD
 1. **PeopleCert公式 — PRINCE2 Project Management Practitioner (Version 7) 製品ページ**(試験概要、対象者、前提資格、購入オプション)
    https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-practitioner-3581
 
-2. **PeopleCert公式 — PRINCE2 7 Practitioner Syllabus(公式シラバスPDF)**(Learning Outcome、Assessment Criteria、Bloom's Level、配点比率、出題形式の一次情報)
+2. **PRINCE2 7 Practitioner Syllabus(公式シラバスPDF)**(Learning Outcome、Assessment Criteria、Bloom's Level、配点比率、出題形式の一次情報)
+   ※ 下記URLは研修事業者(mkctraining.com)がホストする第三者ミラー。内容は公式シラバスだが配布元はPeopleCertではないため、最新版は PeopleCert 公式サイトで確認すること
    https://www.mkctraining.com/uploads/25/476df1a933-prince27pracsyllabus.pdf
 
-3. PeopleCert公式 — PRINCE2 7 Foundation製品ページ(前提資格の確認)
+3. PRINCE2 7 Foundation製品ページ(前提資格の確認)
+   ※ 旧AXELOSドメインのレガシーページ。PRINCE2はPeopleCertへ移管済みのため、現行情報は PeopleCert 公式サイトを優先する
    https://www.axelos.com/certifications/propath/prince2-project-management/prince2-7-foundation
 
 4. PRINCE2.com(公式ライセンスパートナー)— "The 7 principles, practices and processes of PRINCE2"

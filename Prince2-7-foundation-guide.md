@@ -62,7 +62,7 @@ flowchart TB
 |---|---|---|---|
 | 1 | Ensure continued business justification | 継続的なビジネス上の正当化 | プロジェクトは常に「望ましさ(Desirability)」「実現可能性(Viability)」「達成可能性(Achievability)」を満たす必要がある |
 | 2 | Learn from Experience | 経験からの学習 | 過去の教訓を取り入れ、自らの教訓も記録し継承する |
-| 3 | Define roles, responsibilities and relationships | 明確な役割と責任 | ビジネス・ユーザー・サプライヤーの3つの利害関係者の視点を明示的に代表する体制を作る |
+| 3 | Define roles, responsibilities and relationships | 明確な役割・責任・関係 | ビジネス・ユーザー・サプライヤーの3つの利害関係者の視点を明示的に代表する体制を作り、役割間の報告・連携の関係(relationships)も定義する |
 | 4 | Manage by Stages | 段階(ステージ)による管理 | プロジェクトを管理可能な単位(マネジメントステージ)に分割し、段階ごとに計画・監視・統制する |
 | 5 | Manage by Exception | 例外による管理 | 各レベルに許容範囲(トレランス)を委譲し、逸脱が予測される場合のみ上位へエスカレーションする |
 | 6 | Focus on Products | プロダクトへの焦点 | 「何を作るか」を起点に計画し、要求事項・品質基準を明確化する |
@@ -83,8 +83,9 @@ flowchart TB
 - 実行中:教訓ログ(Lessons Log)に継続記録
 - 終結時:教訓報告(Lessons Report)として組織に還元
 
-**③ 明確な役割と責任**
+**③ 明確な役割・責任・関係**
 - PRINCE2は「ビジネス」「ユーザー」「サプライヤー」の3視点を常に代表させることを要求する。
+- 役割と責任を定めるだけでなく、誰が誰に報告し、どう連携するかという**関係(relationships)**まで定義することを求める(V7で原則名に relationships が明示された)。
 - 詳細は本ガイド「6. 役割と責任」を参照。
 
 **④ 段階による管理**
@@ -375,7 +376,7 @@ flowchart TB
 
 ## 6. 役割と責任(Roles and Responsibilities)
 
-PRINCE2の原則③「明確な役割と責任」を具体化したのがこの組織構造です。
+PRINCE2の原則③「明確な役割・責任・関係」を具体化したのがこの組織構造です。
 
 | 階層 | 役割 | 代表する利害 | 主な責任 |
 |---|---|---|---|
@@ -534,7 +535,7 @@ V6にはなかった「サステナビリティ・マネジメント・アプロ
 | プラクティス | 主に支える原則 | 主に使われるプロセス |
 |---|---|---|
 | Business Case | 継続的なビジネス上の正当化 | SU, IP, SB, CP, DP |
-| Organizing | 明確な役割と責任 | SU, IP |
+| Organizing | 明確な役割・責任・関係 | SU, IP |
 | Plans | プロダクトへの焦点、段階による管理 | IP, SB, CS |
 | Quality | プロダクトへの焦点 | IP, MP, CS |
 | Risk | 経験からの学習 | 全プロセスを通じて継続 |
