@@ -167,10 +167,15 @@ ITIL 4 の Service Value System (SVS) の名称が **ITIL Value System (ITIL VS)
 ```mermaid
 flowchart TB
     Center["ITIL Value System"]
-    Center --> D1["Organizations and People<br/>（組織と人材／AIとの協働を含む）"]
-    Center --> D2["Information and Technology<br/>（AI Capability Model／6Cモデルを含む）"]
-    Center --> D3["Partners and Suppliers"]
-    Center --> D4["Value Streams and Processes"]
+    D1["Organizations and People<br/>（組織と人材／AIとの協働を含む）"]
+    D2["Information and Technology<br/>（AI Capability Model／6Cモデルを含む）"]
+    D3["Partners and Suppliers"]
+    D4["Value Streams and Processes"]
+
+    Center -.横断的に適用.-> D1
+    Center -.横断的に適用.-> D2
+    Center -.横断的に適用.-> D3
+    Center -.横断的に適用.-> D4
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
@@ -590,7 +595,7 @@ MPTの両試験では、ITILを単独のフレームワークとしてではな�
 ### 8.3 頻出の誤答パターン（Common Pitfalls）
 
 - PSLMの8活動を「一方向の直線プロセス」として答えてしまう（正しくは反復的・循環的）
-- Service Value ChainとPSLMを混同する（Version 4とVersion 5の用語を取り違える）
+- Service Value ChainとPSLMを混同する（ITIL 4とITIL（Version 5）の用語を取り違える）
 - メトリクス（数値指標）を「経験そのもの」と誤認する（正しくは経験に関する一つの仮説にすぎない）
 - BAU改善とTransformationを同じ手法で扱おうとする
 - CXとUXを同一視し、どちらか一方の改善で両方が解決すると誤解する

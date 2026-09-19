@@ -50,7 +50,7 @@ ITIL Transformation（Version 5）は、ITIL（Version 5）資格体系におけ
 | 参照可否 | Open book（公式教材の参照が可能） |
 | 合格基準 | 70%以上の正答 |
 | 出題言語 | 英語 |
-| 認定更新 | 3年ごと、CPD（Continuing Professional Development）60ポイントが必要 |
+| 認定更新 | 以下いずれかのルートで更新可能: (1) PeopleCert Plusメンバーシップに加入し、CPD（Continuing Professional Development）ポイントを3年連続で毎年20ポイントずつ記録する、(2) 更新期限までに同一Product Suite内の別資格を新たに取得する、(3) 既存資格の試験を再受験する |
 
 ### 1-2. 受験前提条件（Certification Requirements）
 
