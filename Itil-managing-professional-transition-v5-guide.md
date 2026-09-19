@@ -259,9 +259,10 @@ flowchart TB
 ITIL Transformation Model は、変革の取り組みを分類する **3つの共通パターン** を提示します。
 
 ```mermaid
-flowchart LR
-    P1["Initiation pattern<br/>（変革の立ち上げ）"] --> P2["Governance pattern<br/>（変革のガバナンス）"]
-    P2 --> P3["Execution pattern<br/>（変革の実行）"]
+flowchart TD
+    P1["Initiation pattern<br/>（変革の立ち上げ）"]
+    P2["Governance pattern<br/>（変革のガバナンス）"]
+    P3["Execution pattern<br/>（変革の実行）"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     class P1,P2,P3 box

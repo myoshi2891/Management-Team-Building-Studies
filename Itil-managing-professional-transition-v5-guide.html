@@ -971,7 +971,7 @@
 
       <div class="diagram-card">
         <div class="diagram-container" id="transformationPatterns"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">変革の3つの共通パターン: Initiation pattern → Governance pattern → Execution pattern</div>
+        <div class="diagram-caption">変革の3つの共通パターン: Initiation pattern / Governance pattern / Execution pattern</div>
       </div>
 
       <ul>
@@ -1567,9 +1567,10 @@ L4 -.->|学びのフィードバック| L1
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class L1,L2,L3,L4 box;`,
 
-    transformationPatterns: `flowchart LR
-P1["Initiation pattern (変革の立ち上げ)"] --> P2["Governance pattern (変革のガバナンス)"]
-P2 --> P3["Execution pattern (変革の実行)"]
+    transformationPatterns: `flowchart TD
+P1["Initiation pattern (変革の立ち上げ)"]
+P2["Governance pattern (変革のガバナンス)"]
+P3["Execution pattern (変革の実行)"]
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class P1,P2,P3 box;`,
 
