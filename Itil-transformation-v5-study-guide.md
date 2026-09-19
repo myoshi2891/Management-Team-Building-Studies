@@ -77,18 +77,25 @@ ITIL Foundation試験が主に「知識（Recall）」と「理解（Comprehensi
 ```mermaid
 flowchart TD
     F["ITIL Foundation<br/>(Version 5)<br/>または いずれかのITIL 4認定"] --> T["ITIL Transformation<br/>(Version 5)<br/>共通コアモジュール"]
+    F --> PSE["ITIL Product・Service・Experience<br/>(Version 5)<br/>各モジュール(MP designation用)"]
     T --> PM["Practice Manager<br/>designation"]
     T --> MP["ITIL Managing Professional<br/>(Version 5)<br/>designation"]
+    PSE --> MP
     T --> SL["Strategic Leader<br/>designation"]
+
+    EXIST["既存のITIL 4 Managing Professional/Master<br/>または ITIL v3 Expert/Master"] --> MPT["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)"]
+    MPT --> MP
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
-    class F box
+    classDef alt fill:#F3EAF8,stroke:#7A3E9D,color:#161B26
+    class F,PSE box
     class T hub
     class PM,MP,SL box
+    class EXIST,MPT alt
 ```
 
-ITIL Managing Professional（Version 5）designationを取得する場合は、ITIL Transformationに加えて「ITIL Managing Professional Transition－Product, Service, Experience（Version 5）」試験にも合格する必要がある（Take2オプションでは両試験の再受験権をセットで購入できる）。
+ITIL Managing Professional（Version 5）designationを取得するには、ITIL Foundation（Version 5）またはいずれかのITIL 4認定を前提として、ITIL Transformationに加えてITIL Product・Service・Experienceの各モジュールにも合格する必要がある。ただし、既存のITIL 4 Managing Professional／MasterまたはITIL v3 Expert／Masterの有資格者は、Product・Service・Experienceの3モジュールに代えて「ITIL Managing Professional Transition－Product, Service, Experience（Version 5）」試験（Transformationとは別に受験）1本に合格することで移行できる（Take2オプションではTransformationとTransition試験の再受験権をセットで購入できる）。
 
 ---
 
