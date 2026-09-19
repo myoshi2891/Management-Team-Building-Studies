@@ -612,7 +612,7 @@ flowchart TB
 
 - **Directing a Project(DP)はプロジェクト全期間を通じてProject Boardが行う**プロセスであり、他のプロセスと並行して常に存在します。
 - **Controlling a Stage(CS)とManaging Product Delivery(MP)は、各デリバリーステージ内で並行して繰り返される**プロセスです(CS=Project Managerの視点、MP=Team Managerの視点)。
-- **Managing a Stage Boundary(SB)は、最終ステージの直前では実施されません**。最終ステージの終わりはSBではなくClosing a Project(CP)に置き換わります。
+- **Managing a Stage Boundary(SB)は、最終ステージの終わりでは実施されません**。最終ステージの終わりはSBではなくClosing a Project(CP)に置き換わります。
 
 ---
 

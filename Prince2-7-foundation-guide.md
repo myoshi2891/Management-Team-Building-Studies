@@ -1,7 +1,7 @@
 # PRINCE2® Project Management Foundation (Version 7) 学習ガイド
 
 > 対象試験: **PRINCE2 Project Management Foundation (Version 7)** — PeopleCert実施
-> 本ガイドは初学者が「なぜそうするのか」を理解しながら、出題範囲の各項目を体系的に押さえられるように構成しています。ASCII図は使用せず、フローチャートは Mermaid、比較・一覧情報は Markdown表を使用しています。
+> 本ガイドは初学者が「なぜそうするのか」を理解しながら、出題範囲の各項目を体系的に押さえられるように構成しています。図解や一覧は、扱う内容に応じて読み取りやすい形式を選んでいます。
 
 ---
 
@@ -257,8 +257,8 @@ flowchart TB
     ID["特定 (Identify)"] --> AS["評価 (Assess)"]
     AS --> PLAN["計画 (Plan)"]
     PLAN --> IMP["実行 (Implement)"]
-    IMP --> ID
-    COMM["コミュニケーション<br/>(全ステップに継続的に関与)"] -.-> ID
+    IMP --> COMM["コミュニケーション<br/>(全ステップに継続的に関与)"]
+    COMM --> ID
     COMM -.-> AS
     COMM -.-> PLAN
     COMM -.-> IMP
