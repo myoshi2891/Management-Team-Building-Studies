@@ -6,10 +6,10 @@
 
 ## このガイドについて
 
-- **対象読者**：ITIL Foundation（Version 5）またはいずれかのITIL 4認定を取得済みで、これから ITIL Transformation（Version 5） を学ぶ人
+- **対象読者**：ITIL Foundation（Version 5）・いずれかのITIL 4認定、またはITIL v3 Expert/Master（MPTの前提資格として本科目を受験する人）を取得済みで、これから ITIL Transformation（Version 5） を学ぶ人
 - **構成**：出題領域（シラバスの柱）に沿って、章ごとに「基本概念 → 図解（Mermaid） → ベストプラクティス → 出典」の順で解説する
-- **表記ルール**：英語の専門用語（Transformation Model、Governance など）はそのまま残し、日本語で意味を補足する。ASCIIアートは使用せず、図はすべてMermaid、一覧・比較はすべてMarkdown表で表現する
-- **免責事項**：本ガイドは PeopleCert / ITIL 公式サイトおよび公認トレーニングプロバイダが公開しているシラバス概要・記事をもとに独自にまとめた学習補助教材であり、PeopleCert International Ltd. が発行する有償の公式教材（Official eBook、Learner Workbook、Quick Reference Guide）の代替にはならない。特に「Transformation Model の4層に含まれる12ステージそれぞれの名称・詳細な活動内容」は有償の公式教材にのみ収録されている粒度の情報であるため、本ガイドでは層（レイヤー）単位の概念構造までを解説し、ステージ単位の一次情報は出典として公式教材への参照を明示するにとどめる
+- **用語**：英語の専門用語（Transformation Model、Governance など）はそのまま残し、日本語で意味を補足する
+- **免責事項**：本ガイドは PeopleCert / ITIL 公式サイトおよび公認トレーニングプロバイダが公開しているシラバス概要・記事をもとに独自にまとめた学習補助教材であり、PeopleCert International Ltd. が発行する有償の公式教材（Official eBook、Learner Workbook、Quick Reference Guide）の代替にはならない。特に「Transformation Model の4層に含まれる12ステージ」について、各ステージの**名称**はPeopleCert公式サイト等の公開記事で言及される情報として扱う一方、**詳細な活動内容・ステップ単位の内容**は有償の公式教材にのみ収録されている粒度の情報であるため、本ガイドでは層（レイヤー）単位の概念構造までを解説し、ステージ単位の詳細な一次情報は出典として公式教材への参照を明示するにとどめる
 
 > **本ガイドの前提知識**
 > ITIL Transformation は ITIL Foundation の知識（ITIL Value System、Guiding Principles、Four Dimensions of Product and Service Management、Product and Service Lifecycle）を前提として設計されている。これらの用語に不安がある場合は、先に ITIL Foundation（Version 5）の学習ガイドを参照することを推奨する。
@@ -261,7 +261,7 @@ flowchart LR
 
 ### 4-1. 4つのレイヤー
 
-ITIL Transformation Modelは、Governance・Positioning・Execution・Learningという4つの相互接続したレイヤー（層）で構成される。公式教材では、この4層がさらにステージ（Stage）とステップ（Step）に分解され、あわせて12のステージで構成されるとされている（ステージ単位の詳細な名称・内容は有償の公式教材に収録されており、本ガイドでは扱わない）。
+ITIL Transformation Modelは、Governance・Positioning・Execution・Learningという4つの相互接続したレイヤー（層）で構成される。公式教材では、この4層がさらにステージ（Stage）とステップ（Step）に分解され、あわせて12のステージで構成されるとされている（各ステージの名称はPeopleCert公式の公開情報で言及されるが、ステージ単位の詳細な活動内容は有償の公式教材に収録されており、本ガイドでは扱わない）。
 
 | レイヤー | 役割の要点 |
 |---|---|
@@ -646,7 +646,7 @@ AIがもたらす機会・影響の大きさが未知数である場合、ITIL T
 
 ### 11-3. ITIL AI Governance Improvement Model（参考）
 
-ITIL AI Capability Modelを補完するものとして、AI活用の適切なGovernanceアプローチを決めるための「ITIL AI Governance Improvement Model」が用意されている（独立した認定「ITIL AI Governance（Version 5）」で詳細に扱われる領域であり、ITIL Transformationの前提資格とはならない）。4つのステップ（アセスメント／要求定義と設計調整／改善の実装／継続的なガバナンス維持）で構成される、とされている。
+ITIL AI Capability Modelを補完するものとして、AI活用の適切なGovernanceアプローチを決めるための「ITIL AI Governance Improvement Model」が用意されている（独立した認定「ITIL AI Governance（Version 5）」で詳細に扱われる領域であり、ITIL Transformationの前提資格とはならない）。4つのステップ（Assess and Stress-Test：アセスメント／Define and Design：要求定義と設計調整／Implement：改善の実装／Maintain：継続的なガバナンス維持）で構成される、とされている。
 
 > **ベストプラクティス**：AI Governanceを別モジュールの話として切り離さず、Transformation Governance（第5章・第7章）の一部としてAIに関する意思決定基準（誰がAIの出力をレビューするか、誰が上書き権限を持つか）を組み込む
 >
