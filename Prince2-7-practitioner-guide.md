@@ -863,7 +863,7 @@ flowchart TB
     EX --> PM
     SU_ -.協働.- EX
     SS -.協働.- EX
-    PA -.独立して監督.- Board
+    PA -.報告・助言.-> Board
     PA -.独立して監督.- PM
     PM --> TM
     PM -.支援.- PS
