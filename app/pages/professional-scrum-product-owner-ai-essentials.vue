@@ -329,9 +329,7 @@ class G done;`;
 
           <div class="callout note" data-testid="callout" data-variant="note">
             <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" /><span data-testid="callout-label">補足</span></div>
-            <ul>
-              <li><strong>本ガイドの構成方針：</strong>ASCIIアートは一切使用せず、フローチャートはすべて Mermaid 記法で記述しています。</li>
-              <li>比較・一覧情報はすべて Markdown の表で整理しています。</li>
+            <ul> 
               <li>英語の専門用語(Machine Learning, Generative AI, Agentic AI, LLM, Hallucination など)はあえて日本語に無理に置き換えず、そのまま併記しています。実務や試験でそのまま英語表記に出会うことが多いためです。</li>
             </ul>
           </div>

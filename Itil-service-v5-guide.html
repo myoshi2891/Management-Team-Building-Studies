@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITIL Service (Version 5) 認定資格 完全ガイド ｜ 初学者向けステップバイステップ解説</title>
+<meta name="description" content="PeopleCert ITIL Service (Version 5) 認定資格の学習ガイド。PSLM 8段階(Discover-Support)の目的・有効化プラクティス・CSFとベストプラクティスを初学者向けに解説。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout ol { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">ITIL Service (V5)</div>
+        <div class="brand-subtitle">認定資格 学習ガイド</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-guide"><i class="ti ti-list-details"></i>このガイドについて</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>ITIL Service (Version 5) 試験の全体像</a></li>
+      <li><a href="#foundation-review"><i class="ti ti-building-bank"></i>前提知識の総復習: ITIL Version 5 の全体構造</a></li>
+      <li><a href="#module1-key-concepts"><i class="ti ti-route"></i>Module 1: デジタル製品とサービスの主要概念</a></li>
+      <li><a href="#module2-discover"><i class="ti ti-search"></i>Module 2: Discover(発見)</a></li>
+      <li><a href="#module3-design"><i class="ti ti-ruler-2"></i>Module 3: Design(設計)</a></li>
+      <li><a href="#module4-acquire"><i class="ti ti-shopping-cart"></i>Module 4: Acquire(獲得)</a></li>
+      <li><a href="#module5-build"><i class="ti ti-hammer"></i>Module 5: Build(構築)</a></li>
+      <li><a href="#module6-transition"><i class="ti ti-transfer"></i>Module 6: Transition(移行)</a></li>
+      <li><a href="#module7-operate"><i class="ti ti-activity"></i>Module 7: Operate(運用)</a></li>
+      <li><a href="#module8-deliver"><i class="ti ti-truck-delivery"></i>Module 8: Deliver(提供)</a></li>
+      <li><a href="#module9-support"><i class="ti ti-lifebuoy"></i>Module 9: Support(サポート)</a></li>
+      <li><a href="#module10-lifecycle-ai"><i class="ti ti-brain"></i>Module 10: ライフサイクル管理・AI・他フレームワーク統合</a></li>
+      <li><a href="#best-practices-summary"><i class="ti ti-list-check"></i>ベストプラクティス総まとめ</a></li>
+      <li><a href="#exam-tips"><i class="ti ti-target"></i>試験対策のポイント</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>付録: 用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・ソース URL 一覧</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-certificate"></i>PeopleCert ITIL (Version 5) - Managing Professional ストリーム</div>
+      <h1>ITIL Service (Version 5) 学習ガイド</h1>
+      <p class="hero-lede">
+        初学者のためのステップバイステップ解説 — 出題範囲の詳細解説とベストプラクティス集
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">選択式(Multiple Choice)</div></div>
+        <div class="stat-card"><div class="stat-number">90分</div><div class="stat-label">試験時間</div></div>
+        <div class="stat-card"><div class="stat-number">70%以上</div><div class="stat-label">合格基準</div></div>
+        <div class="stat-card"><div class="stat-number">オープンブック</div><div class="stat-label">公式刊行物の参照可</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        ITIL (Version 5) は 2026年に公開されたばかりの新しいスキームであり、PeopleCert は ITIL 4 の時代のように詳細なシラバス PDF を無償公開していません。そのため本ガイドは、PeopleCert 公式サイト(peoplecert.org / itil.com)の公開情報と、PeopleCert 認定トレーニング機関(Accredited Training Organization, ATO)が公開しているコースアウトラインを一次情報として、そこに ITIL の標準的な「目的 → CSF(重要成功要因)→ 指標」という記述方法を適用して構成しています。各項目の CSF・指標例は、公式試験問題そのものではなく、学習用に体系化した例示である点にご留意ください。最終的な試験対策には、必ず公式 eBook・Learner Workbook(Official Training Materials)を参照してください。
+      </div>
+    </div>
+
+    <section id="about-guide">
+      <div class="section-eyebrow"><i class="ti ti-list-details"></i>SECTION 00</div>
+      <h2>このガイドについて</h2>
+
+      <p>本ガイドは、PeopleCert が認定する <strong>ITIL Service (Version 5)</strong> 資格試験の学習を目的として作成した、初学者向けの詳細解説書です。ITIL (Version 5) の "Managing Professional" ストリームに属するこのモジュールは、デジタルサービスをライフサイクル全体にわたって設計・提供・運用・改善するための実践的な知識を問うものです。</p>
+
+      <p>本ガイドの特徴は次のとおりです。</p>
+
+      <ul>
+        <li>公式シラバスに準拠したコース構成(Module 1〜10)に沿って、各項目をステップバイステップで解説</li>
+        <li>各章に <strong>ベストプラクティス</strong> のコールアウトを配置し、実務にそのまま応用できる形で整理</li>
+        <li>章末および巻末に、根拠となる一次情報・解説記事の <strong>URL</strong> を明記</li>
+      </ul>
+    </section>
+
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>ITIL Service (Version 5) 試験の全体像</h2>
+
+      <h3>0.1 このモジュールは何を証明する資格か</h3>
+
+      <p>ITIL Service (Version 5) は、<strong>デジタルサービスをライフサイクル全体で設計・提供・サポートし、継続的に改善する能力</strong> を証明する資格です。PeopleCert 公式ページでは、次のように紹介されています。</p>
+
+      <ul>
+        <li>サービスの関係性(service relationships)、サービスレベル(SLA)、運用の信頼性(operational reliability)、継続的改善(continual improvement)についての深い理解を養う</li>
+        <li>レジリエントで高パフォーマンスなデジタルサービスをライフサイクル全体で提供する能力を身につける</li>
+      </ul>
+
+      <p>「Product」モジュール(ITIL Product (Version 5))が製品管理者・プロダクトオーナー視点でバリューストリームを扱うのに対し、<strong>Service モジュールは「サービスプロバイダーの視点」から同じ ITIL Product and Service Lifecycle Model(PSLM)を扱う</strong> という対比構造になっている点が最大のポイントです。同じ8段階のライフサイクルモデルを、片方は「作る側(Product)」、もう片方は「届けて支える側(Service)」の視点で学ぶ、と理解すると全体像がつかみやすくなります。</p>
+
+      <h3>0.2 試験概要</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>項目</th>
+            <th>内容</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>出題形式</td>
+              <td>選択式(Multiple Choice)</td>
+            </tr>
+            <tr>
+              <td>問題数</td>
+              <td>40問</td>
+            </tr>
+            <tr>
+              <td>試験時間</td>
+              <td>90分</td>
+            </tr>
+            <tr>
+              <td>合格基準</td>
+              <td>70%以上の正答</td>
+            </tr>
+            <tr>
+              <td>参照可否</td>
+              <td>オープンブック(公式刊行物の参照が可能)</td>
+            </tr>
+            <tr>
+              <td>出題言語</td>
+              <td>英語、中国語、フランス語、ドイツ語、イタリア語、ポーランド語、ポルトガル語(ブラジル)、スペイン語</td>
+            </tr>
+            <tr>
+              <td>認定の更新</td>
+              <td>3年ごと、CPD(継続的専門能力開発)ポイント 60点が必要</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>0.3 受験前提条件(Prerequisites)</h3>
+
+      <p>以下のいずれかを保有していることが必須です。</p>
+
+      <ul>
+        <li>ITIL 4 の任意の認定資格(ITIL 4 Foundation を含む)</li>
+        <li>ITIL Foundation (Version 5)</li>
+        <li>ITIL Foundation Bridge (Version 5)(ITIL 4 保有者が Version 5 に移行するための橋渡し資格)</li>
+      </ul>
+
+      <p>さらに、PeopleCert の認定トレーニング機関(ATO)または ITIL 公式 eLearning を通じたトレーニング受講が必須とされています(トレーニング修了の証明がないと、たとえ受験・合格しても結果が発行されません)。</p>
+
+      <h3>0.4 対象者とキャリアパス</h3>
+
+      <p><strong>想定される受講者像</strong>: サービスの提供・運用に責任を持つ実務者。社内IT組織またはマネージドサービスプロバイダーで、デジタル製品・サービスをエンドツーエンドで管理する必要がある人。</p>
+
+      <p><strong>関連する職種例</strong>: </p>
+
+      <ul>
+        <li>Service Manager / Service Owner / Service Delivery Manager</li>
+        <li>Site Reliability Engineer(SRE) / Incident Commander</li>
+        <li>Knowledge Curator / Support Manager</li>
+        <li>IT Operations Manager / Process Owner / IT Analyst</li>
+        <li>Product Owner / IT Project Manager / Digital Transformation Manager</li>
+      </ul>
+
+      <h3>0.5 ITIL (Version 5) 資格体系におけるこのモジュールの位置づけ</h3>
+
+      <p>ITIL (Version 5) は、Foundation を土台に、複数の上位モジュールへ分岐する構造になっています。Service はそのうち「Managing Professional」ストリームを構成する中核モジュールの一つです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="examOverviewFig1"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <p><strong>読み方のポイント</strong>: Product・Service・Experience の3モジュールをすべて取得すると「ITIL Managing Professional」称号が得られます。同様に Strategy・Transformation を取得すると「ITIL Strategic Leader」となり、両方を揃えると最上位の「ITIL Master」に到達します。Service モジュール単体でも実務知識として十分に価値がありますが、資格戦略上は Product・Experience とセットで捉えると学習効率が上がります。</p>
+    </section>
+
+    <section id="foundation-review">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
+      <h2>前提知識の総復習: ITIL Version 5 の全体構造</h2>
+
+      <p>Service モジュールの各章に入る前に、ITIL (Version 5) の土台となる概念を整理しておきます。すでに Foundation を取得済みの方は復習として、ITIL 4 からの移行者は「何が変わったか」の確認として読んでください。</p>
+
+      <h3>1.1 Product と Service の定義</h3>
+
+      <p>ITIL (Version 5) では、Product と Service を明確に区別して定義します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>用語</th>
+            <th>定義</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Product(製品)</strong></td>
+              <td>消費者に価値を提供するために設計された、組織のリソース(人、技術など)の構成</td>
+            </tr>
+            <tr>
+              <td><strong>Service(サービス)</strong></td>
+              <td>顧客が特定のコストとリスクを自ら管理することなく、望む成果(アウトカム)の実現を可能にする、価値の共創手段</td>
+            </tr>
+            <tr>
+              <td><strong>Digital Product(デジタル製品)</strong></td>
+              <td>デジタル技術に基づく、組織のリソースの組み合わせ</td>
+            </tr>
+            <tr>
+              <td><strong>Digital Service(デジタルサービス)</strong></td>
+              <td>デジタル製品に全面的または大部分を依存するサービス</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>具体例</strong>: 銀行のモバイルアプリとその API・基幹システムが「デジタル製品」であり、深夜でも安全かつ即座に振込ができるという「サービス」を成立させています。製品(アプリ)が落ちればサービス(振込体験)も止まり、価値が失われます。この製品とサービスの不可分な関係こそが、ITIL (Version 5) が両者を単一のライフサイクルモデルで扱う理由です。</p>
+
+      <h3>1.2 価値の方程式: アウトプットとアウトカム</h3>
+
+      <p>ITIL 試験で最も誤解されやすい概念の一つです。</p>
+
+      <ul>
+        <li><strong>Output(アウトプット)</strong>: 活動によって生み出される有形・無形の成果物(例: 新しい人事システムが稼働した)</li>
+        <li><strong>Outcome(アウトカム)</strong>: 1つ以上のアウトプットによって実現される、ステークホルダーにとっての結果(例: 採用リードタイムが30日から10日に短縮された)</li>
+      </ul>
+
+      <p>アウトプットを出してもアウトカムが実現しないケース(システムは稼働したが、使いにくくて誰も使わない)は典型的な失敗パターンとして頻出します。</p>
+
+      <p>価値は次の式で概念化されます。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>価値 = (実現したアウトカム + 除去されたコスト + 除去されたリスク) − (課されたコスト + 課されたリスク)</p>
+      </div>
+
+      <h3>1.3 ITIL Value System(ITIL VS)の5つの構成要素</h3>
+
+      <p>ITIL 4 の「Service Value System(SVS)」は、Version 5 で <strong>ITIL Value System(ITIL VS)</strong> に改称され、対象範囲が「ITサービス」から「デジタル製品とサービス」全体に拡張されました。構成要素自体は5つのまま維持されています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="foundationFig2"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>構成要素</th>
+            <th>役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Guiding Principles(指導原則)</td>
+              <td>あらゆる状況で組織の意思決定を導む普遍的な推奨事項(7原則)</td>
+            </tr>
+            <tr>
+              <td>Governance(ガバナンス)</td>
+              <td>組織を指揮・統制する仕組み。Evaluate–Direct–Monitor(EDM)サイクルで運用</td>
+            </tr>
+            <tr>
+              <td>Service Value Chain(サービスバリューチェーン)</td>
+              <td>需要を価値に変換する中核の運用モデル(6つの活動)</td>
+            </tr>
+            <tr>
+              <td>Management Practices(管理プラクティス)</td>
+              <td>バリューチェーン活動を実行するための34の「道具箱」</td>
+            </tr>
+            <tr>
+              <td>Continual Improvement(継続的改善)</td>
+              <td>あらゆる階層で行われる、パフォーマンスを期待水準に保ち続ける反復活動</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.4 指導原則(Guiding Principles)— 7原則の早見表</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>#</th>
+            <th>原則</th>
+            <th>一言で言うと</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Focus on value(価値に焦点を当てる)</td>
+              <td>すべての活動を顧客・ステークホルダーの価値に結びつける</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Start where you are(現在地から始める)</td>
+              <td>ゼロから作り直す前に、既存の資産・成果を評価し活用する</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Progress iteratively with feedback(フィードバックを伴う反復的な進化)</td>
+              <td>大きく作りすぎず、小さく作ってフィードバックを得る</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Collaborate and promote visibility(協働と可視性の促進)</td>
+              <td>サイロを越えて協働し、作業を可視化する</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Think and work holistically(全体的に考え行動する)</td>
+              <td>部分最適ではなく、システム全体としての結果を重視する</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Keep it simple and practical(シンプルかつ実践的に)</td>
+              <td>価値を生まない手順は削り、最小限の手数で目的を達成する</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Optimize and automate(最適化と自動化)</td>
+              <td>自動化の前に最適化する。非効率なプロセスを自動化すると非効率が増幅するだけ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Service モジュールの文脈では、特に原則7「最適化と自動化」が重要です。監視・自動修復・チャットボットなど AI を活用した運用改善(第8章 Operate、第11章参照)を導入する前に、まず対象プロセスが「シンプルかつ実践的」であるかを確認してください。壊れたプロセスを自動化しても、壊れたまま速くなるだけです。</p>
+      </div>
+
+      <h3>1.5 4つの側面(Four Dimensions of Service Management)</h3>
+
+      <p>サービスを一面的(技術だけ、プロセスだけ)に見てしまうと、必ずどこかで破綻します。ITIL は全体最適を保証するために、常に4つの側面をバランスさせることを求めます。外部環境の変化は <strong>PESTLE</strong>(Political, Economic, Social, Technological, Legal, Environmental)の6要因を通じてこれらの側面に影響します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="foundationFig3"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>側面</th>
+            <th>要点</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>組織と人材</td>
+              <td>文化(心理的安全性)、リーダーシップ、組織構造。コンウェイの法則(システムは組織のコミュニケーション構造を反映する)に留意</td>
+            </tr>
+            <tr>
+              <td>情報と技術</td>
+              <td>データ→情報→知識の階層。AI 活用の基盤となる(後述の 6C モデルに接続)</td>
+            </tr>
+            <tr>
+              <td>パートナーと供給者</td>
+              <td>自組織だけで完結するサービスは存在しない。ソーシング戦略(内製 vs 外部委託)が鍵</td>
+            </tr>
+            <tr>
+              <td>バリューストリームとプロセス</td>
+              <td>組織内外のワークフロー。複雑さのレベルに応じて柔軟に設計する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>新しいツールや自動化施策を検討する際は、必ず4つの側面すべてに与える影響を点検してください。「情報と技術」だけを強化しても、「組織と人材」(トレーニング不足)や「パートナーと供給者」(回線品質)がボトルネックのままでは、全体のサービス品質は向上しません。</p>
+      </div>
+
+      <h3>1.6 サービスバリューチェーン(6活動)と PSLM(8活動)の違い</h3>
+
+      <p>ここは ITIL 4 経験者が最も混同しやすいポイントです。<strong>サービスバリューチェーンは「今も存在する」概念です</strong>。ただし ITIL (Version 5) では、製品とサービスの一気通貫のライフサイクルを表現するために、新たに <strong>Product and Service Lifecycle Model(PSLM)</strong> が導入されました。両者は置き換え関係ではなく、階層が異なる概念として共存します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>比較軸</th>
+            <th>Service Value Chain(6活動)</th>
+            <th>Product and Service Lifecycle Model(8活動)</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>位置づけ</td>
+              <td>ITIL VS の中核運用モデル(普遍的なエンジン)</td>
+              <td>個別の製品・サービスが辿る具体的な旅路</td>
+            </tr>
+            <tr>
+              <td>活動</td>
+              <td>Plan / Improve / Engage / Design &amp; Transition / Obtain-Build / Deliver &amp; Support</td>
+              <td>Discover / Design / Acquire / Build / Transition / Operate / Deliver / Support</td>
+            </tr>
+            <tr>
+              <td>性質</td>
+              <td>抽象的・普遍的(レゴブロックのように組み合わせる)</td>
+              <td>具体的・反復的(前後の活動を行き来する「エコシステム」)</td>
+            </tr>
+            <tr>
+              <td>主な用途</td>
+              <td>バリューストリームを組み立てる際の「部品」</td>
+              <td>特定の製品・サービスのライフサイクル管理を可視化する「地図」</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="foundationFig4"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <p>Service モジュールの Module 1〜10 は、この右側の <strong>PSLM(8活動)を「サービスプロバイダーの視点」から深掘りする</strong> ことに主眼を置いています。次章以降で1活動ずつ丁寧に見ていきます。</p>
+
+      <h3>1.7 サービス関係性(Service Relationships)とサービスジャーニー</h3>
+
+      <p>PeopleCert の紹介文が明示するとおり、Service モジュールは「サービス関係の管理」を重視します。</p>
+
+      <p><strong>役割の整理</strong>: </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>役割</th>
+            <th>説明</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Service Provider(サービスプロバイダー)</td>
+              <td>サービスの提供・サポートに責任を持つ組織の役割</td>
+            </tr>
+            <tr>
+              <td>Service Consumer(サービス消費者)</td>
+              <td>サービスを取得・利用して自らの目的を達成する組織の役割</td>
+            </tr>
+            <tr>
+              <td>Digital Product Vendor(デジタル製品ベンダー)</td>
+              <td>サービスの基盤となるデジタル製品を開発・改善する組織</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>消費側組織内の三者(Service Consumer Triad)</strong>: </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>ペルソナ</th>
+            <th>関心事</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Sponsor(スポンサー)</td>
+              <td>予算承認、費用対効果・ROI</td>
+            </tr>
+            <tr>
+              <td>Customer(カスタマー)</td>
+              <td>サービス要件の定義、消費のアウトカムに対する説明責任</td>
+            </tr>
+            <tr>
+              <td>User(ユーザー)</td>
+              <td>日々の利用、使いやすさ・UX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>この三者の利害は必ずしも一致しません(スポンサーは安価なプランを望み、カスタマーは技術要件を定義し、ユーザーは使いやすさを求める)。優れたサービスプロバイダーは、この三者間の緊張関係を理解した上でバランスを取ります。</p>
+
+      <p><strong>サービスジャーニー(7段階)</strong>: サービス関係は、以下の7段階を通じて発展します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="foundationFig5"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>段階</th>
+            <th>内容</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Explore</td>
+              <td>両者が市場・ニーズ・提供可能な能力を調査する</td>
+            </tr>
+            <tr>
+              <td>Engage</td>
+              <td>関係が確立され、初期のコミュニケーションと信頼が構築される</td>
+            </tr>
+            <tr>
+              <td>Offer</td>
+              <td>プロバイダーがサービスオファリングを提示し、消費者が需要を明確化する</td>
+            </tr>
+            <tr>
+              <td>Agree</td>
+              <td>期待値がすり合わされ、契約や SLA として正式化される</td>
+            </tr>
+            <tr>
+              <td>Onboard</td>
+              <td>移行段階。消費者が利用を開始し、ユーザーがトレーニングを受ける</td>
+            </tr>
+            <tr>
+              <td>Co-create</td>
+              <td>サービス提供・消費の日常。実際に価値が生成される段階</td>
+            </tr>
+            <tr>
+              <td>Reflect</td>
+              <td>パフォーマンスと創出された価値を両者で評価する、継続的改善の段階</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.8 品質・サービスレベル・SLA(そして XLA)</h3>
+
+      <p><strong>Service Quality(サービス品質)</strong> と <strong>Service Level(サービスレベル)</strong> は似て非なる概念です。品質は「これは良いサービスだ」という全体的な知覚であり、サービスレベルはそれを測定可能にした客観的指標(例: 「稼働率 99.9%」)です。</p>
+
+      <p>品質を管理可能な指標に変換するため、ITIL (Version 5) は4つのカテゴリーを提示します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>カテゴリー</th>
+            <th>定義</th>
+            <th>平易な言い換え</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Utility(有用性)</td>
+              <td>サービスが「何をするか」。特定のニーズを満たす機能性</td>
+              <td>目的に適っているか(fit for purpose)</td>
+            </tr>
+            <tr>
+              <td>Warranty(保証)</td>
+              <td>サービスが「どう機能するか」。可用性・キャパシティ・継続性・セキュリティの保証</td>
+              <td>使用に適しているか(fit for use)</td>
+            </tr>
+            <tr>
+              <td>Experience(体験)</td>
+              <td>ユーザーが「どう感じるか」。機能的・感情的な相互作用の総体</td>
+              <td>体験として好ましいか</td>
+            </tr>
+            <tr>
+              <td>Sustainability(持続可能性)</td>
+              <td>サービスの「与える影響」。環境・社会・経済的要件への適合</td>
+              <td>長期的に許容できるか</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>これらは <strong>Service Level Agreement(SLA)</strong> として文書化され、プロバイダーと顧客の期待値を揃えます。近年の実務では、稼働率のような技術指標(SLA)に加え、体験(Experience)を定量化する <strong>Experience Level Agreement(XLA)</strong> が併用される傾向が強まっており、ITIL (Version 5) はこの潮流を反映して「体験に基づくサービス品質」を明示的に重視しています。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>SLA を「稼働率 99.9%」のような技術指標だけで設計しないでください。Utility・Warranty・Experience・Sustainability の4カテゴリーすべてに対応する目標を最低1つずつ持たせることで、「技術的には正常だが利用者の体験は悪い」という典型的な失敗を防げます。</p>
+      </div>
+
+      <h3>1.9 ガバナンスと EDM サイクル</h3>
+
+      <p>ガバナンスとマネジメントは異なります。ガバナンスは「正しいことをしているか」を決める船長であり、マネジメントは「正しいやり方でやっているか」を実行する乗組員です。ガバナンスは以下の3活動からなる <strong>EDM サイクル</strong> を通じて継続的に行われます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="foundationFig6"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>活動</th>
+            <th>内容</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Evaluate(評価)</td>
+              <td>組織・戦略・ポートフォリオ・関係性を評価し、内外の状況変化を分析する</td>
+            </tr>
+            <tr>
+              <td>Direct(指示)</td>
+              <td>評価に基づき、責任を割り当て、戦略の方向性と方針を定める</td>
+            </tr>
+            <tr>
+              <td>Monitor(監視)</td>
+              <td>組織のパフォーマンスとプラクティスの遵守状況を監視する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.10 継続的改善モデル(7ステップ)</h3>
+
+      <p>「継続的改善」は ITIL VS の一構成要素であると同時に、単独の管理プラクティスでもあります。7ステップの反復モデルとして定義されており、規模を問わず適用できます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="foundationFig7"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>改善提案を「プロジェクト」として一度きりで終わらせず、必ずステップ⑦「関連性を保ち続ける方法」を組織文化・レトロスペクティブの定例に組み込んでください。改善が文化に根づかないと、組織は元の基準線に静かに後退します。</p>
+      </div>
+
+      <h3>1.11 34の管理プラクティス概観</h3>
+
+      <p>ITIL (Version 5) は ITIL 4 から引き続き <strong>34の管理プラクティス</strong> を定義しています(用語の一部微調整はあるものの、大枠は維持)。Service モジュールでは、PSLM の各段階(第3章〜第10章)に紐づく形でこれらのプラクティスを学びます。参考として、ITIL 4 時代の実践的なグルーピング(Practice Manager 資格の3系統)を示します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>系統</th>
+            <th>含まれるプラクティス</th>
+            <th>主な関心領域</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Monitor, Support and Fulfil(MSF)</td>
+              <td>Service Desk / Incident Management / Problem Management / Service Request Management / Monitoring and Event Management</td>
+              <td>日々の問い合わせ対応と障害対応</td>
+            </tr>
+            <tr>
+              <td>Plan, Implement and Control(PIC)</td>
+              <td>Change Enablement / Deployment Management / Release Management / Service Configuration Management / IT Asset Management</td>
+              <td>変更の計画的な実装と統制</td>
+            </tr>
+            <tr>
+              <td>Collaborate, Assure and Improve(CAI)</td>
+              <td>Relationship Management / Supplier Management / Service Level Management / Continual Improvement / Information Security Management</td>
+              <td>関係性の構築と品質保証</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Service モジュールでは、これらのプラクティスが PSLM の Deliver・Support 段階を中心に登場します(第9章・第10章で詳述)。</p>
+    </section>
+
+    <section id="module1-key-concepts">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <h2>Module 1: デジタル製品とサービスの主要概念</h2>
+
+      <h3>2.1 このモジュールの狙い</h3>
+
+      <p>Module 1 は、Service モジュール全体の「地図」を描く導入章です。ここで PSLM(Product and Service Lifecycle Model)の全体像と、サービスプロバイダー視点で見たときの意義を理解しておくことで、第3章以降の各段階(Discover〜Support)の学習がスムーズになります。</p>
+
+      <h3>2.2 デジタルサービスの特徴</h3>
+
+      <p>デジタルサービスには、従来型のサービスと比べて次のような特徴があります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>特徴</th>
+            <th>説明</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>ソフトウェア基盤への依存</td>
+              <td>サービスの提供能力が、デジタル製品(アプリ・API・プラットフォーム)の品質に直結する</td>
+            </tr>
+            <tr>
+              <td>継続的な変化</td>
+              <td>CI/CD により、機能追加・修正が高頻度かつ継続的に行われる</td>
+            </tr>
+            <tr>
+              <td>エコシステム化</td>
+              <td>クラウド、複数のパートナー・サプライヤーを跨いで提供される</td>
+            </tr>
+            <tr>
+              <td>スケーラビリティ</td>
+              <td>需要変動に応じて、人手を介さず能力を伸縮できる</td>
+            </tr>
+            <tr>
+              <td>測定可能性の向上</td>
+              <td>テレメトリ・ログ・利用データにより、体験や品質をリアルタイムに可視化できる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.3 デジタル製品とサービスによる価値創出</h3>
+
+      <p>前章 1.1〜1.2 で述べたとおり、製品(Product)は価値創出の「能力」を、サービス(Service)は「アウトカムの実現」を担います。Service モジュールでは、この関係を <strong>サービスプロバイダーの立場から</strong> 捉え直します。すなわち、「良い製品を作ること」がゴールなのではなく、「その製品を用いて、消費者が望むアウトカムを、コストとリスクを引き受けた上で確実に実現し続けること」がサービスプロバイダーの使命です。</p>
+
+      <h3>2.4 PSLM の範囲と目的(サービスプロバイダー視点)</h3>
+
+      <p>PSLM は、製品とサービスという従来別々の「部族(tribes)」が担っていた活動を、単一のエコシステムとして統合するモデルです。8つの活動は次のとおりです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="module1Fig8"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <p><strong>重要な特性</strong>: この図は理解を助けるために左から右への流れとして描いていますが、公式モデルはこれを「固定された順序」とは位置づけていません。実際には、どの活動から別の活動へも行き来でき(例えば Support 中に新たな Discover が生まれる)、複数バージョンの同じ製品・サービスが異なる段階に同時に存在し得る、<strong>非線形なエコシステム</strong> として説明されています。この「行きつ戻りつする現実」を前提に運用を設計することが、Service モジュールの実践的な学びの核心です。</p>
+
+      <h3>2.5 サービスプロバイダー視点で見た PSLM のメリット</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>メリット</th>
+            <th>説明</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>手戻りの削減</td>
+              <td>要件の伝言ゲームによる誤解が減り、後工程での手戻りが減る</td>
+            </tr>
+            <tr>
+              <td>価値実現の迅速化</td>
+              <td>製品チームとサービスチームが「一度で正しく」作業し、受け渡しの往復が減る</td>
+            </tr>
+            <tr>
+              <td>デプロイ・リリースの信頼性向上</td>
+              <td>依存関係や非効率が早期に特定・管理される</td>
+            </tr>
+            <tr>
+              <td>障害解決・改善の迅速化</td>
+              <td>製品チームとサービスチームがアウトカムに対する責任を共有し、優先順位の共通理解を持てる</td>
+            </tr>
+            <tr>
+              <td>ガバナンスの一元化</td>
+              <td>マッピング、活動、技術投資を単一のガバナンスフレームワークで扱える</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.6 サービスプロバイダー視点で見た PSLM の課題</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>課題</th>
+            <th>説明</th>
+            <th>対応の方向性</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>組織構造の慣性</td>
+              <td>製品チームとサービスチームが別部門・別KPIで動いている場合が多い</td>
+              <td>共同のOKR・共同のオンコール体制など、構造面での統合を先に着手する</td>
+            </tr>
+            <tr>
+              <td>スキルギャップ</td>
+              <td>サービス運用担当者が製品開発の文脈(アーキテクチャ、コードベース)を理解していない</td>
+              <td>シャドーイングやペアオンコールで知識移転を促進する</td>
+            </tr>
+            <tr>
+              <td>ツールのサイロ化</td>
+              <td>製品開発ツール(バックログ管理等)と運用ツール(監視・チケット管理等)が分断されている</td>
+              <td>テレメトリとインシデント管理、バックログとの連携を自動化する</td>
+            </tr>
+            <tr>
+              <td>ガバナンスの複雑化</td>
+              <td>複数のパートナー・サプライヤーを跨ぐサービスでは、単一のガバナンスモデルの適用が難しい</td>
+              <td>サプライヤーごとの責任分界点(RACI)を明文化する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.7 組織のバリューチェーン活動が PSLM をどう支えるか</h3>
+
+      <p>第1章 1.6 で述べたとおり、サービスバリューチェーンの6活動(Plan / Improve / Engage / Design &amp; Transition / Obtain-Build / Deliver &amp; Support)は、PSLM の8段階それぞれを実行するための「エンジン」として機能します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>バリューチェーン活動</th>
+            <th>主に支える PSLM 段階</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Plan</td>
+              <td>Discover(方向性の共有)</td>
+            </tr>
+            <tr>
+              <td>Engage</td>
+              <td>Discover, Deliver(ステークホルダーとの対話)</td>
+            </tr>
+            <tr>
+              <td>Design &amp; Transition</td>
+              <td>Design, Build, Transition</td>
+            </tr>
+            <tr>
+              <td>Obtain/Build</td>
+              <td>Acquire, Build</td>
+            </tr>
+            <tr>
+              <td>Deliver &amp; Support</td>
+              <td>Operate, Deliver, Support</td>
+            </tr>
+            <tr>
+              <td>Improve</td>
+              <td>全段階を横断(継続的改善として)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>組織にPSLMを導入する際は、既存のバリューチェーン活動(特に Engage と Deliver &amp; Support)が、どの部門・どのツールによって担われているかを棚卸しすることから始めてください。ゼロから新しい体制を作るのではなく、「現在地から始める(Start where you are)」原則に従い、既存の強みを PSLM の各段階にマッピングするのが最も現実的な導入手順です。</p>
+      </div>
+    </section>
+
+    <section id="module2-discover">
+      <div class="section-eyebrow"><i class="ti ti-search"></i>SECTION 04</div>
+      <h2>Module 2: Discover(発見)</h2>
+
+      <h3>3.1 目的(Purpose)</h3>
+
+      <p>Discover 活動の目的は、<strong>製品ロードマップとサービスオファリングを、消費者ニーズと組織戦略に継続的に整合させ続けること</strong> です。市場・顧客・内部関係者から需要とニーズを収集し、それを組織の戦略的方向性と突き合わせる、PSLM の起点となる活動です。</p>
+
+      <h3>3.2 主要概念</h3>
+
+      <ul>
+        <li><strong>ビジョン(Vision)</strong>: 組織が目指す将来像。Discover 活動のすべての意思決定の判断基準になる</li>
+        <li><strong>ポジショニング(Positioning)</strong>: 市場・組織内における製品・サービスの立ち位置。競合や代替手段との違いを明確にする</li>
+        <li><strong>ポートフォリオ(Portfolio)</strong>: 組織が保有する製品・サービス・投資機会の全体集合。Discover はポートフォリオの内容を更新するインプットを生み出す</li>
+      </ul>
+
+      <p>ビジョン・ポジショニング・ポートフォリオの3つは相互に作用します。ビジョンが方向性を示し、ポジショニングが「どこで戦うか」を定め、ポートフォリオが「何にリソースを割くか」の意思決定を記録します。</p>
+
+      <h3>3.3 Discover を支える有効化プラクティス(Enabling Practices)</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Discover における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Business Analysis(ビジネス分析)</td>
+              <td>ステークホルダーのニーズを構造化し、要件として言語化する</td>
+            </tr>
+            <tr>
+              <td>Portfolio Management(ポートフォリオ管理)</td>
+              <td>発見された機会・需要を、既存の投資・優先順位と照らして評価する</td>
+            </tr>
+            <tr>
+              <td>Relationship Management(関係性管理)</td>
+              <td>顧客・パートナーとの対話チャネルを維持し、継続的なニーズ収集を可能にする</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.4 Discover 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="discoverFig9"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>3.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>更新された製品ロードマップ</li>
+        <li>更新されたサービスオファリング案</li>
+        <li>ポートフォリオへの反映(新規投資候補、既存サービスの廃止候補を含む)</li>
+      </ul>
+
+      <h3>3.6 CSF(重要成功要因)と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>市場・顧客ニーズを継続的に捕捉できている</td>
+              <td>収集されたインサイトの件数 / 四半期、インサイトからロードマップ反映までの平均リードタイム</td>
+            </tr>
+            <tr>
+              <td>発見された機会が組織戦略と整合している</td>
+              <td>戦略目標にマッピングされたロードマップ項目の割合</td>
+            </tr>
+            <tr>
+              <td>ステークホルダーとの関係が良好である</td>
+              <td>関係性管理における顧客満足度スコア、対話の頻度</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>需要の「声」を一元化する</strong>: 営業・サポート・SNS・利用ログなど、バラバラなチャネルから上がってくるニーズを単一のバックログまたはインサイト管理ツールに集約してください。分散したままでは優先順位づけができません。</li>
+          <li><strong>Discover を一度きりのフェーズにしない</strong>: Support 活動(第10章)で得られたインシデント・問い合わせの傾向は、そのまま次の Discover サイクルへの重要なインプットです。PSLM がエコシステム型である所以はここにあります。</li>
+          <li><strong>仮説検証のコストを下げる</strong>: 本格的な Build に入る前に、プロトタイプやコンセプト検証(PoC)で仮説を安価に検証し、Design 段階への手戻りを防いでください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module3-design">
+      <div class="section-eyebrow"><i class="ti ti-ruler-2"></i>SECTION 05</div>
+      <h2>Module 3: Design(設計)</h2>
+
+      <h3>4.1 目的(Purpose)</h3>
+
+      <p>Design 活動の目的は、<strong>製品とサービスのプロトタイプおよび仕様を作成し、機能性・ユーザー体験・運用モデルを詳細化すること</strong> です。Discover で発見された機会を、実装可能な設計へと落とし込みます。</p>
+
+      <h3>4.2 主要概念</h3>
+
+      <ul>
+        <li><strong>仕様(Specification)</strong>: 機能要件・非機能要件(性能、セキュリティ、可用性など)を明文化したもの</li>
+        <li><strong>プロトタイプ(Prototype)</strong>: 低コストで検証可能な試作。実装前にユーザー体験や技術的実現可能性を確認する</li>
+        <li><strong>運用モデル(Operating Model)</strong>: 誰が、どのプラクティスで、どのように日々の運用を担うかを事前に設計しておく考え方。Design 段階で後工程(Operate・Support)を見据えることが、運用可能性(Operability)の高い設計につながる</li>
+      </ul>
+
+      <h3>4.3 Design を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Design における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Architecture Management(アーキテクチャ管理)</td>
+              <td>システム構成要素間の関係性を設計し、将来の拡張性・保守性を担保する</td>
+            </tr>
+            <tr>
+              <td>Service Level Management(サービスレベル管理)</td>
+              <td>設計段階から SLA・XLA の目標値を組み込み、「後付けの品質保証」を避ける</td>
+            </tr>
+            <tr>
+              <td>Service Design(サービスデザイン)</td>
+              <td>ユーザー体験(UX)を含めた、サービス全体の設計手法を提供する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.4 Design 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="designFig10"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>4.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>製品・サービスの仕様書</li>
+        <li>プロトタイプ</li>
+        <li>サービスレベル目標(SLA/XLA のドラフト)</li>
+        <li>運用モデルの設計文書</li>
+      </ul>
+
+      <h3>4.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>設計段階で非機能要件が担保されている</td>
+              <td>設計レビューでの非機能要件(可用性・セキュリティ等)指摘件数の低さ</td>
+            </tr>
+            <tr>
+              <td>ユーザー体験が検証されている</td>
+              <td>プロトタイプに対するユーザビリティテストの実施率、体験スコア</td>
+            </tr>
+            <tr>
+              <td>設計と運用が乖離していない</td>
+              <td>Design 段階のレビューに Operate/Support 担当者が参加した割合</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「運用できる設計(Design for Operability)」を徹底する</strong>: 可観測性(ログ・メトリクス・トレース)を後付けにせず、設計段階で組み込んでください。Operate・Support 担当者を Design レビューに巻き込むことが最も効果的な予防策です。</li>
+          <li><strong>SLA/XLA は設計の入力であり、事後の交渉材料にしない</strong>: 目標可用性やレスポンスタイムは、アーキテクチャの意思決定(冗長化構成、キャッシュ戦略など)に直結します。設計完了後に SLA を握るのではなく、設計の前提として先に合意してください。</li>
+          <li><strong>プロトタイプは「安く速く失敗する」ために使う</strong>: 本番相当の作り込みをする前に、最小限のプロトタイプで技術的リスクとユーザー体験の両方を検証し、Build 段階での手戻りコストを最小化してください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module4-acquire">
+      <div class="section-eyebrow"><i class="ti ti-shopping-cart"></i>SECTION 06</div>
+      <h2>Module 4: Acquire(獲得)</h2>
+
+      <h3>5.1 目的(Purpose)</h3>
+
+      <p>Acquire 活動の目的は、<strong>必要なリソース(技術、人材、サードパーティサービスなど)を効率的に確保・配分すること</strong> です。設計を実現するために「何を、どこから、どう調達するか」を決定する段階です。</p>
+
+      <h3>5.2 技術・人材・サードパーティサービス調達の違い</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>調達対象</th>
+            <th>特徴</th>
+            <th>主な検討事項</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>技術(ハードウェア・ソフトウェア)</td>
+              <td>比較的定型化されている</td>
+              <td>ライセンス条件、拡張性、既存アーキテクチャとの整合性</td>
+            </tr>
+            <tr>
+              <td>人材</td>
+              <td>採用・育成・外部人材活用のバランスが必要</td>
+              <td>スキルギャップの特定、内製 vs 外部委託の判断</td>
+            </tr>
+            <tr>
+              <td>サードパーティサービス</td>
+              <td>継続的な関係管理が必要</td>
+              <td>SLA の設定、サプライヤーのガバナンス体制、ベンダーロックインのリスク</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.3 主要概念</h3>
+
+      <ul>
+        <li><strong>ソーシング戦略(Sourcing Strategy)</strong>: 内製(Build)か購入(Buy)か、あるいはハイブリッドかを決定する戦略的判断。コスト、専門性、戦略的重要度によって左右される</li>
+        <li><strong>サービス財務管理の視点</strong>: 調達コストは一時費用だけでなく、運用中の継続コスト(TCO: 総所有コスト)まで見積もる必要がある</li>
+      </ul>
+
+      <h3>5.4 Acquire を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Acquire における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Supplier Management(サプライヤー管理)</td>
+              <td>外部サプライヤーとの契約・パフォーマンス管理を担う</td>
+            </tr>
+            <tr>
+              <td>IT Asset Management(IT資産管理)</td>
+              <td>調達した資産のライフサイクル(登録・追跡・廃棄)を管理する</td>
+            </tr>
+            <tr>
+              <td>Service Financial Management(サービス財務管理)</td>
+              <td>調達コストの予算化、投資対効果の評価を担う</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.5 Acquire 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="acquireFig11"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>5.6 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>調達済みのリソース・サービス</li>
+        <li>サプライヤー契約・SLA</li>
+        <li>更新された IT 資産台帳</li>
+      </ul>
+
+      <h3>5.7 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>必要なリソースが適時に確保されている</td>
+              <td>調達リードタイム、調達遅延によるプロジェクト遅延件数</td>
+            </tr>
+            <tr>
+              <td>サプライヤーの品質が担保されている</td>
+              <td>サプライヤー SLA 達成率</td>
+            </tr>
+            <tr>
+              <td>総所有コストが適切に管理されている</td>
+              <td>予算対比の調達コスト、TCO の見積り精度</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.8 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>TCO で判断する</strong>: 初期調達コストの安さだけで判断せず、運用・保守・サポート・将来の拡張コストまで含めた総所有コストで比較検討してください。</li>
+          <li><strong>サプライヤー管理を「契約締結後」で終わらせない</strong>: Acquire は一度きりの取引ではなく、Supplier Management プラクティスを通じた継続的な関係管理の起点です。定期的なパフォーマンスレビューを最初から契約に組み込んでください。</li>
+          <li><strong>ベンダーロックインのリスクを可視化する</strong>: 特に AI・クラウド関連の調達では、移行コストやデータポータビリティを事前に評価し、将来の選択肢を狭めすぎないようにしてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module5-build">
+      <div class="section-eyebrow"><i class="ti ti-hammer"></i>SECTION 07</div>
+      <h2>Module 5: Build(構築)</h2>
+
+      <h3>6.1 目的(Purpose)</h3>
+
+      <p>Build 活動の目的は、<strong>デジタル製品のコンポーネントを開発・統合・テストし、設計を機能するソリューションへと転換すること</strong> です。</p>
+
+      <h3>6.2 Design から Build への統合</h3>
+
+      <p>Design 段階で作成された仕様・プロトタイプ・運用モデルは、Build 段階でそのまま実装の指針となります。両者が断絶していると、「設計と違うものができあがる」という典型的な失敗に陥ります。ITIL (Version 5) は、Design と Build を反復的に行き来すること(アジャイル的な進め方)を許容しており、一方向のウォーターフォールを強制するものではありません。</p>
+
+      <h3>6.3 主要概念</h3>
+
+      <ul>
+        <li><strong>統合(Integration)</strong>: 個別に開発されたコンポーネントを組み合わせ、全体として機能させること</li>
+        <li><strong>検証とテスト(Validation and Testing)</strong>: 機能要件・非機能要件の両方を検証するプロセス。単体テストから統合テスト、負荷テストまでを含む</li>
+        <li><strong>Definition of Done</strong>: 何をもって「構築完了」とするかの合意。テストカバレッジ、コードレビュー、セキュリティスキャンの合格などを含めることが一般的</li>
+      </ul>
+
+      <h3>6.4 Build を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Build における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Software Development and Management(ソフトウェア開発・管理)</td>
+              <td>コードの開発、バージョン管理、技術的負債の管理を担う</td>
+            </tr>
+            <tr>
+              <td>Infrastructure and Platform Management(インフラ・プラットフォーム管理)</td>
+              <td>開発・テスト環境を含む基盤の構築・維持を担う</td>
+            </tr>
+            <tr>
+              <td>Service Validation and Testing(サービスの検証とテスト)</td>
+              <td>機能要件・非機能要件を体系的に検証する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.5 Build 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="buildFig12"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>6.6 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>構築・テスト済みのプロダクトソリューション</li>
+        <li>テスト結果・品質レポート</li>
+        <li>リリース候補(Release Candidate)</li>
+      </ul>
+
+      <h3>6.7 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>品質基準を満たした状態で構築が完了している</td>
+              <td>テストカバレッジ、リリース前に検出された欠陥数</td>
+            </tr>
+            <tr>
+              <td>開発サイクルが予測可能である</td>
+              <td>ビルド〜テスト完了までのリードタイム、ビルド失敗率</td>
+            </tr>
+            <tr>
+              <td>技術的負債が管理されている</td>
+              <td>技術的負債バックログの増減トレンド</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.8 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>CI(継続的インテグレーション)を早期に導入する</strong>: コンポーネントを統合してから問題が発覚すると手戻りコストが跳ね上がります。小さく頻繁に統合し、早期にフィードバックを得てください。</li>
+          <li><strong>非機能要件のテストを後回しにしない</strong>: 機能テストだけでなく、負荷テスト・セキュリティテストを Build 段階のパイプラインに組み込み、Transition 直前に慌てて実施することを避けてください。</li>
+          <li><strong>「動くこと」と「Definition of Done」を混同しない</strong>: チームで合意した完了の定義(テスト、ドキュメント、セキュリティ承認など)を明文化し、属人的な判断でリリース候補を確定しないようにしてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module6-transition">
+      <div class="section-eyebrow"><i class="ti ti-transfer"></i>SECTION 08</div>
+      <h2>Module 6: Transition(移行)</h2>
+
+      <h3>7.1 目的(Purpose)</h3>
+
+      <p>Transition 活動の目的は、<strong>新規または変更された製品を、安全かつ効果的に本番環境へ導入すること</strong>、およびサプライヤーのオンボーディング・オフボーディングを適切に行うことです。</p>
+
+      <h3>7.2 製品移行へのアプローチ</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>アプローチ</th>
+            <th>特徴</th>
+            <th>適するケース</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Big Bang(一括移行)</td>
+              <td>全ユーザー・全機能を一度に切り替える</td>
+              <td>影響範囲が限定的で、ロールバックが容易な場合</td>
+            </tr>
+            <tr>
+              <td>フェーズドロールアウト</td>
+              <td>段階的にユーザー層・地域を拡大していく</td>
+              <td>大規模なユーザーベース、リスクを抑えたい場合</td>
+            </tr>
+            <tr>
+              <td>Blue-Green デプロイメント</td>
+              <td>新旧2系統の環境を並行稼働させ、切替を即座に行う</td>
+              <td>ダウンタイムを最小化したい場合</td>
+            </tr>
+            <tr>
+              <td>カナリアリリース</td>
+              <td>一部のトラフィックのみ新バージョンへ振り分け、段階的に拡大する</td>
+              <td>本番トラフィックでの検証をリスクを抑えて行いたい場合</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.3 Transition を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Transition における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Change Enablement(変更実現)</td>
+              <td>変更のリスク評価と承認プロセスを通じて、安全な変更を実現する</td>
+            </tr>
+            <tr>
+              <td>Release Management(リリース管理)</td>
+              <td>複数の変更をまとめてリリース単位として計画・調整する</td>
+            </tr>
+            <tr>
+              <td>Deployment Management(展開管理)</td>
+              <td>実際の環境への配置・切替作業を実行する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.4 Transition 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="transitionFig13"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>7.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>対象環境に展開され、稼働準備が整った製品・サービス</li>
+        <li>リリースノート</li>
+        <li>サプライヤーのオンボーディング / オフボーディング記録</li>
+      </ul>
+
+      <h3>7.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>変更が安全に本番へ導入されている</td>
+              <td>変更起因のインシデント発生率(Change Failure Rate)</td>
+            </tr>
+            <tr>
+              <td>リリースの頻度と安定性が両立している</td>
+              <td>デプロイ頻度、平均復旧時間(MTTR)</td>
+            </tr>
+            <tr>
+              <td>ロールバックが迅速に実行できる</td>
+              <td>ロールバック所要時間</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>変更の分類に応じて審査の重さを変える</strong>: 低リスクで頻度の高い変更(標準変更)は事前承認済みの自動化パイプラインに乗せ、高リスクな変更にのみ人的なレビューの労力を集中させてください。すべての変更を同じ重さで審査すると、変更管理そのものがボトルネックになります。</li>
+          <li><strong>ロールバック手順は展開前に必ず検証しておく</strong>: 本番障害が発生してから初めてロールバック手順を試す、という事態は避けてください。カナリアリリースやBlue-Greenデプロイメントは、ロールバックの容易さという観点でも有効です。</li>
+          <li><strong>Deployment Frequency と Change Failure Rate をセットで追う</strong>: リリース頻度だけを追うと品質が犠牲になり、変更失敗率だけを追うとリリースが停滞します。両方を DORA 指標的な発想でバランスさせてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module7-operate">
+      <div class="section-eyebrow"><i class="ti ti-activity"></i>SECTION 09</div>
+      <h2>Module 7: Operate(運用)</h2>
+
+      <p>Operate は、PeopleCert の紹介文にある「運用の信頼性(operational reliability)」を直接担う、Service モジュールの中核的な活動です。</p>
+
+      <h3>8.1 目的(Purpose)</h3>
+
+      <p>Operate 活動の目的は、<strong>デジタル製品とそれを支えるシステムを維持・監視し、最適なパフォーマンスと信頼性を確保し続けること</strong> です。</p>
+
+      <h3>8.2 主要概念</h3>
+
+      <ul>
+        <li><strong>可観測性(Observability)</strong>: ログ・メトリクス・トレースの3要素を通じて、システム内部の状態を外部から推測できる度合い。単なる「監視(Monitoring)」よりも一段広い概念で、未知の障害モードにも対応できる設計を指す</li>
+        <li><strong>信頼性(Reliability)</strong>: システムが期待どおりに機能し続ける度合い。SRE(Site Reliability Engineering)の考え方では、<strong>SLI(Service Level Indicator)</strong>、<strong>SLO(Service Level Objective)</strong>、<strong>エラーバジェット(Error Budget)</strong> という具体的な指標体系で運用される</li>
+        <li><strong>イベント(Event)</strong>: サービス管理上意味のある状態変化。すべてのイベントが問題を意味するわけではなく、正常な状態変化(情報イベント)、注意を要する状態(警告イベント)、異常事態(例外イベント)に分類される</li>
+      </ul>
+
+      <h3>8.3 Operate を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Operate における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Monitoring and Event Management(監視とイベント管理)</td>
+              <td>システムの状態を継続的に監視し、イベントを検知・分類・対応につなげる</td>
+            </tr>
+            <tr>
+              <td>Infrastructure and Platform Management(インフラ・プラットフォーム管理)</td>
+              <td>基盤システムの可用性・キャパシティを維持する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>8.4 Operate 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="operateFig14"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>8.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>稼働中の製品・サービス</li>
+        <li>パフォーマンス記録・キャパシティトレンドデータ</li>
+        <li>イベントログ、アラート履歴</li>
+      </ul>
+
+      <h3>8.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>サービスの可用性が目標水準を維持している</td>
+              <td>稼働率(Uptime)、SLO 達成率、エラーバジェットの消費率</td>
+            </tr>
+            <tr>
+              <td>異常を早期に検知できている</td>
+              <td>平均検知時間(MTTD: Mean Time To Detect)</td>
+            </tr>
+            <tr>
+              <td>監視のノイズが管理されている</td>
+              <td>誤検知(false positive)率、アラート疲労の指標(1人当たりのアラート受信数)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>8.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「監視しているか」ではなく「意味のあるアラートを出せているか」を問う</strong>: ログを大量に集めていても、アラートが多すぎて誰も見なくなる「アラート疲労」は運用信頼性を著しく損ないます。SLO 逸脱に直結する少数の重要指標にアラートを絞り込んでください。</li>
+          <li><strong>エラーバジェットで意思決定する</strong>: 可用性目標に対する余裕(エラーバジェット)を可視化し、余裕があるうちは新機能リリースを積極化し、消費し尽くしたらリリースを抑制して安定化に注力する、というメリハリのある運用判断を行ってください。</li>
+          <li><strong>自動修復(Self-healing)を段階的に拡張する</strong>: まず既知のパターンに対する自動復旧(再起動、スケールアウトなど)から始め、信頼が蓄積された範囲を徐々に広げてください。人手を完全に排除することではなく、人が本当に判断すべき例外に集中できる状態を作ることが目的です。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module8-deliver">
+      <div class="section-eyebrow"><i class="ti ti-truck-delivery"></i>SECTION 10</div>
+      <h2>Module 8: Deliver(提供)</h2>
+
+      <h3>9.1 目的(Purpose)</h3>
+
+      <p>Deliver 活動の目的は、<strong>アクセスとリクエストを管理しながらサービスをユーザーへ提供し、フィードバックを収集すること</strong> です。ここは PSLM の中で最も直接的に「価値の共創」がユーザーの手元で起こる段階です。</p>
+
+      <h3>9.2 サービス提供活動がどのように価値共創を可能にするか</h3>
+
+      <p>Deliver 活動は、単に「サービスを使えるようにする」だけでなく、消費者が実際にアウトカムを実現できるよう能動的に支援する段階です。アクセス権の付与、オンボーディング、リクエストへの迅速な対応はすべて、ユーザーが自らコストとリスクを管理せずに済むようにするという「サービス」の定義(1.1参照)を具現化する活動です。</p>
+
+      <h3>9.3 主要概念</h3>
+
+      <ul>
+        <li><strong>アクセス管理</strong>: 適切な人に、適切なタイミングで、適切な権限を付与・削除する</li>
+        <li><strong>サービスリクエスト</strong>: あらかじめ合意された、定型的な要求(パスワードリセット、アクセス権限の追加、新規アカウント発行など)。インシデント(予期しない障害)とは明確に区別される</li>
+        <li><strong>セルフサービス化</strong>: ポータルやチャットボットを通じて、ユーザー自身が定型リクエストを完結できるようにする仕組み</li>
+      </ul>
+
+      <h3>9.4 Deliver を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Deliver における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Service Request Management(サービスリクエスト管理)</td>
+              <td>定型的な要求を受付から履行まで一貫して管理する</td>
+            </tr>
+            <tr>
+              <td>Service Level Management(サービスレベル管理)</td>
+              <td>合意した SLA/XLA に対する実績を継続的にモニタリング・報告する</td>
+            </tr>
+            <tr>
+              <td>Service Desk(サービスデスク)</td>
+              <td>ユーザーとサービスプロバイダーの単一の接点(Single Point of Contact)として機能する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>9.5 Deliver 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="deliverFig15"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>9.6 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>消費者に提供されたサービス</li>
+        <li>SLA 実績レポート</li>
+        <li>ユーザーフィードバック・満足度データ</li>
+      </ul>
+
+      <h3>9.7 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>リクエストが迅速かつ正確に履行されている</td>
+              <td>平均履行時間、初回解決率(First Contact Resolution)</td>
+            </tr>
+            <tr>
+              <td>SLA/XLA の実績が目標を満たしている</td>
+              <td>SLA 達成率、XLA スコア(体験指標)</td>
+            </tr>
+            <tr>
+              <td>セルフサービスの活用が進んでいる</td>
+              <td>セルフサービス経由での解決率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>9.8 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>サービスリクエストとインシデントを混同しない</strong>: 定型的な依頼(リクエスト)と予期しない障害(インシデント)を同じキューで扱うと、優先順位づけが破綻します。カタログ化されたリクエストは可能な限り自動履行のワークフローに乗せてください。</li>
+          <li><strong>SLA レポートを「守れたか否か」の報告に留めない</strong>: 達成率の推移、逸脱の根本原因、次のサイクルでの改善計画までをセットで報告し、Service Level Management を継続的改善のインプットとして機能させてください。</li>
+          <li><strong>セルフサービスは「置き換え」ではなく「選択肢」として提供する</strong>: すべてのユーザーがセルフサービスを好むわけではありません。人的サポートへのエスカレーション経路を必ず残し、体験(Experience)の観点で選べる状態を維持してください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module9-support">
+      <div class="section-eyebrow"><i class="ti ti-lifebuoy"></i>SECTION 11</div>
+      <h2>Module 9: Support(サポート)</h2>
+
+      <h3>10.1 目的(Purpose)</h3>
+
+      <p>Support 活動の目的は、<strong>インシデントと問題を特定・解決し、可能な限り迅速に通常のサービス運用を回復すること</strong> です。PSLM の中でも最もユーザーの信頼に直結する、いわば「サービスの最後の砦」です。</p>
+
+      <h3>10.2 主要概念</h3>
+
+      <ul>
+        <li><strong>インシデント(Incident)</strong>: サービスの計画外の中断、またはサービス品質の低下</li>
+        <li><strong>問題(Problem)</strong>: 1つ以上のインシデントの原因、または潜在的な原因</li>
+        <li><strong>ワークアラウンド(Workaround)</strong>: 根本原因が解決していなくても、影響を軽減・除去する暫定的な解決策</li>
+        <li><strong>既知のエラー(Known Error)</strong>: 根本原因が特定されているが、恒久的な解決策がまだ実装されていない問題</li>
+      </ul>
+
+      <p>インシデント管理とプロブレム管理の違いを混同しないことが重要です。インシデント管理のゴールは「できるだけ早くサービスを復旧すること」であり、根本原因の特定はプロブレム管理の役割です。復旧を急ぐあまり原因調査を後回しにするのは正しい判断ですが、その後の根本原因分析を省略してよいという意味ではありません。</p>
+
+      <h3>10.3 Support を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Support における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Incident Management(インシデント管理)</td>
+              <td>サービス中断を検知し、可能な限り迅速に復旧する</td>
+            </tr>
+            <tr>
+              <td>Problem Management(問題管理)</td>
+              <td>インシデントの根本原因を特定し、再発を防止する</td>
+            </tr>
+            <tr>
+              <td>Service Desk(サービスデスク)</td>
+              <td>ユーザーからの問い合わせ・障害報告の単一の窓口として機能する</td>
+            </tr>
+            <tr>
+              <td>Service Continuity Management(サービス継続性管理)</td>
+              <td>大規模障害・災害時にもサービスを継続または迅速に復旧できるよう事前に計画する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>10.4 Support 活動のステップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="supportFig16"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <h3>10.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>通常運用への復旧</li>
+        <li>ワークアラウンド、既知のエラーの記録</li>
+        <li>根本原因分析(RCA)結果</li>
+      </ul>
+
+      <h3>10.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>サービス復旧が迅速である</td>
+              <td>平均復旧時間(MTTR: Mean Time To Restore)</td>
+            </tr>
+            <tr>
+              <td>根本原因分析により再発が防止されている</td>
+              <td>インシデント再発率、既知のエラーからの恒久対応完了率</td>
+            </tr>
+            <tr>
+              <td>ユーザーへのコミュニケーションが適切である</td>
+              <td>障害対応時のステータス更新頻度、事後対応への満足度</td>
+            </tr>
+            <tr>
+              <td>大規模障害への備えができている</td>
+              <td>サービス継続計画の訓練実施頻度、目標復旧時間(RTO)の達成率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>10.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「復旧」と「原因究明」を分離する</strong>: インシデント対応中はまず復旧を最優先し、根本原因の特定はプロブレム管理のプロセスに委ねてください。両方を同時に追おうとすると、復旧が遅れるだけでなく調査も浅くなりがちです。</li>
+          <li><strong>ブレームレスなポストモーテム(Blameless Postmortem)を実施する</strong>: 4つの側面のうち「組織と人材」(1.5参照)が示すとおり、心理的安全性がなければ正直なインシデント報告は得られません。個人の責任追及ではなく、システム・プロセスの改善に焦点を当ててください。</li>
+          <li><strong>既知のエラーデータベース(KEDB)を実務で使い倒す</strong>: 記録するだけでなく、新規インシデントのトリアージ時に必ず照合する運用を徹底することで、平均復旧時間を大幅に短縮できます。</li>
+          <li><strong>サービス継続計画は「作って終わり」にしない</strong>: 定期的な訓練(ゲームデイ、障害注入テストなど)を通じて、計画が実際に機能することを検証し続けてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="module10-lifecycle-ai">
+      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 12</div>
+      <h2>Module 10: ライフサイクル管理・AI・他フレームワーク統合</h2>
+
+      <h3>11.1 エンドツーエンドのライフサイクル管理</h3>
+
+      <p>第3章〜第10章では、PSLM の8段階を1つずつ個別に学びました。Module 10 は、それらを <strong>1つの統合されたシステムとして管理する視点</strong> を養う総括章です。</p>
+
+      <p>重要なのは、8つの活動を「順番にこなすチェックリスト」として扱わないことです。実際の現場では、Support 活動から得られた学びが即座に Discover の新たな入力になり、Operate 中に発見された性能課題が Design の見直しを促す、というように、<strong>すべての活動が並行し、相互にフィードバックし合っています</strong>。この非線形性を前提に、複数のバリューストリーム(特定の需要に応じて組み合わされた活動の連なり)を同時並行で管理する能力が、Service モジュールの実務上の到達点です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="lifecycleFig17"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>バリューストリームごとに「どの活動を、どの順序で、誰が担うか」を可視化するバリューストリームマッピング(第1章の考え方を実務に適用したもの)を定期的に実施してください。特に Support→Discover のフィードバックループが機能しているかどうかは、組織の学習能力を測る重要な指標になります。</p>
+      </div>
+
+      <h3>11.2 ITIL AI Capability Model(6C モデル)</h3>
+
+      <p>ITIL (Version 5) の最大の特徴の一つが、AI を「後付けの自動化ツール」としてではなく、フレームワークの中核に組み込んでいる点です(AI-native by design)。この考え方を体系化したのが <strong>ITIL AI Capability Model</strong>、通称 <strong>6C モデル</strong> です。AI システムが実際に何をしているのかを、6つの機能カテゴリーで正確に言語化するためのモデルであり、機能ごとにリスクの性質やガバナンスの必要度が異なる、という前提に立っています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="lifecycleFig18"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>機能</th>
+            <th>説明</th>
+            <th>PSLM 上での典型的な適用例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Creation(生成)</td>
+              <td>新しいコンテンツ・コード・ドキュメントを生成する</td>
+              <td>Build 段階でのコード補完、Design 段階での仕様書ドラフト生成</td>
+            </tr>
+            <tr>
+              <td>Curation(キュレーション)</td>
+              <td>既存データの質・関連性を高め、重複や不整合を除去する</td>
+              <td>Discover 段階での顧客インサイトの整理、ナレッジベースの整備</td>
+            </tr>
+            <tr>
+              <td>Clarification(明確化)</td>
+              <td>複雑な内容の要約や、曖昧な要求から意図を汲み取る</td>
+              <td>Support 段階でのインシデントチケットの自動要約</td>
+            </tr>
+            <tr>
+              <td>Cognition(認知)</td>
+              <td>パターンを認識し、予兆や隠れた洞察を発見する</td>
+              <td>Operate 段階での異常検知、キャパシティ予測</td>
+            </tr>
+            <tr>
+              <td>Communication(コミュニケーション)</td>
+              <td>チャットボット等、自然言語での対話インターフェース</td>
+              <td>Deliver 段階でのセルフサービスチャットボット</td>
+            </tr>
+            <tr>
+              <td>Coordination(調整)</td>
+              <td>複数システムを横断した自律的な実行・オーケストレーション</td>
+              <td>Operate 段階での自動修復(負荷分散の自動再配置など)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AI 施策を企画する際は、必ず「これは6つのうちどの機能か」を最初に明確にしてください。Coordination(自律実行)は Creation(生成支援)よりもはるかに高いガバナンス・人的監督が必要です。機能を曖昧なまま「AIを導入する」と言うのではなく、6C モデルの語彙で施策を定義することで、必要なガバナンスレベルを正しく見積もれます。</p>
+      </div>
+
+      <h3>11.3 AI 統合における注意点</h3>
+
+      <p>6C モデルは可能性を示す一方で、データガバナンスと倫理面の課題も伴います。AI を活用する際は、次の観点を必ず組み込んでください。</p>
+
+      <ul>
+        <li><strong>説明可能性</strong>: AI の判断根拠を人間が追跡・検証できるか(特に Cognition・Coordination 機能)</li>
+        <li><strong>人的関与ポイント(Human-in-the-loop)</strong>: どの意思決定に、どの段階で人間の承認を必須とするか</li>
+        <li><strong>バイアスとデータ品質</strong>: Curation 機能で扱うデータの偏りが、下流の判断に伝播しないか</li>
+        <li><strong>エスカレーション経路</strong>: AI が処理しきれないケースを、確実に人間に引き継ぐ仕組みがあるか</li>
+      </ul>
+
+      <p>より高度な AI ガバナンスは、ITIL (Version 5) の拡張モジュール <strong>ITIL AI Governance</strong> で専門的に扱われます。興味のある方は本ガイド末尾の参考文献を参照してください。</p>
+
+      <h3>11.4 DevOps との関係</h3>
+
+      <p>ITIL (Version 5) と DevOps は競合するフレームワークではなく、<strong>異なるレイヤーの問いに答える、補完関係にある枠組み</strong> です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>観点</th>
+            <th>ITIL (Version 5) が答える「何を」</th>
+            <th>DevOps が答える「どうやって」</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>変更管理</td>
+              <td>変更はリスクに応じて統制されるべき、という要件(Change Enablement)</td>
+              <td>CI/CD パイプラインと自動テストによる高速・安全な実装手段</td>
+            </tr>
+            <tr>
+              <td>サービスの信頼性</td>
+              <td>信頼性を維持する責任の所在とガバナンス</td>
+              <td>SRE の実践(SLI/SLO/エラーバジェット、オンコール体制)</td>
+            </tr>
+            <tr>
+              <td>継続的改善</td>
+              <td>改善を組織文化に根づかせる7ステップモデル</td>
+              <td>レトロスペクティブ、ポストモーテムの実践</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>要点: <strong>ITIL 5 は DevOps の速度がガバナンスを失わずにスケールするための安定構造を提供する</strong>、という捉え方が実務上最も有用です。低リスクな変更を自動化されたパイプラインに委ね、高リスクな変更にのみ人的レビューを集中させるという第7章のベストプラクティスは、まさにこの統合を体現したものです。</p>
+      </div>
+
+      <h3>11.5 PRINCE2 との関係</h3>
+
+      <p>PRINCE2(PRojects IN Controlled Environments)はプロジェクトマネジメントのフレームワークであり、ITIL (Version 5) はサービスマネジメントのフレームワークです。両者は同じライフサイクルの異なるフェーズを担当します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="lifecycleFig19"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <ul>
+        <li><strong>PRINCE2</strong>: 明確な開始・中間・終了を持つ、期限付きの取り組み(例: 新しい CRM システムの導入)を担う</li>
+        <li><strong>ITIL (Version 5)</strong>: 終わりのない継続的な取り組み(例: 導入された CRM サービスの日々の運用・保守・改善)を担う</li>
+      </ul>
+
+      <p>統合が機能するのは「引き継ぎの瞬間」です。PRINCE2 がプロジェクトの成果物(製品・変更)を届け、ITIL (Version 5) がそれを受け取ってサービスとして運用・サポート・改善していく、という明確な橋渡しが必要です。</p>
+
+      <h3>11.6 共通する原則</h3>
+
+      <p>DevOps・PRINCE2・Agile・ITIL (Version 5) といった複数のフレームワークが実務で共存できるのは、以下の基礎的な原則を共有しているためです。</p>
+
+      <ul>
+        <li>顧客価値への focus(焦点)</li>
+        <li>チームを越えた協働(Collaboration)</li>
+        <li>フィードバックを伴う反復的な進化</li>
+        <li>あらゆる活動を通じた継続的改善</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「うちはアジャイルだからプロセスは不要」「うちはITILだからDevOpsの俊敏さは危険」といった二項対立の議論は、いずれも実務上は価値を破壊します。フレームワークはそれぞれ異なる問いに答えるための道具であり、組織の成熟度と文脈に応じて適切に組み合わせることが、Service モジュールが一貫して伝えるメッセージです。</p>
+      </div>
+    </section>
+
+    <section id="best-practices-summary">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 13</div>
+      <h2>ベストプラクティス総まとめ</h2>
+
+      <p>第3章〜第10章で解説した PSLM 8段階のベストプラクティスを、1枚の早見表として整理します。試験直前の復習や、実務導入時のチェックリストとして活用してください。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>段階</th>
+            <th>目的(一言で)</th>
+            <th>主要な有効化プラクティス</th>
+            <th>最重要ベストプラクティス</th>
+            <th>代表的な指標</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>① Discover</td>
+              <td>需要とニーズの継続的な把握</td>
+              <td>Business Analysis, Portfolio Management, Relationship Management</td>
+              <td>需要の「声」を単一のバックログに一元化する</td>
+              <td>インサイトからロードマップ反映までのリードタイム</td>
+            </tr>
+            <tr>
+              <td>② Design</td>
+              <td>仕様・プロトタイプの作成</td>
+              <td>Architecture Management, Service Level Management, Service Design</td>
+              <td>運用できる設計(可観測性を後付けにしない)</td>
+              <td>設計レビューでの非機能要件指摘件数</td>
+            </tr>
+            <tr>
+              <td>③ Acquire</td>
+              <td>必要リソースの確保</td>
+              <td>Supplier Management, IT Asset Management, Service Financial Management</td>
+              <td>初期コストではなく TCO で判断する</td>
+              <td>調達リードタイム</td>
+            </tr>
+            <tr>
+              <td>④ Build</td>
+              <td>設計の実装・テスト</td>
+              <td>Software Development and Management, Infrastructure and Platform Management, Service Validation and Testing</td>
+              <td>CI を早期導入し、小さく頻繁に統合する</td>
+              <td>テストカバレッジ、ビルド失敗率</td>
+            </tr>
+            <tr>
+              <td>⑤ Transition</td>
+              <td>本番環境への安全な導入</td>
+              <td>Change Enablement, Release Management, Deployment Management</td>
+              <td>変更のリスクに応じて審査の重さを変える</td>
+              <td>Change Failure Rate</td>
+            </tr>
+            <tr>
+              <td>⑥ Operate</td>
+              <td>稼働の維持・信頼性確保</td>
+              <td>Monitoring and Event Management, Infrastructure and Platform Management</td>
+              <td>エラーバジェットに基づく意思決定</td>
+              <td>SLO 達成率、MTTD</td>
+            </tr>
+            <tr>
+              <td>⑦ Deliver</td>
+              <td>サービスの提供とフィードバック収集</td>
+              <td>Service Request Management, Service Level Management, Service Desk</td>
+              <td>リクエストとインシデントを明確に区別する</td>
+              <td>SLA 達成率、初回解決率</td>
+            </tr>
+            <tr>
+              <td>⑧ Support</td>
+              <td>インシデント・問題への対応</td>
+              <td>Incident Management, Problem Management, Service Desk, Service Continuity Management</td>
+              <td>「復旧」と「原因究明」を分離する</td>
+              <td>MTTR、インシデント再発率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>12.1 段階を横断するベストプラクティス</h3>
+
+      <p>個々の段階のベストプラクティスに加え、PSLM 全体を横断して意識すべき原則を以下にまとめます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ol>
+          <li><strong>フィードバックループを意図的に設計する</strong>: Support→Discover、Operate→Design のように、後工程の学びが前工程に還元される経路を、偶然ではなく仕組みとして構築してください(第11章 11.1参照)。</li>
+          <li><strong>4つの側面すべてに目を配る</strong>: 技術(Information and Technology)だけを強化する施策は、必ずどこかで限界に突き当たります(第1章 1.5参照)。</li>
+          <li><strong>SLA だけでなく体験(Experience)も測る</strong>: 稼働率が高くても、ユーザー体験が悪ければサービスの価値は損なわれます(第1章 1.8参照)。</li>
+          <li><strong>AI 施策は 6C モデルの語彙で定義する</strong>: 機能を明確にすることで、適切なガバナンスレベルを設定できます(第11章 11.2参照)。</li>
+          <li><strong>心理的安全性なくして正直な報告なし</strong>: ブレームレスな文化がなければ、インシデントの根本原因もリスクの早期警告も上がってきません(第10章 10.7参照)。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="exam-tips">
+      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 14</div>
+      <h2>試験対策のポイント</h2>
+
+      <h3>13.1 試験の性質を理解する</h3>
+
+      <p>ITIL Service (Version 5) の試験は、<strong>オープンブックの選択式試験</strong>(40問・90分・合格ライン70%)です。暗記量そのものよりも、<strong>公式刊行物の中から必要な情報を素早く見つけ、状況に当てはめて判断する力</strong> が問われます。したがって学習の焦点は、丸暗記ではなく「概念同士の関係性を理解し、公式資料のどのあたりに何が書いてあるかを把握しておくこと」に置くべきです。</p>
+
+      <h3>13.2 頻出の混同ポイント</h3>
+
+      <p>試験・実務の双方で混同しやすい概念のペアを整理しておきます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>混同しやすいペア</th>
+            <th>区別のポイント</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Output(アウトプット) vs Outcome(アウトカム)</td>
+              <td>アウトプットは成果物そのもの、アウトカムはそれによって実現される結果(1.2参照)</td>
+            </tr>
+            <tr>
+              <td>Service Value Chain(6活動) vs PSLM(8活動)</td>
+              <td>バリューチェーンは普遍的な運用エンジン、PSLM は個別の製品・サービスの具体的な旅路(1.6参照)</td>
+            </tr>
+            <tr>
+              <td>Incident(インシデント) vs Problem(問題)</td>
+              <td>インシデントは個別の中断事象、問題はその原因または潜在的原因(10.2参照)</td>
+            </tr>
+            <tr>
+              <td>SLA vs XLA</td>
+              <td>SLA は技術的な合意指標、XLA は体験を定量化した指標(1.8参照)</td>
+            </tr>
+            <tr>
+              <td>Governance(ガバナンス) vs Management(マネジメント)</td>
+              <td>ガバナンスは「正しいことをする」方向づけ、マネジメントは「正しいやり方でやる」実行(1.9参照)</td>
+            </tr>
+            <tr>
+              <td>Service Request(サービスリクエスト) vs Incident</td>
+              <td>リクエストは定型的で計画済みの依頼、インシデントは予期しない中断(9.3参照)</td>
+            </tr>
+            <tr>
+              <td>Monitoring(監視) vs Observability(可観測性)</td>
+              <td>監視は既知の指標を見ること、可観測性は未知の障害モードにも対応できる設計思想(8.2参照)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>13.3 学習の進め方(推奨ステップ)</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="examTipsFig20"><div class="diagram-loading">図を読み込み中...</div></div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>オープンブック試験だからといって準備を怠ると、90分で40問(1問あたり約2分15秒)というペースの中で資料を探す時間が足りなくなります。本ガイドの章構成(第0章〜第11章)を、公式刊行物の目次と自分の中で対応づけておく「索引化」の作業を、模擬試験の前に必ず行ってください。</p>
+      </div>
+
+      <h3>13.4 実務者としての心構え</h3>
+
+      <p>試験対策と並行して意識してほしいのは、ITIL Service (Version 5) が問うているのは「用語を知っているか」ではなく「サービスプロバイダーとして、変化し続けるデジタルサービスの信頼性と価値をどう守るか」という実務上の問いだという点です。第12章の横断的ベストプラクティスは、そのまま試験対策と実務導入の両方に使える指針として設計しています。</p>
+    </section>
+
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 15</div>
+      <h2>付録: 用語集</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Product</div><div class="g-def">消費者に価値を提供するために設計された、組織のリソースの構成</div></div>
+        <div class="glossary-item"><div class="g-term">Service</div><div class="g-def">顧客が特定のコストとリスクを自ら管理することなく、望む成果の実現を可能にする、価値の共創手段</div></div>
+        <div class="glossary-item"><div class="g-term">Digital Product</div><div class="g-def">デジタル技術に基づく、組織のリソースの組み合わせ</div></div>
+        <div class="glossary-item"><div class="g-term">Digital Service</div><div class="g-def">デジタル製品に全面的または大部分を依存するサービス</div></div>
+        <div class="glossary-item"><div class="g-term">Output</div><div class="g-def">活動によって生み出される有形・無形の成果物</div></div>
+        <div class="glossary-item"><div class="g-term">Outcome</div><div class="g-def">1つ以上のアウトプットによって実現される、ステークホルダーにとっての結果</div></div>
+        <div class="glossary-item"><div class="g-term">Value</div><div class="g-def">何かの知覚された便益、有用性、重要性</div></div>
+        <div class="glossary-item"><div class="g-term">Cost</div><div class="g-def">特定の活動やリソースに費やされる金額</div></div>
+        <div class="glossary-item"><div class="g-term">Risk</div><div class="g-def">損害・損失を引き起こす可能性のある事象、または目標達成を困難にする事象</div></div>
+        <div class="glossary-item"><div class="g-term">ITIL Value System (ITIL VS)</div><div class="g-def">組織のあらゆる構成要素・活動が、いかに協働して価値創出を可能にするかを表すモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Guiding Principles</div><div class="g-def">あらゆる状況で組織を導く普遍的な推奨事項</div></div>
+        <div class="glossary-item"><div class="g-term">Governance</div><div class="g-def">組織が指揮・統制される仕組み</div></div>
+        <div class="glossary-item"><div class="g-term">Service Value Chain</div><div class="g-def">需要を価値に変換するための、6つの相互接続された活動からなる中核運用モデル</div></div>
+        <div class="glossary-item"><div class="g-term">Management Practice</div><div class="g-def">作業や目的達成のために設計された、組織のリソースの集合</div></div>
+        <div class="glossary-item"><div class="g-term">Continual Improvement</div><div class="g-def">あらゆる階層で行われる、パフォーマンスを期待水準に保ち続ける反復活動</div></div>
+        <div class="glossary-item"><div class="g-term">Product and Service Lifecycle Model (PSLM)</div><div class="g-def">Discover から Support までの8つの活動からなる、製品・サービスの一気通貫のライフサイクルモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Value Stream</div><div class="g-def">消費者に製品・サービスを創出・提供するために組織が行う一連のステップ</div></div>
+        <div class="glossary-item"><div class="g-term">Value Stream Mapping</div><div class="g-def">現状のワークフローを可視化し、ムダを特定・改善するリーン手法</div></div>
+        <div class="glossary-item"><div class="g-term">Service Provider</div><div class="g-def">サービスの提供とサポートに責任を持つ組織の役割</div></div>
+        <div class="glossary-item"><div class="g-term">Service Consumer</div><div class="g-def">サービスを取得・利用して自らの目的を達成する組織の役割</div></div>
+        <div class="glossary-item"><div class="g-term">Sponsor</div><div class="g-def">サービス消費の予算を承認する役割</div></div>
+        <div class="glossary-item"><div class="g-term">Customer</div><div class="g-def">サービス要件を定義し、消費のアウトカムに責任を持つ役割</div></div>
+        <div class="glossary-item"><div class="g-term">User</div><div class="g-def">サービスを日常的に利用する役割</div></div>
+        <div class="glossary-item"><div class="g-term">Service Journey</div><div class="g-def">Explore から Reflect までの7段階からなる、サービス関係の発展モデル</div></div>
+        <div class="glossary-item"><div class="g-term">Service Quality</div><div class="g-def">ニーズを満たす能力に関連する、サービスの特性の総体</div></div>
+        <div class="glossary-item"><div class="g-term">Service Level</div><div class="g-def">期待される、または達成されたサービス品質を定義する一連の指標</div></div>
+        <div class="glossary-item"><div class="g-term">Service Level Agreement (SLA)</div><div class="g-def">サービスの目標水準と期待値を規定した、プロバイダーと顧客の間の文書化された合意</div></div>
+        <div class="glossary-item"><div class="g-term">Experience Level Agreement (XLA)</div><div class="g-def">体験(Experience)を定量化し、目標として合意する指標</div></div>
+        <div class="glossary-item"><div class="g-term">Utility</div><div class="g-def">サービスが提供する機能性。目的に適っているか</div></div>
+        <div class="glossary-item"><div class="g-term">Warranty</div><div class="g-def">サービスの可用性・キャパシティ・継続性・セキュリティの保証。使用に適しているか</div></div>
+        <div class="glossary-item"><div class="g-term">Incident</div><div class="g-def">サービスの計画外の中断、またはサービス品質の低下</div></div>
+        <div class="glossary-item"><div class="g-term">Problem</div><div class="g-def">1つ以上のインシデントの原因、または潜在的な原因</div></div>
+        <div class="glossary-item"><div class="g-term">Known Error</div><div class="g-def">根本原因が特定されているが、恒久的な解決策が未実装の問題</div></div>
+        <div class="glossary-item"><div class="g-term">Workaround</div><div class="g-def">根本原因の解決を待たずに影響を軽減・除去する暫定的な解決策</div></div>
+        <div class="glossary-item"><div class="g-term">Service Desk</div><div class="g-def">ユーザーとサービスプロバイダーの単一の接点</div></div>
+        <div class="glossary-item"><div class="g-term">Service Request</div><div class="g-def">あらかじめ合意された、定型的なユーザーからの要求</div></div>
+        <div class="glossary-item"><div class="g-term">Monitoring and Event Management</div><div class="g-def">システム状態を継続的に監視し、イベントを検知・対応するプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">Change Enablement</div><div class="g-def">リスクを管理しながら変更を安全に実現するプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">Release Management</div><div class="g-def">複数の変更を計画的にリリース単位としてまとめるプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">Deployment Management</div><div class="g-def">実環境への実際の配置・切替を実行するプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">AI Capability Model(6C モデル)</div><div class="g-def">AI の機能を Creation・Curation・Clarification・Cognition・Communication・Coordination の6つに分類するモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Four Dimensions of Service Management</div><div class="g-def">Organizations and People / Information and Technology / Partners and Suppliers / Value Streams and Processes の4つの側面</div></div>
+        <div class="glossary-item"><div class="g-term">PESTLE</div><div class="g-def">Political, Economic, Social, Technological, Legal, Environmental の頭文字。外部環境要因の分析枠組み</div></div>
+        <div class="glossary-item"><div class="g-term">EDM Model</div><div class="g-def">Evaluate, Direct, Monitor の頭文字。ガバナンスの継続的サイクル</div></div>
+      </div>
+    </section>
+
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 16</div>
+      <h2>参考文献・ソース URL 一覧</h2>
+
+      <p>本ガイドの作成にあたり参照した情報源を、性質ごとに分類して掲載します。ITIL (Version 5) は2026年に公開された新しいスキームであるため、PeopleCert・itil.com による一次情報に加えて、PeopleCert 認定トレーニング機関(ATO)や業界メディアによる解説記事も参照しています。最終的な正確性の確認には、必ず公式刊行物(Official eBook / Learner Workbook)をご参照ください。</p>
+      <div class="ref-group">
+        <h4>一次情報源(PeopleCert / itil.com 公式)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL Service (Version 5) 公式製品ページ(試験概要・前提条件・対象者)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-service-version-5-4181" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-service-version-5-4181</a></li>
+          <li><span class="ref-name">ITIL 認定資格一覧(ITIL Practice Manager / Product / Service / Transition の全体像)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1</a></li>
+          <li><span class="ref-name">ITIL Product and Service Lifecycle Model 公式解説記事(itil.com、David Cannon 氏執筆)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model</a></li>
+          <li><span class="ref-name">ITIL Foundation (Version 5) の PSLM 紹介記事(itil.com)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) と 6C AI Capability Model の解説(itil.com)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
+        </ul>
+      </div>
+      <div class="ref-group">
+        <h4>PeopleCert 認定トレーニング機関(ATO)による公開コースアウトライン</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL (Version 5) Service コースアウトライン(Module 1〜10 の詳細構成、ITSM Academy)</span><a class="ref-url" href="https://itsmacademy.com/itil-service-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-service-course</a></li>
+          <li><span class="ref-name">ITIL® Service (Version 5) コース概要(QA)</span><a class="ref-url" href="https://www.qa.com/en-us/course-catalogue/courses/itil-service-version-5-itil5ser/" target="_blank" rel="noopener">https://www.qa.com/en-us/course-catalogue/courses/itil-service-version-5-itil5ser/</a></li>
+          <li><span class="ref-name">ITIL Foundation Bridge (Version 5) コース概要(HPE 経由)</span><a class="ref-url" href="https://www.hpe.com/us/en/collaterals/collateral.a50015158enw.html" target="_blank" rel="noopener">https://www.hpe.com/us/en/collaterals/collateral.a50015158enw.html</a></li>
+        </ul>
+      </div>
+      <div class="ref-group">
+        <h4>解説記事・業界メディア(補足情報、体系的な用語整理)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL® Version 5 Foundation 定義ガイド(Product/Service定義、PSLM各段階の目的・アウトプット・有効化プラクティス、4つの側面、継続的改善モデル等、PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+          <li><span class="ref-name">ITIL Version 5 の基本概念解説(バリューチェーンと PSLM の関係、PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/itil-version-5-get-to-know-the-fundamental-concepts-for-managing-digital-products-and-services/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/itil-version-5-get-to-know-the-fundamental-concepts-for-managing-digital-products-and-services/</a></li>
+          <li><span class="ref-name">情報と技術の側面・6C AI Capability Model 詳細(PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/</a></li>
+          <li><span class="ref-name">ITIL 5 と ITIL 4 の変更点比較(PSLM の8活動、InvGate)</span><a class="ref-url" href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">https://blog.invgate.com/itil-5-what-changes</a></li>
+          <li><span class="ref-name">ITIL 5 プロセスガイド(PSLM 各活動の説明、Dion Training)</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+          <li><span class="ref-name">ITIL 5 とサービスライフサイクル: AIを超えて(Netmind)</span><a class="ref-url" href="https://netmind.net/en/news/itil-5-service-lifecycle/" target="_blank" rel="noopener">https://netmind.net/en/news/itil-5-service-lifecycle/</a></li>
+          <li><span class="ref-name">ITIL v5 の要点整理(スペイン語、PSLM とサービスバリューチェーンの比較表、iPMOGuide)</span><a class="ref-url" href="https://ipmoguide.com/itil-v5-ya-esta-aqui-todo-lo-que-necesitas-saber/" target="_blank" rel="noopener">https://ipmoguide.com/itil-v5-ya-esta-aqui-todo-lo-que-necesitas-saber/</a></li>
+          <li><span class="ref-name">ITIL v5 の新しいバリューチェーンと変更点(PSLM 各活動の詳細、Passion IT Group)</span><a class="ref-url" href="https://passionitgroup.com/blog/thoughts-on-itil-version-5-the-new-itil-value-chain-and-what-changed-from-itil-4/" target="_blank" rel="noopener">https://passionitgroup.com/blog/thoughts-on-itil-version-5-the-new-itil-value-chain-and-what-changed-from-itil-4/</a></li>
+          <li><span class="ref-name">ITIL® Version 5 認定パスウェイ解説(Practice Manager の3系統プラクティスグルーピング、AgilePM Hub)</span><a class="ref-url" href="https://agilepmhub.com/blog/itil-version-5-certification-pathway" target="_blank" rel="noopener">https://agilepmhub.com/blog/itil-version-5-certification-pathway</a></li>
+          <li><span class="ref-name">ITIL 4 の34プラクティス概観(Practice Manager 系統の詳細、ITSM.tools)</span><a class="ref-url" href="https://itsm.tools/itil-4-explained/" target="_blank" rel="noopener">https://itsm.tools/itil-4-explained/</a></li>
+          <li><span class="ref-name">ITIL Service Operation の解説(可観測性・AI ガバナンスの実務適用、InvGate)</span><a class="ref-url" href="https://blog.invgate.com/itil-service-operation" target="_blank" rel="noopener">https://blog.invgate.com/itil-service-operation</a></li>
+          <li><span class="ref-name">ITIL® AI Governance トレーニング概要(6C モデルとガバナンスモデルの詳細、AgilePM Hub)</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></li>
+          <li><span class="ref-name">ITIL v4 vs v5 の主要な違い(6C モデル、実務への影響、Invensis Learning)</span><a class="ref-url" href="https://www.invensislearning.com/info/itil-4-vs-itil-v5-differences/" target="_blank" rel="noopener">https://www.invensislearning.com/info/itil-4-vs-itil-v5-differences/</a></li>
+          <li><span class="ref-name">ITIL v5 フレームワーク解説(6C モデル、SLA から XLA への移行、Spidya)</span><a class="ref-url" href="https://spidya.com/en/blog/it-service-management/what-is-itil-v5-framework-new-practices-itil-4-comparison" target="_blank" rel="noopener">https://spidya.com/en/blog/it-service-management/what-is-itil-v5-framework-new-practices-itil-4-comparison</a></li>
+          <li><span class="ref-name">ITIL (Version 5) 概説(6C モデルとガバナンス上の意味合い、Tideline Insights)</span><a class="ref-url" href="https://www.tidelineinsights.com/blog/itil-5-whats-coming.html" target="_blank" rel="noopener">https://www.tidelineinsights.com/blog/itil-5-whats-coming.html</a></li>
+          <li><span class="ref-name">ITIL v4 vs v5 認定ガイド(6C モデルの詳細な機能説明、PassItExams)</span><a class="ref-url" href="https://passitexams.com/articles/itil-v4-vs-v5-key-differences/" target="_blank" rel="noopener">https://passitexams.com/articles/itil-v4-vs-v5-key-differences/</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      本ガイドは学習支援を目的とした非公式の教材であり、PeopleCert または AXELOS の公式教材ではありません。ITIL® は PeopleCert グループの登録商標です。試験の最終的な出題範囲・合格基準は、必ず PeopleCert 公式サイトおよび受験時点の公式刊行物でご確認ください。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    examOverviewFig1: `flowchart TB
+F["ITIL Foundation Version 5 または ITIL 4 Foundation Bridge"]
+F --> PM["ITIL Practice Manager MSF PIC CAI"]
+F --> MP1["ITIL Product Version 5"]
+F --> MP2["ITIL Service Version 5"]
+F --> MP3["ITIL Experience Version 5"]
+F --> SL1["ITIL Strategy Version 5"]
+F --> SL2["ITIL Transformation Version 5"]
+F --> AIG["ITIL AI Governance 拡張モジュール"]
+MP1 --> MP["ITIL Managing Professional Version 5"]
+MP2 --> MP
+MP3 --> MP
+SL1 --> SLD["ITIL Strategic Leader Version 5"]
+SL2 --> SLD
+MP --> MST["ITIL Master Version 5"]
+SLD --> MST
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class F box
+class PM,MP1,MP3,SL1,SL2,AIG box
+class MP2 hub
+class MP,SLD done
+class MST done`,
+    foundationFig2: `flowchart LR
+IN1["Opportunity 機会"] --> VS
+IN2["Demand 需要"] --> VS
+subgraph VS["ITIL Value System"]
+direction TB
+GP["Guiding Principles 指導原則"]
+GOV["Governance ガバナンス"]
+SVC["Service Value Chain サービスバリューチェーン"]
+PRAC["34 Management Practices 34の管理プラクティス"]
+CI["Continual Improvement 継続的改善"]
+GOV --> SVC
+GP -.-> SVC
+PRAC -.-> SVC
+CI -.-> SVC
+end
+VS --> OUT["Value 価値"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class IN1,IN2,OUT box
+class VS hub`,
+    foundationFig3: `flowchart TB
+PESTLE["外部要因PESTLE 政治・経済・社会・技術・法律・環境"]
+PESTLE --> D1["① 組織と人材 Organizations and People"]
+PESTLE --> D2["② 情報と技術 Information and Technology"]
+PESTLE --> D3["③ パートナーと供給者 Partners and Suppliers"]
+PESTLE --> D4["④ バリューストリームとプロセス Value Streams and Processes"]
+D1 --- CENTER["サービスの 価値提供"]
+D2 --- CENTER
+D3 --- CENTER
+D4 --- CENTER
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class D1,D2,D3,D4 box
+class CENTER hub`,
+    foundationFig4: `flowchart LR
+subgraph SVC["Service Value Chain6活動"]
+direction LR
+P1["Plan"] --- P2["Improve"] --- P3["Engage"] --- P4["Design & Transition"] --- P5["Obtain Build"] --- P6["Deliver & Support"]
+end
+SVC -->|"より詳細な 8段階モデルへ分解"| PSLM["Product and Service Lifecycle ModelPSLM"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class P1,P2,P3,P4,P5,P6 box
+class PSLM hub`,
+    foundationFig5: `flowchart LR
+A["Explore 探索"] --> B["Engage 関与"] --> C["Offer 提示"] --> D["Agree 合意"] --> E["Onboard 導入"] --> F["Co-create 共創"] --> G["Reflect 振り返り"]
+G -.->|継続的改善| A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class A,B,C,D,E,F box
+class G done`,
+    foundationFig6: `flowchart LR
+E["Evaluate 評価"] --> D["Direct 指示"] --> M["Monitor 監視"] --> E
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class E,D,M box`,
+    foundationFig7: `flowchart TB
+S1["① What is the vision? ビジョンは何か"] --> S2["② Where are we now? 現在地はどこか"]
+S2 --> S3["③ Where do we want to be? 目指す姿はどこか"]
+S3 --> S4["④ How do we get there? どう到達するか"]
+S4 --> S5["⑤ Take action 行動する"]
+S5 --> S6["⑥ Are we getting there? 到達できているか"]
+S6 --> S7["⑦ How do we keep the momentum going? 改善をどう定着させるか"]
+S7 -.->|次の改善サイクルへ| S1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box
+class S7 done`,
+    module1Fig8: `flowchart TB
+subgraph PRODUCT["主に「製品」寄りの活動"]
+direction LR
+A1["① Discover 発見"] --> A2["② Design 設計"] --> A3["③ Acquire 獲得"] --> A4["④ Build 構築"]
+end
+subgraph BRIDGE["製品とサービスの橋渡し"]
+direction LR
+A5["⑤ Transition 移行"] --> A6["⑥ Operate 運用"]
+end
+subgraph SERVICE["主に「サービス」寄りの活動"]
+direction LR
+A7["⑦ Deliver 提供"] --> A8["⑧ Support サポート"]
+end
+PRODUCT --> BRIDGE --> SERVICE
+A8 -.->|フィードバックは<br/>どの活動にも還元される| A1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class A1,A2,A3,A4,A7,A8 box
+class A5,A6 hub`,
+    discoverFig9: `flowchart TB
+S1["市場・内部環境の スキャニング"] --> S2["ステークホルダーとの 対話・ニーズ収集"]
+S2 --> S3["ビジネス分析による 要件の構造化"]
+S3 --> S4["組織戦略・ビジョンとの 整合性チェック"]
+S4 --> S5["ポートフォリオへの 反映・優先順位づけ"]
+S5 --> S6["ロードマップ・ サービスオファリングの更新"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`,
+    designFig10: `flowchart TB
+S1["要件・機会の 詳細化"] --> S2["アーキテクチャ・ 技術方式の検討"]
+S2 --> S3["サービスレベル目標 SLA XLAの組み込み"]
+S3 --> S4["プロトタイプ作成・ ユーザー検証"]
+S4 --> S5["運用モデル 誰がどう運用するかの設計"]
+S5 --> S6["仕様書の確定"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`,
+    acquireFig11: `flowchart TB
+S1["必要リソースの 特定技術 人材 サービス"] --> S2["内製 vs 購入の ソーシング戦略決定"]
+S2 --> S3["サプライヤー評価・ 選定"]
+S3 --> S4["契約・SLA の 締結"]
+S4 --> S5["資産としての 登録・配分"]
+S5 --> S6["TCO を含めた 予算管理への反映"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`,
+    buildFig12: `flowchart TB
+S1["コンポーネント単位の 開発"] --> S2["コードレビュー・ 静的解析"]
+S2 --> S3["統合 Integration"]
+S3 --> S4["機能テスト・ 非機能テスト"]
+S4 --> S5["Definition of Done の判定"]
+S5 --> S6["Transition 準備 リリース候補の確定"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`,
+    transitionFig13: `flowchart TB
+S1["変更のリスク評価 Change Enablement"] --> S2["リリース計画の 策定"]
+S2 --> S3["展開方式の選定 Big Bang カナリア等"]
+S3 --> S4["本番環境への 展開実行"]
+S4 --> S5["移行後の 検証Post-Implementation Review"]
+S5 --> S6["ロールバック要否の 判断"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+
+class S1,S2,S3,S4,S5 box
+class S6 hub`,
+    operateFig14: `flowchart TB
+S1["監視対象・指標 SLIの定義"] --> S2["継続的な監視 Monitoring"]
+S2 --> S3["イベントの検知・ 分類"]
+S3 --> S4{"対応要否の 判定"}
+S4 -->|自動修復可能| S5["自動修復 Self-healing"]
+S4 -->|人的対応が必要| S6["Support 活動へ エスカレーション"]
+S5 --> S7["パフォーマンス記録・ キャパシティ管理へ反映"]
+S6 --> S7
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class S1,S2,S3,S5,S7 box
+class S4 hub
+class S6 box`,
+    deliverFig15: `flowchart TB
+S1["リクエスト受付 Service Desk ポータル"] --> S2["リクエストの分類・ 承認要否判定"]
+S2 --> S3["履行 Fulfilment"]
+S3 --> S4["ユーザーへの 提供完了通知"]
+S4 --> S5["SLA XLA 実績の 記録・レポーティング"]
+S5 --> S6["フィードバック収集"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`,
+    supportFig16: `flowchart TB
+S1["インシデントの 検知・記録"] --> S2["トリアージ・ 優先度づけ"]
+S2 --> S3{"既知のエラー ワークアラウンドが存在するか"}
+S3 -->|Yes| S4["ワークアラウンド 適用"]
+S3 -->|No| S5["調査・診断"]
+S5 --> S4
+S4 --> S6["サービス復旧の 確認"]
+S6 --> S7["インシデントクローズ"]
+S7 -.->|再発傾向がある場合| S8["Problem Management へ引き継ぎ根本原因分析"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class S1,S2,S4,S5,S6 box
+class S3 hub
+class S7,S8 done`,
+    lifecycleFig17: `flowchart TB
+subgraph LOOP["PSLM継続的なフィードバックループ"]
+direction LR
+D1["Discover"] --> D2["Design"] --> D3["Acquire"] --> D4["Build"]
+D4 --> D5["Transition"] --> D6["Operate"] --> D7["Deliver"] --> D8["Support"]
+D8 -.->|障害・問題の傾向| D1
+D6 -.->|性能上の学び| D2
+D7 -.->|ユーザーフィードバック| D1
+D3 -.->|調達上の制約| D2
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class D1,D2,D3,D4,D5,D6,D7,D8 box`,
+    lifecycleFig18: `flowchart TB
+subgraph OUTPUT["アウトプット生成系"]
+C1["Creation 生成 新しいコンテンツ・コード・ ドキュメントの生成"]
+C2["Curation キュレーション 既存データの品質・関連性の向上、 重複の排除"]
+end
+subgraph INTERPRET["解釈・分析系"]
+C3["Clarification 明確化 複雑な内容の要約・ 意図の明確化"]
+C4["Cognition 認知 パターン認識と 予兆の発見"]
+end
+subgraph INTERACT["対話・実行系"]
+C5["Communication コミュニケーション チャットボット等の 自然な対話インターフェース"]
+C6["Coordination 調整 複数システムを横断した 自律的な実行・オーケストレーション"]
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class C1,C2,C3,C4,C5,C6 box`,
+    lifecycleFig19: `flowchart LR
+subgraph P["PRINCE2 の管掌範囲"]
+direction LR
+PR1["プロジェクト開始"] --> PR2["管理・統制された 実行"] --> PR3["プロジェクト クロージャー"]
+end
+subgraph I["ITIL Version 5 の管掌範囲"]
+direction LR
+IT1["Operate"] --> IT2["Deliver"] --> IT3["Support"]
+end
+PR3 -->|"成果物新規 変更システムの 引き継ぎ"| IT1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class PR1,PR2,PR3 box
+class IT1,IT2,IT3 hub`,
+    examTipsFig20: `flowchart TB
+T1["Step 1 前提資格Foundationの 内容を復習する"] --> T2["Step 2 本ガイドで PSLM 8段階の 目的・プラクティス・CSFを理解する"]
+T2 --> T3["Step 3 公式 eBook Learner Workbook で 細部の用語定義を確認する"]
+T3 --> T4["Step 4 公式模擬試験Official Mock Examで 出題形式に慣れる"]
+T4 --> T5["Step 5 間違えた問題の根拠箇所を 公式資料で特定し、索引化する"]
+T5 --> T6["Step 6 オープンブックでの 資料検索速度を本番想定で鍛える"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class T1,T2,T3,T4,T5,T6 box`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

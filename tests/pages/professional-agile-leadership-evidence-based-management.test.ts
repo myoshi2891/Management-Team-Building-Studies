@@ -473,3 +473,41 @@ describe("pages/professional-agile-leadership-evidence-based-management.vue — 
     }
   });
 });
+
+describe("pages/professional-agile-leadership-evidence-based-management.vue — アクセシビリティ契約 (A)", () => {
+  const mountPage = createMountPage(Page);
+
+  it("A-1: 先頭のフォーカス可能要素が本文へのスキップリンクである", () => {
+    const wrapper = mountPage();
+    const skipLink = wrapper.find("a.skip-link");
+
+    expect(skipLink.exists()).toBe(true);
+    expect(skipLink.attributes("href")).toBe("#main-content");
+    expect(skipLink.text()).toBe("本文へスキップ");
+    expect(wrapper.element.firstElementChild).toBe(skipLink.element);
+  });
+
+  it("A-2: スキップリンクの着地点 main が tabindex=\"-1\" でフォーカスを受け取る", () => {
+    const main = mountPage().find("main#main-content");
+
+    expect(main.exists()).toBe(true);
+    expect(main.attributes("tabindex")).toBe("-1");
+  });
+
+  it("A-3: モバイルでスキップリンクを押すとサイドバーが閉じ、toggle へフォーカスを戻さない", async () => {
+    const wrapper = mountPage();
+    const toggle = wrapper.get<HTMLButtonElement>(".sidebar-toggle");
+    const focus = vi.spyOn(toggle.element, "focus");
+
+    await toggle.trigger("click");
+    expect(wrapper.find(".sidebar-overlay").exists()).toBe(true);
+
+    await wrapper.get("a.skip-link").trigger("click");
+    await wrapper.vm.$nextTick();
+
+    // オーバーレイが残ると本文を覆ってしまうため、スキップリンクでも必ず閉じる。
+    expect(wrapper.find(".sidebar-overlay").exists()).toBe(false);
+    // 着地点は main。closeSidebar() のフォーカス復帰を流用してはならない。
+    expect(focus).not.toHaveBeenCalled();
+  });
+});

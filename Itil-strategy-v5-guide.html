@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITIL Strategy (Version 5) 完全学習ガイド | Strategic Leaderパス試験対策</title>
+<meta name="description" content="PeopleCert ITIL Strategy (Version 5)資格試験の全体像を、8モジュールの学習目標・Strategy Management Model・ベストプラクティスとともに解説する非公式学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #616A7A;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #8C5E1F;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 100;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 8px;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">ITIL Strategy 完全ガイド</div>
+        <div class="brand-subtitle">Version 5・Strategic Leader</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-this-guide"><i class="ti ti-certificate"></i>本ガイドについて</a></li>
+      <li class="nav-group-label">試験の全体像</li>
+      <li><a href="#exam-overview"><i class="ti ti-clipboard-check"></i>1. 試験概要</a></li>
+      <li><a href="#itil-v5-context"><i class="ti ti-building-bank"></i>2. ITIL v5全体像の位置づけ</a></li>
+      <li class="nav-group-label">8モジュール解説</li>
+      <li><a href="#foundation-review"><i class="ti ti-stack-2"></i>Module 1: 復習と価値創出</a></li>
+      <li><a href="#key-concepts"><i class="ti ti-target"></i>Module 2: 主要概念</a></li>
+      <li><a href="#four-dimensions"><i class="ti ti-layout-grid"></i>Module 3: 4つの側面</a></li>
+      <li><a href="#strategy-management-model"><i class="ti ti-infinity"></i>Module 4: Strategy Management Model</a></li>
+      <li><a href="#strategy-development-cycle"><i class="ti ti-compass"></i>Module 5: 戦略策定サイクル</a></li>
+      <li><a href="#strategy-implementation-cycle"><i class="ti ti-rocket"></i>Module 6: 戦略実装サイクル</a></li>
+      <li><a href="#strategic-capabilities"><i class="ti ti-shield-check"></i>Module 7: 戦略的能力</a></li>
+      <li><a href="#framework-integration"><i class="ti ti-git-merge"></i>Module 8: 他フレームワーク統合</a></li>
+      <li class="nav-group-label">まとめ</li>
+      <li><a href="#best-practices-summary"><i class="ti ti-list-check"></i>ベストプラクティス総括</a></li>
+      <li><a href="#exam-tips"><i class="ti ti-map-2"></i>試験対策のポイント</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content" id="main-content" tabindex="-1">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert ITIL Strategic Leader Pathway</div>
+      <h1>ITIL Strategy (Version 5) 完全学習ガイド</h1>
+      <p class="hero-lede">
+        初学者向けステップバイステップ解説。定義から理由、具体例、図解の順で、出題範囲の各項目とベストプラクティスを詳細に扱う。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">多肢選択式・制限時間90分</div></div>
+        <div class="stat-card"><div class="stat-number">70%</div><div class="stat-label">合格ライン(28問以上正解)</div></div>
+        <div class="stat-card"><div class="stat-number">オープンブック</div><div class="stat-label">公式ITIL Strategy出版物の持ち込み可</div></div>
+        <div class="stat-card"><div class="stat-number">3年更新</div><div class="stat-label">CPD 60ポイントが必要</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        PeopleCertの公式シラバスPDF(Learner Workbook・Quick Reference Guide)は購入者限定コンテンツのため、本ガイドは公式認定ページと複数の認定トレーニングパートナーの公開コースアウトラインを一次情報として構成した非公式の学習補助資料です。試験直前の最終確認は、必ず<a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-strategy-version-5-4175" target="_blank" rel="noopener">PeopleCert公式認定ページ</a>および公式eBook・Learner Workbookでお願いします。
+      </div>
+    </div>
+
+    <!-- ===================== 01. About This Guide ===================== -->
+    <section id="about-this-guide" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>本ガイドについて</h2>
+
+      <p><strong>対象読者</strong>: ITIL 4 Foundation または ITIL Foundation (Version 5) を取得済みで、ITIL Strategy (Version 5) の受験を検討している方。ソフトウェアエンジニア・QAエンジニア・スクラムマスターなど、非IT運用畑からITサービス戦略を学ぶ人にもわかりやすい構成にしている。</p>
+
+      <p><strong>本モジュールの位置づけ</strong>: ITIL Strategy (Version 5) は、ITIL (Version 5) の<strong>Strategic Leaderパス</strong>に属する上位資格である。PeopleCertの認定パートナーであるQAの解説によれば、この3日間のコースはITIL Strategyが動的なデジタル環境において組織が価値創造をどう定義し、方向づけ、持続させるかを扱い、戦略的意図を実行可能な変化へと転換すること、複雑性の中でのエビデンスに基づく意思決定、継続的な学習と適応による長期的な戦略的妥当性の維持に焦点を当てている。</p>
+
+      <p><strong>情報源についての透明性(重要)</strong>: PeopleCertの公式シラバスPDF(Learner Workbook・Quick Reference Guide)は購入者限定コンテンツであり、本ガイド執筆時点でWeb上に無償公開された全文は確認できなかった。そのため本ガイドは以下を一次情報として構成している。</p>
+
+      <ul>
+        <li>PeopleCert公式認定ページ(試験概要・学習目標の要約)</li>
+        <li>PeopleCertプラチナパートナー各社(QA、Asseco Academy、Tieturi、ib-formation、itil.org.uk等)が公開する詳細コースアウトライン(モジュール構成・学習目標の粒度が最も詳しい)</li>
+        <li>AXELOS・PeopleCertのITSMポートフォリオ開発マネージャーによる公式解説記事(ITSM.tools)</li>
+      </ul>
+
+      <p>厳密な用語の言い回しや出題の重み付けは、必ず<strong>公式eBook・Learner Workbook</strong>で最終確認してほしい。本ガイドは試験の全体像と実務での使い方を掴むための学習補助であり、公式教材の代替ではない。</p>
+    </section>
+
+    <!-- ===================== 02. Exam Overview ===================== -->
+    <section id="exam-overview" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 02</div>
+      <h2>1. 試験概要</h2>
+
+      <p><em>K1(想起レベル)</em>: 試験の形式・前提条件を暗記する。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>出題数</td><td>40問</td></tr>
+            <tr><td>形式</td><td>多肢選択式(Multiple Choice)</td></tr>
+            <tr><td>制限時間</td><td>90分</td></tr>
+            <tr><td>参照資料</td><td>オープンブック(公式ITIL Strategy出版物の持ち込み可、注釈・タブ付け可(粘着付箋・ルーズリーフ不可))</td></tr>
+            <tr><td>合格ライン</td><td>70%(40問中28問以上)</td></tr>
+            <tr><td>受験言語</td><td>英語</td></tr>
+            <tr><td>認定更新</td><td>3年ごと、CPD 60ポイント必要</td></tr>
+            <tr><td>受験前提条件</td><td>ITIL 4のいずれかの認定、または ITIL Foundation (Version 5)、または ITIL Foundation Bridge (Version 5) の取得</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>この試験はオープンブックであり、公式のITIL Strategy出版物(本文中への書き込みを含む)の使用が認められているが、それ以外の参考資料の持ち込みは許可されない。受験には、いずれかのITIL 4認定、ITIL Foundation (Version 5)、またはITIL Foundation Bridge (Version 5) の取得に加えて、認定トレーニング機関または公式eラーニングでのトレーニング修了が必要である。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>オープンブック試験の落とし穴</strong>: 「本を持ち込めるから覚えなくていい」という誤解は禁物。90分で40問(1問あたり約2分15秒)のペースでは、公式出版物内の該当箇所を探す時間はほとんど残らない。オープンブックは「知識の代替」ではなく「用語の正確な言い回しを確認する保険」として使うのが実務的なベストプラクティス。</p>
+      </div>
+
+      <h3>学習内容の全体像</h3>
+      <p>ITIL Strategy (Version 5) は、価値創造のための戦略を策定・実行・最適化する実践的なガイダンスを提供し、複雑でAI主導の環境において明確さと自信を持って行動できるよう、テクノロジー・投資・実行をビジネス成果と整合させることを支援する。</p>
+      <p>習得スキルとして、ITIL Strategy Management Modelを継続的に適用して戦略的な整合・方向性・行動をビジネス目標と結びつけ測定可能な成果を導く「戦略的整合と方向性」、変動的・複雑・不確実・曖昧(VUCA)な環境で情報に基づいたバランスの取れた意思決定を行う専門性、そして高速でAI対応の環境において戦略的意図を実行可能な取り組みに変換し持続的な価値を実現する「効果的な実行と価値実現」の3つが公式ページで明示されている。</p>
+    </section>
+
+    <!-- ===================== 03. ITIL v5 Context ===================== -->
+    <section id="itil-v5-context" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
+      <h2>2. ITIL (Version 5) 全体像の中での位置づけ</h2>
+
+      <p><em>K2(理解レベル)</em>: なぜITIL (Version 5) が生まれ、Strategyモジュールがどこに位置するかを理解する。</p>
+
+      <h3>2.1 ITIL (Version 5) が作られた理由</h3>
+      <p>ITIL (Version 5) はITIL 4以来初めてのメジャーアップデートであり、単なる改訂ではなく、AIの急速な台頭、組織の複雑性の増大、そして戦略的フレームワークと日々の実務との間の根強いギャップという、約7年間の環境変化に対する実質的な回答である。</p>
+      <p>具体的には、急成長する複雑性に対しては「複雑性ネイティブなフレームワーク」を、AIの急速な普及に対しては「AIネイティブなガイダンス」を、戦略的方向性と実務性のバランスに対してはリーダー・マネージャー・実務者それぞれに明確な位置づけを、テクノロジー業界に根強く残るサイロ化に対しては統合されたフレームワークを、そしてテクノロジーの人間的側面への関心の高まりに対しては経験改善のための包括的で実践的なガイダンスを、それぞれ提供する形でITILは刷新された。</p>
+
+      <h3>2.2 ITIL (Version 5) の主要な変更点</h3>
+      <p>ITIL (Version 5) の主な変更点は、デジタル製品とサービス管理を1つのモデルに統合する新しいITIL Product and Service Lifecycle、より明確でモジュール化されたバリューチェーンモデルによって強化されたITIL Value System、価値がどのように創出されるかについてのより優れたエンドツーエンドで経験駆動の理解、持続可能な組織変革を実現するための新しいTransformationモデル(専用書籍付き)、Experienceと経験最適化に関する専用出版物、そしてVUCAな世界でデジタル戦略を策定・実装するための新しいStrategy Managementモデルである。</p>
+
+      <h3>2.3 ITIL Product and Service Lifecycle(8段階)</h3>
+      <p>Strategyモジュールの土台として、まずFoundationで学ぶこのライフサイクルモデルを押さえておく。Discover、Design、Acquire、Build、Transition、Operate、Deliver、Supportの8段階で構成され、前半(Discover・Design・Acquire・Build)はよりProduct寄り、後半(Deliver・Support)はよりService寄りで、中間のTransition・Operateが両者を橋渡しする。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="productServiceLifecycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Product and Service Lifecycle の8段階</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>この8段階は厳密な一方向フローではなく、反復的に行き来する。実務ではDiscover・Design・Build・Transition・Operateを繰り返し行き来しながら進めるのが一般的で、各フェーズには明確な活動とハンドオフが定義されている。Strategy試験では「ライフサイクルのどの段階が戦略のインプットになるか」ではなく、「戦略がライフサイクル全体にどう方向性を与えるか」という上位視点が問われる点に注意。</p>
+      </div>
+
+      <h3>2.4 Strategic Leaderパスにおける位置づけ</h3>
+      <p>ITIL Strategyは、組織の方向性そのものを扱う<strong>Strategic Leader</strong>パスに属するモジュールである。Strategic Leaderの称号は、前提資格である<strong>ITIL Foundation</strong>を基盤に、<strong>ITIL Strategy</strong>と全designation共通の中核モジュールである<strong>ITIL Transformation</strong>の2つを取得することで得られる。ITIL Product・ITIL Service・ITIL Experience・ITIL Transformationの4モジュールで構成される Managing Professional パスとは上下関係ではなく、並列の別個の認定ストリームである。対象者は組織のあらゆる階層で戦略的責任を持つリーダー、戦略実行に戦術的責任を持つ専門家、戦略目標の支援に運用的責任を持つ専門家である。</p>
+    </section>
+
+    <!-- ===================== 04. Module 1: Foundation Review ===================== -->
+    <section id="foundation-review" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-stack-2"></i>SECTION 04</div>
+      <h2>3. Module 1: ITIL Foundationの復習と価値創出</h2>
+
+      <p><em>K1〜K2</em>: 前提知識の確認。試験本体の配点は小さいが、以降の全モジュールの共通言語になる。</p>
+
+      <h3>3.1 デジタル製品・デジタルサービスの定義</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>定義(要旨)</th></tr></thead>
+          <tbody>
+            <tr><td>デジタル製品(Digital Product)</td><td>ソフトウェア・データ・インフラ等で構成される、バージョン管理・構成可能な技術的成果物の集合</td></tr>
+            <tr><td>デジタルサービス(Digital Service)</td><td>1つ以上のデジタル製品を活用してビジネス成果・利用者体験・測定可能な結果を実現する価値実現の仕組み</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>デジタル製品はインフラ・アプリケーション・ミドルウェア・データプラットフォーム・API・関連コンポーネントで構成されるバージョン管理・構成可能なバンドルであり有形の技術基盤である一方、デジタルサービスは1つ以上のデジタル製品を活用してビジネス成果・利用者体験・測定可能な結果を実現する価値実現の仕組みである。</p>
+      <p><strong>理由(なぜ区別するのか)</strong>: 製品とサービスを明確に区別しないと、「何を作るか(製品)」と「どう価値を届けるか(サービス)」の責任が曖昧になり、戦略が実行部隊に落とし込まれた時に迷子になる。Strategyモジュールが繰り返し強調するのは、この区別を<strong>戦略レベルで最初に固定する</strong>重要性である。</p>
+
+      <h3>3.2 バリューチェーン活動と価値共創</h3>
+      <p>ITIL 4のService Value SystemはITIL Value Systemへと発展し、製品とサービス両方の視点を明示的に支える。バリューチェーンの構成要素として、Planはすべての製品・サービスに関するビジョン・現状・改善方向の共通理解を確保し、Improveはすべてのバリューチェーン活動と4つの側面にわたる製品・サービス・プラクティスの継続的改善を確保し、Engageはステークホルダーのニーズ・透明性・強固な関係性についての明確な理解を提供し、Design &amp; Transitionは製品・サービスが品質・コスト・市場投入時間についてステークホルダーの期待を継続的に満たすことを確保し、Obtain/Buildはサービスコンポーネントが必要なときに必要な場所で利用可能であり合意された仕様を満たすことを確保し、Deliver and Supportは合意された仕様とステークホルダーの期待に従ってサービスが提供・サポートされることを確保する。</p>
+      <p><strong>具体例</strong>: ある企業が新しい社内向けAIアシスタント機能をリリースする場合、「Discover」で業務部門のニーズを掘り起こし、「Engage」でステークホルダー(法務・情報セキュリティ含む)の期待値をすり合わせ、「Plan」でロードマップ上の優先順位を決める&mdash;&mdash;という流れがバリューチェーン活動の実例になる。</p>
+    </section>
+
+    <!-- ===================== 05. Module 2: Key Concepts ===================== -->
+    <section id="key-concepts" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 05</div>
+      <h2>4. Module 2: ITIL戦略の主要概念</h2>
+
+      <p><em>K2(理解レベル)</em>: 用語の混同がそのまま失点に直結する、試験で最も狙われやすい領域。</p>
+
+      <h3>4.1 戦略・ビジネス戦略・デジタル戦略</h3>
+      <p>ITIL Strategyにおいて、戦略とは組織がどのように目標を達成するかを記述した計画である。ビジネス戦略は組織全体の目標とその達成方法を定義し、デジタル戦略はその事業目標を達成するために組織がどのようにデジタル技術を活用するかを定義する。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="businessDigitalStrategy"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ビジネス戦略からデジタル戦略、製品・サービス戦略への展開</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&#10060; よくある誤解</th><th>&#9989; 正しい理解</th></tr></thead>
+          <tbody>
+            <tr><td>デジタル戦略＝IT部門だけの計画</td><td>デジタル戦略はビジネス戦略の実現手段であり、全社的な整合が前提</td></tr>
+            <tr><td>ビジネス戦略とデジタル戦略は独立して作れる</td><td>デジタル戦略はビジネス戦略から導出され、常にビジネス目標にトレース可能でなければならない</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.2 ミッション・ビジョン・パーパス</h3>
+      <p>ミッションとは組織が現在行っていることとその存在理由であり、ビジョンとは組織が将来なりたい姿の願望的な記述であり、パーパスとは組織が消費者やその他のステークホルダーのために何を行い、なぜそれを行うのかを示すものである。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>時制</th><th>問いかけ</th></tr></thead>
+          <tbody>
+            <tr><td>ミッション(Mission)</td><td>現在</td><td>「私たちは今、何をしているか」</td></tr>
+            <tr><td>ビジョン(Vision)</td><td>未来</td><td>「私たちは将来、何になりたいか」</td></tr>
+            <tr><td>パーパス(Purpose)</td><td>普遍</td><td>「私たちは誰のために、なぜ存在するか」</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>具体例</strong>: 「私たちは都市の電車を毎日安全に運行している」はミッションの例であり、「私たちは通勤者や地元企業に信頼できる移動手段を提供するために存在する」はパーパスの例として区別される。試験ではこの3つを入れ替えたひっかけ選択肢が頻出するため、時制と主語(組織自身・未来の組織・ステークホルダー)で機械的に判定できるようにしておくとよい。</p>
+
+      <h3>4.3 VUCA環境</h3>
+      <p>VUCAとはVolatility(変動性)・Uncertainty(不確実性)・Complexity(複雑性)・Ambiguity(曖昧性)の頭文字であり、多くの組織が現在直面している困難で急速に変化する環境を表す言葉である。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="vucaModel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">VUCAの4要素と戦略への影響</div>
+      </div>
+
+      <p><strong>理由(なぜVUCAが戦略の前提になるのか)</strong>: 従来の戦略立案(3〜5年の固定計画を作って粛々と実行する)は、環境が安定していることを前提にしていた。ITIL Strategyは、変動的・不確実・複雑・曖昧(VUCA)な環境において戦略を策定・実装・継続的に調整するためのガイダンスを提供するものであり、「一度立てた計画をやり切る」のではなく「観察と適応を繰り返す」ループ構造(後述のStrategy Management Model)が中核になっている。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>VUCAの4要素はそれぞれ異なる対処法を要求する。実務では「Volatility&rarr;シナリオプランニングとバッファ確保」「Uncertainty&rarr;情報収集と仮説検証サイクルの短縮」「Complexity&rarr;システム思考と関係者間の対話促進」「Ambiguity&rarr;小さな実験による因果関係の可視化」のように、要素ごとに打ち手を分けて考えると戦略が具体化しやすい。</p>
+      </div>
+
+      <h3>4.4 効果的な戦略の特性</h3>
+      <p>QAの公開コースアウトラインおよび公式ページの記述から、効果的な戦略に求められる特性として次の要素が繰り返し強調されている。</p>
+      <ul>
+        <li><strong>アウトカム志向(Outcome-driven)。</strong>戦略策定は観察・方向づけ・意思決定・計画を通じて、効果的でアウトカム志向の戦略を定義することを学ぶ領域として位置づけられている。</li>
+        <li><strong>実行可能性(Actionable)。</strong>戦略実装は計画・実行・統合・振り返りを通じて、戦略を実行可能な取り組みと持続的な価値へと転換することが求められる。</li>
+        <li><strong>AI対応環境への適応。</strong>複雑でAI主導の環境において明確さと方向性を維持しながら、戦略がどのように進化するかを扱うことが明示的にスコープに含まれる。</li>
+      </ul>
+
+      <h3>4.5 ビジネスモデルとオペレーティングモデル</h3>
+      <p>ITIL Strategyでは、パートナーやサプライヤーの役割・情報技術の戦略的役割・バリューストリームやプロセスに関する検討と並んで、ビジネスモデルとオペレーティングモデルがどのように戦略的意図を支え価値創造を可能にするかを扱う。一般的な経営理論との整合で理解すると、ビジネスモデルは「何を・誰に・なぜ提供するか(Why/What)」を定義し、オペレーティングモデルは「どう実現するか(How)」を定義する、という役割分担で捉えると整理しやすい。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>モデル</th><th>焦点</th><th>主な構成要素</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスモデル</td><td>Why / What</td><td>価値提案、顧客セグメント、収益モデル</td></tr>
+            <tr><td>オペレーティングモデル</td><td>How</td><td>プロセス、役割、システム、ガバナンス</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>具体例</strong>: SaaS企業が「サブスクリプション課金への転換」を決めるのはビジネスモデルの変更。それを実現するために「カスタマーサクセス部門を新設し、解約予兆検知の運用フローを整備する」のはオペレーティングモデルの変更。両者は独立ではなく、ビジネスモデルの変更は必ずオペレーティングモデルの見直しを伴う。</p>
+    </section>
+
+    <!-- ===================== 06. Module 3: Four Dimensions ===================== -->
+    <section id="four-dimensions" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-layout-grid"></i>SECTION 06</div>
+      <h2>5. Module 3: 4つの側面における戦略的考慮事項</h2>
+
+      <p><em>K2〜K3</em>: ITIL Foundationで学ぶ「4つの側面(Four Dimensions)」を、戦略立案という上位レイヤーに適用する。</p>
+
+      <p>この領域では、組織や人材に関する戦略的考慮事項、情報技術の戦略的役割、バリューストリームとプロセスに関する戦略的考慮事項、そしてパートナーやサプライヤーに関する戦略的考慮事項という4つの側面を扱う。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="fourDimensionsStrategy"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略的意図と4つの側面の関係</div>
+      </div>
+
+      <h3>5.1 組織と人材</h3>
+      <p>戦略立案における組織の文化・構造・ケイパビリティを検討する領域。戦略がどれだけ優れていても、組織構造や文化がそれを実行できる形になっていなければ絵に描いた餅になる。</p>
+
+      <h3>5.2 パートナーとサプライヤー</h3>
+      <p>ソーシングや戦略的関係性におけるパートナーとサプライヤーの役割を理解する。自前で全てを構築するのか、外部パートナーに委ねるのかという「Make or Buy」判断は戦略レベルの意思決定であり、ベンダーロックインのリスクや、パートナーのケイパビリティが自社の戦略スピードに追随できるかを事前に評価する必要がある。</p>
+
+      <h3>5.3 情報と技術</h3>
+      <p>イノベーション・データ活用・デジタルケイパビリティにおける情報技術の戦略的役割を探求する。ここでAI活用の戦略的位置づけも扱われる(詳細はModule 7・8のAIガバナンスとも関連)。</p>
+
+      <h3>5.4 バリューストリームとプロセス</h3>
+      <p>戦略的方向性によってバリューストリームとプロセスがどのように形作られるかを理解する。戦略が設計・最適化・価値創出を含むバリューストリームとプロセスにどう影響するかを検討する領域でもある。</p>
+
+      <h3>5.5 PESTLE要因との関係</h3>
+      <p>4つの側面は組織の内部要因の整理軸だが、外部環境を捉える枠組みとして<strong>PESTLE</strong>(Political・Economic・Social・Technological・Legal・Environmental)が組み合わされる。PESTLEは政治・経済・社会・技術・法律・環境の各要因が事業運営に与える影響を指し、ITILはこのPESTLEフレームワークを4つの側面モデルに重ね合わせることで、外部要因がそれぞれの側面にどう作用し、各側面が相互にどう価値に影響するかを示す。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="pestleFourDimensions"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PESTLE要因と4つの側面の重ね合わせ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>PESTLE分析は「一度やって終わり」にせず、戦略策定サイクルのObserveフェーズ(後述)で定期的に見直す運用に組み込む。VUCA環境では外部要因の変化速度が速く、半年前のPESTLE分析が前提として使えなくなっていることは珍しくない。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 07. Module 4: Strategy Management Model ===================== -->
+    <section id="strategy-management-model" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-infinity"></i>SECTION 07</div>
+      <h2>6. Module 4: ITIL Strategy Management Model</h2>
+
+      <p><em>K3(応用レベル)</em>: 本モジュールの中核モデル。試験の配点比重が最も高いと想定される領域。</p>
+
+      <h3>6.1 モデルの目的と全体構造</h3>
+      <p>ITIL Strategy Management Modelは、戦略策定(strategy development)と戦略実装(strategy implementation)という2つの相互に接続されたサイクルから構成され、組織の戦略的方向性と行動を継続的に導くために機能する。</p>
+      <p>このモデルの目的と構造、そして戦略策定サイクルと戦略実装サイクルの関係性を理解することが、このモジュールの核心である。従来型の戦略の役割と、構造化された戦略管理モデルがなぜ必要なのかを理解した上で、このモデルが導入される。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="strategyManagementModel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略策定サイクルと戦略実装サイクルの関係</div>
+      </div>
+
+      <p><strong>理由(なぜ2サイクルに分けるのか)</strong>: 「何をすべきか決める」活動と「実際にやり遂げる」活動を1つのプロセスに混在させると、意思決定の質と実行のスピードの両方が犠牲になりやすい。2サイクルに分離することで、策定サイクルは外部環境の観察と方向性の見極めに集中でき、実装サイクルは決まった方向性のもとでの実行力に集中できる。かつ両者はループとして繋がっているため、実装の結果(Reflect)が次の観察(Observe)にフィードバックされ、VUCA環境における継続的な適応が可能になる。</p>
+
+      <h3>6.2 2つのサイクルの関係性</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>戦略策定サイクル</th><th>戦略実装サイクル</th></tr></thead>
+          <tbody>
+            <tr><td>主な問い</td><td>「何を目指すべきか」</td><td>「どう実現するか」</td></tr>
+            <tr><td>時間軸</td><td>中〜長期の方向性</td><td>短〜中期の実行</td></tr>
+            <tr><td>主なアウトプット</td><td>戦略的方向性・優先順位</td><td>実行可能な取り組み・成果</td></tr>
+            <tr><td>起点となる活動</td><td>Observe(観察)</td><td>Plan(実装計画)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>ITIL Strategy (Version 5) は、変動的で急速に変化する環境における戦略の策定・実装・継続的な調整に関するガイダンスを提供し、組織がテクノロジー・投資・実行をビジネス戦略と整合させ、測定可能な価値を届けることを支援するものであり、この2サイクル構造こそがその中核メカニズムにあたる。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <p>出典についての注記: 「Observe / Orient / Decide / Plan」および「Plan / Execute / Synthesize / Reflect」という各サイクルの活動名は、PeopleCert公式ページおよび複数の認定トレーニングパートナー(QA、Asseco Academy、itil.org.uk等)のコースアウトラインで一致して確認できた名称である。ただし各活動の詳細な定義・出力物の厳密な文言は公式Learner Workbookに拠るため、暗記が必要な場合は必ず公式教材で確認すること。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 08. Module 5: Strategy Development Cycle ===================== -->
+    <section id="strategy-development-cycle" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-compass"></i>SECTION 08</div>
+      <h2>7. Module 5: 戦略策定サイクル(Observe-Orient-Decide-Plan)</h2>
+
+      <p><em>K3(応用レベル)</em>: 各活動の目的とアウトプットを、状況に当てはめて適用できるようになることが到達目標。</p>
+
+      <p>戦略策定サイクルの4つの活動(observe、orient、decide、plan)の目的とアウトプットを理解し、ITILガイディングプリンシプルが効果的な戦略策定をどう支えるか、PESTLE要因が戦略的方向性にどう影響するか、そして内部ケイパビリティとリソースが戦略的選択をどう形作るかを分析し、基礎レベルで戦略策定サイクルを適用できるようになることが、このモジュールの学習目標である。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="strategyDevelopmentCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略策定サイクルの4つの活動</div>
+      </div>
+
+      <h3>7.1 Observe(観察)</h3>
+      <p><strong>定義</strong>: 外部環境(PESTLE要因、市場動向、競合状況)と内部環境(組織のケイパビリティ、リソース、実績)の両方から情報を収集する活動。</p>
+      <p><strong>理由</strong>: VUCA環境では「知っているつもり」の前提が数ヶ月で陳腐化する。継続的な観察を組み込まない限り、戦略は策定した瞬間から古くなっていく。</p>
+      <p><strong>具体例</strong>: 四半期ごとに競合のプロダクトリリース状況・自社のNPS推移・規制動向(Legal要因)を定点観測するダッシュボードを運用する。</p>
+
+      <h3>7.2 Orient(方向づけ)</h3>
+      <p><strong>定義</strong>: 観察で集めた情報を解釈し、組織にとっての意味づけを行う活動。単なるデータ収集と異なり、「このデータは我々の戦略にとって何を意味するか」という解釈の作業が中心になる。</p>
+      <p><strong>理由</strong>: 情報量が多いVUCA環境では、生データをそのまま意思決定に使うと情報過多で判断が麻痺する。Orientは情報のノイズを削ぎ落とし、意思決定者が扱える形に整える橋渡し役を果たす。</p>
+
+      <h3>7.3 Decide(意思決定)</h3>
+      <p><strong>定義</strong>: 方向づけられた情報をもとに、戦略的な優先順位と選択肢を決定する活動。</p>
+      <p><strong>理由</strong>: 全ての機会を同時に追求することはリソース的に不可能である。Decideフェーズで「やらないことを決める」ことこそが戦略の本質であり、ここでの意思決定基準の明確さが、後続の実装サイクルの質を左右する。</p>
+
+      <h3>7.4 Plan(計画)</h3>
+      <p><strong>定義</strong>: 決定された戦略的方向性を、実装サイクルに引き渡せる形の計画として文書化する活動。</p>
+      <p><strong>理由</strong>: このPlanは戦略実装サイクルの入力(Plan＝実装計画の起点)と名前が同じだが役割は異なる点に注意。策定サイクルのPlanは「何を目指すか」の文書化であり、実装サイクルのPlanは「どう実行するか」の具体化である。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>試験の頻出ひっかけ</strong>: 「Plan」という活動名が策定サイクルと実装サイクルの両方に登場する。問題文でどちらのサイクルのPlanを指しているか、前後の文脈(外部環境の観察結果を扱っているか・実行計画の詳細を扱っているか)で判別する練習をしておくこと。</p>
+      </div>
+
+      <h3>7.5 ガイディングプリンシプルとの関係</h3>
+      <p>ITILガイディングプリンシプルが効果的な戦略策定をどのように支えるかも本モジュールの範囲である。Foundationで学ぶ7つのガイディングプリンシプル(Focus on value / Start where you are / Progress iteratively with feedback / Collaborate and promote visibility / Think and work holistically / Keep it simple and practical / Optimize and automate)は、策定サイクルの各活動に次のように対応づけて理解すると覚えやすい。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ガイディングプリンシプル</th><th>策定サイクルでの適用例</th></tr></thead>
+          <tbody>
+            <tr><td>Focus on value</td><td>Decideフェーズで「価値への貢献度」を優先順位づけの基準にする</td></tr>
+            <tr><td>Start where you are</td><td>Observeフェーズで既存のケイパビリティを過小評価しない</td></tr>
+            <tr><td>Progress iteratively with feedback</td><td>Plan完了後も次のObserveへ継続的にループさせる</td></tr>
+            <tr><td>Collaborate and promote visibility</td><td>Orientフェーズの解釈を関係部門と共有し独りよがりの解釈を避ける</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.6 内部ケイパビリティとリソースの影響</h3>
+      <p>内部ケイパビリティとリソースが戦略にどう影響するかを説明できることが学習目標に含まれる。どれだけ魅力的な外部機会(Observeで発見)があっても、それを実行するケイパビリティ(人材・技術・資金)が伴わなければ、Decideフェーズでその機会は見送られるべきである。「戦略は野心と実現可能性のバランス」という考え方がここで具体化される。</p>
+    </section>
+
+    <!-- ===================== 09. Module 6: Strategy Implementation Cycle ===================== -->
+    <section id="strategy-implementation-cycle" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-rocket"></i>SECTION 09</div>
+      <h2>8. Module 6: 戦略実装サイクル(Plan-Execute-Synthesize-Reflect)</h2>
+
+      <p><em>K3(応用レベル)</em>: 「決めた戦略をやり切る」ための実務的な活動群。</p>
+
+      <p>戦略実装サイクルの目的と成果を理解し、戦略目標が「Plan」活動の中でどのように実装イニシアチブへ翻訳されるか、実装イニシアチブの実行アプローチが「Plan」活動の中でどう選定されるかを学ぶ領域。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="strategyImplementationCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略実装サイクルの4つの活動</div>
+      </div>
+
+      <h3>8.1 Plan(実装計画)</h3>
+      <p><strong>定義</strong>: 策定サイクルから引き渡された戦略的方向性を、具体的な実装イニシアチブに翻訳する活動。</p>
+      <p>戦略目標が「Plan」活動の中でどのように実装イニシアチブへ翻訳されるか、そして実装イニシアチブの実行アプローチがどのように選定されるかがここでの学習の核心である。戦略実装は、計画・実行・統合・振り返りを通じて、戦略的な意図を実行可能な取り組みへと転換し、持続的な価値を実現するプロセスと定義される。</p>
+      <p><strong>具体例</strong>: 「デジタル戦略として顧客対応の一部をAIエージェントに委譲する」という策定サイクルの決定を、「まずFAQ対応領域から段階的に導入する」「3ヶ月ごとに満足度を測定する」という実装イニシアチブに分解する。</p>
+
+      <h3>8.2 Execute(実行)</h3>
+      <p><strong>定義</strong>: Planで選定した実行アプローチに従い、イニシアチブを実際に遂行する活動。</p>
+      <p><strong>理由</strong>: 実行アプローチの選び方(一気に全社展開するビッグバン型か、段階的に展開するインクリメンタル型か)は、組織のリスク許容度と変化への耐性によって変わる。ここでも「Progress iteratively with feedback」のガイディングプリンシプルが実務的な指針になる。</p>
+
+      <h3>8.3 Synthesize(統合)</h3>
+      <p><strong>定義</strong>: 変革の取り組みと既存の日常運用をバランスさせる活動。</p>
+      <p>変革の取り組みと継続中の運用をバランスさせることが明示的な学習目標である。新しい戦略イニシアチブを追求するあまり、既存サービスの安定運用が疎かになれば、短期的な信頼を損ない、結果的に戦略実行の基盤を掘り崩すことになる。</p>
+
+      <h3>8.4 Reflect(振り返り)</h3>
+      <p><strong>定義</strong>: 戦略の長期的な妥当性と持続可能性を維持するための振り返り活動。</p>
+      <p>長期的な戦略の妥当性と持続可能性を維持することがこの活動の目的である。この振り返りの結果は、策定サイクルのObserveフェーズへとフィードバックされ、モデル全体のループが閉じる。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&#10060; アンチパターン</th><th>&#9989; ベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td>Reflectを「反省会」で終わらせ、次の観察に接続しない</td><td>Reflectで得た学びを構造化し、次のObserveの入力データとして明示的に引き継ぐ</td></tr>
+            <tr><td>Executeの結果だけを評価し、Synthesizeで運用とのバランスを見ない</td><td>変革の進捗指標と既存運用のSLA/品質指標を同じダッシュボードで並べて追跡する</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Module 7: Strategic Capabilities ===================== -->
+    <section id="strategic-capabilities" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 10</div>
+      <h2>9. Module 7: 戦略的能力(Strategic Capabilities)</h2>
+
+      <p><em>K2(理解レベル)</em>: 戦略を「継続的に実行し続けられる」組織能力に関する領域。</p>
+
+      <p>長期的な戦略実行を支えるために必要な能力を理解し、リーダーシップ・ガバナンス・組織的整合性を探求し、継続的な改善と組織学習を支え、戦略実行におけるレジリエンスと適応力を構築することが本モジュールのスコープである。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="strategicCapabilitiesMap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略実行を支える5つの戦略的能力</div>
+      </div>
+
+      <h3>9.1 リーダーシップ</h3>
+      <p>ITIL Strategyにおいて、新たに就任したIT組織のトップが明確な方向性を定め、個人を動機づけ、影響を与え、コミットメントを引き出すために自ら時間を割く、という描写がリーダーシップの実践例として示される。リーダーシップは肩書きではなく行動であり、戦略の実装サイクルにおいてExecute・Synthesizeを支える推進力になる。</p>
+
+      <h3>9.2 ガバナンス</h3>
+      <p>戦略的意思決定の枠組みと説明責任の所在を明確にする活動。誰が何について意思決定できるのか(Decideフェーズの権限設計)が曖昧なままだと、策定サイクルのDecideが機能不全に陥る。</p>
+
+      <h3>9.3 組織的整合性</h3>
+      <p>戦略と現場実行部隊の間に断絶が生じないようにする能力。Module 3で扱った「組織と人材」の側面と密接に関連する。</p>
+
+      <h3>9.4 継続的改善と組織学習</h3>
+      <p>実装サイクルのReflectで得られた学びを、個人の経験に留めず組織的な知識として制度化する能力。ITIL Foundationの継続的改善(Continual Improvement)の考え方が、戦略レベルでも同様に適用される。</p>
+
+      <h3>9.5 レジリエンスと適応力</h3>
+      <p>VUCA環境で戦略の実行力を維持し続けるための回復力。想定外の環境変化(規制の急変、競合の破壊的参入など)が発生しても、組織として立て直せる能力を指す。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>これら5つの戦略的能力は独立した個別施策ではなく、Strategy Management Modelの2サイクルを継続的に回すための「土台」として機能する。能力開発への投資を怠ると、モデル自体は正しくても実装サイクルが1周で止まってしまう(いわゆる「戦略疲れ」)リスクが高まる。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Module 8: Framework Integration ===================== -->
+    <section id="framework-integration" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-git-merge"></i>SECTION 11</div>
+      <h2>10. Module 8: 他フレームワークとの統合</h2>
+
+      <p><em>K2(理解レベル)</em>: ITIL単体で完結せず、DevOpsやプロジェクトマネジメント手法とどう補完し合うかを理解する。</p>
+
+      <p>ITILがデジタル製品・サービスライフサイクル全体を通じてDevOpsをどう補完するか、ITILプラクティスとDevOpsのワークウェイズがどう協働するか、ITILプラクティスの適用においてプロジェクトマネジメントがどのような役割を果たすか、そしてITILとPRINCE2をどう組み合わせて製品・サービスを効果的に提供できるかを理解することが本モジュールの学習目標である。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="itilDevopsPrince2"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL・DevOps・PRINCE2の役割分担</div>
+      </div>
+
+      <h3>10.1 ITILとDevOpsの補完関係</h3>
+      <p>ITILは「何を・なぜ・誰のために」という価値の方向性と統制の枠組みを提供し、DevOpsは「どう速く安全に届けるか」というフローと自動化の実践を提供する。両者は競合するフレームワークではなく、ITIL Strategyが方向づけた戦略的意図を、DevOpsの高速なデリバリーサイクルが実現する、という補完関係で理解するのがベストプラクティスである。</p>
+
+      <h3>10.2 プロジェクトマネジメントとPRINCE2との関係</h3>
+      <p>戦略実装サイクルのExecuteフェーズで、個別の実装イニシアチブを統制されたプロジェクトとして遂行する際に、PRINCE2のようなプロジェクトマネジメント手法が活用される。ITIL Strategyが「何を優先するか」を決め、PRINCE2が「どう段階的に統治しながら実行するか」を担う、という役割分担になる。</p>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>AIガバナンスとの関連(参考)</strong>: PeopleCertはITIL AI Governanceという専用出版物も作成しており、これはITIL (Version 5) のいわゆる「コア」の製品・サービス管理ベストプラクティスガイダンスの一部ではないが、多くの組織が直面する重要なITSM課題への支援を提供するものである。ITIL Strategy試験のシラバス概要にも「AIガバナンス」という語が学習項目として挙げられているため、コア出版物ではない関連トピックとして概要だけは押さえておくとよい。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Best Practices Summary ===================== -->
+    <section id="best-practices-summary" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 12</div>
+      <h2>11. ベストプラクティス総括表</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>領域</th><th>ベストプラクティス</th><th>根拠・理由</th></tr></thead>
+          <tbody>
+            <tr><td>戦略の言語統一</td><td>ミッション・ビジョン・パーパス・ビジネス戦略・デジタル戦略の定義を組織内で文書化し共通言語にする</td><td>用語の混同は意思決定の齟齬に直結する(4.1〜4.2節)</td></tr>
+            <tr><td>VUCA対応</td><td>固定計画ではなくObserve-Orient-Decide-Planのループを定常運用に組み込む</td><td>環境変化速度に追随できない戦略は策定した瞬間から陳腐化する(4.3節)</td></tr>
+            <tr><td>外部環境分析</td><td>PESTLE分析を四半期など定期サイクルで見直す</td><td>半年前の分析が前提として使えなくなるスピード感がVUCA環境の特徴(5.5節)</td></tr>
+            <tr><td>意思決定の透明性</td><td>Decideフェーズの優先順位づけ基準(何を価値とみなすか)を事前に明文化する</td><td>ガイディングプリンシプル「Focus on value」の実務適用(7.5節)</td></tr>
+            <tr><td>実装と運用の両立</td><td>変革イニシアチブの進捗指標と既存運用のSLA/品質指標を同じダッシュボードで管理する</td><td>Synthesizeフェーズでの変革と運用のバランス確保(8.3節)</td></tr>
+            <tr><td>学習の制度化</td><td>Reflectで得た学びを個人の経験で終わらせず、次のObserveの入力として構造化して引き継ぐ</td><td>ループが1周で途切れると戦略疲れが起きる(8.4節、9.4節)</td></tr>
+            <tr><td>権限設計</td><td>誰が何を決定できるかというガバナンスの枠組みをDecideフェーズの前に明確化する</td><td>権限が曖昧だと意思決定サイクル自体が機能不全になる(9.2節)</td></tr>
+            <tr><td>フレームワーク間の役割分担</td><td>ITILは方向性、DevOpsは高速デリバリー、PRINCE2は統制された実行、と役割を混同しない</td><td>競合させず補完関係として設計するのがベストプラクティス(10.1〜10.2節)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Exam Tips ===================== -->
+    <section id="exam-tips" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 13</div>
+      <h2>12. 試験対策のポイント</h2>
+
+      <h3>12.1 出題されやすいポイント</h3>
+      <ul>
+        <li><strong>用語の入れ替えひっかけ。</strong>ミッション・ビジョン・パーパス、ビジネス戦略・デジタル戦略、戦略策定サイクルのPlan・戦略実装サイクルのPlan、など類似語の混同を狙った選択肢が頻出する構造になっている。</li>
+        <li><strong>サイクルの活動順序。</strong>Observe&rarr;Orient&rarr;Decide&rarr;Plan、Plan&rarr;Execute&rarr;Synthesize&rarr;Reflectの順序と、各活動の目的・アウトプットの対応関係。</li>
+        <li><strong>4つの側面とPESTLEの重ね合わせ。</strong>どの外部要因がどの側面に主に影響するかという組み合わせ問題。</li>
+      </ul>
+
+      <h3>12.2 オープンブックの活用戦略</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>&#9989; 効果的な使い方</th><th>&#10060; 非効率な使い方</th></tr></thead>
+          <tbody>
+            <tr><td>用語の正確な定義を素早く確認するための索引として使う</td><td>試験中に初めて読んで理解しようとする</td></tr>
+            <tr><td>事前にサイクル図・4つの側面の図にタブやマーカーで印をつけておく</td><td>ページ番号を覚えずその場で目次から探す</td></tr>
+            <tr><td>頻出用語(VUCA、PESTLE、戦略策定・実装サイクルの活動名)は暗記した上で、細かい言い回しの確認にのみ本を使う</td><td>全問をオープンブックに頼り、時間切れになる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>12.3 学習の進め方(推奨シーケンス)</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="studySequenceRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">7ステップの推奨学習シーケンス</div>
+      </div>
+    </section>
+
+    <!-- ===================== 14. References ===================== -->
+    <section id="references" tabindex="-1">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
+      <h2>13. 参考文献・出典</h2>
+
+      <p>本ガイドは以下の一次・準一次情報源に基づいて構成した。試験直前の最終確認には、必ず公式eBook・Learner Workbookを参照すること。</p>
+
+      <div class="ref-group">
+        <h4>公式情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert公式認定ページ「ITIL Strategy (Version 5)」(試験概要・学習目標・前提条件)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-strategy-version-5-4175" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-strategy-version-5-4175</a></li>
+          <li><span class="ref-name">ITSM Academy「ITIL (Version 5) Updates」(公式書籍・学習教材の提供状況、オープンブック試験における公式出版物の重要性)</span><a class="ref-url" href="https://itsmacademy.com/press-room/itil-version-5/" target="_blank" rel="noopener">https://itsmacademy.com/press-room/itil-version-5/</a></li>
+          <li><span class="ref-name">innovativelearning.eu「ITIL Strategy (Version 5)」ダウンロードページ(公式PDF資料の存在確認・出版概要)</span><a class="ref-url" href="https://www.innovativelearning.eu/news-resources/free-resources/downloads/itil-strategy-version-5.html" target="_blank" rel="noopener">https://www.innovativelearning.eu/news-resources/free-resources/downloads/itil-strategy-version-5.html</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>認定トレーニングパートナーのコースアウトライン</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">QA(PeopleCertプラチナパートナー)公式コースページ(8モジュールの詳細アウトライン・学習成果・試験構成の一次情報として本ガイドの骨格に使用)</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/itil-strategy-version-5-itil5str/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/itil-strategy-version-5-itil5str/</a></li>
+          <li><span class="ref-name">Asseco Academy 公式トレーニングページ(戦略策定・実装サイクルの各活動の学習目標の英語原文確認)</span><a class="ref-url" href="https://academy.asseco.pl/szkolenie/itil-strategy-wersja-5-in-english/" target="_blank" rel="noopener">https://academy.asseco.pl/szkolenie/itil-strategy-wersja-5-in-english/</a></li>
+          <li><span class="ref-name">Tieturi 公式トレーニングページ(モジュール5〜7の学習目標の相互確認)</span><a class="ref-url" href="https://www.tieturi.fi/tuote/itil-strategy/" target="_blank" rel="noopener">https://www.tieturi.fi/tuote/itil-strategy/</a></li>
+          <li><span class="ref-name">itil.org.uk 公式トレーニングページ(戦略実装サイクルの詳細な学習目標、AIガバナンス・DevOps・PRINCE2との統合範囲の確認)</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-strategic-leader-sl/itil-strategy-certification-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-strategic-leader-sl/itil-strategy-certification-training-course</a></li>
+          <li><span class="ref-name">ib-formation.fr 公式トレーニングページ(フランス語)(モジュール構成のクロスチェック用)</span><a class="ref-url" href="https://www.ib-formation.fr/formations/gouvernance-des-si-referentiels/itil-strategy-version-5" target="_blank" rel="noopener">https://www.ib-formation.fr/formations/gouvernance-des-si-referentiels/itil-strategy-version-5</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>解説記事・関連情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITSM.tools「ITIL (Version 5) Explained」(AXELOS ITSMポートフォリオ開発マネージャー Roman Jouravlev氏による公式解説記事。ITIL (Version 5) 全体の変更点、Strategy出版物とAI Governance出版物の位置づけ)</span><a class="ref-url" href="https://itsm.tools/itil-version-5-explained-key-changes-lifecycle-ai-governance/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-explained-key-changes-lifecycle-ai-governance/</a></li>
+          <li><span class="ref-name">nex-arc-learning.com ITILFND-V5 Study Guide Cheat Sheet(ミッション・ビジョン・パーパス・戦略・VUCAの用語定義)</span><a class="ref-url" href="https://nex-arc-learning.com/peoplecert/itilfnd-v5/study-guide/cheat-sheet/" target="_blank" rel="noopener">https://nex-arc-learning.com/peoplecert/itilfnd-v5/study-guide/cheat-sheet/</a></li>
+          <li><span class="ref-name">PMG Academy「The Definitive Guide to ITIL Version 5 Foundation」(ITIL Product and Service Lifecycleの8段階の定義、バリューチェーン活動の定義)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+          <li><span class="ref-name">TeamDynamix「What is ITIL 5?」(Product and Service Lifecycleの8段階名称の相互確認)</span><a class="ref-url" href="https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/" target="_blank" rel="noopener">https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/</a></li>
+          <li><span class="ref-name">DionTraining「ITIL 5 Process Guide」(Product and Service Lifecycle各段階の役割の相互確認)</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+          <li><span class="ref-name">itil.com 公式ニュース「ITIL Version 5 Foundation - What's New Guide」(Discover/Design/Acquire/Build/Transition/Operate/Deliver/Supportの8段階名称の一次確認)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide</a></li>
+          <li><span class="ref-name">Vivantio「ITIL Best Practices and Processes for CSM」(PESTLEフレームワークと4つの側面モデルの重ね合わせの説明)</span><a class="ref-url" href="https://www.vivantio.com/blog/https-blog-vivantio-com-itil-best-practices-viv/" target="_blank" rel="noopener">https://www.vivantio.com/blog/https-blog-vivantio-com-itil-best-practices-viv/</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <footer>
+      本ガイドはPeopleCert公式教材の代替ではなく、学習の全体像を掴むための独立した補助教材である。ITIL&reg;はPeopleCert International Limitedの登録商標。最終的な学習・受験準備は必ず公式Learner Workbook・Quick Reference Guide・Official eBookを参照すること。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    productServiceLifecycle: `
+flowchart LR
+D1["Discover 機会発見・需要理解"]
+D2["Design 解決策の設計"]
+D3["Acquire 資源の調達"]
+D4["Build 構築・実装"]
+D5["Transition 本番移行"]
+D6["Operate 基盤の稼働維持"]
+D7["Deliver 利用者への価値提供"]
+D8["Support インシデント対応"]
+D1 --> D2 --> D3 --> D4 --> D5 --> D6 --> D7 --> D8
+D8 -.->|"フィードバック"| D1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class D1,D2,D3,D4 box;
+class D5,D6 hub;
+class D7,D8 done;`,
+    businessDigitalStrategy: `
+flowchart TB
+BS["ビジネス戦略 組織全体の目標と達成方法"]
+DS["デジタル戦略 デジタル技術の活用方法"]
+OP["製品・サービス戦略 個別の実行計画"]
+BS --> DS --> OP
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class BS hub;
+class DS box;
+class OP done;`,
+    vucaModel: `
+flowchart TB
+V["Volatility 変動性 変化の速さ・振れ幅が大きい"]
+U["Uncertainty 不確実性 将来の予測が困難"]
+C["Complexity 複雑性 要因が相互に絡み合う"]
+A["Ambiguity 曖昧性 因果関係が不明瞭"]
+CENTER["VUCA環境における戦略"]
+V --> CENTER
+U --> CENTER
+C --> CENTER
+A --> CENTER
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class V,C box;
+class U,A box;
+class CENTER hub;`,
+    fourDimensionsStrategy: `
+flowchart TB
+STRAT["戦略的意図 Strategic Intent"]
+OP["組織と人材 文化・構造・ケイパビリティ"]
+PS["パートナーとサプライヤー ソーシング・関係性"]
+IT["情報と技術 イノベーション・データ活用"]
+VS["バリューストリームとプロセス 設計・最適化"]
+STRAT --> OP
+STRAT --> PS
+STRAT --> IT
+STRAT --> VS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class OP,PS,IT,VS box;
+class STRAT hub;`,
+    pestleFourDimensions: `
+flowchart TB
+subgraph PESTLE["外部環境要因 PESTLE"]
+direction LR
+P["Political"]
+E["Economic"]
+S["Social"]
+T["Technological"]
+L["Legal"]
+EN["Environmental"]
+end
+FD["4つの側面 組織・人材、パートナー・サプライヤー、情報・技術、バリューストリーム・プロセス"]
+VALUE["価値創出への影響"]
+PESTLE --> FD
+FD --> VALUE
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,E,S,T,L,EN box;
+class FD hub;
+class VALUE done;`,
+    strategyManagementModel: `
+flowchart TB
+subgraph DEV["戦略策定サイクル Strategy Development Cycle"]
+direction LR
+O1["Observe 観察"]
+O2["Orient 方向づけ"]
+O3["Decide 意思決定"]
+O4["Plan 計画"]
+O1 --> O2 --> O3 --> O4
+end
+subgraph IMP["戦略実装サイクル Strategy Implementation Cycle"]
+direction LR
+I1["Plan 計画"]
+I2["Execute 実行"]
+I3["Synthesize 統合"]
+I4["Reflect 振り返り"]
+I1 --> I2 --> I3 --> I4
+end
+O4 -->|"戦略的方向性を引き渡す"| I1
+I4 -.->|"学習を策定サイクルへ還元"| O1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class O1,O2,O3,O4 box;
+class I1,I2,I3,I4 hub;`,
+    strategyDevelopmentCycle: `
+flowchart LR
+O["Observe 観察 外部・内部環境の情報収集"]
+R["Orient 方向づけ 情報の解釈と意味づけ"]
+D["Decide 意思決定 優先順位と選択肢の決定"]
+P["Plan 計画 戦略的方向性の文書化"]
+O --> R --> D --> P
+P -.->|"次の観察へ"| O
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class O,R box;
+class D hub;
+class P done;`,
+    strategyImplementationCycle: `
+flowchart LR
+P["Plan 実装計画 目標からイニシアチブへの翻訳"]
+E["Execute 実行 選定したアプローチでの遂行"]
+S["Synthesize 統合 変化と既存運用のバランス"]
+R["Reflect 振り返り 持続可能性と長期的妥当性の維持"]
+OBS["Observe 観察（策定サイクル） 外部・内部環境の情報収集"]
+P --> E --> S --> R
+R -.->|"策定サイクルへの学習還元"| OBS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,E,S hub;
+class R done;
+class OBS box;`,
+    strategicCapabilitiesMap: `
+flowchart TB
+CAP["戦略的能力 Strategic Capabilities"]
+LEAD["リーダーシップ 方向性の提示と動機づけ"]
+GOV["ガバナンス 意思決定の枠組みと説明責任"]
+ALIGN["組織的整合性 戦略と実行部隊の接続"]
+LEARN["継続的改善と組織学習 Reflectの学びを制度化"]
+RES["レジリエンスと適応力 変化への耐性と回復力"]
+CAP --> LEAD
+CAP --> GOV
+CAP --> ALIGN
+CAP --> LEARN
+CAP --> RES
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class LEAD,GOV,ALIGN,LEARN,RES box;
+class CAP hub;`,
+    itilDevopsPrince2: `
+flowchart LR
+ITIL["ITIL 何を・なぜ・誰のために 価値の方向性"]
+DEVOPS["DevOps どう速く安全に届けるか フロー・自動化"]
+PM["プロジェクト・PRINCE2 どう統制して実行するか 統治・段階管理"]
+ITIL <--> DEVOPS
+ITIL <--> PM
+DEVOPS -.->|"協調"| PM
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class ITIL hub;
+class DEVOPS box;
+class PM done;`,
+    studySequenceRoadmap: `
+flowchart LR
+S1["① Foundation復習 Module 1"]
+S2["② 用語の正確な理解 Module 2"]
+S3["③ 4つの側面とPESTLE Module 3"]
+S4["④ Strategy Management Modelの全体像 Module 4"]
+S5["⑤ 策定・実装サイクルの各活動を精読 Module 5・6"]
+S6["⑥ 戦略的能力と他フレームワーク統合 Module 7・8"]
+S7["⑦ 公式問題集で時間配分の練習"]
+S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S1,S2,S3 box;
+class S4,S5 hub;
+class S6,S7 done;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        var targetId = (link.getAttribute("href") || "").replace("#", "");
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (target) {
+          target.focus();
+        } else if (wasOpen) {
+          toggle.focus();
+        }
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

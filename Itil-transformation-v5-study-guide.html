@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITIL Transformation(Version 5) 認定資格 完全ガイド | 初学者向けステップバイステップ解説</title>
+<meta name="description" content="PeopleCert ITIL Transformation(Version 5)の出題範囲を、Transformation Modelの4層構造・Patterns・Toolkit・AI Capability Modelまで初学者向けに解説する学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">ITIL Transformation 完全ガイド</div>
+        <div class="brand-subtitle">Version 5 対応</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="nav-group-label">はじめに</li>
+      <li><a href="#about-guide"><i class="ti ti-certificate"></i>このガイドについて</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-clipboard-check"></i>認定試験の全体像</a></li>
+
+      <li class="nav-group-label">基礎知識</li>
+      <li><a href="#what-is-transformation"><i class="ti ti-bulb"></i>ITIL Transformationとは何か</a></li>
+      <li><a href="#characteristics-scope-complexity"><i class="ti ti-scale"></i>特性・スコープ・複雑性</a></li>
+
+      <li class="nav-group-label">Transformation Model</li>
+      <li><a href="#transformation-model"><i class="ti ti-layout-grid"></i>Model全体構造</a></li>
+      <li><a href="#bau-vs-transformation-governance"><i class="ti ti-gavel"></i>BAU / Transformation Governance</a></li>
+      <li><a href="#patterns-and-toolkit"><i class="ti ti-puzzle"></i>Patterns と Toolkit</a></li>
+      <li><a href="#governance-alignment"><i class="ti ti-target"></i>Governance and Alignment</a></li>
+      <li><a href="#execution-and-delivery"><i class="ti ti-rocket"></i>Execution and Delivery</a></li>
+      <li><a href="#measurement-learning"><i class="ti ti-chart-line"></i>Measurement and Learning</a></li>
+
+      <li class="nav-group-label">ツールと実践</li>
+      <li><a href="#tools-methods-techniques"><i class="ti ti-tools"></i>Tools, Methods, Techniques</a></li>
+      <li><a href="#ai-and-transformation"><i class="ti ti-robot"></i>AI and Transformation</a></li>
+      <li><a href="#framework-integration"><i class="ti ti-git-branch"></i>他フレームワークとの統合</a></li>
+
+      <li class="nav-group-label">試験対策・参考</li>
+      <li><a href="#exam-prep-career"><i class="ti ti-map-2"></i>試験対策とキャリアパス</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典URL一覧</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert公式シラバスに基づく学習ガイド</div>
+      <h1>ITIL Transformation(Version 5) 学習ガイド</h1>
+      <p class="hero-lede">
+        初学者向け ステップバイステップ解説
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">選択式(Multiple choice)、90分で解答</div></div>
+        <div class="stat-card"><div class="stat-number">90分</div><div class="stat-label">Open book形式の試験時間</div></div>
+        <div class="stat-card"><div class="stat-number">70%</div><div class="stat-label">合格に必要な正答率</div></div>
+        <div class="stat-card"><div class="stat-number">3年</div><div class="stat-label">認定更新サイクル(CPD 60ポイント)</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは PeopleCert / ITIL 公式サイトおよび公認トレーニングプロバイダが公開しているシラバス概要・記事をもとに独自にまとめた学習補助教材であり、PeopleCert International Ltd. が発行する有償の公式教材(Official eBook、Learner Workbook、Quick Reference Guide)の代替にはならない。特に「Transformation Model の4層に含まれる12ステージそれぞれの名称・詳細な活動内容」は有償の公式教材にのみ収録されている粒度の情報であるため、本ガイドでは層(レイヤー)単位の概念構造までを解説し、ステージ単位の一次情報は出典として公式教材への参照を明示するにとどめる。最新情報は<a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">PeopleCert公式サイト</a>で必ず確認すること。
+      </div>
+    </div>
+
+    <!-- ===================== 01. About this guide ===================== -->
+    <section id="about-guide">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>このガイドについて</h2>
+
+      <ul>
+        <li><strong>対象読者:</strong> ITIL Foundation(Version 5)またはいずれかのITIL 4認定を取得済みで、これから ITIL Transformation(Version 5) を学ぶ人</li>
+        <li><strong>構成:</strong> 出題領域(シラバスの柱)に沿って、章ごとに「基本概念 → 図解(Mermaid) → ベストプラクティス → 出典」の順で解説する</li>
+        <li><strong>表記ルール:</strong> 英語の専門用語(Transformation Model、Governance など)はそのまま残し、日本語で意味を補足する。ASCIIアートは使用せず、図はすべてMermaid、一覧・比較はすべてMarkdown表で表現する</li>
+      </ul>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>本ガイドの前提知識</strong></p>
+        <p>ITIL Transformation は ITIL Foundation の知識(ITIL Value System、Guiding Principles、Four Dimensions of Service Management、Product and Service Lifecycle)を前提として設計されている。これらの用語に不安がある場合は、先に ITIL Foundation(Version 5)の学習ガイドを参照することを推奨する。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 02. Exam overview ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 02</div>
+      <h2>認定試験の全体像</h2>
+
+      <p>ITIL Transformation(Version 5)は、ITIL(Version 5)資格体系における「すべてのdesignationに共通する中核モジュール(core module)」である。Practice Manager、Managing Professional、Strategic Leaderのいずれを目指す場合でも、一度合格すればその実績はすべてのdesignationにカウントされる(再受験の必要はない)。</p>
+
+      <h3>試験の基本データ</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>出題形式</td><td>選択式(Multiple choice)</td></tr>
+            <tr><td>問題数</td><td>40問</td></tr>
+            <tr><td>試験時間</td><td>90分</td></tr>
+            <tr><td>参照可否</td><td>Open book(公式教材の参照が可能)</td></tr>
+            <tr><td>合格基準</td><td>70%以上の正答</td></tr>
+            <tr><td>出題言語</td><td>英語</td></tr>
+            <tr><td>認定更新</td><td>3年ごと、CPD(Continuing Professional Development)60ポイントが必要</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>受験前提条件(Certification Requirements)</h3>
+      <p>以下のいずれか1つに加えて、Accredited Training Organization(ATO)経由の研修、またはITIL公式eラーニングの修了が必須となる。</p>
+      <ul>
+        <li>いずれかのITIL 4認定(ITIL 4 Foundationおよびその上位資格)</li>
+        <li>ITIL Foundation(Version 5)</li>
+        <li>ITIL Foundation Bridge(Version 5)(ITIL 4有資格者向けの差分学習コース)</li>
+      </ul>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>試験結果は、上記の受講証明(Proof of completion)が確認されるまで公開されない。</p>
+      </div>
+
+      <h3>出題の認知レベル(Bloom's Taxonomy)</h3>
+      <p>ITIL Foundation試験が主に「知識(Recall)」と「理解(Comprehension)」を問うのに対し、ITIL Transformationの出題はBloom's Taxonomyのレベル1から4(知識・理解・適用・分析)にまたがる。つまり、用語の暗記だけでなく、</p>
+      <ul>
+        <li>シナリオの中でどのGovernanceパターンが適切かを判断する</li>
+        <li>Transformationの文脈(Context)に応じて実行アプローチを選び分ける</li>
+        <li>組織の状況を分析し、最適なツール・手法を提案する</li>
+      </ul>
+      <p>といった応用力が問われる点が、初学者にとって最初のハードルになりやすい。</p>
+
+      <h3>資格体系上の位置づけ</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="certPathway"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL(Version 5)資格体系におけるITIL Transformationの位置づけ</div>
+      </div>
+
+      <p>ITIL Managing Professional(Version 5)designationを取得するには、ITIL Foundation(Version 5)またはいずれかのITIL 4認定を前提として、ITIL Transformationに加えてITIL Product・Service・Experienceの各モジュールにも合格する必要がある。ただし、既存のITIL 4 Managing Professional／MasterまたはITIL v3 Expert／Masterの有資格者は、Product・Service・Experienceの3モジュールに代えて「ITIL Managing Professional Transition－Product, Service, Experience(Version 5)」試験(Transformationとは別に受験)1本に合格することで移行できる(Take2オプションではTransformationとTransition試験の再受験権をセットで購入できる)。</p>
+    </section>
+
+    <!-- ===================== 03. What is ITIL Transformation ===================== -->
+    <section id="what-is-transformation">
+      <div class="section-eyebrow"><i class="ti ti-bulb"></i>SECTION 03</div>
+      <h2>ITIL Transformationとは何か － 基本概念</h2>
+
+      <h3>なぜTransformationが必要なのか</h3>
+      <p>組織は、技術の変化・市場環境の変化・顧客期待の変化に継続的に適応し続けなければならない。構造化されたアプローチを持たないまま変革(Transformation)に取り組むと、次のような失敗パターンに陥りやすい。</p>
+      <ul>
+        <li>取り組みが断片化し、各部門がバラバラに動いてしまう</li>
+        <li>意思決定が遅く、変化のスピードに追いつけない</li>
+        <li>変革の結果が測定可能な価値(Value)につながらない</li>
+      </ul>
+      <p>ITIL Transformationは、この課題に対して次の4つの観点から対応する枠組みを提供する。</p>
+      <ol>
+        <li>複雑で不確実な環境(Complex and uncertain environments)における変革のマネジメント</li>
+        <li>Governance・Execution・Learningのバランス</li>
+        <li>構造化された変革を通じた測定可能な価値の提供</li>
+        <li>ステークホルダーとValue Streamをまたいだコラボレーションの強化</li>
+      </ol>
+
+      <h3>Change と Transformation の違い</h3>
+      <p>ITILにおいて「Change(変更)」は、日常的なサービス運用の中で発生する個別の変更(例：あるサーバー構成の変更)を指すことが多いのに対し、「Transformation」は、複数の依存関係にまたがる、調整された大規模な変化を指す。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>通常のChange / 継続的改善</th><th>Transformation</th></tr></thead>
+          <tbody>
+            <tr><td>スコープ</td><td>個別のサービス・コンポーネント</td><td>組織、あるいはその大部分</td></tr>
+            <tr><td>依存関係</td><td>限定的</td><td>複数の部門・Value Streamにまたがる</td></tr>
+            <tr><td>不確実性</td><td>比較的低い</td><td>高い(将来の姿を正確に予測できない)</td></tr>
+            <tr><td>進め方</td><td>既存のプロセスに沿って実施</td><td>状況に応じて複数のアプローチを並行して使い分ける</td></tr>
+            <tr><td>典型的な例</td><td>通常のリリース、パッチ適用</td><td>運用モデルの刷新、AI導入に伴う組織再編</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li><strong>「これはChangeなのかTransformationなのか」を最初に切り分けることが、適切なGovernanceモデルを選ぶ第一歩になる。</strong>スコープが単一チーム内に閉じているならBAU(Business As Usual)の変更管理で十分なことが多いが、複数のValue Streamにまたがり、かつ結果に不確実性がある場合はTransformationとして扱う</li>
+          <li>小規模な取り組みから大規模なプログラムまで、同じTransformation Modelの考え方を「スケールを変えて」適用できるという柔軟性を意識する</li>
+        </ul>
+      </div>
+
+      <h3>ITIL Value System・Guiding Principles・Four Dimensionsとの関係</h3>
+      <p>ITIL Transformationは、ITIL Foundationで学ぶ土台の上に構築されている。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="valueSystemFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Value SystemからITIL Transformationへのつながり</div>
+      </div>
+
+      <ul>
+        <li><strong>Guiding Principles:</strong> 「フィードバックを伴い反復的に進める」「シンプルに、実用的に」といった原則は、Transformationにおける進め方の判断基準としてそのまま使える</li>
+        <li><strong>Four Dimensions(組織と人、情報と技術、パートナーとサプライヤー、Value Streamとプロセス):</strong> Transformationの影響範囲を漏れなく検討するためのチェックリストとして機能する。特に「情報と技術」ディメンションには、Version 5で新設されたITIL AI Capability Modelが組み込まれている(詳細は第13章)</li>
+        <li><strong>Product and Service Lifecycle:</strong> Version 5でITIL 4のService Value Chainから発展した概念で、Transformationはこのライフサイクル全体、あるいはその一部を対象に実施される</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">ITIL Transformation (Version 5) | itil.com</a></li>
+          <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">ITIL Transformation (Version 5) | peoplecert.org</a></li>
+        </ul>
+      </div>
+
+      <h3>Transformationが価値を生む3つの領域</h3>
+      <p>公認トレーニングプロバイダの講座説明では、ITIL Transformationがもたらす効果を次の3つの粒度で整理している。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>領域</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>① Governance／管理能力の適合性確保</td><td>組織のマネジメント能力・Governance能力が、望ましい働き方(Desired ways of working)に対して適切であることを保証する</td></tr>
+            <tr><td>② 組織能力の形式化</td><td>既存の組織能力について、責任(Accountability)と役割(Responsibility)を明確にしながら体系化・標準化する</td></tr>
+            <tr><td>③ Value Systemの部分／全体の改善</td><td>Four Dimensionsを考慮しながら、Value Systemの特定の一部分(例：あるPracticeやツールの使い方)、あるいはValue System全体のパフォーマンスを大きく改善する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Transformationの企画段階で、この3領域のうち「今回の取り組みはどれに該当するか」を明文化しておくと、スコープのブレを防ぎやすい</li>
+          <li>③のように複数のステークホルダーにまたがる全体最適を狙う場合ほど、後述するGovernance PatternsとExecution Patternsの使い分けが重要になる</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">ITIL® Transformation Course & Examination | ITSM Hub</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 04. Characteristics, scope, complexity ===================== -->
+    <section id="characteristics-scope-complexity">
+      <div class="section-eyebrow"><i class="ti ti-scale"></i>SECTION 04</div>
+      <h2>Transformationの特性・スコープ・複雑性</h2>
+
+      <h3>Transformationは一様ではない</h3>
+      <p>ITIL Transformationが強調する最初のポイントは、「Transformationにはさまざまな規模・スコープ・コスト・リスクのものがある」という事実である。小規模なチーム改善から、全社的な運用モデルの刷新まで、扱う対象は大きく異なる。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>特性軸</th><th>小規模な例</th><th>大規模な例</th></tr></thead>
+          <tbody>
+            <tr><td>Scale(規模)</td><td>1チーム、1Practice</td><td>全社、複数事業部門</td></tr>
+            <tr><td>Scope(範囲)</td><td>単一のツール導入</td><td>運用モデル全体の刷新</td></tr>
+            <tr><td>Cost(コスト)</td><td>低い</td><td>高額な投資を伴う</td></tr>
+            <tr><td>Risk(リスク)</td><td>限定的</td><td>事業継続に関わる</td></tr>
+            <tr><td>Uncertainty(不確実性)</td><td>見通しが立てやすい</td><td>将来像そのものが不透明</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Transformation Modelは「非規範的(Non-prescriptive)」であることが繰り返し強調されている。つまり、決まった手順をそのまま当てはめるのではなく、上表の特性に応じてモデルの適用度合いを調整する姿勢が推奨される</li>
+          <li>小さく始めて学習しながらスケールさせる(Guiding Principlesの「反復的に進める」)アプローチと、Transformation Modelは矛盾しない</li>
+        </ul>
+      </div>
+
+      <h3>2つのオーディエンス</h3>
+      <p>ITIL Transformationのガイダンスは、次の2種類の読み手を意識して設計されている。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="twoAudiences"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Transformationガイダンスが意識する2つのオーディエンス</div>
+      </div>
+
+      <ul>
+        <li><strong>説明責任を持つ人々:</strong> Transformationの成果に対してAccountable / Responsibleな立場にあるシニアリーダーやスポンサー。取り組み全体の整合性・調整、BAU業務との両立を担保する役割を持つ</li>
+        <li><strong>影響を受ける人々:</strong> Product / Service Deliveryの現場でBAU業務に従事しながら、Transformationによって働き方の変化を求められる人々。何が起きていて、なぜそれが必要なのかを理解し、変革期間中も安定運用(BAU)を守る役割を持つ</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Transformationの立案時に「誰のために、どの粒度で情報を発信するか」をこの2オーディエンスで分けて設計すると、コミュニケーション不足による抵抗(Resistance)を減らせる</li>
+          <li>ITIL Transformationモジュールは、ITIL Foundationの後に単独で受講することも、ITIL Service／Product／Experience／Strategyなどの上位モジュールを経てから受講することも可能な設計になっている。シニアリーダー層が他の詳細モジュールを学ばずにTransformationの知識だけを得られるのは、この「説明責任を持つ人々」への配慮の表れである</li>
+        </ul>
+      </div>
+
+      <h3>複雑性への向き合い方</h3>
+      <p>Transformationが扱う状況は、見通しの立てやすい秩序だった(Ordered / Predictable)環境から、因果関係が事前には把握しづらい複雑(Complex)な環境、さらには緊急対応が求められる混沌(Chaotic)とした環境まで幅がある。ITIL Transformationは、この状況の違いに応じて計画的アプローチと探索的アプローチを使い分けることを重視する。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="complexityApproach"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">環境の複雑性に応じたアプローチの使い分け</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「この状況は詳細な計画が有効な領域か、それとも試しながら学ぶしかない領域か」を最初に見極めることが、無駄な計画コストや、逆に無計画な混乱を避ける鍵になる</li>
+          <li>1つのTransformationプログラムの中でも、サブテーマごとに複雑性のレベルが異なることがある。全体を一律の手法で進めようとせず、部分ごとに適したアプローチを並行させる(第6章・第8章で扱うModelとPatternsが、このための道具立てとなる)</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/" target="_blank" rel="noopener">ITIL® Transformation (Version 5) course | QA</a></li>
+          <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change(Kaimar Karu, Lead Author) | itil.com</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 05. Transformation Model ===================== -->
+    <section id="transformation-model">
+      <div class="section-eyebrow"><i class="ti ti-layout-grid"></i>SECTION 05</div>
+      <h2>ITIL Transformation Model － 全体構造</h2>
+
+      <h3>4つのレイヤー</h3>
+      <p>ITIL Transformation Modelは、Governance・Positioning・Execution・Learningという4つの相互接続したレイヤー(層)で構成される。公式教材では、この4層がさらにステージ(Stage)とステップ(Step)に分解され、あわせて12のステージで構成されるとされている(ステージ単位の詳細な名称・内容は有償の公式教材に収録されており、本ガイドでは扱わない)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>レイヤー</th><th>役割の要点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Governance</strong></td><td>Transformationの戦略的な方向づけと意思決定の枠組みを提供する。何を、なぜ、どこまでやるかの判断基準を定める</td></tr>
+            <tr><td><strong>Positioning</strong></td><td>組織が置かれている状況(複雑性、制約、ステークホルダーの期待)を理解し、Transformationの立ち位置を明確にする</td></tr>
+            <tr><td><strong>Execution</strong></td><td>実際に変革を実行するレイヤー。複数の実行アプローチを並行して用いることが前提となる</td></tr>
+            <tr><td><strong>Learning</strong></td><td>実行から得られた結果を測定・評価し、組織の学習として蓄積し、次の意思決定にフィードバックする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>レイヤー間の関係</h3>
+      <p>4つのレイヤーは一方通行の工程(ウォーターフォール)ではなく、相互にフィードバックしあう循環構造として描かれる。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="fourLayersCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Governance・Positioning・Execution・Learningの循環構造</div>
+      </div>
+
+      <ul>
+        <li><strong>Governanceが起点:</strong> Transformationの方向性はGovernanceレイヤーで定められるが、これはPositioningやExecutionから得られた学習結果によって継続的に見直される</li>
+        <li><strong>PositioningとExecutionの並走:</strong> 状況把握(Positioning)と実行(Execution)は一度で終わる工程ではなく、Transformationの進行中、繰り返し行われる</li>
+        <li><strong>Learningが全体をつなぐ:</strong> Learningレイヤーは単なる「振り返り」ではなく、GovernanceとExecutionの両方に継続的にフィードバックを返す役割を持つ</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>4層モデルを「フェーズ(順番に一度だけ通過する工程)」として運用しないこと。特にGovernanceとLearningの往復(フィードバックループ)を止めてしまうと、当初の前提が古いまま変革が進み、環境変化に対応できなくなる</li>
+          <li>Positioningを軽視して直接Executionに入ると、状況認識のズレによって後工程での手戻りが発生しやすい。小規模なTransformationであっても、Positioningに相当する状況整理のステップを省略しないことが推奨される</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/" target="_blank" rel="noopener">ITIL® Transformation (Version 5) e-Learning+ | Advanced Training</a></li>
+          <li><a href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">ITIL Transformation (Version 5) Practice Tests | Udemy</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 06. BAU vs Transformation Governance ===================== -->
+    <section id="bau-vs-transformation-governance">
+      <div class="section-eyebrow"><i class="ti ti-gavel"></i>SECTION 06</div>
+      <h2>BAU Governance と Transformation Governance</h2>
+
+      <h3>なぜGovernanceを2つに分けるのか</h3>
+      <p>ITIL Transformationの大きな特徴のひとつは、Governanceを「BAU(Business As Usual＝通常業務)のGovernance」と「Transformation自体のGovernance」の2種類に明確に分けて扱う点にある。</p>
+      <ul>
+        <li><strong>BAU Governance:</strong> 組織が普段どのように価値を測定し、チーム間の整合性をどう取り、承認プロセスや資金調達の仕組み(Bureaucracy)がどう機能しているかを定めるもの</li>
+        <li><strong>Transformation Governance:</strong> Transformationそのものを、BAUとの関係の中でどのようにガバナンスするかを定めるもの</li>
+      </ul>
+      <p>例えば、Transformationの成功のためにアジャイルな働き方が必要であるにもかかわらず、組織の標準的なGovernanceがウォーターフォール型である場合、両者の間に緊張関係(Tension)が生じる。ITIL Transformationは、この緊張関係に橋渡し(Bridge)をかけ、アジャイルな活動を本来あるべき形で進めながら、組織が求める報告構造やドキュメントを、重複作業を最小限にしつつ両立させるアプローチを提供する。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="governanceBridge"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">BAU GovernanceとTransformation Governanceの橋渡し</div>
+      </div>
+
+      <h3>比較表</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>BAU Governance</th><th>Transformation Governance</th></tr></thead>
+          <tbody>
+            <tr><td>目的</td><td>日常業務の安定運用と価値測定</td><td>変革の推進と整合性の確保</td></tr>
+            <tr><td>典型的な特性</td><td>標準化・予測可能・反復的</td><td>探索的・状況に応じて柔軟</td></tr>
+            <tr><td>意思決定のスピード</td><td>定例のサイクルに沿う</td><td>状況変化に応じて迅速な場合が多い</td></tr>
+            <tr><td>リスクへの態度</td><td>リスク回避的になりやすい</td><td>一定の不確実性を許容する必要がある</td></tr>
+            <tr><td>主な担い手</td><td>既存の管理層・委員会</td><td>Transformationスポンサー・推進チーム</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Transformationの立ち上げ時に、「このTransformationはBAU Governanceのどの部分と衝突しうるか」を明示的に洗い出す。承認フロー、予算執行のタイミング、報告様式などは特に衝突が起きやすい領域である</li>
+          <li>衝突を解消する際は、どちらか一方を全面的に廃止するのではなく、「最小限の重複」で両立させるブリッジ(報告テンプレートの共通化、既存委員会への定期報告枠の追加など)を設計することが推奨される</li>
+          <li>Transformation Governanceは恒久的な仕組みではなく、Transformationの完了・定着とともにBAU Governanceへ統合されるべきものであることを、関係者に事前に合意しておく</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change(Kaimar Karu, Lead Author) | itil.com</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 07. Patterns and Toolkit ===================== -->
+    <section id="patterns-and-toolkit">
+      <div class="section-eyebrow"><i class="ti ti-puzzle"></i>SECTION 07</div>
+      <h2>Transformation Patterns と Toolkit</h2>
+
+      <p>ITIL Transformationモジュールの中核をなすのが、Initiation Patterns・Governance Patterns・Execution Patternsという3種類のPatterns、およびそれらを支えるToolkitである。</p>
+
+      <h3>3つのPatternsとToolkitの役割</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要素</th><th>役割</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Initiation Patterns(開始パターン)</strong></td><td>組織がTransformationのどの出発点にいるかを、期待・目的・課題に基づいて理解しやすくする</td></tr>
+            <tr><td><strong>Governance Patterns(統治パターン)</strong></td><td>BAU Governanceの要求とTransformation Governanceの要求を突き合わせるためのアセスメントモデルを提供し、両者の間の緊張を和らげる</td></tr>
+            <tr><td><strong>Execution Patterns(実行パターン)</strong></td><td>変革実行のための方法を記述し、複数のアプローチを並行して調整しながら、フィードバックループを伴って進められるようにする</td></tr>
+            <tr><td><strong>Toolkit(ツールキット)</strong></td><td>Transformationで頻繁に使われる手法・ツール・テクニックを、ITILの視点から整理したもの。特定のITIL Practiceが、どのようにTransformation活動を支援するかの概要も含む</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="patternsToolkit"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Initiation・Governance・Execution PatternsとToolkitの関係</div>
+      </div>
+
+      <h3>Patternsごとのベストプラクティス</h3>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>Initiation Patterns － ベストプラクティス</div>
+        <ul>
+          <li>Transformationの立ち上げ前に、「なぜ今この変革が必要なのか」「何を期待しているのか」をステークホルダー間で言語化し、認識のズレを可視化する</li>
+          <li>過去の失敗した変革の経験がある組織では、その原因(多くの場合、将来の運用モデルを前提として計画してしまい、その前提が数年後に崩れること)を振り返り、同じ轍を踏まない設計にする</li>
+        </ul>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>Governance Patterns － ベストプラクティス</div>
+        <ul>
+          <li>BAU Governanceの承認フローをそのままTransformationに適用しようとせず、まず両者のギャップをアセスメントする</li>
+          <li>Governanceの緊張を「対立」ではなく「橋渡しが必要な設計課題」として捉え、双方の代表者を交えて解決策を設計する</li>
+        </ul>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>Execution Patterns － ベストプラクティス</div>
+        <ul>
+          <li>単一の実行方法論(例：純粋なウォーターフォールのプロジェクト管理、あるいは純粋なアジャイル)に固執せず、状況に応じてProject/Programme Managementと探索的・反応的なアプローチを併用する</li>
+          <li>並行して走る複数の実行アプローチの間で、フィードバックループを定期的に設け、学習を横展開する仕組みを作る</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change(Kaimar Karu, Lead Author) | itil.com</a></li>
+          <li><a href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">ITIL (Version 5) Transformation Training Course | ITSM Academy</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 08. Governance and Transformation Alignment ===================== -->
+    <section id="governance-alignment">
+      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 08</div>
+      <h2>Governance and Transformation Alignment</h2>
+
+      <p>第6章で扱ったBAU／Transformation Governanceの区分を踏まえ、この章では「Governanceがどのように柔軟性と価値提供を両立させながらTransformationを支えるか」を深掘りする。</p>
+
+      <h3>Governanceが果たす2つの機能</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>機能</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>統制(Control)</td><td>Transformationの範囲・リスク・投資判断について、一貫した意思決定の枠組みを提供する</td></tr>
+            <tr><td>有効化(Enablement)</td><td>過度な統制によって変革のスピードや柔軟性を失わないよう、必要な裁量を現場に委譲する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Governanceが「統制」だけに偏ると変革は硬直化し、「有効化」だけに偏ると整合性やリスク管理が失われる。ITIL Transformationは、この2つのバランスをTransformation Governance Patternsを通じて取ることを推奨している。</p>
+
+      <h3>Alignmentのための実務ポイント</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="alignmentLevels"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略・戦術・実行レベルをつなぐAlignmentの流れ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Governanceの意思決定機関(委員会等)に、Transformationの進捗と学習結果を定期的にフィードバックする場を設け、戦略レベルの前提を継続的に更新する</li>
+          <li>「誰が何を承認できるか」をTransformationの規模に応じて事前に定義し、小さな意思決定のたびに上位の委員会を待つ必要がないようにする(権限委譲の設計)</li>
+          <li>AccountableとResponsibleを明確に分離する(例：RACI／RASCIの活用。第11章参照)ことで、Governanceのボトルネックを避ける</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">ITIL Transformation (Version 5) | peoplecert.org</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 09. Execution and Delivery of Change ===================== -->
+    <section id="execution-and-delivery">
+      <div class="section-eyebrow"><i class="ti ti-rocket"></i>SECTION 09</div>
+      <h2>Execution and Delivery of Change</h2>
+
+      <h3>「唯一の正解」を前提にしない実行アプローチ</h3>
+      <p>ITIL Transformationの実行に関する考え方の核心は、「1つの実行方法論を選んで押し通すのではなく、状況に応じて複数の実行アプローチを組み合わせる」という点にある。プロジェクト・プログラムマネジメントの要素(計画・予算・マイルストーン管理)を用いつつも、その限界(未知の要素、想定外の変化)を認識し、探索的・反応的な進め方も等しく正当な手段として扱う。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>実行アプローチ</th><th>向いている状況</th><th>留意点</th></tr></thead>
+          <tbody>
+            <tr><td>Project / Programme Management的な進め方</td><td>ゴールと道筋が比較的明確</td><td>前提が崩れたときの計画修正コストが高い</td></tr>
+            <tr><td>探索的・反復的な進め方(Agile的)</td><td>不確実性が高く、試行錯誤が必要</td><td>Governanceとの整合をどう取るかが課題(第6章)</td></tr>
+            <tr><td>緊急対応型の進め方</td><td>混沌とした状況で即応が必要</td><td>まず状況を安定化させてから通常のアプローチに戻す</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>複数アプローチの並行運用</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="parallelExecution"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">複数のワークストリームを並行運用しフィードバックループで同期する</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>複数のワークストリームを並行させる場合、「どのワークストリームがどの実行アプローチを採用しているか」を関係者全員が把握できるよう可視化する</li>
+          <li>ワークストリーム間の依存関係(あるチームの成果物が別チームの前提になっているなど)を定期的に棚卸しし、フィードバックループのタイミングで調整する</li>
+          <li>混沌とした状況(インシデント対応に近い緊急事態)が発生した場合は、まず安定化を最優先し、通常のTransformation実行アプローチに戻すタイミングを明確に判断する</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change | itil.com</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Measurement, Learning, Continual Improvement ===================== -->
+    <section id="measurement-learning">
+      <div class="section-eyebrow"><i class="ti ti-chart-line"></i>SECTION 10</div>
+      <h2>Measurement, Learning, and Continual Improvement</h2>
+
+      <h3>測定と学習の位置づけ</h3>
+      <p>第5章のTransformation Modelにおける「Learning」レイヤーは、単なる振り返りのイベントではなく、Governanceと実行の両方に継続的にフィードバックを返す仕組みである。ITIL TransformationはITIL Foundationの「Continual Improvement」の考え方をTransformationの文脈に適用し、次の問いに答えられるようにする。</p>
+      <ul>
+        <li>進捗(Progress)をどう測定するか</li>
+        <li>結果(Outcome)をどう評価するか</li>
+        <li>継続的な学習をどう組織に埋め込むか</li>
+      </ul>
+
+      <h3>測定から学習への流れ</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="measurementLearningFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">測定から評価・学習・意思決定への反映までのサイクル</div>
+      </div>
+
+      <h3>測定設計のポイント</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ポイント</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>先行指標と遅行指標</td><td>最終成果(遅行指標)だけでなく、変化の兆候を早期に捉える先行指標も併用する</td></tr>
+            <tr><td>定性と定量の両立</td><td>数値化しやすい指標だけでなく、ステークホルダーの実感(定性情報)も収集する</td></tr>
+            <tr><td>学習の記録先</td><td>個人の頭の中ではなく、組織として再利用可能な形(ナレッジベース等)に残す</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>Transformation開始時点で「何をもって成功とみなすか」の測定基準を、Governanceレイヤーの合意事項として明文化しておく(後付けで基準を作ると、恣意的な評価になりやすい)</li>
+          <li>測定結果が思わしくない場合でも、それを個人の失敗として扱うのではなく、Transformation Model自体へのフィードバック(アプローチの見直し)として扱う文化を作る</li>
+          <li>Learningの内容を次のTransformation Initiativeの立ち上げ(Initiation Patterns)に活かす仕組みを用意し、組織が同じ問題を繰り返し経験することを防ぐ</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">ITIL Transformation (Version 5) | itil.com</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Tools, Methods, and Techniques ===================== -->
+    <section id="tools-methods-techniques">
+      <div class="section-eyebrow"><i class="ti ti-tools"></i>SECTION 11</div>
+      <h2>Tools, Methods, and Techniques</h2>
+
+      <p>ITIL Transformationの公認講座シラバスでは、Toolkitの一部として次のようなツール・手法が挙げられている。それぞれ、ITILに限らず一般的に使われる手法であるが、ここでは「Transformationの文脈でどう活きるか」という観点から解説する。</p>
+
+      <h3>Value Stream Mapping(VSM)</h3>
+      <p>顧客への価値提供の流れ(Value Stream)を、開始から完了まで可視化し、付加価値を生まない待ち時間・手戻りを特定する手法。Transformationにおいては、変革前の現状(Current State)と変革後の理想像(Future State)を、それぞれValue Stream図として描き比較することで、どこにボトルネックがあるかを関係者全員で共有できる。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="valueStreamMap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Value Stream Mappingの例(要求受付から提供までの流れ)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>VSMは一度描いて終わりにせず、Transformationの進行に合わせて定期的に描き直し、実際にボトルネックが解消されているかを検証する</p>
+      </div>
+
+      <h3>OKR(Objectives and Key Results)</h3>
+      <p>「何を達成したいか(Objective)」と「その達成度をどう測るか(Key Results)」をセットで定義するゴール設定手法。Transformationにおいては、Governanceレイヤーで定めた戦略的な方向性を、Execution側の具体的な行動目標に落とし込む橋渡し役として使える。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要素</th><th>例</th></tr></thead>
+          <tbody>
+            <tr><td>Objective</td><td>インシデント対応の顧客体験を大きく改善する</td></tr>
+            <tr><td>Key Result 1</td><td>平均初動応答時間を50%短縮する</td></tr>
+            <tr><td>Key Result 2</td><td>顧客満足度スコアを一定水準まで引き上げる</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>OKRの数を絞り込み、Transformationの最重要テーマに集中させる。KRを「タスクの完了」ではなく「測定可能な結果」として定義する</p>
+      </div>
+
+      <h3>ITIL Maturity Model</h3>
+      <p>組織のService Value System(SVS)の成熟度、および個々のPracticeの能力レベルを客観的に評価するためのモデル。PeopleCert公式ドキュメントでは、次の5段階の成熟度レベルが定義されている。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>レベル</th><th>名称</th><th>特徴</th></tr></thead>
+          <tbody>
+            <tr><td>Level 1</td><td>Initial</td><td>作業は完了するが、SVSの目的・目標が常に達成されるわけではない</td></tr>
+            <tr><td>Level 2</td><td>Managed</td><td>計画と実績測定が行われ、目的・目標は繰り返し達成されるが、標準化はされていない</td></tr>
+            <tr><td>Level 3</td><td>Defined</td><td>組織横断の標準がSVS全体にわたってガイダンスを提供する</td></tr>
+            <tr><td>Level 4</td><td>Quantitative</td><td>SVSがデータドリブンであり、定量的なパフォーマンス評価が行われる</td></tr>
+            <tr><td>Level 5</td><td>Optimizing</td><td>SVSが最適化され、継続的改善に焦点が当てられている</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="maturityLevels"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Maturity Modelの5段階</div>
+      </div>
+
+      <p>Practice単位の能力評価(Capability Criteria)はLevel 2から採点が始まり、あるレベルの基準をすべて満たさなければ次のレベルには進めない、という積み上げ式の評価ルールになっている。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Transformationの開始前にITIL Maturity Modelで現状のベースラインを測定し、Transformation完了後に再評価することで、成果を客観的に示すエビデンスとして使う</p>
+      </div>
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf" target="_blank" rel="noopener">Introduction to the ITIL Maturity Model(PeopleCert公式PDF)</a></li>
+        </ul>
+      </div>
+
+      <h3>Theory of Constraints(制約理論)</h3>
+      <p>システム全体のスループットは、最も弱いボトルネック(制約)によって決まるという考え方。Transformationにおいては、「組織全体を同時に変えよう」とするのではなく、まず最大のボトルネックを特定し、そこに集中的にリソースを投じることで、全体の変革スピードを底上げできる。</p>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Transformationのバックログが多岐にわたる場合、Theory of Constraintsの視点で「今、全体の足を引っ張っている制約は何か」を定期的に問い直し、優先順位を見直す</p>
+      </div>
+
+      <h3>RACI／RASCI</h3>
+      <p>Responsible(実行責任)・Accountable(説明責任)・Consulted(相談対象)・Informed(報告対象)(RASCIではこれにSupportive＝支援担当が加わる)を整理する責任分担マトリクス。第8章で触れたGovernanceのAlignmentにおいて、意思決定のボトルネックを可視化・解消するために使われる。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>役割</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>R(Responsible)</td><td>実際にタスクを実行する人</td></tr>
+            <tr><td>A(Accountable)</td><td>最終的な成果に説明責任を持つ人(原則1人)</td></tr>
+            <tr><td>S(Supportive)</td><td>実行を支援する人(RASCIのみ)</td></tr>
+            <tr><td>C(Consulted)</td><td>意思決定前に意見を求められる人</td></tr>
+            <tr><td>I(Informed)</td><td>結果を事後に知らされる人</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Transformation Governanceの緊張が生じやすい意思決定ポイント(予算承認、リリース判断など)について、事前にRACI／RASCIを作成し、「誰がAccountableか」を1人に絞り込んでおく</p>
+      </div>
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/" target="_blank" rel="noopener">ITIL® Transformation (Version 5) | QA</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 12. AI and Transformation ===================== -->
+    <section id="ai-and-transformation">
+      <div class="section-eyebrow"><i class="ti ti-robot"></i>SECTION 12</div>
+      <h2>AI and Transformation</h2>
+
+      <p>ITIL(Version 5)全体を通じた大きな特徴が、AI(人工知能)の位置づけを明確にしたことである。ITIL Transformationにおいても、AIの機会とリスクを踏まえた変革準備・実行のガイダンスが組み込まれている。</p>
+
+      <h3>ITIL AI Capability Model(6Cモデル)</h3>
+      <p>ITIL(Version 5)のFour Dimensionsのうち「情報と技術(Information and Technology)」ディメンションに新設されたのが、ITIL AI Capability Model(通称：6Cモデル)である。これは、AIソリューションが果たす機能を6つの能力(Capability)に分類し、組織がAI導入をどう構造化して捉えるかを助けるツールである。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Capability</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Creation(創出)</strong></td><td>新しいコンテンツ・コード・ドキュメントを生成する</td></tr>
+            <tr><td><strong>Curation(キュレーション)</strong></td><td>既存データの重複を洗い出す等、質と関連性を高める</td></tr>
+            <tr><td><strong>Clarification(明確化)</strong></td><td>複雑な内容の理解・ナビゲーションを助ける(例：インシデントチケットの要約)</td></tr>
+            <tr><td><strong>Cognition(認知)</strong></td><td>パターンや隠れた知見を特定し、問題を先回りして検知する</td></tr>
+            <tr><td><strong>Communication(コミュニケーション)</strong></td><td>チャットボットなど自然なインターフェースを提供する</td></tr>
+            <tr><td><strong>Coordination(調整)</strong></td><td>複数システムにまたがるアクションを自律的に実行・調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="aiCapabilityModel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL AI Capability Model(6Cモデル)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>AI導入の企画段階で、「このAIソリューションは6つのCapabilityのうちどれに該当するか」を明示する。実装が進むにつれて、手続き・法規制・財務面などの準備不足が判明することが多いため、複数のCapabilityにまたがる場合は特に注意する</li>
+          <li>1つのAI活用アイデアを「創出(Creation)」だけの取り組みとして矮小化せず、それが将来的に「調整(Coordination)」のような自律実行に発展しうるかを見据えてGovernance設計を行う</li>
+        </ul>
+      </div>
+
+      <h3>AI導入の不確実性とTransformationの探索的アプローチ</h3>
+      <p>AIがもたらす機会・影響の大きさが未知数である場合、ITIL Transformationの探索的アプローチ(第4章・第9章)が特に有効とされている。小さな実験を積み重ね、結果を観察しながら組織全体でAI関連活動を調整する能力を養うことが推奨される。</p>
+
+      <h3>ITIL AI Governance Improvement Model(参考)</h3>
+      <p>ITIL AI Capability Modelを補完するものとして、AI活用の適切なGovernanceアプローチを決めるための「ITIL AI Governance Improvement Model」が用意されている(独立した認定「ITIL AI Governance(Version 5)」で詳細に扱われる領域であり、ITIL Transformationの前提資格とはならない)。4つのステップ(アセスメント／要求定義と設計調整／改善の実装／継続的なガバナンス維持)で構成される、とされている。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AI Governanceを別モジュールの話として切り離さず、Transformation Governance(第6章・第8章)の一部としてAIに関する意思決定基準(誰がAIの出力をレビューするか、誰が上書き権限を持つか)を組み込む</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4 | ITSM.tools</a></li>
+          <li><a href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">Information and Technology in ITIL Version 5 | PMG Academy</a></li>
+          <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance" target="_blank" rel="noopener">Governing AI in organizations | itil.com</a></li>
+          <li><a href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">ITIL® AI Governance Training & Certification | AgilePM Hub</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Integration with other frameworks ===================== -->
+    <section id="framework-integration">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 13</div>
+      <h2>他フレームワークとの統合(PRINCE2 / DevOps / Agile)</h2>
+
+      <p>ITIL Transformationは、「ITILの他にどんな方法論を使っている組織であっても適用できる」ことを明確に意図して設計されている。特定のガバナンスや実行方法論を前提とせず、既存のフレームワークと組み合わせて使うための柔軟な枠組みという位置づけである。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>フレームワーク</th><th>Transformationとの関係</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PRINCE2</strong></td><td>プロジェクトレベルの計画・統制手法として、Execution Patterns(特にProject / Programme Management的な進め方)と組み合わせやすい</td></tr>
+            <tr><td><strong>DevOps</strong></td><td>継続的デリバリー・自動化の実践知として、Execution PatternsやLearningレイヤーの高速なフィードバックループと親和性が高い</td></tr>
+            <tr><td><strong>Agile</strong></td><td>探索的・反復的なExecution Patternsの実践方法として、複雑な環境下でのTransformationに適する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="frameworkIntegration"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Transformation Modelと他フレームワークとの関係</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「ITILか、PRINCE2か、Agileか」という二者択一で考えず、Transformationのどのワークストリームにどのフレームワークを充てるかを、第9章の「複数アプローチの並行運用」の考え方で設計する</li>
+          <li>既存のフレームワークをすでに組織で運用している場合、ITIL Transformationを新たな別レイヤーとして重ねるのではなく、Governance PatternsとExecution Patternsを使って既存の仕組みとの整合を取ることを優先する</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">ITIL (Version 5) Transformation Training Course | ITSM Academy</a></li>
+          <li><a href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">ITIL® Transformation Course & Examination | ITSM Hub</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 14. Exam prep and career ===================== -->
+    <section id="exam-prep-career">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 14</div>
+      <h2>試験対策とキャリアパス</h2>
+
+      <h3>学習の進め方(ステップバイステップ)</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="studyRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Transformation学習の6ステップ</div>
+      </div>
+
+      <h3>出題傾向への対策</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>対策</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>用語の暗記だけに頼らない</td><td>「なぜこの用語が必要か」を、Transformationの課題(環境の複雑性、Governanceの緊張)に結びつけて理解する</td></tr>
+            <tr><td>シナリオ演習を重視する</td><td>「〇〇という状況で、どのPatternを適用すべきか」という設問形式に慣れる</td></tr>
+            <tr><td>Open bookの特性を活かす</td><td>本試験はOpen bookだが、時間内に該当箇所を探す練習をしておかないと時間切れになりやすい</td></tr>
+            <tr><td>4層モデルの循環構造を図で説明できるようにする</td><td>Governance→Positioning→Execution→Learningの一方通行ではなく、フィードバックが循環する構造を自分の言葉で説明できるようにする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>キャリアパスとの接続</h3>
+      <p>ITIL Transformation(Version 5)は、次のような役割・キャリアに直結する知識として位置づけられている。</p>
+      <ul>
+        <li>Digital Transformation Manager</li>
+        <li>Change Manager</li>
+        <li>Service Improvement Manager</li>
+        <li>Practice Owner</li>
+        <li>Digital Product Manager</li>
+        <li>Experience Manager</li>
+        <li>Solution Designer</li>
+        <li>Strategy Analyst</li>
+        <li>IT Director</li>
+        <li>Business and Transformation Consultant</li>
+        <li>C-suiteレベルの役割</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">ITIL Transformation (Version 5) | peoplecert.org</a></li>
+          <li><a href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">ITIL Transformation (Version 5) Practice Tests | Udemy</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 15. Glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 15</div>
+      <h2>用語集</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Transformation</div><div class="g-def">組織、あるいはその大部分を対象とした、複数の相互依存領域にまたがる調整された大規模な変化</div></div>
+        <div class="glossary-item"><div class="g-term">BAU(Business As Usual)</div><div class="g-def">通常の日常業務・運用</div></div>
+        <div class="glossary-item"><div class="g-term">ITIL Transformation Model</div><div class="g-def">Governance・Positioning・Execution・Learningの4層とステージ・ステップで構成される、Transformationのための構造化フレームワーク</div></div>
+        <div class="glossary-item"><div class="g-term">Initiation Patterns</div><div class="g-def">Transformationの出発点(期待・目的・課題)を理解するためのパターン</div></div>
+        <div class="glossary-item"><div class="g-term">Governance Patterns</div><div class="g-def">BAU GovernanceとTransformation Governanceの緊張を評価・調整するためのパターン</div></div>
+        <div class="glossary-item"><div class="g-term">Execution Patterns</div><div class="g-def">複数の実行アプローチを並行して調整しながら変革を進めるためのパターン</div></div>
+        <div class="glossary-item"><div class="g-term">Toolkit</div><div class="g-def">Transformationで用いる手法・ツール・テクニックの、ITIL視点での整理</div></div>
+        <div class="glossary-item"><div class="g-term">ITIL AI Capability Model(6Cモデル)</div><div class="g-def">AIソリューションの機能をCreation/Curation/Clarification/Cognition/Communication/Coordinationの6つに分類するモデル</div></div>
+        <div class="glossary-item"><div class="g-term">ITIL Maturity Model</div><div class="g-def">SVSおよびPracticeの成熟度をLevel 1から5で評価するモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Value Stream Mapping(VSM)</div><div class="g-def">価値提供の流れを可視化し、ムダやボトルネックを特定する手法</div></div>
+        <div class="glossary-item"><div class="g-term">OKR</div><div class="g-def">Objectives and Key Results。目標と測定可能な成果指標をセットで管理する手法</div></div>
+        <div class="glossary-item"><div class="g-term">Theory of Constraints</div><div class="g-def">システム全体のスループットは最大のボトルネックによって決まるという考え方</div></div>
+        <div class="glossary-item"><div class="g-term">RACI／RASCI</div><div class="g-def">役割分担(実行責任・説明責任・支援・相談・報告)を整理するマトリクス</div></div>
+        <div class="glossary-item"><div class="g-term">Bloom's Taxonomy</div><div class="g-def">教育評価で用いられる認知レベルの分類(知識・理解・適用・分析・評価・創造)</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== 16. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 16</div>
+      <h2>参考文献・出典URL一覧</h2>
+
+      <div class="ref-group">
+        <h4>公式情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL Transformation (Version 5) — 公式認定ページ(PeopleCert)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) — 公式認定ページ(itil.com)</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5): A continual approach to major organizational change(Kaimar Karu, Lead Author)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5</a></li>
+          <li><span class="ref-name">New ITIL Explained for Certified Professionals(ITIL Managing Professional designation構成の説明)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-explained" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-explained</a></li>
+          <li><span class="ref-name">Introduction to the ITIL Maturity Model(PeopleCert公式PDF)</span><a class="ref-url" href="https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf" target="_blank" rel="noopener">https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf</a></li>
+          <li><span class="ref-name">Governing AI in organizations(ITIL AI Capability ModelとAI Governanceの背景)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>公認トレーニングプロバイダ</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL® Transformation (Version 5) course — QA</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/</a></li>
+          <li><span class="ref-name">ITIL® Transformation Course & Examination — ITSM Hub</span><a class="ref-url" href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">https://www.itsmhub.com/products/itil-transformation-course-examination</a></li>
+          <li><span class="ref-name">ITIL (Version 5) Transformation Training Course — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-transformation-course</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) Practice Tests — Udemy</span><a class="ref-url" href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">https://www.udemy.com/course/itil-transformation-version-5-practice-tests/</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) e-Learning+ — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/</a></li>
+          <li><span class="ref-name">ITIL® AI Governance Training & Certification — AgilePM Hub</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>解説記事</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4(ITIL AI Capability Modelの解説)</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
+          <li><span class="ref-name">Information and Technology in ITIL Version 5(6Cモデルの解説)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>本ガイドは上記の公開情報をもとに独自に構成した学習補助教材である。最終的な試験対策には、PeopleCertが提供する公式eBook・Learner Workbook・Quick Reference Guideを必ず併用すること。</p>
+      </div>
+    </section>
+
+
+    <footer>
+      ITIL® は AXELOS Limited の登録商標であり、AXELOS Limited の許可を得て使用されている。本ガイドは PeopleCert / AXELOS の公式教材ではなく、公開情報をもとに独自に構成した非公式の学習補助教材である。最終的な試験対策には、PeopleCert が提供する公式 eBook・Learner Workbook・Quick Reference Guide を必ず併用すること。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    certPathway: `flowchart TD
+F["ITIL Foundation Version 5 または いずれかのITIL 4認定"] --> T["ITIL Transformation Version 5 共通コアモジュール"]
+F --> PSE["ITIL Product・Service・Experience Version 5 各モジュール(MP designation用)"]
+T --> PM["Practice Manager designation"]
+T --> MP["ITIL Managing Professional Version 5 designation"]
+PSE --> MP
+T --> SL["Strategic Leader designation"]
+EXIST["既存のITIL 4 Managing Professional/Master または ITIL v3 Expert/Master"] --> MPT["ITIL Managing Professional Transition－Product, Service, Experience Version 5"]
+MPT --> MP
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef alt fill:#F3EAF8,stroke:#7A3E9D,color:#161B26,stroke-width:1px;
+class F,PSE box;
+class T hub;
+class PM,MP,SL box;
+class EXIST,MPT alt;`,
+
+    valueSystemFlow: `flowchart LR
+subgraph VS["ITIL Value System"]
+GP["Guiding Principles"]
+GOV["Governance"]
+SVC["Service Value Chain"]
+PRAC["Practices"]
+CI["Continual Improvement"]
+end
+VS --> PSL["Product and Service Lifecycle"]
+PSL --> TR["ITIL Transformation 変革の実行と学習"]
+FD["Four Dimensions of Service Management"] -.->|"適用"| TR
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class VS,PSL,FD box;
+class TR hub;`,
+
+    twoAudiences: `flowchart TD
+T["ITIL Transformation ガイダンス"] --> A1["説明責任を持つ人々 Accountable / Responsible シニアリーダー・スポンサー"]
+T --> A2["変革の影響を受ける人々 Product / Service Delivery側 BAU業務の担当者"]
+A1 --> N1["取り組みの整合性・調整・BAUとの両立を担保する"]
+A2 --> N2["何が・なぜ起きているかを理解し、変革中も安定運用を守る"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class T hub;
+class A1,A2,N1,N2 box;`,
+
+    complexityApproach: `flowchart LR
+O["秩序だった環境 Ordered / Predictable 因果関係が明確"] -->|詳細な計画が有効| P1["Plan-drivenなアプローチ 例 Project / Programme Management"]
+C["複雑な環境 Complex 因果関係は事後的にしか分からない"] -->|試行から観察・適応| P2["探索的・反復的なアプローチ 例 小さな実験、フィードバックループ"]
+X["混沌とした環境 Chaotic 即断即決が必要"] -->|まず安定化| P3["緊急対応で状況を安定化してから次のアプローチへ"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class O,C,X box;
+class P1,P2,P3 done;`,
+
+    fourLayersCycle: `flowchart TB
+G["Governance 方向づけ・意思決定"] --> P["Positioning 状況理解・立ち位置の明確化"]
+P --> E["Execution 実行 複数アプローチの並行運用"]
+E --> L["Learning 測定・評価・学習"]
+L --> G
+L -.->|"フィードバック"| P
+L -.->|"フィードバック"| E
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class G,P,E box;
+class L hub;`,
+
+    governanceBridge: `flowchart LR
+subgraph BAU["BAU Governance"]
+B1["価値の測定方法"]
+B2["チーム間の整合"]
+B3["承認プロセス・資金モデル"]
+end
+subgraph TRG["Transformation Governance"]
+T1["アジャイル等 柔軟な働き方"]
+T2["Transformation固有の意思決定基準"]
+end
+BAU <-->|"緊張関係 Tension"| TRG
+BAU -.->|"Bridge 重複を最小化しつつ両立"| TRG
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class B1,B2,B3,T1,T2 box;
+class BAU hub;`,
+
+    patternsToolkit: `flowchart TB
+IP["Initiation Patterns 出発点の理解"] --> GP["Governance Patterns BAUとTransformation Governanceの橋渡し"]
+GP --> EP["Execution Patterns 複数アプローチの並行実行 + フィードバックループ"]
+TK["Toolkit VSM / OKR / ITIL Maturity Model等"] -.->|"横断的に支援"| IP
+TK -.->|"横断的に支援"| GP
+TK -.->|"横断的に支援"| EP
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class IP,GP,EP box;
+class TK hub;`,
+
+    alignmentLevels: `flowchart LR
+S["戦略レベル なぜやるか / Why"] --> T["戦術レベル どう進めるか / How"] --> O["実行レベル 何をやるか / What"]
+O -.->|"実績・学習"| S
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class S,T,O box;`,
+
+    parallelExecution: `flowchart TB
+subgraph EX["Execution 並行運用"]
+direction LR
+A1["ワークストリームA Project管理型"]
+A2["ワークストリームB 探索的・反復型"]
+A3["ワークストリームC 緊急対応型"]
+end
+EX --> FB["共通のフィードバックループ 定期的な同期・調整"]
+FB --> EX
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class A1,A2,A3 box;
+class FB hub;`,
+
+    measurementLearningFlow: `flowchart LR
+M["測定 Measurement 指標・データ収集"] --> E["評価 Evaluation 結果の解釈"]
+E --> L["学習 Learning 組織知への変換"]
+L --> D["意思決定への反映 Governance / Execution へのフィードバック"]
+D -.->|"次サイクルへ"| M
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class M,E,L box;
+class D done;`,
+
+    valueStreamMap: `flowchart LR
+S1["要求受付"] --> S2["分析・設計"] --> S3["実装"] --> S4["検証"] --> S5["提供"]
+S1 -.->|"待ち時間"| S2
+S3 -.->|"手戻り"| S2
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4,S5 box;`,
+
+    maturityLevels: `flowchart LR
+L1["Level 1 Initial"] --> L2["Level 2 Managed"] --> L3["Level 3 Defined"] --> L4["Level 4 Quantitative"] --> L5["Level 5 Optimizing"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class L1,L2,L3 box;
+class L4,L5 done;`,
+
+    aiCapabilityModel: `flowchart TB
+AI["ITIL AI Capability Model 6Cモデル"]
+AI --> C1["Creation 創出"]
+AI --> C2["Curation キュレーション"]
+AI --> C3["Clarification 明確化"]
+AI --> C4["Cognition 認知"]
+AI --> C5["Communication コミュニケーション"]
+AI --> C6["Coordination 調整"]
+
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class AI hub;
+class C1,C2,C3,C4,C5,C6 box;`,
+
+    frameworkIntegration: `flowchart TB
+T["ITIL Transformation Model"] --> P["PRINCE2 計画・統制"]
+T --> D["DevOps 継続的デリバリー・自動化"]
+T --> A["Agile 探索的・反復的な実行"]
+
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class T hub;
+class P,D,A box;`,
+
+    studyRoadmap: `flowchart TD
+S1["Step 1 ITIL Foundation Version 5 の知識を再確認する"] --> S2["Step 2 本ガイドで Transformation Model の4層構造を理解する"]
+S2 --> S3["Step 3 3つのPatterns Initiation/Governance/Execution の違いを整理する"]
+S3 --> S4["Step 4 Toolkit VSM/OKR/ITIL Maturity Model等を実例で使ってみる"]
+S4 --> S5["Step 5 シナリオ問題で Bloom's Level 3-4 適用・分析を練習する"]
+S5 --> S6["Step 6 公式Mock Examで時間配分 90分/40問 を確認する"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4 box;
+class S5,S6 done;`
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
