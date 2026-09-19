@@ -60,13 +60,13 @@ flowchart TB
 
 | # | 原則(英語) | 原則(日本語) | 要点 |
 |---|---|---|---|
-| 1 | Continued Business Justification | 継続的なビジネス上の正当化 | プロジェクトは常に「望ましさ(Desirability)」「実現可能性(Viability)」「達成可能性(Achievability)」を満たす必要がある |
+| 1 | Ensure continued business justification | 継続的なビジネス上の正当化 | プロジェクトは常に「望ましさ(Desirability)」「実現可能性(Viability)」「達成可能性(Achievability)」を満たす必要がある |
 | 2 | Learn from Experience | 経験からの学習 | 過去の教訓を取り入れ、自らの教訓も記録し継承する |
-| 3 | Defined Roles and Responsibilities | 明確な役割と責任 | ビジネス・ユーザー・サプライヤーの3つの利害関係者の視点を明示的に代表する体制を作る |
+| 3 | Define roles, responsibilities and relationships | 明確な役割と責任 | ビジネス・ユーザー・サプライヤーの3つの利害関係者の視点を明示的に代表する体制を作る |
 | 4 | Manage by Stages | 段階(ステージ)による管理 | プロジェクトを管理可能な単位(マネジメントステージ)に分割し、段階ごとに計画・監視・統制する |
 | 5 | Manage by Exception | 例外による管理 | 各レベルに許容範囲(トレランス)を委譲し、逸脱が予測される場合のみ上位へエスカレーションする |
 | 6 | Focus on Products | プロダクトへの焦点 | 「何を作るか」を起点に計画し、要求事項・品質基準を明確化する |
-| 7 | Tailor to the Project Environment | プロジェクト環境へのテーラリング | 規模・複雑さ・重要性・リスク等に応じて手法を調整する(方法自体は削らないが適用度合いを変える) |
+| 7 | Tailor to suit the project | プロジェクト環境へのテーラリング | 規模・複雑さ・重要性・リスク等に応じて手法を調整する(方法自体は削らないが適用度合いを変える) |
 
 ### 2.1 原則の詳細解説
 
