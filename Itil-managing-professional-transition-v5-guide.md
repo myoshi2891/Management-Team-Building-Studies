@@ -54,6 +54,7 @@ flowchart TB
         FG --> FGT["ITIL Transformation (Version 5)"]
         FGT --> FG3
         FGT --> FG5
+        FGT --> FG7
         FG3 --> FG8["ITIL Master Version 5"]
         FG5 --> FG8
         FG7 --> FG8
@@ -126,7 +127,7 @@ MPT を学ぶ前提として、ITIL がどのように進化してきたかを�
 
 | 観点 | ITIL v3（2007） | ITIL 4（2019） | ITIL (Version 5)（2026） |
 |---|---|---|---|
-| 中核モデル | Service Lifecycle（5段階: Strategy/Design/Transition/Operation/CSI） | Service Value System + Service Value Chain（6活動） | ITIL Value System (ITIL VS) + Product and Service Lifecycle Model／PSLM（8活動） |
+| 中核モデル | Service Lifecycle（5段階: Strategy/Design/Transition/Operation/CSI） | Service Value System + Service Value Chain（6活動） | ITIL Value System (ITIL VS)（Service Value Chain／6活動を構成要素として継続） + Product and Service Lifecycle Model／PSLM（8活動） |
 | 対象範囲 | ITサービスマネジメント | ITサービスマネジメント（原則・プラクティス体系） | デジタル**プロダクト**とサービスの統合マネジメント |
 | AIの扱い | 想定なし | 言及なし | Four Dimensionsの「情報と技術」にAI Capability Model(6Cモデル)を新設、「組織と人材」には人とAIの協働を明示的に統合、専用のAI Governanceモジュールも新設 |
 | Guiding Principles | なし（v3独自の原則） | 7原則 | 7原則を**そのまま継承**（変更なし） |
@@ -143,7 +144,7 @@ Transformation試験・PSE試験のどちらにも共通して出題される土
 
 ### 3.1 ITIL Value System (ITIL VS)
 
-ITIL 4 の Service Value System (SVS) の名称が **ITIL Value System (ITIL VS)** に変更されました。これは「サービス」だけでなく「デジタルプロダクト」も価値創出の対象として明示的に含めるための改称であり、構成要素（Guiding Principles、Governance、Product and Service Lifecycle Model、Practices、Continual Improvement）自体の骨格はSVSを踏襲しています。
+ITIL 4 の Service Value System (SVS) の名称が **ITIL Value System (ITIL VS)** に変更されました。これは「サービス」だけでなく「デジタルプロダクト」も価値創出の対象として明示的に含めるための改称であり、構成要素（Guiding Principles、Governance、Service Value Chain、Product and Service Lifecycle Model、Practices、Continual Improvement）自体の骨格はSVSを踏襲しています。Service Value Chain（6活動）はVersion 5でも中核の運用モデルとして維持され、これにプロダクト/サービス単位の視点を補うPSLM（8活動、[5.2節](#52-product-and-service-lifecycle-model-pslm--8つの活動)参照）が新たに加わりました。
 
 ### 3.2 7つの Guiding Principles（変更なし）
 

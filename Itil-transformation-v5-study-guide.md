@@ -78,10 +78,14 @@ ITIL Foundation試験が主に「知識（Recall）」と「理解（Comprehensi
 flowchart TD
     F["ITIL Foundation<br/>(Version 5)<br/>または いずれかのITIL 4認定"] --> T["ITIL Transformation<br/>(Version 5)<br/>共通コアモジュール"]
     F --> PSE["ITIL Product・Service・Experience<br/>(Version 5)<br/>各モジュール(MP designation用)"]
+    F --> PMM["ITIL Practice Manager<br/>選択モジュール<br/>(PM designation用)"]
+    F --> STRAT["ITIL Strategy<br/>(Version 5)<br/>(SL designation用)"]
     T --> PM["Practice Manager<br/>designation"]
+    PMM --> PM
     T --> MP["ITIL Managing Professional<br/>(Version 5)<br/>designation"]
     PSE --> MP
     T --> SL["Strategic Leader<br/>designation"]
+    STRAT --> SL
 
     EXIST["既存のITIL 4 Managing Professional/Master<br/>または ITIL v3 Expert/Master"] --> MPT["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)"]
     MPT --> MP
@@ -89,7 +93,7 @@ flowchart TD
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef alt fill:#F3EAF8,stroke:#7A3E9D,color:#161B26
-    class F,PSE box
+    class F,PSE,PMM,STRAT box
     class T hub
     class PM,MP,SL box
     class EXIST,MPT alt
