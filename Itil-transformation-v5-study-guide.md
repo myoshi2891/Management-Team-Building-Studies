@@ -227,18 +227,24 @@ flowchart TD
 
 ### 3-3. 複雑性への向き合い方
 
-Transformationが扱う状況は、見通しの立てやすい秩序だった（Ordered / Predictable）環境から、因果関係が事前には把握しづらい複雑（Complex）な環境、さらには緊急対応が求められる混沌（Chaotic）とした環境まで幅がある。ITIL Transformationは、この状況の違いに応じて計画的アプローチと探索的アプローチを使い分けることを重視する。
+Transformationが扱う状況は、見通しの立てやすい秩序だった（Ordered / Predictable）環境から、因果関係が事前には把握しづらい複雑（Complex）な環境、さらには緊急対応が求められる混沌（Chaotic）とした環境まで幅がある。加えて、そもそも状況の性質がまだ理解されていない混乱した（Confused）状態もあり、この場合は計画的・探索的・緊急対応のいずれかを選ぶ前に、まず状況を正しく分類することが最優先になる。ITIL Transformationは、この状況の違いに応じて計画的アプローチと探索的アプローチを使い分けることを重視する。
 
 ```mermaid
 flowchart LR
-    O["秩序だった環境<br/>Ordered / Predictable<br/>因果関係が明確"] -->|詳細な計画が有効| P1["Plan-drivenな<br/>アプローチ<br/>(例: Project / Programme Management)"]
-    C["複雑な環境<br/>Complex<br/>因果関係は事後的にしか分からない"] -->|試行→観察→適応| P2["探索的・反復的な<br/>アプローチ<br/>(例: 小さな実験、フィードバックループ)"]
-    X["混沌とした環境<br/>Chaotic<br/>即断即決が必要"] -->|まず安定化| P3["緊急対応で<br/>状況を安定化してから<br/>次のアプローチへ"]
+    CN["混乱した状況<br/>Confused<br/>状況がまだ理解・分類されていない"] -->|まず状況を分類する| CL{"状況を分類"}
+    CL --> O["秩序だった環境<br/>Ordered / Predictable<br/>因果関係が明確"]
+    CL --> C["複雑な環境<br/>Complex<br/>因果関係は事後的にしか分からない"]
+    CL --> X["混沌とした環境<br/>Chaotic<br/>即断即決が必要"]
+    O -->|詳細な計画が有効| P1["Plan-drivenな<br/>アプローチ<br/>(例: Project / Programme Management)"]
+    C -->|試行→観察→適応| P2["探索的・反復的な<br/>アプローチ<br/>(例: 小さな実験、フィードバックループ)"]
+    X -->|まず安定化| P3["緊急対応で<br/>状況を安定化してから<br/>次のアプローチへ"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+    classDef confused fill:#FAF1DF,stroke:#B8802A,color:#161B26
     class O,C,X box
     class P1,P2,P3 done
+    class CN,CL confused
 ```
 
 > **ベストプラクティス**
