@@ -38,7 +38,7 @@
 
 MPT は「研修1本＋試験2本」で構成されるパッケージです。両方の試験に合格すると **ITIL Managing Professional (Version 5)** の資格が得られます。ITIL 最高位資格 **ITIL Master (Version 5)** に到達するには、これに加えて **ITIL Practice Manager (Version 5)** と **ITIL Strategic Leader (Version 5)** の2資格も必要です（3資格必須）。ただし、保有していた前提資格によってMPT経由での到達範囲が異なります。
 
-- **ITIL 4 Managing Professional 保有者**: MPTの2試験合格で得られるのは Managing Professional (Version 5) までです。Master に到達するには、Practice Manager と Strategic Leader を**別途個別に取得**する必要があります。
+- **ITIL 4 Managing Professional 保有者**: MPTの2試験合格により、Managing Professional (Version 5) と、中核モジュール **Transformation (Version 5)** の2つが認定されます（Exam 1 が Transformation の試験そのものであるため）。Master に到達するために残るのは Practice Manager と Strategic Leader の2資格で、これらは**別途個別に取得**する必要があります。
 - **ITIL 4 Master 保有者**: MPTの2試験合格により、Managing Professional に加えて Practice Manager・Strategic Leader も同時に認定され、**ITIL Master (Version 5) まで一括で到達**します。
 - **ITIL v3 Master 保有者**: MPTの2試験合格で得られるのは Managing Professional（および中核モジュール Transformation の認定）までです。Master に到達するには、Practice Manager と Strategic Leader を**別途個別に取得**する必要があります。
 
@@ -64,8 +64,8 @@ flowchart TB
     subgraph Route4MP["ルート2: ITIL 4 Managing Professionalからの移行"]
         direction TB
         MP4["ITIL 4 Managing Professional 保有"] --> MPT4MP["MPT研修 + Exam1/Exam2 合格"]
-        MPT4MP --> MP4R["Managing Professional Version 5 認定"]
-        MP4R --> MP4S["Practice Manager・Strategic Leaderを<br/>別途個別取得"]
+        MPT4MP --> MP4R["Managing Professional Version 5 認定<br/>(Transformationも認定済み)"]
+        MP4R --> MP4S["残る Practice Manager・Strategic Leaderを<br/>別途個別取得"]
         MP4S --> MP4M["ITIL Master Version 5"]
     end
 
