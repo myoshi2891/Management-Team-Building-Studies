@@ -50,7 +50,7 @@ ITIL Transformation（Version 5）は、ITIL（Version 5）資格体系におけ
 | 参照可否 | Open book（公式教材の参照が可能） |
 | 合格基準 | 70%以上の正答 |
 | 出題言語 | 英語 |
-| 認定更新 | 以下いずれかのルートで更新可能: (1) PeopleCert Plusメンバーシップに加入し、CPD（Continuing Professional Development）ポイントを3年連続で毎年20ポイントずつ記録する、(2) 更新期限までに同一Product Suite内の別資格を新たに取得する、(3) 既存資格の試験を再受験する |
+| 認定更新 | 以下いずれかのルートで更新可能: (1) PeopleCert Plusメンバーシップに3年間継続加入し、毎年20 CPD（Continuing Professional Development）ポイントのうち少なくとも5ポイントをProfessional Experienceカテゴリから記録する（3年連続で継続しない限りこのルートでは更新できない）、(2) 更新期限までに同一Product Suite内の別資格を新たに取得する、(3) 既存資格の試験を再受験する |
 
 ### 1-2. 受験前提条件（Certification Requirements）
 
@@ -86,17 +86,28 @@ flowchart TD
     PSE --> MP
     T --> SL["Strategic Leader<br/>designation"]
     STRAT --> SL
+    PM --> MASTER["ITIL Master<br/>(Version 5)<br/>(PM+MP+SLすべてが必須)"]
+    MP --> MASTER
+    SL --> MASTER
 
-    EXIST["既存のITIL 4 Managing Professional/Master<br/>または ITIL v3 Expert/Master"] --> MPT["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)"]
-    MPT --> MP
+    EXIST4["ITIL 4 Master 保有"] --> MPT4["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)"]
+    MPT4 --> MP
+    MPT4 --> PM
+    MPT4 --> SL
+    MPT4 --> MASTER
+
+    EXISTV3["ITIL v3 Expert/Master 保有"] --> MPTV3["ITIL Managing Professional Transition<br/>－Product, Service, Experience<br/>(Version 5)<br/>(Transformationも認定済み)"]
+    MPTV3 --> MP
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     classDef alt fill:#F3EAF8,stroke:#7A3E9D,color:#161B26
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
     class F,PSE,PMM,STRAT box
     class T hub
     class PM,MP,SL box
-    class EXIST,MPT alt
+    class MASTER done
+    class EXIST4,MPT4,EXISTV3,MPTV3 alt
 ```
 
 ITIL Managing Professional（Version 5）designationを取得するには、ITIL Foundation（Version 5）またはいずれかのITIL 4認定を前提として、ITIL Transformationに加えてITIL Product・Service・Experienceの各モジュールにも合格する必要がある。ただし、既存のITIL 4 Managing Professional／MasterまたはITIL v3 Expert／Masterの有資格者は、Product・Service・Experienceの3モジュールに代えて「ITIL Managing Professional Transition－Product, Service, Experience（Version 5）」試験（Transformationとは別に受験）1本に合格することで移行できる（Take2オプションではTransformationとTransition試験の再受験権をセットで購入できる）。

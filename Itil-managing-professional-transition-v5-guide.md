@@ -46,16 +46,16 @@ flowchart TB
     subgraph RouteGeneral["ルート1: 一般的なFoundationルート(前提資格なし)"]
         direction TB
         FG["ITIL Foundation Version 5"] --> FG2["Product/Service/Experienceを個別取得"]
-        FG2 --> FG3["Managing Professional Version 5"]
+        FG2 --> FG3["Managing Professional Version 5<br/>(FG2+FGTの両方が必須)"]
         FG --> FG4["Strategyを個別取得"]
-        FG4 --> FG5["Strategic Leader Version 5"]
-        FG --> FG6["Practice Managerモジュールを個別取得"]
-        FG6 --> FG7["Practice Manager Version 5"]
+        FG4 --> FG5["Strategic Leader Version 5<br/>(FG4+FGTの両方が必須)"]
+        FG --> FG6["Practice Manager選択モジュールを<br/>いずれか1つ個別取得"]
+        FG6 --> FG7["Practice Manager Version 5<br/>(FG6+FGTの両方が必須)"]
         FG --> FGT["ITIL Transformation (Version 5)"]
         FGT --> FG3
         FGT --> FG5
         FGT --> FG7
-        FG3 --> FG8["ITIL Master Version 5"]
+        FG3 --> FG8["ITIL Master Version 5<br/>(FG3+FG5+FG7すべてが必須)"]
         FG5 --> FG8
         FG7 --> FG8
     end
@@ -144,7 +144,7 @@ Transformation試験・PSE試験のどちらにも共通して出題される土
 
 ### 3.1 ITIL Value System (ITIL VS)
 
-ITIL 4 の Service Value System (SVS) の名称が **ITIL Value System (ITIL VS)** に変更されました。これは「サービス」だけでなく「デジタルプロダクト」も価値創出の対象として明示的に含めるための改称であり、構成要素（Guiding Principles、Governance、Service Value Chain、Product and Service Lifecycle Model、Practices、Continual Improvement）自体の骨格はSVSを踏襲しています。Service Value Chain（6活動）はVersion 5でも中核の運用モデルとして維持され、これにプロダクト/サービス単位の視点を補うPSLM（8活動、[5.2節](#52-product-and-service-lifecycle-model-pslm--8つの活動)参照）が新たに加わりました。
+ITIL 4 の Service Value System (SVS) の名称が **ITIL Value System (ITIL VS)** に変更されました。これは「サービス」だけでなく「デジタルプロダクト」も価値創出の対象として明示的に含めるための改称であり、構成要素（Guiding Principles、Governance、Service Value Chain、Practices、Continual Improvement）自体の骨格はSVSを踏襲しています。Service Value Chain（6活動）はVersion 5でも中核の運用モデルとして維持され、これにプロダクト/サービス単位の視点を補うPSLM（8活動、[5.2節](#52-product-and-service-lifecycle-model-pslm--8つの活動)参照）が新たに加わりました。
 
 ### 3.2 7つの Guiding Principles（変更なし）
 
