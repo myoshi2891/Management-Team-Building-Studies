@@ -555,10 +555,10 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    TM["Team Manager"] -->|Checkpoint Report\n(時間駆動)| PM["Project Manager"]
-    PM -->|Highlight Report\n(時間駆動)| PB["Project Board"]
-    PM -->|Exception Report\n(イベント駆動:\nトレランス逸脱時)| PB
-    PB -->|Exception Plan承認| PM
+    TM["Team Manager"] -->|"Checkpoint Report<br/>(時間駆動)"| PM["Project Manager"]
+    PM -->|"Highlight Report<br/>(時間駆動)"| PB["Project Board"]
+    PM -->|"Exception Report<br/>(イベント駆動:<br/>トレランス逸脱時)"| PB
+    PB -->|"Exception Plan承認"| PM
 ```
 
 #### テーラリングの考慮点
