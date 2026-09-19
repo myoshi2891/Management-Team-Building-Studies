@@ -328,7 +328,7 @@ flowchart LR
 
 > **注記:** この図は8つの活動の関係性を示す例示的なValue Streamであり、必ずこの順序で実行すべき固定シーケンスではない。文脈（コンテキスト）に応じて、活動は組み合わせたり、繰り返したり、並行して実施したり、後戻りして再訪したりしてよい。
 
-前半（Discover・Design・Acquire・Build）は**プロダクト寄り**、後半（Deliver・Support）は**サービス寄り**、中間の Transition・Operate が両者をつなぐ**橋渡し**という位置づけになります。
+8つの活動はいずれもプロダクトとサービスの両方に共通して適用される、単一のライフサイクルを構成します。学習の便宜上、Discover・Design・Acquire・Buildを**プロダクト寄りの活動**、Deliver・Supportを**サービス寄りの活動**、中間のTransition・Operateを両者の**橋渡し**として捉える整理の仕方もありますが、これはあくまで理解を助けるための任意の視点であり、活動そのものが対象を限定するものではありません。
 
 | 活動 | 目的（要点） | プロダクト視点でのベストプラクティス | サービス視点でのベストプラクティス |
 |---|---|---|---|
@@ -609,7 +609,7 @@ MPTの両試験では、ITILを単独のフレームワークとしてではな�
 - [ ] バリューストリームとオペレーティングモデルの違いを説明できる
 - [ ] ITIL Experience Modelの3要素（Anticipation/Perception/Evaluation）を説明できる
 - [ ] Four Experience Domains（Personal/Functional/Relational/Contextual）を区別できる
-- [ ] サービスジャーニー7ステップ（Explore〜Reflect）を順に説明できる
+- [ ] サービスジャーニー7ステップ（Explore〜Reflect）の各ステップの目的を説明でき、順序の入れ替わり・並行実施・反復が起こり得ることを理解している
 - [ ] Band of VisibilityとCX/UXの違いを説明できる
 - [ ] ステークホルダージャーニー（Consumer/Provider）の典型的な懸念とアンチパターンを説明できる
 - [ ] Notice–Interpret–Hypothesize–Experimentループを説明できる
