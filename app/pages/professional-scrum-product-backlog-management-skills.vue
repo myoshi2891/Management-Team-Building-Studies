@@ -29,6 +29,12 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
+// スキップリンクは本文へフォーカスを移すため、closeSidebar() の toggle へのフォーカス復帰は使えない。
+// オーバーレイが本文を覆ったまま残るのを防ぐために、状態だけを閉じる。
+function closeSidebarForSkipLink(): void {
+  sidebarOpen.value = false;
+}
+
 useSeoMeta({
   title: "PSPBM(Professional Scrum Product Backlog Management Skills)認定 完全ガイド | プロダクトバックログマネジメント実践知識",
   description:
@@ -138,7 +144,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
 <template>
   <div class="layout">
-    <a href="#main-content" class="skip-link">本文へスキップ</a>
+    <a href="#main-content" class="skip-link" @click="closeSidebarForSkipLink">本文へスキップ</a>
     <div
       v-if="sidebarOpen"
       class="sidebar-overlay"

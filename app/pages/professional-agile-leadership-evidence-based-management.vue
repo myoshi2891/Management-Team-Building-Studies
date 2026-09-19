@@ -29,6 +29,12 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
+// スキップリンクは本文へフォーカスを移すため、closeSidebar() の toggle へのフォーカス復帰は使えない。
+// オーバーレイが本文を覆ったまま残るのを防ぐために、状態だけを閉じる。
+function closeSidebarForSkipLink(): void {
+  sidebarOpen.value = false;
+}
+
 useSeoMeta({
   title: "PAL-EBM™ 認定資格 完全ガイド | Evidence-Based Management™ で読み解くアジャイルリーダーシップ",
   description:
@@ -232,7 +238,7 @@ class B,C,D,E box;`;
 
 <template>
   <div class="layout">
-    <a href="#main-content" class="skip-link">本文へスキップ</a>
+    <a href="#main-content" class="skip-link" @click="closeSidebarForSkipLink">本文へスキップ</a>
     <button
       ref="sidebarToggle"
       type="button"
