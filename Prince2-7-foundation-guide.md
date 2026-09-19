@@ -357,8 +357,8 @@ flowchart TB
     REP --> REP5["エンドプロジェクト報告"]
 ```
 
-> **補足(用語の変遷とV7での新設):** 「戦略(Strategy)」から**「マネジメント・アプローチ(Management Approach)」**への改称はV6(2017年版)で行われ、V7では引き続きこの呼称が使われている。V7ではこれに加えて、**チェンジ・マネジメント・アプローチ**（旧版の「Configuration Management Strategy」から改称・再構成）、**コマーシャル・マネジメント・アプローチ**、**デジタル&データ・マネジメント・アプローチ**、**サステナビリティ・マネジメント・アプローチ**の4つが新設された。
-> (出典: [prince2.wiki — Define roles, responsibilities and relationships](https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/))
+> **補足(用語の変遷とV7での新設):** 「戦略(Strategy)」から**「マネジメント・アプローチ(Management Approach)」**への改称はV6(2017年版)で行われ、V7では引き続きこの呼称が使われている。V7ではこれに加えて、**チェンジ・マネジメント・アプローチ**（既存製品の改称ではなく、組織変革の実現に焦点を当てて新設されたマネジメント・プロダクト）、**コマーシャル・マネジメント・アプローチ**、**デジタル&データ・マネジメント・アプローチ**、**サステナビリティ・マネジメント・アプローチ**の4つが新設された。あわせて、V6の「チェンジ・コントロール・アプローチ」（Changeテーマに属し、変更管理の手続きを定めていた）は、V7では**「イシュー・マネジメント・アプローチ」**（Issuesプラクティス。リスク・問題・変更を包括する課題管理として再構成）に置き換えられている。
+> (出典: [Projex Academy — Navigating PRINCE2: Unpacking the Shift from 6th to 7th Edition](https://www.projex.com/navigating-prince2-unpacking-the-shift-from-6th-to-7th-edition/))
 
 **プロジェクト・イニシエーション・ドキュメンテーション(PID)の主な構成**
 
