@@ -338,7 +338,7 @@ flowchart TB
 
     BL --> BL1["ビジネスケース"]
     BL --> BL2["各種マネジメント・アプローチ<br/>(Benefits/Change/Commercial/<br/>Communication/Digital and Data/<br/>Issue/Quality/Risk/Sustainability)"]
-    BL --> BL3["プラン (Project/Stage/Team)"]
+    BL --> BL3["プラン (Project/Stage/Team/Exception)"]
     BL --> BL4["プロダクト・ディスクリプション"]
     BL --> BL5["プロジェクトブリーフ"]
     BL --> BL6["プロジェクト・イニシエーション<br/>ドキュメンテーション (PID)"]
