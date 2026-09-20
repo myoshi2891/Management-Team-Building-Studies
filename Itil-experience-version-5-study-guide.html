@@ -186,6 +186,23 @@
     cursor: pointer;
   }
 
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 100;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 8px;
+  }
+
   /* ===================== Main content ===================== */
   .main-content {
     margin-left: var(--sidebar-width);
@@ -588,6 +605,7 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
@@ -624,7 +642,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" tabindex="-1">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert ITIL (Version 5) &middot; Managing Professional</div>
@@ -647,7 +665,7 @@
     </div>
 
     <!-- ===================== 00. Overview ===================== -->
-    <section id="overview">
+    <section id="overview" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 00</div>
       <h2>この試験は何か ── 全体像をつかむ</h2>
 
@@ -694,7 +712,7 @@
     </section>
 
     <!-- ===================== 01. Exam Overview ===================== -->
-    <section id="exam-overview">
+    <section id="exam-overview" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 01</div>
       <h2>試験概要(Exam Overview)</h2>
 
@@ -764,7 +782,7 @@
     </section>
 
     <!-- ===================== 02. Foundations refresh ===================== -->
-    <section id="foundations-refresh">
+    <section id="foundations-refresh" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
       <h2>前提となる基礎概念のリフレッシュ(Syllabus Category 1.1)</h2>
       <p>Experience の syllabus は「Category 1: Key ITIL terms and definitions」の中で、Foundation で学ぶ以下5つの概念を土台として再確認することから始まります。すべて <strong>BL2(Explain/Describe/Understand)</strong>。</p>
@@ -834,7 +852,7 @@
     </section>
 
     <!-- ===================== 03. Key concepts ===================== -->
-    <section id="key-concepts">
+    <section id="key-concepts" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 03</div>
       <h2>Experience の主要概念(Syllabus Category 1.2) ── BL2</h2>
 
@@ -878,7 +896,7 @@
     </section>
 
     <!-- ===================== 04. Experience framework ===================== -->
-    <section id="experience-framework">
+    <section id="experience-framework" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 04</div>
       <h2>ITIL Experience(Syllabus Category 2) ── 体験のフレームワーク全体像</h2>
 
@@ -1029,7 +1047,7 @@
     </section>
 
     <!-- ===================== 05. Capturing experience ===================== -->
-    <section id="capturing-experience">
+    <section id="capturing-experience" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 05</div>
       <h2>Experience の捕捉(Capturing Experience)(Syllabus Category 3)</h2>
 
@@ -1155,7 +1173,7 @@
     </section>
 
     <!-- ===================== 06. Service journey ===================== -->
-    <section id="service-journey">
+    <section id="service-journey" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 06</div>
       <h2>サービスジャーニー(Service Journey)(Syllabus Category 4)</h2>
 
@@ -1311,7 +1329,7 @@
     </section>
 
     <!-- ===================== 07. ITIL and AI ===================== -->
-    <section id="itil-and-ai">
+    <section id="itil-and-ai" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-robot"></i>SECTION 07</div>
       <h2>ITIL と AI(Syllabus Category 5)</h2>
 
@@ -1376,7 +1394,7 @@
     </section>
 
     <!-- ===================== 08. Related frameworks ===================== -->
-    <section id="related-frameworks">
+    <section id="related-frameworks" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 08</div>
       <h2>ITIL と他のフレームワーク(Syllabus Category 6)</h2>
 
@@ -1413,7 +1431,7 @@
     </section>
 
     <!-- ===================== 09. Best practice summary ===================== -->
-    <section id="best-practices-summary">
+    <section id="best-practices-summary" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-table"></i>SECTION 09</div>
       <h2>ベストプラクティス総まとめ表</h2>
       <div class="table-wrap">
@@ -1436,7 +1454,7 @@
     </section>
 
     <!-- ===================== 10. Exam tips ===================== -->
-    <section id="exam-tips">
+    <section id="exam-tips" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 10</div>
       <h2>試験対策のポイント(まとめ)</h2>
       <ol>
@@ -1460,7 +1478,7 @@
     </section>
 
     <!-- ===================== 11. Glossary ===================== -->
-    <section id="glossary">
+    <section id="glossary" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 11</div>
       <h2>用語集(Glossary)</h2>
       <div class="glossary-grid">
@@ -1481,7 +1499,7 @@
     </section>
 
     <!-- ===================== 12. References ===================== -->
-    <section id="references">
+    <section id="references" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 12</div>
       <h2>参考文献・ソース一覧</h2>
 
@@ -1774,7 +1792,13 @@ class C1,C2,C3,C4,C5,C6 box;`
         var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
+        var targetId = (link.getAttribute("href") || "").replace("#", "");
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (target) {
+          target.focus();
+        } else if (wasOpen) {
+          toggle.focus();
+        }
       });
     });
   }

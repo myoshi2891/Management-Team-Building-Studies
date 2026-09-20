@@ -186,6 +186,23 @@
     cursor: pointer;
   }
 
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 100;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 8px;
+  }
+
   /* ===================== Main content ===================== */
   .main-content {
     margin-left: var(--sidebar-width);
@@ -587,6 +604,7 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
@@ -626,7 +644,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" tabindex="-1">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert公式シラバス準拠</div>
@@ -648,7 +666,7 @@
       </div>
     </div>
 
-    <section id="what-is-itil-product">
+    <section id="what-is-itil-product" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
       <h2>ITIL Product (Version 5)とは何か</h2>
 
@@ -708,7 +726,7 @@
       </div>
     </section>
 
-    <section id="exam-format">
+    <section id="exam-format" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 02</div>
       <h2>試験概要と出題形式</h2>
 
@@ -782,14 +800,12 @@
         <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
         <ul>
           <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus, Version 5.0 PL (February 2026), PeopleCert International Limited</a></li>
-          <li><a href="Oxford College of Technology — https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-product-version-5/" target="_blank" rel="noopener">ITIL® Product (Version 5)</a></li>
+          <li><a href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-product-version-5/" target="_blank" rel="noopener">ITIL® Product (Version 5)(Oxford College of Technology)</a></li>
         </ul>
       </div>
-      <p>---</p>
-      <p><a id="section3-basic-concepts"></a></p>
     </section>
 
-    <section id="basic-concepts">
+    <section id="basic-concepts" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
       <h2>基礎概念:デジタルプロダクトとサービス(Category 1)</h2>
 
@@ -855,12 +871,12 @@
         <ul>
           <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL(Version 5) Changes Explained</a></li>
           <li><a href="https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/" target="_blank" rel="noopener">What is ITIL 5? A Guide to the New ITIL Framework</a></li>
-          <li><a href="PMG Academy — https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">The Definitive Guide to ITIL® Version 5 Foundation</a></li>
+          <li><a href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">The Definitive Guide to ITIL® Version 5 Foundation(PMG Academy)</a></li>
         </ul>
       </div>
     </section>
 
-    <section id="lifecycle-overview">
+    <section id="lifecycle-overview" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 04</div>
       <h2>ITIL Product and Service Lifecycle Model全体像</h2>
 
@@ -903,7 +919,7 @@
       </div>
     </section>
 
-    <section id="discover">
+    <section id="discover" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-search"></i>SECTION 05</div>
       <h2>Discover(発見)活動</h2>
 
@@ -980,7 +996,7 @@
       </div>
     </section>
 
-    <section id="design">
+    <section id="design" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-pencil"></i>SECTION 06</div>
       <h2>Design(設計)活動</h2>
 
@@ -1047,7 +1063,7 @@
       </div>
     </section>
 
-    <section id="acquire">
+    <section id="acquire" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-shopping-cart"></i>SECTION 07</div>
       <h2>Acquire(調達)活動</h2>
 
@@ -1117,7 +1133,7 @@
       </div>
     </section>
 
-    <section id="build">
+    <section id="build" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-hammer"></i>SECTION 08</div>
       <h2>Build(構築)活動</h2>
 
@@ -1177,7 +1193,7 @@
       </div>
     </section>
 
-    <section id="transition">
+    <section id="transition" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-transfer"></i>SECTION 09</div>
       <h2>Transition(移行)活動</h2>
 
@@ -1237,7 +1253,7 @@
       </div>
     </section>
 
-    <section id="operate">
+    <section id="operate" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-activity"></i>SECTION 10</div>
       <h2>Operate(運用)活動</h2>
 
@@ -1297,7 +1313,7 @@
       </div>
     </section>
 
-    <section id="deliver">
+    <section id="deliver" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-truck-delivery"></i>SECTION 11</div>
       <h2>Deliver(提供)活動</h2>
 
@@ -1356,7 +1372,7 @@
       </div>
     </section>
 
-    <section id="support">
+    <section id="support" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-headset"></i>SECTION 12</div>
       <h2>Support(サポート)活動</h2>
 
@@ -1416,7 +1432,7 @@
       </div>
     </section>
 
-    <section id="lifecycle-management">
+    <section id="lifecycle-management" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-sitemap"></i>SECTION 13</div>
       <h2>ライフサイクル全体のマネジメント(Category 10.1)</h2>
 
@@ -1498,7 +1514,7 @@
       </div>
     </section>
 
-    <section id="ai-and-frameworks">
+    <section id="ai-and-frameworks" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-robot"></i>SECTION 14</div>
       <h2>ITIL・AI・他フレームワークとの関係(Category 10.2)</h2>
 
@@ -1586,7 +1602,7 @@
       </div>
     </section>
 
-    <section id="study-checklist">
+    <section id="study-checklist" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-checklist"></i>SECTION 15</div>
       <h2>学習・試験対策チェックリスト</h2>
 
@@ -1621,7 +1637,7 @@
       </div>
     </section>
 
-    <section id="references">
+    <section id="references" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 16</div>
       <h2>参考文献・出典</h2>
 
@@ -1931,7 +1947,13 @@ class S1,S2,S3,S4,S5,S6 box`,
         var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
+        var targetId = (link.getAttribute("href") || "").replace("#", "");
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (target) {
+          target.focus();
+        } else if (wasOpen) {
+          toggle.focus();
+        }
       });
     });
   }

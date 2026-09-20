@@ -186,6 +186,23 @@
     cursor: pointer;
   }
 
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 8px;
+    z-index: 100;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 8px;
+  }
+
   /* ===================== Main content ===================== */
   .main-content {
     margin-left: var(--sidebar-width);
@@ -588,6 +605,7 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">本文へスキップ</a>
 <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
 
 <div class="layout">
@@ -628,7 +646,7 @@
   </nav>
 
   <!-- ===================== Main content ===================== -->
-  <main class="main-content">
+  <main class="main-content" id="main-content" tabindex="-1">
 
     <div class="hero">
       <div class="hero-eyebrow"><i class="ti ti-certificate"></i>PeopleCert ITIL (Version 5) - Managing Professional ストリーム</div>
@@ -650,7 +668,7 @@
       </div>
     </div>
 
-    <section id="about-guide">
+    <section id="about-guide" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-list-details"></i>SECTION 00</div>
       <h2>このガイドについて</h2>
 
@@ -665,7 +683,7 @@
       </ul>
     </section>
 
-    <section id="exam-overview">
+    <section id="exam-overview" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
       <h2>ITIL Service (Version 5) 試験の全体像</h2>
 
@@ -758,7 +776,7 @@
       <p><strong>読み方のポイント</strong>: Product・Service・Experience の3モジュールをすべて取得すると「ITIL Managing Professional」称号が得られます。同様に Strategy・Transformation を取得すると「ITIL Strategic Leader」となり、両方を揃えると最上位の「ITIL Master」に到達します。Service モジュール単体でも実務知識として十分に価値がありますが、資格戦略上は Product・Experience とセットで捉えると学習効率が上がります。</p>
     </section>
 
-    <section id="foundation-review">
+    <section id="foundation-review" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
       <h2>前提知識の総復習: ITIL Version 5 の全体構造</h2>
 
@@ -832,7 +850,7 @@
           <tbody>
             <tr>
               <td>Guiding Principles(指導原則)</td>
-              <td>あらゆる状況で組織の意思決定を導む普遍的な推奨事項(7原則)</td>
+              <td>あらゆる状況で組織の意思決定を導く普遍的な推奨事項(7原則)</td>
             </tr>
             <tr>
               <td>Governance(ガバナンス)</td>
@@ -1214,7 +1232,7 @@
       <p>Service モジュールでは、これらのプラクティスが PSLM の Deliver・Support 段階を中心に登場します(第9章・第10章で詳述)。</p>
     </section>
 
-    <section id="module1-key-concepts">
+    <section id="module1-key-concepts" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
       <h2>Module 1: デジタル製品とサービスの主要概念</h2>
 
@@ -1383,7 +1401,7 @@
       </div>
     </section>
 
-    <section id="module2-discover">
+    <section id="module2-discover" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-search"></i>SECTION 04</div>
       <h2>Module 2: Discover(発見)</h2>
 
@@ -1477,7 +1495,7 @@
       </div>
     </section>
 
-    <section id="module3-design">
+    <section id="module3-design" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-ruler-2"></i>SECTION 05</div>
       <h2>Module 3: Design(設計)</h2>
 
@@ -1570,7 +1588,7 @@
       </div>
     </section>
 
-    <section id="module4-acquire">
+    <section id="module4-acquire" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-shopping-cart"></i>SECTION 06</div>
       <h2>Module 4: Acquire(獲得)</h2>
 
@@ -1690,7 +1708,7 @@
       </div>
     </section>
 
-    <section id="module5-build">
+    <section id="module5-build" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-hammer"></i>SECTION 07</div>
       <h2>Module 5: Build(構築)</h2>
 
@@ -1786,7 +1804,7 @@
       </div>
     </section>
 
-    <section id="module6-transition">
+    <section id="module6-transition" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-transfer"></i>SECTION 08</div>
       <h2>Module 6: Transition(移行)</h2>
 
@@ -1904,7 +1922,7 @@
       </div>
     </section>
 
-    <section id="module7-operate">
+    <section id="module7-operate" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-activity"></i>SECTION 09</div>
       <h2>Module 7: Operate(運用)</h2>
 
@@ -1994,7 +2012,7 @@
       </div>
     </section>
 
-    <section id="module8-deliver">
+    <section id="module8-deliver" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-truck-delivery"></i>SECTION 10</div>
       <h2>Module 8: Deliver(提供)</h2>
 
@@ -2090,7 +2108,7 @@
       </div>
     </section>
 
-    <section id="module9-support">
+    <section id="module9-support" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-lifebuoy"></i>SECTION 11</div>
       <h2>Module 9: Support(サポート)</h2>
 
@@ -2194,7 +2212,7 @@
       </div>
     </section>
 
-    <section id="module10-lifecycle-ai">
+    <section id="module10-lifecycle-ai" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 12</div>
       <h2>Module 10: ライフサイクル管理・AI・他フレームワーク統合</h2>
 
@@ -2349,7 +2367,7 @@
       </div>
     </section>
 
-    <section id="best-practices-summary">
+    <section id="best-practices-summary" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 13</div>
       <h2>ベストプラクティス総まとめ</h2>
 
@@ -2441,7 +2459,7 @@
       </div>
     </section>
 
-    <section id="exam-tips">
+    <section id="exam-tips" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 14</div>
       <h2>試験対策のポイント</h2>
 
@@ -2508,7 +2526,7 @@
       <p>試験対策と並行して意識してほしいのは、ITIL Service (Version 5) が問うているのは「用語を知っているか」ではなく「サービスプロバイダーとして、変化し続けるデジタルサービスの信頼性と価値をどう守るか」という実務上の問いだという点です。第12章の横断的ベストプラクティスは、そのまま試験対策と実務導入の両方に使える指針として設計しています。</p>
     </section>
 
-    <section id="glossary">
+    <section id="glossary" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 15</div>
       <h2>付録: 用語集</h2>
 
@@ -2560,7 +2578,7 @@
       </div>
     </section>
 
-    <section id="references">
+    <section id="references" tabindex="-1">
       <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 16</div>
       <h2>参考文献・ソース URL 一覧</h2>
 
@@ -2979,7 +2997,13 @@ class T1,T2,T3,T4,T5,T6 box`,
         var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
+        var targetId = (link.getAttribute("href") || "").replace("#", "");
+        var target = targetId ? document.getElementById(targetId) : null;
+        if (target) {
+          target.focus();
+        } else if (wasOpen) {
+          toggle.focus();
+        }
       });
     });
   }
