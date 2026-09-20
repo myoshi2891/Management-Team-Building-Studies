@@ -159,7 +159,7 @@ flowchart LR
     subgraph VS["ITIL Value System"]
         GP["Guiding Principles"]
         GOV["Governance"]
-        SVC["Service Value Chain<br/>(ITIL 4)"]
+        SVC["Service Value Chain<br/>(Version 5でも維持)"]
         PRAC["Practices"]
         CI["Continual Improvement"]
     end
@@ -387,8 +387,9 @@ ITIL Transformationモジュールの中核をなすのが、Initiation Patterns
 
 ```mermaid
 flowchart TB
-    IP["Initiation Patterns<br/>出発点の理解"] --> GP["Governance Patterns<br/>BAUとTransformation<br/>Governanceの橋渡し"]
-    GP --> EP["Execution Patterns<br/>複数アプローチの並行実行<br/>+ フィードバックループ"]
+    IP["Initiation Patterns<br/>出発点の理解"]
+    GP["Governance Patterns<br/>BAUとTransformation<br/>Governanceの橋渡し"]
+    EP["Execution Patterns<br/>複数アプローチの並行実行<br/>+ フィードバックループ"]
     TK["Toolkit<br/>VSM / OKR / ITIL Maturity Model等"] -.横断的に支援.-> IP
     TK -.横断的に支援.-> GP
     TK -.横断的に支援.-> EP
