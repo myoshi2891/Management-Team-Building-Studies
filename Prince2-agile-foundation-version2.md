@@ -81,7 +81,7 @@ PRINCE2 Agile Foundation は、世界で最も広く使われているプロジ�
 > https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf ,
 > https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf
 >
-> **注記 (バージョンに関する留意点):** 公開されている Candidate Syllabus の文書は、試験時間・問題数・合格ラインについて「50問・55%合格」という記載になっている一方、PeopleCert の現行の製品ページ(Version 2)では「40問・60分・60%合格」と案内されています。これは Version 2 化に伴う試験運用パラメータの更新が、シラバス文書側にまだ反映されていない版が流通していることを示しています。出題範囲(LO1〜LO5)やテーマ構成そのものに大きな変更はないと考えられますが、**受験直前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus と試験概要を確認してください。**
+> **注記 (バージョンに関する留意点):** 上記2件の Candidate Syllabus は PeopleCert の公式ドメインではなく第三者サイトによる非公式ミラー(8.2節参照)であり、試験時間・問題数・合格ラインについて「50問・55%合格」という、現行の PeopleCert 製品ページ(Version 2)の「40問・60分・60%合格」とは異なる旧版の情報を記載しています。このミラー文書だけでは、出題範囲(LO1〜LO5)やテーマ構成が Version 2 化後も変わっていないかどうかを確認できません。また PRINCE2 Agile は PRINCE2 の土台の上に成り立つ手法であり、PeopleCert は PRINCE2 側も「PRINCE2 Project Management Version 7」として改定を行っているため、本ガイドが扱う7つのテーマ等の用語・範囲が Version 7 の内容と整合しているかも合わせて確認が必要です。**受験前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus・試験概要、および PRINCE2 Project Management Version 7 との用語・範囲の整合性を確認してください。**
 
 ### 0.4 学習の全体マップ
 
