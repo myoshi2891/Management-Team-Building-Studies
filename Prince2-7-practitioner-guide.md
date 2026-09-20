@@ -605,8 +605,8 @@ flowchart TB
     IP --> CS
     SB -.->|次ステージへ| CS
     CS --> CP
-    DP -.->|承認・指示| SU
-    DP -.->|承認・指示| IP
+    SU -.->|Project Brief・Initiation Stage Planを提出し開始を要求| DP
+    DP -.->|"Authorize initiation": Initiation Stageへの投資を承認| IP
     DP -.->|承認・指示| SB
     DP -.->|承認・指示| CP
 ```
@@ -616,6 +616,7 @@ flowchart TB
 - **Directing a Project(DP)はプロジェクト全期間を通じてProject Boardが行う**プロセスであり、他のプロセスと並行して常に存在します。
 - **Controlling a Stage(CS)とManaging Product Delivery(MP)は、各デリバリーステージ内で並行して繰り返される**プロセスです(CS=Project Managerの視点、MP=Team Managerの視点)。
 - **Managing a Stage Boundary(SB)は、最終ステージの終わりでは実施されません**。最終ステージの終わりはSBではなくClosing a Project(CP)に置き換わります。
+- **SUはProject Boardへの開始要求(Project Brief・Initiation Stage Planの提出)までを担い、DPはそれを受けて「Authorize initiation」でInitiation Stageへの投資を承認します**。IPが始まるのはこの承認の後です。
 
 ---
 
@@ -655,14 +656,14 @@ flowchart TB
 
 | 項目 | 内容 |
 |---|---|
-| 主な活動 | 立ち上げの承認、プロジェクトの開始承認、ステージ/例外計画の承認、アドホックな指示の提供、プロジェクト終了の承認 |
+| 主な活動 | Authorize initiation(SU完了後、Initiation Stageへの投資を承認しIPの開始を許可)、Authorize the project(IP完了後、プロジェクト全体の開始を承認)、ステージ/例外計画の承認、アドホックな指示の提供、プロジェクト終了の承認 |
 | 特徴 | プロジェクト全体を通じて継続する唯一のプロセス。Project Boardが主体で、Project Managerが情報を提供する形で連携 |
 
 #### RACI(目安)
 
 | 活動 | Project Board(Executive/SU/SS) | Project Manager |
 |---|---|---|
-| 立ち上げの許可 | A/R | C(Project Brief提出) |
+| Authorize initiation | A/R | C(Project Brief・Initiation Stage Plan提出) |
 | プロジェクト開始の承認 | A/R | C(PID提出) |
 | ステージ承認 | A/R | C(End Stage Report/次Stage Plan提出) |
 | 例外への対応 | A/R | C(Exception Report提出) |
