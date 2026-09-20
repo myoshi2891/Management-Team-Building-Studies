@@ -655,9 +655,6 @@ flowchart TB
 
 - PeopleCert 公式製品ページ「PRINCE2 Agile Foundation」(Version 2 / 試験概要)<br>
   https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074
-- PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」(ミラー版PDF、著作権は PeopleCert International Ltd. に帰属)<br>
-  https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf<br>
-  https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf
 - AXELOS 公式オンライン出版「PRINCE2 Agile」(第3.6節: Important points about PRINCE2 Agile and this manual)<br>
   https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25
 - AXELOS 公式オンライン出版「PRINCE2 Agile」トップページ(目次・各章へのリンク)<br>
@@ -667,6 +664,9 @@ flowchart TB
 
 以下は PeopleCert / AXELOS が発行する一次情報ではありませんが、内容の相互検証や補足解説として参照した二次情報源です。学習の際は必ず 8.1 の一次情報源を優先してください。
 
+- PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」(第三者サイトによる非公式ミラー版PDF。著作権は PeopleCert International Ltd. に帰属するが、公式ドメインでの配布ではなく内容が旧版の試験概要(50問・55%合格)のままである点に注意)<br>
+  https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf<br>
+  https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf
 - The Projex Academy「Important points about PRINCE2 7 with Agile」<br>
   https://www.projex.com/important-points-about-prince2-7-with-agile/
 - Brendan Martin「PRINCE2 Agile」学習ノート(8つのガイダンスポイント・主要概念の要約)<br>
