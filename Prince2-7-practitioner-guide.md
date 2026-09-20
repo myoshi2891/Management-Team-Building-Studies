@@ -39,7 +39,7 @@ Practitioner試験の目的は、**PRINCE2の手法を実際のプロジェク�
 
 | 項目 | 内容 |
 |---|---|
-| 試験時間 | 150分(英語を母語・業務言語としない受験者は+25%の187.5分) |
+| 試験時間 | 150分(試験言語が受験者の母語と異なる場合は+25%の187.5分) |
 | 出題形式 | オープンブック(公式教本のみ持ち込み可、書き込み可) |
 | 問題数 | 56問(部分問題を含む)、配点70点 |
 | 合格ライン | 42点/70点(60%) |
@@ -168,7 +168,7 @@ flowchart TD
 **要点**: プロジェクトに関わる全員が、自分の役割・責任・権限、そして他者との関係性を明確に理解していなければなりません。
 
 - **適用の仕方**: プロジェクトマネジメントチーム構造を明文化する(PID: Project Management Team Structure)、役割記述書(Role Description)を作成する。
-- **Practitioner的な視点**: Executive(責任者)とProject Manager(プロジェクトマネージャー)を同一人物が兼任している、Senior UserとSenior Supplierが利害相反を起こしうる立場で兼任している、といったシナリオは、この原則違反として問われやすいポイントです。
+- **Practitioner的な視点**: Executive(責任者)とProject Manager(プロジェクトマネージャー)を同一人物が兼任しているシナリオは、この原則違反として問われやすいポイントです。Senior UserとSenior Supplierの兼任は自動的な原則違反ではありませんが、利害相反・能力・負荷を評価したうえで推奨されない判断がなされるケースとして出題されることがあります。
 
 ### 3.4 段階(ステージ)による管理 (Manage by stages)
 
@@ -334,7 +334,7 @@ flowchart TB
 
 - **Executive**: 単一の説明責任者としてプロジェクト全体の成功に責任を持つ。プロジェクトマネジメントチームを任命する。
 - **Senior Supplier**: 専門チームの技術的実現可能性とリソース確保に責任を持つ。
-- **Project Manager**: 日々のマネジメントを委任される。ExecutiveやSenior User/Senior Supplierと兼任してはならない。
+- **Project Manager**: 日々のマネジメントを委任される。Executiveとの兼任は不可。Senior User/Senior Supplierとの兼任は一律禁止ではなく、利害相反・能力・負荷を評価したうえで判断する事項。
 
 #### 効果的な管理と技法
 
@@ -552,7 +552,7 @@ flowchart TD
 
 - **イベント駆動型コントロール(Event-driven controls)**: 特定の出来事(ステージ終了、例外の発生、課題の発生など)をトリガーに実施される管理活動。
 - **時間駆動型コントロール(Time-driven controls)**: 一定の周期(週次・月次など)で実施される定期報告。
-- **トレランスと例外**: 各レベルで設定されたトレランスを超える(または超えると予測される)場合、Exception Reportを通じて上位レベルへエスカレーションし、Exception Plan(例外計画)の承認を得る。
+- **トレランスと例外**: レベルごとにエスカレーション手順が異なる。ワークパッケージのトレランス逸脱(またはその予測)は、Team ManagerがProject ManagerへIssueとして報告する。Stage PlanまたはProject Planのトレランス逸脱が予測される場合に限り、Project ManagerがProject BoardへException Reportを提出し、Exception Plan(例外計画)の承認を得る。
 
 ```mermaid
 flowchart LR
@@ -850,6 +850,8 @@ flowchart TB
     end
     subgraph Assurance["独立確認"]
         PA["Project Assurance\n独立した監督・助言"]
+    end
+    subgraph Delegated["権限委譲(変更決定)"]
         CA["Change Authority\n(委任時)変更の意思決定"]
     end
     subgraph Management["管理レベル"]
@@ -881,7 +883,7 @@ flowchart TB
 | **Team Manager** | デリバリー | ワークパッケージの受諾・実行・納品、チームメンバーの管理 | 小規模プロジェクトではProject Managerが兼任することもある |
 | **Project Assurance** | 独立確認 | Project Boardに代わり、独立した立場でプロジェクトが正しく管理されているかを監督・助言。Business/User/Supplierの3つの視点に分解可能 | Project Managerが兼任することはできない(独立性の原則) |
 | **Project Support** | 支援 | 事務支援、専門ツール(計画技法など)の提供、記録・レジスタの維持、変更管理手続きの運営補助 | Project Managerが兼任することもある(小規模プロジェクト) |
-| **Change Authority** | 独立確認(委任時) | Project Boardから権限委譲を受け、一定範囲の変更要求の意思決定を行う | 必須ではなく、必要に応じて設置される役割 |
+| **Change Authority** | 権限委譲(委任時) | Project Boardから権限委譲を受け、一定範囲の変更要求の意思決定を行う | 必須ではなく、必要に応じて設置される役割。Project Assuranceとは異なり監督ではなく意思決定を担う |
 
 ### 7.2 兼任(コンバイン)の可否早見表
 
