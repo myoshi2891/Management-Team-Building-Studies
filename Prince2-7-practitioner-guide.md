@@ -552,14 +552,16 @@ flowchart TD
 
 - **イベント駆動型コントロール(Event-driven controls)**: 特定の出来事(ステージ終了、例外の発生、課題の発生など)をトリガーに実施される管理活動。
 - **時間駆動型コントロール(Time-driven controls)**: 一定の周期(週次・月次など)で実施される定期報告。
-- **トレランスと例外**: レベルごとにエスカレーション手順が異なる。ワークパッケージのトレランス逸脱(またはその予測)は、Team ManagerがProject ManagerへIssueとして報告する。Stage PlanまたはProject Planのトレランス逸脱が予測される場合に限り、Project ManagerがProject BoardへException Reportを提出し、Exception Plan(例外計画)の承認を得る。
+- **トレランスと例外**: レベルごとにエスカレーション手順が異なる。ワークパッケージのトレランス逸脱(またはその予測)は、Team ManagerがProject ManagerへIssueとして報告する。Stage Planのトレランス逸脱が予測される場合は、Project ManagerがProject BoardへException Reportを提出し、Project BoardがException Plan(例外計画)を承認する。Project Plan自体のトレランス逸脱が予測される場合は、Project Boardはその範囲で自ら承認する権限を持たず、さらに上位のCorporate/Programme Managementへエスカレーションし、同レベルが対応を判断・承認する。
 
 ```mermaid
 flowchart LR
     TM["Team Manager"] -->|"Checkpoint Report<br/>(時間駆動)"| PM["Project Manager"]
     PM -->|"Highlight Report<br/>(時間駆動)"| PB["Project Board"]
-    PM -->|"Exception Report<br/>(イベント駆動:<br/>トレランス逸脱時)"| PB
+    PM -->|"Exception Report<br/>(Stage Planの<br/>トレランス逸脱時)"| PB
     PB -->|"Exception Plan承認"| PM
+    PB -->|"エスカレーション<br/>(Project Planの<br/>トレランス逸脱時)"| COR["Corporate/Programme<br/>Management"]
+    COR -->|"対応の判断・承認"| PB
 ```
 
 #### テーラリングの考慮点
