@@ -359,7 +359,7 @@ flowchart TB
 
 | 管理プロダクト | 役割 |
 |---|---|
-| Plan(Project/Stage/Team/Exception Plan) | 階層構造を持つ4種類の計画(プロジェクト計画、ステージ計画、チーム計画、例外計画) |
+| Plan(Project/Stage/Team Plan) | 階層構造を持つ3種類の計画(プロジェクト計画、ステージ計画、チーム計画)。Exception Planは、許容限度超過が見込まれる現行のProject PlanまたはStage Planを置き換える計画であり、この階層には属さない |
 | Project Product Description(プロジェクトプロダクト記述書) | プロジェクト全体の最終成果物の記述。品質期待・受入基準・サステナビリティ要件を含む |
 | Work Package Description(ワークパッケージ記述書) | チームマネージャーに委任される作業単位の記述 |
 
