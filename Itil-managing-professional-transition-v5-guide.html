@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITIL® Managing Professional Transition (Version 5) 認定資格 完全ガイド | 初学者向けステップバイステップ解説</title>
+<meta name="description" content="ITIL Managing Professional Transition (Version 5) を初学者向けにステップバイステップで解説。Transformation Model、PSLM 8活動、ITIL Experience Model、AI Capability Model、各項目のベストプラクティスと出典URLを網羅。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Checklist ===================== */
+  /* サイドバーの認定シール(金の二重円 + インディゴのチェック)を踏襲し、
+     チェック済み項目が「検定済みの証」に見えるようにする。 */
+  .checklist-progress {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: var(--color-ink-soft);
+  }
+
+  .checklist-progress .count strong {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-ink);
+  }
+
+  .checklist-progress-track {
+    position: relative;
+    height: 3px;
+    background: var(--color-border);
+    border-radius: 2px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .checklist-progress-track .fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0%;
+    background: var(--color-gold);
+    transition: width 0.3s ease;
+  }
+
+  .checklist { list-style: none; margin: 0; padding: 0; }
+
+  .checklist li {
+    margin-bottom: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .checklist-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 4px;
+    cursor: pointer;
+    line-height: 1.6;
+  }
+
+  .checklist-label input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border: 1.5px solid var(--color-border-strong);
+    border-radius: 50%;
+    background: var(--color-paper-raised);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    position: relative;
+  }
+
+  .checklist-label input[type="checkbox"]:hover {
+    border-color: var(--color-gold);
+  }
+
+  .checklist-label input[type="checkbox"]:checked {
+    background: var(--color-gold-tint);
+    border-color: var(--color-gold);
+    border-width: 2px;
+    transform: scale(1.06);
+  }
+
+  .checklist-label input[type="checkbox"]:checked::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid var(--color-indigo);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .checklist-label input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--color-indigo);
+    outline-offset: 3px;
+  }
+
+  .checklist-label.is-checked .checklist-text {
+    color: var(--color-ink-faint);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .checklist-label input[type="checkbox"] { transition: none; }
+    .checklist-label input[type="checkbox"]:checked { transform: none; }
+    .checklist-progress-track .fill { transition: none; }
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">ITIL® MPT (V5) 完全ガイド</div>
+        <div class="brand-subtitle">Managing Professional Transition</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-mpt"><i class="ti ti-certificate"></i>この資格について</a></li>
+      <li><a href="#itil-v5-evolution"><i class="ti ti-timeline"></i>ITIL(V5)全体像</a></li>
+      <li><a href="#foundational-concepts"><i class="ti ti-building-bank"></i>共通基盤概念</a></li>
+      <li><a href="#exam1-transformation"><i class="ti ti-git-branch"></i>試験1: Transformation</a></li>
+      <li><a href="#exam2-product-service-experience"><i class="ti ti-route"></i>試験2: Product/Service/Experience</a></li>
+      <li><a href="#ai-capability-model"><i class="ti ti-file-text"></i>ITIL and AI</a></li>
+      <li><a href="#itil-other-frameworks"><i class="ti ti-clipboard-text"></i>他フレームワークとの関係</a></li>
+      <li><a href="#exam-strategy"><i class="ti ti-map-2"></i>試験対策のポイント</a></li>
+      <li><a href="#study-checklist"><i class="ti ti-clipboard-check"></i>学習チェックリスト</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert公式認定資格ガイド</div>
+      <h1>ITIL® Managing Professional Transition (Version 5)</h1>
+      <p class="hero-lede">
+        初学者向け ステップバイステップ解説 + ベストプラクティス
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">2試験</div><div class="stat-label">Transformation + Product/Service/Experience</div></div>
+        <div class="stat-card"><div class="stat-number">100問</div><div class="stat-label">Exam1: 40問 / Exam2: 60問</div></div>
+        <div class="stat-card"><div class="stat-number">70%</div><div class="stat-label">各試験の合格基準(オープンブック)</div></div>
+        <div class="stat-card"><div class="stat-number">3年</div><div class="stat-label">資格更新サイクル(60 CPD)</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは教育・学習支援を目的とした非公式の解説資料です。ITIL Transformation Model の12ステージの正式名称、各PSLM活動のCSF・メトリクスの正確な文言、試験の最新の出題傾向については、必ず公式eBookおよび<a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-managing-professional-transition-version-5-4227" target="_blank" rel="noopener">PeopleCert公式サイト</a>で最新情報をご確認ください。
+      </div>
+    </div>
+
+        <!-- ===================== 1. About MPT ===================== -->
+    <section id="about-mpt">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>この資格について</h2>
+
+      <h3>ITIL Managing Professional Transition (Version 5) とは何か</h3>
+      <p><strong>ITIL® Managing Professional Transition (Version 5)</strong>(以下 MPT)は、すでに ITIL の上級資格を保有している経験豊富なプロフェッショナルが、個別モジュールを一つずつ受講し直すことなく、最新の <strong>ITIL (Version 5)</strong> へ迅速かつ低コストでアップグレードするための「橋渡し(ブリッジ)モジュール」です。</p>
+
+      <p>対象となるのは以下のいずれかの既存資格保持者のみです。</p>
+      <ul>
+        <li>ITIL 4 Managing Professional</li>
+        <li>ITIL 4 Master</li>
+        <li>ITIL v3 Expert</li>
+        <li>ITIL v3 Master</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>上記いずれの前提資格も持たない場合は MPT を受験できません。その場合は ITIL Foundation (Version 5) から開始し、ITIL Product / ITIL Service / ITIL Experience / ITIL Transformation の各モジュールを個別に取得するルートを選びます。</p>
+      </div>
+
+      <h3>認定の位置づけ</h3>
+      <p>MPT は「研修1本 + 試験2本」で構成されるパッケージです。両方の試験に合格すると <strong>ITIL Managing Professional (Version 5)</strong> の資格が得られます。ITIL 最高位資格 <strong>ITIL Master (Version 5)</strong> に到達するには、これに加えて <strong>ITIL Practice Manager (Version 5)</strong> と <strong>ITIL Strategic Leader (Version 5)</strong> の2資格も必要です(3資格必須)。ただし、保有していた前提資格によってMPT経由での到達範囲が異なります。</p>
+      <ul>
+        <li><strong>ITIL 4 Managing Professional 保有者:</strong> MPTの2試験合格により、Managing Professional (Version 5) と、中核モジュール <strong>Transformation (Version 5)</strong> の2つが認定されます(Exam 1 が Transformation の試験そのものであるため)。Master に到達するために残るのは Practice Manager と Strategic Leader の2資格で、これらは<strong>別途個別に取得</strong>する必要があります。</li>
+        <li><strong>ITIL 4 Master 保有者:</strong> MPTの2試験合格により、Managing Professional に加えて Practice Manager・Strategic Leader も同時に認定され、<strong>ITIL Master (Version 5) まで一括で到達</strong>します。</li>
+        <li><strong>ITIL v3 Master 保有者:</strong> MPTの2試験合格で得られるのは Managing Professional(および中核モジュール Transformation の認定)までです。Master に到達するには、Practice Manager と Strategic Leader を<strong>別途個別に取得</strong>する必要があります。</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="certificationPathway"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Master (Version 5) までの3つの到達ルート(一般的なFoundationルート / ITIL 4 Masterからの移行 / ITIL v3 Masterからの移行)</div>
+      </div>
+
+      <h3>試験構成の全体比較</h3>
+      <p>MPT は2つの独立した試験から構成され、<strong>どちらから先に受験しても構いません</strong>(別日程での受験も可)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>Exam 1: ITIL Transformation (Version 5)</th><th>Exam 2: MPT – Product, Service, Experience (Version 5)</th></tr></thead>
+          <tbody>
+            <tr><td>出題数</td><td>40問</td><td>60問</td></tr>
+            <tr><td>形式</td><td>多肢選択式(Multiple choice)</td><td>多肢選択式(Multiple choice)</td></tr>
+            <tr><td>試験時間</td><td>90分(非母語話者は+25%で約113分)</td><td>120分(非母語話者は+25%で約150分)</td></tr>
+            <tr><td>参照可否</td><td>オープンブック(公式 Transformation eBook + シナリオ冊子)</td><td>オープンブック(公式 Product / Service / Experience eBook)</td></tr>
+            <tr><td>合格基準</td><td>70%</td><td>70%</td></tr>
+            <tr><td>出題スタイル</td><td>シナリオベース(ケーススタディ形式)</td><td>シナリオベース(例: レンタカー会社ケース) + Experience セクション</td></tr>
+            <tr><td>受験方式</td><td>オンライン監督下試験(PeopleCert経由)</td><td>オンライン監督下試験(PeopleCert経由)</td></tr>
+            <tr><td>主な学習範囲</td><td>Transformation Model の4 Layer(Governance / Positioning / Execution / Learning)、変革パターン</td><td>PSLM 8活動、バリューストリーム、Experience Model、サービスジャーニー</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>2試験は独立採点のため、得意分野から着手する戦略が有効です。「変革・組織改革」の経験が長い方は Transformation から、「プロダクト/サービス運用」の実務経験が長い方は PSE から始めると学習の立ち上がりが早くなります。</p>
+      </div>
+
+      <h3>公式教材</h3>
+      <p>この認定コースには以下4冊の公式eBookと公式Learner Workbookが含まれます。</p>
+      <ul>
+        <li>ITIL Product (Version 5) 公式eBook</li>
+        <li>ITIL Service (Version 5) 公式eBook</li>
+        <li>ITIL Experience (Version 5) 公式eBook</li>
+        <li>ITIL Transformation (Version 5) 公式eBook</li>
+      </ul>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>本ガイドは上記の公式教材および PeopleCert・各アクレディテッド・トレーニング・オーガナイゼーション(ATO)が公開している情報をもとに、初学者向けに再構成した学習補助資料です。公式eBookの正式な記述(成功要因・メトリクスの正確な文言など)については、必ず公式教材を最終参照源としてください。</p>
+      </div>
+
+      <h3>資格の更新</h3>
+      <ul>
+        <li>更新サイクル: <strong>3年ごと</strong></li>
+        <li>更新方法: PeopleCert Plus 会員として <strong>60 CPD ポイント</strong> を蓄積するか、同一 Product Suite 内の別モジュールを再受験する</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 2. ITIL Version 5 Evolution ===================== -->
+    <section id="itil-v5-evolution">
+      <div class="section-eyebrow"><i class="ti ti-timeline"></i>SECTION 02</div>
+      <h2>ITIL (Version 5) 全体像 — v3 / v4 からの進化</h2>
+
+      <p>MPT を学ぶ前提として、ITIL がどのように進化してきたかを理解しておくと、Transformation・PSE いずれの試験でも問われる「なぜこの変更が行われたか」という視点が持てます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>ITIL v3(2007)</th><th>ITIL 4(2019)</th><th>ITIL (Version 5)(2026)</th></tr></thead>
+          <tbody>
+            <tr><td>中核モデル</td><td>Service Lifecycle(5段階: Strategy/Design/Transition/Operation/CSI)</td><td>Service Value System + Service Value Chain(6活動)</td><td>ITIL Value System (ITIL VS) + Product and Service Lifecycle Model / PSLM(8活動)</td></tr>
+            <tr><td>対象範囲</td><td>ITサービスマネジメント</td><td>ITサービスマネジメント(原則・プラクティス体系)</td><td>デジタル<strong>プロダクト</strong>とサービスの統合マネジメント</td></tr>
+            <tr><td>AIの扱い</td><td>想定なし</td><td>言及なし</td><td>Four Dimensionsの「情報と技術」にAI Capability Model(6Cモデル)を新設、「組織と人材」には人とAIの協働を明示的に統合、専用のAI Governanceモジュールも新設</td></tr>
+            <tr><td>Guiding Principles</td><td>なし(v3独自の原則)</td><td>7原則</td><td>7原則を<strong>そのまま継承</strong>(変更なし)</td></tr>
+            <tr><td>管理プラクティス</td><td>26プロセス+機能</td><td>34プラクティス</td><td>34プラクティス名を<strong>そのまま継承</strong></td></tr>
+            <tr><td>認定体系</td><td>Foundation→Practitioner→Intermediate→Expert→Master</td><td>Foundation→Specialist/Strategist/Leader→Master</td><td>Foundation→Practice Manager / Product・Service・Experience・Transformation(Managing Professional) / Strategy・Transformation(Strategic Leader)→Master(Practice Manager+Managing Professional+Strategic Leaderの3資格が必須)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>試験対策としては「何が変わったか」だけでなく「何が変わっていないか」を明確に区別して覚えることが得点に直結します。Guiding Principlesと34プラクティス名は据え置きのため、既存のITIL 4知識はそのまま活用できます。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 3. Foundational Concepts ===================== -->
+    <section id="foundational-concepts">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
+      <h2>共通基盤概念 — ITIL Value System・7つのGuiding Principles・Four Dimensions</h2>
+
+      <p>Transformation試験・PSE試験のどちらにも共通して出題される土台となる概念です。</p>
+
+      <h3>ITIL Value System (ITIL VS)</h3>
+      <p>ITIL 4 の Service Value System (SVS) の名称が <strong>ITIL Value System (ITIL VS)</strong> に変更されました。これは「サービス」だけでなく「デジタルプロダクト」も価値創出の対象として明示的に含めるための改称であり、構成要素(Guiding Principles、Governance、Product and Service Lifecycle Model、Practices、Continual Improvement)自体の骨格はSVSを踏襲しています。</p>
+
+      <h3>7つの Guiding Principles(変更なし)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>原則(英語)</th><th>日本語での要点</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Focus on value</td><td>すべての活動を「顧客・利害関係者にとっての価値」から逆算して設計する</td></tr>
+            <tr><td>2</td><td>Start where you are</td><td>ゼロから作り直さず、既存の資産・プロセス・データを評価してから着手する</td></tr>
+            <tr><td>3</td><td>Progress iteratively with feedback</td><td>大きな変更を小さく分割し、フィードバックを得ながら進める</td></tr>
+            <tr><td>4</td><td>Collaborate and promote visibility</td><td>サイロを越えた協働と、意思決定・進捗の可視化を重視する</td></tr>
+            <tr><td>5</td><td>Think and work holistically</td><td>部分最適ではなく、組織全体・エンドツーエンドの結果に目を向ける</td></tr>
+            <tr><td>6</td><td>Keep it simple and practical</td><td>必要最小限の手順にとどめ、価値を生まない複雑さを排除する</td></tr>
+            <tr><td>7</td><td>Optimize and automate</td><td>人手作業を最適化したうえで、可能な範囲を自動化・AI活用する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Version 5 では特に原則7「Optimize and automate」が AI Capability Model(後述)と直結して出題されやすくなっています。「まず最適化、その後に自動化」という順序を必ず押さえてください。</p>
+      </div>
+
+      <h3>Four Dimensions of Product and Service Management</h3>
+      <p>4つの側面自体はITIL 4から継続していますが、Version 5では「情報と技術」の次元にAI Capability Model(6Cモデル)が新設され、「組織と人材」の次元には人とAIの協働という観点が明示的に組み込まれた点が変更点です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="fourDimensions"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Four Dimensions of Product and Service Management(ITIL Value Systemを取り巻く4つの側面)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>4つの側面はPESTLE分析(政治・経済・社会・技術・法律・環境)などの外的要因とセットで問われることが多く、「内的な4側面 vs 外的な環境要因」を対比して整理しておくと理解が定着します。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 4. Exam 1: ITIL Transformation ===================== -->
+    <section id="exam1-transformation">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 04</div>
+      <h2>試験1: ITIL Transformation (Version 5)</h2>
+
+      <h3>Transformationの基本概念</h3>
+      <p>ITIL Transformation (Version 5) は、組織(またはその一部)を新しい状態へ導く<strong>変革(Transformation)</strong>を体系的に扱うモジュールです。日常的な改善(BAU改善 / Business-As-Usual improvement)とは区別され、以下のような特徴を持つ大規模・複雑な変化を対象とします。</p>
+      <ul>
+        <li>複数の相互依存領域にまたがる協調的な変化である</li>
+        <li>規模・範囲・コスト・リスクにばらつきがある</li>
+        <li>しばしば大きな不確実性を伴う</li>
+        <li>単一の固定手法では対応できず、状況に応じた柔軟な手法が必要</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「BAU改善」と「Transformation」を混同しないこと。小さな継続的改善はContinual Improvement Modelで扱い、組織構造やオペレーティングモデルそのものを変える取り組みはTransformation Modelで扱う、という切り分けが試験の頻出ポイントです。</p>
+      </div>
+
+      <h3>ITIL Transformation Model — 4つの Layer</h3>
+      <p>ITIL Transformation Model は、変革の取り組みを <strong>4つの相互接続されたLayer(層)</strong> で構造化します。さらに、その内部は合計12のStage(段階)に分解され、状況(Context)に応じて適応的に適用されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>役割</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Governance layer</strong>(ガバナンス層)</td><td>変革の方向性を定め、意思決定権限・説明責任・優先順位づけの枠組みを提供する</td></tr>
+            <tr><td><strong>Positioning layer</strong>(ポジショニング層)</td><td>組織が置かれている状況・複雑性・コンテキストを理解し、変革のスコープを見極める</td></tr>
+            <tr><td><strong>Execution layer</strong>(実行層)</td><td>実際に変革を計画・実施し、価値を届ける</td></tr>
+            <tr><td><strong>Learning layer</strong>(学習層)</td><td>変革の結果を測定・評価し、得られた学びを組織にフィードバックする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="transformationLayers"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL Transformation Model の4 Layer(Governance→Positioning→Execution→Learningの循環構造)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>4 Layerは「一方向の直線プロセス」ではなく、Learning layerで得た知見がGovernance layerに継続的にフィードバックされる<strong>循環構造</strong>です。試験では「変革は一度きりで完了するものではない」という前提を問う設問が出やすいです。</p>
+      </div>
+
+      <h3>変革の複雑性とコンテキストへの適応</h3>
+      <p>組織が置かれる状況は「予測可能で秩序立っている(Ordered/Clear)」ものから「予測不能で混沌としている(Chaotic)」ものまで幅があります。ITIL Transformation Modelはこの違いに応じてアプローチを変える柔軟性を持つことが特徴です。ただし、状況が十分に把握できていない(Confused)場合は、いきなりアプローチを選ぶのではなく、まず状況をOrdered・Complex・Chaoticのいずれかに分類することが先決です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>コンテキストの性質</th><th>適したアプローチの傾向</th></tr></thead>
+          <tbody>
+            <tr><td>状況が把握できていない(Confused)</td><td>Ordered・Complex・Chaoticのいずれに該当するかを情報収集して分類することを最優先する</td></tr>
+            <tr><td>秩序立っている・予測可能</td><td>詳細な事前計画、明確なガバナンス、既知のベストプラクティスの適用</td></tr>
+            <tr><td>複雑・不確実性が高い(Complex)</td><td>小さな実験、反復的な学習、適応型ガバナンス</td></tr>
+            <tr><td>混沌としている(Chaotic)</td><td>即座の安定化を最優先し、状況を落ち着かせてから通常のアプローチへ移行</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「すべての変革に同じテンプレートを当てはめない」ことが最重要原則です。秩序立った環境で通用した詳細計画型のガバナンスを、混沌とした環境にそのまま適用すると失敗しやすい、という因果関係を理解しておきましょう。</p>
+      </div>
+
+      <h3>変革の3つの共通パターン(Common Patterns)</h3>
+      <p>ITIL Transformation Model は、変革の取り組みを分類する <strong>3つの共通パターン</strong> を提示します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="transformationPatterns"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">変革の3つの共通パターン: Initiation pattern / Governance pattern / Execution pattern</div>
+      </div>
+
+      <ul>
+        <li><strong>Initiation pattern(立ち上げパターン):</strong> なぜ変革が必要か、どこから着手するかを明確化する</li>
+        <li><strong>Governance pattern(ガバナンスパターン):</strong> BAU(通常業務)向けのガバナンスと、変革専用のガバナンスをどう使い分けるかを扱う</li>
+        <li><strong>Execution pattern(実行パターン):</strong> 実際に変革をどのように進めるか、実行方式のバリエーションを扱う</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「BAU governance patterns」と「Transformation governance patterns」は明確に別物として区別してください。通常業務のガバナンス機構(変更諮問委員会など)をそのまま大規模変革の意思決定に流用すると、意思決定が遅延し変革が停滞するリスクがあります。</p>
+      </div>
+
+      <h3>測定・ツール・学習</h3>
+      <p>Transformation Model の Learning layer では、変革の進捗と成果を可視化するためのツール・手法が扱われます。既存のITILおよび隣接するプラクティスから、以下のようなツール群が変革の測定・可視化に活用されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ツール / 手法</th><th>主な用途</th></tr></thead>
+          <tbody>
+            <tr><td>Value Stream Mapping (VSM)</td><td>エンドツーエンドの価値の流れを可視化し、ムダ・ボトルネックを特定する</td></tr>
+            <tr><td>OKR(Objectives and Key Results)</td><td>変革のゴールと測定可能な成果指標を組織全体で整合させる</td></tr>
+            <tr><td>ITIL Maturity Model</td><td>現在の成熟度を評価し、変革の出発点(Positioning)を客観的に把握する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「Start where you are」の原則を実務に落とし込む際、まずITIL Maturity Modelなどで現状を客観的に測定してから変革を計画すると、過剰投資や見当違いな施策を避けられます。</p>
+      </div>
+
+      <h3>ITIL and AI(Transformation観点)</h3>
+      <p>AIはTransformationにおいても、変革準備・実行そのものを支援する手段として位置づけられます(AI Capability Modelの詳細は<a href="#ai-capability-model">第6章</a>を参照)。変革を主導する立場では、AI導入が「組織構造・役割・意思決定プロセス」にどう影響するかを評価し、ガバナンス層で適切な監督体制を設計することが求められます。</p>
+    </section>
+
+    <!-- ===================== 5. Exam 2: Product, Service, Experience ===================== -->
+    <section id="exam2-product-service-experience">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 05</div>
+      <h2>試験2: ITIL Managing Professional Transition — Product, Service, Experience (Version 5)</h2>
+
+      <p>この試験は、ITIL Product・ITIL Service・ITIL Experience という3つのモジュールの内容を1本の試験に統合したものです。</p>
+
+      <h3>デジタルプロダクトとデジタルサービスの基礎概念</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>定義の要点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Digital product(デジタルプロダクト)</strong></td><td>デジタル技術によって実現される、顧客が利用・所有・体験する成果物そのもの</td></tr>
+            <tr><td><strong>Digital service(デジタルサービス)</strong></td><td>顧客が特定のコストやリスクを自ら管理することなく、望む成果(アウトカム)の共創を可能にする手段</td></tr>
+            <tr><td><strong>Service offering(サービスオファリング)</strong></td><td>プロダクトとサービスの構成要素を組み合わせ、特定の顧客セグメント向けに提供される形</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「アウトプット(何を作ったか)」ではなく「アウトカム(顧客が何を達成できたか)」で価値を語る癖をつけましょう。PSE試験のシナリオ問題は、アウトプット思考の選択肢を誤答の罠として用意することが多いです。</p>
+      </div>
+
+      <h3>Product and Service Lifecycle Model (PSLM) — 8つの活動</h3>
+      <p>ITIL 4 の Service Value Chain(6活動: Plan, Improve, Engage, Design & Transition, Obtain & Build, Deliver & Support)は、Version 5 で <strong>Product and Service Lifecycle Model(PSLM)</strong> に置き換えられ、<strong>8つの反復的(iterative)な活動</strong> として再定義されました。</p>
+      <p>固定された一方向の手順ではなく、必要に応じてどの活動からどの活動へも行き来できる<strong>循環的・生態系的(ecosystem)なモデル</strong>である点が最大の特徴です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="pslmCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Product and Service Lifecycle Model(PSLM)の8活動とフィードバックループ</div>
+      </div>
+
+      <p>前半(Discover・Design・Acquire・Build)は<strong>プロダクト寄り</strong>、後半(Deliver・Support)は<strong>サービス寄り</strong>、中間の Transition・Operate が両者をつなぐ<strong>橋渡し</strong>という位置づけになります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>活動</th><th>目的(要点)</th><th>プロダクト視点でのベストプラクティス</th><th>サービス視点でのベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Discover</strong></td><td>市場・利用者のニーズを把握し、組織戦略と整合させる</td><td>顧客インタビューやテレメトリでニーズを検証してから投資判断を行う</td><td>既存サービスの利用状況データから未充足ニーズを発見する</td></tr>
+            <tr><td><strong>Design</strong></td><td>得られたニーズを解決策の仕様・プロトタイプへ落とし込む</td><td>プロトタイピングで早期に仮説検証を行う</td><td>サービスレベル・キャパシティ・可用性要件を設計段階で明文化する</td></tr>
+            <tr><td><strong>Acquire</strong></td><td>必要な資源・能力を購入・調達・内製で確保する</td><td>ビルド・バイ・パートナーの判断基準を明確化する</td><td>サプライヤーとのサービスレベル整合を早期に行う</td></tr>
+            <tr><td><strong>Build</strong></td><td>コンポーネントを開発・構成・テストする</td><td>自動テストとコードレビューを組み込み品質を作り込む</td><td>変更管理プロセスと開発の足並みを揃える</td></tr>
+            <tr><td><strong>Transition</strong></td><td>開発環境から本番環境へ安全に移行する</td><td>フィーチャーフラグによる段階的リリースでリスクを制御する</td><td>リリース前チェックリストとロールバック手順を用意する</td></tr>
+            <tr><td><strong>Operate</strong></td><td>インフラ・システムを稼働させ続け、パフォーマンスを監視する</td><td>SLOやダッシュボードで健全性を可視化する</td><td>イベント管理・キャパシティ管理を継続的に実施する</td></tr>
+            <tr><td><strong>Deliver</strong></td><td>利用者がサービス・プロダクトへアクセスし消費できるようにする</td><td>オンボーディング体験を計測しコンバージョンを最適化する</td><td>アクセス管理・リクエスト対応の応答時間を管理する</td></tr>
+            <tr><td><strong>Support</strong></td><td>インシデント・問題を解決し、通常利用を回復する</td><td>障害データをDiscover・Designへフィードバックし次期改善に活かす</td><td>根本原因分析(Problem Management)を通じ再発を防止する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス(PSLM全体)</div>
+        <p>8活動を「順番に一度だけ通る」線形プロセスとして覚えないこと。実際には同じプロダクト・サービスが複数の活動に同時に存在し得ます(例: 一部機能はSupport段階、別機能はDesign段階)。Supportで得た学びをDiscover・Designに戻す<strong>フィードバックループ</strong>の存在が、Version 5最大の設計思想です。</p>
+      </div>
+
+      <h3>ライフサイクルの管理 — バリューストリームとオペレーティングモデル</h3>
+      <p>PSLMの8活動は固定順序ではなく、状況に応じて組み合わせられる <strong>バリューストリーム(value stream)</strong> として運用されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>概念</th><th>要点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Operating model(オペレーティングモデル)</strong></td><td>誰が・どの活動に対して・どのような責任を持つかを定義する構造</td></tr>
+            <tr><td><strong>Value stream(バリューストリーム)</strong></td><td>特定の需要・機会に応える際に組み合わせる活動の連なり(例: インシデント対応はOperate+Support中心、新機能開発はDiscover→Design→Build→Deliver中心)</td></tr>
+            <tr><td><strong>組織構造</strong></td><td>プロダクトベンダー視点とサービスプロバイダー視点で、必要なチーム編成・権限分掌が異なる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「このインシデントにはどのバリューストリームが最適か」を都度設計するのではなく、頻出パターン(標準的なリクエスト対応、緊急インシデント対応、新規機能デリバリーなど)ごとに<strong>あらかじめ標準バリューストリームを定義</strong>しておくと、意思決定の速度と一貫性が向上します。</p>
+      </div>
+
+      <h3>ITIL Experience Model</h3>
+      <p>Version 5 で新設された Experience の考え方は、「機能的に動くこと」と「利用者にとって価値があると感じられること」を明確に区別します。</p>
+
+      <h4>経験(Experience)の本質</h4>
+      <p>経験は次の3つの要素の連続として捉えられます。</p>
+      <ul>
+        <li><strong>Anticipation(予期):</strong> 利用前に抱く期待</li>
+        <li><strong>Perception(知覚):</strong> 利用中に得られる感覚・認知</li>
+        <li><strong>Evaluation(評価):</strong> 利用後に行う価値判断</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>経験は主観的かつ時間軸を持つものであり、単発のアンケートスコアだけで捉えきれません。利用前・利用中・利用後の3時点でデータを収集する設計が推奨されます。</p>
+      </div>
+
+      <h4>経験のステークホルダー</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>役割</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>User(利用者)</td><td>サービス・プロダクトを実際に操作する人</td></tr>
+            <tr><td>Customer(顧客)</td><td>購入や契約の意思決定を行うスポンサー的役割</td></tr>
+            <tr><td>Consumer sponsor(消費側スポンサー)</td><td>消費側組織で投資判断・優先順位づけを行う人</td></tr>
+            <tr><td>Provider roles(提供側の役割)</td><td>サービス・プロダクトを設計・提供する側の関係者</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>これらの役割間には、しばしば利害の<strong>緊張関係(tension)</strong>が生じます(例: 利用者は使いやすさを最優先するが、顧客側スポンサーはコストを最優先する、など)。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>意思決定の際は「誰にとっての経験を最適化しようとしているか」を明示すること。UserとCustomerの利害が対立する場面では、両者の要件をトレードオフ表として可視化し、合意形成のプロセスに乗せます。</p>
+      </div>
+
+      <h4>Four Experience Domains(4つの経験ドメイン)</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="experienceDomains"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Four Experience Domains: Personal / Functional / Relational / Contextual</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ドメイン</th><th>内容の要点</th></tr></thead>
+          <tbody>
+            <tr><td>Personal(個人的)</td><td>個人の感情・価値観・過去の経験に根ざした主観的側面</td></tr>
+            <tr><td>Functional(機能的)</td><td>サービス・プロダクトが実際に機能するか、使いやすいかという実務的側面</td></tr>
+            <tr><td>Relational(関係的)</td><td>提供者と利用者・顧客との信頼関係、コミュニケーションの質</td></tr>
+            <tr><td>Contextual(文脈的)</td><td>利用される状況・環境・タイミングに左右される側面</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>経験改善の施策を立てる際、4ドメインのうちどれに働きかけているかを明確にしましょう。機能的ドメインの改善(バグ修正など)だけでは、関係的ドメイン(サポート対応への不信感など)の課題は解決しません。</p>
+      </div>
+
+      <h4>経験のライフサイクルへの統合</h4>
+      <p>経験はPSLMの各活動を通じて連続的に生じます。特に重要なのが以下の区別です。</p>
+      <ul>
+        <li><strong>Functional interaction(機能的相互作用):</strong> 「機能が動くかどうか」に関わる接点</li>
+        <li><strong>Relational interaction(関係的相互作用):</strong> 「人と人・組織との関係性」に関わる接点</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>SupportやOperateで発生する障害対応は機能的相互作用ですが、対応中のコミュニケーションの質は関係的相互作用です。同じインシデントでも、機能は復旧したのに信頼は損なわれる、というケースを想定した対応設計が必要です。</p>
+      </div>
+
+      <h4>経験のキャプチャ(Capturing Experience)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>要素</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>Evidence(証拠)</td><td>経験を裏付ける具体的なデータ・記録</td></tr>
+            <tr><td>Signal(シグナル)</td><td>経験の変化を示唆する断片的な兆候</td></tr>
+            <tr><td>直接キャプチャ(Direct)</td><td>アンケート、インタビューなど直接的な収集手法</td></tr>
+            <tr><td>間接キャプチャ(Indirect)</td><td>行動ログ、利用データなど間接的な収集手法</td></tr>
+            <tr><td>合成キャプチャ(Synthetic)</td><td>AIによる推定・シミュレーションなど合成的な収集手法</td></tr>
+            <tr><td>Trustworthiness(信頼性)</td><td>データがどれだけ実態を正確に反映しているか</td></tr>
+            <tr><td>Coherence(一貫性)</td><td>複数のデータソース間で矛盾がないか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「メトリクスは経験そのものではなく、経験に関する仮説(hypothesis)にすぎない」という考え方がVersion 5の重要な視点です。単一の指標(例: NPS)だけで経験全体を判断せず、複数のシグナルを組み合わせてTrustworthinessとCoherenceを検証してください。</p>
+      </div>
+
+      <p><strong>よくあるアンチパターン(Common Anti-patterns in Experience Capturing)</strong></p>
+      <ul>
+        <li>定量データのみに依存し、定性的な文脈を無視する</li>
+        <li>サンプル数が偏ったフィードバックを全体の声として扱う</li>
+        <li>ネガティブなシグナルを個別の例外として片付け、パターンとして扱わない</li>
+      </ul>
+
+      <h4>サービスジャーニー(Service Journey)— 7つのステップ</h4>
+      <p>サービスジャーニーは、提供者(Provider)と消費者(Consumer)が関係を構築し価値を共創するまでの活動全体を指します。固定的な直線プロセスではなく「飛び石(stepping stones)」として、順序の入れ替わりや並行・反復が起こり得るとされています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="serviceJourney"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">サービスジャーニーの7ステップ: Explore → Engage → Offer → Agree → Onboard → Co-create → Reflect</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ステップ</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Explore(探索)</strong></td><td>正式な関係が始まる前に、機会・市場・ニーズを探る段階</td></tr>
+            <tr><td><strong>Engage(関係構築)</strong></td><td>信頼関係を構築する。以降のパートナーシップの前提となる</td></tr>
+            <tr><td><strong>Offer(提案)</strong></td><td>需要を明確な要件・ビジネスケースへ落とし込み、提供可能な内容をすり合わせる</td></tr>
+            <tr><td><strong>Agree(合意)</strong></td><td>期待値・スコープ・サービス品質を正式に取り決め、価値の測定方法を計画する</td></tr>
+            <tr><td><strong>Onboard(導入)</strong></td><td>双方のリソースを実際に統合(または分離)し、運用を開始する</td></tr>
+            <tr><td><strong>Co-create(共創)</strong></td><td>消費者が提供者のリソースを活用し、両者が協働して計画された価値を生み出す実行段階</td></tr>
+            <tr><td><strong>Reflect(振り返り)</strong></td><td>提供された価値を評価し、フィードバックを継続的改善や今後の投資判断に活かす</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Band of Visibility(可視性の帯)</strong></p>
+      <p>提供者と消費者の間で共有される透明性の領域を指します。パートナーシップが密接になるほどこの帯は広がり、問題解決や共創がしやすくなります。この可視性の中で重要な2つの満足軸が以下です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>軸</th><th>焦点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CX(Customer Experience)</strong></td><td>顧客(購入・契約の意思決定者)の機能的・感情的な知覚</td></tr>
+            <tr><td><strong>UX(User Experience)</strong></td><td>実際の操作者(エンドユーザー)が感じる、プロダクト設計・使いやすさに基づく経験</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>UXが悪ければ利用者は不満を抱き、CXが悪ければ顧客は契約更新をしません。どちらか一方の指標だけでサービス品質を判断せず、UXとCXを<strong>両輪</strong>として計測・改善する体制を作ることが重要です。</p>
+      </div>
+
+      <h4>ステークホルダージャーニー(Stakeholder Journeys)</h4>
+      <p>サービスジャーニーを消費者側・提供者側それぞれの視点で見た詳細な軌跡を <strong>Stakeholder Journey</strong> と呼びます。各ジャーニータイプには、典型的な懸念事項(concerns)とアンチパターンが伴います。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ジャーニー種別</th><th>典型的な懸念</th><th>実務上の示唆</th></tr></thead>
+          <tbody>
+            <tr><td>Consumer stakeholder journey</td><td>期待した価値が得られるか、コストに見合うか</td><td>合意(Agree)段階で成功基準を明文化し、Reflect段階で必ず振り返る</td></tr>
+            <tr><td>Provider stakeholder journey</td><td>持続可能な形で価値を提供し続けられるか、リソースが枯渇しないか</td><td>Onboard段階でキャパシティとリスクを事前評価する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>どちらのジャーニーも「合意した期待値」と「実際の体験」のギャップがアンチパターンの温床になります。Agreeステップで合意した内容を、Reflectステップで必ず定量・定性の両面から照らし合わせる運用ルールを設けましょう。</p>
+      </div>
+
+      <h4>デジタル経験の改善 — Notice–Interpret–Hypothesize–Experiment ループ</h4>
+      <p>Experienceの継続的改善は、ITILの <strong>Continual Improvement Model</strong> の枠組みの中で、以下の4段階ループとして適用されます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="experienceImprovementLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Notice–Interpret–Hypothesize–Experiment ループ</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>段階</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Notice(気づく)</td><td>シグナル・証拠の中から注目すべき変化に気づく</td></tr>
+            <tr><td>Interpret(解釈する)</td><td>その変化が何を意味するかを文脈に沿って解釈する</td></tr>
+            <tr><td>Hypothesize(仮説を立てる)</td><td>改善のための仮説を立てる</td></tr>
+            <tr><td>Experiment(実験する)</td><td>小規模な実験でその仮説を検証する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>またこのループの中では、<strong>システムレベルの改善</strong>(オペレーティングモデルや構造そのものの変更)と、<strong>局所的な改善</strong>(個別の画面・対応フローの改善)を区別することが求められます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>経験改善の実験は、心理的安全性(psychological safety)と信頼が確保された環境でこそ機能します。担当者が「失敗を報告しても罰せられない」文化がなければ、Noticeの段階でネガティブなシグナルが隠蔽されるリスクがあります。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 6. ITIL and AI ===================== -->
+    <section id="ai-capability-model">
+      <div class="section-eyebrow"><i class="ti ti-file-text"></i>SECTION 06</div>
+      <h2>共通トピック: ITIL and AI — AI Capability Model</h2>
+
+      <p>Transformation・PSE いずれの試験でも共通して問われるのが <strong>AI Capability Model</strong> です。これは、組織がAIをどう活用し、どうガバナンスするかを整理するための思考ツールで、<strong>6つの能力(Capability)</strong> から構成されます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="aiCapabilityModel"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ITIL AI Capability Model の6つの能力: Creation / Curation / Clarification / Cognition / Communication / Coordination</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>能力</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Creation(生成)</strong></td><td>コンテンツ・コード・成果物を新たに生成する能力</td></tr>
+            <tr><td><strong>Curation(選別・整理)</strong></td><td>大量の情報・選択肢の中から関連性の高いものを選別・整理する能力</td></tr>
+            <tr><td><strong>Clarification(明確化)</strong></td><td>あいまいな要求や情報を明確化・要約する能力</td></tr>
+            <tr><td><strong>Cognition(認知・分析)</strong></td><td>パターン認識・推論・分析を行う能力</td></tr>
+            <tr><td><strong>Communication(伝達)</strong></td><td>人や他システムとの対話・情報伝達を行う能力</td></tr>
+            <tr><td><strong>Coordination(調整)</strong></td><td>複数のタスク・エージェント・人を調整し連携させる能力</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>この6能力ごとに、必要なガバナンス(責任範囲・説明責任・委任・透明性・エスカレーション経路)とリスクプロファイルが異なります。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>AI導入の議論を「AIを使うか使わないか」という二択で終わらせず、<strong>「どの能力を、どの業務に、どの程度の人間の関与を残して適用するか」</strong>という粒度で設計しましょう。AI Capability Modelは、チーム間の暗黙の前提のズレを減らし、構造的な合意形成を可能にするためのツールです。</p>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス(Experience×AI)</div>
+        <p>ITIL Experience (Version 5) では、AI活用における「意思決定の境界線」「人間へのハンドオフのルール」「AI Capability Model カードの文書化」「一貫して人間中心であり続けるコミットメント」が明示的に求められます。AIは人が自信を持って使いこなして初めて価値を生む、という前提を忘れないでください。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 7. ITIL and Other Frameworks ===================== -->
+    <section id="itil-other-frameworks">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 07</div>
+      <h2>ITIL と他フレームワークとの関係(DevOps・PRINCE2)</h2>
+
+      <p>MPTの両試験では、ITILを単独のフレームワークとしてではなく、他の主要フレームワークと<strong>補完的に使う視点</strong>が問われます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>フレームワーク</th><th>ITILとの関係性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>DevOps</strong></td><td>PSLMのBuild〜Transition〜Operateにおける継続的インテグレーション / デリバリーの実践知を提供する。ITILは「何を・なぜ」管理するかの枠組み、DevOpsは「どう」実行するかの実践プラクティス群として補完し合う</td></tr>
+            <tr><td><strong>PRINCE2</strong></td><td>大規模な変革やプロジェクト単位の作業を構造化するプロジェクトマネジメント手法。ITIL Transformationの実行層(Execution layer)で、プロジェクトとして管理すべき取り組みにはPRINCE2のガバナンス構造を組み合わせられる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「ITIL vs DevOps」「ITIL vs PRINCE2」という対立構造で捉えないこと。ITILは価値創出のための包括的な枠組みであり、DevOpsやPRINCE2は特定の活動(継続的デリバリー、プロジェクト管理)をより深く実行するための専門的な実践知として併用するのが正しい理解です。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 8. Exam Strategy ===================== -->
+    <section id="exam-strategy">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 08</div>
+      <h2>試験対策のポイント</h2>
+
+      <h3>シナリオベース試験への向き合い方</h3>
+      <p>両試験とも、架空の企業(レンタカー会社のケースなど)を舞台にしたシナリオ問題が出題されます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>シナリオ文中の「誰の視点で問われているか(利用者 / 顧客 / 提供者)」を最初に特定する</li>
+          <li>「最も正しそうな選択肢」ではなく「ITILの原則・モデルに最も忠実な選択肢」を選ぶ</li>
+          <li>オープンブック試験であることを過信せず、キーワード(PSLMの活動名、Transformation Modelの層名など)から該当ページを即座に引ける索引を事前に作っておく</li>
+        </ul>
+      </div>
+
+      <h3>試験別の学習配分の目安</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>試験</th><th>重点的に固める領域</th><th>学習の優先順位</th></tr></thead>
+          <tbody>
+            <tr><td>Exam 1: Transformation</td><td>4 Layer(Governance/Positioning/Execution/Learning)の役割分担、3つの共通パターン(Initiation/Governance/Execution)、BAU governanceとTransformation governanceの違い</td><td>「なぜこの層・パターンが選ばれるか」を状況(コンテキスト)と結びつけて説明できるレベルまで理解する</td></tr>
+            <tr><td>Exam 2: MPT-PSE</td><td>PSLM 8活動の目的とプロダクト/サービス両視点、Experience Modelの4ドメイン、サービスジャーニー7ステップ、経験キャプチャの信頼性・一貫性</td><td>8活動とExperience Modelを「1つのシナリオ企業」に当てはめて一気通貫で説明できるレベルまで理解する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>学習の終盤には、架空の1社(例: サブスクリプション型のモビリティサービス企業)を題材に、Discoverから Reflect まで全プロセスを自分の言葉で通しで語れるかを自己テストしてください。個々の用語の暗記より、モデル間のつながりを説明できることの方が得点に直結します。</p>
+      </div>
+
+      <h3>頻出の誤答パターン(Common Pitfalls)</h3>
+      <ul>
+        <li>PSLMの8活動を「一方向の直線プロセス」として答えてしまう(正しくは反復的・循環的)</li>
+        <li>Service Value ChainとPSLMを混同する(Version 4とVersion 5の用語を取り違える)</li>
+        <li>メトリクス(数値指標)を「経験そのもの」と誤認する(正しくは経験に関する一つの仮説にすぎない)</li>
+        <li>BAU改善とTransformationを同じ手法で扱おうとする</li>
+        <li>CXとUXを同一視し、どちらか一方の改善で両方が解決すると誤解する</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 9. Study Checklist ===================== -->
+    <section id="study-checklist">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 09</div>
+      <h2>学習チェックリスト</h2>
+
+      <div class="checklist-progress" aria-live="polite">
+        <span class="count">達成 <strong id="checklist-progress-current">0</strong> / <span id="checklist-progress-total">18</span></span>
+      </div>
+      <div class="checklist-progress-track">
+        <div class="fill" id="checklist-progress-fill"></div>
+      </div>
+
+      <ul class="checklist" role="group" aria-label="学習チェックリストの達成状況">
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-0"><span class="checklist-text">前提資格(ITIL 4 MP/Master、ITIL v3 Expert/Master)を保有していることを確認した</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-1"><span class="checklist-text">Exam 1(Transformation: 40問/90分)とExam 2(PSE: 60問/120分)の違いを説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-2"><span class="checklist-text">ITIL VS(旧SVS)、7つのGuiding Principles、Four Dimensions(AI統合済み)を説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-3"><span class="checklist-text">ITIL Transformation Modelの4 Layer(Governance/Positioning/Execution/Learning)を図なしで説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-4"><span class="checklist-text">変革の3つの共通パターン(Initiation/Governance/Execution)を区別できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-5"><span class="checklist-text">BAU governance patternとTransformation governance patternの違いを説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-6"><span class="checklist-text">PSLMの8活動(Discover〜Support)を目的付きで暗唱できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-7"><span class="checklist-text">PSLMがプロダクト寄り/橋渡し/サービス寄りにどう分かれるか説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-8"><span class="checklist-text">バリューストリームとオペレーティングモデルの違いを説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-9"><span class="checklist-text">ITIL Experience Modelの3要素(Anticipation/Perception/Evaluation)を説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-10"><span class="checklist-text">Four Experience Domains(Personal/Functional/Relational/Contextual)を区別できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-11"><span class="checklist-text">サービスジャーニー7ステップ(Explore〜Reflect)を順に説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-12"><span class="checklist-text">Band of VisibilityとCX/UXの違いを説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-13"><span class="checklist-text">ステークホルダージャーニー(Consumer/Provider)の典型的な懸念とアンチパターンを説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-14"><span class="checklist-text">Notice–Interpret–Hypothesize–Experimentループを説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-15"><span class="checklist-text">AI Capability Modelの6能力(Creation/Curation/Clarification/Cognition/Communication/Coordination)を暗唱できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-16"><span class="checklist-text">ITILとDevOps、ITILとPRINCE2の補完関係を説明できる</span></label></li>
+        <li><label class="checklist-label"><input type="checkbox" data-checklist-key="itilMptSC-17"><span class="checklist-text">公式eBook(Product/Service/Experience/Transformation)でシナリオ問題の該当箇所を素早く参照できる</span></label></li>
+      </ul>
+    </section>
+
+    <!-- ===================== 10. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 10</div>
+      <h2>参考文献(Sources)</h2>
+
+      <p>本ガイドの作成にあたり、以下の一次情報・研修プロバイダー公開情報を参照しました。公式かつ最終的な正確性の担保としては、必ず PeopleCert 公式ページおよび公式eBookをご確認ください。</p>
+
+      <div class="ref-group">
+        <h4>PeopleCert 公式・ITIL公式情報</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL Managing Professional Transition (Version 5) — PeopleCert公式ページ</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-managing-professional-transition-version-5-4227" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-managing-professional-transition-version-5-4227</a></li>
+          <li><span class="ref-name">ITIL AI Governance (Version 5) — PeopleCert公式ページ</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-ai-governance-version-5-4234" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-ai-governance-version-5-4234</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) 関連ページ — PeopleCert</span><a class="ref-url" href="https://www.peoplecert.org/Itil-News-and-Announcements/2026-qualiti7-peoplecert-webinar-series-ai-native-organization-session-3/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">https://www.peoplecert.org/Itil-News-and-Announcements/2026-qualiti7-peoplecert-webinar-series-ai-native-organization-session-3/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177</a></li>
+          <li><span class="ref-name">ITIL Product (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Product-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Product-Version-5</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Experience-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Experience-Version-5</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5</a></li>
+          <li><span class="ref-name">ITIL AI Governance (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5</a></li>
+          <li><span class="ref-name">ITIL Foundation (Version 5)、what's new? — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide</a></li>
+          <li><span class="ref-name">The new ITIL product and service lifecycle model — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model</a></li>
+          <li><span class="ref-name">ITIL (Version 5) AI Governance guidance(AI Capability Model背景) — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance</a></li>
+          <li><span class="ref-name">How ITIL Experience (Version 5) puts user experience at the core — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
+          <li><span class="ref-name">Introducing ITIL (Version 5): Everything you need to know — ILX Group</span><a class="ref-url" href="https://www.ilxgroup.com/usa/blog/introducing-itil-version-5-everything-you-need-to-know-about-the-new-certification-scheme" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/blog/introducing-itil-version-5-everything-you-need-to-know-about-the-new-certification-scheme</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) コース概要 — ILX Group</span><a class="ref-url" href="https://www.ilxgroup.com/usa/training/itil/itil-transformation-version-5" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/training/itil/itil-transformation-version-5</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) コース概要 — ILX Group</span><a class="ref-url" href="https://www.ilxgroup.com/usa/training/itil/experience" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/training/itil/experience</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>認定研修プロバイダー(ATO)によるシラバス・コース詳細</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL Managing Professional Transition (Version 5) Training — AGILEPM HUB(モジュール構成・試験詳細が最も網羅的)</span><a class="ref-url" href="https://agilepmhub.com/itil-managing-professional-version-5" target="_blank" rel="noopener">https://agilepmhub.com/itil-managing-professional-version-5</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) Training — AGILEPM HUB</span><a class="ref-url" href="https://agilepmhub.com/itil-experience-version-5" target="_blank" rel="noopener">https://agilepmhub.com/itil-experience-version-5</a></li>
+          <li><span class="ref-name">ITIL Managing Professional Transition Training — Learning Tree</span><a class="ref-url" href="https://www.learningtree.com/courses/itil-managing-professional-transition-version-five/" target="_blank" rel="noopener">https://www.learningtree.com/courses/itil-managing-professional-transition-version-five/</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) Training — Learning Tree</span><a class="ref-url" href="https://www.learningtree.com/courses/itil-experience-version-five-training/" target="_blank" rel="noopener">https://www.learningtree.com/courses/itil-experience-version-five-training/</a></li>
+          <li><span class="ref-name">ITIL Managing Professional Transition — QA</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/itil-managing-professional-transition-itil5trns/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/itil-managing-professional-transition-itil5trns/</a></li>
+          <li><span class="ref-name">ITIL Managing Professional Transition — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-version-5-managing-professional-transition-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-version-5-managing-professional-transition-course</a></li>
+          <li><span class="ref-name">ITIL Transformation Course — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-transformation-course</a></li>
+          <li><span class="ref-name">ITIL 5 Managing Professional Transition — The Knowledge Academy(試験シラバス詳細)</span><a class="ref-url" href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/</a></li>
+          <li><span class="ref-name">ITIL 5 Managing Professional Transition Course — itil.org.uk(Experience詳細モジュール構成)</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course</a></li>
+          <li><span class="ref-name">ITIL Transformation Certification Training Course — itil.org.uk</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-transformation-courses/itil-transformation-certification-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-transformation-courses/itil-transformation-certification-training-course</a></li>
+          <li><span class="ref-name">ITIL Transformation Course & Examination — ITSM Hub</span><a class="ref-url" href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">https://www.itsmhub.com/products/itil-transformation-course-examination</a></li>
+          <li><span class="ref-name">ITIL Managing Professional Transition (Version 5) — Oxford College of Technology</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-managing-professional-transition-version-5/" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-managing-professional-transition-version-5/</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) — Oxford College of Technology</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/</a></li>
+          <li><span class="ref-name">What Comes After ITIL Foundation? — Expert Train</span><a class="ref-url" href="https://www.expertrain.co.uk/post/what-comes-after-itil-foundation" target="_blank" rel="noopener">https://www.expertrain.co.uk/post/what-comes-after-itil-foundation</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) — Sapience Consulting</span><a class="ref-url" href="https://www.sapience-consulting.com/itil-experience-certification-v5/" target="_blank" rel="noopener">https://www.sapience-consulting.com/itil-experience-certification-v5/</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-experience-version-5/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-experience-version-5/</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-transformation-version-5/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-transformation-version-5/</a></li>
+          <li><span class="ref-name">ITIL AI Governance (Version 5) — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-ai-governance-version-5/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-ai-governance-version-5/</a></li>
+          <li><span class="ref-name">ITIL Transformation (Version 5) Practice Tests(4層・12ステージ・3パターンの出典) — Udemy</span><a class="ref-url" href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">https://www.udemy.com/course/itil-transformation-version-5-practice-tests/</a></li>
+          <li><span class="ref-name">ITIL (Version 5) Transformation Training Course — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-transformation-course</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>解説記事・比較コンテンツ</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL 5 vs ITIL 4: What Changed in ITIL (Version 5) — InvGate Blog</span><a class="ref-url" href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">https://blog.invgate.com/itil-5-what-changes</a></li>
+          <li><span class="ref-name">What is ITIL? Principles, Practices, And Certification — InvGate</span><a class="ref-url" href="https://invgate.com/itsm/itil" target="_blank" rel="noopener">https://invgate.com/itsm/itil</a></li>
+          <li><span class="ref-name">What is ITIL Service Operation? — InvGate Blog</span><a class="ref-url" href="https://blog.invgate.com/itil-service-operation" target="_blank" rel="noopener">https://blog.invgate.com/itil-service-operation</a></li>
+          <li><span class="ref-name">ITIL (Version 5) Service Value Chain — NovelVista</span><a class="ref-url" href="https://www.novelvista.com/blogs/it-service-management/itil5-service-value-chain" target="_blank" rel="noopener">https://www.novelvista.com/blogs/it-service-management/itil5-service-value-chain</a></li>
+          <li><span class="ref-name">5 Stages of the ITIL Service Lifecycle — Alloy Software</span><a class="ref-url" href="https://www.alloysoftware.com/blog/itil-lifecycle/" target="_blank" rel="noopener">https://www.alloysoftware.com/blog/itil-lifecycle/</a></li>
+          <li><span class="ref-name">ITIL 5 What changed and why it matters — Rixmind</span><a class="ref-url" href="https://rixmind.com/itil-5-what-changed-and-why-it-matters/" target="_blank" rel="noopener">https://rixmind.com/itil-5-what-changed-and-why-it-matters/</a></li>
+          <li><span class="ref-name">ITIL Version 5: A Complete Guide — itil.org.uk Blog</span><a class="ref-url" href="https://www.itil.org.uk/blog/itil-version-5-a-complete-guide" target="_blank" rel="noopener">https://www.itil.org.uk/blog/itil-version-5-a-complete-guide</a></li>
+          <li><span class="ref-name">ITIL 5 AI Governance: What It Means and How to Apply It in ITSM — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-ai-governance" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-ai-governance</a></li>
+          <li><span class="ref-name">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4 — ITSM.tools</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
+          <li><span class="ref-name">ITIL 5 Foundation: Syllabus, Exam Format, And How To Pass — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/collections/itil-5-foundation" target="_blank" rel="noopener">https://www.diontraining.com/collections/itil-5-foundation</a></li>
+          <li><span class="ref-name">ITIL 5 Process Explained: Practices, Workflows, And Real-World Examples — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+          <li><span class="ref-name">ITIL 5 vs ITIL 4: Key Differences And Which One To Choose — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-vs-itil-4" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-vs-itil-4</a></li>
+          <li><span class="ref-name">ITIL Foundation Version 5 (ITILFND V5): Complete Guide 2026 — CertEmpire</span><a class="ref-url" href="https://certempire.com/itil-foundation-v5-guide/" target="_blank" rel="noopener">https://certempire.com/itil-foundation-v5-guide/</a></li>
+          <li><span class="ref-name">ITIL 5: Why Explaining Failures Is No Longer Leadership — Medium (The ITSM Practice Podcast)</span><a class="ref-url" href="https://medium.com/the-itsm-practice-podcast/itil-5-the-end-of-explaining-failure-f24ccae28573" target="_blank" rel="noopener">https://medium.com/the-itsm-practice-podcast/itil-5-the-end-of-explaining-failure-f24ccae28573</a></li>
+          <li><span class="ref-name">Service Journey in ITIL 5: The Complete Guide(サービスジャーニー7ステップの出典) — PMG Academy</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/</a></li>
+          <li><span class="ref-name">The Definitive Guide to ITIL Version 5 Foundation — PMG Academy</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <footer>
+      <p>本ガイドは2026年9月時点で公開されていた一次・二次情報をもとに作成した学習補助資料であり、PeopleCert公式教材の内容を正式に代替するものではありません。特に ITIL Transformation Model の12ステージの正式名称、各PSLM活動のCSF(成功要因)・メトリクスの正確な文言、試験の最新の出題傾向については、必ず公式eBookおよびPeopleCert公式サイトの最新情報をご確認ください。</p>
+      <p>ITIL® is a registered trademark of PeopleCert group. 本ページは学習支援を目的とした非公式の教材であり、PeopleCert社による公認・承認を受けたものではありません。</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    certificationPathway: `flowchart TB
+subgraph RouteGeneral["ルート1: 一般的なFoundationルート(前提資格なし)"]
+direction TB
+FG["ITIL Foundation Version 5"] --> FG2["Product/Service/Experience/ Transformationを個別取得"]
+FG2 --> FG3["Managing Professional Version 5"]
+FG --> FG4["Strategy/Transformationを個別取得"]
+FG4 --> FG5["Strategic Leader Version 5"]
+FG --> FG6["Practice Managerモジュールを個別取得"]
+FG6 --> FG7["Practice Manager Version 5"]
+FG3 --> FG8["ITIL Master Version 5"]
+FG5 --> FG8
+FG7 --> FG8
+end
+subgraph Route4MP["ルート2: ITIL 4 Managing Professionalからの移行"]
+direction TB
+MP4["ITIL 4 Managing Professional 保有"] --> MPT4MP["MPT研修 + Exam1/Exam2 合格"]
+MPT4MP --> MP4R["Managing Professional Version 5 認定 (Transformationも認定済み)"]
+MP4R --> MP4S["残る Practice Manager・Strategic Leaderを 別途個別取得"]
+MP4S --> MP4M["ITIL Master Version 5"]
+end
+subgraph Route4["ルート3: ITIL 4 Masterからの移行"]
+direction TB
+M4["ITIL 4 Master 保有"] --> MPT4["MPT研修 + Exam1/Exam2 合格"]
+MPT4 --> M4R["Managing Professional・Practice Manager・ Strategic Leaderを一括認定"]
+M4R --> M4M["ITIL Master Version 5"]
+end
+subgraph RouteV3["ルート4: ITIL v3 Masterからの移行"]
+direction TB
+M3["ITIL v3 Master 保有 (v3 Expertも同様にMPまで)"] --> MPT3["MPT研修 + Exam1/Exam2 合格"]
+MPT3 --> M3R["Managing Professional Version 5 認定 (Transformationも認定済み)"]
+M3R --> M3S["Practice Manager・Strategic Leaderを 別途個別取得"]
+M3S --> M3M["ITIL Master Version 5"]
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class FG,FG2,FG4,FG6,MP4,M4,M3 box;
+class MPT4MP,MP4R,MP4S,MPT4,MPT3,M3R,M3S hub;
+class FG3,FG5,FG7,FG8,MP4M,M4R,M4M,M3M done;`,
+
+    fourDimensions: `flowchart TB
+Center["ITIL Value System"]
+Center --> D1["Organizations and People (組織と人材/AIとの協働を含む)"]
+Center --> D2["Information and Technology (AI Capability Model/6Cモデルを含む)"]
+Center --> D3["Partners and Suppliers"]
+Center --> D4["Value Streams and Processes"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Center hub;
+class D1,D2,D3,D4 box;`,
+
+    transformationLayers: `flowchart TB
+subgraph L1["Governance layer"]
+direction TB
+G1["方向性・権限・優先順位づけ"]
+end
+subgraph L2["Positioning layer"]
+direction TB
+P1["コンテキストと複雑性の把握"]
+end
+subgraph L3["Execution layer"]
+direction TB
+E1["計画と実行"]
+end
+subgraph L4["Learning layer"]
+direction TB
+Le1["測定・評価・学習"]
+end
+L1 --> L2
+L2 --> L3
+L3 --> L4
+L4 -.->|学びのフィードバック| L1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class L1,L2,L3,L4 box;`,
+
+    transformationPatterns: `flowchart TD
+P1["Initiation pattern (変革の立ち上げ)"]
+P2["Governance pattern (変革のガバナンス)"]
+P3["Execution pattern (変革の実行)"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class P1,P2,P3 box;`,
+
+    pslmCycle: `flowchart LR
+D1["Discover"] --> D2["Design"]
+D2 --> D3["Acquire"]
+D3 --> D4["Build"]
+D4 --> D5["Transition"]
+D5 --> D6["Operate"]
+D6 --> D7["Deliver"]
+D7 --> D8["Support"]
+D8 -.->|フィードバック| D1
+D8 -.->|フィードバック| D2
+D6 -.->|フィードバック| D1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class D1,D2,D3,D4 box;
+class D5,D6 hub;
+class D7,D8 done;`,
+
+    experienceDomains: `flowchart TB
+Exp["経験(Experience)"]
+Exp --> P["Personal (個人的ドメイン)"]
+Exp --> F["Functional (機能的ドメイン)"]
+Exp --> R["Relational (関係的ドメイン)"]
+Exp --> C["Contextual (文脈的ドメイン)"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Exp hub;
+class P,F,R,C box;`,
+
+    serviceJourney: `flowchart LR
+S1["Explore (探索)"] --> S2["Engage (関係構築)"]
+S2 --> S3["Offer (提案)"]
+S3 --> S4["Agree (合意)"]
+S4 --> S5["Onboard (導入)"]
+S5 --> S6["Co-create (共創)"]
+S6 --> S7["Reflect (振り返り)"]
+S7 -.->|継続的関係| S1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4,S5,S6,S7 box;`,
+
+    experienceImprovementLoop: `flowchart LR
+N["Notice (気づく)"] --> I["Interpret (解釈する)"]
+I --> H["Hypothesize (仮説を立てる)"]
+H --> E["Experiment (実験する)"]
+E -.->|結果を観察| N
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class N,I,H,E box;`,
+
+    aiCapabilityModel: `flowchart TB
+AI["ITIL AI Capability Model"]
+AI --> C1["Creation (生成)"]
+AI --> C2["Curation (選別・整理)"]
+AI --> C3["Clarification (明確化)"]
+AI --> C4["Cognition (認知・分析)"]
+AI --> C5["Communication (伝達)"]
+AI --> C6["Coordination (調整)"]
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class AI hub;
+class C1,C2,C3,C4,C5,C6 box;`
+
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  // ===================== Checklist – localStorage persistence =====================
+  function setupChecklist() {
+    var boxes = document.querySelectorAll("input[data-checklist-key]");
+    if (!boxes.length) return;
+
+    var currentEl = document.getElementById("checklist-progress-current");
+    var totalEl = document.getElementById("checklist-progress-total");
+    var fillEl = document.getElementById("checklist-progress-fill");
+
+    function updateProgress() {
+      var checkedCount = document.querySelectorAll("input[data-checklist-key]:checked").length;
+      if (currentEl) currentEl.textContent = String(checkedCount);
+      if (totalEl) totalEl.textContent = String(boxes.length);
+      if (fillEl) fillEl.style.width = (checkedCount / boxes.length * 100) + "%";
+    }
+
+    boxes.forEach(function (cb) {
+      var key = cb.dataset.checklistKey;
+      // 保存済みの状態を復元する
+      if (localStorage.getItem(key) === "1") {
+        cb.checked = true;
+        cb.closest(".checklist-label").classList.add("is-checked");
+      }
+      cb.addEventListener("change", function () {
+        var label = cb.closest(".checklist-label");
+        if (cb.checked) {
+          localStorage.setItem(key, "1");
+          label.classList.add("is-checked");
+        } else {
+          localStorage.removeItem(key);
+          label.classList.remove("is-checked");
+        }
+        updateProgress();
+      });
+    });
+
+    updateProgress();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+    setupChecklist();
+  });
+})();
+</script>
+</body>
+</html>
