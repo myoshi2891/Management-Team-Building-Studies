@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCert公式シラバス準拠</title>
+<meta name="description" content="PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PRINCE2 Agile 完全ガイド</div>
+        <div class="brand-subtitle">Foundation (Version 2)</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#about-the-exam"><i class="ti ti-certificate"></i>この資格について</a></li>
+      <li><a href="#prince2-fundamentals"><i class="ti ti-building-bank"></i>第1部: PRINCE2 の基礎知識</a></li>
+      <li><a href="#prince2-agile-basics"><i class="ti ti-git-branch"></i>第2部: PRINCE2 Agile の基本概念</a></li>
+      <li><a href="#agile-tailoring"><i class="ti ti-timeline"></i>第3部: 原則・テーマ・プロセスの適用</a></li>
+      <li><a href="#agile-glossary-techniques"><i class="ti ti-clipboard-text"></i>第4部: 実践用語と技法</a></li>
+      <li><a href="#focus-areas"><i class="ti ti-chart-pie"></i>第5部: フォーカスエリア</a></li>
+      <li><a href="#exam-preparation"><i class="ti ti-map-2"></i>第6部: 試験対策</a></li>
+      <li><a href="#glossary-summary"><i class="ti ti-book-2"></i>付録: 用語集まとめ</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert公式シラバス準拠 学習ガイド</div>
+      <h1>PRINCE2 Agile Foundation (Version 2) 学習ガイド</h1>
+      <p class="hero-lede">
+        初学者向け・ステップバイステップ解説 / Markdown + Mermaid図解版。対象試験: PeopleCert PRINCE2 Agile Foundation (Version 2)。公式製品ページ: <a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">peoplecert.org</a>
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">四肢択一 (Objective Test Question)</div></div>
+        <div class="stat-card"><div class="stat-number">60分</div><div class="stat-label">クローズドブック</div></div>
+        <div class="stat-card"><div class="stat-number">60%</div><div class="stat-label">合格基準</div></div>
+        <div class="stat-card"><div class="stat-number">3年</div><div class="stat-label">認定有効期間</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは学習支援を目的とした非公式の解説資料です。出題範囲・試験形式・合格基準は改定される可能性があるため、受験前には必ず<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert公式サイト</a>で最新情報をご確認ください。
+      </div>
+    </div>
+
+    <!-- ===================== 0. About the Exam ===================== -->
+    <section id="about-the-exam">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>この資格について</h2>
+
+      <h3>0.1 資格の位置づけ</h3>
+      <p>PRINCE2 Agile Foundation は、世界で最も広く使われているプロジェクトマネジメント手法 <strong>PRINCE2</strong> の統制・ガバナンスの枠組みと、<strong>アジャイル (Agile)</strong> の柔軟性・反復性を組み合わせた「PRINCE2 Agile」の基礎知識を認定する資格です。対象者は、アジャイル実務者、プロジェクトマネージャー、プロダクトオーナー、Scrum Master、開発者など、反復的・漸進的なプロダクトデリバリーに関わるすべての人です。前提資格は不要です。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>PRINCE2 Agile は「PRINCE2 か Agile か」の二択ではなく、両方の強みを状況に応じて「どの程度」組み合わせるかを判断する手法です。学習の最初の段階で、この「二項対立で考えない」という姿勢を意識しておくと、以降の全テーマの理解が格段にスムーズになります。</p>
+      </div>
+
+      <h3>0.2 試験概要</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>出題形式</td><td>四肢択一 (Objective Test Question)</td></tr>
+            <tr><td>問題数</td><td>40問</td></tr>
+            <tr><td>試験時間</td><td>60分 (英語を母語・業務言語としない受験者は+25%の延長が可能な場合あり)</td></tr>
+            <tr><td>合格基準</td><td>60%</td></tr>
+            <tr><td>教材持ち込み</td><td>クローズドブック (不可)</td></tr>
+            <tr><td>前提資格</td><td>なし</td></tr>
+            <tr><td>認定有効期間</td><td>3年 (更新には CPD ポイントの取得、または同スイート内の別資格取得が必要)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert 公式製品ページ「PRINCE2 Agile Foundation (Version 2)」</a></li>
+        </ul>
+      </div>
+
+      <h3>0.3 出題範囲 (Learning Outcome) の全体像</h3>
+      <p>公式のシラバス文書では、出題範囲は次の5つの Learning Outcome (学習成果) に分かれています。本ガイドの第1部から第5部は、この5つの Learning Outcome にそのまま対応しています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>LO</th><th>タイトル</th><th>本ガイドの対応章</th></tr></thead>
+          <tbody>
+            <tr><td>LO1</td><td>プロジェクトと PRINCE2 に関する主要概念の理解</td><td>第1部</td></tr>
+            <tr><td>LO2</td><td>プロジェクトと PRINCE2 Agile に関する主要概念の理解</td><td>第2部</td></tr>
+            <tr><td>LO3</td><td>PRINCE2 の原則・テーマ・プロセス・管理プロダクトがアジャイル文脈でどのようにテーラリング・適用されるかの理解</td><td>第3部</td></tr>
+            <tr><td>LO4</td><td>アジャイルな働き方・主要用語・技法の理解</td><td>第4部</td></tr>
+            <tr><td>LO5</td><td>アジャイル文脈におけるフォーカスエリアの理解</td><td>第5部</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」</a></li>
+          <li><a href="https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf</a></li>
+        </ul>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p><strong>バージョンに関する留意点:</strong> 上記2件の Candidate Syllabus は PeopleCert の公式ドメインではなく第三者サイトによる非公式ミラー(参考文献・出典の8.2節参照)であり、試験時間・問題数・合格ラインについて「50問・55%合格」という、現行の PeopleCert 製品ページ(Version 2)の「40問・60分・60%合格」とは異なる旧版の情報を記載しています。このミラー文書だけでは、出題範囲(LO1〜LO5)やテーマ構成が Version 2 化後も変わっていないかどうかを確認できません。また PRINCE2 Agile は PRINCE2 の土台の上に成り立つ手法であり、PeopleCert は PRINCE2 側も「PRINCE2 Project Management Version 7」として改定を行っているため、本ガイドが扱う7つのテーマ等の用語・範囲が Version 7 の内容と整合しているかも合わせて確認が必要です。<strong>受験前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus・試験概要、および PRINCE2 Project Management Version 7 との用語・範囲の整合性を確認してください。</strong></p>
+      </div>
+
+      <h3>0.4 学習の全体マップ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="studyRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Foundation から Practitioner・Expert への学習ロードマップ</div>
+      </div>
+
+      <p>Foundation は「知識の再認・理解 (recall と comprehension)」を問う試験であるのに対し、Practitioner はケーススタディに基づく「適用力」を問う試験です。Foundation の内容を土台として、まず全体像を正確に押さえることが Practitioner 合格への近道です。</p>
+    </section>
+
+    <!-- ===================== 1. PRINCE2 Fundamentals ===================== -->
+    <section id="prince2-fundamentals">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
+      <h2>第1部: PRINCE2 の基礎知識 (Learning Outcome 1)</h2>
+
+      <p>PRINCE2 Agile はあくまで PRINCE2 という「土台」の上に成り立つ手法です。まず土台となる PRINCE2 そのものの構造を正確に理解しておきましょう。</p>
+
+      <h3>1.1 プロジェクトと PRINCE2 の基本概念</h3>
+      <p>PRINCE2 では、<strong>プロジェクト (Project)</strong> を「合意されたビジネスケースに基づき、1つ以上のビジネスプロダクトを提供するために作られる、一時的な組織」と定義します。これは日常的な業務である <strong>BAU (Business As Usual)</strong> と対比されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>プロジェクト</th><th>BAU (定常業務)</th></tr></thead>
+          <tbody>
+            <tr><td>期間</td><td>一時的 (開始と終了がある)</td><td>継続的</td></tr>
+            <tr><td>目的</td><td>変化 (Change) を生み出す</td><td>現状の運用を維持する</td></tr>
+            <tr><td>性質</td><td>独自性が高い、リスクが相対的に大きい</td><td>繰り返し性が高い、リスクが相対的に安定</td></tr>
+            <tr><td>組織</td><td>プロジェクトのために臨時に編成される</td><td>恒常的な組織構造</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「この作業はプロジェクトなのか BAU なのか」を最初に切り分けることは、ガバナンスの設計(誰が承認するか、どの程度の統制が必要か)を決める出発点になります。アジャイルなプロダクトチームであっても、予算・期限・ビジネスケースを伴う独立した取り組みであれば PRINCE2 のプロジェクト定義に当てはまります。</p>
+      </div>
+
+      <h3>1.2 PRINCE2 の7つのプリンシプル (原則)</h3>
+      <p>プリンシプルは、その取り組みが本当に PRINCE2 で管理されていると言えるかどうかを判断する「守るべき指針」です。7つすべてを適用してはじめて PRINCE2 と呼べます(テーラリング=調整は可能ですが、原則そのものを省略することはできません)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>原則</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>継続的なビジネス正当化 (Continued business justification)</td><td>プロジェクトを開始・継続する正当な理由が常に存在し、記録・承認され、有効であり続けることを確認する</td></tr>
+            <tr><td>2</td><td>経験からの学習 (Learn from experience)</td><td>過去の経験・教訓を探し、記録し、以降のプロジェクトに活かす</td></tr>
+            <tr><td>3</td><td>役割と責任の明確化 (Defined roles and responsibilities)</td><td>誰が何に責任を持つかを明確にし、ビジネス・ユーザー・サプライヤーの利害を代表する体制を作る</td></tr>
+            <tr><td>4</td><td>段階(ステージ)による管理 (Manage by stages)</td><td>プロジェクトを複数のマネジメントステージに分割し、計画・監視・コントロールを段階的に行う</td></tr>
+            <tr><td>5</td><td>例外による管理 (Manage by exception)</td><td>各管理レベルに許容範囲(トレランス)を設定し、逸脱時のみ上位レベルへエスカレーションする</td></tr>
+            <tr><td>6</td><td>プロダクトへの焦点 (Focus on products)</td><td>何をするか(活動)ではなく、何を生み出すか(プロダクトの品質要件)に焦点を当てる</td></tr>
+            <tr><td>7</td><td>プロジェクト環境に合わせたテーラリング (Tailor to suit the project environment)</td><td>プロジェクトの規模・複雑さ・重要性・能力・リスクに応じて手法を調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>7原則の中でも「例外による管理」と「プロジェクト環境に合わせたテーラリング」は、後述するアジャイルとの親和性が特に高い原則です。自己組織化チームへの権限委譲(=例外による管理)と、状況に応じた運用調整(=テーラリング)は、PRINCE2 Agile を理解する上での重要な橋渡しになります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.1 (7原則の一覧)</a></li>
+        </ul>
+      </div>
+
+      <h3>1.3 PRINCE2 の7つのテーマ</h3>
+      <p>テーマは、プロジェクトマネジメントの特定の側面について、常に対応し続ける必要がある領域です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>テーマ</th><th>目的 (何を扱うか)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>ビジネスケース (Business Case)</td><td>プロジェクトが望ましく、実行可能で、実現可能であり、投資に値することを立証・維持する仕組み</td></tr>
+            <tr><td>2</td><td>組織 (Organization)</td><td>プロジェクトに関わる人々の役割と責任、指揮命令系統を定義する仕組み</td></tr>
+            <tr><td>3</td><td>品質 (Quality)</td><td>プロダクトが目的に適合していることを確実にするための、品質要件の定義と検証の仕組み</td></tr>
+            <tr><td>4</td><td>計画 (Plans)</td><td>プロダクトを土台にした計画づくりのステップと、進捗のコミュニケーション手段</td></tr>
+            <tr><td>5</td><td>リスク (Risk)</td><td>不確実性を識別・評価し、プロジェクトの目的達成への影響をマネジメントする仕組み</td></tr>
+            <tr><td>6</td><td>変更 (Change)</td><td>変更要求や懸念事項(イシュー)を識別・評価・コントロールする仕組み</td></tr>
+            <tr><td>7</td><td>進捗 (Progress)</td><td>計画に対する実績を監視し、継続の可否を判断し、コントロールを行う仕組み</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>テーマは独立した「知識エリア」ではなく、相互に密接に連動しています。例えばリスクの深刻化はビジネスケースの見直しを引き起こし、それが進捗コントロールでの意思決定につながる、というように連鎖します。7テーマを暗記する際は「単独の定義」よりも「テーマ同士のつながり」を意識すると、第3部のアジャイル適用の理解が格段に深まります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.2</a></li>
+        </ul>
+      </div>
+
+      <h3>1.4 PRINCE2 の7つのプロセス</h3>
+      <p>プロセスは、プロジェクトの開始から終結までの活動の流れを示します。<strong>Directing a Project (プロジェクト指揮)</strong> はプロジェクトボードによる意思決定プロセスであり、他の全プロセスを横断的に統制します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="processFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PRINCE2 の7プロセスの関係(Directing a Project が全体を統制する)</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>プロセス</th><th>主な目的</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Starting up a Project (立ち上げ)</td><td>プロジェクトが実施する価値があるかを確認する準備段階。プロジェクト概要書(Project Brief)を作成する</td></tr>
+            <tr><td>2</td><td>Initiating a Project (開始)</td><td>プロジェクトの土台を固める。プロジェクト・イニシエーション・ドキュメンテーション(PID)を作成する</td></tr>
+            <tr><td>3</td><td>Directing a Project (指揮)</td><td>プロジェクトボードが主要な意思決定を行う(継続可否、例外対応の承認など)</td></tr>
+            <tr><td>4</td><td>Controlling a Stage (ステージ管理)</td><td>プロジェクトマネージャーが日々のステージ運営を行い、ワークパッケージを割り当てる</td></tr>
+            <tr><td>5</td><td>Managing Product Delivery (プロダクト提供管理)</td><td>チームマネージャーがワークパッケージを受け取り、プロダクトを作成・納品する</td></tr>
+            <tr><td>6</td><td>Managing a Stage Boundary (ステージ境界管理)</td><td>現ステージの完了報告と次ステージの計画をプロジェクトボードに提示する</td></tr>
+            <tr><td>7</td><td>Closing a Project (終結)</td><td>プロジェクトを正式に終結し、成果と教訓を確定する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>アジャイルなプロダクトチームは Managing Product Delivery と Controlling a Stage の間を、スプリントや反復のサイクルとして日々経験することになります。この2プロセスの「反復のリズム」こそが、PRINCE2 の段階的な統制とアジャイルのタイムボックスが接続する最重要ポイントです。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.3</a></li>
+        </ul>
+      </div>
+
+      <h3>1.5 PRINCE2 の主要な管理プロダクト</h3>
+      <p>管理プロダクト(マネジメントプロダクト)は、プロジェクトのガバナンスに使われる文書類です。Foundation 試験では次の7種類が中心的に問われます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>管理プロダクト</th><th>目的</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスケース (Business Case)</td><td>投資判断の根拠となる、プロジェクトの妥当性・実行可能性を記録する文書</td></tr>
+            <tr><td>チェックポイントレポート (Checkpoint Report)</td><td>チームマネージャーからプロジェクトマネージャーへの定期的な進捗報告</td></tr>
+            <tr><td>ハイライトレポート (Highlight Report)</td><td>プロジェクトマネージャーからプロジェクトボードへの定期的な進捗報告</td></tr>
+            <tr><td>プロジェクト概要書 (Project Brief)</td><td>プロジェクトを開始する価値があるかを判断するための概要情報</td></tr>
+            <tr><td>プロジェクト・イニシエーション・ドキュメンテーション (PID)</td><td>プロジェクトの「何を・なぜ・誰が・どのように」を定義する基準文書一式</td></tr>
+            <tr><td>プロジェクトプロダクト記述書 (Project Product Description)</td><td>プロジェクト全体の最終成果物とその品質要件を定義する文書</td></tr>
+            <tr><td>ワークパッケージ (Work Package)</td><td>チームマネージャー(または個人)に委任される作業内容の合意文書</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>アジャイル文脈では、これらの文書を「一度作って終わり」の静的なものと捉えず、継続的に更新される「生きた(living)」情報源として運用します。特にハイライトレポートやチェックポイントレポートは、情報ラジエーター(Information Radiator)やバーンチャートで代替・補強されることが多く、第3部で詳しく解説します。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.4</a></li>
+        </ul>
+      </div>
+
+      <h3>1.6 PRINCE2 の主要ロール</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ロール</th><th>責任の概要</th></tr></thead>
+          <tbody>
+            <tr><td>プロジェクトボード (Project Board)</td><td>プロジェクト全体に説明責任を負う意思決定機関(Executive・Senior User・Senior Supplier で構成)</td></tr>
+            <tr><td>Executive (エグゼクティブ)</td><td>プロジェクトの投資対効果に最終責任を持つ、プロジェクトボードの議長役</td></tr>
+            <tr><td>Senior User (シニアユーザー)</td><td>プロダクトを利用する立場を代表し、ベネフィット実現に責任を持つ</td></tr>
+            <tr><td>Senior Supplier (シニアサプライヤー)</td><td>プロダクトを提供するリソース・専門知識を代表する</td></tr>
+            <tr><td>Project Manager (プロジェクトマネージャー)</td><td>プロジェクトの日々のマネジメントに責任を持つ</td></tr>
+            <tr><td>Team Manager (チームマネージャー)</td><td>ワークパッケージを受け取り、プロダクトの作成を管理する(アジャイルでは Scrum Master がこの役割を兼ねることが多い)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>アジャイルなデリバリーチームでは「チームマネージャー」という肩書きは使われず、Scrum Master やプロダクトオーナーといったアジャイル固有の呼称が使われます。試験対策としては、PRINCE2 の役割名とアジャイルでの一般的な呼称の「対応関係」を意識して覚えると混乱を避けられます(詳細は 2.4 節)。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.5</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 2. PRINCE2 Agile Basics ===================== -->
+    <section id="prince2-agile-basics">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 03</div>
+      <h2>第2部: PRINCE2 Agile の基本概念 (Learning Outcome 2)</h2>
+
+      <h3>2.1 PRINCE2 Agile とは何か / プロジェクトと BAU</h3>
+      <p>PRINCE2 Agile は、PRINCE2 の<strong>ガバナンスとコントロールの枠組み</strong>に、アジャイルの<strong>振る舞い・概念・フレームワーク・技法</strong>を組み合わせた手法です。PRINCE2 が「何を管理するか(統制の仕組み)」を提供し、アジャイルが「どう実行するか(デリバリーの方法)」を提供する、と整理すると理解しやすくなります。</p>
+      <p>PRINCE2 Agile では、BAU との違いを踏まえた上で、プロジェクトの中でもとりわけ<strong>プロダクトデリバリーの領域(何を、どの順番で作るか)</strong>にアジャイルの反復性・漸進性を適用します。一方でプロジェクト全体のガバナンス(投資判断、ステージゲート、例外管理)は PRINCE2 の枠組みが担います。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「PRINCE2 が統治(Govern)し、アジャイルが実行(Deliver)する」という一文で全体像を要約できるようにしておくと、試験のシナリオ問題で迷ったときの判断軸になります。</p>
+      </div>
+
+      <h3>2.2 PRINCE2 Agile と親和性の高いアジャイル手法</h3>
+      <p>公式シラバスでは、PRINCE2 Agile と組み合わせて使うのに適したアジャイルの働き方として、次の3つが明示されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>手法</th><th>特徴</th><th>PRINCE2 Agile との関係</th></tr></thead>
+          <tbody>
+            <tr><td>Scrum (スクラム)</td><td>プロダクトオーナー・Scrum Master・開発チームという役割構成と、スプリントという固定長のタイムボックスで反復的にプロダクトを作る軽量フレームワーク</td><td>プロダクトデリバリーレベルで最も一般的に組み合わされる。ワークパッケージをスプリントバックログとして扱うなどの接続が可能</td></tr>
+            <tr><td>Kanban (カンバン)</td><td>作業の可視化、WIP(仕掛かり)制限、継続的なフローの最適化を重視する手法。固定のタイムボックスを持たない</td><td>運用・保守フェーズや、優先順位が頻繁に変わる作業の管理に向く。Controlling a Stage の日常運営と相性が良い</td></tr>
+            <tr><td>Lean Startup (リーンスタートアップ)</td><td>「構築・計測・学習」のループを回し、最小限の実用可能なプロダクト(MVP)で仮説検証を行う考え方</td><td>不確実性の高い新規プロダクト開発において、ビジネスケースの検証やプロジェクトプロダクト記述書の初期定義に活用される</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>試験では「どのアジャイル手法をどの場面で使うか」を問う設問が出ます。目安として、<strong>要件が比較的明確で反復的に作り込む場合は Scrum</strong>、<strong>継続的なフローで優先順位が流動的な場合は Kanban</strong>、<strong>そもそも何を作るべきかが不確実な場合は Lean Startup</strong> という使い分けを覚えておくと判断しやすくなります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 2.2</a></li>
+        </ul>
+      </div>
+
+      <h3>2.3 「ブレンドとウィーブ」と8つのガイダンスポイント</h3>
+      <p>PRINCE2 Agile は、PRINCE2 と アジャイルを「ブレンド(混ぜ合わせる)」し、さらにプロジェクトの3つのレベル全体に「ウィーブ(織り込む)」ことを目指します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="blendWeaveLevels"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロジェクトの3つのレベルにおける PRINCE2 と Agile の織り込み方</div>
+      </div>
+
+      <p>一般に、PRINCE2 の統制色は「プロジェクト指揮」レベルで強く、アジャイルの実行色は「プロダクトデリバリー」レベルで強くなります。「プロジェクトマネジメント」レベルはその中間として、両者を橋渡しする役割を担います。</p>
+      <p>この「ブレンドとウィーブ」を正しく理解するための前提として、公式ガイダンスは次の8つのガイダンスポイントを示しています(誤解が起きやすい論点を明確化するためのものです)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>ガイダンスポイント(要旨)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>現行版の PRINCE2 は、もともとアジャイルと組み合わせて使えるように作られている。専用の「アジャイル版 PRINCE2」が必要なのではなく、力点の置き方と詳細なガイダンスの追加が必要なだけである</td></tr>
+            <tr><td>2</td><td>PRINCE2 はどのようなスタイルのプロジェクトにも適用できる汎用的な手法であり、アジャイルと対比される「伝統的(ウォーターフォール的)」な手法と決めつけるべきではない</td></tr>
+            <tr><td>3</td><td>PRINCE2 Agile は IT プロジェクト専用ではなく、あらゆる種類のプロジェクトに適用できる</td></tr>
+            <tr><td>4</td><td>XP(エクストリーム・プログラミング)や SAFe のような「IT専用」のフレームワーク・技法にも触れるが、詳細には踏み込まない</td></tr>
+            <tr><td>5</td><td>アジャイルは Scrum だけではない。アジャイルは Scrum よりもはるかに広い概念である</td></tr>
+            <tr><td>6</td><td>最もよく使われるアジャイルの手法は Scrum と Kanban だが、これらは単独でプロジェクト全体をマネジメントするには不十分である。ただし、プロジェクトという枠組みの中でなら効果的に活用できる</td></tr>
+            <tr><td>7</td><td>本ガイダンスにおける「アジャイル」という言葉は、単一の手法ではなく、振る舞い・概念・フレームワーク・技法からなる「一つのファミリー」を指す</td></tr>
+            <tr><td>8</td><td>プロジェクトでアジャイルを使うかどうかは「はい/いいえ」の二択ではなく、「どの程度(どれくらいの強さで)」使うかという程度問題である</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>8つのガイダンスポイントの中でも、特に5・7・8番目は試験で頻出です。「アジャイル=Scrumではない」「アジャイルは程度問題である」という2点を軸に理解しておくと、選択式問題の誤答選択肢(ディストラクター)を見抜きやすくなります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第3.6節 (Important points about PRINCE2 Agile and this manual)</a></li>
+        </ul>
+      </div>
+
+      <h3>2.4 PRINCE2 Agile デリバリーチームのロール</h3>
+      <p>Foundation シラバスでは、デリバリーチームに関わる次の4つのロール(責任・コンピテンシー)が明示されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ロール</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Customer Subject Matter Expert (顧客側の専門家)</td><td>業務要件や顧客ニーズについて深い知識を持ち、デリバリーチームに助言する</td></tr>
+            <tr><td>Customer Representative (顧客代表)</td><td>顧客側の優先順位付けや意思決定を代表する(PRINCE2 Agile ではプロダクトオーナーがこの役割を担うことが多い)</td></tr>
+            <tr><td>Supplier Subject Matter Expert (サプライヤー側の専門家)</td><td>技術的な実装方法について深い知識を持ち、デリバリーチームに助言する</td></tr>
+            <tr><td>Supplier Representative (サプライヤー代表)</td><td>提供側の技術的な意思決定を代表する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>実務では、これらの役割に加えて <strong>Product Owner(プロダクトオーナー)</strong> と <strong>Scrum Master</strong> という呼称がよく使われます。Foundation レベルでは上記4ロールの「責任の性質」を理解することが優先されますが、Product Owner ≒ Customer Representative、Scrum Master ≒ Team Manager(のアジャイル版)という対応関係を押さえておくと、Practitioner レベルへの橋渡しがスムーズになります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 2.4</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 3. Agile Tailoring ===================== -->
+    <section id="agile-tailoring">
+      <div class="section-eyebrow"><i class="ti ti-timeline"></i>SECTION 04</div>
+      <h2>第3部: 原則・テーマ・プロセス・管理プロダクトのアジャイルへの適用 (Learning Outcome 3)</h2>
+
+      <p>この第3部は Foundation 試験の中で最も配点比率が高い領域です。第1部・第2部で学んだ PRINCE2 の基礎知識を、実際にどうアジャイルに「テーラリング(調整)」するかを扱います。</p>
+
+      <h3>3.1 アジャイル文脈での PRINCE2 原則</h3>
+      <p>PRINCE2 の7原則は、アジャイル文脈でも一切省略されません。むしろ、アジャイルの実践はこれらの原則をより強く体現する形で表れます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原則</th><th>アジャイル文脈での現れ方</th></tr></thead>
+          <tbody>
+            <tr><td>継続的なビジネス正当化</td><td>プロダクトバックログの価値順の並び替えや、リリースごとのベネフィット確認を通じて、正当性が継続的に再検証される</td></tr>
+            <tr><td>経験からの学習</td><td>スプリントレトロスペクティブという形で、学習のサイクルが定例化・高頻度化される</td></tr>
+            <tr><td>役割と責任の明確化</td><td>Product Owner・Scrum Master・開発チームという明確な役割分担が PRINCE2 の役割構造と結びつけられる</td></tr>
+            <tr><td>段階による管理</td><td>ステージがリリースに、リリースがスプリントにと、入れ子構造でさらに細かく段階化される</td></tr>
+            <tr><td>例外による管理</td><td>チームへの権限委譲が徹底され、トレランスの範囲内であれば自己組織化チームが自律的に判断する</td></tr>
+            <tr><td>プロダクトへの焦点</td><td>プロダクトバックログアイテムや受け入れ基準(Acceptance Criteria)という形で、プロダクト志向がさらに具体化される</td></tr>
+            <tr><td>テーラリング</td><td>アジャイル自体がテーラリングの一形態であり、Agilometer(5.1節)を使って適用度合いを調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「アジャイルは PRINCE2 の原則を弱める」という誤解は試験でよく狙われるひっかけです。実際は逆で、アジャイルは原則(特に例外による管理と経験からの学習)を、より高頻度・高強度で実践する手段だと理解しておきましょう。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第7章 (Agile and the PRINCE2 principles)</a></li>
+        </ul>
+      </div>
+
+      <h3>3.2 PRINCE2 Agile の5つの振る舞い (Behaviours)</h3>
+      <p>PRINCE2 Agile は、特定の技法だけでなく「振る舞い(Behaviours)」の実践を重視します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>振る舞い</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Transparency (透明性)</td><td>進捗・課題・リスクを隠さず可視化する。情報ラジエーターなどで誰もが状況を確認できる状態を作る</td></tr>
+            <tr><td>2</td><td>Collaboration (協働)</td><td>役割の壁を越えてチーム・ステークホルダーが共に働く。プロジェクトボードとの協働的な意思決定も含む</td></tr>
+            <tr><td>3</td><td>Rich Communication (リッチコミュニケーション)</td><td>対面での会話や視覚的な手段など、最も情報量の多いコミュニケーション手段を優先する</td></tr>
+            <tr><td>4</td><td>Self-organization (自己組織化)</td><td>実行方法の詳細をチーム自身に委ね、プロジェクトマネージャーはファシリテーターとしての役割を担う</td></tr>
+            <tr><td>5</td><td>Exploration (探求)</td><td>頻繁な反復とフィードバックループを通じて、学びながら前進する姿勢</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>5つの振る舞いは互いに補強し合う関係にあります。例えば Transparency がなければ Collaboration は機能せず、Self-organization がなければ Exploration から得た学びをチームが素早く活かせません。試験では単独の定義よりも「なぜこの振る舞いが必要か」という文脈理解が問われます。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.2</a></li>
+        </ul>
+      </div>
+
+      <h3>3.3 テーマごとのアジャイルガイダンス</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>テーマ</th><th>アジャイル文脈での主な調整ポイント</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスケース</td><td>一度に確定させず、リリースごとに価値を検証し、ベネフィットを漸進的に実現していく。MVP(実用最小限のプロダクト)を用いて早期に仮説検証を行うこともある</td></tr>
+            <tr><td>組織</td><td>Product Owner・Scrum Master という一般的なアジャイルロールを、PRINCE2 のロール構造(顧客代表・チームマネージャー)に対応づける。サーバントリーダーシップが重視される</td></tr>
+            <tr><td>品質</td><td>Definition of Done(完了の定義)と受け入れ基準を用いて品質を継続的に検証する。品質基準そのものは「固定」され、妥協の対象にはしない(3.6節参照)</td></tr>
+            <tr><td>計画</td><td>プロダクトベースの計画づくりがプロダクトバックログと自然に整合する。ストーリーポイントや T シャツサイズ見積りなど、アジャイル特有の見積り技法を用いる</td></tr>
+            <tr><td>リスク</td><td>頻繁なフィードバックループ自体がリスク低減策となる(誤ったものを作り続けるリスクを早期に発見できる)。リスクはデイリースタンドアップやレビューの中でも継続的に見直される</td></tr>
+            <tr><td>変更</td><td>トレランスの範囲内であれば、自己組織化したチームが正式な変更管理プロセスを経ずに動的に対応する。トレランスを超える変更のみ、正式な例外処理としてプロジェクトボードに上げる</td></tr>
+            <tr><td>進捗</td><td>バーンチャート、カンバンボード、情報ラジエーターといったアジャイル指標を用いて、稼働しているプロダクトそのものを進捗の証拠とする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>各テーマの調整は「PRINCE2 の目的を変えずに、実現手段をアジャイルの技法に置き換える」という発想で理解すると覚えやすくなります。目的(なぜそのテーマが必要か)は変わらず、手段(どう実現するか)がアジャイルの技法に置き換わる、という構造は7テーマすべてに共通しています。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.3</a></li>
+        </ul>
+      </div>
+
+      <h3>3.4 プロセスごとのアジャイルガイダンス</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>プロセス</th><th>アジャイル文脈での主な調整ポイント</th></tr></thead>
+          <tbody>
+            <tr><td>Starting up a Project</td><td>立ち上げの段階から将来のデリバリーチームを巻き込み、初期プロダクトバックログや Definition of Done の土台を作り始める</td></tr>
+            <tr><td>Initiating a Project</td><td>PID の中に、何を固定し何を柔軟にするか(3.6節のヘキサゴン)を明示的に合意として記載する。ワーキングアグリーメントもこの段階で整える</td></tr>
+            <tr><td>Directing a Project</td><td>プロジェクトボードとの関わりがより頻繁かつ協働的になる。詳細な文書よりも、情報ラジエーターや実際に動くプロダクトのデモを通じた合意形成が重視される</td></tr>
+            <tr><td>Controlling a Stage</td><td>ステージがリリース・スプリント単位に細分化される。プロジェクトマネージャーの役割は、詳細な指示出しからファシリテーション・障害の除去へとシフトする</td></tr>
+            <tr><td>Managing Product Delivery</td><td>ワークパッケージがスプリントバックログとして扱われる。チェックポイントレポートはデイリースタンドアップやバーンチャートで代替・補強される</td></tr>
+            <tr><td>Managing a Stage Boundary</td><td>スプリントレビュー・レトロスペクティブと、ステージ境界での正式な報告が組み合わされる。学びはステージ境界を待たず継続的に記録される</td></tr>
+            <tr><td>Closing a Project</td><td>漸進的リリースを通じてベネフィットの多くはすでに実現されていることが多く、終結時は正式な受け入れ確認と運用への移行、最終ふりかえりに重点が置かれる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>7プロセスの中でも Directing a Project と Controlling a Stage は、アジャイル化によってプロジェクトマネージャーとプロジェクトボードの「関わり方」が最も大きく変わる部分です。「詳細な統制」から「頻度は高いが軽量な協働」への転換を意識しておきましょう。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.4</a></li>
+        </ul>
+      </div>
+
+      <h3>3.5 管理プロダクトのテーラリング</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>管理プロダクト</th><th>アジャイル文脈でのテーラリング例</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスケース</td><td>詳細な数値予測よりも、価値順に並んだプロダクトバックログとの整合性を重視し、軽量かつ頻繁に見直す</td></tr>
+            <tr><td>チェックポイントレポート</td><td>多くの場合、デイリースタンドアップと可視化されたタスクボードに置き換えられる(契約上必要な場合は簡潔な形式で残す)</td></tr>
+            <tr><td>ハイライトレポート</td><td>頻度を高め、分量を絞り、バーンチャートやカンバンボードのスクリーンショットなど視覚的な情報で代替・補強する</td></tr>
+            <tr><td>プロジェクト概要書</td><td>早い段階からデリバリーチームと協議し、実現可能性やアジャイル適性(Agilometer)を確認する</td></tr>
+            <tr><td>PID</td><td>何を固定・何を柔軟にするかという合意(ヘキサゴン)を明文化する</td></tr>
+            <tr><td>プロジェクトプロダクト記述書</td><td>品質基準を明確な「譲れない基準線」として定義し、Definition of Done の拠り所とする</td></tr>
+            <tr><td>ワークパッケージ</td><td>個別の技術仕様よりも、対象スプリントのユーザーストーリー群と Definition of Done への参照で構成する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>管理プロダクトのテーラリングにおいて重要なのは「文書を減らすこと」自体が目的ではなく、「同じガバナンス上の目的を、より軽量な手段で達成すること」が目的だという点です。文書を省略した結果、意思決定に必要な情報が失われてしまっては本末転倒です。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.5</a></li>
+        </ul>
+      </div>
+
+      <h3>3.6 何を固定し何を柔軟にするか: ヘキサゴンと5つのターゲット</h3>
+      <p>PRINCE2 Agile では、プロジェクトのパフォーマンスを構成する6つの側面(アスペクト)を「ヘキサゴン(六角形)モデル」として捉え、どれを「固定(Fix)」しどれを「柔軟(Flex)」にするかを事前に合意します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アスペクト</th><th>典型的な扱い</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td>時間 (Time)</td><td>固定</td><td>期限を守ることが顧客にとっての価値の中心となることが多いため</td></tr>
+            <tr><td>コスト (Cost)</td><td>固定</td><td>予算超過は多くの組織で許容度が低いため</td></tr>
+            <tr><td>品質 (Quality)</td><td>基準線を固定(妥協しない)</td><td>品質基準を下げることは長期的な信頼や保守性を損なうため</td></tr>
+            <tr><td>スコープ (Scope)</td><td>柔軟</td><td>MoSCoW 等の優先順位付けにより、時間とコストを守りながら調整できる余地を持たせるため</td></tr>
+            <tr><td>ベネフィット (Benefits)</td><td>状況に応じて固定/柔軟</td><td>プロジェクトの目的によって、どの程度厳密に扱うかが異なるため</td></tr>
+            <tr><td>リスク (Risk)</td><td>状況に応じて固定/柔軟</td><td>アジャイル自体がリスク低減策となる面もあり、プロジェクトのリスク許容度に応じて調整するため</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <p>「時間とコストを固定し、スコープと品質を柔軟にする」という組み合わせが典型例としてよく紹介されますが、実際には品質基準そのものは妥協しないという考え方が PRINCE2 Agile の核心です。柔軟にするのは「品質基準を満たすために、どの機能をどこまで作り込むか」というスコープ側の話であり、品質の「基準」自体を下げることではありません。</p>
+      </div>
+
+      <p>このヘキサゴンの考え方を支えるのが、次の<strong>5つのターゲット</strong>です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>ターゲット</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>期限を守り、時間通りに完了する (Be on time and hit deadlines)</td><td>予測可能性を高め、ステークホルダーの信頼を維持する</td></tr>
+            <tr><td>2</td><td>品質の水準を保護する (Protect the level of quality)</td><td>期限に追われて品質検証(テスト・レビュー)を省略しない</td></tr>
+            <tr><td>3</td><td>変化を受け入れる (Embrace change)</td><td>詳細の変化は当然のものとして扱い、コントロールされた形で対応する</td></tr>
+            <tr><td>4</td><td>チームを安定させる (Keep teams stable)</td><td>メンバーの入れ替えを避け、チームの生産性・一体感を維持する</td></tr>
+            <tr><td>5</td><td>顧客はすべてを必要としているわけではないと理解する (Accept that the customer doesn't need everything)</td><td>優先順位の低い要求は削ってもよいという前提を関係者全員で共有する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>ヘキサゴンと5つのターゲットは Foundation 試験の頻出テーマです。「なぜスコープを柔軟にするのか」という問いに対して、常に「5つのターゲットを守るため」という因果関係で答えられるようにしておくと、シナリオ形式の設問にも対応しやすくなります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.6</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 4. Agile Glossary & Techniques ===================== -->
+    <section id="agile-glossary-techniques">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 05</div>
+      <h2>第4部: アジャイルの実践用語と技法 (Learning Outcome 4)</h2>
+
+      <h3>4.1 用語集 (Glossary)</h3>
+      <p>Foundation 試験では、以下の基本用語の定義を正確に再認できることが求められます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td>バックログ (Backlog: sprint / release / product)</td><td>未着手の作業項目を優先順位順に並べたリスト。スプリントバックログ・リリースバックログ・プロダクトバックログの3階層がある</td></tr>
+            <tr><td>ベネフィット (Benefit / Value)</td><td>プロジェクトの成果によってもたらされる、測定可能なプラスの効果</td></tr>
+            <tr><td>エピック (Epic)</td><td>複数のユーザーストーリーに分解される、大きな粒度の要求事項</td></tr>
+            <tr><td>情報ラジエーター (Information Radiator)</td><td>チームの状況(進捗・課題など)を、通りがかった誰もが一目で把握できるように可視化した掲示物・ボード</td></tr>
+            <tr><td>スパイク (Spike)</td><td>技術的な不確実性や未知の課題を調査するために行う、時間を区切った調査作業</td></tr>
+            <tr><td>スタンドアップミーティング (Stand-up Meeting)</td><td>チームが短時間・立ったまま行う、日々の進捗共有ミーティング(デイリースクラムとも呼ばれる)</td></tr>
+            <tr><td>タイムボックス (Timebox: sprint / release)</td><td>開始と終了が固定された、あらかじめ定められた時間の枠</td></tr>
+            <tr><td>ベロシティ (Velocity)</td><td>チームが1回のタイムボックス(スプリント等)で完了できる作業量の実績値。将来の計画の目安として使う</td></tr>
+            <tr><td>ウォーターフォール手法 (Waterfall Methodology)</td><td>要件定義・設計・実装・テストといった工程を順番に一度ずつ進める、伝統的な開発アプローチ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>用語の暗記は「単語カード」的な学習だけでなく、実際の一文の中で使ってみることをお勧めします。例えば「スプリントの終わりに、チームはベロシティを記録し、次のリリースバックログの計画に活かす」のように、複数の用語を組み合わせた文を自分で作ると、用語同士の関係性が定着しやすくなります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 4.1 (Glossary)</a></li>
+        </ul>
+      </div>
+
+      <h3>4.2 主要なアジャイルの概念と技法</h3>
+
+      <h4>4.2.1 Scrum (スクラム)</h4>
+      <p>Scrum は、プロダクトオーナー・Scrum Master・開発チームという3つの役割と、スプリントという固定長のタイムボックスを中心に構成される、最も広く使われる軽量フレームワークです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="scrumCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Scrum のスプリントサイクル</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>PRINCE2 Agile の文脈では、スプリントの単位をそのままワークパッケージの期間と一致させると、チームマネージャー(Scrum Master)によるプロダクトデリバリー管理がしやすくなります。</p>
+      </div>
+
+      <h4>4.2.2 Kanban (カンバン)</h4>
+      <p>Kanban は固定のタイムボックスを持たず、作業の流れ(フロー)を可視化し、WIP(仕掛かり作業)を制限することでスループットを最適化する手法です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="kanbanFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Kanban の作業フロー(WIP制限あり)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>保守運用フェーズや、優先順位が頻繁に変わる差し込み作業が多い環境では、固定タイムボックスを持つ Scrum よりも Kanban の方が PRINCE2 のステージ管理と相性が良いことがあります。</p>
+      </div>
+
+      <h4>4.2.3 Lean Startup と MVP</h4>
+      <p>Lean Startup は「構築(Build)・計測(Measure)・学習(Learn)」のループを繰り返し、仮説を素早く検証していく考え方です。<strong>MVP(Minimum Viable Product: 実用最小限のプロダクト)</strong> は、この検証を可能にする最小限の機能を備えたプロダクトを指します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="leanStartupLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Lean Startup の構築・計測・学習ループ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>MVP は「品質を落とした簡易版」ではなく、「学びを得るために必要十分な機能を備えた完成品」です。3.6節の「品質基準は固定する」という考え方と矛盾しないよう、MVP であっても品質基準そのものは維持する必要があります。</p>
+      </div>
+
+      <h4>4.2.4 レトロスペクティブ (Retrospectives)</h4>
+      <p>チームが定期的に自分たちの働き方を振り返り、改善点を特定するための場です。PRINCE2 の「経験からの学習」の原則を、高頻度かつ実践的に体現する仕組みです。</p>
+
+      <h4>4.2.5 ユーザーストーリーと Definition of Ready / Done</h4>
+      <p>ユーザーストーリーは、エンドユーザーの視点から「誰が」「何を」「なぜ」欲しいのかを簡潔に記述した要求事項の単位です。着手可能と判断する基準を <strong>Definition of Ready(準備完了の定義)</strong>、完了と判断する基準を <strong>Definition of Done(完了の定義)</strong> と呼び、あいまいさを排除するために使われます。</p>
+
+      <h4>4.2.6 ワークショップ (Workshops)</h4>
+      <p>要件の洗い出し、優先順位付け、問題解決などを目的に、関係者を集めて集中的に行う共同作業セッションです。リッチコミュニケーション(5.3節)を実現する代表的な手段の一つです。</p>
+
+      <h4>4.2.7 バーンチャート (Burn Charts)</h4>
+      <p>残作業量(バーンダウンチャート)や完了作業量(バーンアップチャート)を時間の推移とともに可視化したグラフです。進捗テーマにおける主要な情報ラジエーターとして機能します。</p>
+
+      <h4>4.2.8 アジャイル見積り (ポイントと T シャツサイジング)</h4>
+      <p>相対見積りの技法です。ストーリーポイントは作業の相対的な複雑さ・工数を数値(フィボナッチ数列が使われることが多い)で表し、T シャツサイジング(S/M/L/XL等)はより粗い粒度で相対規模を表します。いずれも絶対的な時間見積りよりも精度と速度のバランスに優れるとされます。</p>
+
+      <h4>4.2.9 ワーキングアグリーメント (Working Agreements)</h4>
+      <p>チームが自分たちの働き方について合意する取り決めです。稼働時間、コミュニケーションのルール、品質基準の運用方法などを含み、自己組織化(Self-organization)を支える基盤になります。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>4.2節の技法はいずれも独立した知識ではなく、3.3節・3.4節で見たテーマ・プロセスのアジャイルガイダンスを実現するための「道具箱」です。「このテーマ・プロセスを実現するために、どの技法が使えるか」という対応関係を意識して学習すると、知識が有機的につながります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 4.2</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Focus Areas ===================== -->
+    <section id="focus-areas">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 06</div>
+      <h2>第5部: フォーカスエリア (Learning Outcome 5)</h2>
+
+      <p>フォーカスエリアは、PRINCE2 Agile を実践する上で特に重点的に扱うべき4つの領域です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="focusAreasOverview"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">PRINCE2 Agile の4つのフォーカスエリア</div>
+      </div>
+
+      <h3>5.1 Agilometer (アジロメーター)</h3>
+      <p>Agilometer は、プロジェクトがどの程度アジャイルに適しているかを可視化するための診断ツールです。次の6つのスライダー(評価軸)について、低い(アジャイルに不向き)から高い(アジャイルに好適)までを評価します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>スライダー</th><th>評価する内容</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>何が提供されるかの柔軟性 (Flexibility on what is delivered)</td><td>スコープをどれだけ柔軟に扱えるか</td></tr>
+            <tr><td>2</td><td>協働のレベル (Level of collaboration)</td><td>顧客・サプライヤー間がどれだけ協力的な関係にあるか(契約が敵対的でないか)</td></tr>
+            <tr><td>3</td><td>コミュニケーションの容易さ (Ease of communication)</td><td>関係者間で直接的・高頻度なコミュニケーションがどれだけ取りやすいか</td></tr>
+            <tr><td>4</td><td>反復的・漸進的に作業する能力 (Ability to work iteratively and deliver incrementally)</td><td>分割してリリースすることが許容される環境か(規制要件などで一括納品が必須でないか)</td></tr>
+            <tr><td>5</td><td>有利な環境条件 (Advantageous environmental conditions)</td><td>組織文化・ツール・設備がアジャイルの実践を支援しているか</td></tr>
+            <tr><td>6</td><td>アジャイルの受容度 (Acceptance of Agile)</td><td>関係者がアジャイルな働き方をどれだけ理解し、受け入れているか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>各スライダーを評価し、六角形のレーダーチャートのような形で可視化することで、プロジェクトチームは「どの領域に追加のガイダンスやリスク対応が必要か」を早期に把握できます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>Agilometer は一度きりの評価ではなく、プロジェクトを通じて定期的に再評価すべきものです。スコアが低い項目があっても「アジャイルを使うべきではない」という結論に直結するわけではなく、「その領域に追加のガイダンス・緩和策が必要」というシグナルとして扱うのが正しい使い方です。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第6章 (Fix and flex: what can and cannot be varied?)</a></li>
+        </ul>
+      </div>
+
+      <h3>5.2 Requirements (要求事項の優先順位付け)</h3>
+      <p>PRINCE2 Agile では、要求事項の優先順位付け技法として <strong>MoSCoW</strong> が推奨されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>優先度</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>Must have (必須)</td><td>これがなければリリースが成立しない要求</td></tr>
+            <tr><td>Should have (推奨)</td><td>重要だが、なくてもリリース自体は成立する要求</td></tr>
+            <tr><td>Could have (あれば良い)</td><td>望ましいが、優先度が低い要求</td></tr>
+            <tr><td>Won't have this time (今回は対象外)</td><td>今回のタイムボックスでは扱わないと合意された要求</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>「Must have」の割合をタイムボックスの作業量の60%程度に抑え、残りを Should/Could に配分するという目安がよく使われます。Must have の比率が高すぎると、3.6節で見た「スコープを柔軟にする」余地がなくなり、期限や品質を守れなくなるリスクが高まります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 5.2</a></li>
+        </ul>
+      </div>
+
+      <h3>5.3 Rich Communication (リッチコミュニケーション)</h3>
+      <p>情報量の多いコミュニケーション手段(対面での会話、ホワイトボードでの図解、実際に動くプロダクトのデモなど)を、情報量の少ない手段(長文の文書、形式的なメールのみのやり取り)より優先する考え方です。3.2節の「振る舞い」の一つである Transparency を実現する土台になります。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>リモート・分散環境では対面コミュニケーションに制約があるため、ビデオ会議での画面共有、共同編集可能なオンラインホワイトボードなど、可能な限り情報量の多い代替手段を選ぶことが推奨されます。</p>
+      </div>
+
+      <h3>5.4 Frequent Releases (頻繁なリリース)</h3>
+      <p>小さく・頻繁にプロダクトをリリースすることで、早い段階からフィードバックを得て、リスクを低減し、ベネフィットを早期に実現するという考え方です。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>リリース頻度を上げることは、3.6節の5つのターゲットのうち「変化を受け入れる」「顧客はすべてを必要としているわけではないと理解する」を実現するための最も直接的な手段です。リリースの粒度を小さくするほど、方向修正のコストは小さくなります。</p>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 5.3–5.4</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Exam Preparation ===================== -->
+    <section id="exam-preparation">
+      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 07</div>
+      <h2>第6部: 試験対策</h2>
+
+      <h3>6.1 出題形式のおさらい</h3>
+      <ul>
+        <li>40問の四肢択一式、60分、クローズドブック、合格ラインは60%(0.2節参照)。</li>
+        <li>設問は大きく分けて「用語・定義の再認を問うタイプ」と「短いシナリオに基づき、最も適切な対応を選ばせるタイプ」の2種類に分かれます。</li>
+      </ul>
+
+      <h3>6.2 学習の進め方(ステップバイステップ)</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="studySteps"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Foundation 学習の5ステップ</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>各部の「ベストプラクティス」コールアウトを自分の言葉で言い換えて書き出す(アクティブリコール)と、単純な読み返しよりも定着率が高まります。第3部の対応表(3.3節・3.4節・3.5節)は、白紙の状態から再現できるようになるまで繰り返すことをお勧めします。</p>
+      </div>
+
+      <h3>6.3 頻出のひっかけパターン</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ひっかけの傾向</th><th>正しい理解</th></tr></thead>
+          <tbody>
+            <tr><td>「アジャイルを使うと PRINCE2 の原則やプロセスが不要になる」</td><td>原則もプロセスもすべて維持される。テーラリング(調整)されるのは実現手段であり、目的や構造そのものではない</td></tr>
+            <tr><td>「アジャイル = Scrum」</td><td>アジャイルは Scrum・Kanban・Lean Startup などを含む、より広い概念(2.3節ガイダンスポイント5・7)</td></tr>
+            <tr><td>「品質を柔軟にすれば納期を守れる」</td><td>柔軟にするのはスコープであり、品質基準は固定する(3.6節)</td></tr>
+            <tr><td>「Agilometer のスコアが低ければアジャイルは使えない」</td><td>スコアが低い領域には追加のガイダンス・緩和策が必要というシグナルであり、使用可否の単純な判定基準ではない(5.1節)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">本節は公式シラバスの Learning Outcome 全体(1〜5)を横断する形で、頻出論点を整理したものです</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Glossary Summary ===================== -->
+    <section id="glossary-summary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 08</div>
+      <h2>付録: 用語集まとめ表</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語(英語)</th><th>用語(日本語)</th><th>対応する本ガイドの節</th></tr></thead>
+          <tbody>
+            <tr><td>Business Case</td><td>ビジネスケース</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Organization</td><td>組織</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Quality</td><td>品質</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Plans</td><td>計画</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Risk</td><td>リスク</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Change</td><td>変更</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Progress</td><td>進捗</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Blend and Weave</td><td>ブレンドとウィーブ</td><td>2.3</td></tr>
+            <tr><td>Agilometer</td><td>アジロメーター</td><td>5.1</td></tr>
+            <tr><td>MoSCoW</td><td>モスクワ(優先順位付け技法)</td><td>5.2</td></tr>
+            <tr><td>Fix and Flex</td><td>固定と柔軟</td><td>3.6</td></tr>
+            <tr><td>Definition of Ready / Done</td><td>準備完了・完了の定義</td><td>4.2.5</td></tr>
+            <tr><td>MVP</td><td>実用最小限のプロダクト</td><td>4.2.3</td></tr>
+            <tr><td>Velocity</td><td>ベロシティ</td><td>4.1</td></tr>
+            <tr><td>Information Radiator</td><td>情報ラジエーター</td><td>3.2 / 4.1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 8. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 09</div>
+      <h2>参考文献・出典</h2>
+
+      <div class="ref-group">
+        <h4>8.1 公式・一次情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert 公式製品ページ「PRINCE2 Agile Foundation」(Version 2 / 試験概要)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074</a></li>
+          <li><span class="ref-name">AXELOS 公式オンライン出版「PRINCE2 Agile」(第3.6節: Important points about PRINCE2 Agile and this manual)</span><a class="ref-url" href="https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25" target="_blank" rel="noopener">https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&amp;expandNav=true&amp;page=PRA_25</a></li>
+          <li><span class="ref-name">AXELOS 公式オンライン出版「PRINCE2 Agile」トップページ(目次・各章へのリンク)</span><a class="ref-url" href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">https://publications.axelos.com/PRINCE2Agile2016/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>8.2 補足・研修プロバイダ資料(非公式・参考情報)</h4>
+        <p>以下は PeopleCert / AXELOS が発行する一次情報ではありませんが、内容の相互検証や補足解説として参照した二次情報源です。学習の際は必ず 8.1 の一次情報源を優先してください。</p>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」(第三者サイトによる非公式ミラー版PDF。著作権は PeopleCert International Ltd. に帰属するが、公式ドメインでの配布ではなく内容が旧版の試験概要(50問・55%合格)のままである点に注意)</span><a class="ref-url" href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf</a></li>
+          <li><span class="ref-name">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」(ミラー2)</span><a class="ref-url" href="https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf</a></li>
+          <li><span class="ref-name">The Projex Academy「Important points about PRINCE2 7 with Agile」</span><a class="ref-url" href="https://www.projex.com/important-points-about-prince2-7-with-agile/" target="_blank" rel="noopener">https://www.projex.com/important-points-about-prince2-7-with-agile/</a></li>
+          <li><span class="ref-name">Brendan Martin「PRINCE2 Agile」学習ノート(8つのガイダンスポイント・主要概念の要約)</span><a class="ref-url" href="https://www.brendanmartin.com/prince2-agile/" target="_blank" rel="noopener">https://www.brendanmartin.com/prince2-agile/</a></li>
+          <li><span class="ref-name">What Is PRINCE2「PRINCE2 Agile Book Review」</span><a class="ref-url" href="https://www.whatisprince2.net/agile/prince2-agile" target="_blank" rel="noopener">https://www.whatisprince2.net/agile/prince2-agile</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <footer>
+      本ガイドは、公式・非公式情報源をもとに独自にまとめた学習教材です。原著作物からの長文引用は行わず、内容は要約・翻訳・再構成した独自の解説となっています。試験の出題範囲・形式は改定される可能性があるため、受験前には必ず PeopleCert 公式サイトで最新情報をご確認ください。<br>
+      PRINCE2® および PRINCE2 Agile® は AXELOS Limited の登録商標です。本ガイドは PeopleCert / AXELOS の公式資料ではありません。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    studyRoadmap: `flowchart LR
+    F["PRINCE2 Agile Foundation (Version 2)"] --> P["PRINCE2 Agile Practitioner (Version 2)"]
+    P --> E["PRINCE2 Agile Expert (Foundation + Practitioner 取得で到達)"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class F hub;
+    class P box;
+    class E done;`,
+
+    processFlow: `flowchart TB
+    DP["Directing a Project (プロジェクト指揮)"]
+    SU["Starting up a Project (立ち上げ)"] --> IP["Initiating a Project (開始)"]
+    IP --> CS["Controlling a Stage (ステージ管理)"]
+    CS --> MP["Managing Product Delivery (プロダクト提供管理)"]
+    MP --> CS
+    CS --> SB["Managing a Stage Boundary (ステージ境界管理)"]
+    SB --> CS
+    SB --> CP["Closing a Project (プロジェクト終結)"]
+    DP --- SU
+    DP --- IP
+    DP --- CS
+    DP --- SB
+    DP --- CP
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class DP hub;
+    class SU,IP,CS,MP,SB box;
+    class CP done;`,
+
+    blendWeaveLevels: `flowchart TB
+    subgraph L1["プロジェクト指揮 (Project Direction)"]
+        A1["PRINCE2: プロジェクトボードによるガバナンスと意思決定"]
+    end
+    subgraph L2["プロジェクトマネジメント (Project Management)"]
+        A2["PRINCE2: プロセスとテーマによる管理の枠組み"]
+        A3["Agile: タイムボックス化された計画とレビュー"]
+    end
+    subgraph L3["プロダクトデリバリー (Product Delivery)"]
+        A4["Agile: Scrum / Kanban によるチームの日々の実行"]
+    end
+    L1 --> L2
+    L2 --> L3
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A1 hub;
+    class A2,A3 box;
+    class A4 done;`,
+
+    scrumCycle: `flowchart LR
+    PB["プロダクトバックログ"] --> SP["スプリントプランニング"]
+    SP --> SB2["スプリントバックログ"]
+    SB2 --> DS["デイリースタンドアップ"]
+    DS --> INC["インクリメント (動くプロダクト)"]
+    INC --> SR["スプリントレビュー"]
+    SR --> RETRO["スプリントレトロスペクティブ"]
+    RETRO --> SP
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class PB hub;
+    class SP,SB2,DS,INC,SR,RETRO box;`,
+
+    kanbanFlow: `flowchart LR
+    TODO["To Do"] --> DOING["Doing (WIP制限あり)"]
+    DOING --> REVIEW["Review"]
+    REVIEW --> DONE["Done"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class TODO hub;
+    class DOING,REVIEW box;
+    class DONE done;`,
+
+    leanStartupLoop: `flowchart LR
+    B["構築 (Build)"] --> M["計測 (Measure)"]
+    M --> L["学習 (Learn)"]
+    L --> B
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class B hub;
+    class M,L box;`,
+
+    focusAreasOverview: `flowchart TB
+    FA["4つのフォーカスエリア"] --> AG["Agilometer"]
+    FA --> RQ["Requirements (要求事項の優先順位付け)"]
+    FA --> RC["Rich Communication"]
+    FA --> FR["Frequent Releases"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class FA hub;
+    class AG,RQ,RC,FR box;`,
+
+    studySteps: `flowchart TB
+    S1["Step 1: 第1部で PRINCE2 の土台(原則・テーマ・プロセス・管理プロダクト・ロール)を固める"] --> S2["Step 2: 第2部で PRINCE2 Agile 固有の考え方(ブレンドとウィーブ、8つのガイダンスポイント)を理解する"]
+    S2 --> S3["Step 3: 第3部で原則・テーマ・プロセス・管理プロダクトのアジャイル適用を、対応表として覚える"]
+    S3 --> S4["Step 4: 第4部で用語と技法を、実際の文脈の中で使えるレベルまで定着させる"]
+    S4 --> S5["Step 5: 第5部のフォーカスエリアを押さえ、模擬問題でシナリオ形式に慣れる"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class S1 hub;
+    class S2,S3,S4 box;
+    class S5 done;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>

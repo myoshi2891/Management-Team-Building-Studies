@@ -1,0 +1,3131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRINCE2® Agile Practitioner (Version 2) 認定資格 完全ガイド | 初学者向け学習ガイド</title>
+<meta name="description" content="PeopleCert PRINCE2 Agile Practitioner (Version 2) の出題範囲を、初学者向けにステップバイステップで解説し、ベストプラクティス・演習・根拠ソース URL をまとめた学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Checklist (interactive) ===================== */
+  .checklist { list-style: none; margin: 0 0 18px; padding-left: 0; }
+  .checklist li { margin-bottom: 10px; }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+  .check-box {
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin: 5px 0 0;
+    accent-color: var(--color-indigo);
+    cursor: pointer;
+  }
+  .check-item .check-box:checked + .check-text { color: var(--color-ink-faint); text-decoration: line-through; }
+  .check-item .check-box:checked + .check-text strong { color: inherit; }
+  td.check-cell { text-align: center; }
+  td.check-cell .check-box { margin: 0; vertical-align: middle; }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">PRINCE2® Agile</div>
+        <div class="brand-subtitle">Practitioner (Version 2)</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="nav-group-label">はじめに</li>
+      <li><a href="#how-to-use"><i class="ti ti-compass"></i>0. 使い方</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>1. 試験の全体像</a></li>
+      <li><a href="#study-roadmap"><i class="ti ti-route"></i>2. 学習ロードマップ</a></li>
+      <li class="nav-group-label">試験カテゴリ</li>
+      <li><a href="#key-concepts"><i class="ti ti-brain"></i>3. Key concepts</a></li>
+      <li><a href="#practices-roles"><i class="ti ti-users"></i>4. Practices と roles</a></li>
+      <li><a href="#processes"><i class="ti ti-git-branch"></i>5. Processes</a></li>
+      <li><a href="#wider-context"><i class="ti ti-rocket"></i>6. Wider context と AI</a></li>
+      <li class="nav-group-label">対策・資料</li>
+      <li><a href="#exam-strategy"><i class="ti ti-target"></i>7. 試験対策</a></li>
+      <li><a href="#practice-questions"><i class="ti ti-pencil"></i>8. 演習</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>9. 用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>10. 参考資料</a></li>
+      <li class="nav-group-label">付録</li>
+      <li><a href="#appendix-a"><i class="ti ti-list-check"></i>付録 A 対応表</a></li>
+      <li><a href="#appendix-b"><i class="ti ti-clipboard-check"></i>付録 B 要照合</a></li>
+      <li><a href="#appendix-c"><i class="ti ti-flag-3"></i>付録 C 最終確認</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert 公式シラバス v2.0 に沿った学習ガイド</div>
+      <h1>PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド</h1>
+      <p class="hero-lede">
+        <strong>対象試験</strong>: PeopleCert <strong>PRINCE2® Agile Practitioner (Version 2)</strong><br>
+        <strong>想定読者</strong>: プロジェクト管理・アジャイル開発の初学者〜中級者(PRINCE2 Agile Foundation (Version 2) 合格者、または合格を目指す方)<br>
+        <strong>作成日</strong>: 2026-09-20<br>
+        <strong>形式</strong>: 日本語解説(英語の公式用語は原語のまま保持) / 図解は Mermaid と Markdown 表のみ(ASCII 図解は不使用)
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">各 1 点・誤答による減点なし</div></div>
+        <div class="stat-card"><div class="stat-number">30点</div><div class="stat-label">合格点(60%)</div></div>
+        <div class="stat-card"><div class="stat-number">150分</div><div class="stat-label">オープンブック(公式ブックのみ持ち込み可)</div></div>
+        <div class="stat-card"><div class="stat-number">44%</div><div class="stat-label">practices と roles の配点(最重要カテゴリ)</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        <strong>免責</strong>: 本ガイドは学習支援を目的とした独自の解説です。PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。試験の最終的な出題範囲・用語・定義は、<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-practitioner-4076" target="_blank" rel="noopener">PeopleCert の公式資料</a>(シラバス・公式ブック・サンプルペーパー)に従ってください。
+      </div>
+    </div>
+
+    <!-- ===================== 0. 使い方 ===================== -->
+    <section id="how-to-use">
+      <div class="section-eyebrow"><i class="ti ti-compass"></i>SECTION 01</div>
+      <h2>0. このガイドの使い方(最初に必ず読む)</h2>
+
+      <h3>0.1 このガイドの位置づけ</h3>
+      <ul>
+        <li>本ガイドは、公式シラバス(Version 2.0, 2025 年 5 月)の <strong>学習カテゴリ・評価基準の順</strong> に沿って、初学者が「なぜそうなるのか」から理解できるよう <strong>独自の言葉で</strong> 解説した学習ノートです。</li>
+        <li>PRINCE2 Agile Practitioner は <strong>オープンブック試験</strong>(公式ブックの持ち込み可)です。したがって「全暗記」ではなく、<strong>概念の理解 + 公式ブックのどこに書いてあるかを即座に引ける索引力</strong> が合否を分けます。本ガイドでは、シラバスに記載された <strong>公式ブックの章番号</strong> を各所に併記しています。</li>
+        <li>公式ブック(PRINCE2® Agile Version 2 Official Book)の本文は著作物のため、本ガイドは <strong>転載・逐語引用をしていません</strong>。最終的な用語・定義・一覧の正確な文言は、必ず手元の公式ブックで照合してください。</li>
+      </ul>
+      <h3>0.2 情報の確度を示す凡例</h3>
+      <p>各節の情報には、出所の確度を次の記号で示します。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>記号</th><th>意味</th><th>使い方</th></tr></thead>
+          <tbody>
+            <tr><td>【シラバス】</td><td>PeopleCert 公式シラバス(v2.0)に明記されている項目</td><td>試験範囲そのもの。優先して学習する</td></tr>
+            <tr><td>【一般知識】</td><td>PRINCE2 7 やアジャイル一般(Scrum / Kanban / Lean 等)で広く知られている内容による補足</td><td>理解を助ける補足。<strong>試験での正確な表現は公式ブックで確認</strong></td></tr>
+            <tr><td>【要照合】</td><td>章立てや一覧の細部(例: 軸の名称・数、役割の位置づけ)で、本ガイド作成時に一次資料の本文で直接確認できていないもの</td><td><strong>必ず公式ブックの該当章で確認</strong> し、ブックの余白にメモする</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>正直な注意</strong>: 公式ブック本文は本ガイド作成時に参照できていません。シラバス(一次資料)で確認できた範囲は【シラバス】、それ以外は【一般知識】または【要照合】と明示しています。試験ではブックの記述が正解の根拠になるため、【要照合】は特に優先して確認してください。</p>
+      </div>
+      <h3>0.3 各項目の解説フォーマット</h3>
+      <p>各項目は次の順で書かれています。</p>
+      <ol>
+        <li><strong>一言でいうと</strong>(初学者向けの要約)</li>
+        <li><strong>ステップバイステップ解説</strong></li>
+        <li><strong>ベストプラクティス</strong></li>
+        <li><strong>よくある落とし穴(アンチパターン)</strong></li>
+        <li><strong>試験ポイント</strong>(Bloom's level: BL2 理解 / BL3 適用 / BL4 分析)</li>
+      </ol>
+    </section>
+
+    <!-- ===================== 1. 試験の全体像 ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 02</div>
+      <h2>1. 試験の全体像</h2>
+
+      <h3>1.1 試験概要 【シラバス】</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>認定名</td><td>PRINCE2 Agile Practitioner (Version 2)</td></tr>
+            <tr><td>問題数 / 配点</td><td>50 問 / 各 1 点(<strong>誤答による減点なし</strong>)</td></tr>
+            <tr><td>合格点</td><td><strong>30 点(60%)</strong></td></tr>
+            <tr><td>試験時間</td><td><strong>150 分</strong>(母語・業務言語以外で受験する場合は 25% 延長で 188 分)</td></tr>
+            <tr><td>持ち込み</td><td><strong>オープンブック</strong>: 公式ブックのみ可(ブック内への書き込みメモも可)。他の資料は不可</td></tr>
+            <tr><td>思考レベル</td><td>Bloom's level <strong>2(理解)/ 3(適用)/ 4(分析)</strong></td></tr>
+            <tr><td>出題形式</td><td><strong>シナリオ + 追加情報 + 設問</strong>(少なくとも 1 問は「追加情報」=人物情報を使う)</td></tr>
+            <tr><td>設問タイプ</td><td>Standard / Missing word / List(正しいもの 2 つを選ぶ)/ Negative(例外的)</td></tr>
+            <tr><td>前提資格</td><td>PRINCE2 Agile Foundation (Version 2)、または PRINCE2 Agile (Version 1) の Foundation / Practitioner など(公式ページの記載)</td></tr>
+            <tr><td>資格更新</td><td>3 年ごと(CPD 20 ポイント等。詳細は公式ページ)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>1.2 出題配分 【シラバス】</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学習カテゴリ</th><th>配点比率</th><th>目安問数(50 問換算)</th></tr></thead>
+          <tbody>
+            <tr><td>1. アジャイルマインドセット・People(OCM を含む)・プロジェクトマネジメントの主要概念</td><td>20%</td><td>約 10 問</td></tr>
+            <tr><td>2. PRINCE2 Agile の <strong>practices</strong> とその適用、および <strong>roles</strong></td><td><strong>44%</strong></td><td>約 22 問</td></tr>
+            <tr><td>3. PRINCE2 Agile の <strong>processes</strong> とその適用(workshops を含む)</td><td>30%</td><td>約 15 問</td></tr>
+            <tr><td>4. より広い文脈での適用(プロダクト管理・運用移行・AI)</td><td>6%</td><td>約 3 問</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>読み方</strong>: 合格には 30 問が必要です。<strong>カテゴリ 2 と 3 で全体の 74%</strong> を占めます。ここ(practices と processes)を最優先で固めるのが最短ルートです。</p>
+      </div>
+      <h3>1.3 Foundation との違い(何が「上がる」のか)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>Foundation (v2)</th><th>Practitioner (v2)</th></tr></thead>
+          <tbody>
+            <tr><td>目的</td><td>概念・用語を <strong>想起(BL1)・理解(BL2)</strong> できる</td><td>概念を <strong>現実の状況に適用(BL3)・評価(BL4)</strong> できる</td></tr>
+            <tr><td>試験時間 / 問題数</td><td>60 分 / 40 問(合格 24 点)</td><td>150 分 / 50 問(合格 30 点)</td></tr>
+            <tr><td>持ち込み</td><td>不可(クローズドブック)</td><td>公式ブック可(オープンブック)</td></tr>
+            <tr><td>問題の姿</td><td>単発の知識問題</td><td><strong>シナリオ</strong> に基づく問題</td></tr>
+            <tr><td>典型的な問い</td><td>「〜とは何か」</td><td>「このシナリオで、この tailoring は <strong>有効か(fit for purpose)</strong>」</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>1.4 試験構造のマインドマップ</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="examMindmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">試験構造のマインドマップ</div>
+      </div>
+    </section>
+
+    <!-- ===================== 2. 学習ロードマップ ===================== -->
+    <section id="study-roadmap">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <h2>2. 学習ロードマップ</h2>
+
+      <h3>2.1 推奨ステップ</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="studyRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">推奨ステップ</div>
+      </div>
+      <h3>2.2 4 週間学習プラン(例)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>週</th><th>学習内容</th><th>ゴール</th><th>本ガイドの章</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>試験の型、Key concepts(Agile / mindset / Onion / 7 aspects / transformation / People)</td><td>カテゴリ 1(20%)を説明できる</td><td>第 3 章</td></tr>
+            <tr><td>2</td><td>7 practices の目的・管理プロダクト・agile guidance・techniques、11 roles</td><td>カテゴリ 2(44%)の前半</td><td>第 4 章</td></tr>
+            <tr><td>3</td><td>7 processes と workshops、tailoring 評価の型</td><td>カテゴリ 3(30%)を説明・評価できる</td><td>第 5 章</td></tr>
+            <tr><td>4</td><td>Wider context・AI、演習、ブックにタブと付箋を付ける、模擬試験</td><td>時間内に 30 点以上を安定して取れる</td><td>第 6〜8 章</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>2.3 前提知識チェック(自己診断)</h3>
+      <p>次に <strong>説明できる</strong> なら、本ガイドをスムーズに進められます。</p>
+      <ul class="checklist">
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text">PRINCE2 の <strong>7 principles / 7 practices / 7 processes</strong> を列挙できる</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>tolerance</strong> と <strong>management by exception</strong> の関係を説明できる</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>Agile Manifesto の 4 つの価値</strong> を言える</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>Scrum</strong> の主要な roles・events・artifacts を言える</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>product backlog / user story / MoSCoW / burn chart</strong> が何かを説明できる</span></label></li>
+      </ul>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p>1 つでも不安な場合は、まず第 3 章の 3.1〜3.4 から読み進めてください(必要な前提を初学者向けに補っています)。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 3. Key concepts ===================== -->
+    <section id="key-concepts">
+      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 04</div>
+      <span class="domain-tag d1">カテゴリ 1 &middot; 配点 20%</span>
+      <h2>3. Key concepts</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>カテゴリ 1 の学習ゴール</strong> 【シラバス】<br>
+        アジャイルの必要性と「being / doing agile」の違いを説明し(BL2)、Agile Onion と mindset の特徴を適用し(BL3)、7 aspects of project performance と agile transformation の概念を適用し(BL3)、OCM・チームリーダーシップ・コミュニケーションを説明・適用できる。</p>
+      </div>
+      <h3>3.1 Agile とアジャイルマインドセット(シラバス 1.1)</h3>
+      <h4>3.1.1 一言でいうと</h4>
+      <p>PRINCE2 は「<strong>統制(ガバナンス)の骨格</strong>」、Agile は「<strong>変化に強い動き方</strong>」です。サッカーにたとえると、PRINCE2 が「ルールとフォーメーション」、Agile が「状況に応じて動くプレースタイル」にあたります。PRINCE2 Agile はこの 2 つを <strong>矛盾させずに 1 つのチームで使う</strong> ための指針です。</p>
+      <h4>3.1.2 ステップバイステップ解説</h4>
+      <p><strong>Step 1: なぜ Agile が必要か(1.1.1 / 公式ブック 2.4)</strong> 【シラバス】</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>従来型(計画駆動)の課題</th><th>Agile が狙う改善</th></tr></thead>
+          <tbody>
+            <tr><td>要求が最初に固定され、後から変化に弱い</td><td>変化を前提にし、<strong>優先順位を継続的に見直す</strong></td></tr>
+            <tr><td>最後にまとめて納品し、価値が出るのが遅い</td><td><strong>小さな増分(increment)を頻繁に届け</strong>、早く価値と学びを得る</td></tr>
+            <tr><td>顧客との対話が最初と最後に偏る</td><td><strong>顧客・ステークホルダーが継続的に関与</strong> する</td></tr>
+            <tr><td>問題の発覚が遅い</td><td>短いサイクルで <strong>早期にフィードバック</strong> を得る</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Step 2: Agile Manifesto の 4 つの価値(Foundation 範囲・復習)</strong> 【シラバス(Foundation 1.1.9)】</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>価値(左を重視。右も価値はあるが優先度は左)</th><th>意味(初学者向け)</th></tr></thead>
+          <tbody>
+            <tr><td>Individuals and interactions <strong>over</strong> processes and tools</td><td>人同士の対話が、ツールや手順に優先する</td></tr>
+            <tr><td>Working software <strong>over</strong> comprehensive documentation</td><td>動く成果物が、網羅的な文書に優先する</td></tr>
+            <tr><td>Customer collaboration <strong>over</strong> contract negotiation</td><td>顧客との協働が、契約交渉に優先する</td></tr>
+            <tr><td>Responding to change <strong>over</strong> following a plan</td><td>変化への対応が、計画への固執に優先する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Step 3: 「being agile」と「doing agile」(1.1.2 / 公式ブック 2.3.1)</strong> 【シラバス】</p>
+      <p>これは Version 2 の <strong>最重要テーマの 1 つ</strong> です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>doing agile(やり方)</th><th>being agile(あり方)</th></tr></thead>
+          <tbody>
+            <tr><td>中身</td><td>practices(実践)と techniques(技法)を使う</td><td>mindset(考え方)と behaviours(振る舞い)を体現する</td></tr>
+            <tr><td>例</td><td>daily stand-up、backlog、burn chart、retrospective を行う</td><td>透明性・信頼・協働・学習を日常の判断で実践する</td></tr>
+            <tr><td>単独の限界</td><td>形だけ(「アジャイルごっこ」)になりやすい</td><td>実践がないと成果に結びつきにくい</td></tr>
+            <tr><td>目指す姿</td><td><strong>両方を組み合わせる</strong> ことで持続的な成果を得る</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>試験ポイント(BL2)</strong>: 「stand-up や backlog を導入したのに、チームが指示待ちで隠し事が多い」→ <strong>doing はできているが being が不足</strong> している、と説明できること。</p>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li>「導入する practice の数」ではなく、「<strong>どんな振る舞いを増やしたいか</strong>」から始める。</li>
+        <li>リーダーが <strong>自ら振る舞いで示す</strong>(失敗の共有、意思決定の透明化)。</li>
+        <li>retrospective で「practice が behaviour を支えているか」を定期的に点検する。</li>
+      </ul>
+      </div>
+      <h4>3.1.4 よくある落とし穴</h4>
+      <ul>
+        <li>ツール導入(Jira や Kanban ボード)だけで「アジャイルになった」と考える。</li>
+        <li>「Agile = ドキュメント不要 / 計画不要」と誤解する(PRINCE2 Agile は <strong>統制を維持したまま</strong> 柔軟性を得る考え方)。</li>
+      </ul>
+      <h3>3.2 Agile mindset と Agile Onion(シラバス 1.1.3 / 公式ブック 2.6, 2.6.1, 2.6.2)</h3>
+      <h4>3.2.1 一言でいうと</h4>
+      <p>Agile Onion は、アジャイルを <strong>玉ねぎのような層構造</strong> で捉えるモデルです。外から見える「手順」だけでなく、その根っこにある「考え方」まで含めて理解するための図です。</p>
+      <h4>3.2.2 5 つの層 【シラバス(Foundation 1.1.7)】</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="agileOnionLayers"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">5 つの層 【シラバス(Foundation 1.1.7)】</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>層</th><th>内容(初学者向け)</th><th>例</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mindset</strong></td><td>物事の捉え方・前提となる考え方</td><td>変化を歓迎する、学習を重視する</td></tr>
+            <tr><td><strong>Values</strong></td><td>大切にする価値観</td><td>Agile Manifesto の 4 つの価値</td></tr>
+            <tr><td><strong>Principles</strong></td><td>価値観から導かれる行動指針</td><td>顧客価値の早期・継続的な提供</td></tr>
+            <tr><td><strong>Practices</strong></td><td>具体的な実践</td><td>stand-up、retrospective、timeboxing</td></tr>
+            <tr><td><strong>Processes</strong></td><td>手順としての流れ</td><td>PRINCE2 の 7 processes、Scrum の events の流れ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【要照合】</strong> 上の図は「Mindset を最も内側の核、Processes を最も外側」と捉える一般的な玉ねぎの読み方で並べています。試験では <strong>5 つの層の名前</strong> が問われます(Foundation のシラバスで明記)。層の並び方向・図のキャプションは、公式ブック 2.6.1 の図で照合してください。</p>
+      </div>
+      <h4>3.2.3 Agile mindset の主要な特徴(1.1.3 b / 公式ブック 2.6.2)</h4>
+      <p>シラバスは「key characteristics of the agile mindset」の適用を求めています。<strong>一覧の正確な項目名は公式ブック 2.6.2 で照合</strong> してください【要照合】。一般に、アジャイルマインドセットは次のような姿勢で表されます【一般知識】。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>特徴(一般的な表現)</th><th>職場での見え方</th></tr></thead>
+          <tbody>
+            <tr><td>変化に対してオープン</td><td>要求変更を「問題」ではなく「学びの機会」として扱う</td></tr>
+            <tr><td>顧客・ユーザー価値への集中</td><td>「作ること」より「価値が出ること」を優先する</td></tr>
+            <tr><td>協働・透明性</td><td>進捗や問題を隠さず共有する</td></tr>
+            <tr><td>自己組織化・エンパワーメント</td><td>チームが自ら作業の進め方を決める</td></tr>
+            <tr><td>継続的な学習・改善</td><td>retrospective の学びを次の timebox に反映する</td></tr>
+            <tr><td>反復・増分での価値提供</td><td>小さく作り、早く見せ、フィードバックを得る</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>3.2.4 ステップバイステップ: Onion を実務で使う(BL3 の練習)</h4>
+      <ol>
+        <li><strong>現状の観察</strong>: いま行っている practice(stand-up など)を書き出す(Practices 層)。</li>
+        <li><strong>1 層内側へ</strong>: それらは、どの Principles を体現しているか？ どの Values に基づくか？</li>
+        <li><strong>ギャップの発見</strong>: 「practice はあるが、その根っこの values や mindset が伴っていない」箇所を探す。</li>
+        <li><strong>打ち手</strong>: practice を増やすのではなく、<strong>対話・意思決定・リーダーの行動</strong> を変える。</li>
+      </ol>
+      <h4>3.2.5 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: 導入初期は外側(processes)ではなく内側(mindset / values)の対話から始める。</li>
+        <li><strong>落とし穴</strong>: 外側の層(フレームワーク)を先に固定し、内側の層を放置する。</li>
+        <li><strong>試験ポイント</strong>: BL2「being と doing の違い」、BL3「シナリオの問題点を Onion のどの層の欠落として説明するか」。</li>
+      </ul>
+      <h3>3.3 Agile の主要アプローチ(Foundation 1.1.10 の復習)</h3>
+      <p>【シラバス(Foundation)】Scrum / Kanban / Lean / Lean Startup が例示されています。PRINCE2 Agile は <strong>特定の 1 つに固定せず</strong>、これらと組み合わせて使えます。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アプローチ</th><th>一言</th><th>主なキーワード【一般知識】</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Scrum</strong></td><td>固定長の timebox で反復するフレームワーク</td><td>Product Owner / Scrum Master / Developers、Sprint、Sprint Planning、Daily Scrum、Sprint Review、Sprint Retrospective、Product Backlog、Increment</td></tr>
+            <tr><td><strong>Kanban</strong></td><td>仕事の流れを可視化し、同時進行数を制限する</td><td>ボード、WIP 制限、フロー、継続的デリバリー</td></tr>
+            <tr><td><strong>Lean</strong></td><td>ムダを排除し価値の流れを最適化する</td><td>ムダの排除、フロー、継続的改善</td></tr>
+            <tr><td><strong>Lean Startup</strong></td><td>仮説検証で学びを最大化する</td><td>Build-Measure-Learn、<strong>MVP</strong>(Minimum Viable Product)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>PRINCE2 Agile での対応関係(初学者向け)</strong>: PRINCE2 Agile の <strong>team roles(Product Owner / Team coach)や timebox(iteration)</strong> は Scrum 用語と対応づけて理解すると覚えやすくなります。ただし試験は <strong>PRINCE2 Agile の用語</strong> で答える必要があるため、Scrum 用語をそのまま使わず、公式ブックの用語で整理してください。</p>
+      </div>
+      <h3>3.4 PRINCE2 Project Management の基礎(シラバス 1.4.1 / 公式ブック 5.2〜5.4)</h3>
+      <h4>3.4.1 5 つの統合要素 【シラバス(Foundation 1.2.3)】</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="prince2Elements"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">5 つの統合要素 【シラバス(Foundation 1.2.3)】</div>
+      </div>
+      <h4>3.4.2 7 principles と Agile 文脈での読み替え(1.2.1 / 公式ブック 5.6.1)</h4>
+      <p>PRINCE2 の 7 principles は <strong>Agile でもそのまま適用</strong> します。Agile では「どう表れるか」が変わります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Principle 【シラバス】</th><th>Agile 文脈での表れ方【一般知識 + 【要照合】5.6.1】</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Ensure continued business justification</td><td><strong>MVP</strong> と頻繁なリリースで価値を早く確認し、business case を継続的に見直す</td></tr>
+            <tr><td>2</td><td>Learn from experience</td><td><strong>retrospective</strong> と lessons log を各 timebox で回し、学びを即座に反映</td></tr>
+            <tr><td>3</td><td>Define roles, responsibilities, and relationships</td><td>Product Owner / Team coach など <strong>アジャイルの役割</strong> を PRINCE2 の役割と整合させる</td></tr>
+            <tr><td>4</td><td>Manage by stages</td><td>stage を <strong>複数の timebox(iteration / release)を含む単位</strong> として計画し、ボードの判断点にする</td></tr>
+            <tr><td>5</td><td>Manage by exception</td><td><strong>tolerance の範囲内はチームに委譲</strong>。範囲を超える兆候だけを上位へ escalate</td></tr>
+            <tr><td>6</td><td>Focus on products</td><td><strong>product backlog / user story / DoD</strong> で「何を作るか・完成とは何か」を明確化</td></tr>
+            <tr><td>7</td><td>Tailor to suit the project</td><td>Agilometer・プロジェクトの文脈に合わせ、PRINCE2 と agile の <strong>組み合わせ方を調整</strong> する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>試験ポイント(BL3)</strong>: シナリオの状況(例: 「ボードが毎週詳細な承認を求めている」)を見て、<strong>どの principle に反しているか</strong> を特定し、改善案を選ぶ。</p>
+      </div>
+      <h4>3.4.3 7 practices(一覧) 【シラバス】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Practice</th><th>目的(1 行)</th><th>本ガイドの節</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Business case</strong></td><td>プロジェクトが「望ましく・実行可能で・達成可能」か判断する</td><td>4.2</td></tr>
+            <tr><td><strong>Organization</strong></td><td>責任体制を定義し、ステークホルダーを関与させる</td><td>4.3</td></tr>
+            <tr><td><strong>Plans</strong></td><td>どう成果物を届けるかを示し、コミュニケーションと統制を促す</td><td>4.4</td></tr>
+            <tr><td><strong>Quality</strong></td><td>成果物が目的に適う(fit for purpose)ことを作り込み・検証する</td><td>4.5</td></tr>
+            <tr><td><strong>Risk</strong></td><td>不確実性(脅威・好機)を識別・評価・対応する</td><td>4.6</td></tr>
+            <tr><td><strong>Issues</strong></td><td>計画外の事象を捕捉・評価・対応する</td><td>4.7</td></tr>
+            <tr><td><strong>Progress</strong></td><td>計画と実績を比較し、逸脱を統制する</td><td>4.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p>目的の文言は【一般知識(PRINCE2 7 の考え方の要約)】です。シラバスのサンプル問題にも「逸脱を統制する目的の practice は？(答えは progress)」という形式が例示されています。<strong>各 practice の "purpose" は公式ブックの 6.1 / 7.1 / 8.1 / 9.1 / 10.1 / 11.1 / 12.1 で必ず照合</strong> してください。</p>
+      </div>
+      <h4>3.4.4 7 processes(一覧)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Process</th><th>略称</th><th>主体(一般)</th><th>節</th></tr></thead>
+          <tbody>
+            <tr><td>Starting up a project</td><td>SU</td><td>Project Board / PM</td><td>5.2</td></tr>
+            <tr><td>Directing a project</td><td>DP</td><td>Project Board</td><td>5.3</td></tr>
+            <tr><td>Initiating a project</td><td>IP</td><td>PM</td><td>5.4</td></tr>
+            <tr><td>Controlling a stage</td><td>CS</td><td>PM</td><td>5.5</td></tr>
+            <tr><td>Managing product delivery</td><td>MP</td><td>Team</td><td>5.6</td></tr>
+            <tr><td>Managing a stage boundary</td><td>SB</td><td>PM</td><td>5.7</td></tr>
+            <tr><td>Closing a project</td><td>CP</td><td>PM / Board</td><td>5.8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>3.5 7 aspects of project performance と "fix and flex"(シラバス 1.2.2 / 公式ブック 3.3)</h3>
+      <h4>3.5.1 一言でいうと</h4>
+      <p>プロジェクトの成果は <strong>7 つの側面(aspects)</strong> で測ります。どれを「固定(fix)」し、どれを「柔軟(flex)」にするかを、ボードと合意しておくことが Agile 統制の核心です。</p>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>バージョンに関する注意</strong>: Version 1 の教材では「6 つの aspects(hexagon)」と説明されていました。Version 2 のシラバスは <strong>「seven aspects of project performance」</strong> と明記しています(【シラバス】)。旧版(6 つ)の資料と混同しないよう注意してください。</p>
+      </div>
+      <h4>3.5.2 7 aspects と Agile での典型的な扱い</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Aspect</th><th>意味</th><th>Agile での典型的な扱い【一般知識 + 【要照合】3.3】</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Benefits</strong></td><td>得られる成果・便益</td><td>早期・継続的なリリースで便益実現を前倒しし、実測する</td></tr>
+            <tr><td><strong>Risk</strong></td><td>不確実性</td><td>短いサイクルで検証し、Agilometer で状況を可視化する</td></tr>
+            <tr><td><strong>Time</strong></td><td>期間・納期</td><td><strong>固定寄り</strong>(timebox を守る)</td></tr>
+            <tr><td><strong>Cost</strong></td><td>予算・コスト</td><td><strong>固定寄り</strong>(安定したチーム構成で予測可能にする)</td></tr>
+            <tr><td><strong>Scope</strong></td><td>提供する機能範囲</td><td><strong>柔軟(flex)</strong>: MoSCoW で優先順位を付け、Should / Could を調整弁にする</td></tr>
+            <tr><td><strong>Quality</strong></td><td>目的適合性</td><td><strong>妥協しない</strong>(DoD で基準を明確化し、品質を犠牲にしない)</td></tr>
+            <tr><td><strong>Sustainability</strong></td><td>環境・社会・経済面の持続可能性</td><td>成果物・チーム・運用の持続性を計画に織り込む</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p>「どれを fix / flex にするか」は <strong>プロジェクトの文脈(規制、契約、納期の硬さ)で変わります</strong>。上表は典型例であり、試験ではシナリオの制約(例: 法規制対応の期限は動かせない)から判断してください。</p>
+      </div>
+      <h4>3.5.3 tolerance を階層で考える</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="toleranceLevels"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">tolerance を階層で考える</div>
+      </div>
+      <p><strong>ステップバイステップ(fix &amp; flex の合意手順)</strong></p>
+      <ol>
+        <li>各 aspect の <strong>優先順位</strong> を関係者で議論する(何を守り、何を動かせるか)。</li>
+        <li><strong>fix する aspect</strong> と <strong>flex する aspect</strong> を決め、<strong>tolerance</strong> を数値・範囲で表す。</li>
+        <li>flex する aspect(例: scope)は <strong>MoSCoW</strong> で具体化し、動かせる範囲を見える化する。</li>
+        <li>tolerance の <strong>超過の兆候</strong> を早期に検知したら、上位へ escalate(exception)。</li>
+        <li>各 stage の境界で見直す。</li>
+      </ol>
+      <h4>3.5.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: 「全部固定」は Agile と両立しない。<strong>1〜2 つを flex 対象に明確化</strong> する。</li>
+        <li><strong>落とし穴</strong>: scope を flex にしつつ、Must の定義が曖昧で、結局すべてが必須になる。</li>
+        <li><strong>試験ポイント(BL3)</strong>: シナリオの制約から「fix / flex の組み合わせ」を選ぶ。<strong>quality を犠牲にして納期を守る</strong> 選択肢は原則として誤り。</li>
+      </ul>
+      <h3>3.6 Agile transformation の主要概念(シラバス 1.2.3 / 公式ブック 2.7)</h3>
+      <p>シラバスは次の 4 つの適用(BL3)を求めています。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="transformationConcepts"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Agile transformation の主要概念(シラバス 1.2.3 / 公式ブック 2.7)</div>
+      </div>
+      <h4>3.6.1 Agile transformation plan(2.7.1)</h4>
+      <p><strong>一言でいうと</strong>: 組織がアジャイルに変わっていくための「道筋の計画」です。</p>
+      <p><strong>ステップバイステップ【一般知識】</strong></p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="transformationLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Agile transformation plan(2.7.1)</div>
+      </div>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: 全社一斉ではなく <strong>小さく始めて学び、広げる</strong>。リーダーシップの関与と、成功基準(測る指標)を最初に決める。</li>
+        <li><strong>落とし穴</strong>: 計画を「一度作って終わり」にする。トランスフォーメーション自体を <strong>アジャイルに(反復的に)</strong> 進めることが必要。</li>
+      </ul>
+      <h4>3.6.2 Agile maturity(2.7.3)</h4>
+      <p><strong>一言でいうと</strong>: 組織・チームの「アジャイルの成熟度合い」を段階で捉えて、次の打ち手を決めるための物差しです。</p>
+      <ul>
+        <li><strong>使い方</strong>: 現状を評価 → 目指す状態を設定 → ギャップに対する改善を計画。</li>
+        <li><strong>ベストプラクティス</strong>: 成熟度は <strong>目的ではなく手段</strong>。高い点数を取ること自体を目標にしない。</li>
+        <li><strong>落とし穴</strong>: 他社のスコアとの比較に終始し、自社の文脈に合わない打ち手を導入する。</li>
+        <li><strong>試験ポイント</strong>: 成熟度は、tailoring(例: 委譲の程度、統制の粒度)を <strong>決める材料</strong> になる。</li>
+      </ul>
+      <h4>3.6.3 Psychological safety(2.7.4)</h4>
+      <p><strong>一言でいうと</strong>: 「間違いや懸念、質問を口にしても、責められたり恥をかいたりしない」と感じられる状態です。アジャイルの <strong>透明性・早期フィードバック・学習</strong> の土台になります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>心理的安全性が <strong>高い</strong> チーム</th><th><strong>低い</strong> チーム</th></tr></thead>
+          <tbody>
+            <tr><td>問題や遅延を早めに共有する</td><td>悪い知らせを隠し、発覚が遅れる</td></tr>
+            <tr><td>質問・反対意見が出る</td><td>沈黙・忖度が多い</td></tr>
+            <tr><td>失敗を学習として扱う</td><td>失敗の責任追及が中心になる</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>ベストプラクティス【一般知識】</strong></p>
+      <ul>
+        <li>リーダーが <strong>自分の不確実性や失敗を先に開示</strong> する。</li>
+        <li>retrospective の <strong>ルールを合意</strong>(人ではなくプロセスに焦点)。</li>
+        <li>懸念を出した人を <strong>感謝で受け止める</strong>。</li>
+        <li>参考: Google の re:Work でも、心理的安全性がチームの有効性で重要な要素として整理されています(参照 URL は第 10 章)。</li>
+      </ul>
+      <p><strong>試験ポイント(BL3)</strong>: 「stand-up で誰も遅れを報告しない」ような状況で、<strong>心理的安全性を高める施策</strong> を選ぶ。</p>
+      <h4>3.6.4 Agile sustainability(2.7.5)</h4>
+      <p><strong>一言でいうと</strong>: アジャイルな働き方を <strong>一過性で終わらせず、長期的に続けられる</strong> 状態にすることです。</p>
+      <ul>
+        <li><strong>人の持続可能性</strong>: 無理のない持続可能なペース、燃え尽き防止、チームの安定。</li>
+        <li><strong>仕組みの持続可能性</strong>: 継続的改善の習慣、リーダーの後押し、知見の共有。</li>
+        <li><strong>成果の持続可能性</strong>: 運用に耐える品質、技術的負債の管理(7 aspects の Sustainability とも連動)。</li>
+      </ul>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【要照合】</strong> 公式ブック 2.7.5 が Agile sustainability を上記のどの側面に重心を置いて定義しているかは、本文で確認してください。</p>
+      </div>
+      <h3>3.7 People と Organizational Change Management(OCM)(シラバス 1.3.1〜1.3.5 / 公式ブック 第 4 章)</h3>
+      <h4>3.7.1 OCM の全体像</h4>
+      <p><strong>一言でいうと</strong>: アジャイルの導入は <strong>人と文化の変化</strong> を伴います。OCM は、その変化を計画的に進める考え方です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>シラバス項目</th><th>内容</th><th>公式ブック</th></tr></thead>
+          <tbody>
+            <tr><td>1.3.1</td><td><strong>OCM の重要性</strong>を説明(BL2)</td><td>4.2.1</td></tr>
+            <tr><td>1.3.2</td><td><strong>OCM・ステークホルダー・文化</strong> の主要概念を適用(BL3)</td><td>4.2</td></tr>
+            <tr><td>1.3.3</td><td><strong>組織横断で成功するチーム</strong> を導くための概念を適用(BL3)</td><td>4.3</td></tr>
+            <tr><td>1.3.4</td><td><strong>チーム内コミュニケーション</strong>の重要性を説明(co-located / remote / hybrid)(BL2)</td><td>4.4</td></tr>
+            <tr><td>1.3.5</td><td><strong>アジャイルチームの構築とリード</strong> の考慮事項を適用(BL3)</td><td>4.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>3.7.2 OCM ステップバイステップ【一般知識】</h4>
+      <ol>
+        <li><strong>なぜ変わるのか(目的)を共有</strong> する。</li>
+        <li><strong>ステークホルダーを特定</strong> し、影響度・関心度・現在の態度を把握する(Foundation 1.4.2: OCM stakeholders)。</li>
+        <li><strong>文化を理解する</strong>(4.2.3): 目に見える行動の背後にある前提を捉える。</li>
+        <li><strong>小さな成功を作り、見える化</strong> する(アジャイルの増分提供は OCM を支援する: 4.2.4)。</li>
+        <li><strong>継続的に対話・フィードバック</strong> し、抵抗を学びとして扱う。</li>
+      </ol>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p>補足: OCM の代表的なモデルに <strong>Kotter の 8 ステップ</strong> や <strong>ADKAR</strong> があります(参照 URL は第 10 章)。<strong>シラバスは特定モデルの暗記を求めていません</strong>。あくまで理解の補助として使ってください。</p>
+      </div>
+      <h4>3.7.3 文化とアジャイル(4.2.3)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>統制重視の文化</th><th>アジャイルを支える文化</th></tr></thead>
+          <tbody>
+            <tr><td>意思決定</td><td>上位に集中</td><td><strong>権限委譲</strong>(tolerance の範囲内)</td></tr>
+            <tr><td>失敗</td><td>責任追及</td><td>学習の機会</td></tr>
+            <tr><td>情報</td><td>必要最小限を報告</td><td><strong>透明性</strong></td></tr>
+            <tr><td>顧客</td><td>契約・仕様で線引き</td><td><strong>継続的な協働</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>ベストプラクティス</strong>: 文化を「一気に変える」のではなく、<strong>目に見える成功体験(小さな勝ち)</strong> を積み上げる。</p>
+      <h4>3.7.4 組織横断のチームを導く(4.3)とチーム構築(4.5)【一般知識 + 【要照合】】</h4>
+      <ul>
+        <li><strong>チーム構成</strong>: cross-functional(企画〜開発〜テストを含む)で、<strong>できるだけ安定した少人数</strong>。一般に 1 チーム 10 人以内が目安として知られます。</li>
+        <li><strong>合意事項</strong>: working agreement(チームの約束事)を明文化。</li>
+        <li><strong>リーダーシップ</strong>: 指示命令型ではなく <strong>サーバントリーダーシップ</strong>(障害除去・環境づくり)。</li>
+        <li><strong>意思決定の所在</strong>: 誰がどの範囲で決められるか(decision rights)を明確化。</li>
+        <li><strong>複数チーム</strong>: 共通のゴール、依存関係の可視化、<strong>チーム間の定期的な同期(sync)</strong>。</li>
+      </ul>
+      <div class="diagram-card">
+        <div class="diagram-container" id="teamCollaboration"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">組織横断のチームを導く(4.3)とチーム構築(4.5)【一般知識 + 【要照合】】</div>
+      </div>
+      <h4>3.7.5 チーム内コミュニケーション(4.4)</h4>
+      <p>アジャイルは <strong>rich communication(豊かなコミュニケーション)</strong> を重視します。対面が最も情報量が豊かで、次にビデオ、電話、チャット、文書の順に情報が細るという考え方が一般的です【一般知識】。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>形態</th><th>特徴</th><th>ベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Co-located</strong>(同一拠点)</td><td>自然な対話、情報ラジエーター(壁のボード)を使える</td><td>物理ボード、短い対面のやり取りを活用。<strong>それでも決定事項は記録</strong> する</td></tr>
+            <tr><td><strong>Remote</strong>(全員遠隔)</td><td>非同期になりやすく、孤立や誤解が起きやすい</td><td>ビデオ ON の習慣、<strong>共有デジタルボード</strong>、明確な非同期ルール、意図的な雑談の時間</td></tr>
+            <tr><td><strong>Hybrid</strong>(混在)</td><td><strong>会議室組と遠隔組で情報格差</strong> が生じやすい</td><td>会議は <strong>全員が個別に接続する</strong> 前提で設計。決定はテキストで残す。重要な場面を対面に偏らせない</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>落とし穴</strong>: hybrid で、会議室の議論が遠隔メンバーに届かず、<strong>二層構造のチーム</strong> になる。</p>
+      <h4>3.7.6 試験ポイント(カテゴリ 1 全体)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>出やすい問い</th><th>考え方</th></tr></thead>
+          <tbody>
+            <tr><td>being と doing の区別(BL2)</td><td>「形」か「あり方」か</td></tr>
+            <tr><td>Onion の層(BL2/3)</td><td>5 層(Mindset / Values / Principles / Practices / Processes)の名前と、シナリオの問題の層</td></tr>
+            <tr><td>7 aspects の fix / flex(BL3)</td><td>シナリオの制約から決める。quality は妥協しない</td></tr>
+            <tr><td>心理的安全性・成熟度・持続可能性(BL3)</td><td>シナリオの症状に対する適切な施策を選ぶ</td></tr>
+            <tr><td>hybrid 環境(BL2/3)</td><td>情報格差を作らない工夫を選ぶ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 4. Practices と roles ===================== -->
+    <section id="practices-roles">
+      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 05</div>
+      <span class="domain-tag d2">カテゴリ 2 &middot; 配点 44%</span>
+      <h2>4. PRINCE2 Agile の practices と roles</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>最重要カテゴリです(約 22 問)。</strong> 7 つの practice それぞれについて、シラバスは次の 3 段階を求めます。</p>
+      <ul>
+        <li><strong>理解(BL2)</strong>: practice が agile 文脈でどう使われるか</li>
+        <li><strong>適用(BL3)</strong>: 推奨される <strong>management products / artifacts</strong>、PRINCE2 Agile の <strong>guidance</strong>、関連する <strong>agile techniques</strong> を使って適用する</li>
+        <li><strong>分析(BL4)</strong>: あるアプローチが <strong>効果的で fit for purpose か</strong> を評価する</li>
+      </ul>
+      </div>
+      <h3>4.1 practice を「適用・分析」するための共通の型</h3>
+      <p>各 practice を学ぶとき、次の <strong>5 つの視点</strong> で整理すると、BL3/BL4 に強くなります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>視点</th><th>問い</th><th>対応するシラバス表現</th></tr></thead>
+          <tbody>
+            <tr><td>① 目的</td><td>この practice は何のためにあるか</td><td>purpose(x.1)</td></tr>
+            <tr><td>② Guidance</td><td>PRINCE2 Agile は agile 文脈で何を推奨しているか</td><td>PRINCE2 Agile guidance(x.3.1)</td></tr>
+            <tr><td>③ Management products</td><td>どの成果物・記録で運用するか</td><td>management products and artifacts(x.3.2)</td></tr>
+            <tr><td>④ Techniques</td><td>どの agile 技法が支えるか</td><td>other associated agile artifacts and techniques(x.4)</td></tr>
+            <tr><td>⑤ 文脈</td><td>プロジェクトの制約・成熟度・Agilometer に合っているか</td><td>tailoring(fit for purpose)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>BL4「fit for purpose か？」の判断フロー</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="fitForPurposeFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">BL4「fit for purpose か？」の判断フロー</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>BL4 の鉄則</strong>: 選択肢が「もっともらしい」かどうかではなく、<strong>「目的を満たし、guidance と矛盾せず、シナリオの制約に合うか」</strong> で判定します。「重すぎる統制」も「軽すぎる統制」も、どちらも fit for purpose ではありません。</p>
+      </div>
+      <h3>4.2 Business case practice(シラバス 2.1.2 / 2.1.3 / 公式ブック 第 6 章)</h3>
+      <h4>4.2.1 一言でいうと</h4>
+      <p><strong>「このプロジェクトは、いまもやる価値があるか？」を、繰り返し確認する</strong> ための practice です。Agile では、価値を <strong>早く・少しずつ</strong> 届けて確認できるため、投資判断を継続的に更新しやすくなります。</p>
+      <h4>4.2.2 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>価値仮説を立てる</strong>: 誰の、どんな課題を、どんな成果で解決するか(ビジョン)。</li>
+        <li><strong>最小限の価値提供を定義する</strong>: <strong>MVP</strong>(Minimum Viable Product)で「まず何を出せば学べるか」を決める(公式ブック 6.3.1)。</li>
+        <li><strong>business case を軽量に表現する</strong>: 大部の文書ではなく <strong>project canvas</strong>(1 枚で見渡せる形式)を活用する。</li>
+        <li><strong>便益をどう測るか決める</strong>: <strong>benefits management approach</strong> を用意する。</li>
+        <li><strong>持続可能性を織り込む</strong>: <strong>sustainability management approach</strong> を用意する。</li>
+        <li><strong>stage / release ごとに再評価する</strong>: 頻繁なリリースの実績データを踏まえ、継続・変更・中止を判断する。</li>
+      </ol>
+      <h4>4.2.3 推奨される management products / artifacts 【シラバス 2.1.2 a / 公式ブック 6.3.2】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物</th><th>役割(初学者向け)</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Project brief</strong></td><td>プロジェクトの出発点を合意する(目的・範囲・体制の概要)</td><td>短く、<strong>ビジョンと制約</strong> に焦点を当てる</td></tr>
+            <tr><td><strong>Business case / Project canvas</strong></td><td>望ましさ・実行可能性・達成可能性を示す</td><td><strong>1 枚の canvas</strong> にして関係者と頻繁に見直す</td></tr>
+            <tr><td><strong>Benefits management approach</strong></td><td>便益の特定・測定・実現の方法</td><td><strong>リリースごとに便益を実測</strong> し、次の優先順位に反映する</td></tr>
+            <tr><td><strong>Sustainability management approach</strong></td><td>環境・社会・経済面の持続可能性への取り組み方</td><td>成果物・チーム・運用の持続性を <strong>計画とバックログに反映</strong> する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.2.4 関連する agile artifacts / techniques 【シラバス 2.1.2 c / 公式ブック 6.4】</h4>
+      <p>一覧の正確な項目は公式ブック 6.4 で照合してください【要照合】。一般に次のものが該当します【一般知識】。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>MVP</strong> 【シラバス(Foundation 1.1.11 / 6.3.1)】</td><td>学びを最大化する最小限の価値提供。<strong>「最低限の機能」ではなく「検証可能な最小の価値」</strong></td></tr>
+            <tr><td>ビジョン記述</td><td>目指す姿を 1〜2 文で共有する</td></tr>
+            <tr><td>価値に基づく優先順位付け</td><td>価値の大きいものから作る(例: MoSCoW と併用)</td></tr>
+            <tr><td>頻繁なリリース</td><td>便益の実測・早期回収・投資判断の根拠づくり</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li>business case を <strong>「承認文書」ではなく「生きたモデル」</strong> として扱う。</li>
+        <li><strong>stage 境界ごと</strong> に、実績(リリース後の利用データ等)で便益仮説を検証する。</li>
+        <li>便益指標を <strong>事前に定義</strong>(後付けで都合よく解釈しない)。</li>
+        <li><strong>MVP を早期に市場・利用者へ</strong> 出し、フィードバックを得る。</li>
+      </ul>
+      </div>
+      <h4>4.2.6 よくある落とし穴</h4>
+      <ul>
+        <li>最初に作った business case を最後まで更新しない。</li>
+        <li>MVP を「品質を落とした試作品」と誤解する(→ quality は妥協しない)。</li>
+        <li>便益を <strong>完成後にまとめて</strong> 測ろうとし、途中で軌道修正できない。</li>
+      </ul>
+      <h4>4.2.7 試験ポイント</h4>
+      <ul>
+        <li><strong>BL3</strong>: シナリオの状況(例: 不確実性が高い新規市場)に対し、<strong>MVP と頻繁なリリース</strong> を使って価値確認する提案を選ぶ。</li>
+        <li><strong>BL4</strong>: 「business case を最初に詳細に固めきり、変更を認めない」という tailoring は、<strong>continued business justification に反し fit for purpose ではない</strong>。</li>
+        <li>「project brief / project canvas / benefits management approach / sustainability management approach」が business case practice を支える <strong>management products</strong> である点を押さえる(<strong>sustainability management approach が入っている点</strong> は v2 の特徴)。</li>
+      </ul>
+      <h3>4.3 Organization practice(シラバス 2.1.4 / 2.1.5 / 公式ブック 第 7 章)</h3>
+      <h4>4.3.1 一言でいうと</h4>
+      <p><strong>「誰が何に責任を持ち、どう連携するか」を決める</strong> practice です。Agile では、<strong>責任の委譲(自己組織化)と、上位の統制</strong> の両立が焦点です。</p>
+      <h4>4.3.2 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>体制を設計する</strong>: Project Board、PM、複数の agile team(Product Owner、Team coach、Developer、Tester)の関係を決める(<strong>project management team structure</strong>)。</li>
+        <li><strong>役割を明文化する</strong>: <strong>role descriptions</strong> で責任・権限・期待を明確にする(第 4.9 節)。</li>
+        <li><strong>委譲の範囲を決める</strong>: tolerance の範囲で <strong>チームが自己管理</strong> できるようにする。</li>
+        <li><strong>契約・調達を整える</strong>: <strong>commercial management approach</strong> で、供給者との契約(成果・変更の扱い・支払条件)が agile の働き方と整合するようにする。</li>
+        <li><strong>ステークホルダーを関与させる</strong>: 定期的なレビュー・デモへの参加を設計する。</li>
+      </ol>
+      <div class="diagram-card">
+        <div class="diagram-container" id="organizationStructure"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ステップバイステップ解説</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【要照合】</strong> 上図は 11 roles の関係を一般的な構造で示したものです。各 role の <strong>位置づけ(誰が誰に報告するか・Board の構成員)</strong> は、公式ブック 7 章と Table 7.2 / Table B.1 で照合してください。</p>
+      </div>
+      <h4>4.3.3 推奨される management products / artifacts 【シラバス 2.1.4 a / 公式ブック 7.3.2】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物</th><th>役割</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Commercial management approach</strong></td><td>供給者との契約・調達の進め方</td><td><strong>範囲変更を許容する契約設計</strong>(固定価格でも「範囲は柔軟」にする等)を検討する</td></tr>
+            <tr><td><strong>Project management team structure</strong></td><td>体制図・役割の関係</td><td>複数チームの <strong>依存関係・連携ポイント</strong> を明確にする</td></tr>
+            <tr><td><strong>Role descriptions</strong></td><td>各役割の責任・権限・スキル</td><td><strong>agile roles と PRINCE2 roles の対応</strong> を明記する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.3.4 関連する agile artifacts / techniques 【一般知識・【要照合】7.4】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Working agreements</td><td>チームの約束事(コミュニケーション、決定方法、就業ルール)</td></tr>
+            <tr><td>Self-organizing teams</td><td>チームが自ら作業割り当てと進め方を決める</td></tr>
+            <tr><td>ステークホルダー分析</td><td>影響度・関心度で関与方法を決める</td></tr>
+            <tr><td>定期的な review / demo</td><td>利害関係者との継続的なフィードバックの場</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li>責任の <strong>重複や空白</strong> を避ける(特に PM と Product Owner、PM と Team coach の境界)。</li>
+        <li><strong>tolerance の範囲内は委譲</strong> し、Board は <strong>例外と主要な判断</strong> に集中する。</li>
+        <li>契約では <strong>「成果と価値」に焦点</strong> を置き、変更を前提にした条項(範囲の入替えルールなど)を設ける。</li>
+        <li><strong>Agile coach</strong> を活用して、組織側(Board を含む)の agile 理解を高める。</li>
+      </ul>
+      </div>
+      <h4>4.3.6 よくある落とし穴</h4>
+      <ul>
+        <li>Product Owner の <strong>意思決定権限が不足</strong>(毎回上位の承認待ち)。</li>
+        <li>Board が <strong>チーム内の細かな作業配分</strong> にまで介入する(自己組織化を阻害)。</li>
+        <li><strong>固定範囲・固定価格・固定納期</strong> の三重固定契約で、変更が「契約違反」扱いになる。</li>
+      </ul>
+      <h4>4.3.7 試験ポイント</h4>
+      <ul>
+        <li><strong>BL3</strong>: 「契約が範囲固定でアジャイルの優先順位変更と衝突する」場面で、commercial management approach の見直し案を選ぶ。</li>
+        <li><strong>BL4</strong>: 「PM がチームのタスクを日次で割り当てる」体制は、<strong>自己組織化・委譲の趣旨に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>4.4 Plans practice(シラバス 2.1.6 / 2.1.7 / 公式ブック 第 8 章)</h3>
+      <h4>4.4.1 一言でいうと</h4>
+      <p><strong>「何を・いつ・どんな順序で届けるか」の見通しを、粒度を変えながら共有する</strong> practice です。Agile では、<strong>遠い将来は粗く、近い将来は詳細に</strong> 計画します(計画は生きたもの)。</p>
+      <h4>4.4.2 計画の階層(粗い → 詳細)</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="planHierarchy"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">計画の階層(粗い → 詳細)</div>
+      </div>
+      <h4>4.4.3 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>プロダクトの全体像を定義</strong>: <strong>project product description / project backlog</strong> に、プロジェクトが届けるべき内容を <strong>epic</strong> レベルで列挙。</li>
+        <li><strong>release map を作る</strong>: いつ頃どの価値を出すかの <strong>粗い見通し</strong>。</li>
+        <li><strong>stage plan を作る</strong>: 直近の stage の目標と主要な成果物。</li>
+        <li><strong>product backlog を整備</strong>: <strong>epic user story</strong> を <strong>user story</strong> に分解し、優先順位を付ける。</li>
+        <li><strong>team plan を作る</strong>: iteration ごとに、チームが <strong>実施する項目を選び取る</strong>。</li>
+        <li><strong>work package description で委任</strong>: PM がチームに、期待する成果と <strong>tolerance</strong> を伝える。</li>
+        <li><strong>見積り・進捗で更新</strong>: 実績(velocity 等)を踏まえ、計画を継続的に調整する。</li>
+      </ol>
+      <h4>4.4.4 推奨される management products / artifacts 【シラバス 2.1.6 a / 公式ブック 8.3.2】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物</th><th>役割(初学者向け)</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Plan(project, stage)/ Release map</strong></td><td>プロジェクト全体・stage の見通し</td><td><strong>粗く始め、学びに応じて更新</strong>(rolling wave)</td></tr>
+            <tr><td><strong>Team plan</strong></td><td>チームが iteration で取り組む計画</td><td><strong>チーム自身が作る</strong>(PM が押し付けない)</td></tr>
+            <tr><td><strong>Product backlog</strong></td><td>優先順位付きの作業項目リスト</td><td><strong>Product Owner が優先順位</strong> を継続的に更新</td></tr>
+            <tr><td><strong>Project product description / Project backlog</strong></td><td>プロジェクト全体で届ける成果の記述・一覧</td><td>epic レベルで、<strong>変更を前提</strong> に管理</td></tr>
+            <tr><td><strong>Work package description</strong></td><td>チームへ委任する仕事の内容と制約</td><td><strong>tolerance、完了基準(DoD)</strong> を明記</td></tr>
+            <tr><td><strong>Epic user story</strong></td><td>大きな要求(複数の user story に分解される前)</td><td>分解前は <strong>粗い粒度</strong> で構わない</td></tr>
+            <tr><td><strong>User story</strong></td><td>ユーザー視点の要求を簡潔に記述した単位</td><td>【一般知識】「誰が・何を・なぜ」の形式と <strong>受入基準</strong> で明確化</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.4.5 関連する agile artifacts / techniques 【シラバス 2.1.6 c / 公式ブック 8.4】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>内容</th><th>出所</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Agile estimation(story points, T-shirt sizing)</strong></td><td>相対見積りで、作業の大きさを素早く見積もる</td><td>【シラバス(Foundation 1.1.11 / 8.4.3)】</td></tr>
+            <tr><td><strong>Timeboxing</strong></td><td>期間を固定し、その中で優先度の高いものを届ける</td><td>【一般知識】</td></tr>
+            <tr><td><strong>Backlog refinement</strong></td><td>backlog の項目を詳細化・見直し・優先付けする</td><td>【一般知識】</td></tr>
+            <tr><td><strong>Velocity</strong></td><td>チームが 1 iteration で完了できる量の実績</td><td>【一般知識】</td></tr>
+            <tr><td><strong>Story map</strong></td><td>ユーザー体験の流れで user story を整理する</td><td>【一般知識】</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Story points と T-shirt sizing(初学者向け)</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>方式</th><th>中身</th><th>向いている場面</th></tr></thead>
+          <tbody>
+            <tr><td>Story points</td><td>相対的な大きさを数値(例: 1, 2, 3, 5, 8, 13)で表す</td><td>チームが直近の実績を持ち、詳細に見積れる時期</td></tr>
+            <tr><td>T-shirt sizing</td><td>S / M / L / XL で表す</td><td><strong>epic や初期段階の粗い見積り</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li><strong>近い将来は詳細、遠い将来は粗く</strong>(不確実性が高いほど詳細計画のムダが増える)。</li>
+        <li><strong>チーム自身が見積り・計画</strong> を行う(当事者意識と精度が上がる)。</li>
+        <li>計画の <strong>確からしさが低い部分は明示</strong> し、ボードと共有する。</li>
+        <li>release map は <strong>利害関係者が見て分かる粒度</strong> にとどめる。</li>
+      </ul>
+      </div>
+      <h4>4.4.7 よくある落とし穴</h4>
+      <ul>
+        <li>全機能の詳細 plan を最初に固め、<strong>変更を認めない</strong>。</li>
+        <li>見積りを <strong>個人評価やコミットメントの強制</strong> に使う。</li>
+        <li>backlog の優先順位が更新されず、<strong>古い前提の項目が残る</strong>。</li>
+      </ul>
+      <h4>4.4.8 試験ポイント</h4>
+      <ul>
+        <li><strong>BL3</strong>: シナリオで「ボードが 12 か月先までの詳細な機能一覧を求める」→ <strong>release map + 直近の詳細計画</strong> を提案する選択肢が適切。</li>
+        <li><strong>BL4</strong>: 「PM がチームの user story を割り当て、見積り値をチームに強制する」計画運用は、<strong>自己組織化・現実的な見積りの趣旨に反し fit for purpose ではない</strong>。</li>
+        <li>「<strong>Plan / Release map / Team plan / Product backlog / Project product description / Work package description / Epic user story / User story</strong>」の <strong>一覧を正確に</strong> 覚える(シラバスの 2.1.6 a)。</li>
+      </ul>
+      <h3>4.5 Quality practice(シラバス 2.1.8 / 2.1.9 / 公式ブック 第 9 章)</h3>
+      <h4>4.5.1 一言でいうと</h4>
+      <p><strong>「完成とは何か」を先に決め、作り込みながら確かめる</strong> practice です。Agile では、品質を <strong>最後に検査する</strong> のではなく、<strong>作りながら継続的に作り込む</strong> ことが基本です。</p>
+      <h4>4.5.2 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>品質の期待を明確にする</strong>: <strong>product description / product backlog</strong> の項目ごとに、期待する品質を明記。</li>
+        <li><strong>quality management approach を用意</strong>: 品質のための役割・レビュー・テストの進め方を決める。</li>
+        <li><strong>Definition of Ready(DoR)を決める</strong>: backlog の項目が <strong>着手できる状態</strong> の条件。</li>
+        <li><strong>Definition of Done(DoD)を決める</strong>: 項目が <strong>完成したと言える</strong> 条件。</li>
+        <li><strong>MoSCoW で優先順位付け</strong>: 範囲調整の際も、<strong>品質基準は下げない</strong>。</li>
+        <li><strong>quality register / product register で記録</strong>: 実施した品質活動と、成果物の状態を追跡。</li>
+        <li><strong>継続的に検証</strong>: テスト、レビュー、デモで、<strong>各 timebox 内で</strong> 品質を確認する。</li>
+      </ol>
+      <h4>4.5.3 DoR と DoD の違い(頻出)【シラバス(Foundation 1.1.11 / 9.3.2.1, 9.3.2.2)】</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="dorDodFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">DoR と DoD の違い(頻出)【シラバス(Foundation 1.1.11 / 9.3.2.1, 9.3.2.2)】</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>Definition of Ready</th><th>Definition of Done</th></tr></thead>
+          <tbody>
+            <tr><td>いつ使う</td><td><strong>作業を始める前</strong></td><td><strong>作業を終えるとき</strong></td></tr>
+            <tr><td>目的</td><td>曖昧な項目で着手して手戻りするのを防ぐ</td><td>「ほぼ完成」の項目を完成扱いにしない</td></tr>
+            <tr><td>例</td><td>受入基準が明記、見積り可能、依存が解消済み</td><td>コードレビュー済み、テスト合格、ドキュメント更新済み</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>暗記のコツ</strong>: Ready = <strong>入口</strong>、Done = <strong>出口</strong>。</p>
+      </div>
+      <h4>4.5.4 推奨される management products / artifacts / techniques 【シラバス 2.1.8 a / 公式ブック 9.3.2】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物 / 技法</th><th>役割</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Product description / Product backlog</strong></td><td>成果物の目的・品質基準を記述</td><td><strong>acceptance criteria</strong> を含め、優先順位付きで管理</td></tr>
+            <tr><td><strong>Quality management approach</strong></td><td>品質保証・品質管理の進め方</td><td><strong>継続的な検証</strong> を前提とする</td></tr>
+            <tr><td><strong>Definition of Ready</strong></td><td>着手可能の条件</td><td>チームで合意し、<strong>必要に応じ更新</strong></td></tr>
+            <tr><td><strong>Definition of Done</strong></td><td>完成の条件</td><td><strong>リリース可能な品質</strong> を定義し、例外を作らない</td></tr>
+            <tr><td><strong>Quality register</strong></td><td>品質活動の記録</td><td>実施・結果を <strong>透明に</strong> 記録</td></tr>
+            <tr><td><strong>Product register</strong></td><td>成果物ごとの状態の記録</td><td>進捗と品質の状態を追跡</td></tr>
+            <tr><td><strong>MoSCoW</strong></td><td>Must / Should / Could / Won't(今回はやらない)で優先順位付け</td><td><strong>Must は必須のみ</strong>。Should / Could が調整弁</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>MoSCoW(一般知識)</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>区分</th><th>意味</th><th>扱い</th></tr></thead>
+          <tbody>
+            <tr><td><strong>M</strong>ust have</td><td>ないと成立しない</td><td><strong>必ず届ける</strong>(最小限に絞る)</td></tr>
+            <tr><td><strong>S</strong>hould have</td><td>重要だが、代替手段で当面しのげる</td><td>可能な限り届ける</td></tr>
+            <tr><td><strong>C</strong>ould have</td><td>あれば望ましい</td><td>余力があれば</td></tr>
+            <tr><td><strong>W</strong>on't have (this time)</td><td><strong>今回は対象外</strong>(将来検討)</td><td>明示して期待値を管理</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p>目安として、DSDM 由来の考え方では <strong>Must を全体の約 60% 程度以内に抑え</strong>、残りを調整余地(contingency)として残すことが推奨されています【一般知識】。<strong>具体的な割合は公式ブックの記述で確認</strong> してください【要照合】。</p>
+      </div>
+      <h4>4.5.5 関連する agile techniques 【シラバス 2.1.8 c / 公式ブック 9.4、一般知識】</h4>
+      <ul>
+        <li><strong>テスト駆動開発(TDD)、継続的インテグレーション(CI)、テスト自動化</strong>: 短いサイクルで品質を維持する。</li>
+        <li><strong>ペアプログラミング / コードレビュー</strong>: 作り込み段階での品質確保。</li>
+        <li><strong>Review / demo</strong>: 利害関係者に動く成果物を見せ、<strong>受入れ</strong> を得る。</li>
+        <li><strong>Tester の関与</strong>: 開発の早期から参加(後工程にしない)。</li>
+      </ul>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li><strong>DoD は「全員が同じ完成の意味」を持つための合意</strong>。曖昧な DoD は隠れた未完成を生む。</li>
+        <li>納期が厳しくても <strong>quality を下げて回避しない</strong>(scope を flex にする)。</li>
+        <li><strong>受入基準(acceptance criteria)を user story とセット</strong> で用意する。</li>
+        <li>自動化されたテストで、<strong>リグレッションを早期検知</strong> する。</li>
+      </ul>
+      </div>
+      <h4>4.5.7 よくある落とし穴</h4>
+      <ul>
+        <li>「動けば Done」とし、<strong>テスト・文書・運用準備が未完</strong>(技術的負債の蓄積)。</li>
+        <li>DoR を厳格にしすぎ、<strong>着手が滞る</strong>(過剰な事前分析)。</li>
+        <li>納期に間に合わせるため、<strong>テストを次の iteration に回す</strong>。</li>
+      </ul>
+      <h4>4.5.8 試験ポイント</h4>
+      <ul>
+        <li><strong>BL3</strong>: 「完成扱いの成果物に、後からバグが見つかる」→ <strong>DoD の見直し</strong> と受入基準の明確化。</li>
+        <li><strong>BL4</strong>: 「納期が迫ったので DoD の一部を省略して Done とする」は、<strong>quality を犠牲にする点で fit for purpose ではない</strong>。代わりに <strong>scope(Should / Could)を調整</strong> する。</li>
+        <li>「DoR = 入口、DoD = 出口」「MoSCoW の 4 区分」「quality register と product register の違い」を確実に。</li>
+      </ul>
+      <h3>4.6 Risk practice(シラバス 2.1.10 / 2.1.11 / 公式ブック 第 10 章)</h3>
+      <h4>4.6.1 一言でいうと</h4>
+      <p><strong>「うまくいかない可能性(脅威)と、うまくいく機会(好機)」を、早く見つけて手を打つ</strong> practice です。Agile は <strong>短いサイクルで早期に学べる</strong> ため、リスクの発覚と対処が早まります。</p>
+      <h4>4.6.2 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>risk management approach を用意</strong>: リスクの識別・評価・対応・報告の進め方。</li>
+        <li><strong>Agilometer で全体像を把握</strong>: プロジェクトが agile 適用にどれだけ適しているかを評価(下記)。</li>
+        <li><strong>risk register に記録</strong>: 識別したリスクと、評価(確率・影響)、対応、責任者。</li>
+        <li><strong>日常の場で表面化</strong>: daily stand-up、review、retrospective で新しいリスクを拾う。</li>
+        <li><strong>早期検証で不確実性を下げる</strong>: 小さく作って試す、頻繁にリリースする。</li>
+        <li><strong>stage 境界で再評価</strong>: Agilometer とリスクを見直す。</li>
+      </ol>
+      <h4>4.6.3 Agilometer とは 【シラバス 2.1.10 a / 公式ブック 10.3.2】</h4>
+      <p><strong>一言でいうと</strong>: <strong>「このプロジェクトは agile に向いているか、どこにリスクがあるか」</strong> を可視化する自己診断ツールです。</p>
+      <div class="diagram-card">
+        <div class="diagram-container" id="agilometerCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Agilometer とは 【シラバス 2.1.10 a / 公式ブック 10.3.2】</div>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【要照合】</strong> Agilometer の <strong>評価軸の名称・数・評価スケール</strong> は、版によって表現が異なり得るため、<strong>必ず公式ブック 10.3.2(サブセクション含む)で確認</strong> してください。試験では「Agilometer を <strong>どの目的で・いつ・どう使うか</strong>」が問われます。一般的な使い方は次のとおりです【一般知識】。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>使いどころ</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>初期(SU / IP)</td><td>agile 適用の <strong>リスクの高い領域</strong> を洗い出し、tailoring や体制設計に反映する</td></tr>
+            <tr><td>継続的</td><td>stage 境界などで <strong>再評価</strong> し、リスクの変化を追跡する</td></tr>
+            <tr><td>対応</td><td>高リスクの領域に対し、<strong>risk register の対応策</strong> や <strong>追加の統制</strong> を設定する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.6.4 推奨される management products / artifacts 【シラバス 2.1.10 a】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物</th><th>役割</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Risk management approach</strong></td><td>リスク管理の方法</td><td>チームと Board で <strong>報告の粒度・頻度</strong> を合意</td></tr>
+            <tr><td><strong>Risk register</strong></td><td>リスクの一覧・状況</td><td><strong>日常的に更新</strong>(stand-up などで発見)</td></tr>
+            <tr><td><strong>Agilometer</strong></td><td>agile 適用のリスク診断</td><td><strong>定期的に再実施</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.6.5 リスクへの対応(一般知識)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>種類</th><th>対応方針の例</th></tr></thead>
+          <tbody>
+            <tr><td>脅威(threat)</td><td>回避(avoid)/ 低減(reduce)/ 転嫁(transfer)/ 受容(accept)</td></tr>
+            <tr><td>好機(opportunity)</td><td>活用(exploit)/ 強化(enhance)/ 共有(share)/ 受容</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Agile 特有のリスク低減手段【一般知識】</strong>: <strong>スパイク(技術的な不確実性を調べる短い調査)</strong>、プロトタイプ、<strong>早期の顧客レビュー</strong>、<strong>頻繁なリリース</strong>、チームの安定化。</p>
+      <h4>4.6.6 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: リスクを <strong>チーム全員の責任</strong> として、日常の会話に乗せる。Agilometer の結果を <strong>tailoring の根拠</strong> にする。</li>
+        <li><strong>落とし穴</strong>: Agilometer を <strong>一度実施して終わり</strong> にする。リスクを <strong>PM だけ</strong> が管理する。</li>
+        <li><strong>BL3</strong>: シナリオの状況(例: agile 経験が浅いチーム、遠隔配置)を Agilometer の観点で捉え、<strong>追加の対応策(coaching、コミュニケーション強化)</strong> を選ぶ。</li>
+        <li><strong>BL4</strong>: 「リスクをプロジェクト開始時にだけ評価し、stage 境界で見直さない」運用は、<strong>不確実性の変化に追随できず fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>4.7 Issues practice(シラバス 2.1.12 / 2.1.13 / 公式ブック 第 11 章)</h3>
+      <h4>4.7.1 一言でいうと</h4>
+      <p><strong>計画外に起きた出来事(問題・変更の要求など)を捕捉し、評価し、対応する</strong> practice です。Agile では <strong>変更は日常的</strong> なので、「変更=問題」とせず、<strong>tolerance の範囲か、超えるか</strong> で扱いを分けます。</p>
+      <h4>4.7.2 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>issue management approach を用意</strong>: 課題の捕捉・評価・エスカレーションの方法。</li>
+        <li><strong>issue を捕捉</strong>: <strong>issue register</strong> に記録(誰が・何が・いつ)。</li>
+        <li><strong>影響を評価</strong>: <strong>tolerance の範囲内か</strong> を判断。</li>
+        <li><strong>範囲内なら現場で解決</strong>: 例: Product Owner が backlog の優先順位を調整。</li>
+        <li><strong>範囲を超えるなら escalate</strong>: <strong>issue report</strong> を作成し、PM → Board へ。</li>
+        <li><strong>結果を記録し、学びに反映</strong>: lessons log へ。</li>
+      </ol>
+      <div class="diagram-card">
+        <div class="diagram-container" id="issueHandlingFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ステップバイステップ解説</div>
+      </div>
+      <h4>4.7.3 推奨される management products / artifacts 【シラバス 2.1.12 a / 公式ブック 11.3.4】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物</th><th>役割</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Issue management approach</strong></td><td>issue 対応の進め方</td><td><strong>軽量・迅速</strong> に。変更は backlog で吸収する前提</td></tr>
+            <tr><td><strong>Issue register</strong></td><td>issue の一覧・状況</td><td>日次の場で更新し、<strong>透明性</strong> を保つ</td></tr>
+            <tr><td><strong>Issue report</strong></td><td>個別 issue の詳細(影響・選択肢・推奨)</td><td><strong>tolerance を超える</strong> 場合の escalate に用いる</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.7.4 関連する agile techniques 【一般知識・【要照合】11.4】</h4>
+      <ul>
+        <li><strong>Backlog refinement / 優先順位の再設定</strong>: 要求の変更は、<strong>backlog の並べ替え</strong> で吸収する。</li>
+        <li><strong>Daily stand-up</strong>: <strong>障害(impediment)</strong> を早期に表面化する。</li>
+        <li><strong>Kanban ボードの blocker 表示</strong>: 滞留を見える化する。</li>
+        <li><strong>Team coach による障害除去</strong>: チーム単位の障害をリードして取り除く。</li>
+      </ul>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li><strong>変更の受入れ窓口を軽量化</strong> し、全変更に承認会議を課さない。</li>
+        <li><strong>tolerance の範囲内は委譲</strong>、範囲外だけ上位に escalate(management by exception)。</li>
+        <li>issue を <strong>チームの学びの材料</strong> にする(retrospective へ接続)。</li>
+      </ul>
+      </div>
+      <h4>4.7.6 よくある落とし穴</h4>
+      <ul>
+        <li><strong>すべての変更に正式な承認プロセス</strong> を課し、スピードを失う。</li>
+        <li>逆に、<strong>tolerance 超過の変更を現場で握りつぶす</strong>(ボードへの透明性を欠く)。</li>
+        <li>issue の記録が <strong>形骸化</strong> し、対応が追跡できない。</li>
+      </ul>
+      <h4>4.7.7 試験ポイント</h4>
+      <ul>
+        <li><strong>BL3</strong>: 「顧客が新しい要求を追加したい」→ <strong>backlog の優先順位を調整</strong>(Product Owner)。tolerance 内なら escalate 不要。</li>
+        <li><strong>BL4</strong>: 「すべての backlog の変更に Project Board の承認を必須とする」は、<strong>management by exception に反し、かつ agile の変化対応を阻害するため fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>4.8 Progress practice(シラバス 2.1.14 / 2.1.15 / 公式ブック 第 12 章)</h3>
+      <h4>4.8.1 一言でいうと</h4>
+      <p><strong>「計画に対して今どこにいるか」を測り、先行きを予測し、逸脱を統制する</strong> practice です。Agile では、<strong>実際に動く成果物(完成した増分)</strong> で進捗を測り、<strong>透明性の高い可視化</strong> を重視します。</p>
+      <h4>4.8.2 ステップバイステップ解説</h4>
+      <ol>
+        <li><strong>digital and data management approach を用意</strong>: 進捗データ・ツール・情報管理の方針(v2 で強調)。</li>
+        <li><strong>日次の可視化</strong>: <strong>daily log</strong>、stand-up、Kanban ボード。</li>
+        <li><strong>チーム内の進捗</strong>: <strong>checkpoint report / team dashboard</strong> で、チームの状況を共有。</li>
+        <li><strong>PM → Board への報告</strong>: <strong>highlight report / project dashboard</strong> を定期的に。</li>
+        <li><strong>stage の終わり</strong>: <strong>end stage report</strong>(またはダッシュボード)で実績と次の見通し。</li>
+        <li><strong>逸脱の恐れ</strong>: <strong>exception report</strong> で Board に判断を求める。</li>
+        <li><strong>学びの記録</strong>: <strong>lessons log → lessons report</strong>、最後に <strong>end project report</strong>。</li>
+        <li><strong>目標との整合</strong>: <strong>OKR(Objectives and Key Results)</strong> で目的と成果指標をつなぐ。</li>
+      </ol>
+      <h4>4.8.3 推奨される management products / artifacts 【シラバス 2.1.14 a / 公式ブック 12.3.2】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>成果物</th><th>役割</th><th>Agile での留意点</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Digital and data management approach</strong></td><td>進捗情報・データの扱い方の方針</td><td><strong>ツール・データの信頼性</strong>、透明性、セキュリティを明確化</td></tr>
+            <tr><td><strong>Daily log</strong></td><td>日々の記録(決定事項・気づき等)</td><td><strong>軽量</strong> に。チーム内の記憶の補助</td></tr>
+            <tr><td><strong>Lessons log</strong></td><td>学びの記録(随時)</td><td><strong>各 timebox の retrospective の結果</strong> も反映</td></tr>
+            <tr><td><strong>Checkpoint report / Team dashboard</strong></td><td>チーム単位の状況報告</td><td><strong>チームの可視化ボード</strong> を活用し、報告作業を最小化</td></tr>
+            <tr><td><strong>Highlight report / Project dashboard</strong></td><td>PM → Board への定期報告</td><td><strong>ダッシュボード化</strong> し、常時閲覧可能に(報告書の作成を減らす)</td></tr>
+            <tr><td><strong>Lessons report</strong></td><td>学びの要約(stage / project 単位)</td><td><strong>今後に活かせる形</strong> で整理</td></tr>
+            <tr><td><strong>Exception report</strong></td><td>tolerance 超過時の報告</td><td><strong>早期に</strong>、選択肢と推奨を添える</td></tr>
+            <tr><td><strong>End stage report / Project dashboard</strong></td><td>stage 終了時の実績報告</td><td>実績データ・<strong>完成した増分</strong> を根拠に</td></tr>
+            <tr><td><strong>End project report</strong></td><td>プロジェクト全体の振り返りと評価</td><td>便益実現の見通し・運用移行も含める</td></tr>
+            <tr><td><strong>Objectives and key results(OKR)</strong></td><td>目標と測定可能な成果指標</td><td>目的(Objective)と、<strong>計測可能な成果(Key Results)</strong> をつなぐ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.8.4 Burn charts(シラバス Foundation 1.1.11 / 12.4.3)</h4>
+      <p><strong>一言でいうと</strong>: 「残りの作業」または「完了した作業」の推移をグラフにした、進捗の <strong>見える化</strong> ツールです。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>種類</th><th>縦軸の意味</th><th>傾き</th><th>特徴</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Burn-down</strong></td><td><strong>残り</strong> の作業量</td><td>右下がり(0 に向かう)</td><td>完了までの残量が直感的に分かる</td></tr>
+            <tr><td><strong>Burn-up</strong></td><td><strong>完了した</strong> 作業量(と全体の範囲)</td><td>右上がり</td><td><strong>範囲(scope)の増減</strong> も同時に見える</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>読み方の例(burn-up)</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>週</th><th>完了累計(points)</th><th>全体範囲(points)</th><th>読み取り</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>10</td><td>100</td><td>順調な立ち上がり</td></tr>
+            <tr><td>2</td><td>22</td><td>100</td><td>安定</td></tr>
+            <tr><td>3</td><td>30</td><td>115</td><td><strong>範囲が増えた</strong>(要求追加)。完了ペースは維持</td></tr>
+            <tr><td>4</td><td>42</td><td>115</td><td>範囲が変わらず着実に進行。<strong>完了予測の見直し</strong> を検討</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>ポイント</strong>: burn-down は範囲が増えても「残りが減らない」ように見えるだけで <strong>原因(範囲増か遅延か)</strong> が分かりにくく、burn-up は <strong>範囲の変化を別線で示せる</strong> ため、原因の切り分けに優れます。</p>
+      </div>
+      <h4>4.8.5 関連する agile techniques 【一般知識・【要照合】12.4】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Kanban ボード</td><td>作業の状態と滞留を可視化</td></tr>
+            <tr><td>Velocity</td><td>チームの完了ペース(予測の根拠)</td></tr>
+            <tr><td>Review / Demo</td><td><strong>動く成果物</strong> で進捗を確認</td></tr>
+            <tr><td>Retrospective</td><td>進め方の改善点を抽出(学びを lessons log へ)</td></tr>
+            <tr><td>Information radiator(情報ラジエーター)</td><td>壁やボードに <strong>常時見える</strong> 形で状況を掲示</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>4.8.6 tolerance と exception(進捗の統制)</h4>
+      <ul>
+        <li>各 level で <strong>tolerance</strong> が設定される。</li>
+        <li>範囲内は <strong>現場の判断</strong> で調整し、<strong>超える恐れ</strong> が出たら <strong>exception report</strong> で上位に伝える。</li>
+        <li>逸脱を統制するのが <strong>progress practice の目的の 1 つ</strong>(シラバスのサンプル問題で問われる形式)。</li>
+      </ul>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li>進捗は <strong>「完了した(Done の)増分」</strong> で測る(「作業した量」ではなく)。</li>
+        <li>報告書を作るのではなく、<strong>ダッシュボードで常時透明</strong> に。</li>
+        <li><strong>早めに悪い知らせを出せる</strong> 文化(心理的安全性)と、exception の仕組みをセットで運用。</li>
+        <li><strong>OKR</strong> で「何のために進めているか」を全員が理解している状態にする。</li>
+      </ul>
+      </div>
+      <h4>4.8.8 よくある落とし穴</h4>
+      <ul>
+        <li><strong>進捗率(%)だけ</strong> を報告し、実際の増分の完成度が見えない。</li>
+        <li>報告のための <strong>二重管理</strong>(ボードとは別に月次資料を手作業で作る)。</li>
+        <li>burn chart を <strong>チーム評価の道具</strong> にして、数字の操作が起こる。</li>
+      </ul>
+      <h4>4.8.9 試験ポイント</h4>
+      <ul>
+        <li><strong>BL3</strong>: シナリオで「stage の途中で scope が増え続けている」→ <strong>burn-up で範囲の増加を可視化</strong> し、Board と tolerance の再交渉。</li>
+        <li><strong>BL4</strong>: 「PM が毎日の詳細報告を全員から集め、月次で人手で資料化する」運用は、<strong>透明性・効率の観点で fit for purpose ではない</strong>(ダッシュボード化が推奨)。</li>
+        <li><strong>成果物名の一覧(10 項目)と、それぞれの役割</strong> を整理して覚える(シラバス 2.1.14 a)。</li>
+      </ul>
+      <h3>4.9 PRINCE2 Agile の 11 roles(シラバス 2.2.1 / 公式ブック Table 7.2, Table B.1)</h3>
+      <h4>4.9.1 一言でいうと</h4>
+      <p>PRINCE2 の <strong>統制側の役割</strong> と、Agile の <strong>チーム側の役割</strong> を、1 つの体制に組み込みます。シラバスは <strong>11 の roles</strong> を挙げ、その <strong>ガイダンスの適用(BL3)</strong> を求めます。</p>
+      <h4>4.9.2 11 roles 一覧 【シラバス】と役割の要点【一般知識・【要照合】】</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Role</th><th>主な責任(初学者向けの要約)</th><th>層</th></tr></thead>
+          <tbody>
+            <tr><td>a</td><td><strong>Project executive</strong></td><td>プロジェクトの <strong>最終責任者</strong>。business case の成立に責任を持ち、Board を主導する</td><td>Direction</td></tr>
+            <tr><td>b</td><td><strong>Chief Product Owner(CPO)</strong></td><td><strong>プロダクトの価値・優先順位の全体責任</strong>(ユーザー側の代表)。複数の Product Owner をまとめる</td><td>Direction / Product</td></tr>
+            <tr><td>c</td><td><strong>Senior supplier</strong></td><td>供給側の代表。成果物の <strong>実現可能性と資源</strong> に責任を持つ</td><td>Direction</td></tr>
+            <tr><td>d</td><td><strong>Project assurance</strong></td><td><strong>独立した立場で</strong> 事業・ユーザー・供給者の観点を保証(監視・確認)</td><td>Assurance</td></tr>
+            <tr><td>e</td><td><strong>Agile coach</strong></td><td><strong>組織レベル</strong> で agile の実践を支援・助言(PM や Board、複数チームの成長支援)</td><td>Support</td></tr>
+            <tr><td>f</td><td><strong>Project manager</strong></td><td><strong>日常の統制</strong> を担い、Board とチームをつなぐ(tolerance の範囲で委任し、例外を報告)</td><td>Management</td></tr>
+            <tr><td>g</td><td><strong>Project support</strong></td><td>管理業務(ツール、記録、環境)の支援</td><td>Management</td></tr>
+            <tr><td>h</td><td><strong>Product owner(PO)</strong></td><td><strong>チームの backlog の優先順位</strong> と、ユーザー価値の判断を担う</td><td>Delivery</td></tr>
+            <tr><td>i</td><td><strong>Team coach</strong></td><td><strong>チーム単位</strong> で agile の実践を支援し、障害除去を導く(Scrum の Scrum Master に近い位置づけ)</td><td>Delivery</td></tr>
+            <tr><td>j</td><td><strong>Developer</strong></td><td>成果物を <strong>作り込む</strong> チームメンバー</td><td>Delivery</td></tr>
+            <tr><td>k</td><td><strong>Tester</strong></td><td>成果物の <strong>品質を確認</strong> するチームメンバー(早期から関与)</td><td>Delivery</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【要照合】</strong> ① CPO が Project Board 上で <strong>どの役割(従来の Senior user に相当する位置づけかなど)</strong> を担うか、② Agile coach と Team coach の <strong>担当範囲の境界</strong>、③ Project assurance の詳細な責任、は <strong>公式ブック Table 7.2 / Table B.1 で必ず確認</strong> してください。試験のシナリオ(追加情報)は、<strong>人物の肩書と発言</strong> から <strong>どの role の責任か</strong> を判断させる形で出題されます。</p>
+      </div>
+      <h4>4.9.3 役割の関係図</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="rolesRelationship"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">役割の関係図</div>
+      </div>
+      <h4>4.9.4 「誰が何を決めるか」早見表(シナリオ問題の判断に)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>場面</th><th>主に判断する role</th><th>補足</th></tr></thead>
+          <tbody>
+            <tr><td>「プロジェクトを継続・中止するか」</td><td><strong>Project Board</strong>(<strong>Project executive</strong> が主導)</td><td>business case の観点</td></tr>
+            <tr><td>「この iteration でどの story を優先するか」</td><td><strong>Product owner</strong></td><td>ユーザー価値の観点</td></tr>
+            <tr><td>「複数チームの優先順位の整合」</td><td><strong>Chief product owner</strong></td><td>全体プロダクトの観点</td></tr>
+            <tr><td>「チームの作業の進め方・見積り」</td><td><strong>チーム(Developer / Tester)</strong></td><td>自己組織化</td></tr>
+            <tr><td>「tolerance を超える恐れ」</td><td><strong>PM → Board</strong></td><td>exception report</td></tr>
+            <tr><td>「チームが agile の practice でつまずく」</td><td><strong>Team coach</strong></td><td>チーム単位の支援</td></tr>
+            <tr><td>「Board や組織の agile 理解が不足」</td><td><strong>Agile coach</strong></td><td>組織単位の支援</td></tr>
+            <tr><td>「体制外の独立確認が必要」</td><td><strong>Project assurance</strong></td><td>独立した保証</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <ul>
+        <li><strong>PM と PO の境界を明確に</strong>: PM は <strong>プロジェクトの統制(tolerance、報告、リスク)</strong>、PO は <strong>プロダクトの価値と優先順位</strong>。</li>
+        <li><strong>Team coach は "管理者" ではない</strong>: チームの自己組織化を支援する立場。</li>
+        <li><strong>Agile coach を Board にも活用</strong>: 統制側の agile 理解が不足すると、<strong>tolerance の委任がうまくいかない</strong>。</li>
+        <li><strong>Project assurance の独立性を保つ</strong>: チーム内の作業者が自己保証しても独立とは言えない。</li>
+      </ul>
+      </div>
+      <h4>4.9.6 よくある落とし穴</h4>
+      <ul>
+        <li><strong>PM が PO の役割を兼ね</strong>、価値判断と統制が混ざる(優先順位が管理都合で決まる)。</li>
+        <li><strong>Team coach が進捗管理者化</strong>(PM の代行)し、自己組織化を阻害。</li>
+        <li><strong>Project executive が不在・多忙</strong> で、Board の判断が遅れる。</li>
+      </ul>
+      <h4>4.9.7 試験ポイント(BL3)</h4>
+      <ul>
+        <li>追加情報の人物表から、シナリオ中の発言(例: 「私が全 story の優先順位を毎日決めている」)を見て、<strong>どの role が越権か、または不足か</strong> を判断する。</li>
+        <li>「<strong>Agile coach</strong> = 組織側の支援」「<strong>Team coach</strong> = チーム側の支援」と区別する。</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 5. Processes ===================== -->
+    <section id="processes">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 06</div>
+      <span class="domain-tag d3">カテゴリ 3 &middot; 配点 30%</span>
+      <h2>5. PRINCE2 Agile の processes と workshops</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>カテゴリ 3 の学習ゴール</strong> 【シラバス 3.1.1 / 3.1.2】<br>
+        7 つの process について、<strong>activities・関連する workshops・artifacts を agile 文脈で適用(BL3)</strong> し、<strong>tailoring が有効で fit for purpose か分析(BL4)</strong> できる。</p>
+      </div>
+      <h3>5.1 processes の全体像</h3>
+      <h4>5.1.1 7 processes と流れ</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="processOverview"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">7 processes と流れ</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Process</th><th>目的(1 行)【一般知識】</th><th>Board の主な判断</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Starting up a project(SU)</strong></td><td>プロジェクトが <strong>価値ある・実行可能</strong> か見極め、初期体制を作る</td><td>初期化(initiation)を許可するか</td></tr>
+            <tr><td><strong>Directing a project(DP)</strong></td><td>Board が <strong>重要な判断点で意思決定</strong> し、例外に対応する</td><td>許可・stage 承認・例外対応・終了承認</td></tr>
+            <tr><td><strong>Initiating a project(IP)</strong></td><td><strong>統制と計画の土台</strong> を作り、全員が理解を揃える</td><td>プロジェクトを許可するか</td></tr>
+            <tr><td><strong>Controlling a stage(CS)</strong></td><td>stage 内の <strong>日常の統制</strong>(work package の委任・進捗確認・報告)</td><td>(tolerance 内なら委任)</td></tr>
+            <tr><td><strong>Managing product delivery(MP)</strong></td><td><strong>チームが成果物を作り・届ける</strong></td><td>(チームの自己管理)</td></tr>
+            <tr><td><strong>Managing a stage boundary(SB)</strong></td><td>実績を評価し、<strong>次の stage を計画</strong> する</td><td>次の stage を許可するか</td></tr>
+            <tr><td><strong>Closing a project(CP)</strong></td><td><strong>完了・引き継ぎ・学びの記録</strong></td><td>終了を承認するか</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.1.2 stage と timebox の関係(Agile の核心)</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="stageTimebox"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">stage と timebox の関係(Agile の核心)</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Timebox の種類 【シラバス(Foundation 1.3.1)】</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Iteration</strong></td><td>固定長の短いサイクル。チームが選んだ項目を完成させる</td></tr>
+            <tr><td><strong>Release</strong></td><td>利用者に価値を届ける単位。複数の iteration で構成されることが多い</td></tr>
+            <tr><td><strong>Stage</strong></td><td><strong>管理上の判断単位</strong>(Board の承認区切り)。複数の release / iteration を含み得る</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【一般知識】</strong> stage の長さは、<strong>計画の確からしさが保てる範囲</strong> で決めます(不確実性が高いほど短く)。具体的な目安は公式ブックの記述で確認してください【要照合】。</p>
+      </div>
+      <h4>5.1.3 tailoring を評価する共通チェックリスト(BL4 用)</h4>
+      <p>process の tailoring を評価するとき、次の 4 点で確認します(シラバス 3.1.2 は <strong>activities / workshops / artifacts</strong> を分析対象と明記)。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>チェック</th><th>質問</th></tr></thead>
+          <tbody>
+            <tr><td>① 目的</td><td>その process の <strong>目的</strong> を、tailoring 後も果たせているか</td></tr>
+            <tr><td>② Activities</td><td>必要な <strong>activities</strong> が省略・重複していないか</td></tr>
+            <tr><td>③ Workshops</td><td><strong>workshop</strong> が目的に合い、適切な参加者で実施されているか</td></tr>
+            <tr><td>④ Artifacts</td><td>必要な <strong>artifacts / management products</strong> が <strong>軽すぎず重すぎず</strong> 用意されているか</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>Workshops について【要照合】</strong>: シラバスは「process 別に agile workshops が支える」と述べ、各 process の 13.x.3 / 13.x.4 節(サブセクション含む)を参照しています。<strong>個々の workshop の名称・実施目的</strong> は公式ブック 13 章で必ず確認し、ブックにタブを付けてください。以下に示す workshop の例は、一般的なアジャイルの場(vision 共有・優先順位付け・計画・レビュー・振り返り等)に基づくもので、<strong>公式の名称と一致しない可能性</strong> があります。</p>
+      </div>
+      <h3>5.2 Starting up a project(SU)(公式ブック 13.2)</h3>
+      <h4>5.2.1 一言でいうと</h4>
+      <p><strong>「このプロジェクトを、ちゃんと始める価値があるか」を、最小限の労力で見極める</strong> process です。</p>
+      <h4>5.2.2 ステップバイステップ【一般知識・【要照合】13.2.x】</h4>
+      <ol>
+        <li><strong>Project executive と PM を任命</strong> する。</li>
+        <li><strong>過去の教訓(lessons)を確認</strong> する。</li>
+        <li><strong>project management team を設計・任命</strong> する(agile roles を含める)。</li>
+        <li><strong>outline business case(初期の business case / project canvas)</strong> を作成する。</li>
+        <li><strong>プロジェクトの進め方(project approach)</strong> を選ぶ(agile 適用の程度、プロジェクトの文脈)。</li>
+        <li><strong>project brief</strong> を作成する。</li>
+        <li><strong>initiation stage の計画</strong> を立てる。</li>
+      </ol>
+      <h4>5.2.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Agilometer の初回評価</strong></td><td>agile 適用のリスクを <strong>最初に把握</strong> する(第 4.6 節)</td></tr>
+            <tr><td><strong>ビジョンの共有 workshop</strong></td><td>関係者が <strong>同じ方向</strong> を見るための場(【要照合】名称は 13.2)</td></tr>
+            <tr><td><strong>project canvas</strong></td><td>大部の文書ではなく <strong>1 枚で見渡す</strong></td></tr>
+            <tr><td><strong>軽量な project brief</strong></td><td>目的・範囲・体制・制約を <strong>簡潔</strong> に</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.2.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: 早期に <strong>agile coach</strong> に関与してもらい、体制と tailoring の初期案を作る。</li>
+        <li><strong>落とし穴</strong>: SU に <strong>時間をかけすぎる</strong>(詳細な要件を固めきろうとする)。</li>
+        <li><strong>BL3</strong>: シナリオの状況を <strong>project brief / project canvas / Agilometer</strong> で整理する。</li>
+        <li><strong>BL4</strong>: 「SU で全機能の詳細仕様を完成させてから IP に進む」は <strong>agile の趣旨に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.3 Directing a project(DP)(公式ブック 13.3)</h3>
+      <h4>5.3.1 一言でいうと</h4>
+      <p><strong>Board が「大事なところだけ」判断する</strong> process です。Agile では、<strong>日々の作業から離れ、要所で価値と統制を確認</strong> します。</p>
+      <h4>5.3.2 ステップバイステップ【一般知識・【要照合】13.3.x】</h4>
+      <ol>
+        <li><strong>initiation(初期化)を許可</strong> する。</li>
+        <li><strong>プロジェクトを許可</strong> する(IP の結果を受けて)。</li>
+        <li><strong>各 stage を許可</strong> する(SB の結果を受けて)。</li>
+        <li><strong>随時の指示(ad hoc direction)</strong> を出す(例: 例外への対応)。</li>
+        <li><strong>プロジェクトの終了を許可</strong> する。</li>
+      </ol>
+      <h4>5.3.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ダッシュボードで常時把握</strong></td><td>報告書の到着を待たず、<strong>project dashboard</strong> で状況を確認</td></tr>
+            <tr><td><strong>review への参加</strong></td><td><strong>動く成果物</strong> を見て、フィードバックし、承認する</td></tr>
+            <tr><td><strong>tolerance の委任</strong></td><td>範囲内は PM / チームに <strong>委任</strong> し、Board は例外に注力</td></tr>
+            <tr><td><strong>柔軟な判断</strong></td><td>scope の入替えを <strong>tolerance 内で許容</strong> し、価値の高いものに集中</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.3.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: Board メンバー(特に CPO / Executive)が <strong>定期的な review に参加</strong>。</li>
+        <li><strong>落とし穴</strong>: Board が <strong>週次の詳細な承認会議</strong> を要求し、チームの自己組織化を阻害。</li>
+        <li><strong>BL4</strong>: 「Board が全 iteration の開始・終了を承認する」は <strong>management by exception に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.4 Initiating a project(IP)(公式ブック 13.4)</h3>
+      <h4>5.4.1 一言でいうと</h4>
+      <p><strong>「どう進め、どう統制するか」の土台を作る</strong> process です。Agile では、<strong>必要十分(just enough)</strong> な計画で、<strong>早く動き出す</strong> ことが目標です。</p>
+      <h4>5.4.2 ステップバイステップ【一般知識・【要照合】13.4.x】</h4>
+      <ol>
+        <li><strong>tailoring の方針を合意</strong> する(PRINCE2 と agile の組み合わせ方)。</li>
+        <li><strong>各 management approach を用意</strong> する(risk / issue / quality / benefits / sustainability / commercial / digital and data など、practice に対応)。</li>
+        <li><strong>プロジェクト統制(tolerance、報告の頻度)</strong> を設定する。</li>
+        <li><strong>プロジェクト計画(release map)</strong> と、<strong>初期の project backlog / product backlog</strong> を用意する。</li>
+        <li><strong>DoR と DoD</strong> を合意する(品質の基準)。</li>
+        <li><strong>business case を精緻化</strong> する(project canvas の更新)。</li>
+        <li><strong>initiation の成果物をまとめ、Board の承認</strong> を得る。</li>
+      </ol>
+      <h4>5.4.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Initiation は短く</strong></td><td>詳細計画ではなく、<strong>必要十分</strong> な見通しと統制の枠組み</td></tr>
+            <tr><td><strong>release map</strong></td><td>粗い全体像を <strong>関係者と共有</strong></td></tr>
+            <tr><td><strong>チーム体制の確定</strong></td><td>各チームの <strong>PO・Team coach・Developer・Tester</strong> を確認</td></tr>
+            <tr><td><strong>Workshop の活用</strong></td><td>【要照合】計画・優先順位付け・品質基準合意のための <strong>共同作業の場</strong>(13.4.3 / 13.4.4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.4.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: IP の成果物を <strong>チームとボードの共通理解</strong> として使う(作って終わりにしない)。</li>
+        <li><strong>落とし穴</strong>: <strong>PID(大部の initiation 文書)</strong> の作成そのものが目的化する。</li>
+        <li><strong>BL3</strong>: DoR / DoD、tolerance、報告頻度など、<strong>IP で決める項目</strong> をシナリオから選ぶ。</li>
+        <li><strong>BL4</strong>: 「IP に数か月かけて、全 backlog の詳細を確定する」は <strong>fit for purpose ではない</strong>(遅すぎる・変化に弱い)。</li>
+      </ul>
+      <h3>5.5 Controlling a stage(CS)(公式ブック 13.5)</h3>
+      <h4>5.5.1 一言でいうと</h4>
+      <p><strong>stage の間、PM が日常の統制を担う</strong> process です。Agile では、<strong>チームの自己管理を尊重しつつ、tolerance を守る</strong> バランスがポイントです。</p>
+      <h4>5.5.2 ステップバイステップ【一般知識・【要照合】13.5.x】</h4>
+      <ol>
+        <li><strong>work package を委任</strong> する(<strong>work package description</strong> で内容と tolerance を伝える)。</li>
+        <li><strong>work package の状況を確認</strong> する(チームのボード、stand-up の情報、checkpoint report)。</li>
+        <li><strong>完了した work package を受け取る</strong>(<strong>DoD を満たしている</strong> ことを確認)。</li>
+        <li><strong>stage の状況を確認</strong> する(burn chart、velocity 等)。</li>
+        <li><strong>highlight report / dashboard を更新</strong> する。</li>
+        <li><strong>issue と risk を捕捉・評価・エスカレート</strong> する。</li>
+        <li><strong>是正措置</strong> を取る(tolerance 内)。</li>
+        <li><strong>tolerance 超過の恐れ</strong> があれば <strong>exception report</strong> を出す。</li>
+      </ol>
+      <h4>5.5.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>work package = timebox の仕事</strong></td><td>例: 1 つの iteration 分の作業として委任</td></tr>
+            <tr><td><strong>チームが work を pull</strong></td><td>PM が割り当てるのではなく、<strong>チームが backlog から取り込む</strong></td></tr>
+            <tr><td><strong>可視化された情報</strong></td><td><strong>ボード・dashboard</strong> で、PM が <strong>追加の報告を求めずに</strong> 状況を把握</td></tr>
+            <tr><td><strong>Workshop / 会議</strong></td><td>【要照合】review、retrospective、計画など(13.5.3 / 13.5.4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.5.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: PM は <strong>障害除去と上位との調整</strong> に集中し、チームの作業配分に介入しない。</li>
+        <li><strong>落とし穴</strong>: PM が <strong>日次のタスク管理者</strong> になり、自己組織化を損なう。</li>
+        <li><strong>BL3</strong>: 「チームの velocity が低下している」→ <strong>原因の確認(障害・範囲の変化)</strong> と、tolerance 内の是正 / 必要なら exception。</li>
+        <li><strong>BL4</strong>: 「PM がチームの日次進捗を細かくレビューして個別に指示する」は <strong>委任の趣旨に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.6 Managing product delivery(MP)(公式ブック 13.6)</h3>
+      <h4>5.6.1 一言でいうと</h4>
+      <p><strong>チームが実際に成果物を作り、届ける</strong> process です。Agile では、<strong>チームの自己組織化と iteration の運営</strong> の中心になります。</p>
+      <h4>5.6.2 ステップバイステップ【一般知識・【要照合】13.6.x】</h4>
+      <ol>
+        <li><strong>work package を受け入れる</strong>(内容・tolerance・DoD を確認)。</li>
+        <li><strong>チームで作業を計画する</strong>(team plan、backlog からの取り込み)。</li>
+        <li><strong>iteration で作り込む</strong>(stand-up、TDD、CI など)。</li>
+        <li><strong>DoD を満たすものだけを完成とする</strong>。</li>
+        <li><strong>review / demo で確認</strong>(PO・ステークホルダーのフィードバック)。</li>
+        <li><strong>retrospective で学ぶ</strong>。</li>
+        <li><strong>完了を PM に報告する</strong>(team dashboard / checkpoint report)。</li>
+      </ol>
+      <h4>5.6.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>フレームワークの選択</strong></td><td>Scrum / Kanban 等を <strong>プロジェクトの文脈に合わせて使い分け</strong></td></tr>
+            <tr><td><strong>チームの自己管理</strong></td><td>作業の進め方・見積り・割り当てを <strong>チームが決める</strong></td></tr>
+            <tr><td><strong>短いサイクル</strong></td><td><strong>iteration / timebox</strong> ごとに <strong>動く成果物</strong> を届ける</td></tr>
+            <tr><td><strong>Workshop / events</strong></td><td>計画・review・retrospective 等の <strong>チームの場</strong>(13.6.3 / 13.6.4)【要照合】</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.6.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: <strong>DoD を守る</strong>(完成の定義を妥協しない)。</li>
+        <li><strong>落とし穴</strong>: チームが <strong>PM の指示待ち</strong> になる、あるいは PM が <strong>チームの内部に介入</strong> する。</li>
+        <li><strong>BL3</strong>: MP のどのタイミングで <strong>review / retrospective</strong> を行うかをシナリオから選ぶ。</li>
+        <li><strong>BL4</strong>: 「iteration の終わりに review / retrospective を省いて次の作業へ進む」は <strong>学習と透明性の観点で fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.7 Managing a stage boundary(SB)(公式ブック 13.7)</h3>
+      <h4>5.7.1 一言でいうと</h4>
+      <p><strong>stage の終わりに「実績」を評価し、「次の stage」をどうするか判断材料を整える</strong> process です。</p>
+      <h4>5.7.2 ステップバイステップ【一般知識・【要照合】13.7.x】</h4>
+      <ol>
+        <li><strong>stage の実績を評価</strong> する(完成した増分、tolerance、品質、便益)。</li>
+        <li><strong>project plan / release map を更新</strong> する。</li>
+        <li><strong>business case を更新</strong> する(実績データを踏まえて)。</li>
+        <li><strong>リスク・Agilometer を再評価</strong> する。</li>
+        <li><strong>次の stage を計画</strong> する(backlog の再優先順位付け、tolerance の設定)。</li>
+        <li><strong>end stage report(または project dashboard)を作成</strong> し、Board へ。</li>
+        <li><strong>tolerance 超過の場合</strong> は <strong>exception plan</strong> を作る。</li>
+      </ol>
+      <h4>5.7.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>実績ベースの評価</strong></td><td>完成した増分・利用データで <strong>価値を検証</strong></td></tr>
+            <tr><td><strong>Release review</strong></td><td>【要照合】stage の成果を関係者と確認する場(13.7.3 / 13.7.4)</td></tr>
+            <tr><td><strong>柔軟な次 stage 計画</strong></td><td><strong>学び</strong> を反映して、backlog と release map を <strong>調整</strong></td></tr>
+            <tr><td><strong>軽量な報告</strong></td><td><strong>dashboard 中心</strong> に、情報を <strong>最新</strong> に保つ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.7.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: SB を <strong>「実績データに基づく投資判断の場」</strong> にする(business case 更新)。</li>
+        <li><strong>落とし穴</strong>: SB が <strong>形式的な報告会</strong> になり、次 stage の判断に使われない。</li>
+        <li><strong>BL3</strong>: SB で更新する artifacts(release map / business case / Agilometer / backlog)を選ぶ。</li>
+        <li><strong>BL4</strong>: 「stage 境界で business case を更新せず、当初計画通りに進める」は <strong>continued business justification に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.8 Closing a project(CP)(公式ブック 13.8)</h3>
+      <h4>5.8.1 一言でいうと</h4>
+      <p><strong>プロジェクトを「きちんと終わらせ」、引き継ぎと学びを残す</strong> process です。</p>
+      <h4>5.8.2 ステップバイステップ【一般知識・【要照合】13.8.x】</h4>
+      <ol>
+        <li><strong>計画的な終了の準備</strong>(または、<strong>早期終了</strong> の場合の準備)。</li>
+        <li><strong>成果物を引き渡す</strong>(運用側・利用者へ。<strong>運用移行</strong> を含む)。</li>
+        <li><strong>プロジェクトを評価</strong> する(目標・便益の見通し・学び)。</li>
+        <li><strong>lessons report</strong> と <strong>end project report</strong> を作成する。</li>
+        <li><strong>Board に終了を提言</strong> し、承認を得る。</li>
+      </ol>
+      <h4>5.8.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>早期・段階的な引き渡し</strong></td><td>増分を <strong>運用に段階的に移行</strong>(最後にまとめてではなく)</td></tr>
+            <tr><td><strong>最終 retrospective</strong></td><td><strong>チーム・組織の学び</strong> を共有</td></tr>
+            <tr><td><strong>便益の追跡計画</strong></td><td>プロジェクト終了後の <strong>便益実現の測定</strong> を計画</td></tr>
+            <tr><td><strong>継続開発への接続</strong></td><td>【第 6 章参照】プロダクトの継続開発・運用体制へ移行</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.8.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: <strong>運用側を早期に巻き込み</strong>、DoD に <strong>運用準備</strong> を含める。</li>
+        <li><strong>落とし穴</strong>: 最後に一括で引き渡し、<strong>運用側が準備できていない</strong>。</li>
+        <li><strong>BL3</strong>: CP で作る artifacts(lessons report、end project report)と、<strong>便益の追跡</strong> の扱いをシナリオから選ぶ。</li>
+        <li><strong>BL4</strong>: 「引き継ぎを最終日の 1 回だけ実施する」は <strong>運用側の準備不足リスクがあり fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.9 process 別 まとめ表(試験直前の確認用)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Process</th><th>Agile での要点</th><th>主な artifacts(例)</th><th>ありがちな誤り</th></tr></thead>
+          <tbody>
+            <tr><td>SU</td><td>軽く・早く。Agilometer 初回、canvas</td><td>project brief、business case / canvas、Agilometer</td><td>詳細仕様の完成を待つ</td></tr>
+            <tr><td>DP</td><td>例外管理。dashboard と review</td><td>dashboard、exception への対応</td><td>詳細な承認の要求</td></tr>
+            <tr><td>IP</td><td>just enough。DoR/DoD、tolerance、release map</td><td>各 management approach、release map</td><td>大部の文書化が目的化</td></tr>
+            <tr><td>CS</td><td>委任と可視化。work package</td><td>work package description、dashboard、burn chart</td><td>PM の細かな指示</td></tr>
+            <tr><td>MP</td><td>自己組織化、DoD、review/retro</td><td>team plan、team dashboard</td><td>指示待ち / 介入</td></tr>
+            <tr><td>SB</td><td>実績で business case を更新</td><td>end stage report、更新済み plan</td><td>形式的な報告会</td></tr>
+            <tr><td>CP</td><td>段階的な引き渡しと学び</td><td>lessons report、end project report</td><td>最後の一括引き渡し</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Wider context と AI ===================== -->
+    <section id="wider-context">
+      <div class="section-eyebrow"><i class="ti ti-rocket"></i>SECTION 07</div>
+      <span class="domain-tag d4">カテゴリ 4 &middot; 配点 6%</span>
+      <h2>6. より広い文脈での適用</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>カテゴリ 4 の学習ゴール</strong> 【シラバス 4.1 / 4.2】<br>
+        PRINCE2 Agile を <strong>プロジェクトの外側</strong> に適用し(BL3: agile product management、プロジェクトから運用への移行、継続的な開発と運用)、<strong>AI が PRINCE2 Agile をどう支援するか</strong> を理解する(BL2)。<br>
+        <strong>配点は 6%(約 3 問)</strong> ですが、範囲が狭いので <strong>取りこぼさない</strong> のが得策です。</p>
+      </div>
+      <h3>6.1 プロジェクトとプロダクトの違い</h3>
+      <p><strong>一言でいうと</strong>: <strong>プロジェクトには終わりがある</strong> が、<strong>プロダクト(製品・サービス)は使われ続ける</strong> ため、その後も価値を育てる活動が続きます。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>プロジェクト</th><th>プロダクト(継続)</th></tr></thead>
+          <tbody>
+            <tr><td>期間</td><td>有期</td><td>継続</td></tr>
+            <tr><td>目的</td><td>合意された成果物・便益の実現</td><td>継続的な価値提供・進化</td></tr>
+            <tr><td>統制</td><td>PRINCE2 の stage・Board・tolerance</td><td>プロダクト戦略・roadmap・優先順位</td></tr>
+            <tr><td>役割</td><td>Project executive / PM 等</td><td><strong>Product owner / CPO</strong> が長期で責任を持つ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>6.2 Agile product management への適用(シラバス 4.1.1 / 公式ブック 14.2.2.1)</h3>
+      <p><strong>一言でいうと</strong>: プロジェクト後も続くプロダクトの管理に、PRINCE2 Agile の考え方(価値・優先順位・透明性・例外管理)を活かす、という視点です。</p>
+      <p><strong>ステップバイステップ【一般知識・【要照合】14.2.2.1】</strong></p>
+      <ol>
+        <li><strong>プロダクトの vision と roadmap</strong> を明確にする。</li>
+        <li><strong>PO / CPO が backlog を継続的に優先順位付け</strong> する。</li>
+        <li><strong>学び(利用データ・フィードバック)</strong> を次の優先順位に反映する。</li>
+        <li><strong>大きな変更・投資判断</strong> が必要なときに、<strong>PRINCE2 Agile の projects として切り出す</strong>(例: 大規模な機能刷新)。</li>
+        <li>プロダクト全体の <strong>品質・持続可能性</strong> を継続的に管理する。</li>
+      </ol>
+      <p><strong>ベストプラクティス</strong>: <strong>プロダクトの長期的な責任者(PO)</strong> を明確にし、プロジェクトと継続開発の <strong>役割の連続性</strong> を保つ。<br>
+        <strong>落とし穴</strong>: プロジェクトが終わった途端に <strong>責任者が不在</strong> になり、backlog が放置される。</p>
+      <h3>6.3 プロジェクトから運用への移行(シラバス 4.1.2 / 公式ブック 14.2.1)</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="opsTransition"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プロジェクトから運用への移行(シラバス 4.1.2 / 公式ブック 14.2.1)</div>
+      </div>
+      <p><strong>ステップバイステップ【一般知識・【要照合】14.2.1】</strong></p>
+      <ol>
+        <li><strong>運用側を早期に巻き込む</strong>(運用要件を backlog に)。</li>
+        <li><strong>DoD に運用準備を含める</strong>(監視・サポート手順・ドキュメント・研修)。</li>
+        <li><strong>増分ごとに段階的に引き渡す</strong>(最終日の一括引き渡しを避ける)。</li>
+        <li><strong>知識移転</strong> を行い、運用側が独立して対応できるようにする。</li>
+        <li><strong>移行後の学び</strong> を backlog に戻し、改善サイクルを回す。</li>
+      </ol>
+      <p><strong>ベストプラクティス</strong>: <strong>運用の観点(保守性・監視・サポート)</strong> を「非機能要求」として backlog に入れ、<strong>DoD で担保</strong> する。<br>
+        <strong>落とし穴</strong>: 運用側が <strong>完成直前まで関与せず</strong>、リリース後に混乱する。</p>
+      <h3>6.4 継続的な agile development and operations(シラバス 4.1.3 / 公式ブック 14.2.2.2)</h3>
+      <p><strong>一言でいうと</strong>: 開発と運用を <strong>分断せず、継続的なフロー</strong> で回す考え方です(DevOps 的な発想)。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容【一般知識・【要照合】14.2.2.2】</th></tr></thead>
+          <tbody>
+            <tr><td>継続的デリバリー</td><td>小さな変更を <strong>頻繁・安全に</strong> 本番へ届ける</td></tr>
+            <tr><td>統合されたチーム</td><td>開発と運用が <strong>同じ目的</strong> を共有し、責任を分かち合う</td></tr>
+            <tr><td>フィードバックの短縮</td><td>運用データを <strong>すぐ開発に戻す</strong></td></tr>
+            <tr><td>統制</td><td>例外管理・tolerance の考え方は残しつつ、<strong>stage の区切りより「継続的な流れ」</strong> が中心になる</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>ベストプラクティス</strong>: <strong>自動化されたテストとデプロイ</strong>、監視、<strong>変更の可逆性(ロールバック)</strong> で、頻繁なリリースのリスクを下げる。<br>
+        <strong>落とし穴</strong>: <strong>頻度だけを追い</strong>、品質・持続可能性の基準(DoD)を緩める。</p>
+      <h3>6.5 AI による PRINCE2 Agile の支援(シラバス 4.2.1 / 公式ブック 15.4)</h3>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>BL2(理解)</strong> レベルです。<strong>「AI がどの要素をどう支援し得るか」と、その際の留意点</strong> を説明できれば十分です。<strong>具体的なサブセクションの内容は公式ブック 15.4 で確認</strong> してください【要照合】。以下は【一般知識】に基づく整理です。</p>
+      </div>
+      <h4>6.5.1 practice 別の支援例</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Practice</th><th>AI の支援例</th><th>人が必ず確認すること</th></tr></thead>
+          <tbody>
+            <tr><td>Business case</td><td>市場・競合情報の整理、canvas のたたき台</td><td>前提・データの正しさ、投資判断</td></tr>
+            <tr><td>Organization</td><td>役割記述のたたき台、ステークホルダー分析の補助</td><td>責任の最終決定、文化への適合</td></tr>
+            <tr><td>Plans</td><td>user story のドラフト、見積りの参考、backlog の整理</td><td>優先順位(価値判断)、現実性</td></tr>
+            <tr><td>Quality</td><td>テストケース案、コードレビューの補助、要件の抜け検出</td><td><strong>DoD への適合</strong>、網羅性</td></tr>
+            <tr><td>Risk</td><td>過去事例からのリスク候補提示、傾向検知</td><td>リスクの評価・対応の決定</td></tr>
+            <tr><td>Issues</td><td>issue の分類・要約、類似事例の検索</td><td>対応の意思決定</td></tr>
+            <tr><td>Progress</td><td>議事録・報告の要約、予測(完了見込み)の補助</td><td>データの信頼性、<strong>予測の根拠</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>6.5.2 AI 活用のベストプラクティス</h4>
+      <div class="diagram-card">
+        <div class="diagram-container" id="aiReviewFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">AI 活用のベストプラクティス</div>
+      </div>
+      <ul>
+        <li><strong>人が説明責任(accountability)を持つ</strong>。AI は意思決定を代行しない(Board の判断や優先順位付けは人が行う)。</li>
+        <li><strong>AI の成果物も DoD の対象</strong>(レビュー・テストを省略しない)。</li>
+        <li><strong>データの機密性・個人情報・知的財産</strong> に配慮し、利用ルールを <strong>digital and data management approach</strong>(第 4.8 節)などで明確化する。</li>
+        <li><strong>透明性</strong>: どこに AI を使ったかを <strong>記録・共有</strong> する。</li>
+        <li><strong>偏り・誤り(ハルシネーション)</strong> の可能性を前提に、<strong>検証の手順</strong> を組み込む。</li>
+      </ul>
+      <h4>6.5.3 試験ポイント(BL2)</h4>
+      <ul>
+        <li>「AI は <strong>支援する道具</strong> であり、<strong>責任は人に残る</strong>」という方向の選択肢が正解になりやすい。</li>
+        <li>「AI の出力を無検証で採用する」「AI が Board の意思決定を置き換える」「品質管理が不要になる」は <strong>典型的な誤答</strong>。</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 7. 試験対策 ===================== -->
+    <section id="exam-strategy">
+      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 08</div>
+      <h2>7. 試験対策: オープンブックを最大限に活かす</h2>
+
+      <h3>7.1 「暗記」より「索引」を作る</h3>
+      <p>オープンブックだからこそ、<strong>時間内に探せること</strong> が重要です。本ガイドは、シラバスが示す章番号をもとに、<strong>タブ(付箋)を付ける箇所</strong> を整理しました。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>タブ</th><th>公式ブックの章</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>2.6, 2.6.1, 2.6.2</td><td>Agile mindset / Agile Onion / 特徴</td></tr>
+            <tr><td>B</td><td>2.7.1〜2.7.5</td><td>transformation plan / maturity / psychological safety / sustainability</td></tr>
+            <tr><td>C</td><td>3.3</td><td>7 aspects of project performance</td></tr>
+            <tr><td>D</td><td>第 4 章(4.2〜4.5)</td><td>OCM / stakeholders / culture / チーム / コミュニケーション</td></tr>
+            <tr><td>E</td><td>5.2〜5.4, 5.6, 5.6.1</td><td>PRINCE2 の principles / practices / processes と agile 文脈</td></tr>
+            <tr><td>F</td><td>第 6 章(6.3.1, 6.3.2, 6.4)</td><td>Business case practice</td></tr>
+            <tr><td>G</td><td>第 7 章(7.3, 7.3.1, 7.3.2, 7.4)</td><td>Organization practice</td></tr>
+            <tr><td>H</td><td>第 8 章(8.3, 8.3.1, 8.3.2, 8.4)</td><td>Plans practice</td></tr>
+            <tr><td>I</td><td>第 9 章(9.3, 9.3.1, 9.3.2, 9.4)</td><td>Quality practice</td></tr>
+            <tr><td>J</td><td>第 10 章(10.3.1, 10.3.2, 10.4)</td><td>Risk practice / Agilometer</td></tr>
+            <tr><td>K</td><td>第 11 章(11.3.1〜11.3.4, 11.4)</td><td>Issues practice</td></tr>
+            <tr><td>L</td><td>第 12 章(12.3.1, 12.3.2, 12.4)</td><td>Progress practice</td></tr>
+            <tr><td>M</td><td>Table 7.2, Table B.1</td><td>roles</td></tr>
+            <tr><td>N</td><td>第 13 章(13.2〜13.8)</td><td>processes と workshops</td></tr>
+            <tr><td>O</td><td>第 14 章(14.2.1, 14.2.2.1, 14.2.2.2)</td><td>プロダクト管理 / 運用移行 / 継続開発</td></tr>
+            <tr><td>P</td><td>15.4</td><td>AI による支援</td></tr>
+            <tr><td>Q</td><td>Glossary</td><td>用語集(用語の確認に)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>ブック書き込みは許可されています</strong>(シラバスの記載)。ただし <strong>持ち込めるのは公式ブックのみ</strong> です。ノートや別紙は不可なので、<strong>ブック自体の余白</strong> に要点(例: 「Agilometer は再評価」「DoR=入口 / DoD=出口」)を書き込みましょう。</p>
+      </div>
+      <h3>7.2 時間配分</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>目安</th></tr></thead>
+          <tbody>
+            <tr><td>総時間</td><td>150 分(延長対象なら 188 分)</td></tr>
+            <tr><td>1 問あたり</td><td><strong>平均 3 分</strong>(50 問)</td></tr>
+            <tr><td>一巡目</td><td>約 90〜100 分: 確信の持てる問題を素早く。<strong>迷ったら印を付けて先へ</strong></td></tr>
+            <tr><td>二巡目</td><td>約 40〜50 分: BL4(分析)問題や、ブック確認が必要な問題</td></tr>
+            <tr><td>見直し</td><td>残りで、未回答の確認(<strong>誤答減点なし</strong> のため、<strong>空欄は作らない</strong>)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>誤答による減点はありません。</strong> 必ず全問に解答してください。</p>
+      </div>
+      <h3>7.3 シナリオ問題の読み方(ステップ)</h3>
+      <div class="diagram-card">
+        <div class="diagram-container" id="scenarioReadingFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">シナリオ問題の読み方(ステップ)</div>
+      </div>
+      <h3>7.4 設問タイプ別の攻略</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>設問タイプ</th><th>コツ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Standard</strong>(選択肢 4 つ)</td><td>正解は 1 つ。<strong>もっとも適切</strong> を選ぶ。<strong>極端な断定(「常に」「決して」)</strong> を含む選択肢は疑う</td></tr>
+            <tr><td><strong>Missing word</strong></td><td>文の <strong>目的</strong> を考える(例: 逸脱を統制する目的 → progress)。practice の purpose を復習</td></tr>
+            <tr><td><strong>List</strong>(2 つ選ぶ)</td><td>4 つの記述を <strong>個別に真偽判定</strong> し、真の 2 つを含む組合せを選ぶ(<strong>否定形では出題されない</strong>)</td></tr>
+            <tr><td><strong>Negative</strong></td><td>例外的な出題。「<strong>やってはいけない</strong> こと」を選ぶ。<strong>設問文の NOT を見落とさない</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>7.5 BL4(分析)問題の判断基準</h3>
+      <p><strong>「fit for purpose(目的に適う)」の観点で、次の順に確認します。</strong></p>
+      <ol>
+        <li><strong>その practice / process の目的を果たしているか</strong></li>
+        <li><strong>PRINCE2 Agile の guidance と矛盾しないか</strong></li>
+        <li><strong>必要な management products / artifacts が機能するか</strong></li>
+        <li><strong>シナリオの文脈(制約・成熟度・契約)に合うか</strong></li>
+        <li><strong>統制が過剰(重すぎる)または不足(軽すぎる)でないか</strong></li>
+      </ol>
+      <h3>7.6 頻出する誤答パターン</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤答パターン</th><th>なぜ誤りか</th></tr></thead>
+          <tbody>
+            <tr><td>Board がすべての変更・iteration を承認する</td><td><strong>management by exception</strong> に反する</td></tr>
+            <tr><td>PM がチームの日次タスクを割り当てる</td><td><strong>自己組織化</strong> と委任の趣旨に反する</td></tr>
+            <tr><td>納期のために <strong>quality(DoD)を下げる</strong></td><td><strong>quality は妥協せず、scope を flex</strong> にする</td></tr>
+            <tr><td>business case を <strong>最初に固めて更新しない</strong></td><td><strong>continued business justification</strong> に反する</td></tr>
+            <tr><td>Agilometer を <strong>一度だけ</strong> 実施</td><td><strong>定期的な再評価</strong> が必要</td></tr>
+            <tr><td>詳細な全体計画を <strong>最初に完成</strong> させる</td><td><strong>rolling wave / 近い将来ほど詳細</strong> に反する</td></tr>
+            <tr><td>報告書を <strong>手作業で大量に作成</strong></td><td><strong>dashboard での透明性</strong> が推奨される</td></tr>
+            <tr><td>「Agile だから文書・統制は不要」</td><td>PRINCE2 Agile は <strong>統制を維持したまま</strong> 柔軟性を得る</td></tr>
+            <tr><td>AI の出力を <strong>検証せず採用</strong></td><td><strong>人が責任</strong>、DoD を満たすことが必要</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>7.7 よくある混同(用語の整理)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>混同しやすい用語</th><th>違い</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Agile coach vs Team coach</strong></td><td>Agile coach = <strong>組織・複数チーム / Board</strong> の支援、Team coach = <strong>チーム単位</strong> の支援【要照合】</td></tr>
+            <tr><td><strong>Product backlog vs Project backlog</strong></td><td>Product backlog = 各チームが扱う <strong>優先順位付き</strong> の作業項目、Project backlog = <strong>プロジェクト全体</strong> の成果物レベルの一覧(epic 等)【要照合】</td></tr>
+            <tr><td><strong>Checkpoint report vs Highlight report</strong></td><td>Checkpoint = <strong>チーム → PM</strong>、Highlight = <strong>PM → Board</strong>(dashboard 化も可)</td></tr>
+            <tr><td><strong>Exception report vs Issue report</strong></td><td>Exception = <strong>tolerance 超過の恐れ</strong> を Board に伝える、Issue = 個別の issue の詳細</td></tr>
+            <tr><td><strong>Stage vs Timebox(iteration/release)</strong></td><td>Stage = <strong>管理上の判断単位</strong>、iteration / release = <strong>チームの作業・提供の単位</strong></td></tr>
+            <tr><td><strong>DoR vs DoD</strong></td><td>DoR = 入口、DoD = 出口</td></tr>
+            <tr><td><strong>Burn-down vs Burn-up</strong></td><td>Burn-down = 残り作業、Burn-up = 完了 + 全体範囲</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 8. 演習 ===================== -->
+    <section id="practice-questions">
+      <div class="section-eyebrow"><i class="ti ti-pencil"></i>SECTION 09</div>
+      <h2>8. 演習: シナリオ形式の練習問題(オリジナル)</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>注意</strong>: 以下は本ガイド用に作成した <strong>オリジナルの練習問題</strong> です(公式サンプルペーパーではありません)。形式(シナリオ + 追加情報 + 設問、Standard / Missing word / List)は公式シラバスの説明に合わせています。公式のサンプルペーパーは、PeopleCert の公式ページ・研修機関経由で入手して併用してください。</p>
+      </div>
+      <h3>8.1 プロジェクトシナリオ</h3>
+      <p><strong>「さくら銀行 モバイルアプリ刷新プロジェクト」</strong>(架空)</p>
+      <ul>
+        <li>地方銀行が、モバイルバンキングアプリを刷新する。<strong>新しい法規制への対応期限(9 か月後)は動かせない</strong>。</li>
+        <li>3 つのチーム(A: 口座、B: 決済、C: 基盤)、合計 24 名。<strong>大阪・東京の 2 拠点 + リモート</strong> の混在。</li>
+        <li>これまでは従来型(ウォーターフォール)で運営。最近、2 チームが Scrum を試行し始めた。</li>
+        <li>チーム C は外部供給者への委託で、<strong>契約は固定価格・固定範囲</strong>。</li>
+        <li>Project Board は <strong>毎週 40 ページの状況報告書</strong>(PM が手作業で作成)を求めている。</li>
+        <li>business case は <strong>2 年前に承認</strong> されたまま更新されていない。Agilometer は未実施。</li>
+        <li><strong>DoD は未定義</strong>。テストは各リリースの直前にまとめて実施している。</li>
+      </ul>
+      <h3>8.2 追加情報(人物)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>氏名</th><th>役割</th><th>状況・発言</th></tr></thead>
+          <tbody>
+            <tr><td>田中 愛子</td><td>Project manager</td><td>PRINCE2 の経験は豊富だが agile は初めて。現在、チームのタスクを日次で割り当てている</td></tr>
+            <tr><td>伊藤 健</td><td>Product owner(チーム A)</td><td>backlog の変更のたびに、Project executive の承認を待っている</td></tr>
+            <tr><td>呉 晨</td><td>Team coach(チーム B)</td><td>agile 経験が豊富。チーム B の stand-up の運営を支援している</td></tr>
+            <tr><td>森 大輔</td><td>Project executive</td><td>「範囲は固定したい。ただし法規制対応は絶対に間に合わせたい」</td></tr>
+            <tr><td>佐藤 英二</td><td>Senior supplier</td><td>固定価格・固定範囲の契約を維持したい</td></tr>
+            <tr><td>近藤 風香</td><td>Chief product owner</td><td>agile に協力的。複数チームの優先順位の整合を担当している</td></tr>
+            <tr><td>阿部 玄</td><td>Agile coach</td><td>最近参画。組織全体の agile 導入を支援する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>8.3 設問</h3>
+      <p><strong>Q1(BL2・Standard)</strong><br>
+        次のうち、Agile Onion の層はどれか。</p>
+      <ul>
+        <li>A. Tolerance</li>
+        <li>B. Stage</li>
+        <li>C. Mindset</li>
+        <li>D. Benefit</li>
+      </ul>
+      <p><strong>Q2(BL2・Missing word)</strong><br>
+        次の文の空欄に入る語を選べ。<br>
+        「[ ? ] practice の目的の 1 つは、計画に対する実績を比較し、許容できない逸脱を統制することである。」</p>
+      <ul>
+        <li>A. business case</li>
+        <li>B. progress</li>
+        <li>C. organization</li>
+        <li>D. quality</li>
+      </ul>
+      <p><strong>Q3(BL3・Standard)</strong><br>
+        伊藤(チーム A の Product owner)は、backlog を変更するたびに森(Project executive)の承認を待っており、チームの作業が滞っている。<strong>issues practice</strong> の適用として <strong>もっとも適切</strong> なものはどれか。</p>
+      <ul>
+        <li>A. Board が管理を保つため、すべての変更に Project executive の承認を継続する</li>
+        <li>B. stage の終わりまで backlog を凍結する</li>
+        <li>C. Team coach がすべての変更を承認する</li>
+        <li>D. 合意した tolerance の範囲内であれば Product owner が backlog の優先順位を変更し、tolerance を超える恐れがある変更のみを escalate する</li>
+      </ul>
+      <p><strong>Q4(BL3・List)</strong><br>
+        Definition of Ready(DoR)と Definition of Done(DoD)について、<strong>正しい 2 つ</strong> の記述はどれか。</p>
+      <ol>
+        <li>DoR は、backlog の項目が着手できる状態にあるかを示す。</li>
+        <li>DoD は、項目が完成したとみなせる条件を示す。</li>
+        <li>納期が迫った場合、範囲を守るために DoD を緩めてよい。</li>
+        <li>DoR は、Project Board が stage を承認する条件である。</li>
+      </ol>
+      <ul>
+        <li>A. 1 と 2</li>
+        <li>B. 2 と 3</li>
+        <li>C. 3 と 4</li>
+        <li>D. 1 と 4</li>
+      </ul>
+      <p><strong>Q5(BL4・Standard)</strong><br>
+        Project Board は毎週 40 ページの状況報告書を求めており、PM が手作業で作成している。この運用の <strong>評価として最も適切</strong> なものはどれか。</p>
+      <ul>
+        <li>A. Board が統制を保つために詳細が必要なので、fit for purpose である</li>
+        <li>B. チームのボードや burn chart で既に見える情報の重複であり、fit for purpose ではない。project dashboard と例外報告への切り替えが望ましい</li>
+        <li>C. 月次にすれば fit for purpose になる</li>
+        <li>D. Board は進捗情報を一切受け取るべきではないため、fit for purpose ではない</li>
+      </ul>
+      <p><strong>Q6(BL3・Standard)</strong><br>
+        田中(PM)は、Agilometer を使い始めることにした。Agilometer の使い方として <strong>もっとも適切</strong> なものはどれか。</p>
+      <ul>
+        <li>A. プロジェクト開始時にのみ使う</li>
+        <li>B. プロジェクト終了時にのみ使う</li>
+        <li>C. 開始時に使い、その後も stage 境界や状況が変化したときに再評価する</li>
+        <li>D. exception report を出したときにのみ使う</li>
+      </ul>
+      <p><strong>Q7(BL4・Standard)</strong><br>
+        チーム C の契約は固定価格・固定範囲で、Board は法規制対応の期限を守りたい。<strong>commercial management approach の tailoring として最も効果的</strong> なものはどれか。</p>
+      <ul>
+        <li>A. 範囲を固定のままにし、すべての変更を exception として扱う</li>
+        <li>B. 契約を解除し、すべてを社内で実施する</li>
+        <li>C. 柔軟性を得るため、契約から Must の項目を除外する</li>
+        <li>D. 価格と期限は維持しつつ、MoSCoW で範囲に優先順位を付け、法規制対応の Must は固定したまま、tolerance の範囲で Should / Could を入れ替えられるように契約の運用を見直す</li>
+      </ul>
+      <p><strong>Q8(BL3・Standard)</strong><br>
+        チーム B は、会議室に 5 名、リモートに 3 名がいる hybrid 環境で、リモートメンバーが議論に参加しづらい。<strong>hybrid 環境でのコミュニケーション</strong> の適用として <strong>最も適切</strong> なものはどれか。</p>
+      <ul>
+        <li>A. 会議室にいる人も含め、全員が個別にオンライン会議へ参加し、決定事項を共有ボードに記録する</li>
+        <li>B. 会議は会議室で行い、リモートメンバーには議事録を送る</li>
+        <li>C. リモートメンバーは review にのみ招待する</li>
+        <li>D. チームの会議をすべてメールに置き換える</li>
+      </ul>
+      <p><strong>Q9(BL4・Standard)</strong><br>
+        田中(PM)は、stage 境界(SB)で「plan は更新するが、business case は 2 年前に承認済みなので更新しない」と考えている。この考えの <strong>評価として最も適切</strong> なものはどれか。</p>
+      <ul>
+        <li>A. Board が承認済みであり、変更には新たな承認が必要なので、fit for purpose である</li>
+        <li>B. agile プロジェクトでは plan だけを更新すればよいので、fit for purpose である</li>
+        <li>C. fit for purpose ではない。SB では、実際の提供実績と便益のデータを用いて business case を更新し、継続的な事業上の正当性を確認すべきである</li>
+        <li>D. fit for purpose ではない。business case はチームが毎日更新すべきである</li>
+      </ul>
+      <p><strong>Q10(BL2・Standard)</strong><br>
+        PRINCE2 Agile を AI で支援する際の記述として <strong>もっとも適切</strong> なものはどれか。</p>
+      <ul>
+        <li>A. 時間が足りない場合、AI の出力は確認せずに採用してよい</li>
+        <li>B. AI は user story の下書きやリスクの要約を支援できるが、人が説明責任を持ち、成果物は DoD を満たす必要がある</li>
+        <li>C. AI は Project Board の意思決定を代行できる</li>
+        <li>D. AI を使えば quality management approach は不要になる</li>
+      </ul>
+      <p><strong>Q11(BL3・List)</strong><br>
+        PRINCE2 Agile の roles について、<strong>正しい 2 つ</strong> の記述はどれか。</p>
+      <ol>
+        <li>Product owner は、チームの product backlog の優先順位付けに責任を持つ。</li>
+        <li>Team coach は、チームメンバーのタスクを日次で割り当てる。</li>
+        <li>Agile coach は、組織レベルでの agile の導入・実践を支援する。</li>
+        <li>Project assurance は、Project manager に報告して独立性を保つ。</li>
+      </ol>
+      <ul>
+        <li>A. 1 と 3</li>
+        <li>B. 2 と 3</li>
+        <li>C. 1 と 4</li>
+        <li>D. 2 と 4</li>
+      </ul>
+      <h3>8.4 解答と解説</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>問</th><th>正解</th><th>解説</th></tr></thead>
+          <tbody>
+            <tr><td>Q1</td><td><strong>C</strong></td><td>Agile Onion の層は Mindset / Values / Principles / Practices / Processes。Tolerance・Stage・Benefit は PRINCE2 の用語で、Onion の層ではない</td></tr>
+            <tr><td>Q2</td><td><strong>B</strong></td><td>「実績と計画の比較」「逸脱の統制」は <strong>progress</strong> の目的。business case は望ましさ・実行可能性の判断、organization は責任体制、quality は目的適合性が主眼</td></tr>
+            <tr><td>Q3</td><td><strong>D</strong></td><td>変更は agile では日常的。<strong>tolerance の範囲内は現場(Product owner)で調整</strong> し、<strong>超える恐れのあるもののみ escalate</strong>(management by exception)。A は Board の過剰統制、B は変化対応を阻害、C は Team coach に権限を移しても本質的な解決にならず、役割の趣旨(支援)にも反する</td></tr>
+            <tr><td>Q4</td><td><strong>A</strong></td><td>DoR は <strong>入口</strong>(着手できる状態)、DoD は <strong>出口</strong>(完成の条件)。3 は quality を下げて範囲を守る選択で誤り(範囲= Should / Could を調整する)。4 は DoR の役割ではない</td></tr>
+            <tr><td>Q5</td><td><strong>B</strong></td><td>既にチームのボード・burn chart で見える情報の <strong>二重管理</strong> であり、透明性・効率の点で fit for purpose ではない。<strong>dashboard の常時公開 + 例外報告</strong> が推奨。頻度を月次にしても手作業の重複は解消しない(C)。Board が情報を受け取らないのも誤り(D)</td></tr>
+            <tr><td>Q6</td><td><strong>C</strong></td><td>Agilometer は <strong>初期に把握し、定期的(stage 境界など)や状況変化時に再評価</strong> する。一度きりの実施は不十分(A, B, D)</td></tr>
+            <tr><td>Q7</td><td><strong>D</strong></td><td>価格・期限(法規制対応)を守りつつ、<strong>MoSCoW で Must を固定し Should / Could を柔軟にする</strong>。A は変化に対応できず、B は極端で非現実的、C は Must を外すと法規制対応が危うい</td></tr>
+            <tr><td>Q8</td><td><strong>A</strong></td><td>hybrid の情報格差を避けるため、<strong>全員が個別に接続する前提</strong> で会議を設計し、決定事項を <strong>共有ボードに記録</strong>。B, C, D はリモートメンバーを実質的に排除・遅延させる</td></tr>
+            <tr><td>Q9</td><td><strong>C</strong></td><td><strong>continued business justification</strong>。SB は実績データで business case を更新する機会。B は誤り。D は頻度が過剰で、business case の役割にそぐわない</td></tr>
+            <tr><td>Q10</td><td><strong>B</strong></td><td>AI は <strong>支援ツール</strong>。人が説明責任を持ち、成果物は DoD・受入基準を満たす。A・C・D は典型的な誤答</td></tr>
+            <tr><td>Q11</td><td><strong>A</strong></td><td>1 と 3 が正しい。2 は Team coach は自己組織化を <strong>支援</strong> する立場で、日次のタスク割当は行わない(自己組織化に反する)。4 は Project assurance は <strong>独立</strong> した立場であり、PM に報告して独立性を保つという記述は矛盾する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>8.5 自己採点の目安</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>正解数(11 問中)</th><th>目安</th></tr></thead>
+          <tbody>
+            <tr><td>9〜11</td><td>十分。ブックの索引精度を上げ、公式サンプルペーパーへ</td></tr>
+            <tr><td>6〜8</td><td>概ね理解。誤答した領域の章を再読し、<strong>なぜ誤りか</strong> を説明できるか確認</td></tr>
+            <tr><td>5 以下</td><td>第 3〜5 章の「ベストプラクティス」「落とし穴」を中心に再学習</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 9. 用語集 ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 10</div>
+      <h2>9. 用語集(英日対訳)</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>【要照合】</strong> 用語の定義は <strong>公式ブックの Glossary</strong> が正です。以下は初学者向けの要約です。</p>
+      </div>
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Agile / アジャイル</div><div class="g-def">反復的・協働的に、変化に対応しながら価値を届ける考え方</div></div>
+        <div class="glossary-item"><div class="g-term">Agile coach / アジャイルコーチ</div><div class="g-def">組織レベルで agile の導入・実践を支援する role</div></div>
+        <div class="glossary-item"><div class="g-term">Agile maturity / アジャイル成熟度</div><div class="g-def">組織・チームの agile 実践の成熟の度合い</div></div>
+        <div class="glossary-item"><div class="g-term">Agile Onion / アジャイル・オニオン</div><div class="g-def">Mindset / Values / Principles / Practices / Processes の層構造モデル</div></div>
+        <div class="glossary-item"><div class="g-term">Agile sustainability / アジャイルの持続可能性</div><div class="g-def">agile な働き方を長期的に維持できる状態</div></div>
+        <div class="glossary-item"><div class="g-term">Agile transformation plan / アジャイル変革計画</div><div class="g-def">組織が agile へ移行するための道筋の計画</div></div>
+        <div class="glossary-item"><div class="g-term">Agilometer / アジロメーター</div><div class="g-def">agile 適用のリスクを診断・可視化するツール</div></div>
+        <div class="glossary-item"><div class="g-term">Backlog(product / project) / バックログ</div><div class="g-def">優先順位付きの作業項目の一覧</div></div>
+        <div class="glossary-item"><div class="g-term">Being agile / Doing agile / アジャイルである / アジャイルを行う</div><div class="g-def">mindset・behaviours のあり方 / practices・techniques のやり方</div></div>
+        <div class="glossary-item"><div class="g-term">Benefit / 便益</div><div class="g-def">成果物の利用から得られる望ましい結果</div></div>
+        <div class="glossary-item"><div class="g-term">Burn chart / バーンチャート</div><div class="g-def">進捗の推移を示すグラフ(burn-down / burn-up)</div></div>
+        <div class="glossary-item"><div class="g-term">Business case / ビジネスケース</div><div class="g-def">投資の望ましさ・実行可能性・達成可能性を示す根拠</div></div>
+        <div class="glossary-item"><div class="g-term">Checkpoint report / チェックポイントレポート</div><div class="g-def">チームから PM への状況報告</div></div>
+        <div class="glossary-item"><div class="g-term">Chief Product Owner(CPO) / チーフ・プロダクトオーナー</div><div class="g-def">プロダクトの価値・優先順位に関する全体責任(複数 PO を統括)</div></div>
+        <div class="glossary-item"><div class="g-term">Dashboard(project / team) / ダッシュボード</div><div class="g-def">状況を常時見える化した表示(報告の代替)</div></div>
+        <div class="glossary-item"><div class="g-term">Definition of Done(DoD) / 完成の定義</div><div class="g-def">項目が完成したとみなせる条件(出口)</div></div>
+        <div class="glossary-item"><div class="g-term">Definition of Ready(DoR) / 着手可能の定義</div><div class="g-def">項目が着手できる状態の条件(入口)</div></div>
+        <div class="glossary-item"><div class="g-term">End project report / プロジェクト終了報告</div><div class="g-def">プロジェクト全体の評価と学び</div></div>
+        <div class="glossary-item"><div class="g-term">End stage report / ステージ終了報告</div><div class="g-def">stage の実績と次の見通し</div></div>
+        <div class="glossary-item"><div class="g-term">Epic user story / エピック(大きな user story)</div><div class="g-def">分解前の大きな要求</div></div>
+        <div class="glossary-item"><div class="g-term">Exception report / 例外報告</div><div class="g-def">tolerance 超過の恐れを Board に伝える報告</div></div>
+        <div class="glossary-item"><div class="g-term">Fix and flex / 固定と柔軟</div><div class="g-def">どの aspect を固定し、どれを柔軟にするか</div></div>
+        <div class="glossary-item"><div class="g-term">Highlight report / ハイライトレポート</div><div class="g-def">PM から Board への定期報告</div></div>
+        <div class="glossary-item"><div class="g-term">Increment / 増分</div><div class="g-def">完成した、利用可能な成果物の追加分</div></div>
+        <div class="glossary-item"><div class="g-term">Issue register / Issue report / 課題登録簿 / 課題報告</div><div class="g-def">issue の一覧 / 個別の詳細</div></div>
+        <div class="glossary-item"><div class="g-term">Iteration / イテレーション</div><div class="g-def">固定長の短い作業サイクル(timebox の一種)</div></div>
+        <div class="glossary-item"><div class="g-term">Lessons log / Lessons report / 教訓ログ / 教訓報告</div><div class="g-def">学びの記録 / 要約</div></div>
+        <div class="glossary-item"><div class="g-term">Management by exception / 例外管理</div><div class="g-def">tolerance 内は委任し、超過時のみ上位が関与する</div></div>
+        <div class="glossary-item"><div class="g-term">MoSCoW / モスクワ</div><div class="g-def">Must / Should / Could / Won't の優先順位付け</div></div>
+        <div class="glossary-item"><div class="g-term">MVP / 実用最小限の製品</div><div class="g-def">学びを最大化する最小限の価値提供</div></div>
+        <div class="glossary-item"><div class="g-term">OCM / 組織変革マネジメント</div><div class="g-def">組織の変化を計画的に進める考え方</div></div>
+        <div class="glossary-item"><div class="g-term">OKR / 目標と主要な成果</div><div class="g-def">Objectives and Key Results</div></div>
+        <div class="glossary-item"><div class="g-term">Product owner(PO) / プロダクトオーナー</div><div class="g-def">チームの backlog の優先順位に責任を持つ role</div></div>
+        <div class="glossary-item"><div class="g-term">Project canvas / プロジェクトキャンバス</div><div class="g-def">1 枚で見渡せる軽量な business case 表現</div></div>
+        <div class="glossary-item"><div class="g-term">Psychological safety / 心理的安全性</div><div class="g-def">懸念や失敗を口にしても不利益がないと感じられる状態</div></div>
+        <div class="glossary-item"><div class="g-term">Release map / リリースマップ</div><div class="g-def">提供の粗い見通しを示す計画</div></div>
+        <div class="glossary-item"><div class="g-term">Retrospective / 振り返り</div><div class="g-def">チームが進め方を振り返り改善する場</div></div>
+        <div class="glossary-item"><div class="g-term">Story points / T-shirt sizing / ストーリーポイント / T シャツサイズ</div><div class="g-def">相対見積りの方式</div></div>
+        <div class="glossary-item"><div class="g-term">Team coach / チームコーチ</div><div class="g-def">チーム単位で agile の実践を支援する role</div></div>
+        <div class="glossary-item"><div class="g-term">Timebox / タイムボックス</div><div class="g-def">期間を固定した作業枠(iteration / release / stage)</div></div>
+        <div class="glossary-item"><div class="g-term">Tolerance / 許容範囲</div><div class="g-def">目標からの許容できるずれの範囲</div></div>
+        <div class="glossary-item"><div class="g-term">User story / ユーザーストーリー</div><div class="g-def">ユーザー視点で要求を簡潔に記述した単位</div></div>
+        <div class="glossary-item"><div class="g-term">Velocity / ベロシティ</div><div class="g-def">チームが 1 iteration で完了できる量の実績</div></div>
+        <div class="glossary-item"><div class="g-term">Work package description / ワークパッケージ記述</div><div class="g-def">チームへ委任する仕事の内容と制約</div></div>
+      </div>
+    </section>
+
+    <!-- ===================== 10. 参考資料 ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 11</div>
+      <h2>10. 参考資料・根拠ソース(URL)</h2>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>凡例</strong>: 「一次」= 認定機関(PeopleCert)の公式情報、「二次」= 公式トレーニング提供者等による解説、「一般」= アジャイル・変革管理などの一般的な参考資料(本ガイド作成時の調査セッションでは本文を直接確認していないもの)。<br>
+        <strong>本ガイドの試験範囲・配点・形式・章番号は、一次資料(シラバス v2.0)に基づきます。</strong></p>
+      </div>
+      <div class="ref-group">
+        <h4>10.1 一次資料(PeopleCert 公式)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>資料</th><th>URL</th><th>本ガイドでの根拠箇所</th></tr></thead>
+          <tbody>
+            <tr><td>PRINCE2 Agile Practitioner (Version 2) 公式製品ページ</td><td><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-practitioner-4076" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-practitioner-4076</a></td><td>試験概要(50 問・150 分・合格 60%・オープンブック・前提資格・更新要件・学習内容)</td></tr>
+            <tr><td><strong>PRINCE2 Agile Practitioner Syllabus v2.0(2025 年 5 月)</strong></td><td><a href="https://peoplecert.jp/doc/PRINCE2_Agile_PRT_Syllabus_EN_v2_0.pdf" target="_blank" rel="noopener">https://peoplecert.jp/doc/PRINCE2_Agile_PRT_Syllabus_EN_v2_0.pdf</a></td><td><strong>学習カテゴリ・評価基準・Bloom's level・公式ブック章番号・配点(20/44/30/6%)・問題タイプ</strong></td></tr>
+            <tr><td>PRINCE2 Agile Foundation Syllabus v2.0</td><td><a href="https://peoplecert.jp/doc/PRINCE2_Agile_FND_Syllabus_EN_v2_0.pdf" target="_blank" rel="noopener">https://peoplecert.jp/doc/PRINCE2_Agile_FND_Syllabus_EN_v2_0.pdf</a></td><td>Agile Onion の 5 層、Agile Manifesto、MVP・DoR/DoD・burn chart 等の用語、practice の一覧</td></tr>
+            <tr><td>PRINCE2 Agile Foundation (Version 2) 公式製品ページ</td><td><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074</a></td><td>前提資格・学習リソースの確認</td></tr>
+            <tr><td>PRINCE2 Agile 公式カテゴリページ</td><td><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28</a></td><td>認定体系全体の確認</td></tr>
+            <tr><td>PRINCE2 Agile フレームワーク概要ページ</td><td><a href="https://www.peoplecert.org/Frameworks-Professionals/PRINCE2-Agile-Framework" target="_blank" rel="noopener">https://www.peoplecert.org/Frameworks-Professionals/PRINCE2-Agile-Framework</a></td><td>Version 2 の特徴(agile 統合の拡充、people と mindset、agile leadership、成功の重視)</td></tr>
+            <tr><td>PRINCE2 Agile (Version 2) Official Book(書誌)</td><td><a href="https://www.amazon.co.uk/PRINCE2%C2%AE-Agile-Version-Official-Book/dp/9925349400" target="_blank" rel="noopener">https://www.amazon.co.uk/PRINCE2%C2%AE-Agile-Version-Official-Book/dp/9925349400</a></td><td>公式ブックの存在と概要(試験でのオープンブック対象)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="ref-group">
+        <h4>10.2 二次資料(公式トレーニング提供者等)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>資料</th><th>URL</th><th>参照した内容</th></tr></thead>
+          <tbody>
+            <tr><td>ILX: PRINCE2 Agile (Version 2): What's changed?</td><td><a href="https://www.ilxgroup.com/usa/blog/prince2-agile-version-2-whats-changed" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/blog/prince2-agile-version-2-whats-changed</a></td><td>Version 2 の変更点(agile 統合、people と mindset、agile leadership、performance)</td></tr>
+            <tr><td>ILX: The Agile Onion</td><td><a href="https://www.ilxgroup.com/usa/blog/the-agile-onion-building-agile-behaviours-with-prince2-agile" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/blog/the-agile-onion-building-agile-behaviours-with-prince2-agile</a></td><td>Agile Onion の考え方(行動・mindset を起点とする)</td></tr>
+            <tr><td>ILX: PRINCE2 Agile Practitioner (Version 2) コース概要</td><td><a href="https://www.ilxgroup.com/usa/training/prince2-agile/practitioner" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/training/prince2-agile/practitioner</a></td><td>学習内容(agile transformation、mindset、心理的安全性、チームのリード)</td></tr>
+            <tr><td>PRINCE2.com: Aligning PRINCE2 Agile (Version 2) with PRINCE2 7</td><td><a href="https://www.prince2.com/usa/blog/aligning-prince2-agile-version-2-with-prince2-7-prince2" target="_blank" rel="noopener">https://www.prince2.com/usa/blog/aligning-prince2-agile-version-2-with-prince2-7-prince2</a></td><td>PRINCE2 7 との用語・構造の整合</td></tr>
+            <tr><td>PRINCE2.com: From 'doing agile' to 'being agile'</td><td><a href="https://www.prince2.com/usa/blog/from-doing-agile-to-being-agile-building-an-agile-mindset-with-prince2-agile-version-2" target="_blank" rel="noopener">https://www.prince2.com/usa/blog/from-doing-agile-to-being-agile-building-an-agile-mindset-with-prince2-agile-version-2</a></td><td>being / doing agile、価値観と文化の重視</td></tr>
+            <tr><td>Serview: PRINCE2 Agile Version 2 - what's new</td><td><a href="https://en.serview.de/detail/prince2-agile-version-2-was-ist-neu-und-was-bleibt" target="_blank" rel="noopener">https://en.serview.de/detail/prince2-agile-version-2-was-ist-neu-und-was-bleibt</a></td><td>PRINCE2 7 との整合、mindset・leadership の追加</td></tr>
+            <tr><td>Learning Tree: PRINCE2 Agile v2 Key Updates</td><td><a href="https://www.learningtree.com/blog/prince2-agile-key-updates/" target="_blank" rel="noopener">https://www.learningtree.com/blog/prince2-agile-key-updates/</a></td><td>変更点の概要(mindset、leadership、スケーリング)</td></tr>
+            <tr><td>ITSM Hub: PRINCE2 Agile Practitioner (Version 2)</td><td><a href="https://www.itsmhub.com/products/prince2-agile-practitioner-version-2-course-examination" target="_blank" rel="noopener">https://www.itsmhub.com/products/prince2-agile-practitioner-version-2-course-examination</a></td><td>前提資格・学習成果の概要</td></tr>
+            <tr><td>(Version 1 の比較用)whatisprince2.net: Agile Practitioner</td><td><a href="https://www.whatisprince2.net/agile/prince2-agile-practitioner" target="_blank" rel="noopener">https://www.whatisprince2.net/agile/prince2-agile-practitioner</a></td><td>Version 1 の学習成果(fix and flex を 6 aspects で説明)。<strong>Version 2 との差異を意識するための参照</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="ref-group">
+        <h4>10.3 一般資料(補足・理解の助け)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>資料</th><th>URL</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr><td>Agile Manifesto</td><td><a href="https://agilemanifesto.org/" target="_blank" rel="noopener">https://agilemanifesto.org/</a></td><td>4 つの価値・12 の原則</td></tr>
+            <tr><td>Scrum Guide</td><td><a href="https://scrumguides.org/" target="_blank" rel="noopener">https://scrumguides.org/</a></td><td>Scrum の roles・events・artifacts</td></tr>
+            <tr><td>Kanban Guides</td><td><a href="https://kanbanguides.org/" target="_blank" rel="noopener">https://kanbanguides.org/</a></td><td>Kanban の実践(フロー・WIP 制限)</td></tr>
+            <tr><td>The Lean Startup</td><td><a href="http://theleanstartup.com/" target="_blank" rel="noopener">http://theleanstartup.com/</a></td><td>MVP・Build-Measure-Learn</td></tr>
+            <tr><td>Google re:Work: Understand team effectiveness</td><td><a href="https://rework.withgoogle.com/en/guides/understanding-team-effectiveness" target="_blank" rel="noopener">https://rework.withgoogle.com/en/guides/understanding-team-effectiveness</a></td><td>心理的安全性の一般的な整理</td></tr>
+            <tr><td>Kotter: 8 ステップ</td><td><a href="https://www.kotterinc.com/methodology/8-steps/" target="_blank" rel="noopener">https://www.kotterinc.com/methodology/8-steps/</a></td><td>OCM の参考モデル</td></tr>
+            <tr><td>Prosci: ADKAR</td><td><a href="https://www.prosci.com/methodology/adkar" target="_blank" rel="noopener">https://www.prosci.com/methodology/adkar</a></td><td>OCM の参考モデル</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <p><strong>注意</strong>: 10.3 は理解の補助であり、<strong>試験の正解根拠は公式ブック</strong> です。URL は将来変更される可能性があるため、リンク切れの場合は各組織の公式サイトで再検索してください。</p>
+      </div>
+      </div>
+    </section>
+
+    <!-- ===================== 付録 A 対応表 ===================== -->
+    <section id="appendix-a">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 12</div>
+      <h2>付録 A: シラバス対応表(学習成果 → 本ガイド → 公式ブック)</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>シラバス項目</th><th>内容</th><th>Bloom</th><th>本ガイド</th><th>公式ブック章</th></tr></thead>
+          <tbody>
+            <tr><td>1.1.1</td><td>agile の必要性と being/doing のメリット</td><td>BL2</td><td>3.1</td><td>2.4</td></tr>
+            <tr><td>1.1.2</td><td>being agile と doing agile の違い</td><td>BL2</td><td>3.1</td><td>2.3.1</td></tr>
+            <tr><td>1.1.3</td><td>agile mindset(Onion・特徴)の適用</td><td>BL3</td><td>3.2</td><td>2.6, 2.6.1, 2.6.2</td></tr>
+            <tr><td>1.2.1</td><td>PRINCE2 principles の適用</td><td>BL3</td><td>3.4</td><td>5.6.1</td></tr>
+            <tr><td>1.2.2</td><td>7 aspects of project performance と agile</td><td>BL3</td><td>3.5</td><td>3.3</td></tr>
+            <tr><td>1.2.3</td><td>agile transformation の主要概念</td><td>BL3</td><td>3.6</td><td>2.7.1, 2.7.3, 2.7.4, 2.7.5</td></tr>
+            <tr><td>1.3.1〜1.3.5</td><td>OCM・チーム・コミュニケーション</td><td>BL2/3</td><td>3.7</td><td>4.2〜4.5</td></tr>
+            <tr><td>1.4.1</td><td>PRINCE2 principles・practices・processes の理解</td><td>BL2</td><td>3.4</td><td>5.2〜5.4</td></tr>
+            <tr><td>2.1.1</td><td>practices の agile 適用の理解</td><td>BL2</td><td>4.1</td><td>5.6</td></tr>
+            <tr><td>2.1.2〜2.1.3</td><td>business case(適用・分析)</td><td>BL3/4</td><td>4.2</td><td>6.3, 6.3.1, 6.3.2, 6.4</td></tr>
+            <tr><td>2.1.4〜2.1.5</td><td>organization(適用・分析)</td><td>BL3/4</td><td>4.3</td><td>7.3, 7.3.1, 7.3.2, 7.4</td></tr>
+            <tr><td>2.1.6〜2.1.7</td><td>plans(適用・分析)</td><td>BL3/4</td><td>4.4</td><td>8.3, 8.3.1, 8.3.2, 8.4</td></tr>
+            <tr><td>2.1.8〜2.1.9</td><td>quality(適用・分析)</td><td>BL3/4</td><td>4.5</td><td>9.3, 9.3.1, 9.3.2, 9.4</td></tr>
+            <tr><td>2.1.10〜2.1.11</td><td>risk(適用・分析)</td><td>BL3/4</td><td>4.6</td><td>10.3.1, 10.3.2, 10.4</td></tr>
+            <tr><td>2.1.12〜2.1.13</td><td>issues(適用・分析)</td><td>BL3/4</td><td>4.7</td><td>11.3.1〜11.3.4, 11.4</td></tr>
+            <tr><td>2.1.14〜2.1.15</td><td>progress(適用・分析)</td><td>BL3/4</td><td>4.8</td><td>12.3.1, 12.3.2, 12.4</td></tr>
+            <tr><td>2.2.1</td><td>11 roles のガイダンス適用</td><td>BL3</td><td>4.9</td><td>Table 7.2, Table B.1</td></tr>
+            <tr><td>3.1.1</td><td>7 processes の適用(activities・workshops・artifacts)</td><td>BL3</td><td>5.2〜5.8</td><td>13.2〜13.8</td></tr>
+            <tr><td>3.1.2</td><td>processes の tailoring の分析</td><td>BL4</td><td>5.1.3</td><td>13.x.1, 13.x.3, 13.x.4</td></tr>
+            <tr><td>4.1.1</td><td>agile product management</td><td>BL3</td><td>6.2</td><td>14.2.2.1</td></tr>
+            <tr><td>4.1.2</td><td>プロジェクトから運用への移行</td><td>BL3</td><td>6.3</td><td>14.2.1</td></tr>
+            <tr><td>4.1.3</td><td>継続的な agile development and operations</td><td>BL3</td><td>6.4</td><td>14.2.2.2</td></tr>
+            <tr><td>4.2.1</td><td>AI による支援</td><td>BL2</td><td>6.5</td><td>15.4</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 付録 B 要照合 ===================== -->
+    <section id="appendix-b">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 13</div>
+      <h2>付録 B: 【要照合】項目チェックリスト(公式ブックで必ず確認)</h2>
+
+      <p>本ガイド作成時に、公式ブック本文を直接確認できていない項目です。<strong>ブックの該当箇所にタブと要点メモを付けて</strong> ください。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>確認項目</th><th>公式ブックの箇所</th><th>確認済</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Agile Onion の図と、5 層の並び方向・説明</td><td>2.6.1</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>2</td><td>Agile mindset の key characteristics の正式な一覧</td><td>2.6.2</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>3</td><td>Agile sustainability の定義の重心</td><td>2.7.5</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>4</td><td>7 aspects of project performance の名称と agile での fix / flex 指針</td><td>3.3</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>5</td><td>各 practice の purpose の正式な文言</td><td>6.1 / 7.1 / 8.1 / 9.1 / 10.1 / 11.1 / 12.1</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>6</td><td>各 practice の「agile guidance」の要点</td><td>6.3.1 / 7.3.1 / 8.3.1 / 9.3.1 / 10.3.1 / 11.3.1〜3 / 12.3.1</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>7</td><td>各 practice の「associated agile techniques」の一覧</td><td>6.4 / 7.4 / 8.4 / 9.4 / 10.4 / 11.4 / 12.4</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>8</td><td>MoSCoW の割合の目安(Must の比率)</td><td>9.3.2(サブセクション)</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>9</td><td>Agilometer の評価軸の名称・数・使い方</td><td>10.3.2</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>10</td><td>11 roles の位置づけ(CPO の Board 上の位置づけ、Agile coach と Team coach の境界、Project assurance)</td><td>Table 7.2, Table B.1</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>11</td><td>Product backlog と Project backlog の定義の違い</td><td>Glossary, 8.3.2</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>12</td><td>各 process の activities と、支える workshops の名称・目的</td><td>13.2〜13.8</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>13</td><td>stage の長さ・timebox の関係に関する推奨</td><td>5.4 / 13.x</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>14</td><td>運用移行・継続的開発と運用の指針</td><td>14.2.1, 14.2.2.1, 14.2.2.2</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+            <tr><td>15</td><td>AI 支援の具体的なサブセクション</td><td>15.4</td><td class="check-cell"><input type="checkbox" class="check-box" aria-label="確認済"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 付録 C 最終確認 ===================== -->
+    <section id="appendix-c">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 14</div>
+      <h2>付録 C: 最終チェックリスト(試験前日)</h2>
+
+      <ul class="checklist">
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text">出題配分を言える(<strong>20 / 44 / 30 / 6%</strong>)。合格は <strong>30/50</strong>。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text">Agile Onion の <strong>5 層</strong> を言える。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>7 practices と、各 practice の management products</strong> を言える(第 4 章の表)。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>11 roles</strong> を言え、<strong>PM と PO、Agile coach と Team coach の違い</strong> を説明できる。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>7 processes</strong> の目的と、agile での tailoring の要点を言える。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>DoR = 入口、DoD = 出口</strong>。<strong>quality は下げず scope を flex</strong> にする。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>tolerance 内は委任、超過は exception</strong>(management by exception)。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>Agilometer は再評価</strong> する。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text">公式ブックに <strong>タブ(A〜Q)</strong> を付け、付録 B の項目を確認した。</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>全問に解答</strong>(誤答減点なし)。</span></label></li>
+      </ul>
+    </section>
+
+
+    <footer>
+      PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    examMindmap: `mindmap
+  root((PRINCE2 Agile Practitioner v2))
+    カテゴリ1 Key concepts 20 percent
+      Agile と mindset
+      Agile Onion
+      7 aspects of project performance
+      Agile transformation
+      People と OCM
+      Team leadership と communication
+    カテゴリ2 Practices と Roles 44 percent
+      Business case
+      Organization
+      Plans
+      Quality
+      Risk
+      Issues
+      Progress
+      11 roles
+    カテゴリ3 Processes 30 percent
+      Starting up
+      Directing
+      Initiating
+      Controlling a stage
+      Managing product delivery
+      Managing a stage boundary
+      Closing
+    カテゴリ4 Wider context 6 percent
+      Agile product management
+      Transition to operations
+      Continuous development and operations
+      AI support`,
+    studyRoadmap: `flowchart LR
+A["Step 1 試験の型と 配点を知る"] --> B["Step 2 Key concepts Onion と 7 aspects"]
+B --> C["Step 3 7 Practices と 11 Roles"]
+C --> D["Step 4 7 Processes と Workshops"]
+D --> E["Step 5 Wider context と AI"]
+E --> F["Step 6 演習 と ブック索引作り"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E,F box;`,
+    agileOnionLayers: `flowchart LR
+M["Mindset 考え方"] --> V["Values 価値観"]
+V --> PR["Principles 原則"]
+PR --> PA["Practices 実践"]
+PA --> PO["Processes プロセス"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class M,V,PR,PA,PO box;`,
+    prince2Elements: `flowchart TB
+P["PRINCE2 Project Management"] --> A["Principles 原則"]
+P --> B["People 人"]
+P --> C["Practices 実践"]
+P --> D["Processes プロセス"]
+P --> E["Project context プロジェクトの文脈"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E box;
+class P hub;`,
+    toleranceLevels: `flowchart TB
+CORP["Corporate / Programme Project tolerance を設定"] --> BOARD["Project Board Stage tolerance を設定"]
+BOARD --> PM["Project Manager Work package tolerance を設定"]
+PM --> TEAM["Team Timebox 内で自己管理"]
+TEAM -.->|"tolerance 超過の恐れ"| PM
+PM -.->|"exception report"| BOARD
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class CORP,BOARD,PM,TEAM box;`,
+    transformationConcepts: `flowchart LR
+A["Agile transformation plan 2.7.1"] --> B["Agile maturity 2.7.3"]
+B --> C["Psychological safety 2.7.4"]
+C --> D["Agile sustainability 2.7.5"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;`,
+    transformationLoop: `flowchart LR
+V["ビジョンと目的 を明確化"] --> AS["現状と成熟度 を評価"]
+AS --> PL["変革計画を 作成"]
+PL --> PI["小さく試行 パイロット"]
+PI --> LE["学びを 振り返る"]
+LE --> SC["範囲を 拡大"]
+SC --> SU["定着 持続化"]
+SU -.->|"再評価"| AS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class V,AS,PL,PI,LE,SC,SU box;`,
+    teamCollaboration: `flowchart TB
+L["Leaders 環境づくりと障害除去"] --> T1["Team A"]
+L --> T2["Team B"]
+L --> T3["Team C"]
+T1 <-->|"依存関係の同期"| T2
+T2 <-->|"依存関係の同期"| T3
+T1 --> G["共通のゴールと product vision"]
+T2 --> G
+T3 --> G
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class L,T1,T2,T3,G box;`,
+    fitForPurposeFlow: `flowchart TD
+S["シナリオの状況を把握 制約 成熟度 契約 規制"] --> Q1{"目的 purpose を果たしているか"}
+Q1 -- "No" --> X1["不適切 目的を損なう tailoring"]
+Q1 -- "Yes" --> Q2{"PRINCE2 Agile の guidance に沿うか"}
+Q2 -- "No" --> X2["不適切 guidance と矛盾"]
+Q2 -- "Yes" --> Q3{"必要な management products が機能するか"}
+Q3 -- "No" --> X3["不足 統制や記録が欠落"]
+Q3 -- "Yes" --> Q4{"文脈に合っているか 過剰 過少でない"}
+Q4 -- "No" --> X4["不適合 軽すぎる または 重すぎる"]
+Q4 -- "Yes" --> OK["有効 fit for purpose"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S,Q1,X1,Q2,X2,Q3,X3,Q4,X4 box;
+class OK done;`,
+    organizationStructure: `flowchart TB
+PB["Project Board Executive CPO Senior supplier"] --> PMGR["Project Manager"]
+PB -.-> PA["Project Assurance"]
+PMGR --> PS["Project Support"]
+AC["Agile coach"] -.-> PMGR
+PMGR --> TEAMA["Team A PO Team coach Developers Testers"]
+PMGR --> TEAMB["Team B PO Team coach Developers Testers"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PB,PMGR,PA,PS,AC,TEAMA,TEAMB box;`,
+    planHierarchy: `flowchart TB
+A["Project plan / Release map 全体の見通し 粗い"] --> B["Stage plan stage 内の見通し"]
+B --> C["Team plan iteration ごとの計画 詳細"]
+C --> D["Work package description チームへの委任内容"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;`,
+    dorDodFlow: `flowchart LR
+BL["Product backlog の項目"] --> DR{"Definition of Ready 着手できる状態か"}
+DR -- "Yes" --> WK["チームが作業"]
+DR -- "No" --> RF["Refinement で明確化"]
+RF --> DR
+WK --> DD{"Definition of Done 完成の条件を満たすか"}
+DD -- "Yes" --> INC["完成 リリース可能な増分"]
+DD -- "No" --> WK
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class BL,DR,WK,RF,DD box;
+class INC done;`,
+    agilometerCycle: `flowchart LR
+A["Agilometer で 現状を評価"] --> B["リスクが高い 領域を特定"]
+B --> C["対応策を検討 tailoring や risk register へ"]
+C --> D["定期的に再評価 stage 境界など"]
+D -.->|"状況の変化"| A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;`,
+    issueHandlingFlow: `flowchart TD
+I["Issue が発生 変更要求 問題 懸念"] --> R["Issue register に記録"]
+R --> E{"Tolerance の 範囲内か"}
+E -- "範囲内" --> L["チーム 現場で解決 例 backlog の優先順位調整"]
+E -- "範囲を超える" --> P["Issue report を作成 PM に escalate"]
+P --> B["Project Board が判断"]
+L --> LL["Lessons log に学びを記録"]
+B --> LL
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class I,R,E,L,P,B,LL box;`,
+    rolesRelationship: `flowchart TB
+subgraph DIR["Direction Project Board"]
+PE["Project executive"]
+CPO["Chief product owner"]
+SS["Senior supplier"]
+end
+subgraph MGT["Management"]
+PM["Project manager"]
+PSUP["Project support"]
+end
+subgraph DEL["Delivery Team"]
+PO["Product owner"]
+TC["Team coach"]
+DEV["Developer"]
+TST["Tester"]
+end
+PA["Project assurance"]
+AC["Agile coach"]
+DIR --> PM
+PM --> PSUP
+PM --> DEL
+PA -.-> DIR
+AC -.-> PM
+AC -.-> TC
+CPO --- PO
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PE,CPO,SS,PM,PSUP,PO,TC,DEV,TST,PA,AC box;`,
+    processOverview: `flowchart TB
+SU["Starting up a project SU"] --> IP["Initiating a project IP"]
+IP --> CS["Controlling a stage CS"]
+CS <--> MP["Managing product delivery MP"]
+CS --> SB["Managing a stage boundary SB"]
+SB --> CS
+CS --> CP["Closing a project CP"]
+DP["Directing a project DP 全体を通じた Board の判断"] -.-> SU
+DP -.-> IP
+DP -.-> CS
+DP -.-> SB
+DP -.-> CP
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class SU,IP,CS,MP,SB,CP,DP box;`,
+    stageTimebox: `flowchart TB
+PRJ["Project"] --> ST1["Stage 1 管理上の判断単位"]
+PRJ --> ST2["Stage 2"]
+ST1 --> R1["Release 1"]
+ST1 --> R2["Release 2"]
+R1 --> IT1["Iteration 1 timebox"]
+R1 --> IT2["Iteration 2 timebox"]
+R2 --> IT3["Iteration 3 timebox"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PRJ,ST1,ST2,R1,R2,IT1,IT2,IT3 box;`,
+    opsTransition: `flowchart LR
+P["Project 増分を開発"] --> R["Release 段階的な引き渡し"]
+R --> O["Operations 運用 サポート 保守"]
+O -.->|"利用データ 障害 要望"| B["Product backlog へフィードバック"]
+B --> P
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,R,O,B box;`,
+    aiReviewFlow: `flowchart LR
+A["AI が案を生成"] --> B["人がレビュー 正確性 偏り 機密"]
+B --> C{"DoD と 受入基準を満たすか"}
+C -- "Yes" --> D["採用 記録"]
+C -- "No" --> E["修正 または 却下"]
+E --> A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,E box;
+class D done;`,
+    scenarioReadingFlow: `flowchart TD
+A["シナリオを通読 制約 契約 期限 体制 成熟度"] --> B["設問を読む 何を問われているか BL2 BL3 BL4"]
+B --> C["追加情報が必要か 人物の役割と発言"]
+C --> D["該当する practice または process を特定"]
+D --> E["公式ブックで guidance を確認"]
+E --> F["選択肢を消去 目的 guidance 文脈に反するものを除外"]
+F --> G["最適な 1 つを選ぶ"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E,F box;
+class G done;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  function setupChecklists() {
+    var boxes = document.querySelectorAll("input.check-box");
+    if (!boxes.length) return;
+    var KEY = "prince2-agile-practitioner-v2-checks";
+    var saved = {};
+    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
+    boxes.forEach(function (box, i) {
+      if (saved[i]) box.checked = true;
+      box.addEventListener("change", function () {
+        if (box.checked) { saved[i] = 1; } else { delete saved[i]; }
+        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* ignore */ }
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+    setupChecklists();
+  });
+})();
+</script>
+</body>
+</html>
