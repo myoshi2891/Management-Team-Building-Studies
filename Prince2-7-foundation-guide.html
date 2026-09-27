@@ -30,7 +30,7 @@
     --color-indigo-dark:  #1F2C57;
     --color-indigo-tint:  #EEF1F8;
 
-    --color-gold:         #B8802A;
+    --color-gold:         #8A5B10;
     --color-gold-tint:    #FAF1DF;
 
     --color-forest:       #1B6E6A;
@@ -1318,6 +1318,8 @@
 
   var DIAGRAMS = {
 integratedStructure: `flowchart TB
+accTitle: PRINCE2の統合構造
+accDescr: 7つの原則・人・7つのプラクティス・7つのプロセスがPRINCE2の統合構造を構成し、テーラリングによって各プロジェクトに適応させる関係を示す図
 A["7つの原則 Principles"] --> D["PRINCE2の統合構造"]
 B["人 People"] --> D
 C["7つのプラクティス Practices"] --> D
@@ -1330,6 +1332,8 @@ class A,B,C,E box;
 class D hub;
 class F done;`,
 toleranceEscalation: `flowchart LR
+accTitle: トレランスとエスカレーションの経路
+accDescr: コーポレート/プログラムマネジメントがプロジェクトトレランス、プロジェクトボードがステージトレランス、プロジェクトマネージャーがワークパッケージトレランスを設定し、逸脱予測時は下位から上位へ例外報告としてエスカレーションされる関係を示す図
 Corp["コーポレート/プログラムマネジメント"] -->|"プロジェクトトレランスを設定"| Board["プロジェクトボード"]
 Board -->|"ステージトレランスを設定"| PM["プロジェクトマネージャー"]
 PM -->|"ワークパッケージトレランスを設定"| TM["チームマネージャー"]
@@ -1341,6 +1345,8 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class Corp,PM,TM box;
 class Board hub;`,
 practicesOverview: `flowchart TB
+accTitle: 7つのプラクティスの関係
+accDescr: ビジネスケースを中心に、組織化・プラン・品質・リスク・課題・進捗の6つのプラクティスが環状に関連し合う構造を示す図
 BC["Business Case"] --- ORG["Organizing"]
 ORG --- PL["Plans"]
 PL --- Q["Quality"]
@@ -1353,6 +1359,8 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class ORG,PL,Q,R,I,P box;
 class BC hub;`,
 organizingLevels: `flowchart TB
+accTitle: プロジェクト組織の4階層
+accDescr: コーポレート/プログラムマネジメントから、指揮レベルのプロジェクトボード、管理レベルのプロジェクトマネージャー、実行レベルのチームマネージャーへと続く指揮命令の階層を示す図
 Corp["コーポレート/プログラムマネジメント(プロジェクト外)"]
 subgraph Direct["指揮レベル"]
 Board["プロジェクトボード(Executive / Senior User / Senior Supplier)"]
@@ -1369,6 +1377,8 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class Corp,PM,TM box;
 class Board hub;`,
 productBasedPlanning: `flowchart LR
+accTitle: プロダクトベースプランニングの手順
+accDescr: プロジェクト・プロダクト・ディスクリプションからプロダクト・ブレイクダウン・ストラクチャー、各プロダクトのディスクリプション、プロダクト・フロー・ダイアグラムを経てスケジュール化・見積りに至る一連の手順を示す図
 PPD["プロジェクト・プロダクト ディスクリプション"] --> PBS["プロダクト・ブレイクダウン ストラクチャー"]
 PBS --> PD["各プロダクトの ディスクリプション"]
 PD --> PFD["プロダクト・フロー ダイアグラム"]
@@ -1380,6 +1390,8 @@ class PBS,PD,PFD box;
 class PPD hub;
 class SCHEDULE done;`,
 qualityAuditTrail: `flowchart LR
+accTitle: 品質監査証跡の流れ
+accDescr: 顧客の品質期待から受け入れ基準、品質マネジメントアプローチ、プロダクト・ディスクリプションの品質基準を経て品質レジスターへ記録されるまでの追跡関係を示す図
 CQE["顧客の品質期待"] --> AC["受け入れ基準"]
 AC --> QMA["品質マネジメント アプローチ"]
 QMA --> PD2["プロダクト・ディスクリプション(品質基準/方法/責任)"]
@@ -1391,6 +1403,8 @@ class AC,QMA,PD2 box;
 class CQE hub;
 class QR done;`,
 riskManagementProcedure: `flowchart TB
+accTitle: リスクマネジメント手順
+accDescr: 特定・評価・計画・実行を繰り返す循環プロセスと、全ステップに継続的に関与するコミュニケーションの関係を示す図
 ID["特定(Identify)"] --> AS["評価(Assess)"]
 AS --> PLAN["計画(Plan)"]
 PLAN --> IMP["実行(Implement)"]
@@ -1404,6 +1418,8 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class ID,AS,PLAN,IMP box;
 class COMM hub;`,
 issueChangeControl: `flowchart LR
+accTitle: 課題と変更管理の手順
+accDescr: 捕捉・検討・提案・決定・実施の5段階を順に経る課題および変更のコントロール手順を示す図
 CAP["捕捉(Capture)"] --> EXAM["検討(Examine)"]
 EXAM --> PROP["提案(Propose)"]
 PROP --> DEC["決定(Decide)"]
@@ -1415,6 +1431,8 @@ class EXAM,PROP,DEC box;
 class CAP hub;
 class IMPL done;`,
 managementProductsMap: `flowchart TB
+accTitle: マネジメント製品の分類
+accDescr: マネジメント製品をベースライン・記録類・報告類の3分類に分け、それぞれに含まれる具体的な製品名を列挙したマップ図
 MP["マネジメント製品"]
 MP --> BL["ベースライン(Baselines)"]
 MP --> REC["記録類(Project Log: レジスター/ログ)"]
@@ -1441,6 +1459,8 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class BL,REC,REP,BL1,BL2,BL3,BL4,BL5,BL6,REC1,REC2,REC3,REC4,REC5,REC6,REP1,REP2,REP3,REP4,REP5 box;
 class MP hub;`,
 processOverallFlow: `flowchart TB
+accTitle: PRINCE2プロセス全体の流れ
+accDescr: プロジェクト開始前のSU、全期間を通じて継続するDP、初期化ステージのIP、繰り返される提供ステージのCS・MP・SB、最終ステージのCPへと連なるプロセス全体の流れを示す図
 subgraph PreProject["プロジェクト開始前"]
 SU["SU: プロジェクト開始"]
 end
