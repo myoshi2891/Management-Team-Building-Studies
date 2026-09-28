@@ -2,7 +2,7 @@
 
 **Managing Successful Programmes(プログラムマネジメント）― 初学者向け・出題範囲対応版**
 
-> 本ガイドは PeopleCert（旧 AXELOS）が提供する **MSP Foundation, 5th edition** 試験の出題範囲をベースに、初学者でも理解できるようステップバイステップで解説したものです。2024年夏、PeopleCert は MSP を「**PRINCE2 Programme Management（Version 5）**」としてリブランディングしましたが、ガイダンスの内容自体に変更はなく、資格名・教材名は引き続き「MSP」「MSP 5th edition」が広く使われています。本ガイドでも従来通り「MSP」の呼称を用います。
+> 本ガイドは PeopleCert（旧 AXELOS）が提供する **MSP Foundation, 5th edition** 試験の出題範囲をベースに、初学者でも理解できるようステップバイステップで解説したものです。PeopleCert は MSP を「**PRINCE2 Programme Management（Version 5）**」へリブランディングすることを発表しており、パートナー向けの準備は2025年9月22日の週、一部教材の更新は同年10月20日の週、商用ローンチは同年11月17日の週に予定されています。ガイダンスの内容自体に変更はなく、資格名・教材名は引き続き「MSP」「MSP 5th edition」が広く使われています。本ガイドでも従来通り「MSP」の呼称を用います。
 
 ---
 
@@ -199,16 +199,20 @@ flowchart TB
 テーマは、原則をプログラムのガバナンスに落とし込むための「本質的な側面」であり、各テーマは単語1語で名付けられています（2011年版の「ガバナンステーマ」から名称変更）。各テーマ章には、後述する4つの「プログラムの動機（ドライバー）」別のシナリオが用意されており、状況に応じたテーラリングの学習材料となっています。
 
 ```mermaid
-flowchart LR
-    O["Organization<br/>誰が意思決定するか"] --> D["Design<br/>どんな未来を目指すか"]
-    D --> J["Justification<br/>投資として妥当か"]
-    J --> S["Structure<br/>どう計画・実行するか"]
-    S --> K["Knowledge<br/>何を学び蓄積するか"]
-    K --> A["Assurance<br/>本当に正しく進んでいるか"]
-    A --> DE["Decisions<br/>どう意思決定するか"]
+flowchart TB
+    TH["7つのテーマ<br/>ライフサイクル全体を通じて並行・継続的に適用<br/>（適用の順序はない）"]
+    TH --- O["Organization<br/>誰が意思決定するか"]
+    TH --- D["Design<br/>どんな未来を目指すか"]
+    TH --- J["Justification<br/>投資として妥当か"]
+    TH --- S["Structure<br/>どう計画・実行するか"]
+    TH --- K["Knowledge<br/>何を学び蓄積するか"]
+    TH --- A["Assurance<br/>本当に正しく進んでいるか"]
+    TH --- DE["Decisions<br/>どう意思決定するか"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
     class O,D,J,S,K,A,DE box
+    class TH hub
 ```
 
 ### 6.1 Organization テーマ（組織）
@@ -247,7 +251,7 @@ flowchart TB
 **ベストプラクティス**
 
 - SROは「兼任の名ばかりスポンサー」にしない。プログラムの成否に対する説明責任を実質的に負える、十分な権限と組織内影響力を持つ人物を選ぶ。
-- BCMは必ず事業側（プログラムを実行する側ではなく、変化を受け取り実際に運用する側）から選任する。プログラムマネージャーとBCMを同一人物が兼務すると、アウトプット提供とベネフィット実現の両方に対する客観的なチェックが働かなくなるリスクがある。
+- BCMは通常、事業側（プログラムを実行する側ではなく、変化を受け取り実際に運用する側）から選任する。プログラムマネージャーとBCMを同一人物が兼務すると、アウトプット提供とベネフィット実現の両方に対する客観的なチェックが働かなくなるリスクがある。
 - プログラムオフィスを単なる事務局ではなく、進捗・リスク・ベネフィットの状況を横断的に可視化する「情報のハブ」として機能させる。
 
 > **ソース**：QA社MSP Practitionerコースウェア、Know-How-What.com「Key Roles in MSP 5th Edition」、PDCAコンサルティング MSPサマリー資料

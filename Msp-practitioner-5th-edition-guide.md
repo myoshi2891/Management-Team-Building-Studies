@@ -387,7 +387,7 @@ flowchart TB
     P3 --> P4["④ Deliver the Capabilities<br/>ケイパビリティを提供する"]
     P4 --> P5["⑤ Embed the Outcomes<br/>成果を定着させる"]
     P5 --> P6["⑥ Evaluate New Information<br/>新しい情報を評価する"]
-    P6 -->|"継続:<br/>次のトランシェへ"| P3
+    P6 -->|"継続:<br/>次のトランシェへ"| P2
     P6 -->|"完了/中止判断"| P7["⑦ Close the Programme<br/>プログラムを終結する"]
     P7 --> END(["プログラム終了<br/>運用への完全移行"])
 
