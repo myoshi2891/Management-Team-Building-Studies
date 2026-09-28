@@ -1,5 +1,6 @@
 # MSP Foundation, 5th edition 完全学習ガイド
-### Managing Successful Programmes(プログラムマネジメント）― 初学者向け・出題範囲対応版
+
+**Managing Successful Programmes(プログラムマネジメント）― 初学者向け・出題範囲対応版**
 
 > 本ガイドは PeopleCert（旧 AXELOS）が提供する **MSP Foundation, 5th edition** 試験の出題範囲をベースに、初学者でも理解できるようステップバイステップで解説したものです。2024年夏、PeopleCert は MSP を「**PRINCE2 Programme Management（Version 5）**」としてリブランディングしましたが、ガイダンスの内容自体に変更はなく、資格名・教材名は引き続き「MSP」「MSP 5th edition」が広く使われています。本ガイドでも従来通り「MSP」の呼称を用います。
 
@@ -66,7 +67,7 @@ MSP Foundation, 5th edition の試験概要は以下の通りです（2026年9�
 | 教材持ち込み | 不可（Closed book） |
 | 合格基準 | 60%以上（60問中36問以上の正答） |
 | 対応言語 | 英語・中国語 |
-| 資格更新 | 3年ごと（CPDポイント 60点の取得、またはプロダクトスイート内の別資格取得により更新可能） |
+| 資格更新 | 3年ごと（PeopleCert Plus で CPDポイント 60点を記録するか、更新期限までにプロダクトスイート内の別資格を取得することで更新可能） |
 | 前提資格 | なし（Foundationは誰でも受験可能） |
 | 主な対象者 | プロジェクトマネージャー、シニアプロジェクトマネージャー、プログラムマネージャー、ポートフォリオマネージャー、ビジネスチェンジマネージャー、ベネフィットマネージャー、SRO、ビジネスアナリストなど |
 
@@ -410,12 +411,11 @@ flowchart TB
         P5["5. Embed the Outcomes<br/>アウトカムを定着させる"]
         P6["6. Evaluate New Information<br/>新しい情報を評価する"]
         P2 --> P3 --> P4 --> P5 --> P6
-        P6 -->|"次のトランシェへ"| P2
     end
 
-    P1 --> CYCLE
-    CYCLE --> GATE2{"継続判断<br/>Go/No-Go"}
-    GATE2 -->|"目標達成 または<br/>これ以上の投資価値なし"| P7["7. Close the Programme<br/>プログラムをクローズする"]
+    P6 --> GATE2{"継続判断<br/>Go/No-Go"}
+    GATE2 -->|"Go：次のトランシェへ"| P2
+    GATE2 -->|"No-Go：目標達成 または<br/>これ以上の投資価値なし"| P7["7. Close the Programme<br/>プログラムをクローズする"]
 
     classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
     classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
