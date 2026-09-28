@@ -402,6 +402,7 @@ flowchart TB
     M["プログラムマンデート"] --> P1["1. Identify the Programme<br/>プログラムを識別する"]
     P1 --> GATE1{"認可の判断"}
     GATE1 -->|"Go"| P2
+    GATE1 -->|"No-Go：認可されず"| P7
 
     subgraph CYCLE["トランシェごとに繰り返すサイクル"]
         direction TB
