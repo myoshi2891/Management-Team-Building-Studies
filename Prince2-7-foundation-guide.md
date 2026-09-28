@@ -14,7 +14,7 @@
 | 方式 | Closed book(参考資料の持ち込み不可) |
 | 合格基準 | 60% 以上(60問中36問以上正解) |
 | 対応言語 | 英語・日本語を含む14言語 |
-| 認定更新 | 3年ごと。更新にはCPD(継続的専門能力開発)60ポイントが必要 |
+| 認定更新 | 3年ごと。更新方法は、期限までにCPD(継続的専門能力開発)60ポイントを取得するか、同じProduct Suite内の別資格を取得するかのいずれか |
 
 > **補足(V6→V7での構造変化):** PRINCE2 7版では、旧版の「7つのテーマ(Themes)」が **「7つのプラクティス(Practices)」** に名称変更され、そのうち旧「Change」テーマが **「Issues」プラクティス** に改称されました。さらに新章として **「People(人)」** が追加され、**サステナビリティ(持続可能性)** が Progress/Business Case等の既存プラクティスに統合され、**デジタル&データマネジメント(Digital and Data)** の視点が全体に組み込まれています。原則(Principles)7つ・プロセス(Processes)7つという数は旧版から変更ありませんが、原則の一部は名称が更新されています(例: 「役割・責任」原則はV7で relationships が明示され「Define roles, responsibilities and relationships」に変更。詳細は「2.1 原則の詳細解説」参照)。プロセス名は旧版から変更ありません。
 > (出典: [PeopleCert公式ページ](https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579)、[onlinepmcourses.com「Top 10 Changes」](https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know/))
