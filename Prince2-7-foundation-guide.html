@@ -453,7 +453,9 @@
 
   .diagram-container {
     display: flex;
-    justify-content: center;
+    /* safe: 図が列幅を超えたとき左端が切れずにスクロールできるようにする */
+    justify-content: safe center;
+    overflow-x: auto;
     width: 100%;
     min-height: 60px;
   }
@@ -575,6 +577,11 @@
 
   @media (max-width: 1120px) {
     .domain-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* stat-row 4列の最小幅 608px + サイドバー 288px + 左右 padding 144px = 1040px。スクロールバー幅の余裕を含める */
+  @media (max-width: 1060px) {
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 560px) {
@@ -1577,7 +1584,9 @@ class CP done;`
         if (svgEl) {
           svgEl.removeAttribute("width");
           svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
+          // 縮小せずピクセル幅と文字サイズを維持する（はみ出しはコンテナーの横スクロールで閲覧）
+          svgEl.style.maxWidth = "none";
+          svgEl.style.flex = "none";
           svgEl.style.height = "auto";
           svgEl.style.overflow = "visible";
           extendViewBoxHeight(svgEl, 15);
