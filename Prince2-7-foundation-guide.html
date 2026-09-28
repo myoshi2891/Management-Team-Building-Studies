@@ -21,7 +21,7 @@
 
     --color-ink:          #161B26;
     --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
+    --color-ink-faint:    #626B7C;
 
     --color-border:       #DFE3EA;
     --color-border-strong:#C7CDD9;
@@ -1616,7 +1616,13 @@ class CP done;`
         var wasOpen = sidebar.classList.contains("open");
         sidebar.classList.remove("open");
         toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
+        if (!wasOpen) return;
+        // 次の Tab 操作が選択したセクションから始まるよう、移動先の見出しへフォーカスを移す
+        var section = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+        if (!section) return;
+        var heading = section.querySelector("h1, h2, h3") || section;
+        if (!heading.hasAttribute("tabindex")) heading.setAttribute("tabindex", "-1");
+        heading.focus({ preventScroll: true });
       });
     });
   }
