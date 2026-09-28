@@ -570,8 +570,11 @@
     .main-content { margin-left: 0; padding: 88px 24px 100px; }
     .hero h1 { font-size: 32px; }
     .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
     .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1120px) {
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 560px) {
@@ -1445,6 +1448,7 @@ BL --> BL3["プラン(Project/Stage/Team/Exception)"]
 BL --> BL4["プロダクト・ディスクリプション"]
 BL --> BL5["プロジェクトブリーフ"]
 BL --> BL6["プロジェクト・イニシエーション ドキュメンテーション(PID)"]
+BL --> BL7["ワークパッケージ・ディスクリプション"]
 REC --> REC1["デイリーログ"]
 REC --> REC2["課題レジスター"]
 REC --> REC3["教訓ログ"]
@@ -1456,9 +1460,11 @@ REP --> REP2["ハイライト報告"]
 REP --> REP3["例外報告"]
 REP --> REP4["エンドステージ報告"]
 REP --> REP5["エンドプロジェクト報告"]
+REP --> REP6["教訓報告"]
+REP --> REP7["課題報告"]
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class BL,REC,REP,BL1,BL2,BL3,BL4,BL5,BL6,REC1,REC2,REC3,REC4,REC5,REC6,REP1,REP2,REP3,REP4,REP5 box;
+class BL,REC,REP,BL1,BL2,BL3,BL4,BL5,BL6,BL7,REC1,REC2,REC3,REC4,REC5,REC6,REP1,REP2,REP3,REP4,REP5,REP6,REP7 box;
 class MP hub;`,
 processOverallFlow: `flowchart TB
 accTitle: PRINCE2プロセス全体の流れ
