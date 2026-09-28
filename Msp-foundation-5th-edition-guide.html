@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSP® Foundation 5th edition 完全学習ガイド | Managing Successful Programmes</title>
+<meta name="description" content="PeopleCert MSP Foundation, 5th edition の出題範囲を、初学者向けにステップバイステップで解説した日本語の学習ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    /* ---- Typography ---- */
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  /* ===================== Sidebar ===================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  /* ===================== Main content ===================== */
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  /* ===================== Domain badge cards ===================== */
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  /* ===================== Tables ===================== */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  /* ===================== Callouts ===================== */
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  /* ===================== Diagram containers ===================== */
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  /* ===================== Step list (roadmap) ===================== */
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  /* ===================== Glossary ===================== */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  /* ===================== Reference list ===================== */
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  /* ===================== Checklist cards / numbered reference cards ===================== */
+  .check-list {
+    display: grid;
+    gap: 10px;
+    margin: 0 0 24px;
+    counter-reset: chk;
+  }
+
+  .check-item {
+    counter-increment: chk;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 14px 18px;
+    cursor: pointer;
+  }
+
+  .check-item::before {
+    content: counter(chk);
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .check-item input {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin: 3px 0 0;
+    border: 1.5px solid var(--color-border-strong);
+    border-radius: 6px;
+    background: var(--color-paper-raised);
+    cursor: pointer;
+  }
+
+  .check-item input:checked {
+    border-color: var(--color-indigo);
+    background: var(--color-indigo) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+  }
+
+  .check-item input:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  .check-item .check-text { color: var(--color-ink-soft); }
+
+  .check-item:has(input:checked) {
+    background: var(--color-success-bg);
+    border-color: var(--color-success-border);
+  }
+
+  .check-item:has(input:checked) .check-text {
+    text-decoration: line-through;
+    color: var(--color-ink-faint);
+  }
+
+  .ref-cards {
+    display: grid;
+    gap: 12px;
+    margin: 0 0 24px;
+  }
+
+  .ref-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+
+  .ref-num {
+    flex: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ref-card .ref-body { min-width: 0; }
+  .ref-card .ref-name { display: block; color: var(--color-ink); font-weight: 500; margin-bottom: 2px; }
+  .ref-card .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  /* ===================== Responsive ===================== */
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <!-- ===================== Sidebar ===================== -->
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">MSP® 完全ガイド</div>
+        <div class="brand-subtitle">Foundation 5th edition</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#what-is-msp"><i class="ti ti-certificate"></i>はじめに ― MSPとは何か</a></li>
+      <li><a href="#exam-overview"><i class="ti ti-list-check"></i>試験の全体像</a></li>
+      <li><a href="#programme-project-portfolio"><i class="ti ti-building-bank"></i>プログラム・プロジェクト・ポートフォリオの違い</a></li>
+      <li><a href="#framework-structure"><i class="ti ti-git-branch"></i>MSPフレームワークの全体構造</a></li>
+      <li><a href="#principles"><i class="ti ti-target-arrow"></i>7つの原則(Principles)</a></li>
+      <li><a href="#themes"><i class="ti ti-clipboard-text"></i>7つのテーマ(Themes)</a></li>
+      <li><a href="#lifecycle"><i class="ti ti-route"></i>プログラムライフサイクル: 7つのプロセス</a></li>
+      <li><a href="#governance"><i class="ti ti-shield-check"></i>ガバナンスと組織構造</a></li>
+      <li><a href="#benefits"><i class="ti ti-chart-pie"></i>ベネフィット管理の実践</a></li>
+      <li><a href="#risk-decisions"><i class="ti ti-alert-triangle"></i>リスク・課題・意思決定管理</a></li>
+      <li><a href="#assurance"><i class="ti ti-scale"></i>アシュアランスと三線防御モデル</a></li>
+      <li><a href="#tailoring"><i class="ti ti-refresh"></i>テーラリング ― 組織・状況への適応</a></li>
+      <li><a href="#checklist"><i class="ti ti-clipboard-check"></i>テーマ・プロセス別ベストプラクティスチェックリスト</a></li>
+      <li><a href="#anti-patterns"><i class="ti ti-flag-3"></i>よくある落とし穴(アンチパターン)</a></li>
+      <li><a href="#glossary"><i class="ti ti-book-2"></i>用語集</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>参考文献・ソース一覧</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===================== Main content ===================== -->
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert MSP Foundation 5th edition</div>
+      <h1>MSP Foundation, 5th edition 完全学習ガイド</h1>
+      <p class="hero-lede">
+        Managing Successful Programmes(プログラムマネジメント)― 初学者向け・出題範囲対応版
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">原則(Principles)</div></div>
+        <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">テーマ(Themes)</div></div>
+        <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">プロセス(Processes)</div></div>
+        <div class="stat-card"><div class="stat-number">60問</div><div class="stat-label">60分・合格基準60%</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドは <a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930" target="_blank" rel="noopener">PeopleCert</a>(旧 AXELOS)が提供する <strong>MSP Foundation, 5th edition</strong> 試験の出題範囲をベースに、初学者でも理解できるようステップバイステップで解説したものです。PeopleCert は MSP を「<strong>PRINCE2 Programme Management(Version 5)</strong>」へリブランディングすることを発表しており、パートナー向けの準備は2025年9月22日の週、一部教材の更新は同年10月20日の週、商用ローンチは同年11月17日の週に実施されました。ガイダンスの内容自体に変更はなく、資格名・教材名は引き続き「MSP」「MSP 5th edition」が広く使われています。本ガイドでも従来通り「MSP」の呼称を用います。
+      </div>
+    </div>
+
+    <!-- ===================== 1. what-is-msp ===================== -->
+    <section id="what-is-msp">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>はじめに ― MSPとは何か</h2>
+
+      <p><strong>MSP(Managing Successful Programmes)</strong> は、複数のプロジェクトや関連活動を束ねて組織の戦略的な目標を達成するための「プログラムマネジメント」のベストプラクティス・フレームワークです。PeopleCert(2021年に AXELOS を買収)が提供しており、PRINCE2 や MoP(Management of Portfolios)と同じファミリーに属する資格体系の一つです。</p>
+
+      <p>MSPが解決しようとしている課題は明確です。多くの組織変革プログラムは、次のような理由で失敗します。</p>
+
+      <ul>
+        <li>個々のプロジェクトは順調に進んでいても、組織全体として期待した便益(ベネフィット)が得られない</li>
+        <li>プロジェクト間の依存関係や優先順位の調整ができていない</li>
+        <li>経営層のスポンサーシップが弱く、変化への抵抗に対処できない</li>
+        <li>環境変化(市場・規制・技術)にプログラムが追従できない</li>
+      </ul>
+
+      <p>MSP 5th edition(2020年公開)は、こうした失敗パターンに関する調査結果を踏まえ、デジタル変革の加速、アジャイルワークの普及、不確実性の増大に対応できるよう、2011年版から大幅に構造を見直したものです。</p>
+
+      <h3>5th edition での主な変更点</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>4th edition(2011年版)</th><th>5th edition(2020年版)</th></tr></thead>
+          <tbody>
+            <tr><td>テーマ数</td><td>9つの「ガバナンステーマ」</td><td>7つの「テーマ」(各テーマ名は単語1つで表現)</td></tr>
+            <tr><td>原則数</td><td>7原則(一部異なる表現)</td><td>7原則(新規に「境界を越えた協働」「曖昧さへの対処」を追加)</td></tr>
+            <tr><td>ブループリント</td><td>Blueprint</td><td><strong>Target Operating Model(TOM)</strong> に改称し、内容を拡充</td></tr>
+            <tr><td>プロセス数</td><td>6つのトランスフォーメーショナルフロー</td><td><strong>7つのプロセス</strong>(Evaluate New Information が新設)</td></tr>
+            <tr><td>適用の柔軟性</td><td>比較的固定的</td><td>4つの「プログラムの動機(ドライバー)」シナリオに基づくテーラリングを明示</td></tr>
+            <tr><td>デリバリー方式</td><td>ウォーターフォール前提が強い</td><td>アジャイル / ウォーターフォール / ハイブリッドを問わず適用可能な設計</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>PeopleCert公式製品ページ(後掲)、Henny Portman氏によるMSP 5th/2011版比較記事、PM Today誌の解説記事を基に構成。</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 2. exam-overview ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 02</div>
+      <h2>試験の全体像</h2>
+
+      <p>MSP Foundation, 5th edition の試験概要は以下の通りです(2026年9月時点、PeopleCert公式サイトの記載に基づく)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>問題数</td><td>60問</td></tr>
+            <tr><td>出題形式</td><td>四肢択一(Multiple choice)</td></tr>
+            <tr><td>試験時間</td><td>60分</td></tr>
+            <tr><td>教材持ち込み</td><td>不可(Closed book)</td></tr>
+            <tr><td>合格基準</td><td>60%以上(60問中36問以上の正答)</td></tr>
+            <tr><td>対応言語</td><td>英語・中国語</td></tr>
+            <tr><td>資格更新</td><td>3年ごと(PeopleCert Plus で CPDポイント 60点を記録するか、更新期限までにプロダクトスイート内の別資格を取得することで更新可能)</td></tr>
+            <tr><td>前提資格</td><td>なし(Foundationは誰でも受験可能)</td></tr>
+            <tr><td>主な対象者</td><td>プロジェクトマネージャー、シニアプロジェクトマネージャー、プログラムマネージャー、ポートフォリオマネージャー、ビジネスチェンジマネージャー、ベネフィットマネージャー、SRO、ビジネスアナリストなど</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>出題の柱は次の3点に整理されます。</p>
+
+      <ol>
+        <li><strong>原則(Principles)を状況に照らして理解しているか</strong></li>
+        <li><strong>テーマ(Themes)とその主要概念・関連文書を理解しているか</strong></li>
+        <li><strong>プロセス(Processes)=プログラムライフサイクルの流れを理解しているか</strong></li>
+      </ol>
+
+      <p>上位資格である MSP Practitioner では、これらを「実際の状況に適用・テーラリングできるか」まで問われますが、Foundationはあくまで知識理解が中心です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930</a></li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 3. programme-project-portfolio ===================== -->
+    <section id="programme-project-portfolio">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 03</div>
+      <h2>プログラム・プロジェクト・ポートフォリオの違い</h2>
+
+      <p>MSPを学ぶ最初のステップは、「プログラム」という言葉の定義を正確に理解することです。</p>
+
+      <ul>
+        <li><strong>プロジェクト(Project)</strong>: 合意されたビジネスケースに従って、1つまたは複数の「アウトプット(成果物)」を生み出すための一時的な組織。比較的短期間で完結する。</li>
+        <li><strong>プログラム(Programme)</strong>: 関連する複数のプロジェクトやその他の活動を調整・指揮・監督するために作られた、一時的で柔軟な組織。組織の戦略目標に関連する「<strong>アウトカム(結果)</strong>」と「<strong>ベネフィット(便益)</strong>」を届けることを目的とし、多くの場合、数年にわたって存続する。</li>
+        <li><strong>ポートフォリオ(Portfolio)</strong>: 組織(またはその一部)が投資対効果を最大化するために管理する、プログラムとプロジェクトの全体集合。</li>
+      </ul>
+
+      <p>重要な違いは、<strong>プロジェクトは「アウトプット」を扱い、プログラムは「アウトカムとベネフィット」を扱う</strong>という点です。プログラムマネジメントとプロジェクトマネジメントは対立する概念ではなく、補完関係にあります。プログラムのライフサイクルの中で、複数のプロジェクトが立ち上げられ、実行され、クローズされていきます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="portfolioHierarchy"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プログラム・プロジェクト・ポートフォリオの違い</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p>組織でプログラムマネジメントを導入する際は、まず「これはプログラムとして扱うべき取り組みなのか、それとも単一の大規模プロジェクトで十分なのか」を見極めることが重要です。目安として、①複数のプロジェクトの調整が必要、②組織横断的な変革を伴う、③ベネフィットの実現に組織の業務プロセスや文化そのものの変化が必要、のいずれかに該当する場合はプログラムとして扱うべきとされています。</p>
+      </div>
+
+    </section>
+
+    <!-- ===================== 4. framework-structure ===================== -->
+    <section id="framework-structure">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 04</div>
+      <h2>MSPフレームワークの全体構造</h2>
+
+      <p>MSP 5th edition は、<strong>7つの原則(Principles)・7つのテーマ(Themes)・7つのプロセス(Processes)</strong> という3層構造で構成されています。</p>
+
+      <ul>
+        <li><strong>原則(Principles)</strong>: プログラムマネジメントから価値を得るために、常に守り続けるべき「指針となる要請事項」。プログラムの識別からクローズまで一貫して適用される、最も普遍的なレイヤー。</li>
+        <li><strong>テーマ(Themes)</strong>: 原則をガバナンスに落とし込む「本質的な側面」。組織構造・文書・役割など、統制のための仕組みを定義する。</li>
+        <li><strong>プロセス(Processes)</strong>: テーマを通じて原則を実践に移す「プログラムライフサイクルの経路」。時系列で具体的にどう進めるかを示す。</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="frameworkLayers"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">MSPフレームワークの全体構造</div>
+      </div>
+
+      <p><strong>関係性のポイント(試験頻出)</strong></p>
+
+      <ul>
+        <li>原則は「なぜ」を示し、テーマは「何を」統制すべきかを示し、プロセスは「いつ・どう」実行するかを示す。</li>
+        <li>7つのテーマは、プログラムライフサイクルの各プロセスの中で<strong>繰り返し適用</strong>される(一度定義して終わりではない)。</li>
+        <li>「7・7・7」という数字の組み合わせは頻出の記憶ポイントである。</li>
+      </ul>
+
+    </section>
+
+    <!-- ===================== 5. principles ===================== -->
+    <section id="principles">
+      <div class="section-eyebrow"><i class="ti ti-target-arrow"></i>SECTION 05</div>
+      <h2>7つの原則(Principles)</h2>
+
+      <p>原則は、プログラムマネジメントの成功のために継続的に守られるべき「指針となる要請事項」です。原則自体は証明を必要とせず(self-validating)、経験的に正しいと認められているという特徴を持ちます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>原則(英語)</th><th>日本語での意味合い</th><th>要点</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Lead with purpose</td><td>目的を持ってリードする</td><td>SROを中心に、明確な意図とビジョンを持ってプログラムを主導し、変化への抵抗を乗り越える強いリーダーシップを発揮する</td></tr>
+            <tr><td>2</td><td>Collaborate across boundaries</td><td>境界を越えて協働する</td><td>組織・部門・サプライヤーなど複数の境界をまたぐ関係者の間で、効果的な横断的ガバナンスを築く</td></tr>
+            <tr><td>3</td><td>Deal with ambiguity</td><td>曖昧さに対処する</td><td>プログラムに内在するVUCA(変動性・不確実性・複雑性・曖昧性)を受け入れ、目を開いた(eyes-open)意思決定を行う</td></tr>
+            <tr><td>4</td><td>Align with priorities</td><td>優先順位に整合させる</td><td>プログラムを組織の戦略的優先事項と継続的に整合させ、環境変化に応じて見直す</td></tr>
+            <tr><td>5</td><td>Deploy diverse skills</td><td>多様なスキルを投入する</td><td>プログラムの成功に必要な、幅広く多様な専門性・経験を持つ人材を確保し活用する</td></tr>
+            <tr><td>6</td><td>Realize measurable benefits</td><td>測定可能なベネフィットを実現する</td><td>ベネフィットを定義し、追跡し、実際に実現することにプログラムの焦点を当て続ける</td></tr>
+            <tr><td>7</td><td>Bring pace and value</td><td>ペースと価値をもたらす</td><td>早期かつ継続的に価値を届けるペース配分を行い、学びを次のトランシェ(段階)に活かす</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>原則は「チェックリスト」ではなく「判断基準」として使う。個々の意思決定の場面で「この選択はどの原則に沿っているか / 反しているか」を問い直す習慣を持つ。</li>
+          <li>7原則すべてを一度に完璧に満たそうとするのではなく、プログラムの置かれた状況(後述のテーラリングのドライバー)に応じて、どの原則が特に重要かの優先順位を意識する。</li>
+          <li>「Deal with ambiguity」は2011年版になかった新原則であり、不確実性の高い変革プログラムほど重視される。曖昧さを排除しようとするのではなく、リスクを可視化した上で前進する判断力が問われる。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Henny Portman氏によるMSP 5th/2011版比較(原則対応表)、PeopleCert公式製品ページ</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 6. themes ===================== -->
+    <section id="themes">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 06</div>
+      <h2>7つのテーマ(Themes)</h2>
+
+      <p>テーマは、原則をプログラムのガバナンスに落とし込むための「本質的な側面」であり、各テーマは単語1語で名付けられています(2011年版の「ガバナンステーマ」から名称変更)。各テーマ章には、後述する4つの「プログラムの動機(ドライバー)」別のシナリオが用意されており、状況に応じたテーラリングの学習材料となっています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="themesOverview"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">7つのテーマ(Themes)</div>
+      </div>
+
+      <h3>Organization テーマ(組織)</h3>
+
+      <p><strong>目的</strong>: プログラムの定義・実行をコントロールするために必要な、ガバナンスボードと支援オフィスの構造を定義すること。誰が何を決め、誰が何に責任を持つのかを明確にする。</p>
+
+      <p><strong>主要な役割</strong></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>役割</th><th>説明</th></tr></thead>
+          <tbody>
+            <tr><td>Sponsoring Group(スポンサリンググループ)</td><td>プログラムの方向性と資金について戦略的意思決定を行う、同格の経営層メンバーによるグループ</td></tr>
+            <tr><td>Programme Board(プログラムボード)</td><td>ベネフィットの実現を、定められた制約の中で推進する権限を持つガバナンスボード。最低限、SRO・プログラムマネージャー・BCM・プログラムオフィスのリーダーで構成される</td></tr>
+            <tr><td>Senior Responsible Owner(SRO)</td><td>プログラムのアウトカム実現について、全体的かつ継続的な説明責任(accountability)を負う。スポンサリンググループの代表として日常的に活動する</td></tr>
+            <tr><td>Programme Manager(プログラムマネージャー)</td><td>プログラムボードに対して責任を負い、SROを補佐しながらプログラムの日々のリーダーシップを担う。プロジェクト群の調整・実行に責任を持つ</td></tr>
+            <tr><td>Business Change Manager(BCM)</td><td>事業側の人材が担うことが望ましいとされる役割。プログラムマネージャーが届けるアウトプットを実際の業務に定着させ、ベネフィットの実現を確実にする</td></tr>
+            <tr><td>Programme Office(プログラムオフィス)</td><td>プロジェクトと事業の双方から情報を集約する「情報のハブ」。プログラムマネージャーに報告しつつ、各種の助言も行う</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="orgStructure"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Organization テーマ(組織)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>SROは「兼任の名ばかりスポンサー」にしない。プログラムの成否に対する説明責任を実質的に負える、十分な権限と組織内影響力を持つ人物を選ぶ。</li>
+          <li>BCMは通常、事業側(プログラムを実行する側ではなく、変化を受け取り実際に運用する側)から選任する。プログラムマネージャーとBCMを同一人物が兼務すると、アウトプット提供とベネフィット実現の両方に対する客観的なチェックが働かなくなるリスクがある。</li>
+          <li>プログラムオフィスを単なる事務局ではなく、進捗・リスク・ベネフィットの状況を横断的に可視化する「情報のハブ」として機能させる。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>QA社MSP Practitionerコースウェア、Know-How-What.com「Key Roles in MSP 5th Edition」、PDCAコンサルティング MSPサマリー資料</li>
+        </ul>
+      </div>
+
+      <h3>Design テーマ(デザイン)</h3>
+
+      <p><strong>目的</strong>: プログラムが目指す未来像を明確にし、リスク・ベネフィット・望ましい「終着点(end state)」を関係者に分かりやすく示すこと。</p>
+
+      <p><strong>主要な構成要素</strong></p>
+
+      <ul>
+        <li><strong>Vision(ビジョン)</strong>: プログラム完了後、投資組織が到達している「望ましい未来の姿」。ビジョンステートメントは、①対外的に理解しやすい表現である、②誰にでも理解できる、③関与とコミットメントを引き出す、④現状維持がなぜ選択肢たり得ないかを示唆する、⑤具体的な期日や詳細な数値目標は避ける、という特徴を持つべきとされる。</li>
+        <li><strong>Target Operating Model(TOM / 目標運用モデル)</strong>: 2011年版の「ブループリント」を改称・拡充した概念。プログラム完了後の組織の将来状態を、役割と責任・文化・プロセス・技術・インフラ・情報とデータ・知識と学習といった観点で詳細に記述したもの。現状(as-is)と将来状態(to-be)をつなぐ「地図」の役割を果たす。</li>
+        <li><strong>Benefits Map(ベネフィットマップ)</strong>: アウトプット → アウトカム → ベネフィットへの因果関係を可視化した図。</li>
+        <li><strong>初期リスクの識別</strong>: デザイン段階から、ベネフィット実現を阻害しうるリスクを洗い出し、優先順位づけを始める。</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="designChain"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Design テーマ(デザイン)</div>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>ビジョンステートメントは「短く、印象的で、具体的な期日を含まない」ものにする。詳細な数値目標を盛り込みすぎると、環境変化のたびに陳腐化してしまう。</li>
+          <li>TOMは一度作って終わりではなく、プログラムの進行とともに継続的に更新される「生きたモデル」として扱う。</li>
+          <li>ビジョンとTOMを必ず紐づけて管理する。ビジョンが「なぜ」を語り、TOMが「具体的に何が変わるのか」を語るという役割分担を崩さない。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Umbrex「MSP for Core Project & Program Management」、TheKnowledgeAcademy「MSP Blueprint」解説記事、SlideShare「The 4 key elements of best practice」</li>
+        </ul>
+      </div>
+
+      <h3>Justification テーマ(正当化)</h3>
+
+      <p><strong>目的</strong>: 投資(時間・資金・資源)に見合うだけのベネフィットが見込めることを継続的に証明し、プログラムを進める / 止めるの判断を支えること。</p>
+
+      <p><strong>主要な構成要素</strong></p>
+
+      <ul>
+        <li><strong>Business Case(ビジネスケース)</strong>: プログラムへの投資が正当化される理由を示す、生きた文書。一度作成して終わりではなく、環境の変化や新たな知見に応じて継続的に更新される。</li>
+        <li><strong>ベネフィット管理アプローチ</strong>: ベネフィットをどのように識別・定量化・追跡・実現するかの方針。</li>
+        <li><strong>キャッシュフロー管理・予算編成</strong>: 投資の時期と規模を管理し、資金面からプログラムの実行可能性を裏づける。</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>ビジネスケースを「プログラム開始時に一度作成する承認文書」として扱わない。各トランシェレビューのたびに見直し、「このまま投資を継続する正当性があるか」を問い直す運用にする。</li>
+          <li>ベネフィットの金銭価値だけでなく、非金銭的なベネフィット(顧客満足度、従業員エンゲージメントなど)も定義し、測定方法をあらかじめ決めておく。</li>
+          <li>「Dis-benefit(負の便益)」、つまりプログラムによって生じうる望ましくない影響も明示的に洗い出し、ビジネスケースに反映する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Henny Portman氏比較記事、Umbrex「MSP for Core Project & Program Management」</li>
+        </ul>
+      </div>
+
+      <h3>Structure テーマ(構造)</h3>
+
+      <p><strong>目的</strong>: ベネフィットを段階的に実現するために、プロジェクトやその他の活動をどう編成し、どのペースで届けるかを計画すること。</p>
+
+      <p><strong>主要な構成要素</strong></p>
+
+      <ul>
+        <li><strong>プログラムプラン(Programme Plan)</strong>: プログラム全体のスケジュール・マイルストーン・依存関係を示す計画。</li>
+        <li><strong>プロジェクトドシエ(Projects Dossier)</strong>: プログラムを構成するプロジェクトや活動の一覧・管理情報の集合。</li>
+        <li><strong>トランシェ(Tranche)</strong>: ケイパビリティの段階的な変化とベネフィットの実現を軸に編成された、一連のプロジェクトと活動のまとまり。プログラムは複数のトランシェに分割して進めることで、一度にすべてを届けようとするリスクを避け、早期に価値を出しながら学習を反映できる。</li>
+        <li><strong>各種マネジメント戦略(Management Strategies)</strong>: ベネフィット管理戦略、リスク管理戦略、ステークホルダー関与戦略、品質管理戦略、情報管理戦略など、プログラム運営の各側面をどう統制するかの方針集。</li>
+        <li><strong>資源(人材・設備・施設)の計画と最適配分</strong>。</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>トランシェの区切りは、プロジェクトの完了タイミングではなく「ベネフィットが実現できる段階」を基準に設計する。</li>
+          <li>各トランシェの終わりに正式な「トランシェレビュー」を設け、ベネフィットの実現状況・ビジネスケースの妥当性・戦略との整合性を確認した上で、継続・調整・一時停止・早期クローズを判断するゲートとして機能させる。</li>
+          <li>プロジェクトドシエは静的な一覧表ではなく、依存関係やリソース競合を可視化できる管理情報として運用する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Open Exam Prep「Free MSP Foundation Practice Exam」解説、TrustedInstitute「MSP Processes and Programme Lifecycle Flashcards」</li>
+        </ul>
+      </div>
+
+      <h3>Knowledge テーマ(知識)</h3>
+
+      <p><strong>目的</strong>: プログラムに関わる情報と知識を、正確に、適切なアクセス権限のもとで、確実に活用できる状態に保つこと。また、経験から学び、継続的改善の文化を醸成すること。</p>
+
+      <p><strong>主要な構成要素</strong></p>
+
+      <ul>
+        <li><strong>情報管理戦略(Information Management Strategy)</strong>: 情報の取得・利用・評価・保護・配布の方針。データプライバシーやバージョン管理(構成管理 / Configuration Management)も含む。</li>
+        <li><strong>教訓(Lessons)の収集と活用</strong>: プログラム内・プログラム間で得られた学びを体系的に記録し、以降のトランシェや将来のプログラムに反映する仕組み。</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「教訓管理」を、プロジェクト終了時に一度だけ実施する形式的な儀式にしない。トランシェレビューのたびに教訓を振り返り、次のトランシェの計画に実際に反映するサイクルを作る。</li>
+          <li>情報の「正確性」だけでなく「誰がどのバージョンにアクセスできるか」というガバナンスの観点も、情報管理戦略に明記する。</li>
+          <li>Knowledgeテーマは他のすべてのテーマを下支えする性質を持つ。組織・デザイン・正当化・構造・アシュアランス・意思決定のいずれの判断も、正確でタイムリーな情報があって初めて成立することを意識する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Good e-Learning「MSP 5th Edition Foundation & Practitioner」コース概要、Open Exam Prep解説記事</li>
+        </ul>
+      </div>
+
+      <h3>Assurance テーマ(アシュアランス)</h3>
+
+      <p><strong>目的</strong>: プログラムが軌道に乗り、原則に沿って進んでいることについて、客観的な確信(confidence)を経営層に提供すること。</p>
+
+      <p><strong>主要な構成要素</strong></p>
+
+      <ul>
+        <li><strong>役割と責任の明確化</strong>: 誰が何を保証する立場にあるかを定義する。</li>
+        <li><strong>三線防御モデル(Three Lines of Defence)</strong>: アシュアランス活動を体系的に整理するためのモデル(詳細は第11章)。</li>
+        <li><strong>アシュアランス・アプローチ(Assurance Approach)文書</strong>: 三線防御それぞれについて、どのような監視活動を実施するかを定義する文書。試験でも問われる重要文書。</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>アシュアランスを「監査=チェックする側とされる側の対立」と捉えず、プログラムの成功確率を高めるための建設的な仕組みとして位置づける。</li>
+          <li>第1線(現場のマネジメント)・第2線(監視機能)・第3線(独立監査)の役割を混同しない。同じ人が複数の線を兼務すると、独立した保証が得られなくなる。</li>
+          <li>アシュアランス活動は計画段階から組み込み、プログラムの終盤に慌てて実施しない。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Actual4Test「MSP Foundation Free Exam Questions」、Good Governance Institute「Three lines of defence for assurance and reassurance」</li>
+        </ul>
+      </div>
+
+      <h3>Decisions テーマ(意思決定)</h3>
+
+      <p><strong>目的</strong>: プログラムのライフサイクル全体を通じて発生する多様な意思決定(リスクへの対応、課題の解決、その他あらゆる選択)を、適切なガバナンスのもとで行うための前提条件を整えること。2011年版にはなかった、5th editionで独立したテーマとして新設された領域。</p>
+
+      <p><strong>主要な構成要素</strong></p>
+
+      <ul>
+        <li><strong>意思決定アプローチ(Decision-Making Approach)</strong>: 誰が、どのレベルの意思決定を、どのように行うかを定める方針。</li>
+        <li><strong>リスクレジスター(Risk Register)</strong>: 識別されたリスクとその対応状況を記録する台帳。</li>
+        <li><strong>課題レジスター(Issue Register)</strong>: 発生した課題とその解決状況を記録する台帳。</li>
+        <li><strong>意思決定レジスター(Decision Register)</strong>: 5th editionで新たに明示された、重要な意思決定の履歴を記録する台帳。</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>「リスク」(将来起こりうる不確実な事象)と「課題」(既に発生した対処が必要な事象)を明確に区別し、それぞれに応じたエスカレーションの経路を定義する。</li>
+          <li>どのレベルの意思決定を誰が行えるか(プロジェクトレベル、プログラムマネージャーレベル、プログラムボードレベル、スポンサリンググループレベル)をあらかじめ明文化し、意思決定の停滞を防ぐ。</li>
+          <li>意思決定の履歴を記録することで、「なぜその判断をしたのか」を後から追跡できるようにし、説明責任と教訓の蓄積の両方に役立てる。</li>
+        </ul>
+      </div>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="decisionFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">Decisions テーマ(意思決定)</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Passitexams「MSP Practitioner 5th Ed Study Guide」、Open Exam Prep解説記事</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 7. lifecycle ===================== -->
+    <section id="lifecycle">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 07</div>
+      <h2>プログラムライフサイクル: 7つのプロセス</h2>
+
+      <p>MSP 5th edition の7つのプロセスは、2011年版の「6つのトランスフォーメーショナルフロー」を刷新したもので、プログラムがどのようにライフサイクルを進んでいくかを示します。重要な特徴は、<strong>プロセス1(Identify)とプロセス7(Close)は一度きり実行されるのに対し、プロセス2〜6は各トランシェごとに繰り返される(サイクリック)</strong>という点です。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="lifecycleFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">プログラムライフサイクル: 7つのプロセス</div>
+      </div>
+
+      <h3>Identify the Programme(プログラムを識別する)― 一度きり</h3>
+
+      <p><strong>目的</strong>: 初期のアイデア(多くの場合「プログラムマンデート」として表現される)を、確固たる基礎を持つ具体的な構想へと変換し、より詳細な検討プロセスに進むための正式な認可を得ること。</p>
+
+      <p><strong>主な活動</strong></p>
+
+      <ul>
+        <li>SROの任命とプログラムのスポンサリング</li>
+        <li>プログラムブリーフ(Programme Brief)の作成: ビジョン、想定ベネフィット、概算コスト、スケジュール、リスク、デリバリーの選択肢を含む、高レベルの記述</li>
+        <li>プログラム準備計画(Programme Preparation Plan)の作成: 次工程に必要な資源・活動・スケジュールを定義</li>
+      </ul>
+
+      <p><strong>アウトプット</strong>: プログラムブリーフと準備計画は、ガバナンスボードが「このプログラムに投資して進めるべきか」を判断するための材料となる。</p>
+
+      <h3>Design the Outcomes(アウトカムをデザインする)― サイクリック</h3>
+
+      <p><strong>目的</strong>: 戦略的なビジョンを、具体的で実現可能なTarget Operating Modelへと橋渡しすること。組織の将来状態(構造・プロセス・技術・情報・文化・人材・働き方)を明確化する。</p>
+
+      <p><strong>主な活動</strong>: 現状の理解、必要な変化の特定、アウトカムからベネフィットへの貢献のマッピング、実現可能性・リスク・依存関係の評価。</p>
+
+      <h3>Plan Progressive Delivery(段階的デリバリーを計画する)― サイクリック</h3>
+
+      <p><strong>目的</strong>: プログラムデザインを土台として、プロジェクトやその他の活動をトランシェへと構造化し、必要なケイパビリティとベネフィットを段階的に実現する計画を立てること。あわせて、デリバリーに進む前にプログラムの正当性を再確認する。</p>
+
+      <p><strong>主な活動</strong>: トランシェごとの詳細計画の策定(プロジェクト・活動・順序・依存関係・資源要件・スケジュール)。</p>
+
+      <h3>Deliver the Capabilities(ケイパビリティを届ける)― サイクリック</h3>
+
+      <p><strong>目的</strong>: 当該トランシェの計画を実行し、成果物がデザインされたアウトカムと整合していることを確実にする。</p>
+
+      <h3>Embed the Outcomes(アウトカムを定着させる)― サイクリック</h3>
+
+      <p><strong>目的</strong>: 届けられた成果を、実際の業務運用にしっかりと組み込む。移行(トランジション)の実行、変化の伝達、BCMを中心としたビジネス側での受け入れ、ベネフィット実現の測定開始などを含む。</p>
+
+      <h3>Evaluate New Information(新しい情報を評価する)― サイクリック</h3>
+
+      <p><strong>目的</strong>: プログラムを取り巻く環境を定期的に評価し、新しい知見や変化に適応できるようにする。トランシェレビューを通じて、ベネフィットの実現状況・ビジネスケースの妥当性・戦略との整合性を確認し、次のトランシェへ進むか、計画を調整するか、プログラムを早期にクローズするかを判断する重要なゲートとなる。</p>
+
+      <h3>Close the Programme(プログラムをクローズする)― 一度きり</h3>
+
+      <p><strong>目的</strong>: プログラムがベネフィットを実現し、目的を達成したことを正式に確認して、プログラムを終結させること。</p>
+
+      <p><strong>クローズの2つのパターン</strong></p>
+
+      <ul>
+        <li><strong>自然閉鎖(Natural Closure)</strong>: TOMに描かれたケイパビリティが提供され、ベネフィットの実現が評価された段階</li>
+        <li><strong>早期閉鎖(Premature Closure)</strong>: これまでの証跡から、これ以上の投資がビジネス上の合理性を持たないと判断された場合</li>
+      </ul>
+
+      <p><strong>主な活動</strong>: 残存プロジェクトのクローズ、アクセス権限・コントロールの解除、ベネフィット実現状況のレビューと報告、プログラム情報の最終更新、経営ガバナンスへのフィードバック、プログラム組織・サポート機能の解散。なお、一部のベネフィットはプログラムクローズ後も実現され続けることがあり、その追跡責任はビジネス側(BCMやビジネスオペレーション)に引き継がれる。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス(プロセス全体を通じて)</div>
+        <ul>
+          <li>プロセス1と7は「一度きり」であることを意識し、通常のトランシェサイクルと同じ感覚で運用しない。特にIdentifyは短く鋭く(short and sharp)行い、詳細検討はDesign the Outcomes以降に委ねることで、時期尚早な資源投入を避ける。</li>
+          <li>Evaluate New Informationのゲートを形骸化させない。「継続することが前提」の儀式的なレビューにせず、本当に「Stop」という選択肢が取りうる場として機能させる。</li>
+          <li>各トランシェの終わりに、次のトランシェの計画(Plan Progressive Delivery)を作り直す際は、直前のEmbed the OutcomesとEvaluate New Informationで得られた学びを必ず反映する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>TrustedInstitute「MSP Processes and Programme Lifecycle Flashcards」、Aaron Percival氏「Innovate, Iterate, Integrate」、Altkom Akademia MSP Foundation資料、Henny Portman氏プロセス対応表</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 8. governance ===================== -->
+    <section id="governance">
+      <div class="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 08</div>
+      <h2>ガバナンスと組織構造</h2>
+
+      <p>MSPにおける「プログラムガバナンス」とは、プログラムが組織の戦略目標と整合し、適切な権限のもとで統制されるための仕組み全体を指します。プログラムガバナンスは、コーポレートガバナンス(企業統治)の枠組みの中に位置づけられ、独立した存在ではありません。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="governanceStructure"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ガバナンスと組織構造</div>
+      </div>
+
+      <p><strong>PDCA(Plan-Do-Check-Act)サイクルとの関係</strong></p>
+
+      <p>MSPのテーマ章では、プログラムガバナンスの実践を、おなじみのPDCAサイクルになぞらえて説明することがあります。プログラム戦略(Programme Strategy)で「どう統治するか」を計画し(Plan)、各プロセスで実行し(Do)、Evaluate New InformationやAssuranceの仕組みで確認し(Check)、得られた教訓を次のトランシェの計画に反映する(Act)という循環です。</p>
+
+      <p><strong>プログラム戦略(Programme Strategy)とプログラムプラン(Programme Plans)の違い</strong></p>
+
+      <ul>
+        <li><strong>プログラム戦略</strong>: ガバナンスのアプローチ(組織構造を含む)を定義する、方針レベルの文書。</li>
+        <li><strong>プログラムプラン</strong>: 戦略に基づいて具体的にどう実行するかを定める、実行レベルの計画群(デリバリープラン、ベネフィット実現計画、ステークホルダー関与・コミュニケーション計画など)。</li>
+      </ul>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>ガバナンス構造を「一度決めたら固定」にしない。プログラムの規模やフェーズが変わるタイミングで、スポンサリンググループやプログラムボードの構成が適切かを見直す。</li>
+          <li>コーポレートガバナンスとプログラムガバナンスの接続点(監査委員会への報告ラインなど)を明確にし、プログラム単体で閉じたガバナンスにしない。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>1World Training MSP Foundationコース概要、PDCAコンサルティング MSPサマリー資料</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 9. benefits ===================== -->
+    <section id="benefits">
+      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 09</div>
+      <h2>ベネフィット管理の実践</h2>
+
+      <p>MSPの中心にある考え方は「<strong>プログラムはベネフィットによって駆動される(Benefits drive programmes)</strong>」というものです。</p>
+
+      <h3>用語の定義</h3>
+
+      <ul>
+        <li><strong>ベネフィット(Benefit)</strong>: アウトカムによってもたらされる測定可能な改善であり、投資組織にとって有利であると認識され、1つ以上の組織目標に貢献するもの。</li>
+        <li><strong>ディスベネフィット(Dis-benefit)</strong>: アウトカムによって生じる測定可能な悪化であり、投資組織にとって不利であると認識され、1つ以上の組織目標を損なうもの。</li>
+      </ul>
+
+      <h3>ベネフィット実現の流れ</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="benefitsFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ベネフィット実現の流れ</div>
+      </div>
+
+      <h3>主要な管理文書</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>文書</th><th>役割</th></tr></thead>
+          <tbody>
+            <tr><td>ベネフィットマップ(Benefits Map)</td><td>アウトプットからベネフィットまでの因果関係を可視化する図</td></tr>
+            <tr><td>ベネフィットプロファイル(Benefits Profile)</td><td>個々のベネフィットについて、定義・測定方法・オーナー・実現時期などを記述する文書</td></tr>
+            <tr><td>ベネフィット管理アプローチ</td><td>ベネフィットの識別・定量化・追跡・実現の全体方針(Justificationテーマに関連)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>ベネフィットには必ず「オーナー」を割り当てる。多くの場合、プログラムマネージャーではなくBCM(またはビジネス側の該当責任者)がベネフィットの実現に責任を持つ。</li>
+          <li>ベネフィットは定量的な指標だけでなく、測定のタイミング・測定方法・ベースライン(現状値)まで具体的に定義しておく。「感覚的には良くなった」で終わらせない。</li>
+          <li>ベネフィットの実現はプログラムクローズ後まで続くことが多い。クローズ時には、誰が・いつまで・どのようにベネフィットの追跡を継続するのかを明確にしてから組織を解散する。</li>
+          <li>ディスベネフィットを隠さず可視化する。負の影響を認識した上で、それでも投資に見合うと判断できるかがビジネスケースの本質である。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>MSP Blueprint解説記事(TheKnowledgeAcademy)、SlideShare「The 4 key elements of best practice programme design」</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 10. risk-decisions ===================== -->
+    <section id="risk-decisions">
+      <div class="section-eyebrow"><i class="ti ti-alert-triangle"></i>SECTION 10</div>
+      <h2>リスク・課題・意思決定管理</h2>
+
+      <p>Decisionsテーマとしてまとめられている領域ですが、実務上は「リスクマネジメント」「課題マネジメント」「意思決定ガバナンス」の3つの側面を持ちます(第6.7節も参照)。</p>
+
+      <h3>リスクと課題の違い</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>リスク(Risk)</th><th>課題(Issue)</th></tr></thead>
+          <tbody>
+            <tr><td>時間軸</td><td>将来起こりうる不確実な事象</td><td>すでに発生した事象</td></tr>
+            <tr><td>対応の性質</td><td>予防的(発生確率と影響度を評価し、対応を計画)</td><td>是正的(発生した事態への対処)</td></tr>
+            <tr><td>記録先</td><td>Risk Register</td><td>Issue Register</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>意思決定の階層</h3>
+
+      <p>プログラムでは、日常的な小さな判断から、プログラムの継続可否に関わる重大な判断まで、多様なレベルの意思決定が発生します。意思決定アプローチでは、どのレベルの判断を誰が行うかをあらかじめ定義しておくことで、迅速かつ一貫性のある対応を可能にします。一般的には、プロジェクトレベル → プログラムマネージャーレベル → プログラムボードレベル → スポンサリンググループレベルという階層でエスカレーションの経路が設計されます。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>リスクレジスターを「作って終わり」にせず、各トランシェレビュー(Evaluate New Information)のタイミングで必ず再評価する。</li>
+          <li>課題はリスクが顕在化したものであることが多い。リスク対応が功を奏さなかった場合に、速やかに課題として扱いを切り替える運用ルールを持つ。</li>
+          <li>意思決定レジスターに「なぜその判断をしたか」の根拠まで記録することで、後からの説明責任だけでなく、将来の類似プログラムへの教訓(Knowledgeテーマ)としても活用する。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Passitexams「MSP Practitioner 5th Ed Study Guide」、Open Exam Prep解説記事</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 11. assurance ===================== -->
+    <section id="assurance">
+      <div class="section-eyebrow"><i class="ti ti-scale"></i>SECTION 11</div>
+      <h2>アシュアランスと三線防御モデル</h2>
+
+      <p>MSPのAssuranceテーマは、一般的なガバナンス・内部統制分野で広く使われる「<strong>三線防御モデル(Three Lines of Defence)</strong>」の考え方を、プログラムマネジメントの文脈に適用したものです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="threeLines"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">アシュアランスと三線防御モデル</div>
+      </div>
+
+      <ul>
+        <li><strong>第1線(First Line)</strong>: プロジェクト・プログラムを直接運営する現場のマネジメント。リスクを識別し、コントロールを実装し、進捗を報告する一次的な責任を負う。</li>
+        <li><strong>第2線(Second Line)</strong>: リスク管理・品質管理・情報セキュリティ・コンプライアンスなど、現場から独立しつつも経営のマネジメントラインの一部として、第1線の実践を監督・支援する機能。</li>
+        <li><strong>第3線(Third Line)</strong>: 内部監査に代表される、第1線・第2線から独立した客観的な保証を提供する機能。監査委員会・取締役会に直接報告する。</li>
+      </ul>
+
+      <p>試験でも問われる重要な文書として、<strong>アシュアランス・アプローチ(Assurance Approach)</strong>があります。これは三線それぞれについて、どのような監視活動を実施するかを定義する文書です。</p>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>同一人物・同一チームが複数の線の役割を兼務しないよう、責任分界を明確にする。第2線と第1線を兼ねてしまうと、客観的な監督機能が失われる。</li>
+          <li>第3線(独立監査)の存在意義は「第1線・第2線が機能しているかどうか」を確認することにある。個別の作業内容そのものを再チェックする役割ではない点を混同しない。</li>
+          <li>アシュアランス活動はプログラム計画の初期段階から組み込み、監査を「後から差し込まれるもの」にしない。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>Good Governance Institute「The three lines of defence for assurance and reassurance」、Acumon「The Three Lines of Defence Model — and Its 2020 Successor」(IIAによる2020年改訂の考え方を含む一般的な三線モデルの解説)</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 12. tailoring ===================== -->
+    <section id="tailoring">
+      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 12</div>
+      <h2>テーラリング ― 組織・状況への適応</h2>
+
+      <p>MSPは「そのまま適用すべき固定的な手順書」ではなく、組織やプログラムの状況に応じて調整(テーラリング)することが前提のフレームワークです。5th editionでは、各テーマ章に4つの「プログラムの動機(ドライバー)」別シナリオが用意されており、これがテーラリングの学習材料となっています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ドライバー</th><th>想定される状況</th></tr></thead>
+          <tbody>
+            <tr><td>Innovation and growth(革新と成長)</td><td>新規事業・新市場開拓など、成長を目的とした変革</td></tr>
+            <tr><td>Organizational re-alignment(組織再編)</td><td>合併・買収・組織再編など、構造そのものを変える変革</td></tr>
+            <tr><td>Effective delivery(効果的なデリバリー)</td><td>複雑で大規模な変革を、確実に効果を出しながら進める必要がある状況</td></tr>
+            <tr><td>Efficient delivery(効率的なデリバリー)</td><td>資源制約の中で、複数の変革を効率よく並行して進める必要がある状況</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <ul>
+          <li>テーラリングは「MSPの一部を省略すること」ではなく、「原則・テーマ・プロセスの本質を保ったまま、適用の深さや形式を状況に合わせること」と理解する。</li>
+          <li>小規模なプログラムでは、ガバナンスボードの構成を簡略化する(例: SROがプログラムマネージャーを兼務する等)ことはあり得るが、原則そのもの(特にRealize measurable benefitsやDeal with ambiguity)を無視してよいわけではない。</li>
+          <li>アジャイルなデリバリーを行うプロジェクトが混在するプログラムでは、Structureテーマのトランシェ設計を、スプリント / リリースサイクルと整合させるようテーラリングする。</li>
+        </ul>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li>GoodeLearning「MSP 5th Edition: What's Changed About Managing Successful Programmes?」</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================== 13. checklist ===================== -->
+    <section id="checklist">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 13</div>
+      <h2>テーマ・プロセス別ベストプラクティスチェックリスト</h2>
+
+      <h3>Organizationテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">SROに十分な権限と組織内影響力があるか確認したか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">BCMを事業側から選任したか(プログラム実行側との兼務を避けたか)</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">プログラムオフィスが単なる事務局でなく情報ハブとして機能しているか</span></label>
+      </div>
+
+      <h3>Designテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">ビジョンステートメントが簡潔で、具体的な期日を含まない表現になっているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">Target Operating Modelを「一度作って終わり」にせず更新し続けているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">ビジョンとTOMが明確に紐づいているか</span></label>
+      </div>
+
+      <h3>Justificationテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">ビジネスケースを各トランシェレビューのたびに見直しているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">非金銭的ベネフィットも定義・測定方法を決めているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">ディスベネフィットを隠さず明示しているか</span></label>
+      </div>
+
+      <h3>Structureテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">トランシェの区切りをベネフィット実現の観点で設計しているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">各トランシェの終わりに正式なレビューゲートを設けているか</span></label>
+      </div>
+
+      <h3>Knowledgeテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">教訓を形式的な儀式でなく、次のトランシェ計画に実際に反映しているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">情報アクセス権限とバージョン管理のルールを明文化しているか</span></label>
+      </div>
+
+      <h3>Assuranceテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">三線の役割・責任者が明確に分かれており、兼務による利益相反がないか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">アシュアランス活動を計画の初期段階から組み込んでいるか</span></label>
+      </div>
+
+      <h3>Decisionsテーマ</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">リスクと課題を区別し、それぞれの記録・エスカレーション経路を明文化しているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">意思決定の根拠を記録に残しているか</span></label>
+      </div>
+
+      <h3>プロセス全体</h3>
+
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><span class="check-text">Identifyのプロセスを「短く鋭く」保ち、詳細検討を先送りできているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">Evaluate New Informationのゲートで「Stop」という選択肢が実質的に機能しているか</span></label>
+        <label class="check-item"><input type="checkbox"><span class="check-text">プログラムクローズ後のベネフィット追跡責任の引き継ぎ先を決めているか</span></label>
+      </div>
+
+    </section>
+
+    <!-- ===================== 14. anti-patterns ===================== -->
+    <section id="anti-patterns">
+      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 14</div>
+      <h2>よくある落とし穴(アンチパターン)</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アンチパターン</th><th>何が問題か</th><th>対処のヒント</th></tr></thead>
+          <tbody>
+            <tr><td>プログラムをただの「大きなプロジェクト」として扱う</td><td>アウトプット管理に終始し、ベネフィット・アウトカムへの意識が薄れる</td><td>Justification・Designテーマを起点に、常にベネフィットへの貢献を問い直す</td></tr>
+            <tr><td>SROが名目上の存在にとどまる</td><td>重要な意思決定が滞留し、プログラムの推進力が失われる</td><td>Organizationテーマに基づき、SROの実質的な権限とコミットメントを確認する</td></tr>
+            <tr><td>ビジネスケースを一度作って更新しない</td><td>環境変化に投資判断が追従できず、手遅れになるまで気づかない</td><td>Evaluate New Informationのタイミングでビジネスケースの見直しを必須プロセスとする</td></tr>
+            <tr><td>トランシェレビューを形骸化させる</td><td>本来ここで下せる「Stop」判断が事実上機能しなくなる</td><td>レビューの評価基準(ベネフィット実現度、戦略整合性)を事前に明文化しておく</td></tr>
+            <tr><td>アシュアランスの三線を兼務させる</td><td>客観的な保証が得られず、問題の早期発見が遅れる</td><td>第1〜3線の責任者を明確に分離し、報告ラインを独立させる</td></tr>
+            <tr><td>教訓を蓄積するだけで活用しない</td><td>同じ失敗を繰り返し、継続的改善が進まない</td><td>Knowledgeテーマの教訓を、次のPlan Progressive Deliveryの計画に必ず反映するルールにする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- ===================== 15. glossary ===================== -->
+    <section id="glossary">
+      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 15</div>
+      <h2>用語集</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">プログラム(Programme)</div><div class="g-def">関連する複数のプロジェクトや活動を調整・指揮・監督するために作られた、一時的で柔軟な組織。組織の戦略目標に関連するアウトカムとベネフィットの実現を目的とする</div></div>
+        <div class="glossary-item"><div class="g-term">プロジェクト(Project)</div><div class="g-def">合意されたビジネスケースに従って1つ以上のアウトプットを提供する一時的な組織</div></div>
+        <div class="glossary-item"><div class="g-term">アウトプット(Output)</div><div class="g-def">プロジェクトが提供する具体的な成果物</div></div>
+        <div class="glossary-item"><div class="g-term">アウトカム(Outcome)</div><div class="g-def">アウトプットの利用によってもたらされる、業務や行動の変化の結果</div></div>
+        <div class="glossary-item"><div class="g-term">ベネフィット(Benefit)</div><div class="g-def">アウトカムによってもたらされる測定可能な改善で、組織目標に貢献するもの</div></div>
+        <div class="glossary-item"><div class="g-term">ディスベネフィット(Dis-benefit)</div><div class="g-def">アウトカムによって生じる測定可能な悪化で、組織目標を損なうもの</div></div>
+        <div class="glossary-item"><div class="g-term">Target Operating Model(TOM)</div><div class="g-def">プログラム完了後の組織の将来状態を、役割・文化・プロセス・技術・情報・知識などの観点で描写したモデル(旧称: ブループリント)</div></div>
+        <div class="glossary-item"><div class="g-term">トランシェ(Tranche)</div><div class="g-def">ケイパビリティの段階的な変化とベネフィット実現を軸に編成された、一連のプロジェクト・活動のまとまり</div></div>
+        <div class="glossary-item"><div class="g-term">SRO(Senior Responsible Owner)</div><div class="g-def">プログラムのアウトカム実現に対して全体的な説明責任を負う役割</div></div>
+        <div class="glossary-item"><div class="g-term">BCM(Business Change Manager)</div><div class="g-def">事業側から選任され、提供されたアウトプットを業務に定着させベネフィット実現を担う役割</div></div>
+        <div class="glossary-item"><div class="g-term">三線防御モデル(Three Lines of Defence)</div><div class="g-def">現場管理・監視機能・独立監査という3つの層でアシュアランスを構造化するモデル</div></div>
+        <div class="glossary-item"><div class="g-term">プログラムマンデート(Programme Mandate)</div><div class="g-def">プログラム識別プロセスの起点となる、経営層からの戦略的方向性の表明</div></div>
+      </div>
+
+    </section>
+
+    <!-- ===================== 16. references ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 16</div>
+      <h2>参考文献・ソース一覧</h2>
+
+      <p>本ガイドの作成にあたり、以下の一次情報・解説記事を参照しました。詳細な学習には、PeopleCert公式の Managing Successful Programmes 5th edition マニュアル(公式教材)を必ず参照してください。</p>
+
+      <div class="ref-cards" role="list">
+        <div class="ref-card" role="listitem"><div class="ref-num">1</div><div class="ref-body"><span class="ref-name">PeopleCert公式 MSP Foundation, 5th edition 製品ページ(試験概要・出題テーマ)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">2</div><div class="ref-body"><span class="ref-name">Henny Portman "Brief comparison between MSP 5th edition and MSP 2011 edition"(原則・テーマ・プロセス対応表)</span><a class="ref-url" href="https://hennyportman.wordpress.com/2020/10/07/brief-comparison-between-msp-5th-edition-and-msp-2011-edition/" target="_blank" rel="noopener">https://hennyportman.wordpress.com/2020/10/07/brief-comparison-between-msp-5th-edition-and-msp-2011-edition/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">3</div><div class="ref-body"><span class="ref-name">Good e-Learning "MSP 5th Edition: What's Changed About Managing Successful Programmes?"</span><a class="ref-url" href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/" target="_blank" rel="noopener">https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">4</div><div class="ref-body"><span class="ref-name">PM Today "MSP 5th Edition: The What, Where And Why"</span><a class="ref-url" href="https://www.pmtoday.co.uk/msp-5th-edition-the-what-where-and-why/" target="_blank" rel="noopener">https://www.pmtoday.co.uk/msp-5th-edition-the-what-where-and-why/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">5</div><div class="ref-body"><span class="ref-name">Umbrex "MSP (Managing Successful Programmes)" フレームワーク解説</span><a class="ref-url" href="https://umbrex.com/resources/frameworks/project-management-frameworks/msp-managing-successful-programmes/" target="_blank" rel="noopener">https://umbrex.com/resources/frameworks/project-management-frameworks/msp-managing-successful-programmes/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">6</div><div class="ref-body"><span class="ref-name">TrustedInstitute "The MSP Processes and Programme Lifecycle Flashcards"</span><a class="ref-url" href="https://trustedinstitute.com/flashcards/msp-foundation/the-msp-processes-and-programme-lifecycle/" target="_blank" rel="noopener">https://trustedinstitute.com/flashcards/msp-foundation/the-msp-processes-and-programme-lifecycle/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">7</div><div class="ref-body"><span class="ref-name">Open Exam Prep "100+ Free MSP Foundation Practice Questions"</span><a class="ref-url" href="https://open-exam-prep.com/practice/msp-foundation" target="_blank" rel="noopener">https://open-exam-prep.com/practice/msp-foundation</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">8</div><div class="ref-body"><span class="ref-name">Know-How-What "Key Roles in Managing Successful Programmes 5th Edition"</span><a class="ref-url" href="http://www.know-how-what.com/Home/news-detail/key-roles-in-managing-successful-programmes-5th-edition" target="_blank" rel="noopener">http://www.know-how-what.com/Home/news-detail/key-roles-in-managing-successful-programmes-5th-edition</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">9</div><div class="ref-body"><span class="ref-name">PDCAコンサルティング MSP 5th Edition サマリー資料(PDF)</span><a class="ref-url" href="https://pdcaconsulting.com/wp-content/uploads/2025/03/MSP-Summary-v5.pdf" target="_blank" rel="noopener">https://pdcaconsulting.com/wp-content/uploads/2025/03/MSP-Summary-v5.pdf</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">10</div><div class="ref-body"><span class="ref-name">TheKnowledgeAcademy "MSP Blueprint - (Managing Successful Programmes)"</span><a class="ref-url" href="https://www.theknowledgeacademy.com/blog/msp-blueprint/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/blog/msp-blueprint/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">11</div><div class="ref-body"><span class="ref-name">Axelos MSP Practitioner Candidate Syllabus(PDF・公式シラバス)</span><a class="ref-url" href="https://www.avtechcn.com/pdf/M-S-P-5th-Edition-Practitioner_Candidate_Syllabus.pdf" target="_blank" rel="noopener">https://www.avtechcn.com/pdf/M-S-P-5th-Edition-Practitioner_Candidate_Syllabus.pdf</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">12</div><div class="ref-body"><span class="ref-name">TheKnowledgeAcademy "MSP® Courses"(7テーマ・コースアウトライン)</span><a class="ref-url" href="https://www.theknowledgeacademy.com/courses/msp-training/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/courses/msp-training/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">13</div><div class="ref-body"><span class="ref-name">1World Training "MSP Foundation, 5th Edition"各種コース概要(モジュール構成)</span><a class="ref-url" href="https://www.1worldtraining.com/book/live-online/3-days-live-online/msp-foundation-live-online-and-official-peoplecert-certification-exam-course-code-mspfnd-l/" target="_blank" rel="noopener">https://www.1worldtraining.com/book/live-online/3-days-live-online/msp-foundation-live-online-and-official-peoplecert-certification-exam-course-code-mspfnd-l/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">14</div><div class="ref-body"><span class="ref-name">Tecknologia "Managing Successful Programmes (MSP) Manual"(PeopleCertによるリブランディングの記載)</span><a class="ref-url" href="https://www.tecknologia.co.uk/home/book-detail/managing-successful-programmes-(msp)-manual" target="_blank" rel="noopener">https://www.tecknologia.co.uk/home/book-detail/managing-successful-programmes-(msp)-manual</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">15</div><div class="ref-body"><span class="ref-name">Good Governance Institute "The three lines of defence for assurance and reassurance"</span><a class="ref-url" href="https://www.good-governance.org.uk/publications/insights/the-three-lines-of-defence-for-assurance-and-reassurance" target="_blank" rel="noopener">https://www.good-governance.org.uk/publications/insights/the-three-lines-of-defence-for-assurance-and-reassurance</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">16</div><div class="ref-body"><span class="ref-name">Acumon "The Three Lines of Defence Model — and Its 2020 Successor"</span><a class="ref-url" href="https://acumon.com/blog/three-lines-of-defence-model/" target="_blank" rel="noopener">https://acumon.com/blog/three-lines-of-defence-model/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">17</div><div class="ref-body"><span class="ref-name">Passitexams "MSP Practitioner (5th Edition) Study Guide 2026"</span><a class="ref-url" href="https://passitexams.com/study-guide/msp-practitioner/" target="_blank" rel="noopener">https://passitexams.com/study-guide/msp-practitioner/</a></div></div>
+        <div class="ref-card" role="listitem"><div class="ref-num">18</div><div class="ref-body"><span class="ref-name">Aaron Percival "Innovate, Iterate, Integrate"(プロセスの循環構造の解説)</span><a class="ref-url" href="https://aaronpercival.substack.com/p/innovate-iterate-integrate" target="_blank" rel="noopener">https://aaronpercival.substack.com/p/innovate-iterate-integrate</a></div></div>
+      </div>
+
+      <div class="callout note">
+        <div class="callout-title"><i class="ti ti-info-circle"></i>注記</div>
+        <p>本ガイドは学習補助のために独自にまとめた二次資料であり、PeopleCert公式教材の代替とはなりません。試験対策には、必ず公式の Managing Successful Programmes 5th edition マニュアルおよび公式サンプル問題を併用してください。</p>
+      </div>
+
+    </section>
+
+    <footer>
+      MSP® および PRINCE2® は、各権利者の商標または登録商標です。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    portfolioHierarchy: `flowchart TB
+A["組織の戦略目標"] --> B["ポートフォリオ 複数のプログラム・プロジェクトの集合"]
+B --> C["プログラム1 アウトカムとベネフィットの実現"]
+B --> D["プログラム2 アウトカムとベネフィットの実現"]
+C --> E["プロジェクトA アウトプットの提供"]
+C --> F["プロジェクトB アウトプットの提供"]
+C --> G["その他の活動 BAUへの移行支援など"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B box;
+class C,D box;
+class E,F,G done;`,
+    frameworkLayers: `flowchart TB
+subgraph P["原則 Principles ― 常に守るべき指針"]
+direction LR
+P1["Lead with purpose"]
+P2["Collaborate across boundaries"]
+P3["Deal with ambiguity"]
+P4["Align with priorities"]
+P5["Deploy diverse skills"]
+P6["Realize measurable benefits"]
+P7["Bring pace and value"]
+end
+subgraph T["テーマ Themes ― ガバナンスの仕組み"]
+direction LR
+T1["Organization"]
+T2["Design"]
+T3["Justification"]
+T4["Structure"]
+T5["Knowledge"]
+T6["Assurance"]
+T7["Decisions"]
+end
+subgraph PR["プロセス Processes ― ライフサイクルの経路"]
+direction LR
+PR1["Identify"]
+PR2["Design"]
+PR3["Plan"]
+PR4["Deliver"]
+PR5["Embed"]
+PR6["Evaluate"]
+PR7["Close"]
+end
+P -->|"ガバナンスに落とし込む"| T
+T -->|"実践に移す"| PR
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class P1,P2,P3,P4,P5,P6,P7,T1,T2,T3,T4,T5,T6,T7,PR1,PR2,PR3,PR4,PR5,PR6,PR7 box;`,
+    themesOverview: `flowchart TB
+TH["7つのテーマ ライフサイクル全体を通じて並行・継続的に適用 適用の順序はない"]
+TH --- O["Organization 誰が意思決定するか"]
+TH --- D["Design どんな未来を目指すか"]
+TH --- J["Justification 投資として妥当か"]
+TH --- S["Structure どう計画・実行するか"]
+TH --- K["Knowledge 何を学び蓄積するか"]
+TH --- A["Assurance 本当に正しく進んでいるか"]
+TH --- DE["Decisions どう意思決定するか"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class O,D,J,S,K,A,DE box;
+class TH hub;`,
+    orgStructure: `flowchart TB
+SG["Sponsoring Group スポンサリンググループ"] --> PB["Programme Board プログラムボード"]
+PB --> SRO["SRO Senior Responsible Owner"]
+PB --> PM["Programme Manager"]
+PB --> BCM["Business Change Manager"]
+PB --> POL["Programme Office Lead"]
+PM --> PO["Programme Office 情報のハブ"]
+PM --> PR1["プロジェクト1"]
+PM --> PR2["プロジェクト2"]
+BCM --> BAU["ビジネス部門 BAUへの定着"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class SG,PB,PM,BCM,POL,PR1,PR2,BAU box;
+class SRO,PO hub;`,
+    designChain: `flowchart LR
+V["Vision 望ましい未来の姿"] --> TOM["Target Operating Model 役割・文化・プロセス・技術・ 情報とデータ・知識と学習"]
+TOM --> BM["Benefits Map アウトプット→アウトカム→ベネフィット"]
+BM --> R["初期リスクの識別と優先順位づけ"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class V,TOM,BM,R box;`,
+    decisionFlow: `flowchart TB
+E["事象の発生"] --> Q{"種類は？"}
+Q -->|"将来のリスク"| RR["Risk Register に登録"]
+Q -->|"既に発生した課題"| IR["Issue Register に登録"]
+RR --> DA["Decision-Making Approach に基づき対応レベルを判断"]
+IR --> DA
+DA -->|"プロジェクトレベルで対応可能"| PJ["プロジェクトチームで解決"]
+DA -->|"プログラムへの影響が大きい"| PB2["Programme Boardへエスカレーション"]
+PJ --> DR["Decision Register に記録"]
+PB2 --> DR
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class E,RR,IR,PJ,DR box;
+class Q,DA,PB2 hub;`,
+    lifecycleFlow: `flowchart TB
+M["プログラムマンデート"] --> P1["1. Identify the Programme プログラムを識別する"]
+P1 --> GATE1{"認可の判断"}
+GATE1 -->|"Go"| P2
+GATE1 -->|"No-Go 認可されず"| P7
+subgraph CYCLE["トランシェごとに繰り返すサイクル"]
+direction TB
+P2["2. Design the Outcomes アウトカムをデザインする"]
+P3["3. Plan Progressive Delivery 段階的デリバリーを計画する"]
+P4["4. Deliver the Capabilities ケイパビリティを届ける"]
+P5["5. Embed the Outcomes アウトカムを定着させる"]
+P6["6. Evaluate New Information 新しい情報を評価する"]
+P2 --> P3 --> P4 --> P5 --> P6
+end
+P6 --> GATE2{"継続判断 Go・No-Go"}
+GATE2 -->|"Go 次のトランシェへ"| P2
+GATE2 -->|"No-Go 目標達成 または これ以上の投資価値なし"| P7["7. Close the Programme プログラムをクローズする"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class M,P1,P2,P3,P4,P5,P6 box;
+class GATE1,GATE2 hub;
+class P7 done;`,
+    governanceStructure: `flowchart TB
+CG["Corporate Governing Body and Audit Committee 企業の統治機関"] --> SG["Sponsoring Group スポンサリンググループ"]
+SG --> PB["Programme Board プログラムボード"]
+PB --> DEL["Deliver the Capabilities プロジェクト群によるアウトプット提供"]
+PB --> BO["Business Operations BCMを通じたビジネス運用への定着"]
+BO -.->|"実績・課題のフィードバック"| CG
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class SG,PB,DEL,BO box;
+class CG hub;`,
+    benefitsFlow: `flowchart LR
+OUT["アウトプット プロジェクトの成果物"] --> OC["アウトカム 業務・行動の変化"]
+OC --> BEN["ベネフィット 測定可能な改善"]
+BEN --> OBJ["組織目標への貢献"]
+OC -.->|"意図しない場合"| DIS["ディスベネフィット 測定可能な悪化"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class OUT,OC,BEN,OBJ box;
+class DIS hub;`,
+    threeLines: `flowchart TB
+L1["第1線 現場のマネジメント プロジェクト・プログラムの 日常的なマネジメントコントロール"]
+L2["第2線 監視機能 リスク管理・品質管理・ コンプライアンス機能による監督"]
+L3["第3線 独立監査 内部監査など、 第1線・第2線から独立した保証"]
+L1 --> L2 --> L3
+L3 -.->|"経営層・監査委員会への報告"| GOV["Corporate Governing Body"]
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class L1,L2,L3 box;
+class GOV hub;`,
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        // 開いていたときだけフォーカスをトグルボタンへ退避する。
+        // モバイルの閉じたサイドバーは visibility: hidden になるため、
+        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
+        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
+        // 移動したい利用者からフォーカスを奪ってしまう。
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
