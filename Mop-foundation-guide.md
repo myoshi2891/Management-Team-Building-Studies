@@ -38,6 +38,7 @@ MoP Foundation（現在の正式名称は「PRINCE2® Portfolio Management Found
 | 試験時間 | 40分 |
 | 合格基準 | 50%以上の正答（25問以上） |
 | 受験形式 | クローズドブック（資料持ち込み不可） |
+| 試験言語 | 英語 |
 | 結果通知 | 公式結果は2営業日以内 |
 
 > 出典: [PeopleCert公式 MoP Foundation商品ページ](https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644)
