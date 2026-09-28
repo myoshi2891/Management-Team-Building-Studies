@@ -2,7 +2,7 @@
 
 **Managing Successful Programmes(プログラムマネジメント）― 初学者向け・出題範囲対応版**
 
-> 本ガイドは PeopleCert（旧 AXELOS）が提供する **MSP Foundation, 5th edition** 試験の出題範囲をベースに、初学者でも理解できるようステップバイステップで解説したものです。PeopleCert は MSP を「**PRINCE2 Programme Management（Version 5）**」へリブランディングすることを発表しており、パートナー向けの準備は2025年9月22日の週、一部教材の更新は同年10月20日の週、商用ローンチは同年11月17日の週に予定されています。ガイダンスの内容自体に変更はなく、資格名・教材名は引き続き「MSP」「MSP 5th edition」が広く使われています。本ガイドでも従来通り「MSP」の呼称を用います。
+> 本ガイドは PeopleCert（旧 AXELOS）が提供する **MSP Foundation, 5th edition** 試験の出題範囲をベースに、初学者でも理解できるようステップバイステップで解説したものです。PeopleCert は MSP を「**PRINCE2 Programme Management（Version 5）**」へリブランディングすることを発表しており、パートナー向けの準備は2025年9月22日の週、一部教材の更新は同年10月20日の週、商用ローンチは同年11月17日の週に実施されました。ガイダンスの内容自体に変更はなく、資格名・教材名は引き続き「MSP」「MSP 5th edition」が広く使われています。本ガイドでも従来通り「MSP」の呼称を用います。
 
 ---
 
