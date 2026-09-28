@@ -1,5 +1,6 @@
 # MoP Foundation（Management of Portfolios）学習ガイド
-### ― PRINCE2® Portfolio Management Foundation（旧称 MoP® Foundation）完全対策 ―
+
+**― PRINCE2® Portfolio Management Foundation（旧称 MoP® Foundation）完全対策 ―**
 
 > 本ガイドは、世界トップクラスのソフトウェアエンジニア／プロジェクトマネージャー／スクラムマスターの視点から、MoP Foundation試験の出題範囲を初学者にもわかりやすく、ステップ・バイ・ステップで解説するものです。各項目には実務でのベストプラクティスと、根拠となる一次・二次情報源のURLを付記しています。
 
