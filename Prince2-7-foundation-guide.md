@@ -14,7 +14,7 @@
 | 方式 | Closed book(参考資料の持ち込み不可) |
 | 合格基準 | 60% 以上(60問中36問以上正解) |
 | 対応言語 | 英語・日本語を含む14言語 |
-| 認定更新 | 3年ごと。更新方法は、期限までにCPD(継続的専門能力開発)60ポイントを取得するか、同じProduct Suite内の別資格を取得するかのいずれか |
+| 認定更新 | 3年ごと。更新方法は次のいずれか: ①CPDルート = PeopleCert Plus の会員資格を3年間継続し、毎年20 CPD(継続的専門能力開発)ポイント(うち Professional Experience を5ポイント以上)を登録する、②更新期限までに同じProduct Suite内の別コースの試験に合格する |
 
 > **補足(V6→V7での構造変化):** PRINCE2 7版では、旧版の「7つのテーマ(Themes)」が **「7つのプラクティス(Practices)」** に名称変更され、そのうち旧「Change」テーマが **「Issues」プラクティス** に改称されました。さらに新章として **「People(人)」** が追加され、**サステナビリティ(持続可能性)** が Progress/Business Case等の既存プラクティスに統合され、**デジタル&データマネジメント(Digital and Data)** の視点が全体に組み込まれています。原則(Principles)7つ・プロセス(Processes)7つという数は旧版から変更ありませんが、原則の一部は名称が更新されています(例: 「役割・責任」原則はV7で relationships が明示され「Define roles, responsibilities and relationships」に変更。詳細は「2.1 原則の詳細解説」参照)。プロセス名は旧版から変更ありません。
 > (出典: [PeopleCert公式ページ](https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579)、[onlinepmcourses.com「Top 10 Changes」](https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know/))
@@ -273,16 +273,16 @@ flowchart TB
 | 影響度(Impact) | 発生した場合の影響の大きさ |
 | 近接性(Proximity) | リスクがいつ発生しうるか(時間的近さ) |
 
-**脅威(Threat)への対応:** 回避(Avoid)・低減(Reduce)・転嫁(Transfer)・受容(Accept)・分担(Share)・フォールバック(Fallback)
-**好機(Opportunity)への対応:** 活用(Exploit)・増強(Enhance)・共有(Share)・拒否(Reject)
+**脅威(Threat)への対応:** 回避(Avoid)・低減(Reduce)・転嫁(Transfer)・分担(Share)・受容(Accept)・コンティンジェンシー計画の準備(Prepare contingent plans)
+**好機(Opportunity)への対応:** 活用(Exploit)・増強(Enhance)・転嫁(Transfer)・分担(Share)・受容(Accept)・コンティンジェンシー計画の準備(Prepare contingent plans)
 
-> **ベストプラクティス:** PRINCE2のリスクは「悪いこと(脅威)」だけでなく「良いこと(好機)」も対象とする。試験では両方の対応戦略を混同させる設問が出やすいので、脅威用語(Avoid/Reduce/Transfer/Accept/Share/Fallback)と好機用語(Exploit/Enhance/Share/Reject)を分けて暗記する。
+> **ベストプラクティス:** PRINCE2のリスクは「悪いこと(脅威)」だけでなく「良いこと(好機)」も対象とする。試験では両方の対応戦略を混同させる設問が出やすいので、脅威固有の用語(Avoid/Reduce)と好機固有の用語(Exploit/Enhance)を区別し、両者に共通する用語(Transfer/Share/Accept/Prepare contingent plans)とあわせて整理して暗記する。
 
 ### 4.6 Issues(課題)— 旧「Change」からの改称
 
 **目的:** 課題(問題・要求変更・仕様逸脱)を捕捉・評価し、ベースライン(合意済み計画や仕様)への変更を統制する。
 
-**課題の4分類**
+**課題の種類**
 
 | 分類 | 内容 |
 |---|---|
@@ -290,13 +290,14 @@ flowchart TB
 | Off-Specification(仕様逸脱) | 合意仕様を満たさない、または満たせない見込みの事態 |
 | Problem/Concern(問題・懸念) | 上記以外の、対応が必要な事象 |
 | Business Opportunity(ビジネス機会) | 追求すればプロジェクトや組織に便益をもたらしうる、計画外の好機 |
+| Event external to the project(プロジェクト外の事象) | プロジェクトの外部で発生し、プロジェクトに影響を及ぼしうる事象 |
 
 **課題・変更統制手順**
 
 ```mermaid
 flowchart LR
-    CAP["捕捉 (Capture)"] --> EXAM["検討 (Examine)"]
-    EXAM --> PROP["提案 (Propose)"]
+    CAP["捕捉 (Capture)"] --> EXAM["評価 (Assess)"]
+    EXAM --> PROP["推奨 (Recommend)"]
     PROP --> DEC["決定 (Decide)"]
     DEC --> IMPL["実施 (Implement)"]
 ```
