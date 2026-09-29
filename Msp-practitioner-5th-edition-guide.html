@@ -1,0 +1,2008 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MSP® Practitioner 第5版 完全ガイド | 実践適用ステップバイステップ解説</title>
+    <meta
+      name="description"
+      content="MSP Practitioner 5th edition の原則・テーマ・プロセスを、シナリオ適用とテーラリングの視点で学ぶ初学者向けガイド"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css"
+      integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p"
+      crossorigin="anonymous"
+    />
+    <style>
+      :root {
+        --paper: #f6f7f9;
+        --raised: #fff;
+        --sunk: #eef0f4;
+        --ink: #161b26;
+        --soft: #4b5566;
+        --faint: #8a93a3;
+        --bd: #dfe3ea;
+        --bd2: #c7cdd9;
+        --indigo: #2e3f72;
+        --itint: #eef1f8;
+        --gold: #b8802a;
+        --forest: #1b6e6a;
+        --ftint: #e7f3f2;
+        --plum: #8c3a5c;
+        --serif: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+        --sans:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+          "Noto Sans JP", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font: 16px/1.75 var(--sans);
+      }
+      a {
+        color: var(--indigo);
+        word-break: break-all;
+      }
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 288px;
+        height: 100vh;
+        overflow-y: auto;
+        background: var(--raised);
+        border-right: 1px solid var(--bd);
+        padding: 32px 24px;
+        z-index: 20;
+      }
+      .brand-title {
+        font: 700 19px var(--serif);
+      }
+      .brand-subtitle {
+        color: var(--faint);
+        margin: 2px 0 24px;
+      }
+      .sidebar-nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .sidebar-nav a {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: var(--soft);
+        text-decoration: none;
+        border-left: 2px solid transparent;
+      }
+      .sidebar-nav a:hover,
+      .sidebar-nav a.active {
+        background: var(--itint);
+        color: var(--indigo);
+      }
+      .sidebar-nav a.active {
+        border-left-color: var(--indigo);
+        font-weight: 600;
+      }
+      .sidebar-toggle {
+        display: none;
+        position: fixed;
+        top: 16px;
+        left: 16px;
+        z-index: 30;
+        width: 42px;
+        height: 42px;
+        background: var(--raised);
+        border: 1px solid var(--bd);
+        border-radius: 8px;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .main-content {
+        margin-left: 288px;
+        padding: 56px 72px 120px;
+      }
+      .hero-eyebrow {
+        color: var(--gold);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        margin-bottom: 16px;
+      }
+      h1 {
+        font: 700 38px/1.3 var(--serif);
+        margin: 0 0 16px;
+      }
+      .hero-lede {
+        font-size: 18px;
+        color: var(--soft);
+      }
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
+        gap: 16px;
+        margin: 24px 0;
+      }
+      .stat-card {
+        background: var(--raised);
+        border: 1px solid var(--bd);
+        border-radius: 10px;
+        padding: 18px 20px;
+      }
+      .stat-number {
+        font: 700 26px var(--serif);
+        color: var(--indigo);
+      }
+      .stat-label {
+        color: var(--soft);
+        margin-top: 6px;
+      }
+      .disclaimer-box {
+        background: var(--itint);
+        border: 1px solid #c7d1ea;
+        color: var(--indigo);
+        border-radius: 10px;
+        padding: 16px 20px;
+      }
+      section {
+        margin: 72px 0;
+        scroll-margin-top: 32px;
+      }
+      .section-eyebrow {
+        color: var(--faint);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+      }
+      h2 {
+        font: 700 29px var(--serif);
+        margin: 0 0 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--bd);
+      }
+      h3 {
+        font: 600 21px var(--serif);
+        margin: 40px 0 16px;
+      }
+      h4 {
+        font-weight: 600;
+        font-size: 17px;
+        margin: 28px 0 12px;
+      }
+      p {
+        margin: 0 0 18px;
+      }
+      ul,
+      ol {
+        margin: 0 0 18px;
+        padding-left: 24px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        border: 1px solid var(--bd);
+        border-radius: 10px;
+        margin: 0 0 24px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th {
+        background: var(--sunk);
+        text-align: left;
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--bd2);
+      }
+      td {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--bd);
+        color: var(--soft);
+        vertical-align: top;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      tbody tr:nth-child(even) {
+        background: var(--paper);
+      }
+      .callout {
+        border: 1px solid var(--bd);
+        border-left: 4px solid var(--indigo);
+        background: var(--raised);
+        border-radius: 10px;
+        padding: 18px 24px;
+        margin: 24px 0;
+      }
+      .callout p {
+        margin: 0;
+      }
+      .callout-title {
+        font-weight: 600;
+        color: var(--indigo);
+        margin-bottom: 8px;
+      }
+      .callout.practice {
+        border-left-color: var(--gold);
+      }
+      .callout.practice .callout-title {
+        color: var(--gold);
+      }
+      .callout.source {
+        border-left-color: var(--forest);
+        background: var(--ftint);
+      }
+      .callout.source .callout-title,
+      .callout.source a {
+        color: var(--forest);
+      }
+      .callout.note {
+        border-left-color: var(--plum);
+      }
+      .callout.note .callout-title {
+        color: var(--plum);
+      }
+      .diagram-card {
+        background: var(--raised);
+        border: 1px solid var(--bd);
+        border-radius: 12px;
+        padding: 28px;
+        margin: 24px 0;
+      }
+      .diagram-container {
+        display: block;
+        overflow-x: auto;
+      }
+      .diagram-container svg {
+        display: block;
+        margin: 0 auto;
+        max-width: none;
+        height: auto;
+      }
+      .diagram-loading,
+      .diagram-error {
+        color: var(--faint);
+      }
+      .ref-list {
+        list-style: none;
+        padding: 0;
+      }
+      .ref-list li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--bd);
+      }
+      .ref-name {
+        display: block;
+        font-weight: 500;
+      }
+      .ref-url {
+        display: block;
+      }
+      code {
+        background: var(--sunk);
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      footer {
+        margin-top: 96px;
+        padding-top: 32px;
+        border-top: 1px solid var(--bd);
+        color: var(--faint);
+      }
+      @media (max-width: 980px) {
+        .sidebar-toggle {
+          display: flex;
+        }
+        .sidebar {
+          transform: translateX(-100%);
+          visibility: hidden;
+          transition:
+            transform 0.2s,
+            visibility 0.2s;
+        }
+        .sidebar.open {
+          transform: none;
+          visibility: visible;
+        }
+        .main-content {
+          margin-left: 0;
+          padding: 88px 24px 100px;
+        }
+        h1 {
+          font-size: 30px;
+        }
+        .stat-row {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .stat-row {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .sidebar {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      type="button"
+      class="sidebar-toggle"
+      id="sidebarToggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      aria-expanded="false"
+    >
+      <i class="ti ti-menu-2"></i>
+    </button>
+    <nav class="sidebar" id="sidebar" aria-label="目次">
+      <div class="brand-title">MSP® Practitioner 完全ガイド</div>
+      <div class="brand-subtitle">第5版・実践適用解説</div>
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#what-is-msp-practitioner"
+            ><i class="ti ti-certificate"></i>MSPプラクティショナーとは</a
+          >
+        </li>
+        <li>
+          <a href="#exam-overview"><i class="ti ti-list-check"></i>試験概要</a>
+        </li>
+        <li>
+          <a href="#three-lenses"><i class="ti ti-git-branch"></i>3つのレンズ</a>
+        </li>
+        <li>
+          <a href="#principles"><i class="ti ti-clipboard-check"></i>7つの原則</a>
+        </li>
+        <li>
+          <a href="#governance-structure"><i class="ti ti-building-bank"></i>組織とガバナンス</a>
+        </li>
+        <li>
+          <a href="#themes"><i class="ti ti-clipboard-text"></i>7つのテーマ</a>
+        </li>
+        <li>
+          <a href="#lifecycle"><i class="ti ti-route"></i>7つのプロセス</a>
+        </li>
+        <li>
+          <a href="#tailoring"><i class="ti ti-refresh"></i>テーラリング</a>
+        </li>
+        <li>
+          <a href="#exam-tips"><i class="ti ti-map-2"></i>試験対策のコツ</a>
+        </li>
+        <li>
+          <a href="#best-practices"><i class="ti ti-flag-3"></i>ベストプラクティス総まとめ</a>
+        </li>
+        <li>
+          <a href="#references"><i class="ti ti-link"></i>参考文献・出典</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="main-content">
+      <div class="hero">
+        <div class="hero-eyebrow">
+          <i class="ti ti-award"></i>PeopleCert 公式情報に基づく学習ガイド
+        </div>
+        <h1>
+          MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説
+        </h1>
+        <p class="hero-lede">
+          対象試験: <strong>MSP® Practitioner, 5th edition</strong>(PeopleCert / 旧AXELOS)<br />公式製品ページ:
+          <a
+            href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+            target="_blank"
+            rel="noopener"
+            >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+          >
+        </p>
+        <div class="stat-row">
+          <div class="stat-card">
+            <div class="stat-number">58問 / 70点</div>
+            <div class="stat-label">オープンブックのオブジェクティブテスト</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">150分</div>
+            <div class="stat-label">試験時間</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">60%</div>
+            <div class="stat-label">合格基準</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">7 / 7 / 7</div>
+            <div class="stat-label">原則・テーマ・プロセス</div>
+          </div>
+        </div>
+        <div class="disclaimer-box">
+          <i class="ti ti-info-circle"></i>
+          本ガイドは非公式の学習支援資料です。受験にあたっては、必ず<a
+            href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+            target="_blank"
+            rel="noopener"
+            >PeopleCert公式サイト</a
+          >で最新情報をご確認ください。
+        </div>
+      </div>
+      <section id="what-is-msp-practitioner">
+        <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+        <h2>はじめに:MSPプラクティショナーとは何か</h2>
+        <p>
+          <strong>MSP®(Managing Successful Programmes)</strong>
+          は、PeopleCert(旧AXELOS)が管理する、世界的に認知されたプログラムマネジメント(複数のプロジェクトや活動を束ねて組織的な変革を実現する管理手法)のベストプラクティスフレームワークです。2020年に刊行された<strong
+            >第5版(5th edition)</strong
+          >では、俊敏性(アジリティ)・柔軟性・段階的な価値提供を強く意識した構成に刷新されました。
+        </p>
+        <p>
+          第5版の資格体系は Foundation と Practitioner
+          の2段階です(参考として、旧第4版の上位資格も併記します)。
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>段階</th>
+                <th>目的</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MSP Foundation(基礎)</td>
+                <td>
+                  MSPの用語・構造(原則・テーマ・プロセス)を<strong>記憶し理解している</strong>ことを確認する試験。暗記中心。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>MSP Practitioner(実践)</strong></td>
+                <td>
+                  MSPの原則・テーマ・プロセスを<strong>実際のシナリオに適用し、テーラリング(調整)できる</strong>ことを確認する試験。応用力中心。
+                </td>
+              </tr>
+              <tr>
+                <td>MSP Advanced Practitioner(上級実践)</td>
+                <td>
+                  <strong>旧第4版(2011年版)の資格で、現在は廃止済み(レガシー)</strong
+                  >。第5版の資格体系(Foundation → Practitioner)には含まれない。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Practitionerレベルの学習目標は公式コース概要で次のように明示されています。</p>
+        <ul>
+          <li>MSPの原則を文脈(コンテキスト)に応じて適用する方法を理解する</li>
+          <li>MSPのテーマの関連する側面を文脈に応じて適用・テーラリングする方法を理解する</li>
+          <li>MSPのプロセスの関連する側面を文脈に応じて適用・テーラリングする方法を理解する</li>
+        </ul>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://ilxgroup.com/uk/training/msp/practitioner"
+              target="_blank"
+              rel="noopener"
+              >https://ilxgroup.com/uk/training/msp/practitioner</a
+            >
+          </p>
+        </div>
+        <p>
+          つまりFoundationが「知っているか」を問うのに対し、Practitionerは「<strong>与えられたプログラムのシナリオに対して、どのMSPの要素を、どの程度、どのようにテーラリングして適用するのが最適か</strong>」を問う、判断力・応用力の試験です。この違いを常に意識しながら本ガイドを読み進めてください。
+        </p>
+        <p>
+          <strong>受験前提条件(Prerequisite)</strong>:
+          MSP第5版Foundation、またはMSP第4版Practitionerのいずれかの保有が必須です。
+        </p>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+              target="_blank"
+              rel="noopener"
+              >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+            >
+          </p>
+        </div>
+      </section>
+      <section id="exam-overview">
+        <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 02</div>
+        <h2>試験概要</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>出題形式</td>
+                <td>58問(一部に小問を含む)、配点合計70点のオブジェクティブテスト方式</td>
+              </tr>
+              <tr>
+                <td>試験時間</td>
+                <td>150分</td>
+              </tr>
+              <tr>
+                <td>方式</td>
+                <td><strong>オープンブック</strong>(公式MSPマニュアルの持ち込み・参照が可能)</td>
+              </tr>
+              <tr>
+                <td>合格基準</td>
+                <td>60%以上の得点</td>
+              </tr>
+              <tr>
+                <td>試験言語</td>
+                <td>英語・中国語</td>
+              </tr>
+              <tr>
+                <td>受験前提</td>
+                <td>MSP第5版Foundation または MSP第4版Practitioner</td>
+              </tr>
+              <tr>
+                <td>認定有効期間</td>
+                <td>3年ごとに更新が必要(CPDポイント60点の取得等)</td>
+              </tr>
+              <tr>
+                <td>学習ボリューム目安</td>
+                <td>講座形式により10〜24時間(eラーニング)/ 2〜5日(集合研修)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+              target="_blank"
+              rel="noopener"
+              >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+            >
+            、
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <div class="callout practice">
+          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+          <p>
+            <strong>ベストプラクティス</strong>:
+            オープンブック試験とはいえ、150分で58問(70点分)を解くには1問あたり平均2〜3分弱しか使えません。マニュアルを試験中に一から探しても間に合わないため、事前学習で「どの情報がマニュアルのどの章にあるか」の<strong>目次感覚</strong>を身につけておくことが合格の鍵になります。本ガイドの章立ては公式マニュアルの構成(原則→テーマ→プロセス)に沿っているため、学習の地図として活用してください。
+          </p>
+        </div>
+      </section>
+      <section id="three-lenses">
+        <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 03</div>
+        <h2>MSPの全体構造:3つのレンズ</h2>
+        <p>
+          MSP第5版は、プログラムマネジメントを3つの異なる視点(レンズ)から捉える構造になっています。
+        </p>
+        <div class="diagram-card">
+          <div class="diagram-container" id="threeLenses">
+            <div class="diagram-loading">図を読み込み中...</div>
+          </div>
+        </div>
+        <ul>
+          <li>
+            <strong>原則(Principles)</strong>:
+            プログラムが成功するために常に守られるべき、普遍的・自己検証的・力を与える(empowering)7つの指針。MSPに沿ったプログラムはこれらの原則に導かれます。原則が守られていなければ、そのプログラムはMSPの原則を効果的に適用できていないことになります。
+          </li>
+          <li>
+            <strong>テーマ(Themes)</strong>:
+            プログラムのライフサイクルを通じて<strong>継続的に</strong>対処し続けなければならない、統治(ガバナンス)上の側面。7つあり、いずれも一度整備して終わりではなく、常時見直しが必要です。
+          </li>
+          <li>
+            <strong>プロセス(Processes)</strong>:
+            プログラムを立ち上げてから閉じるまでの<strong>段階的・循環的</strong>な活動の流れ。7つの工程で構成され、直線的というより「反復しながら前進する」流れとして描かれます。
+          </li>
+        </ul>
+        <p>
+          第5版では、第4版(2011年)で「Transformational Flow」と呼ばれていたプロセス部分が「<strong
+            >MSP Programme Lifecycle(プログラムライフサイクル)</strong
+          >」という呼称に変わり、段階的(incremental)な価値提供とアジャイル的な繰り返しの性質がより強調されています。
+        </p>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a
+            >
+          </p>
+        </div>
+        <p>
+          またテーマの数も、旧版(第4版)の「9つのガバナンステーマ」から<strong>7つのテーマ</strong>へ統合・再編されました。たとえば旧版の「Vision」「Benefits
+          Realization Management」「Risk and Issue
+          Management」等は、新版では再編され、ビジョン・ベネフィット・プログラムリスク・ターゲットオペレーティングモデル(TOM)は「Design」テーマで一体的に扱われる一方、課題(イシュー)解決のアプローチやリスク対応(リスクへの対処の選択)は「Decisions」テーマで扱われるようになっています。
+        </p>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed"
+              target="_blank"
+              rel="noopener"
+              >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
+            >
+          </p>
+        </div>
+      </section>
+      <section id="principles">
+        <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 04</div>
+        <h2>7つの原則(Principles)とその実践適用</h2>
+        <p>
+          第5版における7つの原則は、旧版(第4版)から名称・切り口が刷新されており、より現代的な変革リーダーシップの語彙で表現されています。
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>原則(英語)</th>
+                <th>原則(和訳)</th>
+                <th>一言でいうと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Lead with purpose</td>
+                <td>目的を持って導く</td>
+                <td>望ましい成果を描き、伝え続ける</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Collaborate across boundaries</td>
+                <td>境界を越えて協働する</td>
+                <td>組織横断的な効果的ガバナンスを促進する</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Deal with ambiguity</td>
+                <td>曖昧さに対処する</td>
+                <td>意思決定に伴うリスクを理解し受け入れる</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Align with priorities</td>
+                <td>優先順位に整合させる</td>
+                <td>新しい情報や創発的な変化に適応する</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Deploy diverse skills</td>
+                <td>多様なスキルを配置する</td>
+                <td>変化する業務ニーズに応える</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Realize measurable benefits</td>
+                <td>測定可能なベネフィットを実現する</td>
+                <td>一貫性のある組織能力を設計・提供する</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Bring pace and value</td>
+                <td>ペースと価値をもたらす</td>
+                <td>段階的に価値を届け続ける</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/"
+              target="_blank"
+              rel="noopener"
+              >https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/</a
+            >
+            、
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (公式マニュアルの章立て:第2章 Principles / 2.1〜2.7)
+          </p>
+        </div>
+        <h3>4.1 各原則の意味とPractitionerレベルの適用ポイント</h3>
+        <p>
+          <strong>① Lead with purpose(目的を持って導く)</strong
+          ><br />プログラムは「なぜこの変革が必要か」という明確な目的意識のもとに導かれなければなりません。プログラムマネージャーやSRO(後述)は、ビジョンを繰り返し発信し、意思決定の軸をぶらさないリーダーシップが求められます。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            シナリオ問題では、ビジョンが曖昧・頻繁に変わる・関係者に伝わっていない、といった兆候が「Lead
+            with
+            purposeの原則が守られていない」ことを示すヒントになります。対応策としては、ビジョンステートメントの再確認・コミュニケーション計画の強化を提案します。
+          </li>
+        </ul>
+        <p>
+          <strong>② Collaborate across boundaries(境界を越えて協働する)</strong
+          ><br />プログラムは複数の部門・組織・サプライヤーにまたがるため、通常の部門ガバナンスだけでは統治できません。組織横断的な合意形成の仕組みが必要です。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            部門間の対立、サイロ化した意思決定、ステークホルダー間の情報格差が見られるシナリオでは、Organizationテーマにおけるガバナンス構造の見直しや、Sponsoring
+            Group(後述)による調整が解決策になります。
+          </li>
+        </ul>
+        <p>
+          <strong>③ Deal with ambiguity(曖昧さに対処する)</strong
+          ><br />プログラムの初期段階では不確実性が高く、すべてを事前に計画しきることはできません。曖昧さを前提としたリスクベースの意思決定が必要です。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            「情報が不十分なまま意思決定を迫られている」というシナリオでは、Decisionsテーマのデータ収集・オプション分析のアプローチを適用し、段階的に確度を高めていく提案が適切です。
+          </li>
+        </ul>
+        <p>
+          <strong>④ Align with priorities(優先順位に整合させる)</strong
+          ><br />外部環境や組織戦略は変化し続けるため、プログラムは定期的に優先順位を見直し、必要であれば方向転換(リフォーカス)する柔軟性を持つ必要があります。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            戦略変更や市場環境の変化が描かれるシナリオでは、Evaluate New
+            Information(後述プロセス)を通じた計画の見直しが求められているサインです。
+          </li>
+        </ul>
+        <p>
+          <strong>⑤ Deploy diverse skills(多様なスキルを配置する)</strong
+          ><br />プログラムは技術・チェンジマネジメント・財務・調達など多様な専門性を必要とします。硬直的な組織図ではなく、必要なスキルを機動的に配置できる体制が求められます。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            リソース不足・スキルミスマッチのシナリオでは、Structureテーマのリソースマネジメントとの関連付けが評価されます。
+          </li>
+        </ul>
+        <p>
+          <strong>⑥ Realize measurable benefits(測定可能なベネフィットを実現する)</strong
+          ><br />※原則6は英語表記で "Realize measurable benefits"
+          ですが、公式教材によっては「一貫性のある組織能力(capability)の設計・提供」という説明が併記される場合があります。プログラムの成果は<strong>測定可能な形で定義</strong>され、単発のプロジェクト完了ではなく、実際の便益実現まで追跡されなければなりません。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            「プロジェクトは完了したがベネフィットが計測されていない」というシナリオは典型的な出題パターンです。Design/Justificationテーマのベネフィットマップ・ベネフィットプロファイルの整備を提案します。
+          </li>
+        </ul>
+        <p>
+          <strong>⑦ Bring pace and value(ペースと価値をもたらす)</strong
+          ><br />すべてを完成させてから価値を届けるのではなく、<strong>段階的(トランシェ単位)に早期から価値を提供</strong>し続けることが重視されます。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            「最終成果物まで何も価値が出ない」計画になっているシナリオでは、Structureテーマのトランシェ設計・Plan
+            Progressive Delivery(後述プロセス)の見直しが解答の方向性になります。
+          </li>
+        </ul>
+        <div class="callout practice">
+          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+          <p>
+            <strong>ベストプラクティス</strong>:
+            Practitioner試験では、シナリオ文中の「症状(何がうまくいっていないか)」から、どの原則が損なわれているかを逆引きする訓練が有効です。7原則を「目的→協働→曖昧さ→優先順位→スキル→ベネフィット→ペース」の順で暗唱できるようにし、それぞれに対応する典型的な失敗パターンと解決策(テーマ・プロセスとの紐付け)をセットで覚えましょう。
+          </p>
+        </div>
+      </section>
+      <section id="governance-structure">
+        <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 05</div>
+        <h2>プログラム組織とガバナンス構造</h2>
+        <p>
+          7つのテーマの中でも「Organization(組織)」テーマはプログラム全体の土台となるため、先に主要な役割と構造を整理します。
+        </p>
+        <div class="diagram-card">
+          <div class="diagram-container" id="orgStructure">
+            <div class="diagram-loading">図を読み込み中...</div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ロール</th>
+                <th>主な責務</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sponsoring Group(スポンサリンググループ)</strong></td>
+                <td>
+                  組織戦略とプログラムを結びつける最上位の投資決定機関。SROを任命し、資金・企業リソースを承認する。組織横断的な対立の最終調整も担う。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Senior Responsible Owner (SRO)</strong></td>
+                <td>
+                  プログラムの成功に対する<strong>単一の説明責任</strong>を負うシニアリーダー。ビジョンとビジネスケースの健全性を守り、主要な意思決定・資金確保・アシュアランス計画の承認を行う。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Programme Board(プログラムボード)</strong></td>
+                <td>
+                  SROを議長とし、委任された権限(トレランス)の範囲内でプログラムの推進を統治し、助言・挑戦(チャレンジ)・承認を行う機関。最低限、SRO・プログラムマネージャー・BCM・プログラムオフィス責任者で構成される。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Programme Manager</strong></td>
+                <td>
+                  プログラムの日常運営責任者。構成プロジェクト群の計画・統合・進捗管理を行い、MSPの主要文書の大部分(プログラム戦略、プログラム計画、リスク登録簿等)を作成する。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Business Change Manager (BCM)</strong></td>
+                <td>
+                  新しい能力を業務運用に組み込み、実際のベネフィット実現を確認する責任者。ベネフィットマップ・ベネフィットプロファイルの作成責任を持つ。複数名配置されることもある。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Programme Office</strong></td>
+                <td>
+                  情報管理・進捗レポーティング・標準化支援などプログラムマネジメントを下支えする機能。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://www.finance-ni.gov.uk/articles/programme-board"
+              target="_blank"
+              rel="noopener"
+              >https://www.finance-ni.gov.uk/articles/programme-board</a
+            >
+            、
+            <a
+              href="https://www.finance-ni.gov.uk/articles/senior-responsible-owner"
+              target="_blank"
+              rel="noopener"
+              >https://www.finance-ni.gov.uk/articles/senior-responsible-owner</a
+            >
+            、
+            <a href="https://eapad.dk/?p=6228" target="_blank" rel="noopener"
+              >https://eapad.dk/?p=6228</a
+            >
+          </p>
+        </div>
+        <div class="callout practice">
+          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+          <p>
+            <strong>ベストプラクティス(委譲権限/トレランス)</strong>:
+            プログラムボードとSROの間、SROとスポンサリンググループの間では、コスト・スケジュール・スコープ・品質・リスク・ベネフィットの6つの側面について<strong>委譲された許容範囲(トレランス)</strong>を明確に定義しておくことが重要です。これにより、些細な判断まで上位機関にエスカレーションする必要がなくなり、意思決定のスピードが確保されます(Decisionsテーマ・Bring
+            pace and value原則とも直結する実務ポイントです)。
+          </p>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
+              target="_blank"
+              rel="noopener"
+              >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
+            >
+          </p>
+        </div>
+      </section>
+      <section id="themes">
+        <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 06</div>
+        <h2>7つのテーマ(Themes)詳細解説</h2>
+        <p>
+          7つのテーマは、プログラムのライフサイクル全体を通じて<strong>継続的に</strong>対処されるガバナンス側面です。Practitionerレベルでは、単にテーマの定義を覚えるのではなく、「このシナリオではどのテーマの、どの側面を、どの程度厚く(あるいは軽く)適用すべきか」というテーラリング判断が問われます。
+        </p>
+        <div class="diagram-card">
+          <div class="diagram-container" id="themesMap">
+            <div class="diagram-loading">図を読み込み中...</div>
+          </div>
+        </div>
+        <h3>6.1 Organization(組織)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムの統治構造・役割・説明責任を確立し、明確な意思決定経路を設計すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>ガバナンスアプローチ(意思決定の階層・トレランスの設計)</li>
+          <li>リスクアペタイト(組織としてどこまでリスクを許容するか)</li>
+          <li>組織構造(前章の図参照)と個々のロールの責務</li>
+          <li>ガバナンスを支える追加支援オフィス(法務・調達・財務など)</li>
+        </ul>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            小規模・単純なプログラムでは、スポンサリンググループとプログラムボードを兼務させる等、階層を圧縮するテーラリングが妥当。
+          </li>
+          <li>
+            複数国・複数事業部にまたがる大規模プログラムでは、地域別・機能別のサブガバナンス層を追加することが正当化される。
+          </li>
+          <li>
+            シナリオに「意思決定が遅い」「誰が最終責任者か不明確」という症状があれば、Organizationテーマの構造見直しが解答の軸になります。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            ロールと個人を混同しない(1人が複数ロールを兼務することはあっても、責務の所在は明確に保つ)。
+          </li>
+          <li>
+            プログラムボードの人数は「主要な意見を代表できる最小限」に絞り、意思決定の停滞を防ぐ。
+          </li>
+        </ul>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (第4章 Organization) 、
+            <a
+              href="https://www.finance-ni.gov.uk/articles/programme-board"
+              target="_blank"
+              rel="noopener"
+              >https://www.finance-ni.gov.uk/articles/programme-board</a
+            >
+          </p>
+        </div>
+        <h3>6.2 Design(設計)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムが実現しようとする「将来の望ましい状態」を明確化し、ビジョン・ベネフィット・リスク・ターゲットオペレーティングモデル(TOM)を一体的に設計すること。第5版ではこの4要素が統合され、設計の一貫性が強調されています。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>要素</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ビジョンステートメント</td>
+                <td>
+                  望ましい将来状態を簡潔に描いた文書。多様なステークホルダーが理解できる言葉で書かれ、プログラム全体を通じて参照される「北極星」の役割を果たす。
+                </td>
+              </tr>
+              <tr>
+                <td>ベネフィット(便益)</td>
+                <td>
+                  プログラムが生み出す価値。財務的/非財務的、直接的/間接的など複数の分類がある。トップダウン型(戦略目標から分解)・ボトムアップ型(個別成果から積み上げ)のベネフィットマップで可視化する。
+                </td>
+              </tr>
+              <tr>
+                <td>リスク</td>
+                <td>
+                  プログラムレベルの戦略的リスク・戦術的リスク・運用リスクを識別し、優先順位付けする。
+                </td>
+              </tr>
+              <tr>
+                <td>ターゲットオペレーティングモデル(TOM)</td>
+                <td>
+                  旧版の「ブループリント」に相当する概念。変革後の組織が実際にどう機能するか(プロセス・組織・技術・情報)を描いた設計図。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed"
+              target="_blank"
+              rel="noopener"
+              >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
+            >
+            、
+            <a href="https://cademy.io/courses/mps" target="_blank" rel="noopener"
+              >https://cademy.io/courses/mps</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            ビジョン不在または形骸化しているシナリオ(例:「誰もビジョンステートメントを見たことがない」)は頻出パターン。対応策として、ビジョンの再策定とコミュニケーション計画の強化を提示する。
+          </li>
+          <li>
+            ベネフィットマップとビジネスケース(Justificationテーマ)の整合性が取れていないシナリオでは、テーマ間の連携不足を指摘する視点が評価されます。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            ビジョンステートメントは「現状(As-Is)」ではなく必ず「将来状態(To-Be)」を描写し、過度に詳細な実装方法には踏み込まない。
+          </li>
+          <li>
+            ベネフィットは定義段階で「誰が」「いつまでに」「どう測定するか」まで具体化し、ベネフィットプロファイルとして文書化する。
+          </li>
+        </ul>
+        <h3>6.3 Justification(正当化)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムへの投資が継続的に正当化されることを保証すること。単発の承認ではなく、ライフサイクル全体を通じた<strong>継続的なビジネスケースの検証</strong>が核心です。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>ビジネスケース(投資対効果、コスト・便益・リスクのバランス)</li>
+          <li>財務計画・キャッシュフロー管理</li>
+          <li>資金調達のガバナンス(トランシェごとの投資承認)</li>
+        </ul>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「最初の承認以降、ビジネスケースが一度も更新されていない」というシナリオは、Justificationテーマの継続的検証が機能していないことを示す典型例。
+          </li>
+          <li>
+            各トランシェの終了時に「続行/中止(Go/No-Go)」判断がビジネスケースに基づいてなされているかを確認する視点が重要です。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            ビジネスケースは一度作って終わりにせず、Evaluate New
+            Informationプロセスと連動させて定期的に見直す。
+          </li>
+          <li>
+            便益(ベネフィット)側だけでなく、コスト超過・便益未達のリスクも同じ重みで管理する。
+          </li>
+        </ul>
+        <h3>6.4 Structure(構造)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムをどのように段階的に届けるか(デリバリーアプローチ)、どのペースで進めるか、どうリソースを配分するかを計画すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>
+            デリバリーアプローチ(ウォーターフォール型・アジャイル/反復型・ハイブリッド型の選択)
+          </li>
+          <li>適切なペース(トランシェ)の設定</li>
+          <li>デリバリー計画・依存関係管理</li>
+          <li>ベネフィット実現計画(Benefits Realization Plan)</li>
+          <li>リソースマネジメント(人・設備・資金の配分と最適化)</li>
+        </ul>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (第7章 Structure) 、
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            第5版では、プログラムは作業ごとに適したデリバリーアプローチを選択し、状況が求める場合には複数の方式を組み合わせることができます(例:技術的に不確実性が高い部分にはアジャイル/反復型、規制要件が明確な部分にはウォーターフォール型)。ハイブリッドを既定として推奨するものではありません。
+          </li>
+          <li>
+            「最終トランシェまで何のベネフィットも実現しない」設計は、Bring pace and
+            value原則違反のサインであり、トランシェの再設計(早期に価値を出せる構成プロジェクトを前倒しする)が解答になります。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            トランシェの境界は、意味のあるベネフィットが実現できる単位、かつビジネスケースを見直せる自然な区切りに設定する。
+          </li>
+          <li>
+            依存関係(プロジェクト間・外部組織との依存)は、プログラムマネージャーが一元的に可視化・管理する。
+          </li>
+        </ul>
+        <h3>6.5 Knowledge(知識)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムが情報・知識をどのように取得・整理・活用し、経験から学び、継続的改善の文化を醸成するかを定義すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>情報管理(バージョン管理、アクセス制御、データプライバシーの確保)</li>
+          <li>知識管理(教訓(レッスンズラーンド)の収集と再利用)</li>
+          <li>継続的改善の仕組み</li>
+        </ul>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a href="https://goodelearning.com/articles/what-is-msp/" target="_blank" rel="noopener"
+              >https://goodelearning.com/articles/what-is-msp/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「過去の類似プログラムの教訓が今回のプログラムで再現されている失敗」というシナリオは、Knowledgeテーマ(教訓管理)の不備を示す典型パターン。
+          </li>
+          <li>
+            情報の版が混在しメンバーが古い資料を参照しているシナリオでは、情報管理(ドキュメント統制)の強化を提案します。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            教訓は「収集して終わり」ではなく、次のトランシェの計画立案時に<strong>必ず参照するプロセス</strong>として組み込む。
+          </li>
+          <li>
+            機密情報・個人情報を扱う場合は、アクセス権限の設計をKnowledgeテーマの一部として明示的に計画する。
+          </li>
+        </ul>
+        <h3>6.6 Assurance(保証)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムが正しく統治され、計画通りに進んでいることを独立した視点で確認する仕組みを設計すること。「<strong
+            >スリーラインズオブディフェンス(three lines of defense、三線防御)</strong
+          >」の考え方に基づき、役割と責任を階層的に整理します。
+        </p>
+        <p><strong>三線防御モデルの考え方</strong>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ライン</th>
+                <th>委譲された権限のレベル</th>
+                <th>役割</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第1線</td>
+                <td>プロジェクト/業務運用レベル</td>
+                <td>プロジェクトおよび業務運用のリスクとコントロールを管理する</td>
+              </tr>
+              <tr>
+                <td>第2線</td>
+                <td>プログラムレベル</td>
+                <td>プログラムレベルのリスクとコントロールを管理する</td>
+              </tr>
+              <tr>
+                <td>第3線</td>
+                <td>企業(エンタープライズ)レベル</td>
+                <td>企業レベルのリスクとコントロールを管理する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          特定の組織(プログラムオフィスや内部監査など)を一律にいずれかの線へ割り当てるものではありません。内部監査は、状況に応じてアシュアランスを提供しうる主体の一つとして位置づけます。
+        </p>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a href="https://goodelearning.com/articles/what-is-msp/" target="_blank" rel="noopener"
+              >https://goodelearning.com/articles/what-is-msp/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「プログラムマネージャー自身が自分の進捗を評価するだけで、外部レビューが一度もない」というシナリオは、独立したアシュアランス(内部監査などによる客観的な保証)の欠如を示す典型例。
+          </li>
+          <li>
+            アシュアランス活動は計画段階から<strong>アシュアランスプラン</strong>として明示的に設計し、場当たり的なレビューにしないことが求められます。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            アシュアランスの独立性(誰が誰をレビューするか)を組織図上で明確にし、利益相反を避ける。
+          </li>
+          <li>
+            高リスクな領域(大規模な資金投入、規制要件が厳しい領域)には、より頻度の高い・より独立性の高いアシュアランスを重点配置する(リスクベースのアシュアランス)。
+          </li>
+        </ul>
+        <h3>6.7 Decisions(意思決定)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムのライフサイクルを通じて発生する意思決定(課題解決、リスク対応、選択肢の評価など)を、一貫した・十分に統治された方法で行うための仕組みを定義すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>課題(イシュー)解決のアプローチ</li>
+          <li>リスク対応(回避・低減・転嫁・受容などの選択)</li>
+          <li>データ収集とレポーティング</li>
+          <li>オプション分析(複数の選択肢を比較評価する手法)</li>
+        </ul>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「同じような課題に対して毎回対応がバラバラ」というシナリオは、Decisionsテーマの一貫したアプローチの欠如を示します。
+          </li>
+          <li>
+            不確実性が高い意思決定(Deal with
+            ambiguity原則)では、断定的な結論を急がず、選択肢を並べて比較評価するオプション分析の適用を提案するのが適切です。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            意思決定の記録(誰が・いつ・どのような根拠で決定したか)を残し、後から説明責任を果たせるようにする。
+          </li>
+          <li>
+            意思決定の権限(トレランス内で誰が決められるか)をOrganizationテーマのガバナンス構造とセットで設計する。
+          </li>
+        </ul>
+      </section>
+      <section id="lifecycle">
+        <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 07</div>
+        <h2>7つのプロセス(プログラムライフサイクル)</h2>
+        <p>
+          プロセスは、プログラムを立ち上げてから閉じるまでの流れを示す「レンズ」です。第4版の「Transformational
+          Flow」から名称が変わり、直線的な工程ではなく、<strong>トランシェを繰り返しながら段階的に前進する循環的な流れ</strong>として描かれます。
+        </p>
+        <div class="diagram-card">
+          <div class="diagram-container" id="lifecycleDiagram">
+            <div class="diagram-loading">図を読み込み中...</div>
+          </div>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://aaronpercival.substack.com/p/innovate-iterate-integrate"
+              target="_blank"
+              rel="noopener"
+              >https://aaronpercival.substack.com/p/innovate-iterate-integrate</a
+            >
+            、
+            <a
+              href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a
+            >
+          </p>
+        </div>
+        <h3>プロセス別サマリー表</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>プロセス</th>
+                <th>目的</th>
+                <th>主な成果物・活動</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>①</td>
+                <td>Identify the Programme</td>
+                <td>プログラムの必要性を認識し、初期の正当性を確立する</td>
+                <td>プログラムブリーフ、初期ビジョン、スポンサリンググループの結成、SRO任命</td>
+              </tr>
+              <tr>
+                <td>②</td>
+                <td>Design the Outcomes</td>
+                <td>変革の土台を固める</td>
+                <td>
+                  ビジョンステートメントの確定、ベネフィットマップ、TOM、リスク登録簿、初版ビジネスケース
+                </td>
+              </tr>
+              <tr>
+                <td>③</td>
+                <td>Plan Progressive Delivery</td>
+                <td>プログラム設計をもとに次のトランシェの計画を具体化する</td>
+                <td>トランシェ計画、デリバリー計画、資源計画、次のGo判断</td>
+              </tr>
+              <tr>
+                <td>④</td>
+                <td>Deliver the Capabilities</td>
+                <td>構成プロジェクトの実行を監督し、新しいケイパビリティを生み出す</td>
+                <td>プロジェクト群の統合管理、進捗レポーティング、課題・リスク対応</td>
+              </tr>
+              <tr>
+                <td>⑤</td>
+                <td>Embed the Outcomes</td>
+                <td>新しい働き方を業務に定着させ、ベネフィットを実現する</td>
+                <td>移行計画、運用への引き渡し、ベネフィット測定</td>
+              </tr>
+              <tr>
+                <td>⑥</td>
+                <td>Evaluate New Information</td>
+                <td>新しい情報を収集・評価・報告し、継続/中止を判断する</td>
+                <td>ビジネスケースの見直し、トランシェレビュー、次工程への意思決定</td>
+              </tr>
+              <tr>
+                <td>⑦</td>
+                <td>Close the Programme</td>
+                <td>プログラムを正式に終結し、資源を解放する</td>
+                <td>最終評価、残存ベネフィットの運用への引き継ぎ、教訓の記録、チーム解散</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source">
+          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+          <p>
+            出典:
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (第11〜12章 Introduction to MSP processes / Identify the programme ほか)
+          </p>
+        </div>
+        <h3>7.1 各プロセスの詳細とベストプラクティス</h3>
+        <p><strong>① Identify the Programme(プログラムを特定する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            この変革の取り組みが本当に「プログラム」として管理すべき規模・複雑性を持つかを見極め、最初の正当性(マンデート)を確立する。
+          </li>
+          <li><strong>主要ロール</strong>: スポンサリンググループが主導し、SROを任命する。</li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            単なる大型プロジェクトをプログラムとして過剰に統治構造化しない。プログラムマネジメントが必要な理由(相互に関連するプロジェクトやその他の作業を調整し、組織にとってのベネフィットをもたらすアウトカムを段階的に実現する必要性)を明確に説明できるかを確認する。
+          </li>
+        </ul>
+        <p><strong>② Design the Outcomes(成果を設計する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            プログラムの「将来状態」を確定させ、その後の全工程の土台となる設計文書群を整える。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            この段階でビジョン・ベネフィット・リスク・TOMの整合性を取っておくことが、後工程の手戻りを防ぐ最大のポイントです。
+          </li>
+        </ul>
+        <p><strong>③ Plan Progressive Delivery(段階的デリバリーを計画する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            全体設計をもとに、直近のトランシェの詳細計画を策定する。「Progressive(漸進的)」という名称の通り、全期間を一度に詳細計画するのではなく、<strong>近い将来ほど詳しく、遠い将来ほど粗く</strong>計画するローリングウェーブ的な考え方が推奨されます。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            各トランシェの終了条件(何を達成したら次に進むか)を事前に明確化しておく。
+          </li>
+        </ul>
+        <p><strong>④ Deliver the Capabilities(ケイパビリティを提供する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            構成プロジェクトの実行を監督し、合意された新しい能力(システム・プロセス・組織)を生み出す。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            プログラムマネージャーは個々のプロジェクトの詳細管理(それはプロジェクトマネージャーの仕事)ではなく、<strong>プロジェクト間の統合・依存関係・優先順位調整</strong>に集中する。
+          </li>
+        </ul>
+        <p><strong>⑤ Embed the Outcomes(成果を定着させる)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            新しい能力を実際の業務運用に移行し、想定していたベネフィットが実際に発生することを確認する。ここはBCM(ビジネスチェンジマネージャー)が主導する工程です。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            「システムを納品したら終わり」ではなく、利用者が新しい働き方に適応し、実際に便益指標が動き出すまでをスコープに含める。変更管理(チェンジマネジメント)・トレーニング計画をセットで用意する。
+          </li>
+        </ul>
+        <p><strong>⑥ Evaluate New Information(新しい情報を評価する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            実績データ、外部環境の変化、教訓などの新しい情報を収集・分析し、「このままトランシェを継続するか、計画を調整するか、あるいはプログラムを中止するか」を判断する。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            この工程を形式的なゲートレビューで終わらせず、Justificationテーマのビジネスケース見直しと直結させる。ネガティブな情報(想定通りいっていない兆候)を早期に可視化する文化を作ることが重要です。
+          </li>
+        </ul>
+        <p><strong>⑦ Close the Programme(プログラムを終結する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            プログラムを正式に終わらせ、残っている責任・資源を運用組織やその他の体制へ引き継ぐ。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            早すぎる解散(まだベネフィットが実現しきっていないのに体制を解いてしまう)と、逆に不要に長く体制を維持し続けるコスト超過の両方を避けるバランス感覚が問われます。教訓の記録(Knowledgeテーマ)を組織のナレッジベースに確実に残すことも忘れないようにします。
+          </li>
+        </ul>
+        <div class="callout note">
+          <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+          <p>
+            <strong>プロセスとテーマの関係のベストプラクティス</strong>:
+            7つのプロセスは「いつ」行うかを、7つのテーマは「何を」継続的に管理するかを示しています。たとえば③Plan
+            Progressive
+            Deliveryの工程では、Structureテーマ(デリバリー計画・リソース)とJustificationテーマ(資金承認)が同時に強く関与します。Practitioner試験では、特定のプロセス工程においてどのテーマの活動が中心になるかを結びつけて説明できることが評価されます。
+          </p>
+        </div>
+      </section>
+      <section id="tailoring">
+        <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 08</div>
+        <h2>テーラリング(Tailoring):MSPを現場に合わせる</h2>
+        <p>
+          MSP第5版の学習目標には、「原則・テーマ・プロセスの関連する側面を<strong>文脈に応じてテーラリング</strong>する」ことが明記されています。テーラリングとは、フレームワークを機械的にすべて適用するのではなく、プログラムの規模・複雑性・組織文化・リスクレベルに応じて<strong>厚みを調整する</strong>ことです。
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>テーラリングの判断軸</th>
+                <th>考慮するポイント</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>プログラムの規模</td>
+                <td>小規模ならガバナンス階層を圧縮、大規模なら追加の統治層を設ける</td>
+              </tr>
+              <tr>
+                <td>組織の成熟度</td>
+                <td>プログラムマネジメント経験が浅い組織では、文書化やレビューをより手厚くする</td>
+              </tr>
+              <tr>
+                <td>リスクレベル</td>
+                <td>高リスク領域ほどAssurance(保証)を厚く、Decisionsの意思決定記録を詳細にする</td>
+              </tr>
+              <tr>
+                <td>変革の性質</td>
+                <td>
+                  ビジョン主導型(vision-led)・コンプライアンス主導型(compliance-driven)・創発型(emergent)のいずれかによって、Designテーマの重み付けが変わる
+                </td>
+              </tr>
+              <tr>
+                <td>デリバリーの性質</td>
+                <td>
+                  技術的不確実性が高い部分はアジャイル/反復型、規制要件が明確な部分はウォーターフォール型を混在させる
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice">
+          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+          <p>
+            <strong>ベストプラクティス</strong>:
+            テーラリングは「省略してよい」という意味ではなく、「なぜその厚み・その方法を選んだかを説明できる」状態を指します。Practitioner試験のシナリオ問題では、単に「このテーマを適用する」ではなく、「このシナリオの特性(例:規制産業である、初めてプログラムマネジメントを導入する組織である等)を踏まえ、なぜこの適用方法が適切か」まで説明できる選択肢が高得点を得やすい傾向があります。
+          </p>
+        </div>
+      </section>
+      <section id="exam-tips">
+        <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 09</div>
+        <h2>プラクティショナー試験対策:シナリオ適用のコツ</h2>
+        <p>
+          MSP
+          Practitioner試験はオープンブックのオブジェクティブテストであり、多くの場合「架空のプログラムのシナリオ」が提示され、そのシナリオに最も適した対応(または最も不適切な対応)を選ぶ形式で出題されます。以下は学習・受験時の実践的なコツです。
+        </p>
+        <ol>
+          <li>
+            <strong>シナリオを先に読み、症状を書き出す</strong>:
+            「意思決定が遅い」「ベネフィットが測定されていない」「同じ失敗が繰り返されている」といった具体的な症状を特定し、どのテーマ・原則に対応するかをマッピングします。
+          </li>
+          <li>
+            <strong>原則→テーマ→プロセスの順で当てはめる</strong>:
+            まずどの原則が損なわれているかを特定し、次にそれを是正するためにどのテーマの活動を強化すべきか、最後にそれをどのプロセス工程で実施すべきかを考えます。
+          </li>
+          <li>
+            <strong>「もっとも適切な」選択肢を選ぶ訓練をする</strong>:
+            MSPの試験は複数の選択肢がそれっぽく見えるよう設計されています。教科書的に正しいだけでなく、<strong>そのシナリオの制約条件(規模・リスク・組織文化)に最も適合する</strong>選択肢を選ぶ練習をしましょう。
+          </li>
+          <li>
+            <strong>オープンブックを過信しない</strong>:
+            試験時間は限られているため、マニュアルは「用語の正確な定義を確認する」ための補助として使い、全体の判断は事前学習した理解力で行う前提で臨みましょう。
+          </li>
+          <li>
+            <strong>旧版(第4版)の知識と混同しない</strong>:
+            第4版の「9つのガバナンステーマ」「Transformational
+            Flow」といった用語は第5版では使われません。本ガイドの用語(7テーマ、Programme
+            Lifecycle等)で統一して覚え直すことが重要です。
+          </li>
+        </ol>
+      </section>
+      <section id="best-practices">
+        <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 10</div>
+        <h2>ベストプラクティス総まとめ表</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>領域</th>
+                <th>ベストプラクティス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>原則全般</td>
+                <td>シナリオの「症状」から損なわれている原則を逆引きできるようにする</td>
+              </tr>
+              <tr>
+                <td>Organization</td>
+                <td>ロールと個人を分離して考える。トレランスを明確に定義し意思決定の遅延を防ぐ</td>
+              </tr>
+              <tr>
+                <td>Design</td>
+                <td>ビジョンは将来状態(To-Be)で記述し、ベネフィット・リスク・TOMと整合させる</td>
+              </tr>
+              <tr>
+                <td>Justification</td>
+                <td>ビジネスケースは一度作って終わりにせず、各トランシェで継続的に検証する</td>
+              </tr>
+              <tr>
+                <td>Structure</td>
+                <td>
+                  デリバリーアプローチはプログラム内で混在(ハイブリッド)させてよい。早期に価値を出すトランシェ設計を優先する
+                </td>
+              </tr>
+              <tr>
+                <td>Knowledge</td>
+                <td>教訓は収集するだけでなく、次の計画立案で必ず参照する仕組みにする</td>
+              </tr>
+              <tr>
+                <td>Assurance</td>
+                <td>
+                  三線防御(プロジェクト/業務運用・プログラム・企業の各権限レベル)で責任を整理し、リスクベースで重点配置する
+                </td>
+              </tr>
+              <tr>
+                <td>Decisions</td>
+                <td>意思決定の記録を残し、一貫したアプローチ(オプション分析)を用いる</td>
+              </tr>
+              <tr>
+                <td>プロセス全般</td>
+                <td>
+                  プロセス工程とテーマの関連を結びつけて理解する(例:③はStructureとJustificationが中心)
+                </td>
+              </tr>
+              <tr>
+                <td>テーラリング</td>
+                <td>「なぜその適用方法を選んだか」を常に説明できる状態を目指す</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section id="references">
+        <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 11</div>
+        <h2>参考文献・出典(ソースURL)</h2>
+        <ul class="ref-list">
+          <li>
+            <span class="ref-name"
+              >MSP Practitioner, 5th edition(公式製品ページ・試験概要・前提条件)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+                target="_blank"
+                rel="noopener"
+                >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name">MSP Foundation, 5th edition(前提資格の公式ページ)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930"
+                target="_blank"
+                rel="noopener"
+                >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >AXELOS Resource Hub「MSP 5th edition – what has
+              changed?」(第4版から第5版への変更点、テーマの再編・Designテーマ統合)</span
+            ><span class="ref-url"
+              ><a
+                href="https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed"
+                target="_blank"
+                rel="noopener"
+                >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Good e-Learning「What is MSP? Everything you Need to
+              Know」(7原則・7テーマの概説、三線防御)</span
+            ><span class="ref-url"
+              ><a
+                href="https://goodelearning.com/articles/what-is-msp/"
+                target="_blank"
+                rel="noopener"
+                >https://goodelearning.com/articles/what-is-msp/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Good e-Learning「MSP® 5th Edition
+              Foundation」コースシラバス(テーマ別モジュール構成、試験形式)</span
+            ><span class="ref-url"
+              ><a
+                href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+                target="_blank"
+                rel="noopener"
+                >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Good e-Learning「MSP 5th Edition update」記事(Programme
+              Lifecycleへの名称変更、プロセスの位置づけ)</span
+            ><span class="ref-url"
+              ><a
+                href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/"
+                target="_blank"
+                rel="noopener"
+                >https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Aaron Percival「Innovate, Iterate, Integrate」(7プロセスの解説)</span
+            ><span class="ref-url"
+              ><a
+                href="https://aaronpercival.substack.com/p/innovate-iterate-integrate"
+                target="_blank"
+                rel="noopener"
+                >https://aaronpercival.substack.com/p/innovate-iterate-integrate</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >The Knowledge Academy「MSP® Foundation &amp; Practitioner
+              Course」シラバス(第5版7原則の正式名称、Practitionerの学習目標)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/"
+                target="_blank"
+                rel="noopener"
+                >https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Zoboko「Managing Successful Programmes (5th
+              Edition)」公式マニュアル章立て(原則・各テーマの節構成)</span
+            ><span class="ref-url"
+              ><a
+                href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+                target="_blank"
+                rel="noopener"
+                >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Cademy「MSP® - 5th Edition」コース内容(各テーマの詳細トピック一覧)</span
+            ><span class="ref-url"
+              ><a href="https://cademy.io/courses/mps" target="_blank" rel="noopener"
+                >https://cademy.io/courses/mps</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name">Finance NI「Programme Board」(プログラムボードの構成・役割)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.finance-ni.gov.uk/articles/programme-board"
+                target="_blank"
+                rel="noopener"
+                >https://www.finance-ni.gov.uk/articles/programme-board</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name">Finance NI「Senior Responsible Owner」(SROの責務)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.finance-ni.gov.uk/articles/senior-responsible-owner"
+                target="_blank"
+                rel="noopener"
+                >https://www.finance-ni.gov.uk/articles/senior-responsible-owner</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Open Exam Prep「Programme Governance
+              Structure」(スポンサリンググループ・トレランスの解説)</span
+            ><span class="ref-url"
+              ><a
+                href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
+                target="_blank"
+                rel="noopener"
+                >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >ILX Group「MSP® Practitioner」コース概要(Practitionerの学習目標)</span
+            ><span class="ref-url"
+              ><a
+                href="https://ilxgroup.com/uk/training/msp/practitioner"
+                target="_blank"
+                rel="noopener"
+                >https://ilxgroup.com/uk/training/msp/practitioner</a
+              ></span
+            >
+          </li>
+        </ul>
+        <div class="callout note">
+          <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+          <p>
+            <strong>注記</strong>: 本ガイドはMSP® 第5版(Managing Successful Programmes, 5th
+            edition)の公開されている公式製品情報・認定トレーニングプロバイダーの公開シラバス・公式マニュアルの章立て情報をもとに、初学者向けに要約・再構成したものです。MSP®はPeopleCert
+            International
+            Limitedの登録商標です。実際の受験にあたっては、必ず公式マニュアル『Managing Successful
+            Programmes, 5th edition』(PeopleCert発行)を一次情報として参照してください。
+          </p>
+        </div>
+      </section>
+      <footer>
+        MSP® is a registered trademark of PeopleCert International Limited.
+        本ページは非公式の学習資料です。
+      </footer>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js"
+      integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var DIAGRAMS = {
+        threeLenses: `flowchart TB
+subgraph L1["レンズ1: 原則 Principles"]
+P["7つの普遍的な指針 プログラム全体を貫く価値観"]
+end
+subgraph L2["レンズ2: テーマ Themes"]
+T["7つの統治領域 継続的に対処し続ける管理側面"]
+end
+subgraph L3["レンズ3: プロセス Processes"]
+PR["7つのライフサイクル工程 段階的・循環的な進め方"]
+end
+
+P -->|"方向性を与える"| T
+T -->|"各工程で適用される"| PR
+PR -->|"実践を通じて 原則の実現度を検証"| P
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class P box
+class T hub
+class PR done`,
+        orgStructure: `flowchart TB
+SG["Sponsoring Group スポンサリンググループ  戦略的な投資判断・SROの任命"]
+SRO["Senior Responsible Owner  SRO プログラム全体の説明責任を負う 単一の説明責任者 Accountable Owner"]
+PB["Programme Board プログラムボード  SROの意思決定を支援"]
+PM["Programme Manager プログラムマネージャー  日常運営・プロジェクト群の統合"]
+BCM["Business Change Manager s ビジネスチェンジマネージャー  ベネフィット実現・業務側の変革"]
+PO["Programme Office プログラムオフィス  情報管理・支援機能"]
+PROJ["構成プロジェクト群 Constituent Projects"]
+
+SG --> SRO
+SRO --> PB
+PB --> PM
+PB --> BCM
+PM --> PO
+PM --> PROJ
+BCM -.->|"ベネフィット実現の 説明責任"| PB
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+class SG,SRO box
+class PB,PM,BCM,PO,PROJ hub`,
+        themesMap: `flowchart LR
+O["Organization 組織"] --> D["Design 設計"]
+D --> J["Justification 正当化"]
+J --> S["Structure 構造"]
+S --> K["Knowledge 知識"]
+K --> A["Assurance 保証"]
+A --> DE["Decisions 意思決定"]
+DE -.->|"すべてのテーマは 並行して継続的に機能する"| O
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+class O,D,J,S,K,A,DE box`,
+        lifecycleDiagram: `flowchart TB
+START(["プログラムの着想"]) --> P1["① Identify the Programme プログラムを特定する"]
+P1 --> P2["② Design the Outcomes 成果を設計する"]
+P2 --> P3["③ Plan Progressive Delivery 段階的デリバリーを計画する"]
+P3 --> P4["④ Deliver the Capabilities ケイパビリティを提供する"]
+P4 --> P5["⑤ Embed the Outcomes 成果を定着させる"]
+P5 --> P6["⑥ Evaluate New Information 新しい情報を評価する"]
+P6 -->|"継続: 次のトランシェへ"| P2
+P6 -->|"完了/中止判断"| P7["⑦ Close the Programme プログラムを終結する"]
+P7 --> END(["プログラム終了 運用への完全移行"])
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class P1,P2 box
+class P3,P4,P5,P6 hub
+class P7 done`,
+      };
+      (function () {
+        async function r() {
+          var ids = Object.keys(DIAGRAMS);
+          if (typeof mermaid === "undefined") {
+            ids.forEach(function (i) {
+              var e = document.getElementById(i);
+              if (e) e.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+            });
+            return;
+          }
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: "strict",
+            theme: "base",
+            themeVariables: {
+              background: "transparent",
+              primaryColor: "#EEF1F8",
+              primaryBorderColor: "#2E3F72",
+              primaryTextColor: "#161B26",
+              lineColor: "#2E3F72",
+              secondaryColor: "#FAF1DF",
+              tertiaryColor: "#FFFFFF",
+              fontSize: "16px",
+              fontFamily:
+                "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif",
+            },
+            flowchart: { useMaxWidth: false, htmlLabels: true, nodeSpacing: 45, rankSpacing: 48 },
+          });
+          for (var k = 0; k < ids.length; k++) {
+            var c = document.getElementById(ids[k]);
+            try {
+              var x = await mermaid.render(ids[k] + "-svg", DIAGRAMS[ids[k]]);
+              c.innerHTML = x.svg;
+              var s = c.querySelector("svg");
+              if (s) {
+                s.removeAttribute("width");
+                s.removeAttribute("height");
+                var vb = (s.getAttribute("viewBox") || "").split(/\s+/).map(Number);
+                if (vb.length === 4 && vb[2] > 0) s.style.width = vb[2] + "px";
+                s.style.maxWidth = "none";
+                s.style.height = "auto";
+              }
+            } catch (e) {
+              c.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+            }
+          }
+        }
+        function hl() {
+          var L = {};
+          document.querySelectorAll(".sidebar-nav a").forEach(function (a) {
+            L[a.getAttribute("href").slice(1)] = a;
+          });
+          if (!("IntersectionObserver" in window)) return;
+          var o = new IntersectionObserver(
+            function (es) {
+              es.forEach(function (e) {
+                if (e.isIntersecting && L[e.target.id]) {
+                  Object.values(L).forEach(function (a) {
+                    a.classList.remove("active");
+                  });
+                  L[e.target.id].classList.add("active");
+                }
+              });
+            },
+            { rootMargin: "-20% 0px -70% 0px" },
+          );
+          document.querySelectorAll("main section[id]").forEach(function (s) {
+            o.observe(s);
+          });
+        }
+        function tg() {
+          var t = document.getElementById("sidebarToggle"),
+            s = document.getElementById("sidebar");
+          t.addEventListener("click", function () {
+            t.setAttribute("aria-expanded", String(s.classList.toggle("open")));
+          });
+          document.querySelectorAll(".sidebar-nav a").forEach(function (a) {
+            a.addEventListener("click", function () {
+              var w = s.classList.contains("open");
+              s.classList.remove("open");
+              t.setAttribute("aria-expanded", "false");
+              if (w) t.focus();
+            });
+          });
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          r();
+          hl();
+          tg();
+        });
+      })();
+    </script>
+  </body>
+</html>
