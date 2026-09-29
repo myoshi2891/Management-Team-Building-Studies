@@ -1,0 +1,1969 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MoP Foundation® 認定資格 完全ガイド | PRINCE2 Portfolio Management Foundation対策</title>
+<meta name="description" content="PeopleCert MoP Foundation（PRINCE2 Portfolio Management Foundation）試験対策のための、5つの原則・定義サイクル・デリバリーサイクル・主要な役割と文書・導入と成熟度評価を網羅した初学者向け日本語ガイド。">
+
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
+
+<style>
+  :root {
+    --color-paper:        #F6F7F9;
+    --color-paper-raised: #FFFFFF;
+    --color-paper-sunken: #EEF0F4;
+
+    --color-ink:          #161B26;
+    --color-ink-soft:     #4B5566;
+    --color-ink-faint:    #8A93A3;
+
+    --color-border:       #DFE3EA;
+    --color-border-strong:#C7CDD9;
+
+    --color-indigo:       #2E3F72;
+    --color-indigo-dark:  #1F2C57;
+    --color-indigo-tint:  #EEF1F8;
+
+    --color-gold:         #B8802A;
+    --color-gold-tint:    #FAF1DF;
+
+    --color-forest:       #1B6E6A;
+    --color-forest-tint:  #E7F3F2;
+
+    --color-plum:         #8C3A5C;
+    --color-plum-tint:    #F6EAEF;
+
+    --color-success-bg:    #EAF4EC;
+    --color-success-text:  #2F6B3D;
+    --color-success-border:#BFE0C6;
+
+    --color-info-bg:       #EEF1F8;
+    --color-info-text:     #2E3F72;
+    --color-info-border:   #C7D1EA;
+
+    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+    --sidebar-width: 288px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--color-indigo); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
+
+  img, svg { max-width: 100%; }
+
+  .layout {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-paper-raised);
+    border-right: 1px solid var(--color-border);
+    padding: 32px 24px 40px;
+    z-index: 20;
+  }
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .seal {
+    flex: none;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text .brand-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--color-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .brand-text .brand-subtitle {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 2px;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar-nav .nav-group-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.06em;
+    margin: 22px 0 8px;
+    padding-left: 12px;
+  }
+
+  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
+
+  .sidebar-nav li { margin: 2px 0; }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--color-ink-soft);
+    font-size: 16px;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
+
+  .sidebar-nav a:hover {
+    background: var(--color-indigo-tint);
+    text-decoration: none;
+    color: var(--color-indigo);
+  }
+
+  .sidebar-nav a.active {
+    background: var(--color-indigo-tint);
+    color: var(--color-indigo);
+    font-weight: 600;
+    border-left: 2px solid var(--color-indigo);
+  }
+
+  .sidebar-nav a.active i { color: var(--color-indigo); }
+
+  .sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 30;
+    background: var(--color-paper-raised);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .main-content {
+    margin-left: var(--sidebar-width);
+    padding: 56px 72px 120px;
+  }
+
+  .hero {
+    margin-bottom: 56px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .hero-eyebrow i { font-size: 17px; }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1.28;
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+
+  .hero .hero-lede {
+    font-size: 18px;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .stat-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+
+  .stat-card .stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--color-indigo);
+    line-height: 1.1;
+  }
+
+  .stat-card .stat-label {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .disclaimer-box {
+    border: 1px solid var(--color-info-border);
+    background: var(--color-info-bg);
+    color: var(--color-info-text);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 16px;
+    margin-top: 28px;
+  }
+
+  section {
+    margin: 72px 0;
+    scroll-margin-top: 32px;
+  }
+
+  section:first-of-type { margin-top: 0; }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-ink-faint);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 29px;
+    color: var(--color-ink);
+    margin: 0 0 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 21px;
+    color: var(--color-ink);
+    margin: 40px 0 16px;
+  }
+
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-ink);
+    margin: 28px 0 12px;
+  }
+
+  p { margin: 0 0 18px; }
+
+  ul, ol { margin: 0 0 18px; padding-left: 24px; }
+  li { margin-bottom: 8px; }
+
+  strong { font-weight: 600; color: var(--color-ink); }
+
+  em { color: var(--color-ink-soft); }
+
+  .domain-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 28px 0 8px;
+  }
+
+  .domain-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px;
+    border-top: 3px solid var(--d-color);
+  }
+
+  .domain-card .domain-pct {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--d-color);
+  }
+
+  .domain-card .domain-name {
+    font-size: 16px;
+    color: var(--color-ink-soft);
+    margin-top: 6px;
+  }
+
+  .domain-card.d1 { --d-color: var(--color-indigo); }
+  .domain-card.d2 { --d-color: var(--color-forest); }
+  .domain-card.d3 { --d-color: var(--color-gold); }
+  .domain-card.d4 { --d-color: var(--color-plum); }
+
+  .domain-tag {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin: 0 0 24px;
+    max-width: 100%;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  thead th {
+    background: var(--color-paper-sunken);
+    text-align: left;
+    font-weight: 600;
+    color: var(--color-ink);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border-strong);
+    white-space: nowrap;
+  }
+
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-ink-soft);
+    vertical-align: top;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: var(--color-paper); }
+
+  td strong, th strong { color: var(--color-ink); }
+
+  .callout {
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-indigo);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-indigo);
+    margin-bottom: 10px;
+  }
+
+  .callout ul { margin-bottom: 0; padding-left: 20px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .callout.practice { border-left-color: var(--color-gold); }
+  .callout.practice .callout-title { color: var(--color-gold); }
+
+  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
+  .callout.source .callout-title { color: var(--color-forest); }
+  .callout.source a { color: var(--color-forest); font-weight: 500; }
+  .callout.source ul { list-style: none; padding-left: 0; }
+  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+  .callout.note { border-left-color: var(--color-plum); }
+  .callout.note .callout-title { color: var(--color-plum); }
+
+  .diagram-card {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 12px;
+    padding: 28px;
+    margin: 28px 0;
+  }
+
+  .diagram-card .diagram-caption {
+    font-size: 16px;
+    color: var(--color-ink-faint);
+    margin-top: 14px;
+    text-align: center;
+  }
+
+  .diagram-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 60px;
+  }
+
+  .diagram-loading {
+    color: var(--color-ink-faint);
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .diagram-error {
+    color: var(--color-plum);
+    font-size: 16px;
+  }
+
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .step-num {
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-indigo);
+    color: var(--color-indigo);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
+
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .glossary-item {
+    border: 1px solid var(--color-border);
+    background: var(--color-paper-raised);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+
+  .glossary-item .g-term {
+    font-weight: 600;
+    color: var(--color-indigo);
+    margin-bottom: 4px;
+  }
+
+  .glossary-item .g-def {
+    color: var(--color-ink-soft);
+    font-size: 16px;
+  }
+
+  .ref-group { margin-bottom: 28px; }
+  .ref-group h4 { margin-top: 0; }
+  .ref-list { list-style: none; margin: 0; padding: 0; }
+  .ref-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 16px;
+  }
+  .ref-list li:last-child { border-bottom: none; }
+  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink-faint);
+    font-size: 16px;
+  }
+
+  code {
+    font-family: var(--font-mono);
+    background: var(--color-paper-sunken);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: var(--color-ink);
+  }
+
+  @media (max-width: 980px) {
+    .sidebar-toggle { display: flex; }
+    .sidebar {
+      transform: translateX(-100%);
+      visibility: hidden;
+      transition: transform 0.2s ease, visibility 0.2s ease;
+      box-shadow: none;
+    }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .main-content { margin-left: 0; padding: 88px 24px 100px; }
+    .hero h1 { font-size: 32px; }
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .domain-grid { grid-template-columns: repeat(2, 1fr); }
+    .glossary-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .stat-row { grid-template-columns: 1fr; }
+    .domain-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .sidebar { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
+
+<div class="layout">
+
+  <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div class="sidebar-brand">
+      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">MoP Foundation® 完全ガイド</div>
+        <div class="brand-subtitle">Portfolio Management Foundation</div>
+      </div>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>1. 試験概要</a></li>
+      <li><a href="#what-is-portfolio-management"><i class="ti ti-building-bank"></i>2. ポートフォリオマネジメントとは</a></li>
+      <li><a href="#mop-framework-overview"><i class="ti ti-route"></i>3. MoPフレームワークの全体像</a></li>
+      <li><a href="#five-principles"><i class="ti ti-shield-check"></i>4. 5つの原則</a></li>
+      <li><a href="#organizational-energy"><i class="ti ti-bolt"></i>5. 組織のエネルギー</a></li>
+      <li><a href="#definition-cycle"><i class="ti ti-list-check"></i>6. ポートフォリオ定義サイクル</a></li>
+      <li><a href="#delivery-cycle"><i class="ti ti-git-branch"></i>7. ポートフォリオ・デリバリーサイクル</a></li>
+      <li><a href="#key-roles"><i class="ti ti-users-group"></i>8. 主要な役割</a></li>
+      <li><a href="#key-documents"><i class="ti ti-clipboard-text"></i>9. 主要文書</a></li>
+      <li><a href="#implementation-and-maturity"><i class="ti ti-refresh"></i>10. 導入・定着・成熟度評価</a></li>
+      <li><a href="#best-practices-summary"><i class="ti ti-bulb"></i>11. ベストプラクティス早見表</a></li>
+      <li><a href="#related-frameworks"><i class="ti ti-git-merge"></i>12. 関連フレームワーク</a></li>
+      <li><a href="#exam-tips"><i class="ti ti-target"></i>13. 試験対策のポイント</a></li>
+      <li><a href="#references"><i class="ti ti-link"></i>14. 参考文献・ソース一覧</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+
+    <div class="hero">
+      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert公式試験対応ガイド</div>
+      <h1>MoP Foundation（Management of Portfolios）学習ガイド</h1>
+      <p class="hero-lede">
+        本ガイドは、世界トップクラスのソフトウェアエンジニア／プロジェクトマネージャー／スクラムマスターの視点から、MoP Foundation試験の出題範囲を初学者にもわかりやすく、ステップ・バイ・ステップで解説するものです。各項目には実務でのベストプラクティスと、根拠となる一次・二次情報源のURLを付記しています。
+      </p>
+
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">四肢択一・多肢選択形式</div></div>
+        <div class="stat-card"><div class="stat-number">40分</div><div class="stat-label">試験時間</div></div>
+        <div class="stat-card"><div class="stat-number">50%</div><div class="stat-label">合格基準（25問以上正答）</div></div>
+        <div class="stat-card"><div class="stat-number">クローズドブック</div><div class="stat-label">資料持ち込み不可</div></div>
+      </div>
+
+      <div class="disclaimer-box">
+        <i class="ti ti-info-circle"></i>
+        本ガイドはMoP Foundation（PRINCE2 Portfolio Management Foundation）の学習支援を目的として作成された非公式の教材です。試験の正式な出題範囲・シラバスは、必ず<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener">PeopleCert公式サイト</a>および公式eBook／Learning Resource Kitでご確認ください。
+      </div>
+    </div>
+
+    <!-- ===================== 1. Exam Overview ===================== -->
+    <section id="exam-overview">
+      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+      <h2>このガイドについて(試験概要)</h2>
+
+      <p>MoP Foundation(現在の正式名称は「PRINCE2® Portfolio Management Foundation」)は、PeopleCert社が提供する、ポートフォリオマネジメントの入門資格です。PRINCE2 Portfolio Managementパスウェイの最初のモジュールにあたり、効果的かつ戦略的なポートフォリオマネジメントを行うための原則・技法・プラクティスを学びます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>資格名</td><td>MoP Foundation(PRINCE2 Portfolio Management Foundation)</td></tr>
+            <tr><td>前提条件</td><td>なし</td></tr>
+            <tr><td>出題形式</td><td>四肢択一(multiple choice)</td></tr>
+            <tr><td>問題数</td><td>50問</td></tr>
+            <tr><td>試験時間</td><td>40分</td></tr>
+            <tr><td>合格基準</td><td>50%以上の正答(25問以上)</td></tr>
+            <tr><td>受験形式</td><td>クローズドブック(資料持ち込み不可)</td></tr>
+            <tr><td>結果通知</td><td>公式結果は2営業日以内</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>PeopleCertの「At a Glance」によれば、本資格は主にポートフォリオマネージャーを対象とし、以下の学習アウトカムをカバーします。</p>
+
+      <ul>
+        <li>ポートフォリオマネジメントの中核概念・構造・用語</li>
+        <li>戦略目標とポートフォリオの整合(Strategic alignment)</li>
+        <li>プロジェクト / プログラムの優先順位付け(Prioritization)</li>
+        <li>ポートフォリオ全体のリスクマネジメント</li>
+        <li>ベネフィット(便益)の定義・測定・追跡</li>
+        <li>ガバナンスとコンプライアンス</li>
+        <li>ポートフォリオの計画・デリバリー</li>
+        <li>チェンジマネジメント</li>
+        <li>リソースマネジメント</li>
+      </ul>
+
+      <h3>想定される対象読者・応用可能な職種</h3>
+
+      <ul>
+        <li>ポートフォリオマネージャー / プログラムマネージャー / プロジェクトマネージャー</li>
+        <li>ビジネスチェンジマネージャー</li>
+        <li>ベネフィットマネージャー</li>
+        <li>ディレクター・オブ・チェンジ</li>
+        <li>シニア・リスポンシブル・オーナー(SRO)</li>
+        <li>ビジネスアナリスト</li>
+        <li>経営会議メンバー</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener">PeopleCert公式 MoP Foundation商品ページ</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 2. What Is Portfolio Management ===================== -->
+    <section id="what-is-portfolio-management">
+      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
+      <h2>ポートフォリオマネジメントとは何か</h2>
+
+      <h3>定義</h3>
+
+      <p>MoPにおける「ポートフォリオ」とは、組織の戦略目標を達成するために選定され、まとめて管理される、プロジェクトおよびプログラムの集合体を指します。「ポートフォリオマネジメント」とは、組織の変革(change)と定常業務(Business as Usual, BAU)とのバランスを最も効果的に保つために協調された、一連の戦略的プロセスと意思決定の集合です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes" target="_blank" rel="noopener">Van Haren Publishing「MoP in 3 minutes」</a></li>
+        </ul>
+      </div>
+
+      <h3>プロジェクト・プログラム・ポートフォリオの違い</h3>
+
+      <p>MoP Foundationでは、この3つの階層の違いを明確に理解することが問われます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="hierarchyDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">組織戦略からプロジェクトまでの階層関係</div>
+      </div>
+
+      <p>ポートフォリオには「始まりも終わりもない」という点が、プロジェクトやプログラムとの決定的な違いです。プロジェクトとプログラムは有期的(成果物を出して終了する)ですが、ポートフォリオは組織が戦略を持ち続ける限り継続するマネジメント活動です。</p>
+
+      <h3>ポートフォリオマネジメントが答える3つの根本的な問い</h3>
+
+      <p>MoPは、次の3つの問いに答えるための仕組みとして設計されています。</p>
+
+      <ol>
+        <li><strong>正しいことをしているか?(Are we doing the right things?)</strong> 戦略に整合した、正しいプロジェクト・プログラムを選んでいるか</li>
+        <li><strong>物事を正しく行っているか?(Are we doing these things right?)</strong> 選んだ施策を効果的・効率的に実行できているか</li>
+        <li><strong>効果的なサービスや効率化による便益を、実際に実現できているか?(Are we realising the benefits?)</strong> 変革の結果として期待した便益が得られているか</li>
+      </ol>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener">PeopleCert公式ページ</a></li>
+          <li><a href="https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes" target="_blank" rel="noopener">Van Haren Publishing</a></li>
+        </ul>
+      </div>
+
+      <h3>戦略的・組織的コンテキスト: 6つの連携機能</h3>
+
+      <p>ポートフォリオマネジメントは単独で機能するものではなく、組織内の以下6つの機能・活動と連携して戦略目標の達成を支えます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="contextDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ポートフォリオマネジメントと連携する6つの機能</div>
+      </div>
+
+      <p>ポートフォリオマネジメントは、これら6つの機能と連携することで、組織の戦略目標達成を下支えし、同時に実効性のあるコーポレートガバナンスを実現します。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener">QA「MoP Foundation」コース概要</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>既存プロセスへの橋渡しを設計する。</strong>ポートフォリオオフィスを新設・再稼働する際は、まずこの6機能それぞれの既存プロセス(例: 年次予算編成サイクル、既存のPMOレポーティング)を洗い出し、ポートフォリオマネジメントを「新しい別のプロセス」として並走させるのではなく、既存プロセスに橋渡しする設計にすることが定着の鍵となります。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 3. MoP Framework Overview ===================== -->
+    <section id="mop-framework-overview">
+      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+      <h2>MoPフレームワークの全体像</h2>
+
+      <p>MoPは、<strong>5つの原則</strong>、<strong>2つの管理サイクル(定義サイクル・デリバリーサイクル)</strong>、そしてそれらをつなぐ<strong>組織のエネルギー</strong>という3層構造で成り立っています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="mopModelDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">MoPフレームワークの全体像(原則・2つのサイクル・組織のエネルギー)</div>
+      </div>
+
+      <ul>
+        <li><strong>定義サイクル(Definition Cycle)</strong>: 「正しいものを選ぶ」段階。5つのプラクティスは基本的に<strong>逐次的(sequential)</strong>に進みますが、重なり合うこともあります。</li>
+        <li><strong>デリバリーサイクル(Delivery Cycle)</strong>: 「選んだものを正しく届ける」段階。7つのプラクティスは基本的に<strong>並行的(parallel)</strong>に進みます。</li>
+        <li><strong>組織のエネルギー</strong>: この2つのサイクルをつなぐ「のり」の役割を果たします。</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/" target="_blank" rel="noopener">mop.wiki「Portfolio Management Cycles」</a></li>
+          <li><a href="https://mop.wiki/" target="_blank" rel="noopener">mop.wiki トップページ</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>2つのサイクルを一方通行と誤解しない。</strong>実務では、四半期ごとの戦略レビューのたびに定義サイクルが繰り返され、その間もデリバリーサイクルの7プラクティスは常時並行して回り続けます。デリバリー側からのフィードバック(実績・リスクの顕在化・便益の未達など)が次の定義サイクルの優先順位付けにも反映されるべきです。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 4. Five Principles ===================== -->
+    <section id="five-principles">
+      <div class="section-eyebrow"><i class="ti ti-shield-check"></i>SECTION 04</div>
+      <h2>5つの原則(Principles)</h2>
+
+      <p>「原則(Principle)」とは、あらゆる状況に適用できる基本的な前提のことです。MoPは5つの原則をすべて適用することを求めますが、組織の実情に合わせてテーラリング(調整)することも認めています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="principlesDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">5つの原則の関係性</div>
+      </div>
+
+      <h3>4.1 上級管理層のコミットメント(Senior Management Commitment)</h3>
+
+      <p><strong>目的</strong>: どんな変革施策も、トップの支持なしには成功しません。MoPが5原則の筆頭にこれを置いているのはそのためです。</p>
+
+      <p><strong>達成のポイント</strong></p>
+      <ul>
+        <li><strong>ガバナンス構造への積極的な関与と承認</strong>: 上級管理層はポートフォリオ・ディレクション・グループの一員として、優先順位付け基準の承認、予算・資源の承認、責任分担の合意、ポートフォリオマネジメントチームの組織上の位置づけの決定に関与します。</li>
+        <li><strong>専門知識の提供</strong>: 上級管理層が持つ組織固有の知見を、ポートフォリオマネジメントの実践に積極的に取り入れることが成功の一助となります。</li>
+        <li><strong>チャンピオンとして発信・伝達すること</strong>: ポートフォリオマネジメントが生み出す価値と、意思決定の根拠を組織全体に発信し続けることが求められます。</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/principles/senior-management-commitment/" target="_blank" rel="noopener">mop.wiki「Senior Management Commitment」</a></li>
+          <li><a href="http://www.advantagelearning.co.uk/news/mop-5-principles.html" target="_blank" rel="noopener">Advantage Learning</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>お気に入り案件にも例外を認めない。</strong>上級管理層自身の「お気に入り案件(pet project)」であっても、正式な優先順位付け基準を通過しなければポートフォリオに残せない、というルールを明文化し、例外なく適用すること。これが「アメとムチ」のうち“ムチ”の部分であり、原則を骨抜きにしないための最重要ルールです。</p>
+      </div>
+
+      <h3>4.2 ガバナンスの整合(Governance Alignment)</h3>
+
+      <p><strong>目的</strong>: どの意思決定を、誰が、どのレベルで行うのかが明確でなければ、ポートフォリオマネジメントは機能しません。</p>
+
+      <p><strong>達成のポイント</strong></p>
+      <ul>
+        <li>プロジェクト・プログラムマネージャーから、ポートフォリオ・プログレス・グループ、ディレクター / 投資委員会レベルまで、意思決定の階層構造を明示すること</li>
+        <li>P3O(Portfolio, Programme and Project Offices)モデルと整合させ、変革の影響を受けるBAU領域とも連携すること</li>
+        <li>各役割について、すぐ使えるテンプレートとしての役割記述(role description)を用意すること</li>
+        <li>組織内に複数のサブポートフォリオが存在する場合は、それぞれに一貫した原則・サイクルを適用し、整合を取ること</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/principles/governance-alignment/" target="_blank" rel="noopener">mop.wiki「Governance Alignment」</a></li>
+          <li><a href="https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/" target="_blank" rel="noopener">Lumify Work コース概要</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>全社とサブポートフォリオで様式を統一する。</strong>部門ごとのサブポートフォリオがある大企業では、当該部門以外の上級管理層がサブポートフォリオへの関心を失いがちです。全社ポートフォリオとサブポートフォリオで、同一の原則・サイクル・報告様式を使うことで一貫性を保ち、経営層の関心の希薄化を防ぐこと。</p>
+      </div>
+
+      <h3>4.3 戦略との整合(Strategy Alignment)</h3>
+
+      <p><strong>目的</strong>: 便益を生まない変革施策は、リソースの浪費と組織の混乱を招くだけです。ポートフォリオマネジメントの最終目的は、組織の戦略目標を達成することにあります。</p>
+
+      <p><strong>達成のポイント</strong></p>
+      <ul>
+        <li><strong>ドライバーベースモデル</strong>: 非常に高いレベルの戦略から、戦略目標、便益、そして最終的にそれらを実現する変革施策へと段階的にブレークダウンする手法を用いること</li>
+        <li><strong>文書化された戦略</strong>: バランスト・スコアカードのようなツールを用いて、戦略を測定可能な目標へと変換すること</li>
+        <li><strong>ビジネスケースと組織戦略の接続</strong>: すべてのプロジェクト・プログラムのビジネスケースにおいて、少なくとも1つの便益が組織の戦略目標のいずれかと紐づいていることを確認すること。紐づかない施策は、その存在意義自体を問い直す必要があります</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="driverModelDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">戦略からベネフィット、施策へのドライバーベースモデル</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/principles/strategy-alignment/" target="_blank" rel="noopener">mop.wiki「Strategy Alignment」</a></li>
+          <li><a href="https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/" target="_blank" rel="noopener">Lumify Work コース概要</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>ビジネスケースに戦略目標欄を必須化する。</strong>ビジネスケースのテンプレートに「本施策が貢献する戦略目標」を必須記入欄として設けること。これにより「戦略との整合」の原則を、レビュー担当者の主観に頼らず機械的にチェック可能な仕組みへと落とし込めます。</p>
+      </div>
+
+      <h3>4.4 ポートフォリオオフィス(Portfolio Office)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオマネージャーが的確な意思決定を行うためには、最新かつ正確な情報を継続的に提供する専任のビジネス機能が必要です。この役割を担うのが「ポートフォリオオフィス」であり、物理的・仮想的な組織のいずれの形態も取り得ます。この原則はOGC(英国政府商務局)標準であるP3Oと強く結びついています。</p>
+
+      <p><strong>確立のポイント</strong></p>
+      <ul>
+        <li><strong>組織構造上の適切な位置づけ</strong>: C-level(経営層)に直接アクセスできる、C-levelの一段下程度の階層に置くことが望ましいとされます</li>
+        <li><strong>適切なリーダーシップ</strong>: ポートフォリオオフィスを率いる人材(ポートフォリオ・ディレクター)は、組織上層部と対等に議論でき、かつ現場のプロジェクト・プログラムマネジメントチームを導けるだけの知識・スキル・経験を持つ必要があります</li>
+        <li>要員は必ずしもフルタイムでなくてよく、組織の規模やアプローチに応じて柔軟に設計できます</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/principles/portfolio-office/" target="_blank" rel="noopener">mop.wiki「Portfolio Office」</a></li>
+          <li><a href="http://www.advantagelearning.co.uk/news/mop-5-principles.html" target="_blank" rel="noopener">Advantage Learning</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>P3Oモデルで機能分離する。</strong>ポートフォリオオフィスを、恒久的な機能(Permanent Portfolio Office)と、プログラム・プロジェクト単位で一時的に設置されるオフィス(temporary Programme/Project Office)、およびセンター・オブ・エクセレンス(Centre of Excellence)に機能分離するP3Oモデルを参考にすること。すべてを一つの巨大な恒久組織にまとめようとすると、組織変化への機敏さが失われます。</p>
+      </div>
+
+      <h3>4.5 活力ある変革文化(Energised Change Culture)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオの成功は、プロセスと同じくらい「人」に依存します。この原則は、ポートフォリオの定義・デリバリーに向けて一丸となって取り組むエンゲージされたチームの必要性を扱う、MoPの“ソフト面”です。</p>
+
+      <p><strong>達成のポイント</strong>(詳細は次節「組織のエネルギー」を参照)</p>
+      <ul>
+        <li>上級管理層による継続的な発信と動機づけ</li>
+        <li>戦略目標から個人目標までの明確な紐づけ</li>
+        <li>従業員エンゲージメント戦略の展開</li>
+        <li>組織文化に見合った適切な公式度(フォーマリティ)の設定</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/principles/energised-change-culture/" target="_blank" rel="noopener">mop.wiki「Energised Change Culture」</a></li>
+          <li><a href="https://www.lumifywork.com/en-ph/offers/mop-foundation-and-practitioner-combo/" target="_blank" rel="noopener">Lumify Work</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>役割記述を縦に一貫させる。</strong>役割記述(role description)を、組織戦略 → ポートフォリオ → プログラム / プロジェクト → 個人の職務内容、という縦のラインで一貫させること。従業員が「自分の日々の仕事が、どの戦略目標にどうつながっているか」を説明できる状態を目指します。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Organizational Energy ===================== -->
+    <section id="organizational-energy">
+      <div class="section-eyebrow"><i class="ti ti-bolt"></i>SECTION 05</div>
+      <h2>組織のエネルギーと活力ある変革文化</h2>
+
+      <p>「組織のエネルギー(Organizational Energy)」とは、組織目標の達成に向けた、組織内のすべての個人の努力の集合体です。ここでいう「努力」は単なる作業量ではなく、チーム全体の感情・行動・認知面でのコミットメントの度合いを指します。</p>
+
+      <h3>5.1 組織のエネルギーの4つの源泉(4つのC)</h3>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="fourCsDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">組織のエネルギーの4つの源泉(4つのC)</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/organizational-energy/" target="_blank" rel="noopener">mop.wiki「Organizational Energy」</a></li>
+        </ul>
+      </div>
+
+      <h3>5.2 組織のエネルギーとポートフォリオマネジメントの関係</h3>
+
+      <p>組織のエネルギーは、あらゆる組織的取り組みの成否を左右しますが、とりわけポートフォリオマネジメントの導入においては組織全体に影響が及ぶため、その重要性は一層高まります。生産的なエネルギー(productive energy)は、以下によって引き出すことができます。</p>
+
+      <ul>
+        <li>上級管理層によるコミットメント・コミュニケーション・関与</li>
+        <li>従業員エンゲージメント</li>
+        <li>実効性のあるガバナンス</li>
+        <li>組織全体の成功への焦点化</li>
+      </ul>
+
+      <p>MoP自体は組織のエネルギーを変化させる具体的技法までは規定していませんが、Heike BruchとBernd Vogelの著書『Fully Charged: How Great Leaders Boost Their Organization's Energy and Ignite High Performance』などが参考文献として挙げられています。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/organizational-energy/" target="_blank" rel="noopener">mop.wiki「Organizational Energy」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>4つのCの観点で定性的にモニタリングする。</strong>同一組織内でも、チームによって「生産的エネルギー」を持つ部署と「消耗的エネルギー(corrosive energy)」を持つ部署が併存することがあります。ポートフォリオオフィスは、四半期レビューなどの定例の場で、単に進捗(KPI)だけでなくこの4つのCの観点からチームの状態を定性的にモニタリングすることが望ましいです。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 6. Portfolio Definition Cycle ===================== -->
+    <section id="definition-cycle">
+      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 06</div>
+      <h2>ポートフォリオ定義サイクル(5つのプラクティス)</h2>
+
+      <p>定義サイクルは、上級管理層が意思決定を行うために必要な情報を生成する段階であり、「ポートフォリオは組織を目指す場所へ導いてくれるか?」という問いに答えます。定義サイクルの最終的なアウトプットは<strong>ポートフォリオ戦略</strong>と<strong>デリバリープラン</strong>の2つです。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="definitionCycleDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ポートフォリオ定義サイクルの5つのプラクティスとアウトプット</div>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/" target="_blank" rel="noopener">mop.wiki「Portfolio Definition Cycle」</a></li>
+        </ul>
+      </div>
+
+      <h3>6.1 Understand(理解する)</h3>
+
+      <p><strong>目的</strong>: 組織の戦略計画と、ポートフォリオに含めるべきプロジェクト・プログラムとを結びつけるプラクティスです。ポートフォリオマネジメントと上級管理層との間の<strong>双方向コミュニケーション</strong>である点が重要です。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>既存のポートフォリオ運用がある場合、ポートフォリオオフィスは既存プロジェクト・プログラムについて、計画されているビジネスインパクト、予測便益、コストと資源、集約リスク、これまでの実績を上級管理層へ提示します</li>
+        <li>上級管理層は、PESTLE分析(政治・経済・社会・技術・環境・法律)やSWOT分析、バランスト・スコアカード、VRIO分析、BCGマトリクスなどのツールを用いて事業環境をスキャンし、戦略を設計します</li>
+        <li>戦略策定プロセスはトップダウン型、ボトムアップ型、またはその両者を組み合わせたハイブリッド型のいずれかを取ります</li>
+      </ul>
+
+      <p><strong>アウトプット</strong>: (1)既進行中・パイプライン中を含む組織のプロジェクト・プログラムポートフォリオの明確な一覧、(2)現状と戦略的期待とのギャップ分析</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/understand/" target="_blank" rel="noopener">mop.wiki「Understand」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>高レベル・低専門用語での可視化に徹する。</strong>情報は「できるだけ専門用語を排し、高レベルな概要」にとどめること。詳細な計画・管理は個々のプロジェクト・プログラムマネジメントチームの責務であり、上級管理層に必要なのはマイルストーン、概算コスト、リスク、便益実現状況の全体像です。</p>
+      </div>
+
+      <h3>6.2 Categorize(分類する)</h3>
+
+      <p><strong>目的</strong>: Understandで洗い出した施策の一覧を、あらかじめ定めた基準(カテゴリー)に分類します。組織の目標が複数ある場合(例: 有機的成長60%・非有機的成長40%といった戦略配分)、それに対応するカテゴリー群を設計します。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>カテゴリーはリスクベース、投資基準ベースなど様々な切り口で設計可能で、MoPは一般的な汎用カテゴリーセットも提案しています</li>
+        <li>1つの施策が複数カテゴリーにまたがることもあり、その場合はポートフォリオマネジメントチームがどちらか一方、あるいは両方に位置づけるかを判断します</li>
+        <li><strong>どのカテゴリーにも当てはまらない施策は、その存在意義自体を問い直す必要があります</strong></li>
+      </ul>
+
+      <p><strong>アウトプット</strong>: 組織のプロジェクト・プログラムを、1つ以上の定義済みカテゴリーにタグ付けしたマップ</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/categorize/" target="_blank" rel="noopener">mop.wiki「Categorize」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>カテゴリーを戦略目標の構造に合わせる。</strong>カテゴリー設計を、上級管理層が設定した戦略目標の構造とできる限り一致させること。組織目標の構造とカテゴリーがずれていると、ポートフォリオオフィスから経営層への報告のたびに「翻訳作業」が発生し、意思決定の遅延と誤解の温床になります。</p>
+      </div>
+
+      <h3>6.3 Prioritize(優先順位付け)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオ内の施策に順位をつけることです。重要なのは、優先順位付けが同時に「劣後順位付け(de-prioritization)」でもある、という点です。ある施策に高い優先度を与えることは、他の施策の優先度を相対的に下げること、場合によっては中止することを意味します。</p>
+
+      <p><strong>技法(Techniques)</strong></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>単一基準分析(Single-criterion Analysis, SCA)</td><td>NPV・IRR・回収期間などの財務指標や、顧客インパクトなど単一の基準で評価する手法。シンプルだが「組織の存在意義が金銭のみ」という前提に陥りやすく、実務では非現実的なことが多い</td></tr>
+            <tr><td>多基準分析(Multi-criteria Analysis, MCA)</td><td>複数の基準それぞれにスコアを割り当て、各施策のインパクトを評価・合算する手法。組織・業界のニーズを反映した基準設計が求められる</td></tr>
+            <tr><td>三点見積り・リファレンスクラス予測</td><td>楽観値・悲観値・最頻値の3点見積りや、過去の類似実績(リファレンスクラス)に基づく予測により、見積りの精度とバイアス補正を高める技法</td></tr>
+            <tr><td>ドライバーベース戦略貢献度分析</td><td>高次戦略から戦略目標・便益・施策へとブレークダウンする「ドライバーモデル」(4.3節参照)を用いて、各施策の戦略貢献度を評価する技法</td></tr>
+            <tr><td>ディシジョン・カンファレンシング</td><td>主要な意思決定者を一堂に集め、ファシリテーターの進行のもとで各施策を協働評価し、合意形成を図るワークショップ形式の技法</td></tr>
+            <tr><td>クリア・ライン・オブ・サイト</td><td>戦略目標から個々の施策までの因果関係を明瞭に可視化し、優先順位の妥当性を関係者が直感的に理解できるようにする考え方</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>アウトプット</strong>: 優先順位付けされた変革施策の一覧</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/prioritize/" target="_blank" rel="noopener">mop.wiki「Prioritize」</a></li>
+          <li><a href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener">QA「MoP Foundation and Practitioner」コース概要</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>セグメントごとに基準を変えてよい。</strong>優先順位付けの基準は、ポートフォリオが複数のセグメントやサブポートフォリオに分かれている場合、セグメントごとに異なる基準を設定してもよいとされています。全社一律の単一基準に固執しないこと。</p>
+      </div>
+
+      <h3>6.4 Balance(バランスを取る)</h3>
+
+      <p><strong>目的</strong>: 優先順位付けの結果、似たタイプの施策ばかりが上位を占め、偏った(unbalanced)ポートフォリオになることがあります。バランシングは、施策群を最適な形に組み替え、組織全体として最良のアウトプットが得られるようにするプラクティスです。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>バランシングは必ず優先順位付けの<strong>後</strong>に行います</li>
+        <li>リスクと報酬(reward)のような2軸のグラフでポートフォリオを可視化し、偏りを把握することが有効です</li>
+        <li>手作業での定性評価、ポートフォリオガバナンス機関による全体アセスメント、大規模組織ではアルゴリズムによる定量評価など、様々な方法が取られます</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="riskRewardDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">リスク・報酬マトリクスによるバランス評価の例</div>
+      </div>
+
+      <p><strong>アウトプット</strong>: 選定したバランシング基準に照らしてバランスの取れたポートフォリオ。可視化(グラフ表現)、ガバナンス機関の関与、客観的手法(アルゴリズム等)の活用が良い実践とされ、バランシングの結果を誰か(特に経営層)が独断で覆すべきではなく、ポートフォリオオフィスによる承認(サインオフ)を経ることが望ましいとされます。</p>
+
+      <p>なお、ここでのポートフォリオオフィスのサインオフは、Balanceプラクティスの段階で<strong>バランシング結果そのもの</strong>を確定させるものです。最終的な承認権限はポートフォリオ・ディレクション・グループ(PDG)にあり、PDGは続くPlanプラクティスで、サインオフ済みのバランシング結果を反映したポートフォリオ戦略とデリバリープランを審議し、ポートフォリオのバランス・実現可能性を確認したうえで承認します(6.5節、および主要な役割の表を参照)。つまり「ポートフォリオオフィス = バランシング結果の確定(サインオフ)」「PDG = ポートフォリオ全体の最終承認」という段階的な関係です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/balance/" target="_blank" rel="noopener">mop.wiki「Balance」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>優先順位の結果を鵜呑みにしない。</strong>「高リスク・高報酬」案件が同時に何件もプライオリティ上位に並ぶ場合、それらを一斉に実行するのではなく、一部を後続タイムラインへずらす、あるいは中止するという判断を、バランシングの段階で行うこと。</p>
+      </div>
+
+      <h3>6.5 Plan(計画する)</h3>
+
+      <p><strong>目的</strong>: 定義サイクルの最終プラクティスであり、それまでの4つのプラクティスで得られた情報を統合します。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>2つの主要アウトプットである<strong>ポートフォリオ戦略</strong>と<strong>デリバリープラン</strong>を作成し、上級管理層(正確には委任された責任を持つポートフォリオ・ディレクション・グループ)の承認を得ます</li>
+        <li>提示内容には、(1)ポートフォリオが事業戦略とどう整合し、どう戦略達成を後押しするかを示すポートフォリオ戦略、(2)マイルストーン・予算・期待便益・リスク概要を含む、全ステークホルダーに明快な概要、(3)進捗モニタリングとレビューのためのベースライン、が含まれます</li>
+      </ul>
+
+      <p><strong>アウトプット</strong></p>
+      <ul>
+        <li><strong>ポートフォリオ戦略</strong>: ポートフォリオが「何を」届けるかを示す</li>
+        <li><strong>ポートフォリオ・デリバリープラン</strong>: 「いつ・どのように」届けるかを示す、より詳細な文書</li>
+      </ul>
+
+      <p>ポートフォリオ戦略とデリバリープランは、一度作成して終わりの静的文書ではなく「生きた文書」です。組織の戦略レビュー(多くは四半期ごと、場合によっては年次)に合わせて定期的に見直され、事業環境の急変などに応じた臨時レビューも行われます。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/plan/" target="_blank" rel="noopener">mop.wiki「Plan」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>全社戦略レビューと同期させる。</strong>ポートフォリオ戦略とデリバリープランの改訂サイクルを、組織の全社戦略レビューサイクルと明示的に同期させること。ポートフォリオ側だけが独自のレビュー頻度を持つと、戦略変更への追随が遅れます。</p>
+      </div>
+
+      <h3>6.6 定義サイクルを適切に運用する意義</h3>
+
+      <p>定義サイクルが不十分だと、以下のような問題が起こります。</p>
+
+      <ul>
+        <li>ポートフォリオが組織戦略を反映しなくなる</li>
+        <li>戦略的に重要な施策が見過ごされ、表面的に重要に見える施策に不当な優先度が与えられる</li>
+        <li>上級管理層の「お気に入り案件」が優先されてしまう</li>
+        <li>戦略的に重要な施策への資金が不足する一方、誤った施策に資金が流れる</li>
+        <li>プロジェクトのアウトプットがBAUで十分活用されず、便益実現が不十分になる</li>
+      </ul>
+
+      <p>定義サイクルは一度きりの立ち上げ作業ではなく、上級管理層からの継続的な関与を必要とします。ポートフォリオマネージャーと上級管理層の定期的なレビュー会議が不可欠です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/" target="_blank" rel="noopener">mop.wiki「Portfolio Definition Cycle」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Portfolio Delivery Cycle ===================== -->
+    <section id="delivery-cycle">
+      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 07</div>
+      <h2>ポートフォリオ・デリバリーサイクル(7つのプラクティス)</h2>
+
+      <p>デリバリーサイクルは、ポートフォリオ戦略とデリバリープランに基づいて選定された施策を実際に実行に移す段階です。個々のプロジェクト・プログラム内部のリスクや資源は各プロジェクト・プログラムチームが管理しますが、ポートフォリオレベルでは<strong>集約された(aggregate)</strong>視点でこれらを評価・管理します。7つのプラクティスは基本的に並行して進行します。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="deliveryCycleDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">ポートフォリオ・デリバリーサイクルの7つのプラクティス</div>
+      </div>
+
+      <p>デリバリーサイクルが不十分だと、以下のような問題が起こります。</p>
+
+      <ul>
+        <li>施策が期限・予算どおりに実現しない</li>
+        <li>施策間の論理的依存関係により遅延が連鎖する</li>
+        <li>リソース活用が最適化されない</li>
+        <li>ビジネス環境の変化にポートフォリオ自体が追随できない</li>
+        <li>ポートフォリオが戦略に最適な形で貢献できない</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/" target="_blank" rel="noopener">mop.wiki「Portfolio Delivery Cycle」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.1 マネジメントコントロール(Management Control)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオ戦略とデリバリープランという2つの主要アウトプットが確実に遵守され、ポートフォリオが戦略と整合し続けるようにするプラクティスです。プロジェクト・プログラムのデリバリー活動と、ポートフォリオマネジメントの期待とのギャップを埋める役割を担います。</p>
+
+      <p><strong>5つの活動要素</strong></p>
+      <ol>
+        <li><strong>明確化されたプロセス</strong>: プロジェクト開始時点で正しいオプションが選ばれ、正しい便益が得られる仕組み、および意思決定の権限を超えた際のエスカレーションプロセスを整備すること</li>
+        <li><strong>ガイダンスとテンプレート</strong>: 特に重要な2つの成果物である「ビジネスケース」と「ベネフィット実現計画」については、標準テンプレートとガイダンスを整備すること。加えてプロジェクト開始文書、実行可能性調査、投資評価などのテンプレートやツールも提供します</li>
+        <li><strong>定期的な進捗報告</strong>: ポートフォリオレベルでのレビューの対象読者は、組織の上級管理層です</li>
+        <li><strong>ポートフォリオレベルのレビュー</strong>: 適切に設計されたレポーティングは、レビューの必要回数を減らせます。目安として四半期または半年ごとのレビュー頻度が一般的に十分とされます(年次レビューでも許容されます)</li>
+        <li><strong>ステージゲート</strong>: プロジェクト・プログラムは継続的なビジネス上の正当性(continued business justification)を持ち続けなければならず、それを定期的に検証するチェックポイントがステージゲートです。ポートフォリオレベルのレビューとは別物である点に注意してください</li>
+      </ol>
+
+      <p><strong>成功の鍵</strong>: ライフサイクルを通じた定期的なステージレビュー、定期的な進捗報告、戦略と整合したレビュー、明確化されたプロセスと統一されたテンプレート・ガイダンス。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/management-control/" target="_blank" rel="noopener">mop.wiki「Management Control」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>レビューとステージゲートを混同しない。</strong>「ポートフォリオレベルのレビュー」と「ステージゲート」を混同しないこと。前者はポートフォリオ全体の戦略整合性を扱う経営層向けの場、後者は個々のプロジェクト・プログラムの継続妥当性を判定する現場寄りの関門であり、両者は目的も参加者も異なります。</p>
+      </div>
+
+      <h3>7.2 ベネフィットマネジメント(Benefits Management)</h3>
+
+      <p><strong>目的</strong>: すべての変革施策は便益を生み出すために実施されます。プロジェクト・プログラムから実現される便益が、組織戦略の達成に貢献します。このプラクティスは個々の施策単位の便益ではなく、ポートフォリオ全体としての便益を扱う点が特徴です。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>便益の適格ルールと分類基準の策定</strong>: すべてのプロジェクト・プログラムで同一の基準を用いて便益を分類し、ポートフォリオオフィスが統合してポートフォリオレベルの視点を提供できるようにします</li>
+        <li><strong>ポートフォリオレベルのベネフィット実現計画の作成</strong>: 各プロジェクト・プログラムの便益実現計画を単純に足し合わせるのではなく、将来の計画期間に向けた便益予測として統合します</li>
+        <li><strong>便益の予測</strong>: 過去の実績データに基づく<strong>リファレンスクラス予測</strong>を活用します</li>
+        <li><strong>各ステージでのレビュー</strong>: 蓄積された便益および将来便益を定期的にレビューし、戦略目標との整合を確認します。これは経営層との場でもあり、コミットメントを再確認する機会にもなります</li>
+        <li><strong>報告と追跡</strong>: 一貫した仕組みで便益を追跡・報告し、ステークホルダーに「一つの真実(one version of the truth)」を提供する、計画されたルートとスケジュールを維持することが重要です</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: リファレンスクラス予測により、過去の類似実績から便益を精度高く見積もれること。報告に際しては、あらかじめ定めたルートとスケジュールを守り、単一の情報源からの一貫した内容をステークホルダーに届けること。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/benefits-management/" target="_blank" rel="noopener">mop.wiki「Benefits Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.3 財務マネジメント(Financial Management)</h3>
+
+      <p><strong>目的</strong>: 組織のパフォーマンスを測る最も重要な指標は、非営利組織であっても常に財務です。ポートフォリオマネジメントを組織の財務管理プロセスと整合させることが不可欠です。このプラクティスは個々の施策の財務ではなく、ポートフォリオ全体の財務を扱います。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>適切な指標の選定</strong>: NPV(正味現在価値)、IRR(内部収益率)、損益分岐点などが投資判断でよく用いられる指標です。財務部門と上級管理層が、組織のビジネスモデルに最適な指標を選定します</li>
+        <li><strong>資金の段階的リリース</strong>: 資金はプロジェクト開始時に一括で渡されることは稀で、プロジェクト・プログラムの進捗に応じて段階的にリリースされます。これはポートフォリオ全体の財務計画を必要とする理由でもあります</li>
+        <li><strong>財務コンティンジェンシーとモニタリング</strong>: 予期せぬリスクの影響を緩和するための財務コンティンジェンシー計画を、プロジェクト・プログラムレベルだけでなくポートフォリオレベルでも持つこと。ポートフォリオレベルでの支出モニタリングは、戦略目標達成コストの重要な指標になります</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: NPVは将来のコストと便益を現在の貨幣価値に換算した指標であり、貨幣価値が時間とともに目減りすることを考慮した財務便益評価に広く使われます。段階的資金リリースは、プロジェクトのマイルストーンやゲートと連動させることで資金の最適活用につながります。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/financial-management/" target="_blank" rel="noopener">mop.wiki「Financial Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.4 リスクマネジメント(Risk Management)</h3>
+
+      <p><strong>目的</strong>: リスクとは、起こるかもしれないし起こらないかもしれない予期せぬ事象です。リスクはプロジェクト・プログラム・ポートフォリオのいずれのレベルでも発生しえます。このプラクティスは個々の施策のリスクではなく、ポートフォリオ全体の<strong>集約リスク(aggregate risk)</strong>を扱います。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>組織のリスクマネジメントとの整合</strong>: 組織に既存のリスク管理方針・実務がある場合、ポートフォリオマネジメントはそれと密接に連携し、重複や矛盾を避けること</li>
+        <li><strong>プロジェクト・プログラム間の相互依存関係の管理</strong>: ある施策のリスク軽減策が、別の施策に影響を及ぼす「リスクシフティング」の抑制。また、あるプロジェクトが別プロジェクトの成果物を待つ論理的依存関係(dependency)の管理</li>
+        <li><strong>財務コンティンジェンシーの維持</strong>: 組織のリスク許容度(risk appetite)も考慮した、ポートフォリオ独自の財務コンティンジェンシー予算の確保</li>
+        <li><strong>優先順位付けプロセスへのリスクの組み込み</strong>: 多基準分析における評価軸の一つとしてリスクを組み込み、財務リターンとリスク管理の労力とのバランスを検討すること</li>
+        <li><strong>組織へのポートフォリオリスクの影響検討</strong>: ポートフォリオが生み出すリスクが組織全体に与える影響をモニタリング・管理すること</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: プロジェクト・プログラム間の相互依存関係の管理、十分なポートフォリオレベルの財務コンティンジェンシーの維持、リターンと並んでリスクを優先順位付けに組み込むことが主要な要素です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/risk-management/" target="_blank" rel="noopener">mop.wiki「Risk Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.5 ステークホルダーエンゲージメント(Stakeholder Engagement)</h3>
+
+      <p><strong>目的</strong>: 内部・外部を問わず、すべてのステークホルダーはポートフォリオオフィスの「顧客」です。エンゲージメントとは単に情報提供や指示に従わせることではなく、ステークホルダーの関心と影響力を組織目標の達成のために活用することを意味します。ポートフォリオのステークホルダーは多くの場合、上級で影響力のある人物であり、その期待値マネジメントは容易ではありません。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>共有ビジョンの形成</strong>: 各上級リーダーが異なるビジョンを持ちがちな中で、共通のビジョンを形成すること</li>
+        <li><strong>経営層による支持の獲得</strong>: ポートフォリオに関するコミュニケーション活動への経営層の支持を得ること</li>
+        <li><strong>影響度・関心度マトリクスの構築</strong>: ステークホルダーを影響力と関心度の2軸で整理し、関与の優先順位を設計すること</li>
+        <li><strong>ステークホルダーごとのエンゲージメント戦略構築</strong>: 個別のニーズ・嗜好に合わせたアプローチを設計すること</li>
+        <li><strong>チャンピオン・チャレンジャーモデルの活用</strong>: 現行の推進者(チャンピオン)よりも優れたアイデアを持つ関係者(チャレンジャー)が現れた場合、その人物を新たなチャンピオンとして前向きに位置づける手法</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: 共有ビジョンの形成、経営層の支持獲得、影響度・関心度マトリクスの構築、ステークホルダーごとの個別戦略、チャンピオン・チャレンジャーモデルの活用。これらはポートフォリオ・デリバリープランの中核をなす要素です。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/stakeholder-engagement/" target="_blank" rel="noopener">mop.wiki「Stakeholder Engagement」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.6 組織ガバナンス(Organizational Governance)</h3>
+
+      <p><strong>目的</strong>: 組織ガバナンスとは、組織がその目的を追求する上で意思決定を行い、実行する仕組みのことです。上級管理層のような内部関係者だけでなく、規制当局・政府(法規制を通じて)・圧力団体・証券取引所などの外部関係者からも影響を受けます。ポートフォリオマネジメントを組織構造と整合させることで、内外のコンプライアンス要件を満たし、組織の実務と効果的に整合させます。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>ビジョンの整合</strong>: ポートフォリオのビジョンと組織のビジョンを整合させ、上級管理層のサインオフを得ること。もし戦略目標が組織ビジョンと整合していなければ、まずその問題自体に対処する必要があります</li>
+        <li><strong>ポートフォリオの成功基準とステージゲート</strong>: 計画通りに進んでいるかを評価する成功基準(メトリクス)を、組織横断で普遍的に使える指標は存在しないため、組織のリーダーシップと協働で設計すること。定期的なステージゲートで評価を実施します(マネジメントコントロールの成功にも直結します)</li>
+        <li><strong>役割記述</strong>: 職務記述書と同様、個人やグループがポートフォリオマネジメントにおいて何を期待されているかを明文化すること</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/organizational-governance/" target="_blank" rel="noopener">mop.wiki「Organizational Governance」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>原則を具体的な仕組みへ落とし込む。</strong>組織ガバナンスの整備は「4.2 ガバナンスの整合」の原則をデリバリーサイクルの日々の運用に落とし込む実装部分にあたります。原則レベルの整合が取れていても、役割記述やステージゲートといった具体的な仕組みが伴わなければ、実務では形骸化しがちです。</p>
+      </div>
+
+      <h3>7.7 リソースマネジメント(Resource Management)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオオフィスの最も重要な役割の一つが、リソースの効率的な管理です。優先度の高いプロジェクトに優れたリソースを配分しつつ、他の関係者の期待値もマネジメントするという、難しい判断が求められます。このプラクティスも個々の施策内部のリソース管理ではなく、ポートフォリオ全体のリソースを扱います。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>リソース(人員・技術・その他資産)は現実の組織では常に制約があり、過剰なリソース保有は非効率を招きます。効率性は組織の存続そのものにも関わる重要課題です</li>
+        <li>理想的には適材適所ですが、現実にはそうもいかないため、希少なリソースは最も戦略的に整合した施策へ優先配分されるべきです</li>
+        <li>プロジェクト間の相互依存関係にも配慮した配分が必要です</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: ポートフォリオレベルでの資源のキャパシティと稼働可能量を把握し(ポートフォリオ・リソース・スケジュールとして文書化)、余剰・過小稼働・過剰稼働を可視化すること。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/resource-management/" target="_blank" rel="noopener">mop.wiki「Resource Management」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 8. Key Roles ===================== -->
+    <section id="key-roles">
+      <div class="section-eyebrow"><i class="ti ti-users-group"></i>SECTION 08</div>
+      <h2>主要な役割(Key Roles)</h2>
+
+      <p>MoPは、ポートフォリオの導入・継続運用を担う主要なステークホルダーグループとして、以下の役割を定義しています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="rolesDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">主要な役割の階層関係</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>役割</th><th>主な責務</th></tr></thead>
+          <tbody>
+            <tr><td>ポートフォリオ・ディレクション・グループ(PDG)</td><td>ポートフォリオマネジメントの実務(フレームワークと定義サイクルのプロセス)を承認。ポートフォリオのバランス・実現可能性を確認しポートフォリオ戦略とデリバリープランを承認。資金提供と個々の施策の承認(中止判断を含む)。組織目標に照らした定期レビューと方向づけ。最上位のエスカレーション先として組織の最善の利益に沿った紛争解決を行う</td></tr>
+            <tr><td>ポートフォリオ・プログレス・グループ(PPG)</td><td>デリバリーサイクルの各プロセスが効果的に実行されることに責任を持つ。全体進捗のモニタリングと、便益実現を損ないかねない課題の解決。予算・便益・リスク・課題・前提・依存関係・リソースの積極的なマネジメント(必要に応じた予測を含む)。上級管理層・ステークホルダーへのポートフォリオレベルの通信を承認する</td></tr>
+            <tr><td>ポートフォリオ・ディレクター(PD)</td><td>個人としてポートフォリオ全体に説明責任を持つ役割(「ビジネスチェンジ・ディレクター」とも呼ばれる)</td></tr>
+            <tr><td>ポートフォリオ・マネージャー</td><td>ポートフォリオ全体の計画・運営を担う実務責任者</td></tr>
+            <tr><td>ポートフォリオ・ベネフィット・マネージャー</td><td>ポートフォリオレベルの便益の統合・追跡・報告を担う</td></tr>
+            <tr><td>プロジェクト・プログラムマネージャー(PPMs)</td><td>個々の施策のデリバリーに責任を持ち、ポートフォリオマネジメントへ情報をインプットする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/key-roles/" target="_blank" rel="noopener">mop.wiki「Key Portfolio Management Roles」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>PDGとPPGを明確に分離する。</strong>PDG(投資委員会)とPPG(デリバリー委員会)を明確に分離すること。前者は「何を、どれだけの予算で、ポートフォリオに含めるか」という定義サイクル寄りの意思決定機関、後者は「含めた施策が計画通りに進んでいるか」というデリバリーサイクル寄りの監督機関であり、両者を一つの会議体に統合すると、戦略的意思決定と日々の進捗管理の議題が混在し、いずれの意思決定の質も低下しがちです。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 9. Key Documents ===================== -->
+    <section id="key-documents">
+      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 09</div>
+      <h2>主要文書(Key Documents)</h2>
+
+      <p>MoPフレームワークは、ポートフォリオマネジメントを実践する上で以下9つの主要文書を定義しています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>文書</th><th>目的・内容</th></tr></thead>
+          <tbody>
+            <tr><td>ポートフォリオ戦略(Portfolio Strategy)</td><td>ポートフォリオが「何を」届けるかを示す。ビジョン・ミッション・目的を含め、ポートフォリオがどこへ向かい、どう組織の戦略目標達成に寄与するかをステークホルダーが理解できるようにする</td></tr>
+            <tr><td>ポートフォリオ・デリバリープラン</td><td>ポートフォリオ戦略よりも詳細で、進捗モニタリングのベースラインとして機能する。いつ届けるか、マイルストーン、リスク、コスト、人員要件などの詳細を含む</td></tr>
+            <tr><td>ポートフォリオ・ベネフィット実現計画</td><td>ポートフォリオレベルでの便益実現の計画・追跡を担う文書</td></tr>
+            <tr><td>ポートフォリオ・ダッシュボード</td><td>ポートフォリオの状況を一覧できる可視化ツール</td></tr>
+            <tr><td>ポートフォリオ・リソース・スケジュール</td><td>ポートフォリオ内の変革施策を支えるリソースのキャパシティと稼働可能量を規定。余剰・過小稼働・過剰稼働も含む</td></tr>
+            <tr><td>ポートフォリオ財務プラン</td><td>ポートフォリオの予算を定め、支出追跡のベースラインとなる(実績値は含まない)</td></tr>
+            <tr><td>ポートフォリオマネジメント・フレームワーク</td><td>組織のポートフォリオマネジメント実務とガバナンスのあり方について、ステークホルダーへの参照文書として機能する</td></tr>
+            <tr><td>ポートフォリオ・ベネフィットマネジメント・フレームワーク</td><td>ポートフォリオ内のすべての施策の便益を一貫した仕組みで管理するための枠組み</td></tr>
+            <tr><td>ポートフォリオ・ステークホルダーエンゲージメントプラン</td><td>ポートフォリオに関する一貫したステークホルダーエンゲージメントとコミュニケーションの枠組み</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/key-documents/" target="_blank" rel="noopener">mop.wiki「Key Portfolio Management Documents」</a></li>
+          <li><a href="https://goodelearning.com/articles/what-is-management-of-portfolios-mop/" target="_blank" rel="noopener">Good e-Learning「What is MoP?」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>文書を2つのサイクルに紐づけて覚える。</strong>これら9文書のうち、<strong>ポートフォリオ戦略</strong>と<strong>ポートフォリオ・デリバリープラン</strong>の2つが定義サイクルの直接のアウトプットです。<strong>ポートフォリオマネジメント・フレームワーク</strong>は、定義サイクルのプロセスを含むポートフォリオマネジメント実務全体を規定する文書であり(PDGの承認対象)、定義サイクルとデリバリーサイクルの両方にまたがります。残り6文書(ベネフィット実現計画・ダッシュボード・リソーススケジュール・財務プラン・ベネフィットマネジメントフレームワーク・ステークホルダーエンゲージメントプラン)は、デリバリーサイクルの各プラクティスを運用するための実務文書という位置づけです。試験対策としては、どの文書がどちらのサイクルに紐づくかを整理して覚えておくと出題への対応力が上がります。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Implementation and Maturity ===================== -->
+    <section id="implementation-and-maturity">
+      <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 10</div>
+      <h2>導入・定着・成熟度評価</h2>
+
+      <h3>10.1 3つの実装アプローチ</h3>
+
+      <p>プロジェクトやプログラムと異なり、ポートフォリオには明確な立ち上げ段階(イニシエーション)がありません。組織がプロジェクトをポートフォリオとして管理する重要性を認識した時点で、既に稼働中の施策とパイプライン中の施策を抱えた状態から導入が始まります。MoPは3つの導入アプローチを提示しています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="implementationApproachesDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">3つの実装アプローチの比較</div>
+      </div>
+
+      <p><strong>P3O(Portfolio, Programme and Project Offices)ガイドラインは、ビッグバンともアドホックとも比較して、エボリューショナリー(漸進的)アプローチを最も有効な選択肢として推奨しています。</strong>漸進的アプローチは「両者の良いとこ取り」とされ、組織への急激な混乱を避けつつ、可視化された便益によって早期にポートフォリオマネジメントの価値を証明できます。導入を遅延させないためには、周到な計画と規律ある実行が鍵となります。不安定で戦略が流動的な環境では、この漸進的アプローチが最も適しているとされます。</p>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/implementing-portfolio-management/" target="_blank" rel="noopener">mop.wiki「Implementing Portfolio Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>10.2 定着(Sustaining)のための要因</h3>
+
+      <p>導入後、ポートフォリオマネジメントの取り組みを組織に定着させ、進捗を維持するための代表的な要因には以下が挙げられます。</p>
+
+      <ul>
+        <li>最上位レベルでの焦点維持とポートフォリオ視点の継続的な推進を担う、上級レベルのスポンサーの存在</li>
+        <li>最も必要性の高い領域から着手し、「クイックウィン」によって早期に価値を実証する、段階的・漸進的なアプローチの継続</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://training.houseofpmo.com/pmolearning-blog/p3o/pmo-course-deep-dive-mop-foundation/" target="_blank" rel="noopener">House of PMO「MoP Foundationコース詳解」</a></li>
+        </ul>
+      </div>
+
+      <h3>10.3 成熟度評価: P3M3(Portfolio, Programme and Project Management Maturity Model)</h3>
+
+      <p>MoP Foundationでは、導入したポートフォリオマネジメントの成熟度を評価する枠組みとして、AXELOSが開発した<strong>P3M3</strong>にも言及します。P3M3はポートフォリオ(PfM3)・プログラム(PgM3)・プロジェクト(PjM3)の3つのサブモデルから構成され、いずれも5段階の成熟度レベルで評価されます。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="p3m3LevelsDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">P3M3の5段階成熟度レベル</div>
+      </div>
+
+      <p>各成熟度レベルは、以下<strong>7つのプロセス・パースペクティブ</strong>(= ポートフォリオ・デリバリーサイクルの7プラクティスと同一の枠組み)で評価されます。</p>
+
+      <ol>
+        <li>マネジメントコントロール</li>
+        <li>ベネフィットマネジメント</li>
+        <li>財務マネジメント</li>
+        <li>ステークホルダーエンゲージメント</li>
+        <li>リスクマネジメント</li>
+        <li>組織ガバナンス</li>
+        <li>リソースマネジメント</li>
+      </ol>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://eu-assets.contentstack.com/v3/assets/blt637b065823946b12/blt6582c2653720d239/620b6e06e413e76824f96dda/P3M3-Overview.pdf" target="_blank" rel="noopener">AXELOS「P3M3 Overview」</a></li>
+          <li><a href="https://www.vanharen.net/standards/p3m3/p3m3-portfolio-programme-and-project-management-maturity-model-in-3-minutes/" target="_blank" rel="noopener">Van Haren Publishing「P3M3 in 3 minutes」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice">
+        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <p><strong>P3M3の7視点をデリバリーサイクルと重ねて覚える。</strong>P3M3の7パースペクティブが、デリバリーサイクルの7プラクティスとほぼ1対1で対応していることに注目すると、両者を別々に暗記する必要がなくなります。「デリバリーサイクルの各プラクティスを、どれだけ成熟したレベルで実行できているか」を測る物差しがP3M3である、と理解するのが最も効率的です。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Best Practices Summary ===================== -->
+    <section id="best-practices-summary">
+      <div class="section-eyebrow"><i class="ti ti-bulb"></i>SECTION 11</div>
+      <h2>プラクティス別ベストプラクティス早見表</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>サイクル</th><th>プラクティス</th><th>一言でいうと</th><th>陥りやすい失敗</th><th>ベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td>定義</td><td>Understand</td><td>現状把握と戦略のインプット</td><td>詳細に踏み込みすぎて経営層への説明が重くなる</td><td>高レベル・低専門用語での可視化に徹する</td></tr>
+            <tr><td>定義</td><td>Categorize</td><td>施策の分類</td><td>カテゴリーが組織目標の構造とズレる</td><td>戦略目標の構造とカテゴリー設計を一致させる</td></tr>
+            <tr><td>定義</td><td>Prioritize</td><td>優先順位(= 劣後順位)付け</td><td>単一の財務指標だけで判断する</td><td>多基準分析 + クリア・ライン・オブ・サイトで納得感を担保する</td></tr>
+            <tr><td>定義</td><td>Balance</td><td>偏りの是正</td><td>優先順位の結果をそのまま実行に移す</td><td>リスク・報酬マトリクス等で可視化し、ポートフォリオオフィスがサインオフ(最終承認はPlanでPDG)</td></tr>
+            <tr><td>定義</td><td>Plan</td><td>戦略・プランの確定</td><td>一度作って放置する</td><td>全社戦略レビューサイクルと同期して定期改訂する</td></tr>
+            <tr><td>デリバリー</td><td>マネジメントコントロール</td><td>計画遵守の仕組み化</td><td>ポートフォリオレビューとステージゲートを混同する</td><td>両者の対象・目的・参加者を明確に切り分ける</td></tr>
+            <tr><td>デリバリー</td><td>ベネフィットマネジメント</td><td>便益の統合管理</td><td>各施策の便益を単純合算する</td><td>リファレンスクラス予測で統合的に予測する</td></tr>
+            <tr><td>デリバリー</td><td>財務マネジメント</td><td>資金の統制</td><td>資金を一括でリリースする</td><td>マイルストーン・ゲート連動の段階的リリースを行う</td></tr>
+            <tr><td>デリバリー</td><td>リスクマネジメント</td><td>集約リスクの統制</td><td>個別プロジェクトのリスクだけを見る</td><td>リスクシフティングと依存関係を横断的に管理する</td></tr>
+            <tr><td>デリバリー</td><td>ステークホルダーエンゲージメント</td><td>関係者の巻き込み</td><td>一方的な情報提供にとどまる</td><td>影響度・関心度マトリクスとチャンピオン・チャレンジャーモデルを活用する</td></tr>
+            <tr><td>デリバリー</td><td>組織ガバナンス</td><td>内外統制との整合</td><td>原則レベルの整合で満足する</td><td>役割記述・成功基準・ステージゲートに具体化する</td></tr>
+            <tr><td>デリバリー</td><td>リソースマネジメント</td><td>資源の最適配分</td><td>早い者勝ちで資源を配分する</td><td>戦略的整合度の高い施策へ希少資源を優先配分する</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Related Frameworks ===================== -->
+    <section id="related-frameworks">
+      <div class="section-eyebrow"><i class="ti ti-git-merge"></i>SECTION 12</div>
+      <h2>関連フレームワークとの関係</h2>
+
+      <p>MoP(PRINCE2 Portfolio Management)は、単独で使われるだけでなく、他のAXELOS / PeopleCertのベストプラクティスフレームワークと連携して用いられるよう設計されています。</p>
+
+      <div class="diagram-card">
+        <div class="diagram-container" id="relatedFrameworksDiagram"><div class="diagram-loading">図を読み込み中...</div></div>
+        <div class="diagram-caption">MoPと関連フレームワークとの関係</div>
+      </div>
+
+      <ul>
+        <li><strong>PRINCE2</strong>: 個々のプロジェクトマネジメント手法。ポートフォリオ内の各プロジェクトが実行段階で用いる</li>
+        <li><strong>MSP(Managing Successful Programmes)</strong>: 複数の関連プロジェクトを束ねるプログラムマネジメント手法</li>
+        <li><strong>P3O</strong>: ポートフォリオオフィス・プログラムオフィス・プロジェクトオフィスの設計・運営に関するガイダンス。MoPの「ポートフォリオオフィス」原則と直結します</li>
+        <li><strong>P3M3</strong>: これら3階層(ポートフォリオ・プログラム・プロジェクト)の管理成熟度を測定するモデル</li>
+      </ul>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.abebooks.co.uk/9780113312948/Management-Portfolios-MoP-AXELOS-0113312946/plp" target="_blank" rel="noopener">AbeBooks「Management of Portfolios (MoP)」書誌情報</a></li>
+          <li><a href="https://goodelearning.com/articles/what-is-management-of-portfolios-mop/" target="_blank" rel="noopener">Good e-Learning「What is MoP?」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Exam Tips ===================== -->
+    <section id="exam-tips">
+      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 13</div>
+      <h2>試験対策のポイント</h2>
+
+      <p>MoP Foundation試験(50問・40分・多肢択一・クローズドブック・合格ライン50%)に向けた学習の勘所を整理します。</p>
+
+      <ol>
+        <li><strong>5原則・5定義プラクティス・7デリバリープラクティスの名称と順序を正確に</strong>: 特に定義サイクルの5プラクティス(Understand → Categorize → Prioritize → Balance → Plan)は逐次的な順序自体が問われやすいポイントです</li>
+        <li><strong>「誰が」「何を」承認するかを役割ごとに区別する</strong>: PDG(投資委員会)とPPG(デリバリー委員会)の役割の違いは頻出論点です</li>
+        <li><strong>9つの主要文書を、定義サイクル由来(2つ)・両サイクルにまたがるもの(フレームワーク1つ)・デリバリーサイクル運用由来(6つ)に分類して覚える</strong></li>
+        <li><strong>各プラクティスが「個別施策」ではなく「ポートフォリオ全体(集約)」を扱う、という視点の違いを意識する</strong>: リスクマネジメント・財務マネジメント・リソースマネジメントはいずれも、個々のプロジェクトの管理ではなく、ポートフォリオレベルでの統合的視点であることが繰り返し強調されます</li>
+        <li><strong>3つの実装アプローチのうち、推奨されるのはエボリューショナリー・アプローチであることを押さえる</strong></li>
+        <li><strong>P3M3の7パースペクティブ = デリバリーサイクルの7プラクティスという対応関係を理解しておく</strong></li>
+        <li><strong>技法(テクニック)は、それがどのプラクティスに属するかとセットで覚える</strong>: 例えば、三点見積り・リファレンスクラス予測、ドライバーベース戦略貢献度分析、多基準分析、ディシジョン・カンファレンシング、クリア・ライン・オブ・サイトはいずれも定義サイクル(主にUnderstand・Prioritize)に関連する技法です</li>
+      </ol>
+
+      <div class="callout source">
+        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener">PeopleCert公式ページ(試験形式)</a></li>
+          <li><a href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener">QA「MoP Foundation and Practitioner」コース概要(技法一覧)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 14. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 14</div>
+      <h2>参考文献・ソース一覧</h2>
+
+      <div class="ref-group">
+        <h4>公式情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert公式 MoP Foundation商品ページ(試験概要・学習アウトカム)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644</a></li>
+          <li><span class="ref-name">AXELOS公式 MoP認定ページ</span><a class="ref-url" href="https://www.axelos.com/certifications/propath/mop-portfolio-management" target="_blank" rel="noopener">https://www.axelos.com/certifications/propath/mop-portfolio-management</a></li>
+          <li><span class="ref-name">AXELOS公式 P3M3 Overview(PDF)</span><a class="ref-url" href="https://eu-assets.contentstack.com/v3/assets/blt637b065823946b12/blt6582c2653720d239/620b6e06e413e76824f96dda/P3M3-Overview.pdf" target="_blank" rel="noopener">https://eu-assets.contentstack.com/v3/assets/blt637b065823946b12/blt6582c2653720d239/620b6e06e413e76824f96dda/P3M3-Overview.pdf</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>mop.wiki(認定トレーナーによる独立系解説サイト。AXELOSガイドラインに準拠するが非公式)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">トップページ</span><a class="ref-url" href="https://mop.wiki/" target="_blank" rel="noopener">https://mop.wiki/</a></li>
+          <li><span class="ref-name">5つの原則(一覧)</span><a class="ref-url" href="https://mop.wiki/principles/" target="_blank" rel="noopener">https://mop.wiki/principles/</a></li>
+          <li><span class="ref-name">5つの原則: 上級管理層のコミットメント</span><a class="ref-url" href="https://mop.wiki/principles/senior-management-commitment/" target="_blank" rel="noopener">https://mop.wiki/principles/senior-management-commitment/</a></li>
+          <li><span class="ref-name">5つの原則: ガバナンスの整合</span><a class="ref-url" href="https://mop.wiki/principles/governance-alignment/" target="_blank" rel="noopener">https://mop.wiki/principles/governance-alignment/</a></li>
+          <li><span class="ref-name">5つの原則: 戦略との整合</span><a class="ref-url" href="https://mop.wiki/principles/strategy-alignment/" target="_blank" rel="noopener">https://mop.wiki/principles/strategy-alignment/</a></li>
+          <li><span class="ref-name">5つの原則: ポートフォリオオフィス</span><a class="ref-url" href="https://mop.wiki/principles/portfolio-office/" target="_blank" rel="noopener">https://mop.wiki/principles/portfolio-office/</a></li>
+          <li><span class="ref-name">5つの原則: 活力ある変革文化</span><a class="ref-url" href="https://mop.wiki/principles/energised-change-culture/" target="_blank" rel="noopener">https://mop.wiki/principles/energised-change-culture/</a></li>
+          <li><span class="ref-name">管理サイクル: 組織のエネルギー</span><a class="ref-url" href="https://mop.wiki/management-cycles/organizational-energy/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/organizational-energy/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Understand</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/understand/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/definition-cycle/practices/understand/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Categorize</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/categorize/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/definition-cycle/practices/categorize/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Prioritize</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/prioritize/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/definition-cycle/practices/prioritize/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Balance</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/balance/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/definition-cycle/practices/balance/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Plan</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/plan/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/definition-cycle/practices/plan/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: マネジメントコントロール</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/management-control/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/management-control/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: ベネフィットマネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/benefits-management/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/benefits-management/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: 財務マネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/financial-management/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/financial-management/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: リスクマネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/risk-management/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/risk-management/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: ステークホルダーエンゲージメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/stakeholder-engagement/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/stakeholder-engagement/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: 組織ガバナンス</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/organizational-governance/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/organizational-governance/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: リソースマネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/resource-management/" target="_blank" rel="noopener">https://mop.wiki/management-cycles/delivery-cycle/practices/resource-management/</a></li>
+          <li><span class="ref-name">主要な役割</span><a class="ref-url" href="https://mop.wiki/key-roles/" target="_blank" rel="noopener">https://mop.wiki/key-roles/</a></li>
+          <li><span class="ref-name">主要文書</span><a class="ref-url" href="https://mop.wiki/key-documents/" target="_blank" rel="noopener">https://mop.wiki/key-documents/</a></li>
+          <li><span class="ref-name">導入アプローチ</span><a class="ref-url" href="https://mop.wiki/implementing-portfolio-management/" target="_blank" rel="noopener">https://mop.wiki/implementing-portfolio-management/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>その他の解説・研修プロバイダー</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Van Haren Publishing「P3M3 in 3 minutes」</span><a class="ref-url" href="https://www.vanharen.net/standards/p3m3/p3m3-portfolio-programme-and-project-management-maturity-model-in-3-minutes/" target="_blank" rel="noopener">https://www.vanharen.net/standards/p3m3/p3m3-portfolio-programme-and-project-management-maturity-model-in-3-minutes/</a></li>
+          <li><span class="ref-name">Van Haren Publishing「MoP in 3 minutes」</span><a class="ref-url" href="https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes" target="_blank" rel="noopener">https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes</a></li>
+          <li><span class="ref-name">Good e-Learning「What is Management of Portfolios (MoP)?」</span><a class="ref-url" href="https://goodelearning.com/articles/what-is-management-of-portfolios-mop/" target="_blank" rel="noopener">https://goodelearning.com/articles/what-is-management-of-portfolios-mop/</a></li>
+          <li><span class="ref-name">QA「Management of Portfolios MoP Foundation and Practitioner」コース概要(技法・モジュール構成)</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/</a></li>
+          <li><span class="ref-name">Lumify Work「MoP Foundation」コース概要(原則の解説)</span><a class="ref-url" href="https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/" target="_blank" rel="noopener">https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/</a></li>
+          <li><span class="ref-name">Advantage Learning「5 Principles of Portfolio Management in MoP」</span><a class="ref-url" href="http://www.advantagelearning.co.uk/news/mop-5-principles.html" target="_blank" rel="noopener">http://www.advantagelearning.co.uk/news/mop-5-principles.html</a></li>
+          <li><span class="ref-name">House of PMO「MoP Foundationコース詳解」(実装・定着)</span><a class="ref-url" href="https://training.houseofpmo.com/pmolearning-blog/p3o/pmo-course-deep-dive-mop-foundation/" target="_blank" rel="noopener">https://training.houseofpmo.com/pmolearning-blog/p3o/pmo-course-deep-dive-mop-foundation/</a></li>
+          <li><span class="ref-name">AbeBooks「Management of Portfolios (MoP)」書誌情報(フレームワーク解説)</span><a class="ref-url" href="https://www.abebooks.co.uk/9780113312948/Management-Portfolios-MoP-AXELOS-0113312946/plp" target="_blank" rel="noopener">https://www.abebooks.co.uk/9780113312948/Management-Portfolios-MoP-AXELOS-0113312946/plp</a></li>
+        </ul>
+      </div>
+    </section>
+
+
+    <footer>
+      「MoP」および「Management of Portfolios」はAXELOS Limitedの登録商標です。「PRINCE2」もAXELOS Limitedの登録商標です。本ページはAXELOSまたはPeopleCertの公式資料ではなく、学習支援を目的とした非公式の解説教材です。
+    </footer>
+
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
+<script>
+(function () {
+  "use strict";
+
+  var DIAGRAMS = {
+    hierarchyDiagram: `flowchart TB
+    A["組織のビジョン 戦略目標"] --> B["ポートフォリオ 戦略目標達成のために選ばれた変革施策の集合"]
+    B --> C["プログラム 関連プロジェクト群を束ねアウトカムとベネフィットを実現"]
+    C --> D1["プログラム内プロジェクト プログラムの一部として成果物を生み出す有期的活動"]
+    B --> D2["単独プロジェクト プログラムに属さずポートフォリオから直接管理される有期的活動"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class B hub;`,
+
+    contextDiagram: `flowchart LR
+    PM["ポートフォリオマネジメント"]
+    PM --- BAU["定常業務 BAU"]
+    PM --- SP["戦略計画"]
+    PM --- RB["資源配分 予算編成"]
+    PM --- PPM["プロジェクト プログラムマネジメント"]
+    PM --- PerfM["パフォーマンスマネジメント"]
+    PM --- CG["コーポレートガバナンス"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PM hub;`,
+
+    mopModelDiagram: `flowchart TB
+    subgraph P["5つの原則"]
+        P1["上級管理層のコミットメント"]
+        P2["ガバナンスの整合"]
+        P3["戦略との整合"]
+        P4["ポートフォリオオフィス"]
+        P5["活力ある変革文化"]
+    end
+
+    subgraph DC["ポートフォリオ定義サイクル 5プラクティス 逐次的"]
+        direction LR
+        D1["Understand 理解する"] --> D2["Categorize 分類する"] --> D3["Prioritize 優先順位付け"] --> D4["Balance バランスを取る"] --> D5["Plan 計画する"]
+    end
+
+    OE["組織のエネルギー"]
+
+    subgraph DLC["ポートフォリオ デリバリーサイクル 7プラクティス 並行的"]
+        L1["マネジメントコントロール"]
+        L2["ベネフィットマネジメント"]
+        L3["財務マネジメント"]
+        L4["リスクマネジメント"]
+        L5["ステークホルダーエンゲージメント"]
+        L6["組織ガバナンス"]
+        L7["リソースマネジメント"]
+    end
+
+    P --> DC
+    DC -- "ポートフォリオ戦略 デリバリープラン" --> OE
+    OE --> DLC
+    DLC -. "実績 学習のフィードバック" .-> DC
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class OE hub;`,
+
+    principlesDiagram: `flowchart TB
+    C["活力ある変革文化 組織のエネルギーで駆動"]
+    G["ガバナンスの整合"]
+    S["戦略との整合"]
+    O["ポートフォリオオフィス"]
+    M["上級管理層のコミットメント 土台"]
+    M --> G
+    M --> S
+    M --> O
+    G --> C
+    S --> C
+    O --> C
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class M hub;`,
+
+    driverModelDiagram: `flowchart LR
+    A["組織のビジョン 高次戦略"] --> B["戦略目標"] --> C["便益"] --> D["変革施策 プロジェクト プログラム"]`,
+
+    fourCsDiagram: `flowchart TB
+    OE["組織のエネルギー"]
+    OE --> C1["Connection つながり 個人が組織目標にどう結びついているか"]
+    OE --> C2["Content 満足度 仕事内容への満足度"]
+    OE --> C3["Context 文脈 環境 組織のプラクティスが仕事の遂行をどう支えるか"]
+    OE --> C4["Climate 風土 組織が人々の最良の力の発揮をどう支援するか"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class OE hub;`,
+
+    definitionCycleDiagram: `flowchart LR
+    U["Understand 理解する"] --> C["Categorize 分類する"] --> P["Prioritize 優先順位付け"] --> B["Balance バランスを取る"] --> PL["Plan 計画する"]
+    PL --> OUT1["ポートフォリオ戦略 何を届けるか"]
+    PL --> OUT2["ポートフォリオ デリバリープラン いつ どのように届けるか"]
+
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class OUT1,OUT2 done;`,
+
+    riskRewardDiagram: `flowchart TB
+    subgraph RR["リスク 報酬マトリクスによるバランス評価の例"]
+    HH["高リスク 高報酬 複数存在する場合は一部見直しを検討"]
+    HL["高リスク 低報酬 原則 中止を検討"]
+    LH["低リスク 高報酬 優良案件として維持"]
+    LL["低リスク 低報酬 必要最小限に"]
+    end
+
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class LH done;`,
+
+    deliveryCycleDiagram: `flowchart TB
+    STRAT["ポートフォリオ戦略 デリバリープラン 定義サイクルからのインプット"]
+    STRAT --> MC["マネジメントコントロール"]
+    STRAT --> BM["ベネフィットマネジメント"]
+    STRAT --> FM["財務マネジメント"]
+    STRAT --> RM["リスクマネジメント"]
+    STRAT --> SE["ステークホルダーエンゲージメント"]
+    STRAT --> OG["組織ガバナンス"]
+    STRAT --> RSM["リソースマネジメント"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class STRAT hub;`,
+
+    rolesDiagram: `flowchart TB
+    PDG["ポートフォリオ ディレクション グループ PDG 投資委員会"]
+    PPG["ポートフォリオ プログレス グループ PPG デリバリー委員会"]
+    PD["ポートフォリオ ディレクター PD"]
+    PM["ポートフォリオ マネージャー"]
+    PBM["ポートフォリオ ベネフィット マネージャー"]
+    PPM["プロジェクト プログラムマネージャー PPMs"]
+
+    PDG --> PD
+    PDG --> PPG
+    PD --> PM
+    PPG --> PM
+    PM --> PBM
+    PM --> PPM
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PDG hub;`,
+
+    implementationApproachesDiagram: `flowchart TB
+    subgraph BB["ビッグバン アプローチ"]
+        BB1["すべての進行中 パイプライン施策を一斉にポートフォリオへ組み入れる"]
+        BB2["長所 迅速な全体像の獲得"]
+        BB3["短所 組織への混乱 抵抗が大きい"]
+    end
+    subgraph EV["エボリューショナリー 漸進的 アプローチ"]
+        EV1["ポートフォリオマネジメントのプロセスを段階的 計画的に展開"]
+        EV2["長所 即時のニーズに対応し早期に価値を実証 BAUへの混乱を抑制"]
+        EV3["短所 導入完了までに時間がかかる 優先度の変化により遅延しうる"]
+    end
+    subgraph AH["アドホック アプローチ"]
+        AH1["場当たり的 非計画的な導入"]
+        AH2["P3Oガイドラインでは最も推奨されない"]
+    end
+
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class EV2 done;`,
+
+    p3m3LevelsDiagram: `flowchart TB
+    L1["レベル1 プロセスの認識"] --> L2["レベル2 反復可能なプロセス"]
+    L2 --> L3["レベル3 定義されたプロセス"]
+    L3 --> L4["レベル4 管理されたプロセス"]
+    L4 --> L5["レベル5 最適化されたプロセス"]
+
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class L5 done;`,
+
+    relatedFrameworksDiagram: `flowchart TB
+    MoP["MoP Portfolio Management 戦略とポートフォリオ"]
+    MSP["MSP Managing Successful Programmes プログラムマネジメント"]
+    P2["PRINCE2 プロジェクトマネジメント"]
+    P3O["P3O Portfolio Programme and Project Offices オフィス機能の設計"]
+    P3M3["P3M3 成熟度評価モデル"]
+
+    MoP --> MSP --> P2
+    MoP -. "オフィス機能の設計指針" .-> P3O
+    MoP -. "成熟度の測定" .-> P3M3
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class MoP hub;`,
+
+  };
+
+  function extendViewBoxHeight(svgEl, extra) {
+    var vb = svgEl.getAttribute("viewBox");
+    if (!vb) return;
+    var parts = vb.split(/\s+/).map(Number);
+    if (parts.length !== 4) return;
+    svgEl.style.width = parts[2] + "px";
+    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+  }
+
+  async function renderAllDiagrams() {
+    if (typeof mermaid === "undefined") {
+      Object.keys(DIAGRAMS).forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
+      });
+      return;
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try { await document.fonts.ready; } catch (e) { /* ignore */ }
+    }
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: "strict",
+      theme: "base",
+      themeVariables: {
+        background: "transparent",
+        primaryColor: "#EEF1F8",
+        primaryBorderColor: "#2E3F72",
+        primaryTextColor: "#161B26",
+        lineColor: "#2E3F72",
+        secondaryColor: "#FAF1DF",
+        secondaryBorderColor: "#B8802A",
+        tertiaryColor: "#FFFFFF",
+        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
+        fontSize: "16px",
+        pie1: "#C7D1EA",
+        pie2: "#AEDBD6",
+        pie3: "#F0D9A6",
+        pie4: "#E7C0D0",
+        pieOpacity: "1",
+        pieStrokeColor: "#FFFFFF",
+        pieStrokeWidth: "2px",
+        pieOuterStrokeWidth: "1px",
+        pieOuterStrokeColor: "#DFE3EA",
+        pieSectionTextColor: "#161B26",
+        pieLegendTextColor: "#161B26",
+        pieTitleTextColor: "#161B26"
+      },
+      flowchart: {
+        useMaxWidth: false,
+        htmlLabels: true,
+        nodeSpacing: 45,
+        rankSpacing: 48,
+        curve: "basis"
+      },
+      pie: {
+        useMaxWidth: false
+      }
+    });
+
+    var entries = Object.keys(DIAGRAMS);
+    for (var i = 0; i < entries.length; i++) {
+      var id = entries[i];
+      var container = document.getElementById(id);
+      if (!container) continue;
+      try {
+        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
+        container.innerHTML = typeof result === "string" ? result : result.svg;
+        var svgEl = container.querySelector("svg");
+        if (svgEl) {
+          svgEl.removeAttribute("width");
+          svgEl.removeAttribute("height");
+          svgEl.style.maxWidth = "100%";
+          svgEl.style.height = "auto";
+          svgEl.style.overflow = "visible";
+          extendViewBoxHeight(svgEl, 15);
+        }
+      } catch (err) {
+        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
+        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
+      }
+    }
+  }
+
+  function setupSidebarHighlight() {
+    var sections = document.querySelectorAll("main section[id]");
+    var navLinks = document.querySelectorAll(".sidebar-nav a");
+    var linkMap = {};
+    navLinks.forEach(function (link) {
+      var href = link.getAttribute("href").replace("#", "");
+      linkMap[href] = link;
+    });
+    if (!("IntersectionObserver" in window)) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = linkMap[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove("active"); });
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-20% 0px -70% 0px" });
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  function setupMobileToggle() {
+    var toggle = document.getElementById("sidebarToggle");
+    var sidebar = document.getElementById("sidebar");
+    if (!toggle || !sidebar) return;
+    toggle.addEventListener("click", function () {
+      var isOpen = sidebar.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        var wasOpen = sidebar.classList.contains("open");
+        sidebar.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+        if (wasOpen) toggle.focus();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    renderAllDiagrams();
+    setupSidebarHighlight();
+    setupMobileToggle();
+  });
+})();
+</script>
+</body>
+</html>
