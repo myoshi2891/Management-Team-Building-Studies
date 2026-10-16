@@ -99,7 +99,7 @@ export const GUIDE_PROGRAMS = [
     navLabel: "PeopleCert 認定",
     cardLabel: "PEOPLECERT",
     icon: "tabler:certificate",
-    summary: "ITIL・PRINCE2・MSP・MoP の各体系",
+    summary: "ITIL の各体系",
   },
   {
     id: "management",
