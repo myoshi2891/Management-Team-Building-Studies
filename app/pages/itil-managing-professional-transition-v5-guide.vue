@@ -71,6 +71,48 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class FG,FG2,FG4,FG6,MP4,M4,M3 box;
 class MPT4MP,MP4R,MP4S,MPT4,MPT3,M3R,M3S hub;
 class FG3,FG5,FG7,FG8,MP4M,M4R,M4M,M3M done;`;
+
+const DIAGRAM_FOUR_DIMENSIONS = `flowchart TB
+Center["ITIL Value System"]
+Center --> D1["Organizations and People (組織と人材/AIとの協働を含む)"]
+Center --> D2["Information and Technology (AI Capability Model/6Cモデルを含む)"]
+Center --> D3["Partners and Suppliers"]
+Center --> D4["Value Streams and Processes"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Center hub;
+class D1,D2,D3,D4 box;`;
+
+const DIAGRAM_TRANSFORMATION_LAYERS = `flowchart TB
+subgraph L1["Governance layer"]
+direction TB
+G1["方向性・権限・優先順位づけ"]
+end
+subgraph L2["Positioning layer"]
+direction TB
+P1["コンテキストと複雑性の把握"]
+end
+subgraph L3["Execution layer"]
+direction TB
+E1["計画と実行"]
+end
+subgraph L4["Learning layer"]
+direction TB
+Le1["測定・評価・学習"]
+end
+L1 --> L2
+L2 --> L3
+L3 --> L4
+L4 -.->|学びのフィードバック| L1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class L1,L2,L3,L4 box;`;
+
+const DIAGRAM_TRANSFORMATION_PATTERNS = `flowchart TD
+P1["Initiation pattern (変革の立ち上げ)"]
+P2["Governance pattern (変革のガバナンス)"]
+P3["Execution pattern (変革の実行)"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class P1,P2,P3 box;`;
 </script>
 
 <template>
@@ -351,6 +393,263 @@ class FG3,FG5,FG7,FG8,MP4M,M4R,M4M,M3M done;`;
           </div>
           <p>試験対策としては「何が変わったか」だけでなく「何が変わっていないか」を明確に区別して覚えることが得点に直結します。Guiding Principlesと34プラクティス名は据え置きのため、既存のITIL 4知識はそのまま活用できます。</p>
         </div>
+      </section>
+
+      <!-- ===================== 3. Foundational Concepts ===================== -->
+      <section id="foundational-concepts">
+        <div class="section-eyebrow">
+          <Icon name="tabler:building-bank" />SECTION 03
+        </div>
+        <h2>共通基盤概念 — ITIL Value System・7つのGuiding Principles・Four Dimensions</h2>
+
+        <p>Transformation試験・PSE試験のどちらにも共通して出題される土台となる概念です。</p>
+
+        <h3>ITIL Value System (ITIL VS)</h3>
+        <p>ITIL 4 の Service Value System (SVS) の名称が <strong>ITIL Value System (ITIL VS)</strong> に変更されました。これは「サービス」だけでなく「デジタルプロダクト」も価値創出の対象として明示的に含めるための改称であり、構成要素(Guiding Principles、Governance、Product and Service Lifecycle Model、Practices、Continual Improvement)自体の骨格はSVSを踏襲しています。</p>
+
+        <h3>7つの Guiding Principles(変更なし)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>原則(英語)</th>
+                <th>日本語での要点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Focus on value</td>
+                <td>すべての活動を「顧客・利害関係者にとっての価値」から逆算して設計する</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Start where you are</td>
+                <td>ゼロから作り直さず、既存の資産・プロセス・データを評価してから着手する</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Progress iteratively with feedback</td>
+                <td>大きな変更を小さく分割し、フィードバックを得ながら進める</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Collaborate and promote visibility</td>
+                <td>サイロを越えた協働と、意思決定・進捗の可視化を重視する</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Think and work holistically</td>
+                <td>部分最適ではなく、組織全体・エンドツーエンドの結果に目を向ける</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Keep it simple and practical</td>
+                <td>必要最小限の手順にとどめ、価値を生まない複雑さを排除する</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Optimize and automate</td>
+                <td>人手作業を最適化したうえで、可能な範囲を自動化・AI活用する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>Version 5 では特に原則7「Optimize and automate」が AI Capability Model(後述)と直結して出題されやすくなっています。「まず最適化、その後に自動化」という順序を必ず押さえてください。</p>
+        </div>
+
+        <h3>Four Dimensions of Product and Service Management</h3>
+        <p>4つの側面自体はITIL 4から継続していますが、Version 5では「情報と技術」の次元にAI Capability Model(6Cモデル)が新設され、「組織と人材」の次元には人とAIの協働という観点が明示的に組み込まれた点が変更点です。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FOUR_DIMENSIONS" />
+          </ClientOnly>
+          <div class="diagram-caption">Four Dimensions of Product and Service Management(ITIL Value Systemを取り巻く4つの側面)</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>4つの側面はPESTLE分析(政治・経済・社会・技術・法律・環境)などの外的要因とセットで問われることが多く、「内的な4側面 vs 外的な環境要因」を対比して整理しておくと理解が定着します。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 4. Exam 1: ITIL Transformation ===================== -->
+      <section id="exam1-transformation">
+        <div class="section-eyebrow">
+          <Icon name="tabler:git-branch" />SECTION 04
+        </div>
+        <h2>試験1: ITIL Transformation (Version 5)</h2>
+
+        <h3>Transformationの基本概念</h3>
+        <p>ITIL Transformation (Version 5) は、組織(またはその一部)を新しい状態へ導く<strong>変革(Transformation)</strong>を体系的に扱うモジュールです。日常的な改善(BAU改善 / Business-As-Usual improvement)とは区別され、以下のような特徴を持つ大規模・複雑な変化を対象とします。</p>
+        <ul>
+          <li>複数の相互依存領域にまたがる協調的な変化である</li>
+          <li>規模・範囲・コスト・リスクにばらつきがある</li>
+          <li>しばしば大きな不確実性を伴う</li>
+          <li>単一の固定手法では対応できず、状況に応じた柔軟な手法が必要</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「BAU改善」と「Transformation」を混同しないこと。小さな継続的改善はContinual Improvement Modelで扱い、組織構造やオペレーティングモデルそのものを変える取り組みはTransformation Modelで扱う、という切り分けが試験の頻出ポイントです。</p>
+        </div>
+
+        <h3>ITIL Transformation Model — 4つの Layer</h3>
+        <p>ITIL Transformation Model は、変革の取り組みを <strong>4つの相互接続されたLayer(層)</strong> で構造化します。さらに、その内部は合計12のStage(段階)に分解され、状況(Context)に応じて適応的に適用されます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Layer</th>
+                <th>役割</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Governance layer</strong>(ガバナンス層)</td>
+                <td>変革の方向性を定め、意思決定権限・説明責任・優先順位づけの枠組みを提供する</td>
+              </tr>
+              <tr>
+                <td><strong>Positioning layer</strong>(ポジショニング層)</td>
+                <td>組織が置かれている状況・複雑性・コンテキストを理解し、変革のスコープを見極める</td>
+              </tr>
+              <tr>
+                <td><strong>Execution layer</strong>(実行層)</td>
+                <td>実際に変革を計画・実施し、価値を届ける</td>
+              </tr>
+              <tr>
+                <td><strong>Learning layer</strong>(学習層)</td>
+                <td>変革の結果を測定・評価し、得られた学びを組織にフィードバックする</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TRANSFORMATION_LAYERS" />
+          </ClientOnly>
+          <div class="diagram-caption">ITIL Transformation Model の4 Layer(Governance→Positioning→Execution→Learningの循環構造)</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>4 Layerは「一方向の直線プロセス」ではなく、Learning layerで得た知見がGovernance layerに継続的にフィードバックされる<strong>循環構造</strong>です。試験では「変革は一度きりで完了するものではない」という前提を問う設問が出やすいです。</p>
+        </div>
+
+        <h3>変革の複雑性とコンテキストへの適応</h3>
+        <p>組織が置かれる状況は「予測可能で秩序立っている(Ordered/Clear)」ものから「予測不能で混沌としている(Chaotic)」ものまで幅があります。ITIL Transformation Modelはこの違いに応じてアプローチを変える柔軟性を持つことが特徴です。ただし、状況が十分に把握できていない(Confused)場合は、いきなりアプローチを選ぶのではなく、まず状況をOrdered・Complex・Chaoticのいずれかに分類することが先決です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>コンテキストの性質</th>
+                <th>適したアプローチの傾向</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>状況が把握できていない(Confused)</td>
+                <td>Ordered・Complex・Chaoticのいずれに該当するかを情報収集して分類することを最優先する</td>
+              </tr>
+              <tr>
+                <td>秩序立っている・予測可能</td>
+                <td>詳細な事前計画、明確なガバナンス、既知のベストプラクティスの適用</td>
+              </tr>
+              <tr>
+                <td>複雑・不確実性が高い(Complex)</td>
+                <td>小さな実験、反復的な学習、適応型ガバナンス</td>
+              </tr>
+              <tr>
+                <td>混沌としている(Chaotic)</td>
+                <td>即座の安定化を最優先し、状況を落ち着かせてから通常のアプローチへ移行</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「すべての変革に同じテンプレートを当てはめない」ことが最重要原則です。秩序立った環境で通用した詳細計画型のガバナンスを、混沌とした環境にそのまま適用すると失敗しやすい、という因果関係を理解しておきましょう。</p>
+        </div>
+
+        <h3>変革の3つの共通パターン(Common Patterns)</h3>
+        <p>ITIL Transformation Model は、変革の取り組みを分類する <strong>3つの共通パターン</strong> を提示します。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TRANSFORMATION_PATTERNS" />
+          </ClientOnly>
+          <div class="diagram-caption">変革の3つの共通パターン: Initiation pattern / Governance pattern / Execution pattern</div>
+        </div>
+
+        <ul>
+          <li><strong>Initiation pattern(立ち上げパターン):</strong> なぜ変革が必要か、どこから着手するかを明確化する</li>
+          <li><strong>Governance pattern(ガバナンスパターン):</strong> BAU(通常業務)向けのガバナンスと、変革専用のガバナンスをどう使い分けるかを扱う</li>
+          <li><strong>Execution pattern(実行パターン):</strong> 実際に変革をどのように進めるか、実行方式のバリエーションを扱う</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「BAU governance patterns」と「Transformation governance patterns」は明確に別物として区別してください。通常業務のガバナンス機構(変更諮問委員会など)をそのまま大規模変革の意思決定に流用すると、意思決定が遅延し変革が停滞するリスクがあります。</p>
+        </div>
+
+        <h3>測定・ツール・学習</h3>
+        <p>Transformation Model の Learning layer では、変革の進捗と成果を可視化するためのツール・手法が扱われます。既存のITILおよび隣接するプラクティスから、以下のようなツール群が変革の測定・可視化に活用されます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ツール / 手法</th>
+                <th>主な用途</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Value Stream Mapping (VSM)</td>
+                <td>エンドツーエンドの価値の流れを可視化し、ムダ・ボトルネックを特定する</td>
+              </tr>
+              <tr>
+                <td>OKR(Objectives and Key Results)</td>
+                <td>変革のゴールと測定可能な成果指標を組織全体で整合させる</td>
+              </tr>
+              <tr>
+                <td>ITIL Maturity Model</td>
+                <td>現在の成熟度を評価し、変革の出発点(Positioning)を客観的に把握する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「Start where you are」の原則を実務に落とし込む際、まずITIL Maturity Modelなどで現状を客観的に測定してから変革を計画すると、過剰投資や見当違いな施策を避けられます。</p>
+        </div>
+
+        <h3>ITIL and AI(Transformation観点)</h3>
+        <p>AIはTransformationにおいても、変革準備・実行そのものを支援する手段として位置づけられます(AI Capability Modelの詳細は<a href="#ai-capability-model">第6章</a>を参照)。変革を主導する立場では、AI導入が「組織構造・役割・意思決定プロセス」にどう影響するかを評価し、ガバナンス層で適切な監督体制を設計することが求められます。</p>
       </section>
     </main>
   </div>
