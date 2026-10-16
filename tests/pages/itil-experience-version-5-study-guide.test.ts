@@ -327,6 +327,7 @@ defineSourceParityContract({
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: [],
+  allowedHeadingSkips: ["h2 -> h4"],
   seoTitleFragments: ["ITIL Experience (Version 5)", "完全ガイド"],
   seoTitle: "ITIL Experience (Version 5)® 認定資格 完全ガイド | PeopleCert Managing Professional",
   seoDescription:

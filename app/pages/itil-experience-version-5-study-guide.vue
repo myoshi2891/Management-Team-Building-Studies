@@ -264,14 +264,14 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>基礎を先に固める。</strong>ITIL Foundation (Version 5) をまだ取得していない場合は、先に ITIL VS・Four Dimensions・Guiding Principles・Product and Service Lifecycle などの基礎を固めてから本ガイドに進むこと。Experience の syllabus は Foundation の用語を前提に進みます。</li>
           </ul>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">PeopleCert 公式製品ページ</a></li>
             <li><a href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/" target="_blank" rel="noopener">前提資格の詳細(Oxford College of Technology)</a></li>
@@ -301,7 +301,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p><strong>重要な注記(一次資料の透明性):</strong>2026年2月発行の公式シラバス(Version 5.0 PL=パイロット版)には、合格点・カテゴリ配点・Bloom's Level 配分がいずれも「TBC(To Be Confirmed)」と明記されています。一方で、現行の PeopleCert 公式製品ページでは合格ラインが 70% と明示されています。本ガイドは現行の製品ページの数値を採用しつつ、ベータ版シラバスの段階では数値が確定していなかった経緯を透明性のために残しています。受験直前は必ず PeopleCert 公式ページで最新の合格基準を確認してください。</p>
         </div>
 
@@ -334,14 +334,14 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>試験対策:</strong>List 形式は「2つとも正しい組み合わせ」を選ぶため、消去法よりも各記述を個別に○×判定してから組み合わせを絞り込む方が正答率が上がる。Negative 形式は問題文をよく読み、「NOT」「除く」などの否定語を見落とさないこと。</li>
           </ul>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf" target="_blank" rel="noopener">公式シラバス PDF(Version 5.0 PL, February 2026)</a></li>
             <li><a href="https://torque-it.com/product/itil-experience-version-5-including-exam/" target="_blank" rel="noopener">合格ライン・受講対象者(Torque IT)</a></li>
@@ -413,7 +413,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>Guiding Principles・Governance・Product and Service Lifecycle・Practices・Continual Improvement を包含する、組織全体の価値創出システム全体像。</p>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL (Version 5) の変更点まとめ(Four Dimensions・6Cモデル等)</a></li>
             <li><a href="https://certempire.com/itil-4-vs-itil-5/" target="_blank" rel="noopener">ITIL Version 5 vs ITIL 4 比較</a></li>
@@ -450,7 +450,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>Trust(信頼)と Value(価値)は、機能要件の充足だけでは生まれません。ログイン画面の応答速度、通知のトーン、エラーメッセージの分かりやすさなど、<strong>一つひとつのデジタル接点の質の総和</strong> が信頼と価値co-creation(共創)を左右します。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>デジタルプロダクトの UX 改善プロジェクトでは、機能要件(Functional Requirement)のチェックリストとは別に「Experience チェックリスト」(応答速度・トーン・エラー文言・通知頻度など)を用意し、Design レビューで両方を確認する。</li>
             <li><strong>アンチパターン:</strong>SLA・可用性などの機能指標のみをダッシュボードで追跡し、ユーザーの感情的反応を測る仕組みを一切持たない。</li>
@@ -458,7 +458,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">ITIL Experience の UX への焦点解説(itil.com)</a></li>
           </ul>
@@ -510,7 +510,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>体験は「誰か一人の満足」では測れません。Customer が満足していても User が不満なら Experience は失敗です。ITIL Experience はこの <strong>構造的な利害対立を隠さず可視化する</strong> ことで、改善の優先順位付けを現実的にします。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>Experience 改善の施策を立てる際は、必ず「誰の Experience が良くなり、誰の Tension が高まるか」を1枚のステークホルダーマップに書き出してからレビューする。</li>
             <li><strong>アンチパターン:</strong>「顧客満足度が上がった」という単一指標だけで施策の成功を判断し、User と Customer Sponsor の間の相反する反応を見落とす。</li>
@@ -518,7 +518,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/" target="_blank" rel="noopener">ITIL Experience 役割定義(The Knowledge Academy コースアウトライン)</a></li>
           </ul>
@@ -549,7 +549,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>Four Dimensions を「ガバナンスのレンズ」として使う際は、四半期ごとのレビューで4次元それぞれに対して「今期、Experience の観点で何を変えたか」を1行ずつ記録する。</li>
             <li><strong>アンチパターン:</strong>Information and Technology の次元(ツール導入)だけに投資し、Organizations and people(誰が責任を持つか)を放置する。</li>
@@ -557,7 +557,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">Information and Technology 次元と AI 統合の解説</a></li>
           </ul>
@@ -579,7 +579,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p><strong>試験対策メモ:</strong>Assessment Criteria 2.3.5 は「Differentiate functional vs. relational interactions」と明記されており <strong>BL4(分析・差別化)</strong> です。「このシナリオの行動は機能的か関係的か」を判定させる設問が出やすいポイントです。</p>
         </div>
 
@@ -606,7 +606,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>新サービスをリリースする前に、Discover〜Support の各段階で「この段階で、どのステークホルダーの、どんな信頼が試されるか」を一覧化するワークショップを実施する。</li>
             <li><strong>アンチパターン:</strong>Design段階でUXレビューを行い満足して終わり、Support段階(障害対応時のトーン等)の体験設計を後回しにする。</li>
@@ -614,7 +614,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://advancedtraining.com.au/product/itil-experience-version-5/" target="_blank" rel="noopener">Value Chain Activities と Experience の関係(Advanced Training コース概要)</a></li>
             <li><a href="https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course" target="_blank" rel="noopener">ITIL Managing Professional Transition コースアウトライン(Module 3 詳細)</a></li>
@@ -634,7 +634,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>Experience は本質的に主観的・多面的な人間の反応であり、<strong>どのようなメトリクス(CSAT・NPS・行動ログなど)も、その反応の一部しか捉えられません</strong>。ITIL (Version 5) はこれを率直に認め、「メトリクスは人間の体験全体を代表する仮説(hypothesis)にすぎない」と位置づけます(Assessment Criteria 3.1.2)。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>単一の指標(例:NPS)だけで意思決定せず、複数の Evidence(証拠)を組み合わせて「仮説の確からしさ」を評価する。</li>
             <li><strong>アンチパターン:</strong>NPSスコアが1ポイント上下しただけで、Experience が「改善した/悪化した」と断定する。</li>
@@ -655,7 +655,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p><strong>試験対策メモ:</strong>4つの Experience Domains は Category 3(Assessment Criteria 3.1.3, BL2)と Category 4(Assessment Criteria 4.1.3, BL1)の <strong>両方</strong> に登場します。Category 4 側では「Identify(識別する)」という BL1 の動詞になっている点に注意(暗記寄りの設問になりやすい)。</p>
         </div>
 
@@ -684,7 +684,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>数値シグナルで「どこに問題がありそうか」を絞り込み、物語的シグナルで「なぜそうなっているか」を掘り下げる、2段階のトライアンギュレーションを標準プロセスにする。</li>
           </ul>
@@ -716,7 +716,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </ul>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>Experience Evidence を経営会議に提出する前に、「Trustworthiness チェック(出所は?サンプルは偏っていないか?)」と「Coherence チェック(他のデータと矛盾しないか?)」を必ずペアで実施する。</li>
             <li><strong>アンチパターン:</strong>見栄えの良い1つの指標だけを抜き出して報告し、矛盾するデータを無視する(いわゆる "cherry picking")。</li>
@@ -735,7 +735,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>組織構造(Organizations and people 次元)と情報技術(Information and technology 次元)の両方から、誰がデータを収集し、どのツール(アンケートツール、行動分析ツール、AI分析基盤)を使うかを明確に定義することが求められます。</p>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://agilepmhub.com/itil-experience-version-5" target="_blank" rel="noopener">4つの Experience Domains・データ品質基準(agilepmhub コースアウトライン)</a></li>
             <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">Trustworthiness/Coherence の適用(The Knowledge Academy モジュール詳細)</a></li>
@@ -799,7 +799,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>7ステップそれぞれに、担当ロール(User/Customer/Agent/Principal等)ごとの「体験目標(Experience Goal)」を1つずつ定義し、Journey Map として可視化する。</li>
             <li><strong>アンチパターン:</strong>Onboard(5)とCo-create(6)だけに注力し、Explore(1)とReflect(7)を「マーケティング」「アンケート」として別チームに丸投げし、体験としての一貫性を失う。</li>
@@ -836,14 +836,14 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>Provider・Consumer 双方の Journey を重ね合わせ、<strong>どのステップで、どちらの視点の体験シグナルが弱いか</strong> をマッピングするのが Service Journey Model の実務的な使い方です。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>四半期ごとに Consumer Journey と Provider Journey を並べてレビューし、双方の「Concerns」が一致しているステップ(=優先改善ポイント)を特定する。</li>
           </ul>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">Consumer/Provider Journey の懸念・アンチパターン(ITIL 5 Managing Professional Transition コース詳細)</a></li>
             <li><a href="https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/" target="_blank" rel="noopener">Service Journey の全体解説(PMG Academy)</a></li>
@@ -887,7 +887,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout note" data-variant="note" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p><strong>試験対策メモ:</strong>この対比(by the system / to the system)は BL4 のため、単なる用語暗記ではなく「このシナリオはどちらに該当するか判定させる」設問が出やすい重要ポイントです。</p>
         </div>
 
@@ -895,7 +895,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>Experience 改善を組織で継続するには、<strong>改善提案をした人が非難されない心理的安全性</strong> が不可欠です。心理的安全性が低い組織では、Notice(気づき)の段階でネガティブなシグナルが報告されず、改善ループそのものが機能しません。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>Reflect(6.2節)のセッションを「誰の責任か」を問う場ではなく、「次に何を試すか」を決める場として明示的に運営する(心理的安全性の担保)。</li>
             <li><strong>アンチパターン:</strong>体験指標が悪化した際に、担当者個人を名指しで追及する会議運営を行い、以後ネガティブなシグナル報告が減少する。</li>
@@ -903,7 +903,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake/" target="_blank" rel="noopener">継続的改善ループとTrust/Psychological Safetyの解説(edutrainings コース概要)</a></li>
           </ul>
@@ -947,7 +947,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         </div>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>AIを導入する際は「この機能は6Cのどれに該当するか」を明確にする。機能ごとにリスクプロファイルが異なるため(例:Communicationは人間対応の代替、Coordinationは自律実行)、機能を混同するとガバナンス設計を誤る。</li>
             <li><strong>アンチパターン:</strong>「AIを入れる」とだけ決め、6つの機能のどれを担わせるか、どの範囲で人間の監督(Human oversight)を残すかを定義しないまま実装を進める。</li>
@@ -961,14 +961,14 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>Experience Managementでは、AIが Cognition(分析)・Communication(対話)を担う場面が増えるほど、「AIの判断・応答が利用者の Trust(信頼)にどう影響するか」というガバナンス課題が直結します。透明性のないAI活用(例:AIが対応していることを隠す)は、それ自体が Broken Expectations(4.3節)や Trust の毀損につながります。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>AIチャットボット(Communication機能)を導入する際は、利用者に「AIが対応している」ことを明示し、いつでも人間に切り替えられる導線を用意する(透明性の確保=Digital Ethicsの実践)。</li>
           </ul>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">6Cモデルの詳細(itecor ブログ)</a></li>
             <li><a href="https://itsmacademy.com/itil-ai-governance-course" target="_blank" rel="noopener">6Cモデルと4つのガバナンス視点(itsmacademy コース概要)</a></li>
@@ -989,7 +989,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>DevOps の高頻度リリースサイクルは、6.4節の <strong>notice–interpret–hypothesize–experiment ループ</strong> を高速に回す土台になります。Experiment(小さく試す)フェーズは、DevOps の Feature Flag やカナリアリリースと自然に対応します。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>Experiment フェーズの施策は、DevOpsチームのFeature Flag基盤に乗せることで、Notice段階に戻るまでのサイクルタイムを短縮する。</li>
           </ul>
@@ -1000,14 +1000,14 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <p>ITIL Experience の syllabus は「なぜProduct and Service Lifecycleの管理においてプロジェクトマネジメントが重要か」(Assessment Criteria 6.2.1)を問います。Onboard(6.2節)のような、体験に大きな影響を与える移行作業は、しばしば <strong>プロジェクトとして計画・統制する必要</strong> があります。PRINCE2 の「ステージゲート」「例外による管理」といった原則は、Onboard段階の体験リスクを制御する上で有効です。</p>
 
         <div class="callout practice" data-variant="practice" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>ベストプラクティス:</strong>大規模な Onboard(移行)を伴う契約では、PRINCE2のステージゲートを設け、各ゲートで「体験面のKPI」(例:初回ログイン成功率)を通過条件に含める。</li>
           </ul>
         </div>
 
         <div class="callout source" data-variant="source" data-testid="callout">
-          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://itsmacademy.com/itil-ai-governance-course" target="_blank" rel="noopener">ITIL・DevOps・PRINCE2 の関係解説(itsmacademy AI Governance コース概要より Product and Service Lifecycle Model 全体像)</a></li>
           </ul>
@@ -1015,28 +1015,110 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </section>
 
       <!-- ===================== 09. Best Practices Summary ===================== -->
-      <section id="best-practices-summary">
+      <section id="best-practices-summary" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:table" aria-hidden="true" />SECTION 09</div>
         <h2>ベストプラクティス総まとめ表</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>カテゴリ</th><th>ベストプラクティス(✅)</th><th>アンチパターン(❌)</th></tr></thead>
+            <tbody>
+              <tr><td>Stakeholders</td><td>Tensionをステークホルダーマップで可視化する</td><td>単一指標だけで「満足」と判断する</td></tr>
+              <tr><td>Four Dimensions</td><td>四半期ごとに4次元それぞれの改善アクションを記録する</td><td>Information/Technology次元だけに投資が偏る</td></tr>
+              <tr><td>Lifecycle &amp; Interactions</td><td>Discover〜Supportの各段階で信頼要件を一覧化する</td><td>Support段階の体験設計を後回しにする</td></tr>
+              <tr><td>Experience Capture</td><td>数値シグナルと物語的シグナルを二段階で組み合わせる</td><td>単一メトリクスのcherry picking</td></tr>
+              <tr><td>Data Quality</td><td>Trustworthiness と Coherence を必ずペアで確認する</td><td>見栄えの良い指標だけを報告する</td></tr>
+              <tr><td>Service Journey</td><td>7ステップそれぞれに体験目標を定義する</td><td>Explore/Reflectを別チームに丸投げする</td></tr>
+              <tr><td>Continual Improvement</td><td>Reflectを「次に何を試すか」を決める安全な場にする</td><td>指標悪化時に個人を名指しで追及する</td></tr>
+              <tr><td>AI活用</td><td>導入する機能が6Cのどれかを明確にし監督範囲を定義する</td><td>6C機能を混同したままガバナンス設計を省略する</td></tr>
+              <tr><td>AI Governance</td><td>AI対応であることを明示し人間への切替導線を用意する</td><td>AIが対応していることを隠す</td></tr>
+              <tr><td>他フレームワーク連携</td><td>ExperimentフェーズをDevOpsのFeature Flagに乗せる</td><td>Onboardの体験リスクをプロジェクト管理せず場当たり的に進める</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <!-- ===================== 10. Exam Tips ===================== -->
-      <section id="exam-tips">
+      <section id="exam-tips" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 10</div>
         <h2>試験対策のポイント(まとめ)</h2>
+        <ol>
+          <li><strong>オープンブックだが時間との勝負。</strong>90分で40問(1問あたり約2分15秒)。Official Book の目次構成を事前に把握し、「どのセクション番号にどの概念があるか」を素早く引ける状態にしておく(本ガイドの各節に記載した節番号(2.x, 3.x…)は Official Book の章立てに対応)。</li>
+          <li><strong>Car Rental Scenario を軽視しない。</strong>最低1問は "Experience" パートを参照する設計になっているため、Scenarioの登場人物(User/Customer/Agent等)を Journey上の役割として素早く同定できるようにする。</li>
+          <li><strong>BL2(Understand/Explain)が基礎。</strong>まずは全項目をBL2レベル(人に説明できるレベル)で押さえる。</li>
+          <li><strong>BL3/BL4は「適用」「差別化」の練習問題を重点的に。</strong>特に以下は要注意。
+            <ul>
+              <li>Functional vs Relational Interaction の差別化(2.3.5, BL4)</li>
+              <li>Four Dimensions を governance lens として適用する(2.2.6, BL3)</li>
+              <li>Trustworthiness/Coherence の評価への適用(3.2.5, BL3)</li>
+              <li>Stakeholder Role Mapping の適用(2.3.4, BL3)</li>
+              <li>notice–interpret–hypothesize–experiment ループの適用(4.5.1, BL3)</li>
+              <li>Improvements by/to the system の差別化(4.5.2, BL4)</li>
+              <li>典型的な摩擦の分析と緩和策の提案(2.3.3, BL4)</li>
+            </ul>
+          </li>
+          <li><strong>List形式問題。</strong>4つの記述を個別に○×判定してから、2つの正解の組み合わせを選ぶ。</li>
+          <li><strong>用語の混同に注意。</strong>Customer(要件責任)とCustomer Sponsor(予算承認)、Agent(提供担当)とPrincipal(最終責任)など、似た役割語の意味の違いを表(4.1節)で正確に区別する。</li>
+        </ol>
       </section>
 
       <!-- ===================== 11. Glossary ===================== -->
-      <section id="glossary">
+      <section id="glossary" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 11</div>
         <h2>用語集(Glossary)</h2>
+        <div class="glossary-grid">
+          <div class="glossary-item"><div class="g-term">Anticipation / Perception / Evaluation</div><div class="g-def">体験を生む3つの内的プロセス:予期・知覚・評価</div></div>
+          <div class="glossary-item"><div class="g-term">Digital Experience System</div><div class="g-def">デジタル体験を生み出す一連の要素の集合</div></div>
+          <div class="glossary-item"><div class="g-term">Experience Domain</div><div class="g-def">Personal / Functional / Relational / Contextual の4分類</div></div>
+          <div class="glossary-item"><div class="g-term">Experience Moment</div><div class="g-def">Product and Service Lifecycleの各活動中に発生する体験の瞬間</div></div>
+          <div class="glossary-item"><div class="g-term">Functional Interaction</div><div class="g-def">タスク完遂を目的とした、機能志向のやり取り</div></div>
+          <div class="glossary-item"><div class="g-term">Relational Interaction</div><div class="g-def">信頼・関係性構築に関わる、感情面を含むやり取り</div></div>
+          <div class="glossary-item"><div class="g-term">Trustworthiness</div><div class="g-def">Experience Evidenceの出所・収集方法の信頼性</div></div>
+          <div class="glossary-item"><div class="g-term">Coherence</div><div class="g-def">複数のExperience Evidence間の整合性・一貫性</div></div>
+          <div class="glossary-item"><div class="g-term">Service Journey</div><div class="g-def">Explore→Engage→Offer→Agree→Onboard→Co-create→Reflectの7段階モデル</div></div>
+          <div class="glossary-item"><div class="g-term">notice–interpret–hypothesize–experiment</div><div class="g-def">Experience改善のための4段階ループ</div></div>
+          <div class="glossary-item"><div class="g-term">ITIL AI Capability Model (6C)</div><div class="g-def">Creation/Curation/Clarification/Cognition/Communication/Coordinationの6分類</div></div>
+          <div class="glossary-item"><div class="g-term">Provider-Consumer Tension</div><div class="g-def">提供側・消費側の役割間に生じる構造的な利害の緊張関係</div></div>
+          <div class="glossary-item"><div class="g-term">Bloom's Level (BL)</div><div class="g-def">設問が要求する思考の深さを示す1〜4の指標</div></div>
+        </div>
       </section>
 
       <!-- ===================== 12. References ===================== -->
-      <section id="references">
+      <section id="references" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 12</div>
         <h2>参考文献・ソース一覧</h2>
+
+        <div class="ref-group">
+          <h4>参考文献一覧(17件)</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">1. PeopleCert 公式製品ページ(試験概要・前提資格・キャリアパス)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177</a></li>
+            <li><span class="ref-name">2. ITIL® Experience (Version 5) 公式シラバス PDF(Version 5.0 PL, Feb 2026)</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf</a></li>
+            <li><span class="ref-name">3. 前提資格・コース概要(Oxford College of Technology)</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/</a></li>
+            <li><span class="ref-name">4. 受験対象者・合格ラインの補足情報(Torque IT)</span><a class="ref-url" href="https://torque-it.com/product/itil-experience-version-5-including-exam/" target="_blank" rel="noopener">https://torque-it.com/product/itil-experience-version-5-including-exam/</a></li>
+            <li><span class="ref-name">5. 学習目標・7ステップジャーニー概要(Sapience Consulting)</span><a class="ref-url" href="https://www.sapience-consulting.com/itil-experience-certification-v5/" target="_blank" rel="noopener">https://www.sapience-consulting.com/itil-experience-certification-v5/</a></li>
+            <li><span class="ref-name">6. コース全体アウトライン・モジュール構成(agilepmhub)</span><a class="ref-url" href="https://agilepmhub.com/itil-experience-version-5" target="_blank" rel="noopener">https://agilepmhub.com/itil-experience-version-5</a></li>
+            <li><span class="ref-name">7. モジュール別詳細アウトライン(The Knowledge Academy)</span><a class="ref-url" href="https://www.theknowledgeacademy.com/courses/itil-training/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/courses/itil-training/</a></li>
+            <li><span class="ref-name">8. ITIL Managing Professional Transition モジュール詳細</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course</a></li>
+            <li><span class="ref-name">9. Service Journey 7段階の詳細解説(PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/</a></li>
+            <li><span class="ref-name">10. ITIL Version 5 Foundation 定義ガイド(Service Journey含む)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+            <li><span class="ref-name">11. Information and Technology次元とAI統合(PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/</a></li>
+            <li><span class="ref-name">12. ITIL AI Capability Model(6C)の詳細(itecor)</span><a class="ref-url" href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">https://itecor.com/a-new-itil-so-what/</a></li>
+            <li><span class="ref-name">13. AI Governance・6Cモデルの実務解説(itsmacademy)</span><a class="ref-url" href="https://itsmacademy.com/itil-ai-governance-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-ai-governance-course</a></li>
+            <li><span class="ref-name">14. ITIL ExperienceとUXの関係(itil.com公式ニュース)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
+            <li><span class="ref-name">15. 継続的改善ループとTrust/Psychological Safety解説(edutrainings)</span><a class="ref-url" href="https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake/" target="_blank" rel="noopener">https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake/</a></li>
+            <li><span class="ref-name">16. ITIL Version 5 全体の変更点まとめ(itsm.tools)</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
+            <li><span class="ref-name">17. ITIL 4 vs ITIL Version 5 比較(certempire)</span><a class="ref-url" href="https://certempire.com/itil-4-vs-itil-5/" target="_blank" rel="noopener">https://certempire.com/itil-4-vs-itil-5/</a></li>
+          </ul>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />免責事項</div>
+          <p>本ガイドは公開情報(PeopleCert公式シラバスPDFおよび複数のPeopleCert認定トレーニングパートナーの公開資料)をもとに作成した学習補助資料であり、PeopleCert International Limited の公式教材(Official Book / Learning Resource Kit)の代替にはなりません。試験直前には必ず公式教材および PeopleCert 公式ページで最新の合格基準・出題範囲を確認してください。ITIL® は PeopleCert International Limited の登録商標です。</p>
+        </div>
       </section>
+
+      <footer>
+        ITIL&reg; は PeopleCert International Limited の登録商標です。本ガイドは学習支援を目的とした非公式資料であり、PeopleCert または AXELOS との提携・承認関係はありません。
+      </footer>
     </main>
   </div>
 </template>
@@ -1275,6 +1357,76 @@ h2 {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 30;
+}
+
+/* ===================== Glossary ===================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border, #DFE3EA);
+  background: var(--color-paper-raised, #FFFFFF);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 600;
+  color: var(--color-indigo, #2E3F72);
+  margin-bottom: 4px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft, #4B5565);
+  font-size: 14px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border, #DFE3EA);
+  font-size: 14px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink, #161B26);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint, #697586);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border, #DFE3EA);
+  color: var(--color-ink-faint, #697586);
+  font-size: 13px;
 }
 
 @media (max-width: 980px) {
