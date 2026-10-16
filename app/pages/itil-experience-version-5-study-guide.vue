@@ -24,6 +24,130 @@ const TOC_SECTIONS = [
 ] as const;
 
 const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
+
+const DIAGRAM_PSLC = `flowchart LR
+A["Discover"] --> B["Design"]
+B --> C["Acquire"]
+C --> D["Build"]
+D --> E["Transition"]
+E --> F["Operate"]
+F --> G["Deliver"]
+G --> H["Support"]
+H -.->|"feedback"| A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F,G box;
+class H done;`;
+
+const DIAGRAM_STAKEHOLDER_TENSIONS = `flowchart TB
+subgraph Consumer["Consumer-side stakeholders"]
+U["User 実際にサービスを使う人"]
+CU["Customer 要件を定義し成果に責任を持つ"]
+CS["Customer Sponsor 予算承認・投資判断を行う"]
+end
+subgraph Provider["Provider-side stakeholders"]
+AG["Agent サービスを実際に提供する担当者"]
+PR["Principal 提供責任を最終的に負う"]
+PS["Provider Sponsor 提供側の投資判断を行う"]
+EN["Enabler 提供を技術的に支える"]
+end
+Consumer <-->|Tensions| Provider
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class U,CU,CS box;
+class AG,PR,PS,EN hub;`;
+
+const DIAGRAM_FOUR_DIMENSIONS = `flowchart TB
+EXP["Experience 体験"]
+D1["Organizations and People 役割・権限・スキル・文化"] --> EXP
+D2["Information and Technology データ品質・UI/UX・AI活用"] --> EXP
+D3["Partners and Suppliers 外部委託先の体験品質"] --> EXP
+D4["Value Streams and Processes 手続きの摩擦・待ち時間"] --> EXP
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class EXP hub;
+class D1,D2,D3,D4 box;`;
+
+const DIAGRAM_JOURNEY_ROLE_MAP = `flowchart LR
+subgraph Journey["Product and Service Lifecycle across the journey"]
+direction LR
+S1["Discover"] --> S2["Design"] --> S3["Acquire"] --> S4["Build"] --> S5["Transition"] --> S6["Operate"] --> S7["Deliver"] --> S8["Support"]
+end
+U["User 使いやすさへの信頼"] -.-> S6
+CU["Customer 成果達成への信頼"] -.-> S7
+AG["Agent 現実的な運用可能性への信頼"] -.-> S6
+PR["Principal 品質保証への信頼"] -.-> S8
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4,S5 box;
+class S6,S7 hub;
+class S8 done;
+class U,CU,AG,PR box;`;
+
+const DIAGRAM_DATA_QUALITY_FLOW = `flowchart LR
+P["Primary data"] --> QC["Data quality assessment"]
+S["Secondary data"] --> QC
+T["Tertiary data"] --> QC
+QC --> TR["Trustworthiness"]
+QC --> CO["Coherence"]
+TR --> DEC["改善アクションの意思決定"]
+CO --> DEC
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,S,T box;
+class QC hub;
+class TR,CO box;
+class DEC done;`;
+
+const DIAGRAM_SERVICE_JOURNEY7 = `flowchart LR
+A["1. Explore 市場・ニーズを探る"] --> B["2. Engage 関係と信頼を構築する"]
+B --> C["3. Offer 提供内容を提示し需要を言語化"]
+C --> D["4. Agree 期待値を合意・正式化"]
+D --> E["5. Onboard 移行し利用を開始する"]
+E --> F["6. Co-create 日常利用で価値を共創"]
+F --> G["7. Reflect 成果を振り返り改善する"]
+G -.->|"次サイクルへ"| A
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A hub;
+class B,C,D,E,F box;
+class G done;`;
+
+const DIAGRAM_IMPROVEMENT_LOOP = `flowchart TB
+N["Notice 体験シグナルに気づく"] --> I["Interpret シグナルを解釈する"]
+I --> H["Hypothesize 改善仮説を立てる"]
+H --> EX["Experiment 小さく試す"]
+EX --> N
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class N hub;
+class I,H,EX box;`;
+
+const DIAGRAM_AI_CAPABILITY_MODEL = `flowchart TB
+subgraph Model["ITIL AI Capability Model 6C"]
+direction LR
+C1["Creation コンテンツ・コード・文書の生成"]
+C2["Curation 既存データの品質向上・重複排除"]
+C3["Clarification 複雑な内容の要約・案内"]
+C4["Cognition パターン検出・予兆分析"]
+C5["Communication チャットボット等の自然な対話"]
+C6["Coordination 複数アクションの自律的な統制・実行"]
+end
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class C1,C2,C3,C4,C5,C6 box;`;
 </script>
 
 <template>
@@ -108,14 +232,14 @@ const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
           </table>
         </div>
 
-        <div class="callout practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>基礎を先に固める。</strong>ITIL Foundation (Version 5) をまだ取得していない場合は、先に ITIL VS・Four Dimensions・Guiding Principles・Product and Service Lifecycle などの基礎を固めてから本ガイドに進むこと。Experience の syllabus は Foundation の用語を前提に進みます。</li>
           </ul>
         </div>
 
-        <div class="callout source">
+        <div class="callout source" data-variant="source" data-testid="callout">
           <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">PeopleCert 公式製品ページ</a></li>
@@ -145,7 +269,7 @@ const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
           </table>
         </div>
 
-        <div class="callout note">
+        <div class="callout note" data-variant="note" data-testid="callout">
           <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
           <p><strong>重要な注記(一次資料の透明性):</strong>2026年2月発行の公式シラバス(Version 5.0 PL=パイロット版)には、合格点・カテゴリ配点・Bloom's Level 配分がいずれも「TBC(To Be Confirmed)」と明記されています。一方で、現行の PeopleCert 公式製品ページでは合格ラインが 70% と明示されています。本ガイドは現行の製品ページの数値を採用しつつ、ベータ版シラバスの段階では数値が確定していなかった経緯を透明性のために残しています。受験直前は必ず PeopleCert 公式ページで最新の合格基準を確認してください。</p>
         </div>
@@ -178,14 +302,14 @@ const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
           </table>
         </div>
 
-        <div class="callout practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
           <ul>
             <li><strong>試験対策:</strong>List 形式は「2つとも正しい組み合わせ」を選ぶため、消去法よりも各記述を個別に○×判定してから組み合わせを絞り込む方が正答率が上がる。Negative 形式は問題文をよく読み、「NOT」「除く」などの否定語を見落とさないこと。</li>
           </ul>
         </div>
 
-        <div class="callout source">
+        <div class="callout source" data-variant="source" data-testid="callout">
           <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf" target="_blank" rel="noopener">公式シラバス PDF(Version 5.0 PL, February 2026)</a></li>
@@ -195,15 +319,119 @@ const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
       </section>
 
       <!-- ===================== 02. Foundations Refresh ===================== -->
-      <section id="foundations-refresh">
+      <section id="foundations-refresh" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
         <h2>前提となる基礎概念のリフレッシュ(Syllabus Category 1.1)</h2>
+        <p>Experience の syllabus は「Category 1: Key ITIL terms and definitions」の中で、Foundation で学ぶ以下5つの概念を土台として再確認することから始まります。すべて <strong>BL2(Explain/Describe/Understand)</strong>。</p>
+
+        <h3>2.1 ITIL Guiding Principles(ITIL指導原則)</h3>
+        <h4>定義</h4>
+        <p>組織の状況によらず、あらゆる意思決定を導く7つの推奨事項。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>原則</th><th>一言でいうと</th></tr></thead>
+            <tbody>
+              <tr><td>Focus on value</td><td>すべての活動を価値創出に結びつける</td></tr>
+              <tr><td>Start where you are</td><td>ゼロから作らず、既存の資産・データを評価する</td></tr>
+              <tr><td>Progress iteratively with feedback</td><td>大きく作りすぎず、小さく作ってフィードバックを得る</td></tr>
+              <tr><td>Collaborate and promote visibility</td><td>関係者を巻き込み、作業を可視化する</td></tr>
+              <tr><td>Think and work holistically</td><td>部分最適ではなく全体最適で考える</td></tr>
+              <tr><td>Keep it simple and practical</td><td>必要最小限で実用的な方法を選ぶ</td></tr>
+              <tr><td>Optimize and automate</td><td>人手作業を最適化してから自動化する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4>Experience 文脈での理由</h4>
+        <p>Experience management は「Start where you are(既存の体験データを評価する)」「Progress iteratively with feedback(小さく試して学ぶ)」と特に強く結びつきます。後述の <strong>notice–interpret–hypothesize–experiment ループ</strong>(6.4節)はこの2原則の具体的な実装形と言えます。</p>
+
+        <h3>2.2 Product・Service・Digital Product/Service の定義</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>用語</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td>Product</td><td>リソースを構成し、consumer に価値を提供できる状態にしたもの</td></tr>
+              <tr><td>Service</td><td>consumer が特定のコストやリスクを自ら負担することなく、望む成果を得られるようにする手段</td></tr>
+              <tr><td>Digital product / Digital service</td><td>デジタル技術を主たる価値提供手段とする product / service</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.3 ITIL Product and Service Lifecycle(8段階)</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_PSLC" />
+          </div>
+          <div class="diagram-caption">ITIL Product and Service Lifecycle の8活動(Discover〜Support)</div>
+        </div>
+        <p>ITIL 4 の Service Value Chain(6活動)を置き換える、より詳細な8活動モデル。Experience の文脈では、この8段階の <strong>どのステップでも "experience moments"(体験の瞬間)が発生しうる</strong> という前提が重要です(4.3節で詳述)。</p>
+
+        <h3>2.4 ITIL Four Dimensions of Product and Service Management</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>次元</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>Organizations and people</td><td>組織構造・文化・スキル(Version 5 では "Organizations, people and AI" セクションを含む)</td></tr>
+              <tr><td>Information and technology</td><td>情報管理・技術・<strong>ITIL AI Capability Model(6C)</strong>(7章で詳述)</td></tr>
+              <tr><td>Partners and suppliers</td><td>パートナー・サプライヤーとの関係</td></tr>
+              <tr><td>Value streams and processes</td><td>価値創出の一連の活動とプロセス</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.5 ITIL Value System(ITIL VS)</h3>
+        <p>Guiding Principles・Governance・Product and Service Lifecycle・Practices・Continual Improvement を包含する、組織全体の価値創出システム全体像。</p>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL (Version 5) の変更点まとめ(Four Dimensions・6Cモデル等)</a></li>
+            <li><a href="https://certempire.com/itil-4-vs-itil-5/" target="_blank" rel="noopener">ITIL Version 5 vs ITIL 4 比較</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 03. Key Concepts ===================== -->
-      <section id="key-concepts">
+      <section id="key-concepts" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:brain" aria-hidden="true" />SECTION 03</div>
         <h2>Experience の主要概念(Syllabus Category 1.2) ── BL2</h2>
+
+        <h3>3.1 「Experience(体験)」を人間の反応として定義する</h3>
+        <h4>定義</h4>
+        <p>ITIL (Version 5) における Experience とは、単なる「満足度」ではなく、<strong>anticipation(予期)・perception(知覚)・evaluation(評価)</strong> という3つのプロセスを通じて生まれる、<strong>feelings(感情)・thoughts(思考)・bodily states(身体的反応)</strong> の総体として定義されます。</p>
+        <h4>なぜこの定義が重要か(理由)</h4>
+        <ul>
+          <li>「体験=アンケートの点数」という誤解を避けるため。ITIL は Experience を <strong>人間の内的反応そのもの</strong> として扱い、測定値(メトリクス)はその反応の一部を映す "仮説" にすぎないと位置づけます(5.1節で詳述)。</li>
+          <li>この定義があるからこそ、後述の「Experience Capture は本質的に不完全である」という重要な考え方(5章)が導き出されます。</li>
+        </ul>
+        <h4>具体例</h4>
+        <p>レンタカー予約アプリ(Car Rental Scenario)で、ユーザーが予約完了画面を見た瞬間:</p>
+        <ul>
+          <li><strong>Anticipation:</strong>予約前に「スムーズに終わるだろう」と期待していた</li>
+          <li><strong>Perception:</strong>実際の画面の読み込み速度・UI のわかりやすさを知覚する</li>
+          <li><strong>Evaluation:</strong>期待と実際を比較し、「思ったより早かった」「逆に不安になった」など評価が生まれる</li>
+        </ul>
+        <p>この一連の流れが Experience(体験)そのものであり、単一の CSAT スコアではその一部しか捉えられません。</p>
+
+        <h3>3.2 Digital Experience と Digital Experience System</h3>
+        <h4>定義</h4>
+        <p>Digital experience(デジタル体験)とは、デジタル製品・サービスとのインタラクションに対する feelings・thoughts・bodily responses(身体反応)。これが積み重なって <strong>digital experience system</strong>(デジタル体験を生み出す一連の要素の集合)を構成します。</p>
+        <h4>なぜ重要か</h4>
+        <p>Trust(信頼)と Value(価値)は、機能要件の充足だけでは生まれません。ログイン画面の応答速度、通知のトーン、エラーメッセージの分かりやすさなど、<strong>一つひとつのデジタル接点の質の総和</strong> が信頼と価値co-creation(共創)を左右します。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>デジタルプロダクトの UX 改善プロジェクトでは、機能要件(Functional Requirement)のチェックリストとは別に「Experience チェックリスト」(応答速度・トーン・エラー文言・通知頻度など)を用意し、Design レビューで両方を確認する。</li>
+            <li><strong>アンチパターン:</strong>SLA・可用性などの機能指標のみをダッシュボードで追跡し、ユーザーの感情的反応を測る仕組みを一切持たない。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">ITIL Experience の UX への焦点解説(itil.com)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 04. Experience Framework ===================== -->
