@@ -623,9 +623,131 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </section>
 
       <!-- ===================== 05. Capturing Experience ===================== -->
-      <section id="capturing-experience">
+      <section id="capturing-experience" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 05</div>
         <h2>Experience の捕捉(Capturing Experience)(Syllabus Category 3)</h2>
+
+        <h3>5.1 Experience Capture の基本概念と「メトリクスは仮説である」── BL2</h3>
+        <h4>定義</h4>
+        <p>Experience Capture(体験の捕捉)とは、人間の内的反応(3.1節参照)を、観測可能なデータへと変換する試みです。</p>
+        <h4>なぜ「メトリクスは仮説」なのか(極めて重要な理由)</h4>
+        <p>Experience は本質的に主観的・多面的な人間の反応であり、<strong>どのようなメトリクス(CSAT・NPS・行動ログなど)も、その反応の一部しか捉えられません</strong>。ITIL (Version 5) はこれを率直に認め、「メトリクスは人間の体験全体を代表する仮説(hypothesis)にすぎない」と位置づけます(Assessment Criteria 3.1.2)。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>単一の指標(例:NPS)だけで意思決定せず、複数の Evidence(証拠)を組み合わせて「仮説の確からしさ」を評価する。</li>
+            <li><strong>アンチパターン:</strong>NPSスコアが1ポイント上下しただけで、Experience が「改善した/悪化した」と断定する。</li>
+          </ul>
+        </div>
+
+        <h3>5.2 4つの Experience Domains(体験ドメイン) ── BL1〜BL2</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ドメイン</th><th>定義</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Personal(個人的)</td><td>個人の内的な感情・思考・身体反応</td><td>「このアプリを使うとイライラする」という個人の感覚</td></tr>
+              <tr><td>Functional(機能的)</td><td>タスク達成の効率性・有効性に関する体験</td><td>「3クリックで予約が完了した」という機能面の体験</td></tr>
+              <tr><td>Relational(関係的)</td><td>信頼・関係性構築に関する体験</td><td>「サポート担当者が親身に対応してくれた」という関係面の体験</td></tr>
+              <tr><td>Contextual(文脈的)</td><td>状況・環境要因に依存する体験</td><td>「深夜に緊急で使ったので、応答速度が特に重要だった」という文脈依存の体験</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p><strong>試験対策メモ:</strong>4つの Experience Domains は Category 3(Assessment Criteria 3.1.3, BL2)と Category 4(Assessment Criteria 4.1.3, BL1)の <strong>両方</strong> に登場します。Category 4 側では「Identify(識別する)」という BL1 の動詞になっている点に注意(暗記寄りの設問になりやすい)。</p>
+        </div>
+
+        <h3>5.3 Experience Evidence(証拠)の種類・情報源・データの3層構造 ── BL2</h3>
+        <h4>データの3層構造(Three Tiers of Data)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>層</th><th>定義</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Primary data(一次データ)</td><td>直接観測された生データ</td><td>アプリの操作ログ、通話の録音</td></tr>
+              <tr><td>Secondary data(二次データ)</td><td>一次データを加工・集約したもの</td><td>週次の平均応答時間レポート</td></tr>
+              <tr><td>Tertiary data(三次データ)</td><td>二次データをさらに解釈・統合した知見</td><td>「オンボーディング体験全体のトレンド分析」</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Numerical Signals と Narrative Signals(数値シグナルと物語的シグナル)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>シグナル種別</th><th>内容</th><th>強み</th><th>弱み</th></tr></thead>
+            <tbody>
+              <tr><td>Numerical(数値)</td><td>CSAT スコア、応答時間、離脱率など</td><td>集計・比較・トレンド分析がしやすい</td><td>「なぜそうなったか」という文脈が失われがち</td></tr>
+              <tr><td>Narrative(物語的)</td><td>サポート会話の逐語記録、レビュー文章、フィードバックの自由記述</td><td>感情の機微や文脈を捉えられる</td><td>集計が難しく、分析者のバイアスが入りやすい</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>数値シグナルで「どこに問題がありそうか」を絞り込み、物語的シグナルで「なぜそうなっているか」を掘り下げる、2段階のトライアンギュレーションを標準プロセスにする。</li>
+          </ul>
+        </div>
+
+        <h3>5.4 Direct / Indirect / Synthetic な捕捉テクニック ── BL2</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>技法</th><th>定義</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Direct capture(直接捕捉)</td><td>利用者に直接尋ねる</td><td>アンケート、インタビュー、フィードバックフォーム</td></tr>
+              <tr><td>Indirect capture(間接捕捉)</td><td>行動データから推測する</td><td>クリックストリーム分析、離脱率、滞在時間</td></tr>
+              <tr><td>Synthetic capture(合成的捕捉)</td><td>AI・モデルを用いて生成・推定する</td><td>感情分析AIによるサポートチケットのトーン分類(6Cモデルの Cognition 機能)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.5 データ品質の評価:Trustworthiness と Coherence ── BL3(適用)</h3>
+        <h4>定義</h4>
+        <ul>
+          <li><strong>Trustworthiness(信頼性):</strong>データの出所・収集方法が信頼できるか(バイアス・サンプルサイズ・収集タイミングなど)。</li>
+          <li><strong>Coherence(一貫性):</strong>複数のデータソース間で矛盾がないか、文脈と整合しているか。</li>
+        </ul>
+        <h4>具体例(適用シナリオ)</h4>
+        <p>レンタカーアプリで「アプリの評価は4.8/5だが、サポートへの苦情が急増している」場合:</p>
+        <ul>
+          <li>Trustworthiness の観点:評価スコアは新規ユーザーのみのバイアスがないか確認する</li>
+          <li>Coherence の観点:評価スコア(数値シグナル)と苦情内容(物語的シグナル)が矛盾しているため、追加調査が必要と判断する</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>Experience Evidence を経営会議に提出する前に、「Trustworthiness チェック(出所は?サンプルは偏っていないか?)」と「Coherence チェック(他のデータと矛盾しないか?)」を必ずペアで実施する。</li>
+            <li><strong>アンチパターン:</strong>見栄えの良い1つの指標だけを抜き出して報告し、矛盾するデータを無視する(いわゆる "cherry picking")。</li>
+          </ul>
+        </div>
+
+        <h3>5.6 Experience Capture のアンチパターン、役割、ツール ── BL2</h3>
+        <h4>代表的なアンチパターン</h4>
+        <ul>
+          <li>単一メトリクスへの過度な依存(前述の Trustworthiness/Coherence の欠如)</li>
+          <li>アンケート疲れ(Survey Fatigue)を無視した過剰な調査依頼</li>
+          <li>ネガティブなフィードバックだけを収集し、ポジティブな体験の理由を分析しない</li>
+          <li>データ収集はするが、誰もアクション(改善)に結びつけない「収集のための収集」</li>
+        </ul>
+        <h4>捕捉に関わる役割・ツール</h4>
+        <p>組織構造(Organizations and people 次元)と情報技術(Information and technology 次元)の両方から、誰がデータを収集し、どのツール(アンケートツール、行動分析ツール、AI分析基盤)を使うかを明確に定義することが求められます。</p>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://agilepmhub.com/itil-experience-version-5" target="_blank" rel="noopener">4つの Experience Domains・データ品質基準(agilepmhub コースアウトライン)</a></li>
+            <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">Trustworthiness/Coherence の適用(The Knowledge Academy モジュール詳細)</a></li>
+          </ul>
+        </div>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_DATA_QUALITY_FLOW" />
+          </div>
+          <div class="diagram-caption">データの3層構造から改善アクションの意思決定までの流れ</div>
+        </div>
       </section>
 
       <!-- ===================== 06. Service Journey ===================== -->
