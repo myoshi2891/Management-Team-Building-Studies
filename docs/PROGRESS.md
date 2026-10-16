@@ -1286,7 +1286,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 
 - **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Itil-experience-version-5-study-guide/Itil-experience-version-5-study-guide.html`）と移行先 Vue SFC（`app/pages/itil-experience-version-5-study-guide.vue`）を機械照合し、全要素（リスト 105, 表行 122, 段落 45, 見出し 91, 外部リンク 20, Mermaid 8, Callout 33, SVG 1）が 100% 一致して **exit 0** を達成。
 - **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション、Heroの stat-row、13個のセクション（資格概要、試験概要、基礎概念のリフレッシュ、Experience主要概念、体験フレームワーク全体像、体験捕捉、サービスジャーニー、ITILとAI、他フレームワーク連携、ベストプラクティス総まとめ表、試験対策ポイント、用語集、参考文献一覧）を漏れなく転写。
-- **カタログ体系への追加**: `app/utils/guide-catalog.ts` に新規プロバイダー種別 `cert-peoplecert`（PeopleCert）、新規プログラム `prog-itil`（ITIL® Certification Scheme）、新規シリーズ `series-itil-specialist`（ITIL 4 Specialist / Practice Manager）およびガイド `itil-experience-version-5-study-guide` を追加登録。これにより公開中ガイド総数は 69 → 70 件、資格ガイド総数は 45 → 46 件となった。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下に新規プログラム `peoplecert`（PeopleCert 認定、`/certifications/peoplecert`）、新規シリーズ `pc-itil`（ITIL）およびガイド `/itil-experience-version-5-study-guide` を追加登録（種別の追加は無し）。これにより公開中ガイド総数は 69 → 70 件、資格ガイド総数は 45 → 46 件となった。
 - **契約テスト（S/C/D/Q/N）**: `tests/pages/itil-experience-version-5-study-guide.test.ts` で全 24 件のテストが Green。
 - **原本アーカイブ**: `Itil-experience-version-5-study-guide.html` および `Itil-experience-version-5-study-guide.md` を `archive/Itil-experience-version-5-study-guide/` へ移動し、`package.json` の `audit:itil-v5` スクリプトをアーカイブ先パスに設定。
 - **コミット履歴**:
