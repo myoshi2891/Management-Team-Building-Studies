@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick } from "vue";
+import { ref, nextTick, onMounted } from "vue";
 import { useSeoMeta } from "#imports";
 import { useActiveHeading } from "~/composables/useActiveHeading";
 
@@ -31,6 +31,58 @@ function closeSidebar(): void {
 }
 
 const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
+
+const CHECKLIST_ITEMS = [
+  { key: "itilMptSC-0", text: "前提資格(ITIL 4 MP/Master、ITIL v3 Expert/Master)を保有していることを確認した" },
+  { key: "itilMptSC-1", text: "Exam 1(Transformation: 40問/90分)とExam 2(PSE: 60問/120分)の違いを説明できる" },
+  { key: "itilMptSC-2", text: "ITIL VS(旧SVS)、7つのGuiding Principles、Four Dimensions(AI統合済み)を説明できる" },
+  { key: "itilMptSC-3", text: "ITIL Transformation Modelの4 Layer(Governance/Positioning/Execution/Learning)を図なしで説明できる" },
+  { key: "itilMptSC-4", text: "変革の3つの共通パターン(Initiation/Governance/Execution)を区別できる" },
+  { key: "itilMptSC-5", text: "BAU governance patternとTransformation governance patternの違いを説明できる" },
+  { key: "itilMptSC-6", text: "PSLMの8活動(Discover〜Support)を目的付きで暗唱できる" },
+  { key: "itilMptSC-7", text: "PSLMがプロダクト寄り/橋渡し/サービス寄りにどう分かれるか説明できる" },
+  { key: "itilMptSC-8", text: "バリューストリームとオペレーティングモデルの違いを説明できる" },
+  { key: "itilMptSC-9", text: "ITIL Experience Modelの3要素(Anticipation/Perception/Evaluation)を説明できる" },
+  { key: "itilMptSC-10", text: "Four Experience Domains(Personal/Functional/Relational/Contextual)を区別できる" },
+  { key: "itilMptSC-11", text: "サービスジャーニー7ステップ(Explore〜Reflect)を順に説明できる" },
+  { key: "itilMptSC-12", text: "Band of VisibilityとCX/UXの違いを説明できる" },
+  { key: "itilMptSC-13", text: "ステークホルダージャーニー(Consumer/Provider)の典型的な懸念とアンチパターンを説明できる" },
+  { key: "itilMptSC-14", text: "Notice–Interpret–Hypothesize–Experimentループを説明できる" },
+  { key: "itilMptSC-15", text: "AI Capability Modelの6能力(Creation/Curation/Clarification/Cognition/Communication/Coordination)を暗唱できる" },
+  { key: "itilMptSC-16", text: "ITILとDevOps、ITILとPRINCE2の補完関係を説明できる" },
+  { key: "itilMptSC-17", text: "公式eBook(Product/Service/Experience/Transformation)でシナリオ問題の該当箇所を素早く参照できる" },
+];
+
+const checkedKeys = ref<Set<string>>(new Set());
+
+onMounted(() => {
+  if (typeof window !== "undefined" && window.localStorage) {
+    const next = new Set<string>();
+    for (const item of CHECKLIST_ITEMS) {
+      if (localStorage.getItem(item.key) === "1") {
+        next.add(item.key);
+      }
+    }
+    checkedKeys.value = next;
+  }
+});
+
+const toggleCheck = (key: string) => {
+  const next = new Set(checkedKeys.value);
+  if (next.has(key)) {
+    next.delete(key);
+    if (typeof window !== "undefined" && window.localStorage) {
+      localStorage.removeItem(key);
+    }
+  } else {
+    next.add(key);
+    if (typeof window !== "undefined" && window.localStorage) {
+      localStorage.setItem(key, "1");
+    }
+  }
+  checkedKeys.value = next;
+};
+
 
 const DIAGRAM_CERTIFICATION_PATHWAY = `flowchart TB
 subgraph RouteGeneral["ルート1: 一般的なFoundationルート(前提資格なし)"]
@@ -213,16 +265,16 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </div>
 
       <ul class="sidebar-nav">
-        <li v-for="item in TOC_SECTIONS" :key="item.id">
-          <a
-            :href="`#${item.id}`"
-            :class="{ active: activeId === item.id }"
-            @click="closeSidebar"
-          >
-            <Icon :name="item.icon" />
-            <span>{{ item.label }}</span>
-          </a>
-        </li>
+        <li><a href="#about-mpt" :class="{ active: activeId === 'about-mpt' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />この資格について</a></li>
+        <li><a href="#itil-v5-evolution" :class="{ active: activeId === 'itil-v5-evolution' }" @click="closeSidebar"><Icon name="tabler:timeline" aria-hidden="true" />ITIL(V5)全体像</a></li>
+        <li><a href="#foundational-concepts" :class="{ active: activeId === 'foundational-concepts' }" @click="closeSidebar"><Icon name="tabler:building-bank" aria-hidden="true" />共通基盤概念</a></li>
+        <li><a href="#exam1-transformation" :class="{ active: activeId === 'exam1-transformation' }" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />試験1: Transformation</a></li>
+        <li><a href="#exam2-product-service-experience" :class="{ active: activeId === 'exam2-product-service-experience' }" @click="closeSidebar"><Icon name="tabler:route" aria-hidden="true" />試験2: Product/Service/Experience</a></li>
+        <li><a href="#ai-capability-model" :class="{ active: activeId === 'ai-capability-model' }" @click="closeSidebar"><Icon name="tabler:file-text" aria-hidden="true" />ITIL and AI</a></li>
+        <li><a href="#itil-other-frameworks" :class="{ active: activeId === 'itil-other-frameworks' }" @click="closeSidebar"><Icon name="tabler:clipboard-text" aria-hidden="true" />他フレームワークとの関係</a></li>
+        <li><a href="#exam-strategy" :class="{ active: activeId === 'exam-strategy' }" @click="closeSidebar"><Icon name="tabler:map-2" aria-hidden="true" />試験対策のポイント</a></li>
+        <li><a href="#study-checklist" :class="{ active: activeId === 'study-checklist' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" aria-hidden="true" />学習チェックリスト</a></li>
+        <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />参考文献</a></li>
       </ul>
     </nav>
 
@@ -1316,6 +1368,173 @@ class C1,C2,C3,C4,C5,C6 box;`;
           <p>「ITIL vs DevOps」「ITIL vs PRINCE2」という対立構造で捉えないこと。ITILは価値創出のための包括的な枠組みであり、DevOpsやPRINCE2は特定の活動(継続的デリバリー、プロジェクト管理)をより深く実行するための専門的な実践知として併用するのが正しい理解です。</p>
         </div>
       </section>
+
+      <!-- ===================== 8. Exam Strategy ===================== -->
+      <section id="exam-strategy">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:map-2" />SECTION 08
+        </div>
+        <h2>試験対策のポイント</h2>
+
+        <h3>シナリオベース試験への向き合い方</h3>
+        <p>両試験とも、架空の企業(レンタカー会社のケースなど)を舞台にしたシナリオ問題が出題されます。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>シナリオ文中の「誰の視点で問われているか(利用者 / 顧客 / 提供者)」を最初に特定する</li>
+            <li>「最も正しそうな選択肢」ではなく「ITILの原則・モデルに最も忠実な選択肢」を選ぶ</li>
+            <li>オープンブック試験であることを過信せず、キーワード(PSLMの活動名、Transformation Modelの層名など)から該当ページを即座に引ける索引を事前に作っておく</li>
+          </ul>
+        </div>
+
+        <h3>試験別の学習配分の目安</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>試験</th><th>重点的に固める領域</th><th>学習の優先順位</th></tr></thead>
+            <tbody>
+              <tr><td>Exam 1: Transformation</td><td>4 Layer(Governance/Positioning/Execution/Learning)の役割分担、3つの共通パターン(Initiation/Governance/Execution)、BAU governanceとTransformation governanceの違い</td><td>「なぜこの層・パターンが選ばれるか」を状況(コンテキスト)と結びつけて説明できるレベルまで理解する</td></tr>
+              <tr><td>Exam 2: MPT-PSE</td><td>PSLM 8活動の目的とプロダクト/サービス両視点、Experience Modelの4ドメイン、サービスジャーニー7ステップ、経験キャプチャの信頼性・一貫性</td><td>8活動とExperience Modelを「1つのシナリオ企業」に当てはめて一気通貫で説明できるレベルまで理解する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
+          </div>
+          <p>学習の終盤には、架空の1社(例: サブスクリプション型のモビリティサービス企業)を題材に、Discoverから Reflect まで全プロセスを自分の言葉で通しで語れるかを自己テストしてください。個々の用語の暗記より、モデル間のつながりを説明できることの方が得点に直結します。</p>
+        </div>
+
+        <h3>頻出の誤答パターン(Common Pitfalls)</h3>
+        <ul>
+          <li>PSLMの8活動を「一方向の直線プロセス」として答えてしまう(正しくは反復的・循環的)</li>
+          <li>Service Value ChainとPSLMを混同する(Version 4とVersion 5の用語を取り違える)</li>
+          <li>メトリクス(数値指標)を「経験そのもの」と誤認する(正しくは経験に関する一つの仮説にすぎない)</li>
+          <li>BAU改善とTransformationを同じ手法で扱おうとする</li>
+          <li>CXとUXを同一視し、どちらか一方の改善で両方が解決すると誤解する</li>
+        </ul>
+      </section>
+
+      <!-- ===================== 9. Study Checklist ===================== -->
+      <section id="study-checklist">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:clipboard-check" />SECTION 09
+        </div>
+        <h2>学習チェックリスト</h2>
+
+        <div class="checklist-progress" aria-live="polite">
+          <span class="count">達成 <strong id="checklist-progress-current">{{ checkedKeys.size }}</strong> / <span id="checklist-progress-total">{{ CHECKLIST_ITEMS.length }}</span></span>
+        </div>
+        <div class="checklist-progress-track">
+          <div class="fill" id="checklist-progress-fill" :style="{ width: `${(checkedKeys.size / CHECKLIST_ITEMS.length) * 100}%` }" />
+        </div>
+
+        <ul class="checklist" role="group" aria-label="学習チェックリストの達成状況">
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-0') }"><input type="checkbox" data-checklist-key="itilMptSC-0" :checked="checkedKeys.has('itilMptSC-0')" @change="toggleCheck('itilMptSC-0')"><span class="checklist-text">前提資格(ITIL 4 MP/Master、ITIL v3 Expert/Master)を保有していることを確認した</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-1') }"><input type="checkbox" data-checklist-key="itilMptSC-1" :checked="checkedKeys.has('itilMptSC-1')" @change="toggleCheck('itilMptSC-1')"><span class="checklist-text">Exam 1(Transformation: 40問/90分)とExam 2(PSE: 60問/120分)の違いを説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-2') }"><input type="checkbox" data-checklist-key="itilMptSC-2" :checked="checkedKeys.has('itilMptSC-2')" @change="toggleCheck('itilMptSC-2')"><span class="checklist-text">ITIL VS(旧SVS)、7つのGuiding Principles、Four Dimensions(AI統合済み)を説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-3') }"><input type="checkbox" data-checklist-key="itilMptSC-3" :checked="checkedKeys.has('itilMptSC-3')" @change="toggleCheck('itilMptSC-3')"><span class="checklist-text">ITIL Transformation Modelの4 Layer(Governance/Positioning/Execution/Learning)を図なしで説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-4') }"><input type="checkbox" data-checklist-key="itilMptSC-4" :checked="checkedKeys.has('itilMptSC-4')" @change="toggleCheck('itilMptSC-4')"><span class="checklist-text">変革の3つの共通パターン(Initiation/Governance/Execution)を区別できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-5') }"><input type="checkbox" data-checklist-key="itilMptSC-5" :checked="checkedKeys.has('itilMptSC-5')" @change="toggleCheck('itilMptSC-5')"><span class="checklist-text">BAU governance patternとTransformation governance patternの違いを説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-6') }"><input type="checkbox" data-checklist-key="itilMptSC-6" :checked="checkedKeys.has('itilMptSC-6')" @change="toggleCheck('itilMptSC-6')"><span class="checklist-text">PSLMの8活動(Discover〜Support)を目的付きで暗唱できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-7') }"><input type="checkbox" data-checklist-key="itilMptSC-7" :checked="checkedKeys.has('itilMptSC-7')" @change="toggleCheck('itilMptSC-7')"><span class="checklist-text">PSLMがプロダクト寄り/橋渡し/サービス寄りにどう分かれるか説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-8') }"><input type="checkbox" data-checklist-key="itilMptSC-8" :checked="checkedKeys.has('itilMptSC-8')" @change="toggleCheck('itilMptSC-8')"><span class="checklist-text">バリューストリームとオペレーティングモデルの違いを説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-9') }"><input type="checkbox" data-checklist-key="itilMptSC-9" :checked="checkedKeys.has('itilMptSC-9')" @change="toggleCheck('itilMptSC-9')"><span class="checklist-text">ITIL Experience Modelの3要素(Anticipation/Perception/Evaluation)を説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-10') }"><input type="checkbox" data-checklist-key="itilMptSC-10" :checked="checkedKeys.has('itilMptSC-10')" @change="toggleCheck('itilMptSC-10')"><span class="checklist-text">Four Experience Domains(Personal/Functional/Relational/Contextual)を区別できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-11') }"><input type="checkbox" data-checklist-key="itilMptSC-11" :checked="checkedKeys.has('itilMptSC-11')" @change="toggleCheck('itilMptSC-11')"><span class="checklist-text">サービスジャーニー7ステップ(Explore〜Reflect)を順に説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-12') }"><input type="checkbox" data-checklist-key="itilMptSC-12" :checked="checkedKeys.has('itilMptSC-12')" @change="toggleCheck('itilMptSC-12')"><span class="checklist-text">Band of VisibilityとCX/UXの違いを説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-13') }"><input type="checkbox" data-checklist-key="itilMptSC-13" :checked="checkedKeys.has('itilMptSC-13')" @change="toggleCheck('itilMptSC-13')"><span class="checklist-text">ステークホルダージャーニー(Consumer/Provider)の典型的な懸念とアンチパターンを説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-14') }"><input type="checkbox" data-checklist-key="itilMptSC-14" :checked="checkedKeys.has('itilMptSC-14')" @change="toggleCheck('itilMptSC-14')"><span class="checklist-text">Notice–Interpret–Hypothesize–Experimentループを説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-15') }"><input type="checkbox" data-checklist-key="itilMptSC-15" :checked="checkedKeys.has('itilMptSC-15')" @change="toggleCheck('itilMptSC-15')"><span class="checklist-text">AI Capability Modelの6能力(Creation/Curation/Clarification/Cognition/Communication/Coordination)を暗唱できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-16') }"><input type="checkbox" data-checklist-key="itilMptSC-16" :checked="checkedKeys.has('itilMptSC-16')" @change="toggleCheck('itilMptSC-16')"><span class="checklist-text">ITILとDevOps、ITILとPRINCE2の補完関係を説明できる</span></label></li>
+          <li><label class="checklist-label" :class="{ 'is-checked': checkedKeys.has('itilMptSC-17') }"><input type="checkbox" data-checklist-key="itilMptSC-17" :checked="checkedKeys.has('itilMptSC-17')" @change="toggleCheck('itilMptSC-17')"><span class="checklist-text">公式eBook(Product/Service/Experience/Transformation)でシナリオ問題の該当箇所を素早く参照できる</span></label></li>
+        </ul>
+      </section>
+
+      <section id="references">
+            <div class="section-eyebrow" data-testid="section-eyebrow">
+                <Icon name="tabler:link" />SECTION 10
+              </div>
+            <h2>参考文献(Sources)</h2>
+      
+            <p>本ガイドの作成にあたり、以下の一次情報・研修プロバイダー公開情報を参照しました。公式かつ最終的な正確性の担保としては、必ず PeopleCert 公式ページおよび公式eBookをご確認ください。</p>
+      
+            <div class="ref-group">
+              <h4>PeopleCert 公式・ITIL公式情報</h4>
+              <ul class="ref-list">
+                <li><span class="ref-name">ITIL Managing Professional Transition (Version 5) — PeopleCert公式ページ</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-managing-professional-transition-version-5-4227" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-managing-professional-transition-version-5-4227</a></li>
+                <li><span class="ref-name">ITIL AI Governance (Version 5) — PeopleCert公式ページ</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-ai-governance-version-5-4234" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-ai-governance-version-5-4234</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) 関連ページ — PeopleCert</span><a class="ref-url" href="https://www.peoplecert.org/Itil-News-and-Announcements/2026-qualiti7-peoplecert-webinar-series-ai-native-organization-session-3/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">https://www.peoplecert.org/Itil-News-and-Announcements/2026-qualiti7-peoplecert-webinar-series-ai-native-organization-session-3/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177</a></li>
+                <li><span class="ref-name">ITIL Product (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Product-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Product-Version-5</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Experience-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Experience-Version-5</a></li>
+                <li><span class="ref-name">ITIL Transformation (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5</a></li>
+                <li><span class="ref-name">ITIL AI Governance (Version 5) — itil.com 公式解説</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5</a></li>
+                <li><span class="ref-name">ITIL Foundation (Version 5)、what's new? — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide</a></li>
+                <li><span class="ref-name">The new ITIL product and service lifecycle model — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model</a></li>
+                <li><span class="ref-name">ITIL (Version 5) AI Governance guidance(AI Capability Model背景) — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance</a></li>
+                <li><span class="ref-name">How ITIL Experience (Version 5) puts user experience at the core — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
+                <li><span class="ref-name">Introducing ITIL (Version 5): Everything you need to know — ILX Group</span><a class="ref-url" href="https://www.ilxgroup.com/usa/blog/introducing-itil-version-5-everything-you-need-to-know-about-the-new-certification-scheme" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/blog/introducing-itil-version-5-everything-you-need-to-know-about-the-new-certification-scheme</a></li>
+                <li><span class="ref-name">ITIL Transformation (Version 5) コース概要 — ILX Group</span><a class="ref-url" href="https://www.ilxgroup.com/usa/training/itil/itil-transformation-version-5" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/training/itil/itil-transformation-version-5</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) コース概要 — ILX Group</span><a class="ref-url" href="https://www.ilxgroup.com/usa/training/itil/experience" target="_blank" rel="noopener">https://www.ilxgroup.com/usa/training/itil/experience</a></li>
+              </ul>
+            </div>
+      
+            <div class="ref-group">
+              <h4>認定研修プロバイダー(ATO)によるシラバス・コース詳細</h4>
+              <ul class="ref-list">
+                <li><span class="ref-name">ITIL Managing Professional Transition (Version 5) Training — AGILEPM HUB(モジュール構成・試験詳細が最も網羅的)</span><a class="ref-url" href="https://agilepmhub.com/itil-managing-professional-version-5" target="_blank" rel="noopener">https://agilepmhub.com/itil-managing-professional-version-5</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) Training — AGILEPM HUB</span><a class="ref-url" href="https://agilepmhub.com/itil-experience-version-5" target="_blank" rel="noopener">https://agilepmhub.com/itil-experience-version-5</a></li>
+                <li><span class="ref-name">ITIL Managing Professional Transition Training — Learning Tree</span><a class="ref-url" href="https://www.learningtree.com/courses/itil-managing-professional-transition-version-five/" target="_blank" rel="noopener">https://www.learningtree.com/courses/itil-managing-professional-transition-version-five/</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) Training — Learning Tree</span><a class="ref-url" href="https://www.learningtree.com/courses/itil-experience-version-five-training/" target="_blank" rel="noopener">https://www.learningtree.com/courses/itil-experience-version-five-training/</a></li>
+                <li><span class="ref-name">ITIL Managing Professional Transition — QA</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/itil-managing-professional-transition-itil5trns/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/itil-managing-professional-transition-itil5trns/</a></li>
+                <li><span class="ref-name">ITIL Managing Professional Transition — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-version-5-managing-professional-transition-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-version-5-managing-professional-transition-course</a></li>
+                <li><span class="ref-name">ITIL Transformation Course — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-transformation-course</a></li>
+                <li><span class="ref-name">ITIL 5 Managing Professional Transition — The Knowledge Academy(試験シラバス詳細)</span><a class="ref-url" href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/</a></li>
+                <li><span class="ref-name">ITIL 5 Managing Professional Transition Course — itil.org.uk(Experience詳細モジュール構成)</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course</a></li>
+                <li><span class="ref-name">ITIL Transformation Certification Training Course — itil.org.uk</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-transformation-courses/itil-transformation-certification-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-transformation-courses/itil-transformation-certification-training-course</a></li>
+                <li><span class="ref-name">ITIL Transformation Course & Examination — ITSM Hub</span><a class="ref-url" href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">https://www.itsmhub.com/products/itil-transformation-course-examination</a></li>
+                <li><span class="ref-name">ITIL Managing Professional Transition (Version 5) — Oxford College of Technology</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-managing-professional-transition-version-5/" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-managing-professional-transition-version-5/</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) — Oxford College of Technology</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/</a></li>
+                <li><span class="ref-name">What Comes After ITIL Foundation? — Expert Train</span><a class="ref-url" href="https://www.expertrain.co.uk/post/what-comes-after-itil-foundation" target="_blank" rel="noopener">https://www.expertrain.co.uk/post/what-comes-after-itil-foundation</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) — Sapience Consulting</span><a class="ref-url" href="https://www.sapience-consulting.com/itil-experience-certification-v5/" target="_blank" rel="noopener">https://www.sapience-consulting.com/itil-experience-certification-v5/</a></li>
+                <li><span class="ref-name">ITIL Experience (Version 5) — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-experience-version-5/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-experience-version-5/</a></li>
+                <li><span class="ref-name">ITIL Transformation (Version 5) — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-transformation-version-5/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-transformation-version-5/</a></li>
+                <li><span class="ref-name">ITIL AI Governance (Version 5) — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-ai-governance-version-5/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-ai-governance-version-5/</a></li>
+                <li><span class="ref-name">ITIL Transformation (Version 5) Practice Tests(4層・12ステージ・3パターンの出典) — Udemy</span><a class="ref-url" href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">https://www.udemy.com/course/itil-transformation-version-5-practice-tests/</a></li>
+                <li><span class="ref-name">ITIL (Version 5) Transformation Training Course — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-transformation-course</a></li>
+              </ul>
+            </div>
+      
+            <div class="ref-group">
+              <h4>解説記事・比較コンテンツ</h4>
+              <ul class="ref-list">
+                <li><span class="ref-name">ITIL 5 vs ITIL 4: What Changed in ITIL (Version 5) — InvGate Blog</span><a class="ref-url" href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">https://blog.invgate.com/itil-5-what-changes</a></li>
+                <li><span class="ref-name">What is ITIL? Principles, Practices, And Certification — InvGate</span><a class="ref-url" href="https://invgate.com/itsm/itil" target="_blank" rel="noopener">https://invgate.com/itsm/itil</a></li>
+                <li><span class="ref-name">What is ITIL Service Operation? — InvGate Blog</span><a class="ref-url" href="https://blog.invgate.com/itil-service-operation" target="_blank" rel="noopener">https://blog.invgate.com/itil-service-operation</a></li>
+                <li><span class="ref-name">ITIL (Version 5) Service Value Chain — NovelVista</span><a class="ref-url" href="https://www.novelvista.com/blogs/it-service-management/itil5-service-value-chain" target="_blank" rel="noopener">https://www.novelvista.com/blogs/it-service-management/itil5-service-value-chain</a></li>
+                <li><span class="ref-name">5 Stages of the ITIL Service Lifecycle — Alloy Software</span><a class="ref-url" href="https://www.alloysoftware.com/blog/itil-lifecycle/" target="_blank" rel="noopener">https://www.alloysoftware.com/blog/itil-lifecycle/</a></li>
+                <li><span class="ref-name">ITIL 5 What changed and why it matters — Rixmind</span><a class="ref-url" href="https://rixmind.com/itil-5-what-changed-and-why-it-matters/" target="_blank" rel="noopener">https://rixmind.com/itil-5-what-changed-and-why-it-matters/</a></li>
+                <li><span class="ref-name">ITIL Version 5: A Complete Guide — itil.org.uk Blog</span><a class="ref-url" href="https://www.itil.org.uk/blog/itil-version-5-a-complete-guide" target="_blank" rel="noopener">https://www.itil.org.uk/blog/itil-version-5-a-complete-guide</a></li>
+                <li><span class="ref-name">ITIL 5 AI Governance: What It Means and How to Apply It in ITSM — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-ai-governance" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-ai-governance</a></li>
+                <li><span class="ref-name">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4 — ITSM.tools</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
+                <li><span class="ref-name">ITIL 5 Foundation: Syllabus, Exam Format, And How To Pass — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/collections/itil-5-foundation" target="_blank" rel="noopener">https://www.diontraining.com/collections/itil-5-foundation</a></li>
+                <li><span class="ref-name">ITIL 5 Process Explained: Practices, Workflows, And Real-World Examples — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+                <li><span class="ref-name">ITIL 5 vs ITIL 4: Key Differences And Which One To Choose — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-vs-itil-4" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-vs-itil-4</a></li>
+                <li><span class="ref-name">ITIL Foundation Version 5 (ITILFND V5): Complete Guide 2026 — CertEmpire</span><a class="ref-url" href="https://certempire.com/itil-foundation-v5-guide/" target="_blank" rel="noopener">https://certempire.com/itil-foundation-v5-guide/</a></li>
+                <li><span class="ref-name">ITIL 5: Why Explaining Failures Is No Longer Leadership — Medium (The ITSM Practice Podcast)</span><a class="ref-url" href="https://medium.com/the-itsm-practice-podcast/itil-5-the-end-of-explaining-failure-f24ccae28573" target="_blank" rel="noopener">https://medium.com/the-itsm-practice-podcast/itil-5-the-end-of-explaining-failure-f24ccae28573</a></li>
+                <li><span class="ref-name">Service Journey in ITIL 5: The Complete Guide(サービスジャーニー7ステップの出典) — PMG Academy</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/</a></li>
+                <li><span class="ref-name">The Definitive Guide to ITIL Version 5 Foundation — PMG Academy</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+              </ul>
+            </div>
+          </section>
+
+      <footer>
+        <p>本ガイドは2026年9月時点で公開されていた一次・二次情報をもとに作成した学習補助資料であり、PeopleCert公式教材の内容を正式に代替するものではありません。特に ITIL Transformation Model の12ステージの正式名称、各PSLM活動のCSF(成功要因)・メトリクスの正確な文言、試験の最新の出題傾向については、必ず公式eBookおよびPeopleCert公式サイトの最新情報をご確認ください。</p>
+        <p>ITIL® is a registered trademark of PeopleCert group. 本ページは学習支援を目的とした非公式の教材であり、PeopleCert社による公認・承認を受けたものではありません。</p>
+      </footer>
     </main>
   </div>
 </template>
