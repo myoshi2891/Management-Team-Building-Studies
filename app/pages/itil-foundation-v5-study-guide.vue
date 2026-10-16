@@ -233,22 +233,28 @@ class BuildOp,Discover done;`;
           <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div class="brand-text">
-          <div class="brand-title">ITIL Foundation® 完全ガイド</div>
-          <div class="brand-subtitle">PeopleCert Version 5</div>
+          <div class="brand-title">ITIL&reg; V5 完全ガイド</div>
+          <div class="brand-subtitle">初学者のためのステップ・バイ・ステップ解説</div>
         </div>
       </div>
 
       <ul class="sidebar-nav">
-        <li v-for="s in TOC_SECTIONS" :key="s.id">
-          <a
-            :href="`#${s.id}`"
-            :class="{ active: activeId === s.id }"
-            @click="closeSidebar"
-          >
-            <Icon :name="s.icon" aria-hidden="true" />
-            {{ s.label }}
-          </a>
-        </li>
+        <li class="nav-group-label">はじめに</li>
+        <li><a href="#how-to-use" :class="{ active: activeId === 'how-to-use' }" @click="closeSidebar"><Icon name="tabler:route" aria-hidden="true" />このガイドの使い方</a></li>
+        <li><a href="#exam-blueprint" :class="{ active: activeId === 'exam-blueprint' }" @click="closeSidebar"><Icon name="tabler:chart-pie" aria-hidden="true" />出題配点マップ</a></li>
+        <li class="nav-group-label">本編(第1章〜第8章)</li>
+        <li><a href="#key-terms" :class="{ active: activeId === 'key-terms' }" @click="closeSidebar"><Icon name="tabler:clipboard-text" aria-hidden="true" />第1章 主要用語と定義</a></li>
+        <li><a href="#four-dimensions" :class="{ active: activeId === 'four-dimensions' }" @click="closeSidebar"><Icon name="tabler:building-bank" aria-hidden="true" />第2章 4つの側面</a></li>
+        <li><a href="#product-service-lifecycle" :class="{ active: activeId === 'product-service-lifecycle' }" @click="closeSidebar"><Icon name="tabler:refresh" aria-hidden="true" />第3章 製品・サービスライフサイクル</a></li>
+        <li><a href="#value-system" :class="{ active: activeId === 'value-system' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />第4章 ITILバリューシステム</a></li>
+        <li><a href="#value-streams" :class="{ active: activeId === 'value-streams' }" @click="closeSidebar"><Icon name="tabler:timeline" aria-hidden="true" />第5章 バリューストリーム</a></li>
+        <li><a href="#itil-and-ai" :class="{ active: activeId === 'itil-and-ai' }" @click="closeSidebar"><Icon name="tabler:file-text" aria-hidden="true" />第6章 ITILとAI</a></li>
+        <li><a href="#other-frameworks" :class="{ active: activeId === 'other-frameworks' }" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />第7章 他フレームワークとの関係</a></li>
+        <li><a href="#exam-strategy" :class="{ active: activeId === 'exam-strategy' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />第8章 出題形式と学習計画</a></li>
+        <li class="nav-group-label">付録</li>
+        <li><a href="#glossary" :class="{ active: activeId === 'glossary' }" @click="closeSidebar"><Icon name="tabler:book-2" aria-hidden="true" />付録A 用語集</a></li>
+        <li><a href="#management-practices" :class="{ active: activeId === 'management-practices' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" aria-hidden="true" />付録B マネジメントプラクティス</a></li>
+        <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />付録C 出典・参考文献</a></li>
       </ul>
     </nav>
 
@@ -1267,6 +1273,19 @@ class BuildOp,Discover done;`;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
+
+.sidebar-nav .nav-group-label:first-child {
+  margin-top: 0;
 }
 
 .sidebar-nav li {
