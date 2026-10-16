@@ -776,6 +776,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-managing-professional-transition-v5-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL MPT (v5)",
+    title: "ITIL® Managing Professional Transition (Version 5) 認定資格 完全ガイド",
+    description: "ITIL Managing Professional Transition (Version 5) を初学者向けにステップバイステップで解説。Transformation Model、PSLM 8活動、ITIL Experience Model、AI Capability Model、各項目のベストプラクティスと出典URLを網羅。",
+    meta: "10セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
