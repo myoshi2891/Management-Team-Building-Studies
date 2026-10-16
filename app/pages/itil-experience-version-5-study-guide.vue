@@ -911,15 +911,107 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </section>
 
       <!-- ===================== 07. ITIL and AI ===================== -->
-      <section id="itil-and-ai">
+      <section id="itil-and-ai" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:robot" aria-hidden="true" />SECTION 07</div>
         <h2>ITIL と AI(Syllabus Category 5)</h2>
+
+        <h3>7.1 AI が Experience Management にもたらす価値 ── BL2</h3>
+        <h4>定義</h4>
+        <p>AI は Experience Capture(データ収集・解釈の自動化)、Personalization(個別最適化)、Predictive Insight(予兆検知)など複数の面で Experience Management を支援します。</p>
+        <h4>理由</h4>
+        <p>人間の体験は膨大かつ多面的(4つの Domain × 3層データ × Numerical/Narrative シグナル)であるため、AIなしでは大規模に "capture" しきれません。一方で、AIの使い方を誤ると、5.1節の「メトリクスは仮説にすぎない」という原則を無視した過信(AIが出した数値を絶対視すること)につながるリスクもあります。</p>
+
+        <h3>7.2 ITIL AI Capability Model(6Cモデル) ── BL2</h3>
+        <h4>定義</h4>
+        <p>Information and Technology 次元(2.4節)の中核をなす、AI の機能を6つに分類するモデル。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_AI_CAPABILITY_MODEL" />
+          </div>
+          <div class="diagram-caption">ITIL AI Capability Model(6C)の6機能</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>機能</th><th>定義</th><th>Experience Management での活用例</th></tr></thead>
+            <tbody>
+              <tr><td>Creation</td><td>新しいコンテンツ・コード・文書を生成する</td><td>オンボーディング説明文をユーザー属性ごとに自動生成する</td></tr>
+              <tr><td>Curation</td><td>既存データの品質を高め、重複・冗長性を除去する</td><td>重複したフィードバックを統合し、Trustworthiness(5.5節)を高める</td></tr>
+              <tr><td>Clarification</td><td>複雑な内容を要約し、利用者の理解を助ける</td><td>長いサポートチケットの履歴をAIが要約し、担当者の初動を早める</td></tr>
+              <tr><td>Cognition</td><td>パターンを検出し、プロアクティブに問題を発見する</td><td>サポートチケットのトーン変化から離反兆候を予測する(Cognition=5.4節のSynthetic capture)</td></tr>
+              <tr><td>Communication</td><td>チャットボット等、自然なインターフェースで対話する</td><td>24時間対応のAIチャットで Engage・Onboard 段階の初期体験を支える</td></tr>
+              <tr><td>Coordination</td><td>複数の処理を自律的に統制・実行する</td><td>複数システムをまたぐ Onboard タスクをAIが自動でオーケストレーションする</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>AIを導入する際は「この機能は6Cのどれに該当するか」を明確にする。機能ごとにリスクプロファイルが異なるため(例:Communicationは人間対応の代替、Coordinationは自律実行)、機能を混同するとガバナンス設計を誤る。</li>
+            <li><strong>アンチパターン:</strong>「AIを入れる」とだけ決め、6つの機能のどれを担わせるか、どの範囲で人間の監督(Human oversight)を残すかを定義しないまま実装を進める。</li>
+          </ul>
+        </div>
+
+        <h3>7.3 AI Governance と Digital Ethics(Assessment Criteria 5.1.2, 5.2.2) ── BL2</h3>
+        <h4>定義</h4>
+        <p>AI Governance(AIガバナンス)とは、AI活用がもたらす便益とリスクをバランスさせる意思決定の枠組み。関連する4つの視点(Decision authority & risk management / Ethical principles / Data governance / Regulatory compliance)が相互に依存する形で構成されます。</p>
+        <h4>Experience の文脈での理由</h4>
+        <p>Experience Managementでは、AIが Cognition(分析)・Communication(対話)を担う場面が増えるほど、「AIの判断・応答が利用者の Trust(信頼)にどう影響するか」というガバナンス課題が直結します。透明性のないAI活用(例:AIが対応していることを隠す)は、それ自体が Broken Expectations(4.3節)や Trust の毀損につながります。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>AIチャットボット(Communication機能)を導入する際は、利用者に「AIが対応している」ことを明示し、いつでも人間に切り替えられる導線を用意する(透明性の確保=Digital Ethicsの実践)。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">6Cモデルの詳細(itecor ブログ)</a></li>
+            <li><a href="https://itsmacademy.com/itil-ai-governance-course" target="_blank" rel="noopener">6Cモデルと4つのガバナンス視点(itsmacademy コース概要)</a></li>
+            <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">AIとExperienceの関係(itil.com)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 08. Related Frameworks ===================== -->
-      <section id="related-frameworks">
+      <section id="related-frameworks" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 08</div>
         <h2>ITIL と他のフレームワーク(Syllabus Category 6)</h2>
+
+        <h3>8.1 ITIL と DevOps ── BL2</h3>
+        <h4>定義と理由</h4>
+        <p>ITIL と DevOps は競合するフレームワークではなく、<strong>相互補完的(complementary)</strong> です。ITIL が「何を・なぜ・誰のために管理するか」(Product and Service Lifecycle、Governance)を扱うのに対し、DevOps は「どう素早く安全にデリバリーするか」(CI/CD、自動化)を扱います。</p>
+        <h4>Experience の文脈での接続点</h4>
+        <p>DevOps の高頻度リリースサイクルは、6.4節の <strong>notice–interpret–hypothesize–experiment ループ</strong> を高速に回す土台になります。Experiment(小さく試す)フェーズは、DevOps の Feature Flag やカナリアリリースと自然に対応します。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>Experiment フェーズの施策は、DevOpsチームのFeature Flag基盤に乗せることで、Notice段階に戻るまでのサイクルタイムを短縮する。</li>
+          </ul>
+        </div>
+
+        <h3>8.2 ITIL と PRINCE2(プロジェクトマネジメント) ── BL2</h3>
+        <h4>定義と理由</h4>
+        <p>ITIL Experience の syllabus は「なぜProduct and Service Lifecycleの管理においてプロジェクトマネジメントが重要か」(Assessment Criteria 6.2.1)を問います。Onboard(6.2節)のような、体験に大きな影響を与える移行作業は、しばしば <strong>プロジェクトとして計画・統制する必要</strong> があります。PRINCE2 の「ステージゲート」「例外による管理」といった原則は、Onboard段階の体験リスクを制御する上で有効です。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>大規模な Onboard(移行)を伴う契約では、PRINCE2のステージゲートを設け、各ゲートで「体験面のKPI」(例:初回ログイン成功率)を通過条件に含める。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://itsmacademy.com/itil-ai-governance-course" target="_blank" rel="noopener">ITIL・DevOps・PRINCE2 の関係解説(itsmacademy AI Governance コース概要より Product and Service Lifecycle Model 全体像)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 09. Best Practices Summary ===================== -->
