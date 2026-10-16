@@ -161,6 +161,19 @@ H --> E["Experiment (実験する)"]
 E -.->|結果を観察| N
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class N,I,H,E box;`;
+
+const DIAGRAM_AI_CAPABILITY_MODEL = `flowchart TB
+AI["ITIL AI Capability Model"]
+AI --> C1["Creation (生成)"]
+AI --> C2["Curation (選別・整理)"]
+AI --> C3["Clarification (明確化)"]
+AI --> C4["Cognition (認知・分析)"]
+AI --> C5["Communication (伝達)"]
+AI --> C6["Coordination (調整)"]
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class AI hub;
+class C1,C2,C3,C4,C5,C6 box;`;
 </script>
 
 <template>
@@ -250,7 +263,7 @@ class N,I,H,E box;`;
 
       <!-- ===================== 1. About MPT ===================== -->
       <section id="about-mpt">
-        <div class="section-eyebrow">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
           <Icon name="tabler:certificate" />SECTION 01
         </div>
         <h2>この資格について</h2>
@@ -266,9 +279,9 @@ class N,I,H,E box;`;
           <li>ITIL v3 Master</li>
         </ul>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>上記いずれの前提資格も持たない場合は MPT を受験できません。その場合は ITIL Foundation (Version 5) から開始し、ITIL Product / ITIL Service / ITIL Experience / ITIL Transformation の各モジュールを個別に取得するルートを選びます。</p>
         </div>
@@ -345,9 +358,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>2試験は独立採点のため、得意分野から着手する戦略が有効です。「変革・組織改革」の経験が長い方は Transformation から、「プロダクト/サービス運用」の実務経験が長い方は PSE から始めると学習の立ち上がりが早くなります。</p>
         </div>
@@ -361,9 +374,9 @@ class N,I,H,E box;`;
           <li>ITIL Transformation (Version 5) 公式eBook</li>
         </ul>
 
-        <div class="callout note" data-variant="note">
+        <div class="callout note" data-variant="note" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:info-circle" />補足
+            <Icon name="tabler:info-circle" /><span data-testid="callout-label">補足</span>
           </div>
           <p>本ガイドは上記の公式教材および PeopleCert・各アクレディテッド・トレーニング・オーガナイゼーション(ATO)が公開している情報をもとに、初学者向けに再構成した学習補助資料です。公式eBookの正式な記述(成功要因・メトリクスの正確な文言など)については、必ず公式教材を最終参照源としてください。</p>
         </div>
@@ -377,7 +390,7 @@ class N,I,H,E box;`;
 
       <!-- ===================== 2. ITIL Version 5 Evolution ===================== -->
       <section id="itil-v5-evolution">
-        <div class="section-eyebrow">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
           <Icon name="tabler:timeline" />SECTION 02
         </div>
         <h2>ITIL (Version 5) 全体像 — v3 / v4 からの進化</h2>
@@ -435,9 +448,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>試験対策としては「何が変わったか」だけでなく「何が変わっていないか」を明確に区別して覚えることが得点に直結します。Guiding Principlesと34プラクティス名は据え置きのため、既存のITIL 4知識はそのまま活用できます。</p>
         </div>
@@ -445,7 +458,7 @@ class N,I,H,E box;`;
 
       <!-- ===================== 3. Foundational Concepts ===================== -->
       <section id="foundational-concepts">
-        <div class="section-eyebrow">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
           <Icon name="tabler:building-bank" />SECTION 03
         </div>
         <h2>共通基盤概念 — ITIL Value System・7つのGuiding Principles・Four Dimensions</h2>
@@ -505,9 +518,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>Version 5 では特に原則7「Optimize and automate」が AI Capability Model(後述)と直結して出題されやすくなっています。「まず最適化、その後に自動化」という順序を必ず押さえてください。</p>
         </div>
@@ -522,9 +535,9 @@ class N,I,H,E box;`;
           <div class="diagram-caption">Four Dimensions of Product and Service Management(ITIL Value Systemを取り巻く4つの側面)</div>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>4つの側面はPESTLE分析(政治・経済・社会・技術・法律・環境)などの外的要因とセットで問われることが多く、「内的な4側面 vs 外的な環境要因」を対比して整理しておくと理解が定着します。</p>
         </div>
@@ -532,7 +545,7 @@ class N,I,H,E box;`;
 
       <!-- ===================== 4. Exam 1: ITIL Transformation ===================== -->
       <section id="exam1-transformation">
-        <div class="section-eyebrow">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
           <Icon name="tabler:git-branch" />SECTION 04
         </div>
         <h2>試験1: ITIL Transformation (Version 5)</h2>
@@ -546,9 +559,9 @@ class N,I,H,E box;`;
           <li>単一の固定手法では対応できず、状況に応じた柔軟な手法が必要</li>
         </ul>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「BAU改善」と「Transformation」を混同しないこと。小さな継続的改善はContinual Improvement Modelで扱い、組織構造やオペレーティングモデルそのものを変える取り組みはTransformation Modelで扱う、という切り分けが試験の頻出ポイントです。</p>
         </div>
@@ -592,9 +605,9 @@ class N,I,H,E box;`;
           <div class="diagram-caption">ITIL Transformation Model の4 Layer(Governance→Positioning→Execution→Learningの循環構造)</div>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>4 Layerは「一方向の直線プロセス」ではなく、Learning layerで得た知見がGovernance layerに継続的にフィードバックされる<strong>循環構造</strong>です。試験では「変革は一度きりで完了するものではない」という前提を問う設問が出やすいです。</p>
         </div>
@@ -631,9 +644,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「すべての変革に同じテンプレートを当てはめない」ことが最重要原則です。秩序立った環境で通用した詳細計画型のガバナンスを、混沌とした環境にそのまま適用すると失敗しやすい、という因果関係を理解しておきましょう。</p>
         </div>
@@ -654,9 +667,9 @@ class N,I,H,E box;`;
           <li><strong>Execution pattern(実行パターン):</strong> 実際に変革をどのように進めるか、実行方式のバリエーションを扱う</li>
         </ul>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「BAU governance patterns」と「Transformation governance patterns」は明確に別物として区別してください。通常業務のガバナンス機構(変更諮問委員会など)をそのまま大規模変革の意思決定に流用すると、意思決定が遅延し変革が停滞するリスクがあります。</p>
         </div>
@@ -689,9 +702,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「Start where you are」の原則を実務に落とし込む際、まずITIL Maturity Modelなどで現状を客観的に測定してから変革を計画すると、過剰投資や見当違いな施策を避けられます。</p>
         </div>
@@ -702,7 +715,7 @@ class N,I,H,E box;`;
 
       <!-- ===================== 5. Exam 2: Product, Service, Experience ===================== -->
       <section id="exam2-product-service-experience">
-        <div class="section-eyebrow">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
           <Icon name="tabler:route" />SECTION 05
         </div>
         <h2>試験2: ITIL Managing Professional Transition — Product, Service, Experience (Version 5)</h2>
@@ -735,9 +748,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「アウトプット(何を作ったか)」ではなく「アウトカム(顧客が何を達成できたか)」で価値を語る癖をつけましょう。PSE試験のシナリオ問題は、アウトプット思考の選択肢を誤答の罠として用意することが多いです。</p>
         </div>
@@ -818,9 +831,10 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス(PSLM全体)</div>
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス(PSLM全体)</span>
+          </div>
           <p>8活動を「順番に一度だけ通る」線形プロセスとして覚えないこと。実際には同じプロダクト・サービスが複数の活動に同時に存在し得ます(例: 一部機能はSupport段階、別機能はDesign段階)。Supportで得た学びをDiscover・Designに戻す<strong>フィードバックループ</strong>の存在が、Version 5最大の設計思想です。</p>
         </div>
 
@@ -852,9 +866,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「このインシデントにはどのバリューストリームが最適か」を都度設計するのではなく、頻出パターン(標準的なリクエスト対応、緊急インシデント対応、新規機能デリバリーなど)ごとに<strong>あらかじめ標準バリューストリームを定義</strong>しておくと、意思決定の速度と一貫性が向上します。</p>
         </div>
@@ -870,9 +884,9 @@ class N,I,H,E box;`;
           <li><strong>Evaluation(評価):</strong> 利用後に行う価値判断</li>
         </ul>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>経験は主観的かつ時間軸を持つものであり、単発のアンケートスコアだけで捉えきれません。利用前・利用中・利用後の3時点でデータを収集する設計が推奨されます。</p>
         </div>
@@ -909,9 +923,9 @@ class N,I,H,E box;`;
 
         <p>これらの役割間には、しばしば利害の<strong>緊張関係(tension)</strong>が生じます(例: 利用者は使いやすさを最優先するが、顧客側スポンサーはコストを最優先する、など)。</p>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>意思決定の際は「誰にとっての経験を最適化しようとしているか」を明示すること。UserとCustomerの利害が対立する場面では、両者の要件をトレードオフ表として可視化し、合意形成のプロセスに乗せます。</p>
         </div>
@@ -953,9 +967,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>経験改善の施策を立てる際、4ドメインのうちどれに働きかけているかを明確にしましょう。機能的ドメインの改善(バグ修正など)だけでは、関係的ドメイン(サポート対応への不信感など)の課題は解決しません。</p>
         </div>
@@ -967,9 +981,9 @@ class N,I,H,E box;`;
           <li><strong>Relational interaction(関係的相互作用):</strong> 「人と人・組織との関係性」に関わる接点</li>
         </ul>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>SupportやOperateで発生する障害対応は機能的相互作用ですが、対応中のコミュニケーションの質は関係的相互作用です。同じインシデントでも、機能は復旧したのに信頼は損なわれる、というケースを想定した対応設計が必要です。</p>
         </div>
@@ -1016,9 +1030,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>「メトリクスは経験そのものではなく、経験に関する仮説(hypothesis)にすぎない」という考え方がVersion 5の重要な視点です。単一の指標(例: NPS)だけで経験全体を判断せず、複数のシグナルを組み合わせてTrustworthinessとCoherenceを検証してください。</p>
         </div>
@@ -1105,9 +1119,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>UXが悪ければ利用者は不満を抱き、CXが悪ければ顧客は契約更新をしません。どちらか一方の指標だけでサービス品質を判断せず、UXとCXを<strong>両輪</strong>として計測・改善する体制を作ることが重要です。</p>
         </div>
@@ -1139,9 +1153,9 @@ class N,I,H,E box;`;
           </table>
         </div>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>どちらのジャーニーも「合意した期待値」と「実際の体験」のギャップがアンチパターンの温床になります。Agreeステップで合意した内容を、Reflectステップで必ず定量・定性の両面から照らし合わせる運用ルールを設けましょう。</p>
         </div>
@@ -1187,11 +1201,119 @@ class N,I,H,E box;`;
 
         <p>またこのループの中では、<strong>システムレベルの改善</strong>(オペレーティングモデルや構造そのものの変更)と、<strong>局所的な改善</strong>(個別の画面・対応フローの改善)を区別することが求められます。</p>
 
-        <div class="callout practice" data-variant="practice">
+        <div class="callout practice" data-variant="practice" data-testid="callout">
           <div class="callout-title">
-            <Icon name="tabler:bulb" />ベストプラクティス
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
           </div>
           <p>経験改善の実験は、心理的安全性(psychological safety)と信頼が確保された環境でこそ機能します。担当者が「失敗を報告しても罰せられない」文化がなければ、Noticeの段階でネガティブなシグナルが隠蔽されるリスクがあります。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 6. ITIL and AI ===================== -->
+      <section id="ai-capability-model">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:file-text" />SECTION 06
+        </div>
+        <h2>共通トピック: ITIL and AI — AI Capability Model</h2>
+
+        <p>Transformation・PSE いずれの試験でも共通して問われるのが <strong>AI Capability Model</strong> です。これは、組織がAIをどう活用し、どうガバナンスするかを整理するための思考ツールで、<strong>6つの能力(Capability)</strong> から構成されます。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_AI_CAPABILITY_MODEL" />
+          </ClientOnly>
+          <div class="diagram-caption">ITIL AI Capability Model の6つの能力: Creation / Curation / Clarification / Cognition / Communication / Coordination</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>能力</th>
+                <th>概要</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Creation(生成)</strong></td>
+                <td>コンテンツ・コード・成果物を新たに生成する能力</td>
+              </tr>
+              <tr>
+                <td><strong>Curation(選別・整理)</strong></td>
+                <td>大量の情報・選択肢の中から関連性の高いものを選別・整理する能力</td>
+              </tr>
+              <tr>
+                <td><strong>Clarification(明確化)</strong></td>
+                <td>あいまいな要求や情報を明確化・要約する能力</td>
+              </tr>
+              <tr>
+                <td><strong>Cognition(認知・分析)</strong></td>
+                <td>パターン認識・推論・分析を行う能力</td>
+              </tr>
+              <tr>
+                <td><strong>Communication(伝達)</strong></td>
+                <td>人や他システムとの対話・情報伝達を行う能力</td>
+              </tr>
+              <tr>
+                <td><strong>Coordination(調整)</strong></td>
+                <td>複数のタスク・エージェント・人を調整し連携させる能力</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>この6能力ごとに、必要なガバナンス(責任範囲・説明責任・委任・透明性・エスカレーション経路)とリスクプロファイルが異なります。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
+          </div>
+          <p>AI導入の議論を「AIを使うか使わないか」という二択で終わらせず、<strong>「どの能力を、どの業務に、どの程度の人間の関与を残して適用するか」</strong>という粒度で設計しましょう。AI Capability Modelは、チーム間の暗黙の前提のズレを減らし、構造的な合意形成を可能にするためのツールです。</p>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス(Experience×AI)</span>
+          </div>
+          <p>ITIL Experience (Version 5) では、AI活用における「意思決定の境界線」「人間へのハンドオフのルール」「AI Capability Model カードの文書化」「一貫して人間中心であり続けるコミットメント」が明示的に求められます。AIは人が自信を持って使いこなして初めて価値を生む、という前提を忘れないでください。</p>
+        </div>
+      </section>
+
+      <!-- ===================== 7. ITIL and Other Frameworks ===================== -->
+      <section id="itil-other-frameworks">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:clipboard-text" />SECTION 07
+        </div>
+        <h2>ITIL と他フレームワークとの関係(DevOps・PRINCE2)</h2>
+
+        <p>MPTの両試験では、ITILを単独のフレームワークとしてではなく、他の主要フレームワークと<strong>補完的に使う視点</strong>が問われます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>フレームワーク</th>
+                <th>ITILとの関係性</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>DevOps</strong></td>
+                <td>PSLMのBuild〜Transition〜Operateにおける継続的インテグレーション / デリバリーの実践知を提供する。ITILは「何を・なぜ」管理するかの枠組み、DevOpsは「どう」実行するかの実践プラクティス群として補完し合う</td>
+              </tr>
+              <tr>
+                <td><strong>PRINCE2</strong></td>
+                <td>大規模な変革やプロジェクト単位の作業を構造化するプロジェクトマネジメント手法。ITIL Transformationの実行層(Execution layer)で、プロジェクトとして管理すべき取り組みにはPRINCE2のガバナンス構造を組み合わせられる</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" /><span data-testid="callout-label">ベストプラクティス</span>
+          </div>
+          <p>「ITIL vs DevOps」「ITIL vs PRINCE2」という対立構造で捉えないこと。ITILは価値創出のための包括的な枠組みであり、DevOpsやPRINCE2は特定の活動(継続的デリバリー、プロジェクト管理)をより深く実行するための専門的な実践知として併用するのが正しい理解です。</p>
         </div>
       </section>
     </main>

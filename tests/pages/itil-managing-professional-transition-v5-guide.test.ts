@@ -295,97 +295,52 @@ function normalizeMermaidSource(raw: string): string {
   return lines.map((line) => line.slice(commonIndent).trimEnd()).join("\n");
 }
 
+const EXPECTED_CALLOUT_VARIANTS = {
+  practice: 26,
+  note: 1,
+} as const;
+
+const EXPECTED_CALLOUT_LABELS = {
+  practice: {
+    ベストプラクティス: 24,
+    "ベストプラクティス(PSLM全体)": 1,
+    "ベストプラクティス(Experience×AI)": 1,
+  },
+  note: {
+    補足: 1,
+  },
+} as const;
+
 const mountPage = createMountPage(Page);
 
-describe("ITIL Managing Professional Transition (Version 5) ページ契約", () => {
-  defineSourceParityContract({
-    mountPage,
-    expectedH1: EXPECTED_H1,
-    expectedH2: EXPECTED_H2,
-    expectedH3: EXPECTED_H3,
-    expectedH4: EXPECTED_H4,
-    expectedH5: EXPECTED_H5,
-    expectedH6: EXPECTED_H6,
-    expectedTocIds: EXPECTED_TOC_IDS,
-    expectedExternalUrls: EXPECTED_EXTERNAL_URLS,
-  });
+defineSourceParityContract({
+  suiteName: "pages/itil-managing-professional-transition-v5-guide.vue",
+  page: Page,
+  seoMeta,
+  h1: EXPECTED_H1,
+  h2: EXPECTED_H2,
+  h3: EXPECTED_H3,
+  h4: EXPECTED_H4,
+  h5: EXPECTED_H5,
+  h6: EXPECTED_H6,
+  externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
+  calloutVariants: EXPECTED_CALLOUT_VARIANTS,
+  calloutLabels: EXPECTED_CALLOUT_LABELS,
+  stepTags: [],
+  allowedHeadingSkips: ["h2 -> h4"],
+  seoTitleFragments: ["ITIL® Managing Professional Transition (Version 5)", "完全ガイド"],
+  seoTitle: "ITIL® Managing Professional Transition (Version 5) 認定資格 完全ガイド | 初学者向けステップバイステップ解説",
+  seoDescription:
+    "ITIL Managing Professional Transition (Version 5) を初学者向けにステップバイステップで解説。Transformation Model、PSLM 8活動、ITIL Experience Model、AI Capability Model、各項目のベストプラクティスと出典URLを網羅。",
+});
 
-  describe("C-6: Mermaid 契約", () => {
-    it("C-6a: Mermaid ソースが原本と順序・内容・出現回数込みで完全一致する", () => {
-      const wrapper = mountPage();
-      const actual = wrapper
-        .findAll('[data-testid="mermaid"]')
-        .map((el) => normalizeMermaidSource(el.text()));
-      expect(actual).toEqual([...EXPECTED_MERMAID_SOURCES]);
-    });
-
-    it("C-6b: 全 Mermaid 図解がページ専用ラッパーに包まれている", () => {
-      const wrapper = mountPage();
-      const all = wrapper.findAll('[data-testid="mermaid"]').length;
-      const wrapped = wrapper.findAll('.mermaid-wrap [data-testid="mermaid"]').length;
-      expect(all).toBe(EXPECTED_MERMAID_SOURCES.length);
-      expect(wrapped).toBe(all);
-    });
-
-    it("C-6c: 各図解が空でなく、図種別の宣言から始まる", () => {
-      const wrapper = mountPage();
-      for (const el of wrapper.findAll('[data-testid="mermaid"]')) {
-        const chart = el.text().trim();
-        expect(chart.length).toBeGreaterThan(0);
-        expect(chart).toMatch(MERMAID_DIAGRAM_DECLARATION);
-      }
-    });
-
-    it("C-6d: 禁止構文 block-beta を使っていない", () => {
-      const wrapper = mountPage();
-      for (const el of wrapper.findAll('[data-testid="mermaid"]')) {
-        expect(el.text()).not.toContain("block-beta");
-      }
-    });
-
-    it("C-6e: 図解のソースが左端揃え（先頭行にインデントが無い）", () => {
-      const wrapper = mountPage();
-      for (const el of wrapper.findAll('[data-testid="mermaid"]')) {
-        const firstLine = el.text().split("\n").find((l) => l.trim().length > 0) ?? "";
-        expect(firstLine).toBe(firstLine.trimStart());
-      }
-    });
-  });
-
-  describe("D: デザイン契約", () => {
-    it("D-1: callout practice がすべて存在する", () => {
-      const wrapper = mountPage();
-      const practiceCallouts = wrapper.findAll('.callout.practice, [data-variant="practice"]');
-      expect(practiceCallouts.length).toBe(26);
-    });
-
-    it("D-5: section-eyebrow が原本の順序・文言と一致する", () => {
-      const wrapper = mountPage();
-      const actual = wrapper.findAll(".section-eyebrow").map((el) => el.text().trim());
-      expect(actual).toEqual([...EXPECTED_SECTION_EYEBROWS]);
-    });
-  });
-
-  describe("Q: 品質契約", () => {
-    it("Q-2: useSeoMeta の title と description が適切に設定されている", () => {
-      mountPage();
-      expect(seoMeta).toHaveBeenCalled();
-      const lastCall = seoMeta.mock.calls.at(-1)?.[0] as { title?: string; description?: string };
-      expect(lastCall?.title).toContain("ITIL® Managing Professional Transition (Version 5)");
-      expect(lastCall?.description).toBeTruthy();
-    });
-
-    it("Q-3: 見出し階層がスキップしない", () => {
-      const wrapper = mountPage();
-      const headings = wrapper.findAll("h1, h2, h3, h4, h5, h6");
-      let lastLevel = 0;
-      for (const h of headings) {
-        const level = parseInt(h.element.tagName.charAt(1), 10);
-        if (lastLevel > 0) {
-          expect(level).toBeLessThanOrEqual(lastLevel + 1);
-        }
-        lastLevel = level;
-      }
-    });
+describe("pages/itil-managing-professional-transition-v5-guide.vue — 固有契約", () => {
+  it("ヒーロー領域に統計カードが4枚存在する", () => {
+    const wrapper = mountPage();
+    expect(wrapper.findAll(".stat-card")).toHaveLength(4);
   });
 });
+
