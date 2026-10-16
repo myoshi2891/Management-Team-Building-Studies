@@ -3,7 +3,6 @@
 // 実装に合わせて書き換えることは禁止（.claude/rules/tdd-mandatory-cycle.md 核心原則 5）。
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
-import { MERMAID_DIAGRAM_DECLARATION } from "../../.claude/skills/fix-mermaid/scripts/mermaid-diagram-types.mjs";
 import { createMountPage, defineSourceParityContract } from "../support/page-contract";
 import Page from "~/pages/itil-managing-professional-transition-v5-guide.vue";
 
@@ -283,17 +282,6 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class AI hub;
 class C1,C2,C3,C4,C5,C6 box;`,
 ] as const;
-
-function normalizeMermaidSource(raw: string): string {
-  const lines = raw.replace(/\r\n?/g, "\n").split("\n");
-  while (lines.length > 0 && lines[0]?.trim() === "") lines.shift();
-  while (lines.length > 0 && lines.at(-1)?.trim() === "") lines.pop();
-  const indents = lines
-    .filter((line) => line.trim().length > 0)
-    .map((line) => line.match(/^\s*/)?.[0].length ?? 0);
-  const commonIndent = indents.length > 0 ? Math.min(...indents) : 0;
-  return lines.map((line) => line.slice(commonIndent).trimEnd()).join("\n");
-}
 
 const EXPECTED_CALLOUT_VARIANTS = {
   practice: 26,
