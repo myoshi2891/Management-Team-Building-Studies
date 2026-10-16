@@ -113,6 +113,54 @@ P2["Governance pattern (変革のガバナンス)"]
 P3["Execution pattern (変革の実行)"]
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class P1,P2,P3 box;`;
+
+const DIAGRAM_PSLM_CYCLE = `flowchart LR
+D1["Discover"] --> D2["Design"]
+D2 --> D3["Acquire"]
+D3 --> D4["Build"]
+D4 --> D5["Transition"]
+D5 --> D6["Operate"]
+D6 --> D7["Deliver"]
+D7 --> D8["Support"]
+D8 -.->|フィードバック| D1
+D8 -.->|フィードバック| D2
+D6 -.->|フィードバック| D1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class D1,D2,D3,D4 box;
+class D5,D6 hub;
+class D7,D8 done;`;
+
+const DIAGRAM_EXPERIENCE_DOMAINS = `flowchart TB
+Exp["経験(Experience)"]
+Exp --> P["Personal (個人的ドメイン)"]
+Exp --> F["Functional (機能的ドメイン)"]
+Exp --> R["Relational (関係的ドメイン)"]
+Exp --> C["Contextual (文脈的ドメイン)"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Exp hub;
+class P,F,R,C box;`;
+
+const DIAGRAM_SERVICE_JOURNEY = `flowchart LR
+S1["Explore (探索)"] --> S2["Engage (関係構築)"]
+S2 --> S3["Offer (提案)"]
+S3 --> S4["Agree (合意)"]
+S4 --> S5["Onboard (導入)"]
+S5 --> S6["Co-create (共創)"]
+S6 --> S7["Reflect (振り返り)"]
+S7 -.->|継続的関係| S1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class S1,S2,S3,S4,S5,S6,S7 box;`;
+
+const DIAGRAM_EXPERIENCE_IMPROVEMENT_LOOP = `flowchart LR
+N["Notice (気づく)"] --> I["Interpret (解釈する)"]
+I --> H["Hypothesize (仮説を立てる)"]
+H --> E["Experiment (実験する)"]
+E -.->|結果を観察| N
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class N,I,H,E box;`;
 </script>
 
 <template>
@@ -650,6 +698,501 @@ class P1,P2,P3 box;`;
 
         <h3>ITIL and AI(Transformation観点)</h3>
         <p>AIはTransformationにおいても、変革準備・実行そのものを支援する手段として位置づけられます(AI Capability Modelの詳細は<a href="#ai-capability-model">第6章</a>を参照)。変革を主導する立場では、AI導入が「組織構造・役割・意思決定プロセス」にどう影響するかを評価し、ガバナンス層で適切な監督体制を設計することが求められます。</p>
+      </section>
+
+      <!-- ===================== 5. Exam 2: Product, Service, Experience ===================== -->
+      <section id="exam2-product-service-experience">
+        <div class="section-eyebrow">
+          <Icon name="tabler:route" />SECTION 05
+        </div>
+        <h2>試験2: ITIL Managing Professional Transition — Product, Service, Experience (Version 5)</h2>
+
+        <p>この試験は、ITIL Product・ITIL Service・ITIL Experience という3つのモジュールの内容を1本の試験に統合したものです。</p>
+
+        <h3>デジタルプロダクトとデジタルサービスの基礎概念</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>用語</th>
+                <th>定義の要点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Digital product(デジタルプロダクト)</strong></td>
+                <td>デジタル技術によって実現される、顧客が利用・所有・体験する成果物そのもの</td>
+              </tr>
+              <tr>
+                <td><strong>Digital service(デジタルサービス)</strong></td>
+                <td>顧客が特定のコストやリスクを自ら管理することなく、望む成果(アウトカム)の共創を可能にする手段</td>
+              </tr>
+              <tr>
+                <td><strong>Service offering(サービスオファリング)</strong></td>
+                <td>プロダクトとサービスの構成要素を組み合わせ、特定の顧客セグメント向けに提供される形</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「アウトプット(何を作ったか)」ではなく「アウトカム(顧客が何を達成できたか)」で価値を語る癖をつけましょう。PSE試験のシナリオ問題は、アウトプット思考の選択肢を誤答の罠として用意することが多いです。</p>
+        </div>
+
+        <h3>Product and Service Lifecycle Model (PSLM) — 8つの活動</h3>
+        <p>ITIL 4 の Service Value Chain(6活動: Plan, Improve, Engage, Design & Transition, Obtain & Build, Deliver & Support)は、Version 5 で <strong>Product and Service Lifecycle Model(PSLM)</strong> に置き換えられ、<strong>8つの反復的(iterative)な活動</strong> として再定義されました。</p>
+        <p>固定された一方向の手順ではなく、必要に応じてどの活動からどの活動へも行き来できる<strong>循環的・生態系的(ecosystem)なモデル</strong>である点が最大の特徴です。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PSLM_CYCLE" />
+          </ClientOnly>
+          <div class="diagram-caption">Product and Service Lifecycle Model(PSLM)の8活動とフィードバックループ</div>
+        </div>
+
+        <p>前半(Discover・Design・Acquire・Build)は<strong>プロダクト寄り</strong>、後半(Deliver・Support)は<strong>サービス寄り</strong>、中間の Transition・Operate が両者をつなぐ<strong>橋渡し</strong>という位置づけになります。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>活動</th>
+                <th>目的(要点)</th>
+                <th>プロダクト視点でのベストプラクティス</th>
+                <th>サービス視点でのベストプラクティス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Discover</strong></td>
+                <td>市場・利用者のニーズを把握し、組織戦略と整合させる</td>
+                <td>顧客インタビューやテレメトリでニーズを検証してから投資判断を行う</td>
+                <td>既存サービスの利用状況データから未充足ニーズを発見する</td>
+              </tr>
+              <tr>
+                <td><strong>Design</strong></td>
+                <td>得られたニーズを解決策の仕様・プロトタイプへ落とし込む</td>
+                <td>プロトタイピングで早期に仮説検証を行う</td>
+                <td>サービスレベル・キャパシティ・可用性要件を設計段階で明文化する</td>
+              </tr>
+              <tr>
+                <td><strong>Acquire</strong></td>
+                <td>必要な資源・能力を購入・調達・内製で確保する</td>
+                <td>ビルド・バイ・パートナーの判断基準を明確化する</td>
+                <td>サプライヤーとのサービスレベル整合を早期に行う</td>
+              </tr>
+              <tr>
+                <td><strong>Build</strong></td>
+                <td>コンポーネントを開発・構成・テストする</td>
+                <td>自動テストとコードレビューを組み込み品質を作り込む</td>
+                <td>変更管理プロセスと開発の足並みを揃える</td>
+              </tr>
+              <tr>
+                <td><strong>Transition</strong></td>
+                <td>開発環境から本番環境へ安全に移行する</td>
+                <td>フィーチャーフラグによる段階的リリースでリスクを制御する</td>
+                <td>リリース前チェックリストとロールバック手順を用意する</td>
+              </tr>
+              <tr>
+                <td><strong>Operate</strong></td>
+                <td>インフラ・システムを稼働させ続け、パフォーマンスを監視する</td>
+                <td>SLOやダッシュボードで健全性を可視化する</td>
+                <td>イベント管理・キャパシティ管理を継続的に実施する</td>
+              </tr>
+              <tr>
+                <td><strong>Deliver</strong></td>
+                <td>利用者がサービス・プロダクトへアクセスし消費できるようにする</td>
+                <td>オンボーディング体験を計測しコンバージョンを最適化する</td>
+                <td>アクセス管理・リクエスト対応の応答時間を管理する</td>
+              </tr>
+              <tr>
+                <td><strong>Support</strong></td>
+                <td>インシデント・問題を解決し、通常利用を回復する</td>
+                <td>障害データをDiscover・Designへフィードバックし次期改善に活かす</td>
+                <td>根本原因分析(Problem Management)を通じ再発を防止する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス(PSLM全体)</div>
+          <p>8活動を「順番に一度だけ通る」線形プロセスとして覚えないこと。実際には同じプロダクト・サービスが複数の活動に同時に存在し得ます(例: 一部機能はSupport段階、別機能はDesign段階)。Supportで得た学びをDiscover・Designに戻す<strong>フィードバックループ</strong>の存在が、Version 5最大の設計思想です。</p>
+        </div>
+
+        <h3>ライフサイクルの管理 — バリューストリームとオペレーティングモデル</h3>
+        <p>PSLMの8活動は固定順序ではなく、状況に応じて組み合わせられる <strong>バリューストリーム(value stream)</strong> として運用されます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>概念</th>
+                <th>要点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Operating model(オペレーティングモデル)</strong></td>
+                <td>誰が・どの活動に対して・どのような責任を持つかを定義する構造</td>
+              </tr>
+              <tr>
+                <td><strong>Value stream(バリューストリーム)</strong></td>
+                <td>特定の需要・機会に応える際に組み合わせる活動の連なり(例: インシデント対応はOperate+Support中心、新機能開発はDiscover→Design→Build→Deliver中心)</td>
+              </tr>
+              <tr>
+                <td><strong>組織構造</strong></td>
+                <td>プロダクトベンダー視点とサービスプロバイダー視点で、必要なチーム編成・権限分掌が異なる</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「このインシデントにはどのバリューストリームが最適か」を都度設計するのではなく、頻出パターン(標準的なリクエスト対応、緊急インシデント対応、新規機能デリバリーなど)ごとに<strong>あらかじめ標準バリューストリームを定義</strong>しておくと、意思決定の速度と一貫性が向上します。</p>
+        </div>
+
+        <h3>ITIL Experience Model</h3>
+        <p>Version 5 で新設された Experience の考え方は、「機能的に動くこと」と「利用者にとって価値があると感じられること」を明確に区別します。</p>
+
+        <h4>経験(Experience)の本質</h4>
+        <p>経験は次の3つの要素の連続として捉えられます。</p>
+        <ul>
+          <li><strong>Anticipation(予期):</strong> 利用前に抱く期待</li>
+          <li><strong>Perception(知覚):</strong> 利用中に得られる感覚・認知</li>
+          <li><strong>Evaluation(評価):</strong> 利用後に行う価値判断</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>経験は主観的かつ時間軸を持つものであり、単発のアンケートスコアだけで捉えきれません。利用前・利用中・利用後の3時点でデータを収集する設計が推奨されます。</p>
+        </div>
+
+        <h4>経験のステークホルダー</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>役割</th>
+                <th>説明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>User(利用者)</td>
+                <td>サービス・プロダクトを実際に操作する人</td>
+              </tr>
+              <tr>
+                <td>Customer(顧客)</td>
+                <td>購入や契約の意思決定を行うスポンサー的役割</td>
+              </tr>
+              <tr>
+                <td>Consumer sponsor(消費側スポンサー)</td>
+                <td>消費側組織で投資判断・優先順位づけを行う人</td>
+              </tr>
+              <tr>
+                <td>Provider roles(提供側の役割)</td>
+                <td>サービス・プロダクトを設計・提供する側の関係者</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>これらの役割間には、しばしば利害の<strong>緊張関係(tension)</strong>が生じます(例: 利用者は使いやすさを最優先するが、顧客側スポンサーはコストを最優先する、など)。</p>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>意思決定の際は「誰にとっての経験を最適化しようとしているか」を明示すること。UserとCustomerの利害が対立する場面では、両者の要件をトレードオフ表として可視化し、合意形成のプロセスに乗せます。</p>
+        </div>
+
+        <h4>Four Experience Domains(4つの経験ドメイン)</h4>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EXPERIENCE_DOMAINS" />
+          </ClientOnly>
+          <div class="diagram-caption">Four Experience Domains: Personal / Functional / Relational / Contextual</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ドメイン</th>
+                <th>内容の要点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Personal(個人的)</td>
+                <td>個人の感情・価値観・過去の経験に根ざした主観的側面</td>
+              </tr>
+              <tr>
+                <td>Functional(機能的)</td>
+                <td>サービス・プロダクトが実際に機能するか、使いやすいかという実務的側面</td>
+              </tr>
+              <tr>
+                <td>Relational(関係的)</td>
+                <td>提供者と利用者・顧客との信頼関係、コミュニケーションの質</td>
+              </tr>
+              <tr>
+                <td>Contextual(文脈的)</td>
+                <td>利用される状況・環境・タイミングに左右される側面</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>経験改善の施策を立てる際、4ドメインのうちどれに働きかけているかを明確にしましょう。機能的ドメインの改善(バグ修正など)だけでは、関係的ドメイン(サポート対応への不信感など)の課題は解決しません。</p>
+        </div>
+
+        <h4>経験のライフサイクルへの統合</h4>
+        <p>経験はPSLMの各活動を通じて連続的に生じます。特に重要なのが以下の区別です。</p>
+        <ul>
+          <li><strong>Functional interaction(機能的相互作用):</strong> 「機能が動くかどうか」に関わる接点</li>
+          <li><strong>Relational interaction(関係的相互作用):</strong> 「人と人・組織との関係性」に関わる接点</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>SupportやOperateで発生する障害対応は機能的相互作用ですが、対応中のコミュニケーションの質は関係的相互作用です。同じインシデントでも、機能は復旧したのに信頼は損なわれる、というケースを想定した対応設計が必要です。</p>
+        </div>
+
+        <h4>経験のキャプチャ(Capturing Experience)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>要素</th>
+                <th>説明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Evidence(証拠)</td>
+                <td>経験を裏付ける具体的なデータ・記録</td>
+              </tr>
+              <tr>
+                <td>Signal(シグナル)</td>
+                <td>経験の変化を示唆する断片的な兆候</td>
+              </tr>
+              <tr>
+                <td>直接キャプチャ(Direct)</td>
+                <td>アンケート、インタビューなど直接的な収集手法</td>
+              </tr>
+              <tr>
+                <td>間接キャプチャ(Indirect)</td>
+                <td>行動ログ、利用データなど間接的な収集手法</td>
+              </tr>
+              <tr>
+                <td>合成キャプチャ(Synthetic)</td>
+                <td>AIによる推定・シミュレーションなど合成的な収集手法</td>
+              </tr>
+              <tr>
+                <td>Trustworthiness(信頼性)</td>
+                <td>データがどれだけ実態を正確に反映しているか</td>
+              </tr>
+              <tr>
+                <td>Coherence(一貫性)</td>
+                <td>複数のデータソース間で矛盾がないか</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>「メトリクスは経験そのものではなく、経験に関する仮説(hypothesis)にすぎない」という考え方がVersion 5の重要な視点です。単一の指標(例: NPS)だけで経験全体を判断せず、複数のシグナルを組み合わせてTrustworthinessとCoherenceを検証してください。</p>
+        </div>
+
+        <p><strong>よくあるアンチパターン(Common Anti-patterns in Experience Capturing)</strong></p>
+        <ul>
+          <li>定量データのみに依存し、定性的な文脈を無視する</li>
+          <li>サンプル数が偏ったフィードバックを全体の声として扱う</li>
+          <li>ネガティブなシグナルを個別の例外として片付け、パターンとして扱わない</li>
+        </ul>
+
+        <h4>サービスジャーニー(Service Journey)— 7つのステップ</h4>
+        <p>サービスジャーニーは、提供者(Provider)と消費者(Consumer)が関係を構築し価値を共創するまでの活動全体を指します。固定的な直線プロセスではなく「飛び石(stepping stones)」として、順序の入れ替わりや並行・反復が起こり得るとされています。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_SERVICE_JOURNEY" />
+          </ClientOnly>
+          <div class="diagram-caption">サービスジャーニーの7ステップ: Explore → Engage → Offer → Agree → Onboard → Co-create → Reflect</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ステップ</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Explore(探索)</strong></td>
+                <td>正式な関係が始まる前に、機会・市場・ニーズを探る段階</td>
+              </tr>
+              <tr>
+                <td><strong>Engage(関係構築)</strong></td>
+                <td>信頼関係を構築する。以降のパートナーシップの前提となる</td>
+              </tr>
+              <tr>
+                <td><strong>Offer(提案)</strong></td>
+                <td>需要を明確な要件・ビジネスケースへ落とし込み、提供可能な内容をすり合わせる</td>
+              </tr>
+              <tr>
+                <td><strong>Agree(合意)</strong></td>
+                <td>期待値・スコープ・サービス品質を正式に取り決め、価値の測定方法を計画する</td>
+              </tr>
+              <tr>
+                <td><strong>Onboard(導入)</strong></td>
+                <td>双方のリソースを実際に統合(または分離)し、運用を開始する</td>
+              </tr>
+              <tr>
+                <td><strong>Co-create(共創)</strong></td>
+                <td>消費者が提供者のリソースを活用し、両者が協働して計画された価値を生み出す実行段階</td>
+              </tr>
+              <tr>
+                <td><strong>Reflect(振り返り)</strong></td>
+                <td>提供された価値を評価し、フィードバックを継続的改善や今後の投資判断に活かす</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Band of Visibility(可視性の帯)</strong></p>
+        <p>提供者と消費者の間で共有される透明性の領域を指します。パートナーシップが密接になるほどこの帯は広がり、問題解決や共創がしやすくなります。この可視性の中で重要な2つの満足軸が以下です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>軸</th>
+                <th>焦点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CX(Customer Experience)</strong></td>
+                <td>顧客(購入・契約の意思決定者)の機能的・感情的な知覚</td>
+              </tr>
+              <tr>
+                <td><strong>UX(User Experience)</strong></td>
+                <td>実際の操作者(エンドユーザー)が感じる、プロダクト設計・使いやすさに基づく経験</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>UXが悪ければ利用者は不満を抱き、CXが悪ければ顧客は契約更新をしません。どちらか一方の指標だけでサービス品質を判断せず、UXとCXを<strong>両輪</strong>として計測・改善する体制を作ることが重要です。</p>
+        </div>
+
+        <h4>ステークホルダージャーニー(Stakeholder Journeys)</h4>
+        <p>サービスジャーニーを消費者側・提供者側それぞれの視点で見た詳細な軌跡を <strong>Stakeholder Journey</strong> と呼びます。各ジャーニータイプには、典型的な懸念事項(concerns)とアンチパターンが伴います。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ジャーニー種別</th>
+                <th>典型的な懸念</th>
+                <th>実務上の示唆</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Consumer stakeholder journey</td>
+                <td>期待した価値が得られるか、コストに見合うか</td>
+                <td>合意(Agree)段階で成功基準を明文化し、Reflect段階で必ず振り返る</td>
+              </tr>
+              <tr>
+                <td>Provider stakeholder journey</td>
+                <td>持続可能な形で価値を提供し続けられるか、リソースが枯渇しないか</td>
+                <td>Onboard段階でキャパシティとリスクを事前評価する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>どちらのジャーニーも「合意した期待値」と「実際の体験」のギャップがアンチパターンの温床になります。Agreeステップで合意した内容を、Reflectステップで必ず定量・定性の両面から照らし合わせる運用ルールを設けましょう。</p>
+        </div>
+
+        <h4>デジタル経験の改善 — Notice–Interpret–Hypothesize–Experiment ループ</h4>
+        <p>Experienceの継続的改善は、ITILの <strong>Continual Improvement Model</strong> の枠組みの中で、以下の4段階ループとして適用されます。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EXPERIENCE_IMPROVEMENT_LOOP" />
+          </ClientOnly>
+          <div class="diagram-caption">Notice–Interpret–Hypothesize–Experiment ループ</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>段階</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Notice(気づく)</td>
+                <td>シグナル・証拠の中から注目すべき変化に気づく</td>
+              </tr>
+              <tr>
+                <td>Interpret(解釈する)</td>
+                <td>その変化が何を意味するかを文脈に沿って解釈する</td>
+              </tr>
+              <tr>
+                <td>Hypothesize(仮説を立てる)</td>
+                <td>改善のための仮説を立てる</td>
+              </tr>
+              <tr>
+                <td>Experiment(実験する)</td>
+                <td>小規模な実験でその仮説を検証する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>またこのループの中では、<strong>システムレベルの改善</strong>(オペレーティングモデルや構造そのものの変更)と、<strong>局所的な改善</strong>(個別の画面・対応フローの改善)を区別することが求められます。</p>
+
+        <div class="callout practice" data-variant="practice">
+          <div class="callout-title">
+            <Icon name="tabler:bulb" />ベストプラクティス
+          </div>
+          <p>経験改善の実験は、心理的安全性(psychological safety)と信頼が確保された環境でこそ機能します。担当者が「失敗を報告しても罰せられない」文化がなければ、Noticeの段階でネガティブなシグナルが隠蔽されるリスクがあります。</p>
+        </div>
       </section>
     </main>
   </div>
