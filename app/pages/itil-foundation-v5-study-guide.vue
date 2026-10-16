@@ -72,6 +72,46 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class SP,SC box;
 class VCC hub;`;
+
+const DIAGRAM_FOUR_DIMENSIONS = `flowchart TB
+Core["Products & Services 製品・サービス"]
+D1["Organizations and People 組織と人材"]
+D2["Information and Technology 情報と技術"]
+D3["Partners and Suppliers パートナーと供給者"]
+D4["Value Streams and Processes バリューストリームとプロセス"]
+PESTLE["外部要因 PESTLE Political Economic Social Technological Legal Environmental"]
+D1 --- Core
+D2 --- Core
+D3 --- Core
+D4 --- Core
+PESTLE -.->|"影響"| D1
+PESTLE -.->|"影響"| D2
+PESTLE -.->|"影響"| D3
+PESTLE -.->|"影響"| D4
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class D1,D2,D3,D4 box;
+class Core hub;
+class PESTLE done;`;
+
+const DIAGRAM_PSLM_ACTIVITIES = `flowchart LR
+Discover["1. Discover 発見"] --> Design["2. Design 設計"]
+Design --> Acquire["3. Acquire 調達"]
+Acquire --> Build["4. Build 構築"]
+Build --> Transition["5. Transition 移行"]
+Transition --> Operate["6. Operate 運用"]
+Operate --> Deliver["7. Deliver 提供"]
+Deliver --> Support["8. Support サポート"]
+Support -.->|"フィードバック"| Discover
+Support -.->|"フィードバック"| Design
+Deliver -.->|"フィードバック"| Discover
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Discover,Design,Acquire,Build box;
+class Transition,Operate hub;
+class Deliver,Support done;`;
 </script>
 
 <template>
@@ -379,6 +419,110 @@ class VCC hub;`;
           <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
           <ul>
             <li><strong>関係の型に応じてガバナンスの重さを変える。</strong>Basicな関係にCollaborative型と同じ重厚なガバナンス(定例会議・共同KPIなど)を課すと、コストばかりかさんで両者にメリットがありません。逆に戦略的パートナーにBasic型の対応をすると信頼を損ないます。契約更新のタイミングで関係の型を見直し、ガバナンスの重さを合わせましょう。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 04: 第2章 4つの側面 ===================== -->
+      <section id="four-dimensions" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 04</div>
+        <h2>第2章: ITILの4つの側面(配点10% / 4点)</h2>
+
+        <p>サービスや製品の管理を「一部分だけ」最適化すると、必ず別の場所にひずみが生じます。ITILはこれを防ぐために、常に4つの側面を<strong>ホリスティック(全体論的)</strong>に検討することを求めています。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUR_DIMENSIONS" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">製品・サービスを取り巻く4つの側面とPESTLE外部要因</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>側面</th><th>範囲</th><th>具体的な検討事項</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Organizations and People(組織と人材)</strong></td><td>組織構造、文化、役割・責任、必要なスキル・コンピテンシー、リーダーシップスタイル</td><td>適切な人数・スキルセットは確保されているか。心理的安全性のある文化か</td></tr>
+              <tr><td><strong>Information and Technology(情報と技術)</strong></td><td>サービスを支える情報、知識、技術、ツール、プラットフォーム、データガバナンス</td><td>データの正確性・機密性は保たれているか。技術的負債は管理されているか</td></tr>
+              <tr><td><strong>Partners and Suppliers(パートナーと供給者)</strong></td><td>外部組織との関係、契約、依存関係、エコシステム全体の管理</td><td>供給者選定基準は明確か。重要な依存先の継続性リスクは評価されているか</td></tr>
+              <tr><td><strong>Value Streams and Processes(バリューストリームとプロセス)</strong></td><td>組織がどのように活動を構成し、インプットをアウトプットに変換するか</td><td>ムダなプロセスはないか。エンドツーエンドで価値が流れているか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>さらに、この4つの側面は組織の外側にある<strong>PESTLE要因</strong>からも常に影響を受けます。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>PESTLE要素</th><th>内容</th><th>例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>P</strong>olitical(政治的)</td><td>政策、規制、政治的安定性</td><td>政府のデジタル化推進政策</td></tr>
+              <tr><td><strong>E</strong>conomic(経済的)</td><td>景気、為替、予算制約</td><td>インフレによるIT予算の圧縮</td></tr>
+              <tr><td><strong>S</strong>ocial(社会的)</td><td>人口動態、働き方の変化、消費者行動</td><td>リモートワークの定着</td></tr>
+              <tr><td><strong>T</strong>echnological(技術的)</td><td>技術革新、陳腐化のスピード</td><td>生成AIの急速な普及</td></tr>
+              <tr><td><strong>L</strong>egal(法的)</td><td>法規制、コンプライアンス要件</td><td>個人情報保護法制の強化</td></tr>
+              <tr><td><strong>E</strong>nvironmental(環境的)</td><td>気候変動、サステナビリティ要求</td><td>カーボンニュートラルへの対応要求</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>4つの側面を「チェックリスト」として使う。</strong>新しいサービスや変更を計画する際、必ず4つの側面それぞれについて「このプランは影響がないか」を確認する習慣をつけましょう。たとえば新しいSaaSツールを導入する際、Information and Technology(データ連携)だけでなく、Organizations and People(誰が運用を担うか)、Partners and Suppliers(ベンダーロックインのリスク)、Value Streams and Processes(既存業務フローとの整合性)も同時に検討することで、後工程での手戻りを防げます。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 05: 第3章 ライフサイクル ===================== -->
+      <section id="product-service-lifecycle" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 05</div>
+        <h2>第3章: ITIL 製品・サービスライフサイクル(配点10% / 4点)</h2>
+
+        <h3>3-1. Product and Service Lifecycle Model(PSLM)とは</h3>
+        <p>ITIL (Version 5) の最大の構造変化が、この<strong>Product and Service Lifecycle Model(PSLM)</strong>です。ITIL 4の6活動から成る Service Value Chain を置き換える形で、より製品開発の実態(アジャイル・DevOps的な反復開発)に即した<strong>8つの活動</strong>で構成される新モデルが導入されました [9] [10]。</p>
+
+        <p>重要なポイントは、この8活動が<strong>一直線(linear)でも順序固定(sequential)でもない</strong>という点です。状況に応じて活動を行き来し、反復的に使うことが前提とされています [2]。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_PSLM_ACTIVITIES" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">PSLM 8活動とフィードバックループ(Support/Deliverから前工程への還元)</div>
+        </div>
+
+        <p>大まかな傾向として、前半(Discover〜Build)は<strong>Product(製品)視点</strong>が強く、後半(Deliver・Support)は<strong>Service(サービス)視点</strong>が強くなり、中間の Transition・Operate は両者をつなぐ「橋渡し」の役割を果たします [7]。</p>
+
+        <h3>3-2. 各活動の目的(Purpose)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>活動</th><th>目的(何のためにあるか)</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Discover(発見)</strong></td><td>市場・消費者のニーズや需要シグナルを把握し、組織戦略やプロダクトロードマップと整合させる</td></tr>
+              <tr><td>2</td><td><strong>Design(設計)</strong></td><td>把握したニーズを、技術要件だけでなく利用体験も満たす具体的なソリューション(仕様・プロトタイプ)に落とし込む</td></tr>
+              <tr><td>3</td><td><strong>Acquire(調達)</strong></td><td>ソリューションの実現に必要なリソース(人材・技術・第三者サービスなど)を購入・確保・配分する</td></tr>
+              <tr><td>4</td><td><strong>Build(構築)</strong></td><td>コンポーネントを開発・構成し、リリース前に十分にテストする</td></tr>
+              <tr><td>5</td><td><strong>Transition(移行)</strong></td><td>新規・変更されたソリューションを、混乱なく安全に本番環境へ導入する</td></tr>
+              <tr><td>6</td><td><strong>Operate(運用)</strong></td><td>インフラとシステムを日々安定稼働させ、パフォーマンスを監視し続ける</td></tr>
+              <tr><td>7</td><td><strong>Deliver(提供)</strong></td><td>合意された条件でサービスを消費者が利用できる状態にし、アクセスや要求への対応を管理する</td></tr>
+              <tr><td>8</td><td><strong>Support(サポート)</strong></td><td>インシデントや問題を解決し、通常のサービス運用状態を回復させる。学びをDiscover・Designへ還元する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>「橋渡し」の2活動を軽視しない。</strong>Transition と Operate は地味に見えますが、ここが弱いとどれだけ良いDesignやBuildをしても本番障害やリリース事故につながります。CI/CDパイプラインの整備やモニタリング体制の構築に投資することは、PSLM全体の信頼性を底上げする最も費用対効果の高い施策の一つです。</li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>Supportをフィードバックループの起点にする。</strong>インシデント対応で得られた知見(根本原因、再発防止策)をナレッジベースに残すだけで終わらせず、定期的にDiscover・Designの担当チームへ共有する仕組み(例: 月次の振り返り会)を作ると、同じ問題の再発を未然に防げます。</li>
           </ul>
         </div>
       </section>
