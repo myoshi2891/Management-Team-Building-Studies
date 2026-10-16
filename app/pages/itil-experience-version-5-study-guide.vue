@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, nextTick } from "vue";
 import { useSeoMeta } from "#imports";
 import { useActiveHeading } from "~/composables/useActiveHeading";
 
@@ -22,6 +23,15 @@ const TOC_SECTIONS = [
   { id: "glossary", label: "用語集" },
   { id: "references", label: "参考文献・ソース" },
 ] as const;
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
 
 const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
 
@@ -152,7 +162,27 @@ class C1,C2,C3,C4,C5,C6 box;`;
 
 <template>
   <div class="layout">
-    <nav class="sidebar" id="sidebar" aria-label="目次">
+    <div
+      v-if="sidebarOpen"
+      class="sidebar-overlay"
+      aria-hidden="true"
+      @click="closeSidebar"
+    />
+
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      data-testid="sidebar-toggle"
+      aria-label="目次を開閉する"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen ? 'true' : 'false'"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
+    <nav class="sidebar" id="sidebar" :class="{ open: sidebarOpen }" aria-label="目次">
       <div class="sidebar-brand">
         <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
@@ -170,6 +200,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
           <a
             :href="`#${item.id}`"
             :class="{ active: activeId === item.id }"
+            @click="closeSidebar"
           >
             {{ item.label }}
           </a>
@@ -435,9 +466,160 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </section>
 
       <!-- ===================== 04. Experience Framework ===================== -->
-      <section id="experience-framework">
+      <section id="experience-framework" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" aria-hidden="true" />SECTION 04</div>
         <h2>ITIL Experience(Syllabus Category 2) ── 体験のフレームワーク全体像</h2>
+
+        <h3>4.1 主要ステークホルダーと「Tensions(緊張関係)」── BL2</h3>
+        <h4>定義</h4>
+        <p>ITIL Experience は、consumer 側・provider 側それぞれに複数の役割を定義し、役割間に <strong>必然的に生じる利害の緊張関係(tension)</strong> を明示的に扱います。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_STAKEHOLDER_TENSIONS" />
+          </div>
+          <div class="diagram-caption">Consumer側とProvider側のステークホルダーとTensions(緊張関係)</div>
+        </div>
+
+        <h4>Consumer 側の役割</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>役割</th><th>定義</th><th>典型的な Tension</th></tr></thead>
+            <tbody>
+              <tr><td>User</td><td>サービスを日常的に使用する人</td><td>「使いやすさ」を最優先したいが、Customer が求める機能要件と衝突することがある</td></tr>
+              <tr><td>Customer</td><td>サービスの要件を定義し、消費から得られる成果に責任を持つ</td><td>User の体感と、組織として求める成果指標(KPI)の間で板挟みになりやすい</td></tr>
+              <tr><td>Customer Sponsor</td><td>サービス利用の予算・投資判断を承認する</td><td>コスト最適化を優先し、User/Customer が求める体験投資と衝突しうる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Provider 側の役割</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>役割</th><th>定義</th><th>典型的な Tension</th></tr></thead>
+            <tbody>
+              <tr><td>Agent</td><td>実際にサービスを提供する担当者・チーム</td><td>現場の制約(工数・技術的負債)と Principal が約束した品質水準の間で板挟み</td></tr>
+              <tr><td>Principal</td><td>提供に対する最終的な説明責任を負う</td><td>収益性と Experience 投資のトレードオフに直面する</td></tr>
+              <tr><td>Provider Sponsor</td><td>提供側での投資判断を行う</td><td>短期的な ROI と長期的な信頼構築のバランスを取る必要がある</td></tr>
+              <tr><td>Enabler</td><td>技術基盤・ツールで提供を下支えする</td><td>技術的な理想解と、Agent が実際に運用できる複雑さの間で衝突する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>なぜ Tension を明示するのか(理由)</h4>
+        <p>体験は「誰か一人の満足」では測れません。Customer が満足していても User が不満なら Experience は失敗です。ITIL Experience はこの <strong>構造的な利害対立を隠さず可視化する</strong> ことで、改善の優先順位付けを現実的にします。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>Experience 改善の施策を立てる際は、必ず「誰の Experience が良くなり、誰の Tension が高まるか」を1枚のステークホルダーマップに書き出してからレビューする。</li>
+            <li><strong>アンチパターン:</strong>「顧客満足度が上がった」という単一指標だけで施策の成功を判断し、User と Customer Sponsor の間の相反する反応を見落とす。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/" target="_blank" rel="noopener">ITIL Experience 役割定義(The Knowledge Academy コースアウトライン)</a></li>
+          </ul>
+        </div>
+
+        <h3>4.2 Experience と ITIL Four Dimensions ── BL2〜BL3</h3>
+        <h4>定義</h4>
+        <p>Experience は独立した1機能ではなく、<strong>Four Dimensions すべてに統合され、反映される</strong> という考え方(Assessment Criteria 2.2.1、BL2)。さらに Four Dimensions を「Governance のレンズ」として Experience 改善に <strong>適用する</strong>(2.2.6、BL3)ことが求められます。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_FOUR_DIMENSIONS" />
+          </div>
+          <div class="diagram-caption">ITIL Four Dimensions と Experience の関係</div>
+        </div>
+
+        <h4>各次元での改善アプローチ</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>次元</th><th>Experience 改善の着眼点(理由)</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Organizations and people</td><td>誰が Experience に責任を持つかを明確にしないと、改善が誰の仕事でもなくなる</td><td>Experience Lead というロールを新設し、Product Owner と連携させる</td></tr>
+              <tr><td>Information and technology</td><td>データ品質が低いと、体験を「測っているつもり」で実は測れていない状態に陥る</td><td>AI(6Cモデル)を活用してサポートチケットの感情トーンを分類する</td></tr>
+              <tr><td>Partners and suppliers</td><td>外部委託先の対応品質は、consumer からは自社の体験として一体的に評価される</td><td>サプライヤー契約に Experience 関連の品質基準(応答トーン等)を含める</td></tr>
+              <tr><td>Value streams and processes</td><td>プロセスのステップ数・待ち時間そのものが体験の摩擦(friction)源になる</td><td>オンボーディングの承認ステップを7→3に削減し、Onboard フェーズの離脱率を下げる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>Four Dimensions を「ガバナンスのレンズ」として使う際は、四半期ごとのレビューで4次元それぞれに対して「今期、Experience の観点で何を変えたか」を1行ずつ記録する。</li>
+            <li><strong>アンチパターン:</strong>Information and Technology の次元(ツール導入)だけに投資し、Organizations and people(誰が責任を持つか)を放置する。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">Information and Technology 次元と AI 統合の解説</a></li>
+          </ul>
+        </div>
+
+        <h3>4.3 ITIL Product and Service Lifecycle の中での Experience ── BL2〜BL4</h3>
+        <h4>定義:Value Chain Activities が生む "Experience Moments"</h4>
+        <p>8段階の Product and Service Lifecycle(2.3節参照)の <strong>どの活動でも</strong> experience moments(体験の瞬間)が発生します(Assessment Criteria 2.3.1、BL2)。</p>
+
+        <h4>Functional Interactions と Relational Interactions の違い(重要:BL4で差別化が問われる)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>種類</th><th>定義</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Functional interaction(機能的インタラクション)</td><td>タスクを完了させるための、目的志向のやり取り</td><td>車を予約する、支払いを完了する、パスワードをリセットする</td></tr>
+              <tr><td>Relational interaction(関係的インタラクション)</td><td>信頼・関係性の構築に関わる、感情面を含むやり取り</td><td>サポート担当者との会話、謝罪メール、ロイヤルティプログラムの案内</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p><strong>試験対策メモ:</strong>Assessment Criteria 2.3.5 は「Differentiate functional vs. relational interactions」と明記されており <strong>BL4(分析・差別化)</strong> です。「このシナリオの行動は機能的か関係的か」を判定させる設問が出やすいポイントです。</p>
+        </div>
+
+        <h4>典型的な Experience Frictions(摩擦)と緩和策(Assessment Criteria 2.3.3、BL4:分析して緩和策を提案する)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Friction(摩擦)</th><th>発生しやすい Service Journey 段階</th><th>緩和策(ベストプラクティス)</th></tr></thead>
+            <tbody>
+              <tr><td>Broken expectations(期待の破綻)</td><td>Agree / Onboard</td><td>Agree 段階で SLA・体験の期待値を明文化し、Onboard 前にレビューする</td></tr>
+              <tr><td>Unclear agreements(不明確な合意)</td><td>Agree</td><td>サービスアグリーメントに「体験面の合意事項」(応答時間、トーン等)も含める</td></tr>
+              <tr><td>Poor reflection loops(振り返りループの欠如)</td><td>Reflect</td><td>定期的な Reflect ステップを制度化し、フィードバックを次サイクルの Design にフィードバックする</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Stakeholder Role Mapping の適用(Assessment Criteria 2.3.4、BL3:適用)</h4>
+        <p>Journey の各ステップで、User / Customer / Customer Sponsor / Agent / Principal / Provider Sponsor / Enabler が <strong>異なる Trust Requirement(信頼要件)</strong> を持つことをマッピングします。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_JOURNEY_ROLE_MAP" />
+          </div>
+          <div class="diagram-caption">Product and Service Lifecycle 全体を通じたステークホルダーの信頼要件マッピング</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>新サービスをリリースする前に、Discover〜Support の各段階で「この段階で、どのステークホルダーの、どんな信頼が試されるか」を一覧化するワークショップを実施する。</li>
+            <li><strong>アンチパターン:</strong>Design段階でUXレビューを行い満足して終わり、Support段階(障害対応時のトーン等)の体験設計を後回しにする。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://advancedtraining.com.au/product/itil-experience-version-5/" target="_blank" rel="noopener">Value Chain Activities と Experience の関係(Advanced Training コース概要)</a></li>
+            <li><a href="https://www.itil.org.uk/training/itil-managing-professional-certification/itil-5-managing-professional-transition-training-course" target="_blank" rel="noopener">ITIL Managing Professional Transition コースアウトライン(Module 3 詳細)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 05. Capturing Experience ===================== -->
@@ -704,16 +886,63 @@ h2 {
   border-bottom: 1px solid var(--color-border, #DFE3EA);
 }
 
+.sidebar-overlay {
+  display: none;
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-indigo, #2E3F72);
+  color: #fff;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 30;
+}
+
 @media (max-width: 980px) {
-  .layout {
-    flex-direction: column;
+  .sidebar-toggle {
+    display: flex;
   }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 25;
+  }
+
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-    border-right: none;
-    border-bottom: 1px solid var(--color-border, #DFE3EA);
+    position: fixed;
+    top: var(--global-nav-height, 0px);
+    left: 0;
+    width: var(--sidebar-width, 280px);
+    height: calc(100vh - var(--global-nav-height, 0px));
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
+    z-index: 30;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
   }
 }
 </style>
