@@ -949,6 +949,270 @@ class BuildOp,Discover done;`;
           </ul>
         </div>
       </section>
+
+      <!-- ===================== SECTION 10: 第8章 出題形式・学習計画 ===================== -->
+      <section id="exam-strategy" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 10</div>
+        <h2>第8章: 出題形式・Bloom's Level・学習計画</h2>
+
+        <h3>8-1. 問題形式(Question Types)</h3>
+        <p>ITIL Foundation (Version 5) はすべて4択の客観式問題(Objective Test Question)ですが、出題スタイルには4種類あります [2]。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>出題スタイル</th><th>特徴</th><th>対策のポイント</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Standard(標準)</strong></td><td>設問文+4つの選択肢から正解を1つ選ぶ、最も一般的な形式</td><td>定義の正確な理解が最重要</td></tr>
+              <tr><td><strong>Missing word(s)(空所補充)</strong></td><td>文中の空欄に当てはまる語句を4択から選ぶ</td><td>用語の文脈上の使われ方まで押さえておく</td></tr>
+              <tr><td><strong>List(リスト選択)</strong></td><td>4つの記述の中から<strong>正しいもの2つ</strong>を選ぶ組み合わせ問題</td><td>個々の記述の正誤を独立して判断してから組み合わせを選ぶ</td></tr>
+              <tr><td><strong>Negative(否定形)</strong></td><td>「NOTである」「誤っているもの」を問う形式。ある内容が「行われないこと」を知っているかを問う場合のみ例外的に使用</td><td>設問文の否定語(NOT/NEVER等)を見落とさない</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>8-2. Bloom's Level(思考レベル)</h3>
+        <p>問題は次の2レベルで分類され、<strong>BL1が40%、BL2が60%</strong>の比率で出題されます [2]。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>レベル</th><th>意味</th><th>問われ方の例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>BL1(Recall/想起)</strong></td><td>用語・定義・リストを正確に記憶しているか</td><td>「〜を定義しなさい」「〜を列挙しなさい」</td></tr>
+              <tr><td><strong>BL2(Understanding/理解)</strong></td><td>概念の意味や使い分けを理解し、状況に適用できるか</td><td>「〜を説明しなさい」「〜がどう使われるか理解しなさい」</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>BL2対策として「自分の言葉で説明する」練習をする。</strong>単語カードで暗記するだけではBL2の設問に対応しきれません。各概念について「もし後輩に説明するとしたら、具体例を使ってどう伝えるか」を実際に声に出す・書き出す練習をすると、理解度が定着し、応用的な設問にも対応しやすくなります。</li>
+          </ul>
+        </div>
+
+        <h3>8-3. 推奨学習ステップ</h3>
+        <ol>
+          <li><strong>第1回通読(インプット)</strong>: 本ガイドを第1章から第7章まで通読し、Mermaid図と表で全体像をつかむ。</li>
+          <li><strong>章末ベストプラクティスの実務照合</strong>: 自分の業務・組織に置き換えて、各ベストプラクティスが「すでにできているか/できていないか」をメモする(理解の定着に効果的)。</li>
+          <li><strong>付録Aの用語集で暗記チェック</strong>: 各用語を見て、日本語だけで説明できるかを自己テストする。</li>
+          <li><strong>配点の大きい章(第1章・第4章)を再読</strong>: 全40点中28点(70%)を占めるため、優先的に反復する。</li>
+          <li><strong>模擬試験で出題形式に慣れる</strong>: 特にList形式・Negative形式は独特の読み方が必要なため、慣れが必要(PeopleCert公式サンプル問題の活用を推奨)。</li>
+        </ol>
+      </section>
+
+      <!-- ===================== SECTION 11: 付録A 用語集 ===================== -->
+      <section id="glossary" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 11</div>
+        <h2>付録A: 用語集</h2>
+
+        <div class="glossary-grid">
+          <div class="glossary-item"><div class="g-term">Product</div><div class="g-def">消費者に提供できるよう構成されたリソースの集合体</div></div>
+          <div class="glossary-item"><div class="g-term">Service</div><div class="g-def">消費者が望む成果を実現する手段。価値共創を伴う</div></div>
+          <div class="glossary-item"><div class="g-term">Digital Product / Digital Service</div><div class="g-def">デジタル技術を中核とする製品・サービス</div></div>
+          <div class="glossary-item"><div class="g-term">Goods</div><div class="g-def">所有権が消費者に移転する財</div></div>
+          <div class="glossary-item"><div class="g-term">Utility</div><div class="g-def">有用性(fit for purpose)</div></div>
+          <div class="glossary-item"><div class="g-term">Warranty</div><div class="g-def">安心性(fit for use)</div></div>
+          <div class="glossary-item"><div class="g-term">User Experience</div><div class="g-def">利用体験</div></div>
+          <div class="glossary-item"><div class="g-term">Sustainability</div><div class="g-def">持続可能性</div></div>
+          <div class="glossary-item"><div class="g-term">Service Offering</div><div class="g-def">サービス提供物(財の移転・資源アクセス・サービスアクションで構成)</div></div>
+          <div class="glossary-item"><div class="g-term">Value Co-Creation</div><div class="g-def">価値共創</div></div>
+          <div class="glossary-item"><div class="g-term">Output</div><div class="g-def">アウトプット(成果物そのもの)</div></div>
+          <div class="glossary-item"><div class="g-term">Outcome</div><div class="g-def">アウトカム(成果物によって得られた結果)</div></div>
+          <div class="glossary-item"><div class="g-term">Cost</div><div class="g-def">コスト</div></div>
+          <div class="glossary-item"><div class="g-term">Risk</div><div class="g-def">リスク</div></div>
+          <div class="glossary-item"><div class="g-term">Organization</div><div class="g-def">組織</div></div>
+          <div class="glossary-item"><div class="g-term">Service Provider</div><div class="g-def">サービスプロバイダー</div></div>
+          <div class="glossary-item"><div class="g-term">Service Consumer</div><div class="g-def">サービスコンシューマー(Sponsor/Customer/Userを含む)</div></div>
+          <div class="glossary-item"><div class="g-term">Digital Product Vendor</div><div class="g-def">デジタル製品ベンダー</div></div>
+          <div class="glossary-item"><div class="g-term">Service Journey</div><div class="g-def">サービスジャーニー</div></div>
+          <div class="glossary-item"><div class="g-term">Service Quality</div><div class="g-def">サービス品質</div></div>
+          <div class="glossary-item"><div class="g-term">Service Level</div><div class="g-def">サービスレベル</div></div>
+          <div class="glossary-item"><div class="g-term">SLA</div><div class="g-def">サービスレベル合意書</div></div>
+          <div class="glossary-item"><div class="g-term">Organizations and People</div><div class="g-def">4つの側面: 組織と人材</div></div>
+          <div class="glossary-item"><div class="g-term">Information and Technology</div><div class="g-def">4つの側面: 情報と技術</div></div>
+          <div class="glossary-item"><div class="g-term">Partners and Suppliers</div><div class="g-def">4つの側面: パートナーと供給者</div></div>
+          <div class="glossary-item"><div class="g-term">Value Streams and Processes</div><div class="g-def">4つの側面: バリューストリームとプロセス</div></div>
+          <div class="glossary-item"><div class="g-term">PESTLE</div><div class="g-def">外部要因(政治・経済・社会・技術・法律・環境)</div></div>
+          <div class="glossary-item"><div class="g-term">PSLM</div><div class="g-def">Product and Service Lifecycle Model(製品・サービスライフサイクルモデル)</div></div>
+          <div class="glossary-item"><div class="g-term">Discover / Design / Acquire / Build / Transition / Operate / Deliver / Support</div><div class="g-def">PSLMの8活動</div></div>
+          <div class="glossary-item"><div class="g-term">ITIL Value System (ITIL VS)</div><div class="g-def">ITILバリューシステム</div></div>
+          <div class="glossary-item"><div class="g-term">Guiding Principles</div><div class="g-def">指導原則(7項目)</div></div>
+          <div class="glossary-item"><div class="g-term">Governance</div><div class="g-def">ガバナンス</div></div>
+          <div class="glossary-item"><div class="g-term">Value Chain</div><div class="g-def">バリューチェーン(Version 5ではPSLMと同義)</div></div>
+          <div class="glossary-item"><div class="g-term">Management Practice</div><div class="g-def">マネジメントプラクティス</div></div>
+          <div class="glossary-item"><div class="g-term">Continual Improvement Model</div><div class="g-def">継続的改善モデル(7ステップ)</div></div>
+          <div class="glossary-item"><div class="g-term">Metric</div><div class="g-def">メトリック(測定指標)</div></div>
+          <div class="glossary-item"><div class="g-term">Critical Success Factor (CSF)</div><div class="g-def">重要成功要因</div></div>
+          <div class="glossary-item"><div class="g-term">Value Stream</div><div class="g-def">バリューストリーム</div></div>
+          <div class="glossary-item"><div class="g-term">Core Value Stream</div><div class="g-def">コアバリューストリーム</div></div>
+          <div class="glossary-item"><div class="g-term">Enabling Value Stream</div><div class="g-def">イネーブリングバリューストリーム</div></div>
+          <div class="glossary-item"><div class="g-term">Value Stream Mapping</div><div class="g-def">バリューストリームマッピング</div></div>
+          <div class="glossary-item"><div class="g-term">Value Stream Management</div><div class="g-def">バリューストリームマネジメント</div></div>
+          <div class="glossary-item"><div class="g-term">Complexity Thinking</div><div class="g-def">複雑性思考</div></div>
+          <div class="glossary-item"><div class="g-term">Ordered / Complex / Chaotic / Confused</div><div class="g-def">複雑性思考における4つの状況分類</div></div>
+          <div class="glossary-item"><div class="g-term">AI / AI Maturity / GenAI / Agentic AI</div><div class="g-def">人工知能/AI成熟度/生成AI/エージェンティックAI</div></div>
+          <div class="glossary-item"><div class="g-term">AI Governance</div><div class="g-def">AIガバナンス</div></div>
+          <div class="glossary-item"><div class="g-term">ITIL AI Capability Model (6C)</div><div class="g-def">ITIL AIケイパビリティモデル(6Cモデル: 創出・選別整理・明確化・認知分析・伝達・調整)</div></div>
+          <div class="glossary-item"><div class="g-term">Operating Model</div><div class="g-def">オペレーティングモデル</div></div>
+          <div class="glossary-item"><div class="g-term">Incident / Problem / Error / Known Error / Disaster</div><div class="g-def">インシデント/問題/エラー/既知のエラー/災害</div></div>
+          <div class="glossary-item"><div class="g-term">Reliability / SRE / Observability</div><div class="g-def">信頼性/サイト信頼性エンジニアリング/可観測性</div></div>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 12: 付録B マネジメントプラクティス ===================== -->
+      <section id="management-practices" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 12</div>
+        <h2>付録B: 34のマネジメントプラクティス早見表</h2>
+
+        <h3>B-1. Product and Service Management Practices(製品・サービスマネジメントプラクティス/22項目)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>プラクティス名</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Availability management(可用性管理)</td></tr>
+              <tr><td>2</td><td>Business analysis(ビジネス分析)</td></tr>
+              <tr><td>3</td><td>Capacity and performance management(キャパシティ・パフォーマンス管理)</td></tr>
+              <tr><td>4</td><td>Change enablement(変更実現)</td></tr>
+              <tr><td>5</td><td>Deployment management(デプロイメント管理)</td></tr>
+              <tr><td>6</td><td>Incident management(インシデント管理)</td></tr>
+              <tr><td>7</td><td>Information security management(情報セキュリティ管理)</td></tr>
+              <tr><td>8</td><td>Infrastructure and platform management(インフラ・プラットフォーム管理)</td></tr>
+              <tr><td>9</td><td>IT asset management(ITアセット管理)</td></tr>
+              <tr><td>10</td><td>Monitoring and event management(監視・イベント管理)</td></tr>
+              <tr><td>11</td><td>Problem management(問題管理)</td></tr>
+              <tr><td>12</td><td>Release management(リリース管理)</td></tr>
+              <tr><td>13</td><td>Service catalogue management(サービスカタログ管理)</td></tr>
+              <tr><td>14</td><td>Service configuration management(サービス構成管理)</td></tr>
+              <tr><td>15</td><td>Service continuity management(サービス継続性管理)</td></tr>
+              <tr><td>16</td><td>Service design(サービスデザイン)</td></tr>
+              <tr><td>17</td><td>Service desk(サービスデスク)</td></tr>
+              <tr><td>18</td><td>Service financial management(サービス財務管理)</td></tr>
+              <tr><td>19</td><td>Service level management(サービスレベル管理)</td></tr>
+              <tr><td>20</td><td>Service request management(サービスリクエスト管理)</td></tr>
+              <tr><td>21</td><td>Service validation and testing(サービス検証・テスト)</td></tr>
+              <tr><td>22</td><td>Software development and management(ソフトウェア開発・管理)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>B-2. General Management Practices(汎用マネジメントプラクティス/12項目)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>プラクティス名</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Architecture management(アーキテクチャ管理)</td></tr>
+              <tr><td>2</td><td>Continual improvement(継続的改善)</td></tr>
+              <tr><td>3</td><td>Knowledge management(ナレッジ管理)</td></tr>
+              <tr><td>4</td><td>Measurement and reporting(測定・報告)</td></tr>
+              <tr><td>5</td><td>Organizational change management(組織変更管理)</td></tr>
+              <tr><td>6</td><td>Portfolio management(ポートフォリオ管理)</td></tr>
+              <tr><td>7</td><td>Project management(プロジェクトマネジメント)</td></tr>
+              <tr><td>8</td><td>Relationship management(リレーションシップ管理)</td></tr>
+              <tr><td>9</td><td>Risk management(リスク管理)</td></tr>
+              <tr><td>10</td><td>Strategy management(戦略管理)</td></tr>
+              <tr><td>11</td><td>Supplier management(サプライヤー管理)</td></tr>
+              <tr><td>12</td><td>Workforce and talent management(人材・タレント管理)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" /><span data-testid="callout-label">補足</span></div>
+          <p>Version 5では、ITIL 4で「General」に分類されていた Information security management と Service financial management の2つが「Product and Service」側へ移動しました。これにより General が14から12へ、Product and Service が20から22(旧Service 17 + 旧Technical 3)へと再編されています [3] [4]。</p>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 13: 付録C 出典・参考文献 ===================== -->
+      <section id="references" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 13</div>
+        <h2>付録C: 出典・参考文献一覧</h2>
+
+        <p>本ガイドの記述は、以下の一次情報・専門情報源を根拠としています。特に配点・シラバス構造・用語定義は [1] [2] の公式情報に準拠しています。</p>
+
+        <div class="ref-group">
+          <div class="ref-list">
+            <div class="ref-item">
+              <div class="step-num">1</div>
+              <div class="ref-body"><span class="ref-name">PeopleCert &mdash; ITIL Foundation (Version 5) 公式製品ページ</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-5-foundation-version-50-4154" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-5-foundation-version-50-4154</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">2</div>
+              <div class="ref-body"><span class="ref-name">PeopleCert &mdash; ITIL Foundation (Version 5) 公式シラバス v5.0(2026年2月発行)</span><a class="ref-url" href="https://fasttracklearningsolutions.com/wp-content/uploads/2026/02/ITIL_Version5_Foundation_Syllabus_v5.0.pdf" target="_blank" rel="noopener">https://fasttracklearningsolutions.com/wp-content/uploads/2026/02/ITIL_Version5_Foundation_Syllabus_v5.0.pdf</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">3</div>
+              <div class="ref-body"><span class="ref-name">ITSM Tools &mdash; ITIL Version 5 Management Practices Explained</span><a class="ref-url" href="https://itsm.tools/itil-version-5-management-practices/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-management-practices/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">4</div>
+              <div class="ref-body"><span class="ref-name">GovernanceDocs &mdash; ITIL 5 Practices: The Clear List of All 34</span><a class="ref-url" href="https://governancedocs.com/itil-5-practices/" target="_blank" rel="noopener">https://governancedocs.com/itil-5-practices/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">5</div>
+              <div class="ref-body"><span class="ref-name">ITIL.com &mdash; ITIL AI Governance (Version 5)</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">6</div>
+              <div class="ref-body"><span class="ref-name">PeopleCert Community Blog &mdash; ITIL (Version 5): A Value Stream Perspective</span><a class="ref-url" href="https://community.peoplecert.org/public/clubs/itil/blogs/itil-version-5-a-value-stream-perspective" target="_blank" rel="noopener">https://community.peoplecert.org/public/clubs/itil/blogs/itil-version-5-a-value-stream-perspective</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">7</div>
+              <div class="ref-body"><span class="ref-name">PMG Academy &mdash; The Definitive Guide to ITIL Version 5 Foundation</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">8</div>
+              <div class="ref-body"><span class="ref-name">ITSM Tools &mdash; ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">9</div>
+              <div class="ref-body"><span class="ref-name">TeamDynamix &mdash; What is ITIL 5? A Guide to the New ITIL Framework</span><a class="ref-url" href="https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/" target="_blank" rel="noopener">https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">10</div>
+              <div class="ref-body"><span class="ref-name">DionTraining &mdash; ITIL 5 Process Explained</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">11</div>
+              <div class="ref-body"><span class="ref-name">DionTraining &mdash; ITIL 5 AI Governance Guide for ITSM</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-ai-governance" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-ai-governance</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">12</div>
+              <div class="ref-body"><span class="ref-name">PMG Academy &mdash; Value Streams and Processes in ITIL Version 5</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/value-streams-and-processes-in-itil-version-5-the-practical-guide-to-digital-efficiency/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/value-streams-and-processes-in-itil-version-5-the-practical-guide-to-digital-efficiency/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">13</div>
+              <div class="ref-body"><span class="ref-name">CertEmpire &mdash; ITIL Foundation Version 5 (ITILFND V5): Complete Guide 2026</span><a class="ref-url" href="https://certempire.com/itil-foundation-v5-guide/" target="_blank" rel="noopener">https://certempire.com/itil-foundation-v5-guide/</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">14</div>
+              <div class="ref-body"><span class="ref-name">itil.org.uk &mdash; ITIL Version 5 Foundation Certification Course</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-foundation-level-courses/itil-version-5-foundation-certification-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-foundation-level-courses/itil-version-5-foundation-certification-course</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">15</div>
+              <div class="ref-body"><span class="ref-name">Open Exam Prep &mdash; ITIL Foundation Version 5 Exam Guide 2026</span><a class="ref-url" href="https://open-exam-prep.com/blog/itil-4-foundation-v5-exam-guide-2026" target="_blank" rel="noopener">https://open-exam-prep.com/blog/itil-4-foundation-v5-exam-guide-2026</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">16</div>
+              <div class="ref-body"><span class="ref-name">AgilePM Hub &mdash; ITIL AI Governance (Version 5)</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">17</div>
+              <div class="ref-body"><span class="ref-name">CertsHero &mdash; PeopleCert ITIL-5-Foundation Exam Questions(6Cモデル解説)</span><a class="ref-url" href="https://www.certshero.com/peoplecert/itil-5-foundation/practice-test" target="_blank" rel="noopener">https://www.certshero.com/peoplecert/itil-5-foundation/practice-test</a></div>
+            </div>
+            <div class="ref-item">
+              <div class="step-num">18</div>
+              <div class="ref-body"><span class="ref-name">itecor &mdash; A new ITIL, so what?</span><a class="ref-url" href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">https://itecor.com/a-new-itil-so-what/</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" /><span data-testid="callout-label">補足</span></div>
+          <p><strong>重要な注記</strong>: ITIL Foundation (Version 5) は2026年2月にリリースされた新しい認定であり、非公式の受験対策サイトによる情報には、記述内容や配点の細部に差異が見られる場合があります。試験直前には、必ず<a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-5-foundation-version-50-4154" target="_blank" rel="noopener">PeopleCert公式サイト</a>(出典[1])および<a href="https://fasttracklearningsolutions.com/wp-content/uploads/2026/02/ITIL_Version5_Foundation_Syllabus_v5.0.pdf" target="_blank" rel="noopener">公式シラバスPDF</a>(出典[2])で最新情報をご確認ください。また、本ガイドは公式教材(ITIL Foundation Official Book / eBook)の要約・参考ではなく、公開情報をもとに独自に構成した学習補助教材です。試験対策の主教材としては、PeopleCert公式のOfficial eBookおよびLearning Resource Kitの使用を推奨します。</p>
+        </div>
+      </section>
+
+      <footer>
+        本ガイド作成日時点(2026年9月)の公開情報に基づいて作成されています。ITIL&reg;はPeopleCert International Limitedの登録商標です。
+      </footer>
     </main>
   </div>
 </template>
@@ -1339,6 +1603,96 @@ tr:last-child td {
 .callout-title :deep(.iconify),
 .callout-title :deep(svg) {
   font-size: 18px;
+}
+
+/* ===================== Glossary ===================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 4px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ref-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+}
+
+.step-num {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo);
+  color: var(--color-indigo);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ref-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+  font-size: 16px;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
 }
 
 /* ===================== Responsive ===================== */
