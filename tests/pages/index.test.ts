@@ -319,6 +319,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "ITIL® Foundation (Version 5) 完全学習ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-foundation-v5-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "ITIL® Experience (Version 5) 認定資格 完全ガイド",
         category: "PEOPLECERT",
         href: "/itil-experience-version-5-study-guide",

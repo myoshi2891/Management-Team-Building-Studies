@@ -152,6 +152,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/professional-scrum-with-kanban", programId: "scrum-org", seriesId: "so-kanban", navLabel: "PSK 完全ガイド" },
       { to: "/scaled-professional-scrum-guide", programId: "scrum-org", seriesId: "so-scaling", navLabel: "SPS 完全ガイド" },
       { to: "/professional-scrum-with-user-experience", programId: "scrum-org", seriesId: "so-user-experience", navLabel: "PSU 完全ガイド" },
+      { to: "/itil-foundation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Foundation (v5)" },
       { to: "/itil-experience-version-5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Experience (v5)" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
