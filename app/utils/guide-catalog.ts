@@ -754,6 +754,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-foundation-v5-study-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Foundation (v5)",
+    title: "ITIL® Foundation (Version 5) 完全学習ガイド",
+    description: "PeopleCert公式シラバスv5.0に準拠したITIL Foundation (Version 5) の完全学習ガイド。7カテゴリー40問の出題範囲を初学者向けに詳細解説し、各項目のベストプラクティスと出典URLを掲載。",
+    meta: "13セクション",
+    icon: "tabler:award",
+    accent: "indigo",
+  },
+  {
     to: "/itil-experience-version-5-study-guide",
     programId: "peoplecert",
     seriesId: "pc-itil",
