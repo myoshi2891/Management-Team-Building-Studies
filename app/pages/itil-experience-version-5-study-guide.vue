@@ -1215,9 +1215,8 @@ class C1,C2,C3,C4,C5,C6 box;`;
 .main-content {
   flex: 1;
   min-width: 0;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
+  width: 100%;
+  padding: 48px 64px 100px;
 }
 
 .hero {
