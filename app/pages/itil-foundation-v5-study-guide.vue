@@ -1334,7 +1334,6 @@ class BuildOp,Discover done;`;
 .main-content {
   margin-left: 288px;
   padding: 48px 56px 96px;
-  max-width: 960px;
 }
 
 /* ===================== Hero ===================== */
