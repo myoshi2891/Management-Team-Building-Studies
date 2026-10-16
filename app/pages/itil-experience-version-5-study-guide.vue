@@ -751,9 +751,163 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </section>
 
       <!-- ===================== 06. Service Journey ===================== -->
-      <section id="service-journey">
+      <section id="service-journey" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 06</div>
         <h2>サービスジャーニー(Service Journey)(Syllabus Category 4)</h2>
+
+        <h3>6.1 Service Relationships と Agreements(体験の視点から) ── BL2</h3>
+        <h4>Service Relationship の3タイプ</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>タイプ</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td>Basic</td><td>単純な取引ベースの関係</td></tr>
+              <tr><td>Cooperative</td><td>一定の協働があるが、責任範囲は明確に分離</td></tr>
+              <tr><td>Collaborative</td><td>深く統合され、共同で価値を創出する関係</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>体験の観点では、Collaborative な関係ほど Relational Interaction(4.3節)の比重が高まり、Trust(信頼)が体験全体の質を左右するようになります。</p>
+        <h4>Service Agreement の視点</h4>
+        <p>SLA などの Agreement を「機能要件の約束」としてだけでなく、<strong>「体験面の期待値をすり合わせる場」</strong> として捉えることが Experience の文脈での新しい視点です(4.3節の Broken Expectations とも関連)。</p>
+
+        <h3>6.2 Service Journey の7ステップ ── BL2</h3>
+        <h4>定義</h4>
+        <p>Service Journey とは、consumer と provider の関係が時間とともにどう進展するかを表す、7段階のモデルです。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_SERVICE_JOURNEY7" />
+          </div>
+          <div class="diagram-caption">Service Journey の7ステップ(Explore〜Reflect)</div>
+        </div>
+
+        <h4>各ステップの定義とExperience上の要点</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ステップ</th><th>定義</th><th>Experience 上の要点(理由)</th></tr></thead>
+            <tbody>
+              <tr><td>1. Explore</td><td>正式な関係が成立する前に、双方が市場・ニーズ・選択肢を調査する段階</td><td>この段階の体験(Webサイト、口コミ等)が「第一印象」として以降のAnticipation(予期)を決定づける</td></tr>
+              <tr><td>2. Engage</td><td>関係構築の初期段階。早期のコミュニケーションと信頼が形成される</td><td>応答の速さ・トーンが「この提供者は信頼できるか」の初期判断材料になる</td></tr>
+              <tr><td>3. Offer</td><td>提供側が提案を提示し、消費側が需要を明確化する</td><td>提案内容と実態のギャップは、後の Broken Expectations(4.3節)の温床になる</td></tr>
+              <tr><td>4. Agree</td><td>期待値をすり合わせ、契約・SLA として正式化する段階</td><td>体験面の期待(応答時間、トーンなど)もここで明文化すべき</td></tr>
+              <tr><td>5. Onboard</td><td>実務的な移行段階。利用開始・トレーニングが行われる</td><td>離脱リスクが最も高い段階。ここでの摩擦は関係全体の信頼を損なう</td></tr>
+              <tr><td>6. Co-create</td><td>日常的な利用・提供が行われ、実際に価値が生成される段階</td><td>Functional Interaction と Relational Interaction の両方が最も頻繁に発生する</td></tr>
+              <tr><td>7. Reflect</td><td>成果を振り返り、継続的改善やその後の投資判断につなげる段階</td><td>このフィードバックが Explore(次サイクル)の質を左右する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>7ステップそれぞれに、担当ロール(User/Customer/Agent/Principal等)ごとの「体験目標(Experience Goal)」を1つずつ定義し、Journey Map として可視化する。</li>
+            <li><strong>アンチパターン:</strong>Onboard(5)とCo-create(6)だけに注力し、Explore(1)とReflect(7)を「マーケティング」「アンケート」として別チームに丸投げし、体験としての一貫性を失う。</li>
+          </ul>
+        </div>
+
+        <h3>6.3 Consumer Stakeholder Journey と Provider Stakeholder Journey ── BL2〜BL3</h3>
+        <h4>定義</h4>
+        <p>7ステップの Service Journey を、<strong>Consumer 側(User/Customer/Customer Sponsor)</strong> と <strong>Provider 側(Agent/Principal/Provider Sponsor/Enabler)</strong> それぞれの視点で描いたものが Stakeholder Journey です。各ジャーニーには固有の <strong>Concerns(懸念事項)</strong> と <strong>Anti-patterns(よくある失敗パターン)</strong> があります。</p>
+
+        <h4>Consumer 側ジャーニーの例(Customer の視点)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>懸念事項の例</th><th>よくあるアンチパターン</th></tr></thead>
+            <tbody>
+              <tr><td>投資対効果が説明責任を果たせる水準か</td><td>Offer段階での過大な期待値設定(Over-promising)</td></tr>
+              <tr><td>チーム全体が新サービスに移行できるか</td><td>Onboard段階でのトレーニング不足の放置</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Provider 側ジャーニーの例(Agent の視点)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>懸念事項の例</th><th>よくあるアンチパターン</th></tr></thead>
+            <tbody>
+              <tr><td>約束した品質水準を運用できるキャパシティがあるか</td><td>Agree段階で営業が現場の実情を無視した合意をする</td></tr>
+              <tr><td>Co-create段階でエスカレーションが多発していないか</td><td>Reflect段階の振り返りを形骸化させ、同じ問題を繰り返す</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>ITIL Service Journey Model の適用(Assessment Criteria 4.4.3、BL3)</h4>
+        <p>Provider・Consumer 双方の Journey を重ね合わせ、<strong>どのステップで、どちらの視点の体験シグナルが弱いか</strong> をマッピングするのが Service Journey Model の実務的な使い方です。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>四半期ごとに Consumer Journey と Provider Journey を並べてレビューし、双方の「Concerns」が一致しているステップ(=優先改善ポイント)を特定する。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">Consumer/Provider Journey の懸念・アンチパターン(ITIL 5 Managing Professional Transition コース詳細)</a></li>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/service-journey-in-itil-5-the-complete-guide-to-customer-experience-and-digital-value/" target="_blank" rel="noopener">Service Journey の全体解説(PMG Academy)</a></li>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">ITIL Version 5 Foundation 定義ガイド(Service Journey 7段階の詳細)</a></li>
+          </ul>
+        </div>
+
+        <h3>6.4 Digital Experience Improvement(継続的な体験改善) ── BL2〜BL4</h3>
+        <h4>notice – interpret – hypothesize – experiment ループ(Assessment Criteria 4.5.1、BL3:適用)</h4>
+        <h4>定義</h4>
+        <p>ITIL Continual Improvement Model の中で、Experience に特化した4段階の改善ループ。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_IMPROVEMENT_LOOP" />
+          </div>
+          <div class="diagram-caption">notice–interpret–hypothesize–experiment の4段階改善ループ</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>フェーズ</th><th>内容</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Notice</td><td>体験シグナル(5章のEvidence)に気づく</td><td>「サポートチケットのトーンが最近ネガティブに偏っている」ことに気づく</td></tr>
+              <tr><td>Interpret</td><td>シグナルを解釈し、意味づけする</td><td>「Onboard段階の説明不足が原因ではないか」と解釈する</td></tr>
+              <tr><td>Hypothesize</td><td>改善のための仮説を立てる</td><td>「オンボーディング資料を動画化すれば理解度が上がるはず」という仮説</td></tr>
+              <tr><td>Experiment</td><td>小さな範囲で実験し、結果を Notice に戻す</td><td>一部の新規顧客にのみ動画版資料を提供し、反応を比較する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>「Improvements by the system」vs「Improvements to the system」(Assessment Criteria 4.5.2、BL4:差別化)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>種類</th><th>定義</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>Improvements <strong>by</strong> the system</td><td>システム(AIなど)自身が自律的・継続的に行う改善</td><td>AIがサポートチケットの分類精度を利用データから自動的に学習・向上させる</td></tr>
+              <tr><td>Improvements <strong>to</strong> the system</td><td>人間が意図的にシステムへ加える改善</td><td>開発チームがオンボーディングフローのUIを再設計する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p><strong>試験対策メモ:</strong>この対比(by the system / to the system)は BL4 のため、単なる用語暗記ではなく「このシナリオはどちらに該当するか判定させる」設問が出やすい重要ポイントです。</p>
+        </div>
+
+        <h4>Trust と Psychological Safety(心理的安全性)の役割(Assessment Criteria 4.5.3、BL2)</h4>
+        <p>Experience 改善を組織で継続するには、<strong>改善提案をした人が非難されない心理的安全性</strong> が不可欠です。心理的安全性が低い組織では、Notice(気づき)の段階でネガティブなシグナルが報告されず、改善ループそのものが機能しません。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>ベストプラクティス:</strong>Reflect(6.2節)のセッションを「誰の責任か」を問う場ではなく、「次に何を試すか」を決める場として明示的に運営する(心理的安全性の担保)。</li>
+            <li><strong>アンチパターン:</strong>体験指標が悪化した際に、担当者個人を名指しで追及する会議運営を行い、以後ネガティブなシグナル報告が減少する。</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake/" target="_blank" rel="noopener">継続的改善ループとTrust/Psychological Safetyの解説(edutrainings コース概要)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 07. ITIL and AI ===================== -->
