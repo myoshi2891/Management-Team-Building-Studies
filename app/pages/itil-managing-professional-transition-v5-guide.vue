@@ -229,27 +229,31 @@ class C1,C2,C3,C4,C5,C6 box;`;
 </script>
 
 <template>
-  <div class="guide-layout">
+  <div class="layout">
+    <div
+      v-if="sidebarOpen"
+      class="sidebar-overlay"
+      aria-hidden="true"
+      @click="closeSidebar"
+    />
+
     <button
       ref="sidebarToggle"
       type="button"
       class="sidebar-toggle"
+      data-testid="sidebar-toggle"
       aria-label="目次を開閉する"
-      :aria-expanded="sidebarOpen"
+      aria-controls="sidebar"
+      :aria-expanded="sidebarOpen ? 'true' : 'false'"
       @click="sidebarOpen = !sidebarOpen"
     >
-      <Icon name="tabler:menu-2" />
+      <Icon name="tabler:menu-2" aria-hidden="true" />
     </button>
 
-    <div
-      v-if="sidebarOpen"
-      class="sidebar-backdrop"
-      @click="closeSidebar"
-    />
-
     <nav
+      id="sidebar"
       class="sidebar"
-      :class="{ 'is-open': sidebarOpen }"
+      :class="{ open: sidebarOpen }"
       aria-label="目次"
     >
       <div class="sidebar-brand">
@@ -259,7 +263,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
           <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <div class="brand-text">
-          <div class="brand-title">ITIL® MPT (V5) 完全ガイド</div>
+          <div class="brand-title">ITIL® MPT (Version 5)</div>
           <div class="brand-subtitle">Managing Professional Transition</div>
         </div>
       </div>
@@ -1540,26 +1544,22 @@ class C1,C2,C3,C4,C5,C6 box;`;
 </template>
 
 <style scoped>
-.guide-layout {
-  display: flex;
-  min-height: calc(100vh - var(--global-nav-height));
-  background: var(--color-paper);
+.layout {
+  display: block;
 }
 
-.sidebar-toggle {
-  display: none;
-}
-
+/* ===================== Sidebar ===================== */
 .sidebar {
-  position: sticky;
+  position: fixed;
   top: var(--global-nav-height);
+  left: 0;
   width: var(--sidebar-width);
   height: calc(100vh - var(--global-nav-height));
   overflow-y: auto;
   background: var(--color-paper-raised);
   border-right: 1px solid var(--color-border);
-  padding: 32px 20px 40px;
-  flex-shrink: 0;
+  padding: 32px 24px 40px;
+  z-index: 20;
 }
 
 .sidebar-brand {
@@ -1567,7 +1567,6 @@ class C1,C2,C3,C4,C5,C6 box;`;
   align-items: center;
   gap: 12px;
   margin-bottom: 28px;
-  padding: 0 8px;
 }
 
 .seal {
@@ -1579,8 +1578,9 @@ class C1,C2,C3,C4,C5,C6 box;`;
 .brand-text .brand-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 17px;
+  font-size: 19px;
   color: var(--color-ink);
+  letter-spacing: 0.02em;
   line-height: 1.3;
 }
 
@@ -1610,11 +1610,21 @@ class C1,C2,C3,C4,C5,C6 box;`;
   font-size: 15px;
   line-height: 1.4;
   text-decoration: none;
+  border-left: 2px solid transparent;
   transition: all 0.15s ease;
 }
 
+.sidebar-nav a :deep(svg),
+.sidebar-nav a :deep(.iconify),
+.sidebar-nav a i {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
 .sidebar-nav a:hover {
-  background: var(--color-paper-sunken);
+  background: var(--color-indigo-tint);
+  text-decoration: none;
   color: var(--color-indigo);
 }
 
@@ -1622,40 +1632,74 @@ class C1,C2,C3,C4,C5,C6 box;`;
   background: var(--color-indigo-tint);
   color: var(--color-indigo);
   font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
 }
 
+.sidebar-nav a.active :deep(svg),
+.sidebar-nav a.active :deep(.iconify),
+.sidebar-nav a.active i {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* ===================== Main content ===================== */
 .main-content {
-  flex: 1;
-  min-width: 0;
-  padding: 48px 48px 80px;
-  max-width: 900px;
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
 }
 
 .hero {
-  margin-bottom: 48px;
-  padding-bottom: 32px;
+  margin-bottom: 56px;
+  padding-bottom: 40px;
   border-bottom: 1px solid var(--color-border);
 }
 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 16px;
   font-weight: 600;
-  color: var(--color-indigo);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(svg),
+.hero-eyebrow :deep(.iconify),
+.hero-eyebrow i {
+  font-size: 17px;
 }
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: 32px;
   font-weight: 700;
-  color: var(--color-ink);
-  line-height: 1.3;
+  font-size: 42px;
+  line-height: 1.28;
   margin: 0 0 16px;
+  color: var(--color-ink);
 }
 
 .hero-lede {
@@ -1667,7 +1711,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
   margin-bottom: 28px;
 }
@@ -1878,7 +1922,8 @@ footer {
   padding-top: 32px;
   border-top: 1px solid var(--color-border);
   color: var(--color-ink-faint);
-  font-size: 14px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 code {
@@ -2000,47 +2045,33 @@ code {
 @media (max-width: 980px) {
   .sidebar-toggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--color-indigo);
-    color: #fff;
-    border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 100;
-    cursor: pointer;
-    font-size: 24px;
   }
 
   .sidebar {
-    position: fixed;
-    top: var(--global-nav-height);
-    left: 0;
-    width: 280px;
-    height: calc(100vh - var(--global-nav-height));
-    z-index: 90;
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
   }
 
+  .sidebar.open,
   .sidebar.is-open {
     transform: translateX(0);
+    visibility: visible;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
 
-  .sidebar-backdrop {
+  .sidebar-overlay {
+    display: block;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 80;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 15;
   }
 
   .main-content {
-    padding: 32px 20px 60px;
+    margin-left: 0;
+    padding: 32px 20px 80px;
   }
 }
 </style>
