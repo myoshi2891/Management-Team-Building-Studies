@@ -130,7 +130,7 @@
       }
       .stat-row {
         display: grid;
-        grid-template-columns: repeat(4, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
         gap: 16px;
         margin: 24px 0;
       }
@@ -1867,7 +1867,7 @@ SG["Sponsoring Group スポンサリンググループ  戦略的な投資判断
 SRO["Senior Responsible Owner  SRO プログラム全体の説明責任を負う 単一の説明責任者 Accountable Owner"]
 PB["Programme Board プログラムボード  SROの意思決定を支援"]
 PM["Programme Manager プログラムマネージャー  日常運営・プロジェクト群の統合"]
-BCM["Business Change Manager s ビジネスチェンジマネージャー  ベネフィット実現・業務側の変革"]
+BCM["Business Change Manager(s) ビジネスチェンジマネージャー  ベネフィット実現・業務側の変革"]
 PO["Programme Office プログラムオフィス  情報管理・支援機能"]
 PROJ["構成プロジェクト群 Constituent Projects"]
 
@@ -1901,7 +1901,8 @@ P2 --> P3["③ Plan Progressive Delivery 段階的デリバリーを計画する
 P3 --> P4["④ Deliver the Capabilities ケイパビリティを提供する"]
 P4 --> P5["⑤ Embed the Outcomes 成果を定着させる"]
 P5 --> P6["⑥ Evaluate New Information 新しい情報を評価する"]
-P6 -->|"継続: 次のトランシェへ"| P2
+P6 -->|"継続: 次のトランシェへ"| P3
+P6 -.->|"設計見直し"| P2
 P6 -->|"完了/中止判断"| P7["⑦ Close the Programme プログラムを終結する"]
 P7 --> END(["プログラム終了 運用への完全移行"])
 
@@ -1993,7 +1994,13 @@ class P7 done`,
               var w = s.classList.contains("open");
               s.classList.remove("open");
               t.setAttribute("aria-expanded", "false");
-              if (w) t.focus();
+              if (!w) return;
+              var id = decodeURIComponent((a.getAttribute("href") || "").slice(1)),
+                sec = id && document.getElementById(id);
+              if (!sec) return;
+              if (!sec.hasAttribute("tabindex")) sec.setAttribute("tabindex", "-1");
+              // 既定のアンカースクロールを妨げないよう preventScroll を指定
+              sec.focus({ preventScroll: true });
             });
           });
         }
