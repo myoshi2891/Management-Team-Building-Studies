@@ -112,6 +112,49 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class Discover,Design,Acquire,Build box;
 class Transition,Operate hub;
 class Deliver,Support done;`;
+
+const DIAGRAM_VALUE_SYSTEM_OVERVIEW = `flowchart TB
+subgraph SVS["ITIL Value System ITIL VS"]
+GP["Guiding Principles 指導原則 7項目"]
+GOV["Governance ガバナンス"]
+VC["Value Chain バリューチェーン 8活動"]
+MP["Management Practices マネジメントプラクティス 34"]
+CI["Continual Improvement 継続的改善 7ステップ"]
+GOV --> VC
+GP -.->|"適用"| VC
+MP -.->|"支援"| VC
+CI -.->|"改善"| VC
+end
+Opportunity["需要・機会 Opportunity Demand"] --> SVS
+SVS --> Value["価値 Value"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class GP,GOV,MP,CI box;
+class VC hub;
+class Opportunity,Value done;`;
+
+const DIAGRAM_MANAGEMENT_PRACTICES_SPLIT = `flowchart TB
+MP["34 Management Practices マネジメントプラクティス"]
+G["General Management Practices 汎用マネジメントプラクティス 12"]
+PS["Product and Service Management Practices 製品・サービスマネジメントプラクティス 22"]
+MP --> G
+MP --> PS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class MP hub;
+class G,PS box;`;
+
+const DIAGRAM_CONTINUAL_IMPROVEMENT_LOOP = `flowchart LR
+V["1. ビジョンは何か？ What is the vision?"] --> W1["2. 現在地は？ Where are we now?"]
+W1 --> W2["3. どこを目指すか？ Where do we want to be?"]
+W2 --> H["4. どう到達するか？ How do we get there?"]
+H --> A["5. 行動する Take action"]
+A --> D["6. 到達したか？ Did we get there?"]
+D --> M["7. モメンタムの維持 Keep the momentum going"]
+M -.->|"繰り返す"| V
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+class V,W1,W2,H,A,D,M box;`;
 </script>
 
 <template>
@@ -523,6 +566,160 @@ class Deliver,Support done;`;
           <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
           <ul>
             <li><strong>Supportをフィードバックループの起点にする。</strong>インシデント対応で得られた知見(根本原因、再発防止策)をナレッジベースに残すだけで終わらせず、定期的にDiscover・Designの担当チームへ共有する仕組み(例: 月次の振り返り会)を作ると、同じ問題の再発を未然に防げます。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 06: 第4章 ITILバリューシステム ===================== -->
+      <section id="value-system" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 06</div>
+        <h2>第4章: ITIL バリューシステム(配点40% / 16点)</h2>
+
+        <p>本章はシラバス最大の配点(40%)を占める、試験合格のカギとなる章です。5つの構成要素(指導原則、ガバナンス、バリューチェーン、マネジメントプラクティス、継続的改善)を順に見ていきます。</p>
+
+        <h3>4-1. ITIL Value System(ITIL VS)の全体像</h3>
+        <p><strong>ITIL Value System(ITILバリューシステム)</strong>とは、組織が需要・機会を価値に変換するために、全ての構成要素を統合的に機能させる仕組みです。5つの要素が相互に作用し合います。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_VALUE_SYSTEM_OVERVIEW" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">ITIL Value Systemを構成する5要素の関係</div>
+        </div>
+
+        <h3>4-2. ITIL Guiding Principles(指導原則) &mdash; 7項目</h3>
+        <p>指導原則はITIL 4から<strong>変更なし</strong>で7項目が継承されています [9]。どんな状況・組織にも普遍的に適用できる推奨事項であり、意思決定の指針として機能します。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>原則</th><th>何を意味するか</th><th>実務での使いどころ</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Focus on value(価値に焦点を当てる)</strong></td><td>すべての活動を、最終的にステークホルダーへの価値提供に結びつける</td><td>施策着手前に「誰にとってどんな価値があるか」を必ず問う</td></tr>
+              <tr><td>2</td><td><strong>Start where you are(現在地から始める)</strong></td><td>ゼロから作り直さず、既存の資産・プロセス・データをまず評価し活用する</td><td>既存システムを安易に「全部作り直そう」としない</td></tr>
+              <tr><td>3</td><td><strong>Progress iteratively with feedback(フィードバックを伴う反復的な進化)</strong></td><td>大きく一気に変えるのではなく、小さく試してフィードバックを得ながら進める</td><td>MVP(最小限の実行可能な製品)でまず試す</td></tr>
+              <tr><td>4</td><td><strong>Collaborate and promote visibility(協働し可視性を高める)</strong></td><td>部門横断で協力し、進捗や意思決定を透明にする</td><td>ステークホルダーを巻き込んだ共同レビューを定例化する</td></tr>
+              <tr><td>5</td><td><strong>Think and work holistically(全体思考で取り組む)</strong></td><td>個別最適ではなく、組織全体・エンドツーエンドでの結果を意識する</td><td>第2章の4つの側面を用いて影響範囲を点検する</td></tr>
+              <tr><td>6</td><td><strong>Keep it simple and practical(シンプルかつ実践的に)</strong></td><td>常に価値を生み出す最小限の手順を目指し、複雑さを避ける</td><td>プロセスに不要なステップが残っていないか定期的に棚卸しする</td></tr>
+              <tr><td>7</td><td><strong>Optimize and automate(最適化と自動化)</strong></td><td>手作業を減らす前に、まずプロセス自体を最適化し、その上で自動化する</td><td>「自動化する前に、そもそもそのステップは必要か」を問う</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>すべての原則は<strong>相互に関連</strong>しており、状況に応じて重み付けを変えながら組み合わせて使うことが重要とされています。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>原則同士のトレードオフを意識する。</strong>「Progress iteratively」を優先しすぎると意思決定が遅くなり「Keep it simple」と衝突することがあります。逆に「Optimize and automate」を急ぎすぎると「Start where you are」を無視した過剰投資になりがちです。プロジェクトのキックオフ時に、どの原則を最優先するかをチームで合意しておくと、後々の判断がぶれません。</li>
+          </ul>
+        </div>
+
+        <h3>4-3. Governance(ガバナンス)</h3>
+        <p><strong>Governance(ガバナンス)</strong>とは、組織を評価し、方向づけ、監視する活動のことです。ITIL VSの中で、組織の意思決定の枠組みを提供する「イネーブラー(enabler)」として機能します。</p>
+        <ul>
+          <li>ガバナンスは組織の最上位(取締役会・経営層)で行われ、方針・優先順位を定めます。</li>
+          <li>具体的な活動として「Evaluate(評価)」「Direct(指示)」「Monitor(監視)」のサイクルがあります。</li>
+          <li>ガバナンスが有効に機能して初めて、バリューチェーン活動やマネジメントプラクティスが組織戦略と整合して動きます。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>ガバナンスを「監視」だけで終わらせない。</strong>ガバナンスは規制や統制のイメージが強いですが、本質は組織を正しい方向へ導く「イネーブラー」です。監視結果を次の方針決定(Direct)に確実にフィードバックする仕組みを持つことで、形骸化を防げます。</li>
+          </ul>
+        </div>
+
+        <h3>4-4. Value Chain(バリューチェーン)</h3>
+        <p>Version 5では、<strong>Value chain(バリューチェーン)は第3章で学んだPSLMの8活動そのもの</strong>として再定義されています [2] [7]。各活動には、その活動を理解する上でカギとなる用語が紐づいています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>バリューチェーン活動</th><th>カギとなる用語</th><th>用語の意味</th></tr></thead>
+            <tbody>
+              <tr><td rowspan="2"><strong>Design</strong></td><td>Product specification(製品仕様)</td><td>製品が満たすべき要件を定義した文書</td></tr>
+              <tr><td>Product prototype(製品プロトタイプ)</td><td>検証目的で作成される試作版</td></tr>
+              <tr><td rowspan="2"><strong>Build</strong></td><td>Continuous integration(継続的インテグレーション)</td><td>コード変更を頻繁に統合し自動テストする手法</td></tr>
+              <tr><td>Continuous delivery / deployment(継続的デリバリー/デプロイメント)</td><td>ビルド成果物をいつでもリリース可能・自動リリース可能にする手法</td></tr>
+              <tr><td rowspan="2"><strong>Transition</strong></td><td>Release(リリース)</td><td>本番環境で利用可能になる、1つ以上の変更の集合</td></tr>
+              <tr><td>Test(テスト)</td><td>ソリューションが要件を満たすかを検証する活動</td></tr>
+              <tr><td rowspan="5"><strong>Operate</strong></td><td>Incident(インシデント)</td><td>サービスの計画外の中断、または品質低下</td></tr>
+              <tr><td>Event(イベント)</td><td>サービスマネジメント上で意味を持つ状態変化</td></tr>
+              <tr><td>Reliability(信頼性)</td><td>意図した機能を継続して正しく実行できる度合い</td></tr>
+              <tr><td>SRE(Site Reliability Engineering)</td><td>ソフトウェア工学の手法を運用に適用し信頼性を高めるアプローチ</td></tr>
+              <tr><td>Observability(可観測性)</td><td>システムの内部状態を外部出力から推測できる度合い</td></tr>
+              <tr><td><strong>Deliver</strong></td><td>Service request(サービスリクエスト)</td><td>利用者からの、あらかじめ合意された定型サービスの依頼</td></tr>
+              <tr><td rowspan="4"><strong>Support</strong></td><td>Disaster(災害)</td><td>事業継続に深刻な影響を及ぼす重大な障害</td></tr>
+              <tr><td>Problem(問題)</td><td>1件以上のインシデントの原因、またはその可能性</td></tr>
+              <tr><td>Error(エラー)</td><td>設計・実装上の不備</td></tr>
+              <tr><td>Known error(既知のエラー)</td><td>原因が特定済みで、恒久対策が未実施の問題</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>さらに、バリューチェーン全体を支える概念として<strong>Operating model(オペレーティングモデル)</strong>があります。これは組織の目的達成のために、リソース・活動・パートナー・供給者をどのように配置・連携させるかを定めたモデルです。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>ProblemとKnown Errorを混同しない。</strong>ProblemはまだIncidentの根本原因が「未特定」の状態を含みますが、Known Errorは原因が特定済みで暫定対処法まで判明している状態です。この区別を明確にすることで、Problem Management(問題管理)のワークフローの進捗が可視化しやすくなります。</li>
+          </ul>
+        </div>
+
+        <h3>4-5. Management Practices(マネジメントプラクティス)</h3>
+        <p><strong>Management practice(マネジメントプラクティス)</strong>とは、特定の目的を達成するために組織化されたリソース群のことです。ITIL 4では「General/Service/Technical」の3分類・34項目でしたが、Version 5では<strong>Technical分類が廃止</strong>され、以下の<strong>2分類・34項目</strong>に整理されました [3] [4]。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_MANAGEMENT_PRACTICES_SPLIT" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">34のマネジメントプラクティスの2分類</div>
+        </div>
+
+        <ul>
+          <li><strong>General management practices(汎用マネジメントプラクティス/12項目)</strong>: 一般的な事業経営の領域からサービス管理向けに適用・調整されたプラクティス。</li>
+          <li><strong>Product and service management practices(製品・サービスマネジメントプラクティス/22項目)</strong>: ITIL 4の「Service」17項目と「Technical」3項目を統合し、さらにVersion 5で情報セキュリティ管理とサービス財務管理をこちらへ移動した結果、22項目になりました。</li>
+        </ul>
+        <p>(全34項目の一覧は<a href="#management-practices">付録B</a>を参照してください)</p>
+        <p>ITIL Practice Guide(各プラクティスの公式ガイド)は、一貫した構造(目的、価値のある成果、活動、ロール、バリューチェーンとの関係)で整理されており、組織間で共通言語として使えることが最大の利点です。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>全34項目を丸暗記しようとしない。</strong>Foundationレベルで問われるのは各プラクティスの「目的(Purpose)」レベルの理解までです。丸暗記より、「このプラクティスはPSLMのどの活動に最も貢献するか」という関連づけで覚えると記憶に定着しやすく、実務にも応用できます。</li>
+          </ul>
+        </div>
+
+        <h3>4-6. ITIL Continual Improvement Model(継続的改善モデル)</h3>
+        <p>ITILバリューシステムを貫く最後の要素が、<strong>継続的改善モデル</strong>です。7つのステップから成る循環型のモデルで、組織のあらゆるレベル・あらゆる活動に適用できます。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_CONTINUAL_IMPROVEMENT_LOOP" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">継続的改善モデルの7ステップループ</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ステップ</th><th>問いかけ</th><th>実務での主なアウトプット</th></tr></thead>
+            <tbody>
+              <tr><td>1. ビジョン</td><td>大きな方向性は何か</td><td>経営戦略・組織のミッションとの整合確認</td></tr>
+              <tr><td>2. 現在地</td><td>現状はどうなっているか</td><td>現状分析、ベースライン測定</td></tr>
+              <tr><td>3. 目指す姿</td><td>具体的な目標はどこか</td><td>測定可能な改善目標の設定</td></tr>
+              <tr><td>4. 到達方法</td><td>どんな計画で進むか</td><td>改善計画、優先順位付け</td></tr>
+              <tr><td>5. 行動</td><td>計画を実行する</td><td>改善施策の実施</td></tr>
+              <tr><td>6. 到達確認</td><td>目標を達成したか</td><td>効果測定、KPI評価</td></tr>
+              <tr><td>7. モメンタム維持</td><td>成果をどう定着させるか</td><td>次サイクルへの接続、成功の共有</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>小さく回して大きく育てる。</strong>7ステップを一度に大きなプロジェクトとして回そうとすると停滞しがちです。小さな改善サイクルを高速に回し(例: 2週間スプリント単位)、成功体験を積み重ねながらステップ7の「モメンタム維持」につなげるのが実践的です。</li>
           </ul>
         </div>
       </section>
