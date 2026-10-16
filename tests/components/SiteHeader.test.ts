@@ -166,6 +166,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
       "/certifications/pmi",
       "/certifications/scrum-alliance",
       "/certifications/scrum-org",
+      "/certifications/peoplecert",
       "/certifications",
       "/books/management",
       "/books/leadership",
@@ -248,6 +249,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "true",
+      undefined,
       undefined,
       undefined,
       undefined,
