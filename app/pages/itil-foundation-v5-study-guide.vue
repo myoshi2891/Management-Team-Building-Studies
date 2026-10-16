@@ -34,6 +34,21 @@ function closeSidebar(): void {
 }
 
 const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
+
+const DIAGRAM_EXAM_BLUEPRINT = `flowchart LR
+subgraph Exam["ITIL Foundation V5 試験 40問"]
+C1["Cat.1 用語と定義 30% 12点"]
+C4["Cat.4 Value System 40% 16点"]
+C2["Cat.2 4つの側面 10% 4点"]
+C3["Cat.3 ライフサイクル 10% 4点"]
+C5["Cat.5 バリューストリーム 5% 2点"]
+C6["Cat.6 AI 2.5% 1点"]
+C7["Cat.7 他フレームワーク 2.5% 1点"]
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class C2,C3,C5,C6,C7 box;
+class C1,C4 hub;`;
 </script>
 
 <template>
@@ -108,6 +123,89 @@ const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
           <span>本ガイドは公開情報をもとに作成した非公式の学習補助教材です。ITIL Foundation (Version 5) は2026年2月にリリースされたばかりの新しい認定のため、試験直前には必ず<a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-5-foundation-version-50-4154" target="_blank" rel="noopener">PeopleCert公式サイト</a>で最新情報をご確認ください。</span>
         </div>
       </div>
+
+      <!-- ===================== SECTION 01: このガイドの使い方 ===================== -->
+      <section id="how-to-use" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 01</div>
+        <h2>このガイドの使い方</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>対象試験</td><td>ITIL&reg; Foundation (Version 5)(PeopleCert 認定)</td></tr>
+              <tr><td>出題形式</td><td>4択の客観式問題(Objective Test Question)</td></tr>
+              <tr><td>問題数</td><td>40問</td></tr>
+              <tr><td>試験時間</td><td>60分(非母国語受験者は+25% = 75分)</td></tr>
+              <tr><td>合格ライン</td><td>26/40(65%)、減点方式なし</td></tr>
+              <tr><td>教材の持ち込み</td><td>不可(クローズドブック)</td></tr>
+              <tr><td>出典</td><td>[1] [2]</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>学習の進め方(ステップ)</h4>
+        <ol>
+          <li><strong>第1章〜第7章</strong>はシラバスの7カテゴリーに1対1対応しています。配点の大きい章(特に第1章「主要用語」30%と第4章「ITIL Value System」40%)から着手すると効率的です。</li>
+          <li>各章末の<strong>「ベストプラクティス」</strong>ボックスは、実務でその概念をどう活かすかをまとめたものです。試験対策だけでなく、実務理解の定着にも役立ちます。</li>
+          <li>第8章の<strong>出題形式と学習計画</strong>を読んでから模擬問題に取り組むと、失点しやすいポイント(Negative問題・List問題など)を事前に把握できます。</li>
+          <li>巻末の<strong>付録</strong>には用語集とマネジメントプラクティス34項目の早見表を収録しています。試験直前の総復習に活用してください。</li>
+        </ol>
+      </section>
+
+      <!-- ===================== SECTION 02: 出題配点マップ ===================== -->
+      <section id="exam-blueprint" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 02</div>
+        <h2>出題配点マップ(全体像)</h2>
+
+        <p>まず全体の配点バランスを俯瞰しておきましょう。7カテゴリーの合計が40点満点です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>カテゴリー</th><th>配点比率</th><th>配点</th><th>本ガイドの章</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Key ITIL terms and definitions(主要なITIL用語と定義)</td><td>30.0%</td><td>12点</td><td>第1章</td></tr>
+              <tr><td>2</td><td>The ITIL Four Dimensions of Product and Service Management(4つの側面)</td><td>10.0%</td><td>4点</td><td>第2章</td></tr>
+              <tr><td>3</td><td>The ITIL Product and Service Lifecycle(製品・サービスライフサイクル)</td><td>10.0%</td><td>4点</td><td>第3章</td></tr>
+              <tr><td>4</td><td>The ITIL Value System(ITILバリューシステム)</td><td>40.0%</td><td>16点</td><td>第4章</td></tr>
+              <tr><td>5</td><td>Value stream identification, mapping, and management(バリューストリーム)</td><td>5.0%</td><td>2点</td><td>第5章</td></tr>
+              <tr><td>6</td><td>ITIL and AI(ITILとAI)</td><td>2.5%</td><td>1点</td><td>第6章</td></tr>
+              <tr><td>7</td><td>ITIL and other frameworks(他フレームワークとの関係)</td><td>2.5%</td><td>1点</td><td>第7章</td></tr>
+              <tr><td colspan="2"><strong>合計</strong></td><td><strong>100%</strong></td><td><strong>40点</strong></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>さらに、問題は思考レベル(Bloom's Level)別に<strong>BL1(想起)40% / BL2(理解)60%</strong>の比率で出題されます [2]。つまり単純な暗記だけでなく、「なぜそうなるのか」「どう使い分けるのか」を説明できるレベルの理解が過半数を占める、という点を意識して学習してください。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_EXAM_BLUEPRINT" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">7カテゴリーの配点バランス(Cat.1とCat.4で全体の70%を占める)</div>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" /><span data-testid="callout-label">補足</span></div>
+          <p><strong>ITIL 4からの主な変更点(参考情報)</strong><br>
+          ITIL Foundation (Version 5) は2026年2月12日にリリースされ、ITIL 4を土台にしつつ大きく進化しました。すでにITIL 4を保有している方は、変更点を押さえておくと学習効率が上がります。試験範囲そのものはあくまで本ガイドの7カテゴリーですが、混同しやすい旧知識を整理する目的で一覧化します [8] [9]。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>観点</th><th>ITIL 4</th><th>ITIL (Version 5)</th></tr></thead>
+              <tbody>
+                <tr><td>中核モデル</td><td>Service Value Chain(6活動: Plan, Improve, Engage, Design &amp; Transition, Obtain/Build, Deliver &amp; Support)</td><td>Product and Service Lifecycle Model(PSLM、8活動: Discover, Design, Acquire, Build, Transition, Operate, Deliver, Support)</td></tr>
+                <tr><td>マネジメントプラクティス</td><td>34(General 14 / Service 17 / Technical 3 の3分類)</td><td>34(General 12 / Product and Service 22 の2分類)</td></tr>
+                <tr><td>AI関連</td><td>明示的な記載なし</td><td>AI・AI Governance・ITIL AI Capability Model(6Cモデル)を新設</td></tr>
+                <tr><td>対象範囲</td><td>ITサービス管理が中心</td><td>デジタル製品・サービス管理全般に拡張</td></tr>
+                <tr><td>指導原則(Guiding Principles)</td><td>7項目</td><td>7項目(変更なし)</td></tr>
+                <tr><td>移行パス</td><td>&mdash;</td><td>ITIL 4保有者向けに「ITIL Foundation Bridge (Version 5)」を用意</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 </template>
