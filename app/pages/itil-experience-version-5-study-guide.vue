@@ -78,15 +78,120 @@ const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
       </div>
 
       <!-- ===================== 00. Overview ===================== -->
-      <section id="overview">
+      <section id="overview" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 00</div>
         <h2>この試験は何か ── 全体像をつかむ</h2>
+
+        <h3>0.1 定義</h3>
+        <p><strong>ITIL® Experience (Version 5)</strong> は、PeopleCert が認定する ITIL (Version 5) 資格体系の中の <strong>Managing Professional (MP) ストリーム</strong> を構成するモジュール資格の1つです。公式ページの説明では、次のように位置づけられています。</p>
+        <p><em>"ITIL Experience (Version 5) offers you the expertise you need to embed human-centered and AI-aware design across digital products and services."</em>(人間中心かつ AI を意識した設計を、デジタル製品・サービス全体に組み込む専門知識を提供する)</p>
+        <p>つまりこの資格は、「サービスが機能的に正しく動くこと」だけでなく、<strong>「そのサービスを使う人がどう感じ、どう信頼し、どう価値を認識するか」</strong> をマネジメントする専門知識を認定するものです。</p>
+
+        <h3>0.2 なぜこの資格が必要なのか(理由)</h3>
+        <ul>
+          <li>ITIL 4 までの ITSM フレームワークは「プロセスが正しく回っているか」に重点がありました。</li>
+          <li>ITIL (Version 5) は <strong>Digital Product and Service Management (DPSM)</strong> へと軸足を移し、AI ネイティブ化・プロダクト中心思考とあわせて、<strong>Experience(体験)を独立した管理対象</strong> として初めて体系化しました。</li>
+          <li>現代の SaaS・デジタルプロダクトでは、SLA を満たしていても「使いにくい」「信頼できない」と感じられれば解約・離反(チャーン)につながります。Experience を測定・改善できる人材が、Product Owner・Solutions Architect・Service Delivery Manager などの役割で高く評価されます。</li>
+        </ul>
+
+        <h3>0.3 対象者・前提資格・キャリアパス</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>対象者</td><td>デジタル製品・サービスを <strong>指揮・開発・提供</strong> する専門家。「機能的な成功だけでは不十分」と認識している人</td></tr>
+              <tr><td>前提資格(必須)</td><td>次のいずれか1つ:(1)任意の ITIL 4 資格(Foundation 以上) / (2) ITIL Foundation (Version 5) / (3) ITIL Foundation Bridge (Version 5)</td></tr>
+              <tr><td>学習形態要件</td><td>認定トレーニング機関(ATO)経由の研修、または ITIL Official eLearning の修了が必要(<strong>修了証明がないと結果が発表されない</strong>)</td></tr>
+              <tr><td>代表的なキャリアパス</td><td>Experience Lead / Solutions Architect / Product Owner / Business Relationship Manager / Digital Transformation Manager / AI Governance Manager / Integration Manager / IT Director / Chief Digital Officer</td></tr>
+              <tr><td>MP ストリームでの位置づけ</td><td>ITIL Experience / ITIL Product / ITIL Service / ITIL Transformation の4モジュールを揃えると ITIL Managing Professional の称号を取得できる</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>基礎を先に固める。</strong>ITIL Foundation (Version 5) をまだ取得していない場合は、先に ITIL VS・Four Dimensions・Guiding Principles・Product and Service Lifecycle などの基礎を固めてから本ガイドに進むこと。Experience の syllabus は Foundation の用語を前提に進みます。</li>
+          </ul>
+        </div>
+
+        <div class="callout source">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">PeopleCert 公式製品ページ</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-experience-version-5/" target="_blank" rel="noopener">前提資格の詳細(Oxford College of Technology)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 01. Exam Overview ===================== -->
-      <section id="exam-overview">
+      <section id="exam-overview" tabindex="-1">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 01</div>
         <h2>試験概要(Exam Overview)</h2>
+
+        <h3>1.1 試験形式</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>出題数</td><td>40問(各1点、減点方式なし)</td></tr>
+              <tr><td>試験時間</td><td>90分(母国語・業務言語以外で受験する場合は25%延長=113分)</td></tr>
+              <tr><td>出題形式</td><td>選択式(Objective Test Questions)</td></tr>
+              <tr><td>合格基準</td><td>70%(28/40 問)※後述の注記を参照</td></tr>
+              <tr><td>教材持ち込み</td><td><strong>オープンブック</strong>:ITIL® Experience (Version 5) Official Book のみ持ち込み可(書き込み可)。それ以外の教材は不可</td></tr>
+              <tr><td>シナリオ</td><td><strong>ITIL Car Rental Scenario</strong>(レンタカー事業)を題材とする。最低1問は Scenario の "Experience" パートを参照する必要がある</td></tr>
+              <tr><td>言語</td><td>英語・中国語・フランス語・イタリア語・ポーランド語・ポルトガル語(ブラジル)・スペイン語 など8言語</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note">
+          <div class="callout-title"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+          <p><strong>重要な注記(一次資料の透明性):</strong>2026年2月発行の公式シラバス(Version 5.0 PL=パイロット版)には、合格点・カテゴリ配点・Bloom's Level 配分がいずれも「TBC(To Be Confirmed)」と明記されています。一方で、現行の PeopleCert 公式製品ページでは合格ラインが 70% と明示されています。本ガイドは現行の製品ページの数値を採用しつつ、ベータ版シラバスの段階では数値が確定していなかった経緯を透明性のために残しています。受験直前は必ず PeopleCert 公式ページで最新の合格基準を確認してください。</p>
+        </div>
+
+        <h3>1.2 Bloom's Level(BL) ── 出題の「思考レベル」</h3>
+        <p>ITIL (Version 5) の試験は、単純暗記だけでなく「理解」「応用」「分析」まで問う設計になっています。各設問には次の4段階の Bloom's Level(BL)が割り当てられます。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>BL</th><th>動詞の例</th><th>求められる思考</th></tr></thead>
+            <tbody>
+              <tr><td>BL1</td><td>Define / Identify</td><td>用語や概念を <strong>思い出す</strong>(再認・再生)</td></tr>
+              <tr><td>BL2</td><td>Describe / Explain / Understand</td><td>概念を <strong>理解し説明できる</strong></td></tr>
+              <tr><td>BL3</td><td>Apply</td><td>実際のシナリオに概念を <strong>適用できる</strong></td></tr>
+              <tr><td>BL4</td><td>Analyse / Distinguish / Differentiate</td><td>情報を <strong>分析し、行動の妥当性を判断できる</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>ITIL Experience の syllabus では BL1〜BL4 すべてが使用され、多くの Assessment Criteria が <strong>BL2(理解)</strong> を基礎として設計されています。BL3(適用)と BL4(分析)は「Stakeholder role mapping」「経験の摩擦点の分析」「継続的改善ループの適用」などピンポイントで登場します。</p>
+
+        <h3>1.3 設問タイプ(4種類)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>タイプ</th><th>特徴</th></tr></thead>
+            <tbody>
+              <tr><td>Standard</td><td>設問文+選択肢4つから1つ選ぶ、最も一般的な形式</td></tr>
+              <tr><td>Negative</td><td>Standard 問題の設問文が否定形("NOT" など)になったもの。<strong>「やってはいけないこと」を問う学習目標がある場合のみ</strong> 例外的に使用</td></tr>
+              <tr><td>Missing word(s)</td><td>文中の空欄に当てはまる語句を4択から選ぶ</td></tr>
+              <tr><td>List</td><td>4つの記述のうち <strong>正しいものを2つ</strong> 選ぶ(例:「1と2」「2と3」など組み合わせで解答)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li><strong>試験対策:</strong>List 形式は「2つとも正しい組み合わせ」を選ぶため、消去法よりも各記述を個別に○×判定してから組み合わせを絞り込む方が正答率が上がる。Negative 形式は問題文をよく読み、「NOT」「除く」などの否定語を見落とさないこと。</li>
+          </ul>
+        </div>
+
+        <div class="callout source">
+          <div class="callout-title"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf" target="_blank" rel="noopener">公式シラバス PDF(Version 5.0 PL, February 2026)</a></li>
+            <li><a href="https://torque-it.com/product/itil-experience-version-5-including-exam/" target="_blank" rel="noopener">合格ライン・受講対象者(Torque IT)</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- ===================== 02. Foundations Refresh ===================== -->
