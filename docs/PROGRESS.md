@@ -1343,3 +1343,8 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   5. `feat(itil-mpt-v5): implement sections 6-7 (ai capability model, other frameworks)` (`e4c0231`)
   6. `feat(itil-mpt-v5): implement sections 8-10 (exam strategy, checklist, references)` (`2e0bc95`)
   7. `refactor(itil-mpt-v5): complete source parity and styling verification` (`fc56ab2`)
+  8. `style(itil-mpt-v5): expand main content to full width and unify sidebar and footer with standard guide design` (`6941f49`)
+- **レイアウト・デザインの標準化**:
+  - メインコンテンツの横幅制約（`max-width: 900px`）を撤廃し、画面いっぱいにフルワイド展開。
+  - サイドバーを `position: sticky` から `position: fixed`（標準ガイド仕様）に統一し、アクティブ項目の左ボーダーやアイコンカラー、レスポンシブ時のオーバーレイとトグルボタンを標準化。
+  - フッターを標準フォントサイズ・行間（`font-size: 15px; line-height: 1.6;`）に統一。
