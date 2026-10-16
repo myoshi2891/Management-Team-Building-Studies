@@ -155,6 +155,52 @@ D --> M["7. モメンタムの維持 Keep the momentum going"]
 M -.->|"繰り返す"| V
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
 class V,W1,W2,H,A,D,M box;`;
+
+const DIAGRAM_COMPLEXITY_THINKING = `flowchart TD
+Start["状況を評価する Confused 未確定の状態から出発"] --> Q1{"因果関係は明確か？"}
+Q1 -->|"明確・再現性が高い"| Ordered["Ordered 秩序だった状況"]
+Q1 -->|"事後にしか理解できない"| Complex["Complex 複雑な状況"]
+Q1 -->|"危機的・即応が必要"| Chaotic["Chaotic 混沌とした状況"]
+Ordered --> O1["Appraise Plan Do Study Act 定型手順に沿って実装"]
+Complex --> C1["Bound Design Run Examine Distil 範囲を区切り実験しながら発見"]
+Chaotic --> Ch1["まず行動して状況を安定化させる"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class Start,Q1,Chaotic,Ch1 box;
+class Complex,C1 hub;
+class Ordered,O1 done;`;
+
+const DIAGRAM_AI_CAPABILITY_MODEL = `flowchart TB
+AI["ITIL AI Capability Model 6Cモデル"]
+C1["Creation 創出"]
+C2["Curation 選別・整理"]
+C3["Clarification 明確化"]
+C4["Cognition 認知・分析"]
+C5["Communication 伝達"]
+C6["Coordination 調整"]
+AI --- C1
+AI --- C2
+AI --- C3
+AI --- C4
+AI --- C5
+AI --- C6
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class AI hub;
+class C1,C2,C3,C4,C5,C6 box;`;
+
+const DIAGRAM_ITIL_OTHER_FRAMEWORKS = `flowchart LR
+ITIL["ITIL Value System"] <--> DevOps["DevOps 高速なフロー・自動化文化"]
+ITIL <--> P2["PRINCE2 プロジェクトマネジメント手法"]
+DevOps -.->|"特に強く関連"| BuildOp["Build Transition Operate 活動"]
+P2 -.->|"特に強く関連"| Discover["Discover Design 活動 企画・立ち上げ局面"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class DevOps,P2 box;
+class ITIL hub;
+class BuildOp,Discover done;`;
 </script>
 
 <template>
@@ -720,6 +766,186 @@ class V,W1,W2,H,A,D,M box;`;
           <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
           <ul>
             <li><strong>小さく回して大きく育てる。</strong>7ステップを一度に大きなプロジェクトとして回そうとすると停滞しがちです。小さな改善サイクルを高速に回し(例: 2週間スプリント単位)、成功体験を積み重ねながらステップ7の「モメンタム維持」につなげるのが実践的です。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 07: 第5章 バリューストリーム ===================== -->
+      <section id="value-streams" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 07</div>
+        <h2>第5章: バリューストリームの特定・マッピング・マネジメント(配点5% / 2点)</h2>
+
+        <p>ITIL 4ではほとんど触れられていなかった<strong>バリューストリーム</strong>が、Version 5では独立したシラバスカテゴリーとして新設されました [10]。</p>
+
+        <h3>5-1. Value Stream(バリューストリーム)の基本定義</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>用語</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Value stream(バリューストリーム)</strong></td><td>特定の製品・サービスを消費者に届けるために組織が実行する一連のステップ</td></tr>
+              <tr><td><strong>Core value stream(コアバリューストリーム)</strong></td><td>外部の消費者に直接価値を届ける、エンドツーエンドのバリューストリーム</td></tr>
+              <tr><td><strong>Enabling value stream(イネーブリングバリューストリーム)</strong></td><td>コアバリューストリームを支える、主に組織内部向けのバリューストリーム(例: 人材採用、ツール調達)</td></tr>
+              <tr><td><strong>Value stream mapping(バリューストリームマッピング)</strong></td><td>現状のバリューストリームを可視化し、ムダや停滞を特定する分析手法</td></tr>
+              <tr><td><strong>Value stream management(バリューストリームマネジメント)</strong></td><td>マッピングで得た知見をもとに、継続的にバリューストリームを最適化していく活動</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5-2. Complexity Thinking(複雑性思考)</h3>
+        <p>Version 5で新たに導入された重要な概念が<strong>Complexity thinking(複雑性思考)</strong>です。すべての業務に同じ手順を機械的に適用するのではなく、状況の性質(因果関係がどれだけ明確か)に応じてアプローチを変えるという考え方です [6] [12]。</p>
+        <p>状況は大きく4つに分類されます。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_COMPLEXITY_THINKING" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">複雑性思考による4つの状況分類と推奨アプローチ</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>状況の種類</th><th>特徴</th><th>推奨アプローチ</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ordered(秩序だった状況)</strong></td><td>原因と結果の関係が明確で再現性が高い(例: パスワードリセット)</td><td>標準手順化し、忠実に実行する。<strong>Appraise &rarr; Plan &rarr; Do &rarr; Study &rarr; Act</strong></td></tr>
+              <tr><td><strong>Complex(複雑な状況)</strong></td><td>因果関係は事後にしか分からない(例: 新しいAI機能の開発)</td><td>小さく実験し、結果を見て方向を調整する。<strong>Bound &rarr; Design &rarr; Run &rarr; Examine &rarr; Distil</strong></td></tr>
+              <tr><td><strong>Chaotic(混沌とした状況)</strong></td><td>危機的で、行動と結果の関係が読めない(例: 基幹システムの全面障害)</td><td>まず行動して状況を安定化させることを最優先する</td></tr>
+              <tr><td><strong>Confused(未確定の状況)</strong></td><td>そもそも今どの状況にあるか自体が分かっていない出発点</td><td>まず状況を分類する作業自体から始める</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>全てのバリューストリームに同じ管理手法を強制しない。</strong>定型的な問い合わせ対応(Ordered)に、新規AI機能開発(Complex)と同じ厳格な計画・承認プロセスを課すと、スピードが致命的に落ちます。逆に危機対応(Chaotic)にじっくり計画を練る余裕はありません。バリューストリームごとに「これはどの状況に近いか」をまず判定してから、適したマネジメント手法を選びましょう。</li>
+          </ul>
+        </div>
+
+        <h3>5-3. Value Stream Mapping and Management の目的</h3>
+        <ul>
+          <li><strong>目的</strong>: バリューストリームを可視化することで、ボトルネック・ムダ・非付加価値活動を特定し、エンドツーエンドでの価値の流れを改善すること。</li>
+          <li>バリューストリームマップには通常、各ステップの所要時間、待ち時間、担当者、情報の流れが記載されます。</li>
+          <li>マッピングは「現状(As-Is)」の可視化にとどまらず、そこから継続的な「あるべき姿(To-Be)」への改善サイクル(マネジメント)へつなげることが重要です。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>バリューストリームマップは一度作って終わりにしない。</strong>マッピングは定点観測として定期的に(四半期ごとなど)更新しましょう。組織構造やツールが変わるとバリューストリームも変化するため、古いマップに基づいた改善は的外れになりがちです。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 08: 第6章 ITILとAI ===================== -->
+      <section id="itil-and-ai" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:file-text" aria-hidden="true" />SECTION 08</div>
+        <h2>第6章: ITILとAI(配点2.5% / 1点)</h2>
+
+        <p>配点は小さいものの、ITIL (Version 5) を象徴する新設カテゴリーです。AIをブラックボックス扱いせず、ITILの枠組みの中でどう位置づけ、どう統制するかを問う内容です [5] [11] [16]。</p>
+
+        <h3>6-1. 基本用語の定義</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>用語</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td><strong>AI(Artificial Intelligence/人工知能)</strong></td><td>人間の知的活動を模倣し、データからパターンを学習・推論・意思決定を行う技術の総称</td></tr>
+              <tr><td><strong>AI maturity(AI成熟度)</strong></td><td>組織がAIをどれだけ効果的かつ責任を持って活用できているかの段階</td></tr>
+              <tr><td><strong>GenAI(Generative AI/生成AI)</strong></td><td>テキスト・画像・コードなど新しいコンテンツを生成できるAI</td></tr>
+              <tr><td><strong>Agentic AI(エージェンティックAI)</strong></td><td>人間の逐次的な指示なしに、自律的に計画・判断・実行を行うAI</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>6-2. AIとPSLM・バリューチェーンの関係</h3>
+        <p>AIは特定の活動に限定されず、<strong>PSLM(第3章)の8活動すべて</strong>、そして<strong>バリューチェーン活動全体</strong>において、自動化・分析支援・意思決定支援の形で活用が広がっています。例えば:</p>
+        <ul>
+          <li><strong>Discover</strong>: 需要予測、市場トレンド分析の自動化</li>
+          <li><strong>Design</strong>: AIによる仕様案・プロトタイプ生成支援</li>
+          <li><strong>Build</strong>: AIコーディングアシスタントによる開発高速化</li>
+          <li><strong>Operate</strong>: 異常検知・予兆保全(Predictive Maintenance)</li>
+          <li><strong>Support</strong>: チャットボットによる一次対応、インシデント原因分析支援</li>
+        </ul>
+
+        <h3>6-3. AI Governance(AIガバナンス)</h3>
+        <p><strong>AI governance(AIガバナンス)</strong>とは、AIの活用が組織の目的・倫理原則・規制要件と整合するように、評価・指示・監視する仕組みです。第4章で学んだ「Governance(ガバナンス)」の考え方を、AI特有のリスク(バイアス、透明性の欠如、説明可能性など)に適用したものと理解すると整理しやすくなります。</p>
+
+        <h3>6-4. ITIL AI Capability Model(6Cモデル)</h3>
+        <p>AI活用の範囲・機能を体系的に理解するためのフレームワークが<strong>ITIL AI Capability Model(通称: 6Cモデル)</strong>です。AIソリューションが担う機能を6つのケイパビリティに分類し、ガバナンス上のリスクプロファイルや統制の設計に役立てます [16] [17]。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_AI_CAPABILITY_MODEL" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">ITIL AI Capability Model(6Cモデル)の6つのケイパビリティ</div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ケイパビリティ</th><th>機能の説明</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Creation(創出)</strong></td><td>新しいコンテンツ・成果物を生成する</td><td>AIによるコード生成、ドキュメント自動作成</td></tr>
+              <tr><td><strong>Curation(選別・整理)</strong></td><td>大量の情報を選別・分類・要約する</td><td>ナレッジベースの自動タグ付け</td></tr>
+              <tr><td><strong>Clarification(明確化)</strong></td><td>曖昧な要求・情報を明確化する</td><td>チャットボットによる要求のヒアリング</td></tr>
+              <tr><td><strong>Cognition(認知・分析)</strong></td><td>データからパターンを認識し、洞察を導く</td><td>異常検知、需要予測</td></tr>
+              <tr><td><strong>Communication(伝達)</strong></td><td>情報を関係者に分かりやすく伝える</td><td>自動レポート生成、通知の最適化</td></tr>
+              <tr><td><strong>Coordination(調整)</strong></td><td>複数の活動・エージェント間の調整を行う</td><td>ワークフローオーケストレーション、自律的なタスク割り当て</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>AIソリューション導入時は「どのCか」を明確にする。</strong>新しいAIツールを導入する前に、それが6つのうちどのケイパビリティ(あるいは複数の組み合わせ)を担うのかをチームで合意しましょう。Creation(生成)やCoordination(自律調整)を担うAIほど誤りの影響が大きくなりやすいため、人間によるレビュー(Human-in-the-loop)の要否をケイパビリティごとに設計すると、過不足のないガバナンスが実現できます。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== SECTION 09: 第7章 他FW ===================== -->
+      <section id="other-frameworks" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 09</div>
+        <h2>第7章: ITILと他フレームワークとの関係(配点2.5% / 1点)</h2>
+
+        <p>ITILは単独で完結するフレームワークではなく、他の実践知と補完し合う「統合レイヤー」としての性格を持ちます。Foundationレベルでは特に<strong>DevOps</strong>と<strong>PRINCE2</strong>との関係が問われます。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ITIL_OTHER_FRAMEWORKS" theme="base" />
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">ITILとDevOps・PRINCE2との補完関係</div>
+        </div>
+
+        <h3>7-1. ITIL と DevOps</h3>
+        <ul>
+          <li>DevOpsは開発(Dev)と運用(Ops)の間の壁を取り払い、<strong>高速なフロー・頻繁なリリース・自動化</strong>を重視する文化・実践の集合です。</li>
+          <li>ITILは「何を、なぜ管理するか(Value System全体の枠組み)」を提供し、DevOpsは「どう高速に実現するか(実践的な手法)」を提供する、補完的な関係にあります。</li>
+          <li>具体的には、第4章のバリューチェーンにおける<strong>Build・Transition・Operate</strong>の各活動は、CI/CD・自動テスト・モニタリングといったDevOpsのプラクティスと直接結びつきます。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>ITILとDevOpsを「対立」させない。</strong>「ITILは重厚なプロセス、DevOpsはスピード重視」という対立構造で捉えるのは誤解です。ITIL (Version 5) 自体がPSLMや指導原則(特に「Optimize and automate」)を通じてアジャイル・DevOps的な考え方を内包しています。両者を「なぜ(ITIL)」と「どう(DevOps)」の関係として位置づけ、組織のガバナンス要件とスピード要件を両立させましょう。</li>
+          </ul>
+        </div>
+
+        <h3>7-2. ITIL と PRINCE2(プロジェクトマネジメント)</h3>
+        <ul>
+          <li>サービス・製品の大きな変化(新規立ち上げ、大規模な変更)には、明確な開始・終了、予算、体制を持つ<strong>プロジェクト</strong>としての管理が必要になる場面があります。</li>
+          <li>PRINCE2はプロジェクトを体系的に管理する手法であり、ITILの<strong>Discover・Design</strong>局面で特に重要性が増します(新しい製品・サービスの企画・立ち上げ局面)。</li>
+          <li>ITILがプロジェクトの「アウトプット」をどう継続的な価値(アウトカム)につなげ、運用に移行するかを扱うのに対し、PRINCE2はプロジェクト自体の統制(スコープ・スケジュール・予算・リスク管理)を扱います。</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title"><Icon name="tabler:bulb" aria-hidden="true" /><span data-testid="callout-label">ベストプラクティス</span></div>
+          <ul>
+            <li><strong>プロジェクト完了後の「移行計画」を最初から用意する。</strong>PRINCE2で管理されたプロジェクトが完了しても、それだけではPSLMのTransition・Operateへの移行は自動的にはうまくいきません。プロジェクト計画の初期段階から、運用チームへの引き継ぎ基準(Definition of Done for Operations)を定義しておくことで、プロジェクト終了後の「谷間」を防げます。</li>
           </ul>
         </div>
       </section>
