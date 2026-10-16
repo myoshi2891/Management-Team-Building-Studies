@@ -286,7 +286,7 @@ class C1,C2,C3,C4,C5,C6 box;`,
 
 function normalizeMermaidSource(raw: string): string {
   const lines = raw.replace(/\r\n?/g, "\n").split("\n");
-  while (lines.length > 0 && lines[0].trim() === "") lines.shift();
+  while (lines.length > 0 && lines[0]?.trim() === "") lines.shift();
   while (lines.length > 0 && lines.at(-1)?.trim() === "") lines.pop();
   const indents = lines
     .filter((line) => line.trim().length > 0)
