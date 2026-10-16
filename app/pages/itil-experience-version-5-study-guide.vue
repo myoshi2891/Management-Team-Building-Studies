@@ -196,15 +196,19 @@ class C1,C2,C3,C4,C5,C6 box;`;
       </div>
 
       <ul class="sidebar-nav">
-        <li v-for="item in TOC_SECTIONS" :key="item.id">
-          <a
-            :href="`#${item.id}`"
-            :class="{ active: activeId === item.id }"
-            @click="closeSidebar"
-          >
-            {{ item.label }}
-          </a>
-        </li>
+        <li><a href="#overview" :class="{ active: activeId === 'overview' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />資格概要</a></li>
+        <li><a href="#exam-overview" :class="{ active: activeId === 'exam-overview' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />試験概要</a></li>
+        <li><a href="#foundations-refresh" :class="{ active: activeId === 'foundations-refresh' }" @click="closeSidebar"><Icon name="tabler:building-bank" aria-hidden="true" />基礎概念の復習</a></li>
+        <li><a href="#key-concepts" :class="{ active: activeId === 'key-concepts' }" @click="closeSidebar"><Icon name="tabler:brain" aria-hidden="true" />Experienceの主要概念</a></li>
+        <li><a href="#experience-framework" :class="{ active: activeId === 'experience-framework' }" @click="closeSidebar"><Icon name="tabler:users" aria-hidden="true" />体験のフレームワーク</a></li>
+        <li><a href="#capturing-experience" :class="{ active: activeId === 'capturing-experience' }" @click="closeSidebar"><Icon name="tabler:clipboard-text" aria-hidden="true" />体験の捕捉</a></li>
+        <li><a href="#service-journey" :class="{ active: activeId === 'service-journey' }" @click="closeSidebar"><Icon name="tabler:route" aria-hidden="true" />サービスジャーニー</a></li>
+        <li><a href="#itil-and-ai" :class="{ active: activeId === 'itil-and-ai' }" @click="closeSidebar"><Icon name="tabler:robot" aria-hidden="true" />ITILとAI</a></li>
+        <li><a href="#related-frameworks" :class="{ active: activeId === 'related-frameworks' }" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />他フレームワークとの連携</a></li>
+        <li><a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar"><Icon name="tabler:table" aria-hidden="true" />ベストプラクティス総まとめ</a></li>
+        <li><a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" @click="closeSidebar"><Icon name="tabler:flag-3" aria-hidden="true" />試験対策のポイント</a></li>
+        <li><a href="#glossary" :class="{ active: activeId === 'glossary' }" @click="closeSidebar"><Icon name="tabler:book-2" aria-hidden="true" />用語集</a></li>
+        <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />参考文献・ソース</a></li>
       </ul>
     </nav>
 
