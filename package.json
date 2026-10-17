@@ -85,7 +85,8 @@
     "audit:itil-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-experience-version-5-study-guide/Itil-experience-version-5-study-guide.html app/pages/itil-experience-version-5-study-guide.vue",
     "audit:itil-foundation-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-foundation-v5-study-guide/Itil-foundation-v5-study-guide.html app/pages/itil-foundation-v5-study-guide.vue",
     "audit:itil-mpt-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-managing-professional-transition-v5-guide/Itil-managing-professional-transition-v5-guide.html app/pages/itil-managing-professional-transition-v5-guide.vue",
-    "audit:itil-product-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-product-version5-guide/Itil-product-version5-guide.html app/pages/itil-product-version5-guide.vue"
+    "audit:itil-product-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-product-version5-guide/Itil-product-version5-guide.html app/pages/itil-product-version5-guide.vue",
+    "audit:itil-service-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-service-v5-guide/Itil-service-v5-guide.html app/pages/itil-service-v5-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
