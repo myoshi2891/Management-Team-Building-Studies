@@ -394,6 +394,6 @@ describe("pages/mop-foundation-guide.vue (固有契約)", () => {
     const wrapper = mountPage();
     const footer = wrapper.find("footer");
     expect(footer.exists()).toBe(true);
-    expect(footer.text()).toContain("AXELOS Limitedの登録商標");
+    expect(footer.text()).toContain("PeopleCert groupの登録商標");
   });
 });

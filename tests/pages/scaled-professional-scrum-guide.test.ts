@@ -128,7 +128,6 @@ const EXPECTED_CALLOUT_LABELS = {
 const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrum.org/resources/online-nexus-guide",
   "https://www.scrum.org/assessments/scaled-professional-scrum-certification",
-  "https://scrum-exams.info/sps/",
   "https://www.scrum.org/professional-scrum-competencies",
   "https://scrumorg-website-prod.s3.amazonaws.com/drupal/2021-01/NexusGuide%202021_0.pdf",
   "https://www.scrum.org/resources/scaling-scrum",
@@ -144,7 +143,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.scrum.org/resources/nexus-guide-change-history",
   "https://www.scrum.org/forum/scrum-forum/35030/nexus-questions-cross-team-dependencies-and-po-availabilities",
   "https://www.scrum.org/forum/scrum-forum/8731/nexus-refinement-meetings-and-estimates",
-  "https://prepforscrum.com/scaling-scrum-frameworks-less-safe-nexus-scrum-at-scale/",
   "https://www.scrum-tips.com/agile/nexus-scaling-scrum-framework/",
   "https://www.scrum.org/courses/scaled-professional-scrum-nexus-training",
   "https://www.scrum.org/professional-scrum-certifications",
@@ -225,8 +223,8 @@ describe("pages/scaled-professional-scrum-guide.vue — 個別仕様契約", () 
     expect(wrapper.findAll(".ref-group")).toHaveLength(2);
   });
 
-  it("参考文献リストが適切な件数（27件）存在する", () => {
+  it("参考文献リストが適切な件数（25件）存在する", () => {
     const wrapper = mountPage();
-    expect(wrapper.findAll(".ref-list li")).toHaveLength(27);
+    expect(wrapper.findAll(".ref-list li")).toHaveLength(25);
   });
 });

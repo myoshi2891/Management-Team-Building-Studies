@@ -102,15 +102,12 @@ const EXPECTED_SECTION_EYEBROWS = [
 
 const EXPECTED_EXTERNAL_URLS = [
   "https://agilepmhub.com/itil-ai-governance",
-  "https://certempire.com/itil-foundation-v5-guide/",
   "https://community.peoplecert.org/public/clubs/itil/blogs/itil-version-5-a-value-stream-perspective",
   "https://fasttracklearningsolutions.com/wp-content/uploads/2026/02/ITIL_Version5_Foundation_Syllabus_v5.0.pdf",
   "https://governancedocs.com/itil-5-practices/",
   "https://itecor.com/a-new-itil-so-what/",
   "https://itsm.tools/itil-version-5-management-practices/",
   "https://itsm.tools/itil-version-5-vs-itil-4-key-changes/",
-  "https://open-exam-prep.com/blog/itil-4-foundation-v5-exam-guide-2026",
-  "https://www.certshero.com/peoplecert/itil-5-foundation/practice-test",
   "https://www.diontraining.com/blogs/news/itil-5-ai-governance",
   "https://www.diontraining.com/blogs/news/itil-5-process",
   "https://www.itil.com/professionals/certifications/ITIL-AI-Governance-Version-5",

@@ -151,7 +151,6 @@ const EXPECTED_SECTION_EYEBROWS = [
 const EXPECTED_EXTERNAL_URLS = [
   "https://advancedtraining.com.au/product/itil-experience-version-5",
   "https://agilepmhub.com/itil-experience-version-5",
-  "https://certempire.com/itil-4-vs-itil-5",
   "https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake",
   "https://itecor.com/a-new-itil-so-what",
   "https://itsm.tools/itil-version-5-vs-itil-4-key-changes",
