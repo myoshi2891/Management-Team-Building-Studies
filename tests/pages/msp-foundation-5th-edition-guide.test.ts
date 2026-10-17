@@ -357,8 +357,8 @@ describe("pages/msp-foundation-5th-edition-guide.vue (固有契約)", () => {
       { number: "60問", label: "60分・合格基準60%" },
     ];
     cards.forEach((card, i) => {
-      expect(card.find(".stat-number").text().trim()).toBe(expectedStats[i].number);
-      expect(card.find(".stat-label").text().trim()).toBe(expectedStats[i].label);
+      expect(card.find(".stat-number").text().trim()).toBe(expectedStats[i]!.number);
+      expect(card.find(".stat-label").text().trim()).toBe(expectedStats[i]!.label);
     });
   });
 

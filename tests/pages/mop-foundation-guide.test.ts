@@ -379,8 +379,8 @@ describe("pages/mop-foundation-guide.vue (固有契約)", () => {
       { number: "クローズドブック", label: "資料持ち込み不可" },
     ];
     cards.forEach((card, i) => {
-      expect(card.find(".stat-number").text().trim()).toBe(expectedStats[i].number);
-      expect(card.find(".stat-label").text().trim()).toBe(expectedStats[i].label);
+      expect(card.find(".stat-number").text().trim()).toBe(expectedStats[i]!.number);
+      expect(card.find(".stat-label").text().trim()).toBe(expectedStats[i]!.label);
     });
   });
 
