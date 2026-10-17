@@ -195,6 +195,26 @@ S4 --> S5["資産としての 登録・配分"]
 S5 --> S6["TCO を含めた 予算管理への反映"]
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
 class S1,S2,S3,S4,S5,S6 box`;
+
+const DIAGRAM_BUILDFIG12 = `flowchart TB
+S1["コンポーネント単位の 開発"] --> S2["コードレビュー・ 静的解析"]
+S2 --> S3["統合 Integration"]
+S3 --> S4["機能テスト・ 非機能テスト"]
+S4 --> S5["Definition of Done の判定"]
+S5 --> S6["Transition 準備 リリース候補の確定"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`;
+
+const DIAGRAM_TRANSITIONFIG13 = `flowchart TB
+S1["変更のリスク評価 Change Enablement"] --> S2["リリース計画の 策定"]
+S2 --> S3["展開方式の選定 Big Bang カナリア等"]
+S3 --> S4["本番環境への 展開実行"]
+S4 --> S5["移行後の 検証Post-Implementation Review"]
+S5 --> S6["ロールバック要否の 判断"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+
+class S1,S2,S3,S4,S5 box
+class S6 hub`;
 </script>
 
 <template>
@@ -1395,6 +1415,233 @@ class S1,S2,S3,S4,S5,S6 box`;
           <li><strong>TCO で判断する</strong>: 初期調達コストの安さだけで判断せず、運用・保守・サポート・将来の拡張コストまで含めた総所有コストで比較検討してください。</li>
           <li><strong>サプライヤー管理を「契約締結後」で終わらせない</strong>: Acquire は一度きりの取引ではなく、Supplier Management プラクティスを通じた継続的な関係管理の起点です。定期的なパフォーマンスレビューを最初から契約に組み込んでください。</li>
           <li><strong>ベンダーロックインのリスクを可視化する</strong>: 特に AI・クラウド関連の調達では、移行コストやデータポータビリティを事前に評価し、将来の選択肢を狭めすぎないようにしてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+      <section id="module5-build" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:hammer" aria-hidden="true" />SECTION 07</div>
+      <h2>Module 5: Build(構築)</h2>
+
+      <h3>6.1 目的(Purpose)</h3>
+
+      <p>Build 活動の目的は、<strong>デジタル製品のコンポーネントを開発・統合・テストし、設計を機能するソリューションへと転換すること</strong> です。</p>
+
+      <h3>6.2 Design から Build への統合</h3>
+
+      <p>Design 段階で作成された仕様・プロトタイプ・運用モデルは、Build 段階でそのまま実装の指針となります。両者が断絶していると、「設計と違うものができあがる」という典型的な失敗に陥ります。ITIL (Version 5) は、Design と Build を反復的に行き来すること(アジャイル的な進め方)を許容しており、一方向のウォーターフォールを強制するものではありません。</p>
+
+      <h3>6.3 主要概念</h3>
+
+      <ul>
+        <li><strong>統合(Integration)</strong>: 個別に開発されたコンポーネントを組み合わせ、全体として機能させること</li>
+        <li><strong>検証とテスト(Validation and Testing)</strong>: 機能要件・非機能要件の両方を検証するプロセス。単体テストから統合テスト、負荷テストまでを含む</li>
+        <li><strong>Definition of Done</strong>: 何をもって「構築完了」とするかの合意。テストカバレッジ、コードレビュー、セキュリティスキャンの合格などを含めることが一般的</li>
+      </ul>
+
+      <h3>6.4 Build を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Build における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Software Development and Management(ソフトウェア開発・管理)</td>
+              <td>コードの開発、バージョン管理、技術的負債の管理を担う</td>
+            </tr>
+            <tr>
+              <td>Infrastructure and Platform Management(インフラ・プラットフォーム管理)</td>
+              <td>開発・テスト環境を含む基盤の構築・維持を担う</td>
+            </tr>
+            <tr>
+              <td>Service Validation and Testing(サービスの検証とテスト)</td>
+              <td>機能要件・非機能要件を体系的に検証する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.5 Build 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_BUILDFIG12" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>6.6 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>構築・テスト済みのプロダクトソリューション</li>
+        <li>テスト結果・品質レポート</li>
+        <li>リリース候補(Release Candidate)</li>
+      </ul>
+
+      <h3>6.7 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>品質基準を満たした状態で構築が完了している</td>
+              <td>テストカバレッジ、リリース前に検出された欠陥数</td>
+            </tr>
+            <tr>
+              <td>開発サイクルが予測可能である</td>
+              <td>ビルド〜テスト完了までのリードタイム、ビルド失敗率</td>
+            </tr>
+            <tr>
+              <td>技術的負債が管理されている</td>
+              <td>技術的負債バックログの増減トレンド</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>6.8 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>CI(継続的インテグレーション)を早期に導入する</strong>: コンポーネントを統合してから問題が発覚すると手戻りコストが跳ね上がります。小さく頻繁に統合し、早期にフィードバックを得てください。</li>
+          <li><strong>非機能要件のテストを後回しにしない</strong>: 機能テストだけでなく、負荷テスト・セキュリティテストを Build 段階のパイプラインに組み込み、Transition 直前に慌てて実施することを避けてください。</li>
+          <li><strong>「動くこと」と「Definition of Done」を混同しない</strong>: チームで合意した完了の定義(テスト、ドキュメント、セキュリティ承認など)を明文化し、属人的な判断でリリース候補を確定しないようにしてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+
+<section id="module6-transition" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:transfer" aria-hidden="true" />SECTION 08</div>
+      <h2>Module 6: Transition(移行)</h2>
+
+      <h3>7.1 目的(Purpose)</h3>
+
+      <p>Transition 活動の目的は、<strong>新規または変更された製品を、安全かつ効果的に本番環境へ導入すること</strong>、およびサプライヤーのオンボーディング・オフボーディングを適切に行うことです。</p>
+
+      <h3>7.2 製品移行へのアプローチ</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>アプローチ</th>
+            <th>特徴</th>
+            <th>適するケース</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Big Bang(一括移行)</td>
+              <td>全ユーザー・全機能を一度に切り替える</td>
+              <td>影響範囲が限定的で、ロールバックが容易な場合</td>
+            </tr>
+            <tr>
+              <td>フェーズドロールアウト</td>
+              <td>段階的にユーザー層・地域を拡大していく</td>
+              <td>大規模なユーザーベース、リスクを抑えたい場合</td>
+            </tr>
+            <tr>
+              <td>Blue-Green デプロイメント</td>
+              <td>新旧2系統の環境を並行稼働させ、切替を即座に行う</td>
+              <td>ダウンタイムを最小化したい場合</td>
+            </tr>
+            <tr>
+              <td>カナリアリリース</td>
+              <td>一部のトラフィックのみ新バージョンへ振り分け、段階的に拡大する</td>
+              <td>本番トラフィックでの検証をリスクを抑えて行いたい場合</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.3 Transition を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Transition における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Change Enablement(変更実現)</td>
+              <td>変更のリスク評価と承認プロセスを通じて、安全な変更を実現する</td>
+            </tr>
+            <tr>
+              <td>Release Management(リリース管理)</td>
+              <td>複数の変更をまとめてリリース単位として計画・調整する</td>
+            </tr>
+            <tr>
+              <td>Deployment Management(展開管理)</td>
+              <td>実際の環境への配置・切替作業を実行する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.4 Transition 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_TRANSITIONFIG13" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>7.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>対象環境に展開され、稼働準備が整った製品・サービス</li>
+        <li>リリースノート</li>
+        <li>サプライヤーのオンボーディング / オフボーディング記録</li>
+      </ul>
+
+      <h3>7.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>変更が安全に本番へ導入されている</td>
+              <td>変更起因のインシデント発生率(Change Failure Rate)</td>
+            </tr>
+            <tr>
+              <td>リリースの頻度と安定性が両立している</td>
+              <td>デプロイ頻度、平均復旧時間(MTTR)</td>
+            </tr>
+            <tr>
+              <td>ロールバックが迅速に実行できる</td>
+              <td>ロールバック所要時間</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>7.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>変更の分類に応じて審査の重さを変える</strong>: 低リスクで頻度の高い変更(標準変更)は事前承認済みの自動化パイプラインに乗せ、高リスクな変更にのみ人的なレビューの労力を集中させてください。すべての変更を同じ重さで審査すると、変更管理そのものがボトルネックになります。</li>
+          <li><strong>ロールバック手順は展開前に必ず検証しておく</strong>: 本番障害が発生してから初めてロールバック手順を試す、という事態は避けてください。カナリアリリースやBlue-Greenデプロイメントは、ロールバックの容易さという観点でも有効です。</li>
+          <li><strong>Deployment Frequency と Change Failure Rate をセットで追う</strong>: リリース頻度だけを追うと品質が犠牲になり、変更失敗率だけを追うとリリースが停滞します。両方を DORA 指標的な発想でバランスさせてください。</li>
         </ul>
       </div>
     </section>
