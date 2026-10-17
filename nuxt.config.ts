@@ -1,4 +1,4 @@
-import { GUIDE_KINDS, GUIDE_PROGRAMS } from "./app/utils/guide-catalog";
+import { GUIDE_KINDS, GUIDE_PROGRAMS, isUnpublishedRoute } from "./app/utils/guide-catalog";
 
 // Nuxt 4 の既定 srcDir は `app/`。ページ・コンポーネント等はすべて app/ 配下に置く。
 export default defineNuxtConfig({
@@ -75,6 +75,18 @@ export default defineNuxtConfig({
         ...GUIDE_KINDS.map((kind) => kind.to),
         ...GUIDE_PROGRAMS.map((program) => program.to),
       ],
+    },
+  },
+
+  hooks: {
+    /*
+     * 公開見合わせ中のガイド（guide-catalog の UNPUBLISHED_GUIDE_ROUTES）をルートごと取り除く。
+     * カタログから外すだけではホーム・ナビから消えるのみで、ページ自体は
+     * 直接アクセス・sitemap の自動収集で到達できてしまうため、ここで断つ。
+     */
+    "pages:extend"(pages) {
+      const kept = pages.filter((page) => !isUnpublishedRoute(page.path));
+      pages.splice(0, pages.length, ...kept);
     },
   },
 

@@ -247,7 +247,8 @@ export type Guide = {
 };
 
 /**
- * 公開中のガイド。
+ * 定義済みのすべてのガイド（公開を見合わせ中のものを含む）。
+ * サイトの導線はこれを直接使わず、非公開分を除いた `GUIDES` を使う。
  *
  * 並び順の不変条件は「種別順（GUIDE_KINDS）→ プログラム順（GUIDE_PROGRAMS）
  * → シリーズ順（GUIDE_SERIES）→ 定義順」。
@@ -258,7 +259,7 @@ export type Guide = {
  * ただしプログラムとシリーズの**組み合わせ**の整合は型では表現しないため、
  * tests/utils/guide-catalog.test.ts の契約テストで固定する。
  */
-export const GUIDES = [
+export const ALL_GUIDES = [
   {
     to: "/capm",
     programId: "pmi",
@@ -1107,6 +1108,43 @@ export const GUIDES = [
     accent: "indigo",
   },
 ] as const satisfies readonly Guide[];
+
+/**
+ * 公開を見合わせているガイドのルート。
+ *
+ * 著作権上の懸念が解消するまで公開しない（2026-10 の公開前監査による）。
+ * - CSPO / CSP-PO / CSP-D: Scrum Alliance の Learning Objectives 英文をほぼ全件転載している
+ * - Managing Humans / Leadership Challenge / Team Geek / Peopleware / No Rules Rules:
+ *   原著の章立てに沿った網羅的要約、または要約サービス・第三者の読書ノートへの依存
+ *
+ * ページのファイルと ALL_GUIDES の定義は残す。再公開は改稿のうえこの一覧から外すだけでよい。
+ * nuxt.config.ts の pages:extend がこの一覧でルートごと取り除くため、
+ * 直接アクセス・静的生成・sitemap のいずれにも現れない。
+ */
+export const UNPUBLISHED_GUIDE_ROUTES: readonly string[] = [
+  "/cspo-certified-scrum-product-owner-study-guide",
+  "/csp-po-certified-scrum-professional-product-owner-study-guide",
+  "/csp-d-certified-scrum-professional-developer-study-guide",
+  "/managing-humans-best-practices-guide",
+  "/leadership-challenge-workbook-guide",
+  "/team-geek-guide",
+  "/peopleware-guide",
+  "/no-rules-rules-guide",
+];
+
+/**
+ * ルートが公開見合わせ中かを判定する（完全一致）。
+ * @param route - ページのルート（例: "/team-geek-guide"）
+ */
+export function isUnpublishedRoute(route: string): boolean {
+  return UNPUBLISHED_GUIDE_ROUTES.includes(route);
+}
+
+/**
+ * 公開中のガイド。ホーム・ナビ・ハブ・検索・e2e の巡回はすべてこれから導出する。
+ * ALL_GUIDES の並び順の不変条件は、フィルタ後もそのまま保たれる。
+ */
+export const GUIDES: readonly Guide[] = ALL_GUIDES.filter((guide) => !isUnpublishedRoute(guide.to));
 
 /** シリーズ単位のガイド束（ハブページの 1 セクション）。 */
 export type GuideSeriesGroup = {
