@@ -440,12 +440,294 @@ useSeoMeta({
         <section id="principles">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target-arrow" aria-hidden="true" />SECTION 05</div>
           <h2>7つの原則(Principles)</h2>
+
+          <p>原則は、プログラムマネジメントの成功のために継続的に守られるべき「指針となる要請事項」です。原則自体は証明を必要とせず(self-validating)、経験的に正しいと認められているという特徴を持ちます。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>原則(英語)</th><th>日本語での意味合い</th><th>要点</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Lead with purpose</td><td>目的を持ってリードする</td><td>SROを中心に、明確な意図とビジョンを持ってプログラムを主導し、変化への抵抗を乗り越える強いリーダーシップを発揮する</td></tr>
+                <tr><td>2</td><td>Collaborate across boundaries</td><td>境界を越えて協働する</td><td>組織・部門・サプライヤーなど複数の境界をまたぐ関係者の間で、効果的な横断的ガバナンスを築く</td></tr>
+                <tr><td>3</td><td>Deal with ambiguity</td><td>曖昧さに対処する</td><td>プログラムに内在するVUCA(変動性・不確実性・複雑性・曖昧性)を受け入れ、目を開いた(eyes-open)意思決定を行う</td></tr>
+                <tr><td>4</td><td>Align with priorities</td><td>優先順位に整合させる</td><td>プログラムを組織の戦略的優先事項と継続的に整合させ、環境変化に応じて見直す</td></tr>
+                <tr><td>5</td><td>Deploy diverse skills</td><td>多様なスキルを投入する</td><td>プログラムの成功に必要な、幅広く多様な専門性・経験を持つ人材を確保し活用する</td></tr>
+                <tr><td>6</td><td>Realize measurable benefits</td><td>測定可能なベネフィットを実現する</td><td>ベネフィットを定義し、追跡し、実際に実現することにプログラムの焦点を当て続ける</td></tr>
+                <tr><td>7</td><td>Bring pace and value</td><td>ペースと価値をもたらす</td><td>早期かつ継続的に価値を届けるペース配分を行い、学びを次のトランシェ(段階)に活かす</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>原則は「チェックリスト」ではなく「判断基準」として使う。個々の意思決定の場面で「この選択はどの原則に沿っているか / 反しているか」を問い直す習慣を持つ。</li>
+              <li>7原則すべてを一度に完璧に満たそうとするのではなく、プログラムの置かれた状況(後述のテーラリングのドライバー)に応じて、どの原則が特に重要かの優先順位を意識する。</li>
+              <li>「Deal with ambiguity」は2011年版になかった新原則であり、不確実性の高い変革プログラムほど重視される。曖昧さを排除しようとするのではなく、リスクを可視化した上で前進する判断力が問われる。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Henny Portman氏によるMSP 5th/2011版比較(原則対応表)、PeopleCert公式製品ページ</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 6 -->
         <section id="themes">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 06</div>
           <h2>7つのテーマ(Themes)</h2>
+
+          <p>テーマは、原則をプログラムのガバナンスに落とし込むための「本質的な側面」であり、各テーマは単語1語で名付けられています(2011年版の「ガバナンステーマ」から名称変更)。各テーマ章には、後述する4つの「プログラムの動機(ドライバー)」別のシナリオが用意されており、状況に応じたテーラリングの学習材料となっています。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_THEMES_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">7つのテーマ(Themes)</div>
+          </div>
+
+          <h3>Organization テーマ(組織)</h3>
+
+          <p><strong>目的</strong>: プログラムの定義・実行をコントロールするために必要な、ガバナンスボードと支援オフィスの構造を定義すること。誰が何を決め、誰が何に責任を持つのかを明確にする。</p>
+
+          <p><strong>主要な役割</strong></p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>役割</th><th>説明</th></tr></thead>
+              <tbody>
+                <tr><td>Sponsoring Group(スポンサリンググループ)</td><td>プログラムの方向性と資金について戦略的意思決定を行う、同格の経営層メンバーによるグループ</td></tr>
+                <tr><td>Programme Board(プログラムボード)</td><td>ベネフィットの実現を、定められた制約の中で推進する権限を持つガバナンスボード。最低限、SRO・プログラムマネージャー・BCM・プログラムオフィスのリーダーで構成される</td></tr>
+                <tr><td>Senior Responsible Owner(SRO)</td><td>プログラムのアウトカム実現について、全体的かつ継続的な説明責任(accountability)を負う。スポンサリンググループの代表として日常的に活動する</td></tr>
+                <tr><td>Programme Manager(プログラムマネージャー)</td><td>プログラムボードに対して責任を負い、SROを補佐しながらプログラムの日々のリーダーシップを担う。プロジェクト群の調整・実行に責任を持つ</td></tr>
+                <tr><td>Business Change Manager(BCM)</td><td>事業側の人材が担うことが望ましいとされる役割。プログラムマネージャーが届けるアウトプットを実際の業務に定着させ、ベネフィットの実現を確実にする</td></tr>
+                <tr><td>Programme Office(プログラムオフィス)</td><td>プロジェクトと事業の双方から情報を集約する「情報のハブ」。プログラムマネージャーに報告しつつ、各種の助言も行う</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ORG_STRUCTURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">Organization テーマ(組織)</div>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>SROは「兼任の名ばかりスポンサー」にしない。プログラムの成否に対する説明責任を実質的に負える、十分な権限と組織内影響力を持つ人物を選ぶ。</li>
+              <li>BCMは通常、事業側(プログラムを実行する側ではなく、変化を受け取り実際に運用する側)から選任する。プログラムマネージャーとBCMを同一人物が兼務すると、アウトプット提供とベネフィット実現の両方に対する客観的なチェックが働かなくなるリスクがある。</li>
+              <li>プログラムオフィスを単なる事務局ではなく、進捗・リスク・ベネフィットの状況を横断的に可視化する「情報のハブ」として機能させる。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>QA社MSP Practitionerコースウェア、Know-How-What.com「Key Roles in MSP 5th Edition」、PDCAコンサルティング MSPサマリー資料</li>
+            </ul>
+          </div>
+
+          <h3>Design テーマ(デザイン)</h3>
+
+          <p><strong>目的</strong>: プログラムが目指す未来像を明確にし、リスク・ベネフィット・望ましい「終着点(end state)」を関係者に分かりやすく示すこと。</p>
+
+          <p><strong>主要な構成要素</strong></p>
+
+          <ul>
+            <li><strong>Vision(ビジョン)</strong>: プログラム完了後、投資組織が到達している「望ましい未来の姿」。ビジョンステートメントは、①対外的に理解しやすい表現である、②誰にでも理解できる、③関与とコミットメントを引き出す、④現状維持がなぜ選択肢たり得ないかを示唆する、⑤具体的な期日や詳細な数値目標は避ける、という特徴を持つべきとされる。</li>
+            <li><strong>Target Operating Model(TOM / 目標運用モデル)</strong>: 2011年版の「ブループリント」を改称・拡充した概念。プログラム完了後の組織の将来状態を、役割と責任・文化・プロセス・技術・インフラ・情報とデータ・知識と学習といった観点で詳細に記述したもの。現状(as-is)と将来状態(to-be)をつなぐ「地図」の役割を果たす。</li>
+            <li><strong>Benefits Map(ベネフィットマップ)</strong>: アウトプット → アウトカム → ベネフィットへの因果関係を可視化した図。</li>
+            <li><strong>初期リスクの識別</strong>: デザイン段階から、ベネフィット実現を阻害しうるリスクを洗い出し、優先順位づけを始める。</li>
+          </ul>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DESIGN_CHAIN" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">Design テーマ(デザイン)</div>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>ビジョンステートメントは「短く、印象的で、具体的な期日を含まない」ものにする。詳細な数値目標を盛り込みすぎると、環境変化のたびに陳腐化してしまう。</li>
+              <li>TOMは一度作って終わりではなく、プログラムの進行とともに継続的に更新される「生きたモデル」として扱う。</li>
+              <li>ビジョンとTOMを必ず紐づけて管理する。ビジョンが「なぜ」を語り、TOMが「具体的に何が変わるのか」を語るという役割分担を崩さない。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Umbrex「MSP for Core Project & Program Management」、TheKnowledgeAcademy「MSP Blueprint」解説記事、SlideShare「The 4 key elements of best practice」</li>
+            </ul>
+          </div>
+
+          <h3>Justification テーマ(正当化)</h3>
+
+          <p><strong>目的</strong>: 投資(時間・資金・資源)に見合うだけのベネフィットが見込めることを継続的に証明し、プログラムを進める / 止めるの判断を支えること。</p>
+
+          <p><strong>主要な構成要素</strong></p>
+
+          <ul>
+            <li><strong>Business Case(ビジネスケース)</strong>: プログラムへの投資が正当化される理由を示す、生きた文書。一度作成して終わりではなく、環境の変化や新たな知見に応じて継続的に更新される。</li>
+            <li><strong>ベネフィット管理アプローチ</strong>: ベネフィットをどのように識別・定量化・追跡・実現するかの方針。</li>
+            <li><strong>キャッシュフロー管理・予算編成</strong>: 投資の時期と規模を管理し、資金面からプログラムの実行可能性を裏づける。</li>
+          </ul>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>ビジネスケースを「プログラム開始時に一度作成する承認文書」として扱わない。各トランシェレビューのたびに見直し、「このまま投資を継続する正当性があるか」を問い直す運用にする。</li>
+              <li>ベネフィットの金銭価値だけでなく、非金銭的なベネフィット(顧客満足度、従業員エンゲージメントなど)も定義し、測定方法をあらかじめ決めておく。</li>
+              <li>「Dis-benefit(負の便益)」、つまりプログラムによって生じうる望ましくない影響も明示的に洗い出し、ビジネスケースに反映する。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Henny Portman氏比較記事、Umbrex「MSP for Core Project & Program Management」</li>
+            </ul>
+          </div>
+
+          <h3>Structure テーマ(構造)</h3>
+
+          <p><strong>目的</strong>: ベネフィットを段階的に実現するために、プロジェクトやその他の活動をどう編成し、どのペースで届けるかを計画すること。</p>
+
+          <p><strong>主要な構成要素</strong></p>
+
+          <ul>
+            <li><strong>プログラムプラン(Programme Plan)</strong>: プログラム全体のスケジュール・マイルストーン・依存関係を示す計画。</li>
+            <li><strong>プロジェクトドシエ(Projects Dossier)</strong>: プログラムを構成するプロジェクトや活動の一覧・管理情報の集合。</li>
+            <li><strong>トランシェ(Tranche)</strong>: ケイパビリティの段階的な変化とベネフィットの実現を軸に編成された、一連のプロジェクトと活動のまとまり。プログラムは複数のトランシェに分割して進めることで、一度にすべてを届けようとするリスクを避け、早期に価値を出しながら学習を反映できる。</li>
+            <li><strong>各種マネジメント戦略(Management Strategies)</strong>: ベネフィット管理戦略、リスク管理戦略、ステークホルダー関与戦略、品質管理戦略、情報管理戦略など、プログラム運営の各側面をどう統制するかの方針集。</li>
+            <li><strong>資源(人材・設備・施設)の計画と最適配分</strong>。</li>
+          </ul>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>トランシェの区切りは、プロジェクトの完了タイミングではなく「ベネフィットが実現できる段階」を基準に設計する。</li>
+              <li>各トランシェの終わりに正式な「トランシェレビュー」を設け、ベネフィットの実現状況・ビジネスケースの妥当性・戦略との整合性を確認した上で、継続・調整・一時停止・早期クローズを判断するゲートとして機能させる。</li>
+              <li>プロジェクトドシエは静的な一覧表ではなく、依存関係やリソース競合を可視化できる管理情報として運用する。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Open Exam Prep「Free MSP Foundation Practice Exam」解説、TrustedInstitute「MSP Processes and Programme Lifecycle Flashcards」</li>
+            </ul>
+          </div>
+
+          <h3>Knowledge テーマ(知識)</h3>
+
+          <p><strong>目的</strong>: プログラムに関わる情報と知識を、正確に、適切なアクセス権限のもとで、確実に活用できる状態に保つこと。また、経験から学び、継続的改善の文化を醸成すること。</p>
+
+          <p><strong>主要な構成要素</strong></p>
+
+          <ul>
+            <li><strong>情報管理戦略(Information Management Strategy)</strong>: 情報の取得・利用・評価・保護・配布の方針。データプライバシーやバージョン管理(構成管理 / Configuration Management)も含む。</li>
+            <li><strong>教訓(Lessons)の収集と活用</strong>: プログラム内・プログラム間で得られた学びを体系的に記録し、以降のトランシェや将来のプログラムに反映する仕組み。</li>
+          </ul>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>「教訓管理」を、プロジェクト終了時に一度だけ実施する形式的な儀式にしない。トランシェレビューのたびに教訓を振り返り、次のトランシェの計画に実際に反映するサイクルを作る。</li>
+              <li>情報の「正確性」だけでなく「誰がどのバージョンにアクセスできるか」というガバナンスの観点も、情報管理戦略に明記する。</li>
+              <li>Knowledgeテーマは他のすべてのテーマを下支えする性質を持つ。組織・デザイン・正当化・構造・アシュアランス・意思決定のいずれの判断も、正確でタイムリーな情報があって初めて成立することを意識する。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Good e-Learning「MSP 5th Edition Foundation & Practitioner」コース概要、Open Exam Prep解説記事</li>
+            </ul>
+          </div>
+
+          <h3>Assurance テーマ(アシュアランス)</h3>
+
+          <p><strong>目的</strong>: プログラムが軌道に乗り、原則に沿って進んでいることについて、客観的な確信(confidence)を経営層に提供すること。</p>
+
+          <p><strong>主要な構成要素</strong></p>
+
+          <ul>
+            <li><strong>役割と責任の明確化</strong>: 誰が何を保証する立場にあるかを定義する。</li>
+            <li><strong>三線防御モデル(Three Lines of Defence)</strong>: アシュアランス活動を体系的に整理するためのモデル(詳細は第11章)。</li>
+            <li><strong>アシュアランス・アプローチ(Assurance Approach)文書</strong>: 三線防御それぞれについて、どのような監視活動を実施するかを定義する文書。試験でも問われる重要文書。</li>
+          </ul>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>アシュアランスを「監査=チェックする側とされる側の対立」と捉えず、プログラムの成功確率を高めるための建設的な仕組みとして位置づける。</li>
+              <li>第1線(現場のマネジメント)・第2線(監視機能)・第3線(独立監査)の役割を混同しない。同じ人が複数の線を兼務すると、独立した保証が得られなくなる。</li>
+              <li>アシュアランス活動は計画段階から組み込み、プログラムの終盤に慌てて実施しない。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Actual4Test「MSP Foundation Free Exam Questions」、Good Governance Institute「Three lines of defence for assurance and reassurance」</li>
+            </ul>
+          </div>
+
+          <h3>Decisions テーマ(意思決定)</h3>
+
+          <p><strong>目的</strong>: プログラムのライフサイクル全体を通じて発生する多様な意思決定(リスクへの対応、課題の解決、その他あらゆる選択)を、適切なガバナンスのもとで行うための前提条件を整えること。2011年版にはなかった、5th editionで独立したテーマとして新設された領域。</p>
+
+          <p><strong>主要な構成要素</strong></p>
+
+          <ul>
+            <li><strong>意思決定アプローチ(Decision-Making Approach)</strong>: 誰が、どのレベルの意思決定を、どのように行うかを定める方針。</li>
+            <li><strong>リスクレジスター(Risk Register)</strong>: 識別されたリスクとその対応状況を記録する台帳。</li>
+            <li><strong>課題レジスター(Issue Register)</strong>: 発生した課題とその解決状況を記録する台帳。</li>
+            <li><strong>意思決定レジスター(Decision Register)</strong>: 5th editionで新たに明示された、重要な意思決定の履歴を記録する台帳。</li>
+          </ul>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>「リスク」(将来起こりうる不確実な事象)と「課題」(既に発生した対処が必要な事象)を明確に区別し、それぞれに応じたエスカレーションの経路を定義する。</li>
+              <li>どのレベルの意思決定を誰が行えるか(プロジェクトレベル、プログラムマネージャーレベル、プログラムボードレベル、スポンサリンググループレベル)をあらかじめ明文化し、意思決定の停滞を防ぐ。</li>
+              <li>意思決定の履歴を記録することで、「なぜその判断をしたのか」を後から追跡できるようにし、説明責任と教訓の蓄積の両方に役立てる。</li>
+            </ul>
+          </div>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DECISION_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">Decisions テーマ(意思決定)</div>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Passitexams「MSP Practitioner 5th Ed Study Guide」、Open Exam Prep解説記事</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 7 -->
