@@ -1350,7 +1350,7 @@ class S5,S6 done;`;
 
 .brand-subtitle {
   font-size: 11px;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
 }
 
 .sidebar-nav {
@@ -1373,7 +1373,7 @@ class S5,S6 done;`;
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
   text-decoration: none;
   font-size: 13px;
   border-radius: 6px;
@@ -1434,7 +1434,7 @@ h1 {
 
 .hero-lede {
   font-size: 18px;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
   margin: 0 0 28px;
   line-height: 1.5;
 }
@@ -1463,7 +1463,7 @@ h1 {
 
 .stat-label {
   font-size: 12px;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
   line-height: 1.4;
 }
 
@@ -1476,7 +1476,7 @@ h1 {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   font-size: 13px;
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
   line-height: 1.6;
 }
 
@@ -1687,7 +1687,7 @@ h4 {
 }
 
 .glossary-item .g-def {
-  color: var(--color-ink-muted);
+  color: var(--color-ink-soft);
   font-size: 14px;
   line-height: 1.6;
 }
