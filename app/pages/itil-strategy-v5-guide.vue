@@ -129,6 +129,59 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class P,E,S,T,L,EN box;
 class FD hub;
 class VALUE done;`;
+
+const DIAGRAM_STRATEGY_MANAGEMENT_MODEL = `flowchart TB
+subgraph DEV["戦略策定サイクル Strategy Development Cycle"]
+direction LR
+O1["Observe 観察"]
+O2["Orient 方向づけ"]
+O3["Decide 意思決定"]
+O4["Plan 計画"]
+O1 --> O2 --> O3 --> O4
+end
+subgraph IMP["戦略実装サイクル Strategy Implementation Cycle"]
+direction LR
+I1["Plan 計画"]
+I2["Execute 実行"]
+I3["Synthesize 統合"]
+I4["Reflect 振り返り"]
+I1 --> I2 --> I3 --> I4
+end
+O4 -->|"戦略的方向性を引き渡す"| I1
+I4 -.->|"学習を策定サイクルへ還元"| O1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class O1,O2,O3,O4 box;
+class I1,I2,I3,I4 hub;`;
+
+const DIAGRAM_STRATEGY_DEVELOPMENT_CYCLE = `flowchart LR
+O["Observe 観察 外部・内部環境の情報収集"]
+R["Orient 方向づけ 情報の解釈と意味づけ"]
+D["Decide 意思決定 優先順位と選択肢の決定"]
+P["Plan 計画 戦略的方向性の文書化"]
+O --> R --> D --> P
+P -.->|"次の観察へ"| O
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class O,R box;
+class D hub;
+class P done;`;
+
+const DIAGRAM_STRATEGY_IMPLEMENTATION_CYCLE = `flowchart LR
+P["Plan 実装計画 目標からイニシアチブへの翻訳"]
+E["Execute 実行 選定したアプローチでの遂行"]
+S["Synthesize 統合 変化と既存運用のバランス"]
+R["Reflect 振り返り 持続可能性と長期的妥当性の維持"]
+OBS["Observe 観察（策定サイクル） 外部・内部環境の情報収集"]
+P --> E --> S --> R
+R -.->|"策定サイクルへの学習還元"| OBS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,E,S hub;
+class R done;
+class OBS box;`;
 </script>
 
 <template>
@@ -486,6 +539,161 @@ class VALUE done;`;
               <span>ベストプラクティス</span>
             </div>
             <p>PESTLE分析は「一度やって終わり」にせず、戦略策定サイクルのObserveフェーズ(後述)で定期的に見直す運用に組み込む。VUCA環境では外部要因の変化速度が速く、半年前のPESTLE分析が前提として使えなくなっていることは珍しくない。</p>
+          </div>
+        </section>
+
+        <!-- ===================== 07. Module 4: Strategy Management Model ===================== -->
+        <section id="strategy-management-model" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:infinity" aria-hidden="true" />
+            <span>SECTION 07</span>
+          </div>
+          <h2>6. Module 4: ITIL Strategy Management Model</h2>
+
+          <p><em>K3(応用レベル)</em>: 本モジュールの中核モデル。試験の配点比重が最も高いと想定される領域。</p>
+
+          <h3>6.1 モデルの目的と全体構造</h3>
+          <p>ITIL Strategy Management Modelは、戦略策定(strategy development)と戦略実装(strategy implementation)という2つの相互に接続されたサイクルから構成され、組織の戦略的方向性と行動を継続的に導くために機能する。</p>
+          <p>このモデルの目的と構造、そして戦略策定サイクルと戦略実装サイクルの関係性を理解することが、このモジュールの核心である。従来型の戦略の役割と、構造化された戦略管理モデルがなぜ必要なのかを理解した上で、このモデルが導入される。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STRATEGY_MANAGEMENT_MODEL" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">戦略策定サイクルと戦略実装サイクルの関係</div>
+          </div>
+
+          <p><strong>理由(なぜ2サイクルに分けるのか)</strong>: 「何をすべきか決める」活動と「実際にやり遂げる」活動を1つのプロセスに混在させると、意思決定の質と実行のスピードの両方が犠牲になりやすい。2サイクルに分離することで、策定サイクルは外部環境の観察と方向性の見極めに集中でき、実装サイクルは決まった方向性のもとでの実行力に集中できる。かつ両者はループとして繋がっているため、実装の結果(Reflect)が次の観察(Observe)にフィードバックされ、VUCA環境における継続的な適応が可能になる。</p>
+
+          <h3>6.2 2つのサイクルの関係性</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>観点</th><th>戦略策定サイクル</th><th>戦略実装サイクル</th></tr></thead>
+              <tbody>
+                <tr><td>主な問い</td><td>「何を目指すべきか」</td><td>「どう実現するか」</td></tr>
+                <tr><td>時間軸</td><td>中〜長期の方向性</td><td>短〜中期の実行</td></tr>
+                <tr><td>主なアウトプット</td><td>戦略的方向性・優先順位</td><td>実行可能な取り組み・成果</td></tr>
+                <tr><td>起点となる活動</td><td>Observe(観察)</td><td>Plan(実装計画)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>ITIL Strategy (Version 5) は、変動的で急速に変化する環境における戦略の策定・実装・継続的な調整に関するガイダンスを提供し、組織がテクノロジー・投資・実行をビジネス戦略と整合させ、測定可能な価値を届けることを支援するものであり、この2サイクル構造こそがその中核メカニズムにあたる。</p>
+
+          <div class="callout source" data-testid="callout" data-variant="source">
+            <div class="callout-title" data-testid="callout-label">
+              <Icon name="tabler:external-link" aria-hidden="true" />
+              <span>ソース</span>
+            </div>
+            <p>出典についての注記: 「Observe / Orient / Decide / Plan」および「Plan / Execute / Synthesize / Reflect」という各サイクルの活動名は、PeopleCert公式ページおよび複数の認定トレーニングパートナー(QA、Asseco Academy、itil.org.uk等)のコースアウトラインで一致して確認できた名称である。ただし各活動の詳細な定義・出力物の厳密な文言は公式Learner Workbookに拠るため、暗記が必要な場合は必ず公式教材で確認すること。</p>
+          </div>
+        </section>
+
+        <!-- ===================== 08. Module 5: Strategy Development Cycle ===================== -->
+        <section id="strategy-development-cycle" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:compass" aria-hidden="true" />
+            <span>SECTION 08</span>
+          </div>
+          <h2>7. Module 5: 戦略策定サイクル(Observe-Orient-Decide-Plan)</h2>
+
+          <p><em>K3(応用レベル)</em>: 各活動の目的とアウトプットを、状況に当てはめて適用できるようになることが到達目標。</p>
+
+          <p>戦略策定サイクルの4つの活動(observe、orient、decide、plan)の目的とアウトプットを理解し、ITILガイディングプリンシプルが効果的な戦略策定をどう支えるか、PESTLE要因が戦略的方向性にどう影響するか、そして内部ケイパビリティとリソースが戦略的選択をどう形作るかを分析し、基礎レベルで戦略策定サイクルを適用できるようになることが、このモジュールの学習目標である。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STRATEGY_DEVELOPMENT_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">戦略策定サイクルの4つの活動</div>
+          </div>
+
+          <h3>7.1 Observe(観察)</h3>
+          <p><strong>定義</strong>: 外部環境(PESTLE要因、市場動向、競合状況)と内部環境(組織のケイパビリティ、リソース、実績)の両方から情報を収集する活動。</p>
+          <p><strong>理由</strong>: VUCA環境では「知っているつもり」の前提が数ヶ月で陳腐化する。継続的な観察を組み込まない限り、戦略は策定した瞬間から古くなっていく。</p>
+          <p><strong>具体例</strong>: 四半期ごとに競合のプロダクトリリース状況・自社のNPS推移・規制動向(Legal要因)を定点観測するダッシュボードを運用する。</p>
+
+          <h3>7.2 Orient(方向づけ)</h3>
+          <p><strong>定義</strong>: 観察で集めた情報を解釈し、組織にとっての意味づけを行う活動。単なるデータ収集と異なり、「このデータは我々の戦略にとって何を意味するか」という解釈の作業が中心になる。</p>
+          <p><strong>理由</strong>: 情報量が多いVUCA環境では、生データをそのまま意思決定に使うと情報過多で判断が麻痺する。Orientは情報のノイズを削ぎ落とし、意思決定者が扱える形に整える橋渡し役を果たす。</p>
+
+          <h3>7.3 Decide(意思決定)</h3>
+          <p><strong>定義</strong>: 方向づけられた情報をもとに、戦略的な優先順位と選択肢を決定する活動。</p>
+          <p><strong>理由</strong>: 全ての機会を同時に追求することはリソース的に不可能である。Decideフェーズで「やらないことを決める」ことこそが戦略の本質であり、ここでの意思決定基準の明確さが、後続の実装サイクルの質を左右する。</p>
+
+          <h3>7.4 Plan(計画)</h3>
+          <p><strong>定義</strong>: 決定された戦略的方向性を、実装サイクルに引き渡せる形の計画として文書化する活動。</p>
+          <p><strong>理由</strong>: このPlanは戦略実装サイクルの入力(Plan＝実装計画の起点)と名前が同じだが役割は異なる点に注意。策定サイクルのPlanは「何を目指すか」の文書化であり、実装サイクルのPlanは「どう実行するか」の具体化である。</p>
+
+          <div class="callout note" data-testid="callout" data-variant="note">
+            <div class="callout-title" data-testid="callout-label">
+              <Icon name="tabler:info-circle" aria-hidden="true" />
+              <span>補足</span>
+            </div>
+            <p><strong>試験の頻出ひっかけ</strong>: 「Plan」という活動名が策定サイクルと実装サイクルの両方に登場する。問題文でどちらのサイクルのPlanを指しているか、前後の文脈(外部環境の観察結果を扱っているか・実行計画の詳細を扱っているか)で判別する練習をしておくこと。</p>
+          </div>
+
+          <h3>7.5 ガイディングプリンシプルとの関係</h3>
+          <p>ITILガイディングプリンシプルが効果的な戦略策定をどのように支えるかも本モジュールの範囲である。Foundationで学ぶ7つのガイディングプリンシプル(Focus on value / Start where you are / Progress iteratively with feedback / Collaborate and promote visibility / Think and work holistically / Keep it simple and practical / Optimize and automate)は、策定サイクルの各活動に次のように対応づけて理解すると覚えやすい。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ガイディングプリンシプル</th><th>策定サイクルでの適用例</th></tr></thead>
+              <tbody>
+                <tr><td>Focus on value</td><td>Decideフェーズで「価値への貢献度」を優先順位づけの基準にする</td></tr>
+                <tr><td>Start where you are</td><td>Observeフェーズで既存のケイパビリティを過小評価しない</td></tr>
+                <tr><td>Progress iteratively with feedback</td><td>Plan完了後も次のObserveへ継続的にループさせる</td></tr>
+                <tr><td>Collaborate and promote visibility</td><td>Orientフェーズの解釈を関係部門と共有し独りよがりの解釈を避ける</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>7.6 内部ケイパビリティとリソースの影響</h3>
+          <p>内部ケイパビリティとリソースが戦略にどう影響するかを説明できることが学習目標に含まれる。どれだけ魅力的な外部機会(Observeで発見)があっても、それを実行するケイパビリティ(人材・技術・資金)が伴わなければ、Decideフェーズでその機会は見送られるべきである。「戦略は野心と実現可能性のバランス」という考え方がここで具体化される。</p>
+        </section>
+
+        <!-- ===================== 09. Module 6: Strategy Implementation Cycle ===================== -->
+        <section id="strategy-implementation-cycle" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:rocket" aria-hidden="true" />
+            <span>SECTION 09</span>
+          </div>
+          <h2>8. Module 6: 戦略実装サイクル(Plan-Execute-Synthesize-Reflect)</h2>
+
+          <p><em>K3(応用レベル)</em>: 「決めた戦略をやり切る」ための実務的な活動群。</p>
+
+          <p>戦略実装サイクルの目的と成果を理解し、戦略目標が「Plan」活動の中でどのように実装イニシアチブへ翻訳されるか、実装イニシアチブの実行アプローチが「Plan」活動の中でどう選定されるかを学ぶ領域。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STRATEGY_IMPLEMENTATION_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">戦略実装サイクルの4つの活動</div>
+          </div>
+
+          <h3>8.1 Plan(実装計画)</h3>
+          <p><strong>定義</strong>: 策定サイクルから引き渡された戦略的方向性を、具体的な実装イニシアチブに翻訳する活動。</p>
+          <p>戦略目標が「Plan」活動の中でどのように実装イニシアチブへ翻訳されるか、そして実装イニシアチブの実行アプローチがどのように選定されるかがここでの学習の核心である。戦略実装は、計画・実行・統合・振り返りを通じて、戦略的な意図を実行可能な取り組みへと転換し、持続的な価値を実現するプロセスと定義される。</p>
+          <p><strong>具体例</strong>: 「デジタル戦略として顧客対応の一部をAIエージェントに委譲する」という策定サイクルの決定を、「まずFAQ対応領域から段階的に導入する」「3ヶ月ごとに満足度を測定する」という実装イニシアチブに分解する。</p>
+
+          <h3>8.2 Execute(実行)</h3>
+          <p><strong>定義</strong>: Planで選定した実行アプローチに従い、イニシアチブを実際に遂行する活動。</p>
+          <p><strong>理由</strong>: 実行アプローチの選び方(一気に全社展開するビッグバン型か、段階的に展開するインクリメンタル型か)は、組織のリスク許容度と変化への耐性によって変わる。ここでも「Progress iteratively with feedback」のガイディングプリンシプルが実務的な指針になる。</p>
+
+          <h3>8.3 Synthesize(統合)</h3>
+          <p><strong>定義</strong>: 変革の取り組みと既存の日常運用をバランスさせる活動。</p>
+          <p>変革の取り組みと継続中の運用をバランスさせることが明示的な学習目標である。新しい戦略イニシアチブを追求するあまり、既存サービスの安定運用が疎かになれば、短期的な信頼を損ない、結果的に戦略実行の基盤を掘り崩すことになる。</p>
+
+          <h3>8.4 Reflect(振り返り)</h3>
+          <p><strong>定義</strong>: 戦略の長期的な妥当性と持続可能性を維持するための振り返り活動。</p>
+          <p>長期的な戦略の妥当性と持続可能性を維持することがこの活動の目的である。この振り返りの結果は、策定サイクルのObserveフェーズへとフィードバックされ、モデル全体のループが閉じる。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>&#10060; アンチパターン</th><th>&#9989; ベストプラクティス</th></tr></thead>
+              <tbody>
+                <tr><td>Reflectを「反省会」で終わらせ、次の観察に接続しない</td><td>Reflectで得た学びを構造化し、次のObserveの入力データとして明示的に引き継ぐ</td></tr>
+                <tr><td>Executeの結果だけを評価し、Synthesizeで運用とのバランスを見ない</td><td>変革の進捗指標と既存運用のSLA/品質指標を同じダッシュボードで並べて追跡する</td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
