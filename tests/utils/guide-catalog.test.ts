@@ -155,6 +155,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/itil-foundation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Foundation (v5)" },
       { to: "/itil-experience-version-5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Experience (v5)" },
       { to: "/itil-managing-professional-transition-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL MPT (v5)" },
+      { to: "/itil-product-version5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Product (v5)" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/managing-humans-best-practices-guide", programId: "management", seriesId: "book-management", navLabel: "Managing Humans" },
@@ -241,7 +242,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       ...GUIDE_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 72);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 73);
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -250,7 +251,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 48, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
+      { id: "certifications", count: 49, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
       { id: "books", count: 18, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
@@ -297,7 +298,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       {
         programId: "peoplecert",
         seriesGroups: [
-          { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)"] },
+          { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)"] },
         ],
       },
       {

@@ -787,6 +787,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-product-version5-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Product (v5)",
+    title: "ITIL® Product (Version 5) 認定資格 完全ガイド",
+    description: "PeopleCert公式シラバス(Version 5.0 PL)に基づくITIL Product (Version 5)の完全学習ガイド。8つのライフサイクル活動とAI Capability Model、バリューストリーム統合を初学者向けに詳細解説。",
+    meta: "16セクション",
+    icon: "tabler:box",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
