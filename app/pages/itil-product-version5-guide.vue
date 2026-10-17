@@ -190,6 +190,15 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
 class SU,O1,SU2 box
 class S2,E2 hub`;
+
+const DIAGRAM_STUDY_STEPS = `flowchart TB
+S1["Step 1 ITIL Foundation (V5)の 用語を再確認する"] --> S2["Step 2 Category 1: 基礎概念を固める"]
+S2 --> S3["Step 3 8活動を1つずつ (目的→ステップ→CSF)の順に学習"]
+S3 --> S4["Step 4 Category 10: バリューストリーム/AI/DevOps/PRINCE2で統合"]
+S4 --> S5["Step 5 Car Rental Scenarioで シナリオ演習"]
+S5 --> S6["Step 6 Sample Papersで 4つの出題形式に慣れる"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+class S1,S2,S3,S4,S5,S6 box`;
 </script>
 
 <template>
@@ -1654,6 +1663,96 @@ class S2,E2 hub`;
         </div>
       </section>
 
+      <!-- SECTION 15 -->
+      <section id="study-checklist" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:checklist" aria-hidden="true" />
+          <span>SECTION 15</span>
+        </div>
+        <h2>学習・試験対策チェックリスト</h2>
+
+        <h3>学習の進め方(推奨ステップ)</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STUDY_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">学習の進め方(推奨ステップ)</div>
+        </div>
+        <h3>チェックリスト</h3>
+        <ul>
+          <li>プロダクトとサービスの定義の違いを、自分の言葉で説明できる</li>
+          <li>8つのライフサイクル活動それぞれの「目的」を1文で言える</li>
+          <li>8つの活動それぞれについて、代表的なアウトプットを1つ以上挙げられる</li>
+          <li>「バリューストリーム」が8活動をどう組み合わせるものか、具体例で説明できる</li>
+          <li>ITIL AI Capability Model(6Cモデル)の6つの能力を、それぞれ1つの実例とセットで言える</li>
+          <li>ITILとDevOps、ITILとPRINCE2の役割分担を説明できる</li>
+          <li>Standard / Negative / Missing word(s) / Listの4つの出題形式の違いを理解している</li>
+          <li>"ITIL Car Rental Scenario"と"ICR's Unified Mobile App"シナリオの想定設定を読み込んでいる</li>
+          <li>Official Bookの該当セクション番号(例: 3.1.1 = Discoverの目的)を索引として使えるようにしている</li>
+        </ul>
+        <h3>よくあるつまずきポイント</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>つまずきやすい点</th><th>対策</th></tr></thead>
+            <tbody>
+              <tr><td>8活動を「順番に実行するプロセス」と誤解する</td><td>バリューストリームの概念(13.2)を先に理解し、8活動は「組み合わせる部品」だと捉え直す</td></tr>
+              <tr><td>Operate と Support の違いが曖昧になる</td><td>Operateは「システムを動かし続ける」、Supportは「利用者からの問い合わせ・障害に対応する」と対比で覚える</td></tr>
+              <tr><td>DiscoverとDesignの境界が曖昧になる</td><td>Discoverは「何を作るべきか(What)」、Designは「どう作るべきか(How)」という問いの違いで区別する</td></tr>
+              <tr><td>AI 6Cモデルの各能力を混同する</td><td>Creation=作る、Curation=整える、Clarification=わかりやすくする、Cognition=気づく、Communication=話す、Coordination=動かす、という動詞1語で覚える</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- SECTION 16 -->
+      <section id="references" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:link" aria-hidden="true" />
+          <span>SECTION 16</span>
+        </div>
+        <h2>参考文献・出典</h2>
+
+        <p>本ガイドの作成にあたり参照した一次情報および二次情報は以下のとおりです。</p>
+        <div class="ref-group">
+          <h4>公式情報源(PeopleCert / ITIL公式)</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">ITIL Product (Version 5) — PeopleCert公式製品ページ</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-product-version-5-4179" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-product-version-5-4179</a></li>
+            <li><span class="ref-name">ITIL® Product | Syllabus, Version 5.0 PL (February 2026) — PeopleCert公式シラバスPDF(本ガイドの章立て・学習目標の一次根拠)</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf</a></li>
+            <li><span class="ref-name">ITIL Product (Version 5) — itil.com公式ページ</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Product-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Product-Version-5</a></li>
+            <li><span class="ref-name">ITIL® Product (Version 5) — Oxford College of Technology(PeopleCert認定ATO、コース概要)</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-product-version-5/" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-product-version-5/</a></li>
+          </ul>
+        </div>
+        <div class="ref-group">
+          <h4>認定研修プロバイダー・専門メディアによる解説記事</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">ITIL® Version 5 Certification Pathway: Complete Guide — The Knowledge Academy</span><a class="ref-url" href="https://www.theknowledgeacademy.com/blog/itil-certification-path/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/blog/itil-certification-path/</a></li>
+            <li><span class="ref-name">ITIL® 5 Managing Professional Transition Course — The Knowledge Academy</span><a class="ref-url" href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/</a></li>
+            <li><span class="ref-name">What is ITIL 5? A Guide to the New ITIL Framework — TeamDynamix</span><a class="ref-url" href="https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/" target="_blank" rel="noopener">https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/</a></li>
+            <li><span class="ref-name">ITIL 5 Process Guide, Workflows, Practices & Real Examples — Dion Training</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+            <li><span class="ref-name">ITIL 5 vs ITIL 4: What Changed in ITIL (Version 5) — InvGate Blog</span><a class="ref-url" href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">https://blog.invgate.com/itil-5-what-changes</a></li>
+            <li><span class="ref-name">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4 — ITSM.tools</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
+            <li><span class="ref-name">The Definitive Guide to ITIL® Version 5 Foundation — PMG Academy</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+            <li><span class="ref-name">Information and Technology in ITIL Version 5: The Guide for the AI Era and Data Governance — PMG Academy</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/</a></li>
+            <li><span class="ref-name">How ITIL Experience (Version 5) puts user experience at the core — itil.com</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
+            <li><span class="ref-name">ITIL® AI Governance Training & Certification — AgilePM Hub</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></li>
+            <li><span class="ref-name">A new ITIL, so what? — itecor</span><a class="ref-url" href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">https://itecor.com/a-new-itil-so-what/</a></li>
+            <li><span class="ref-name">ITIL 4 vs ITIL 5 (Version 5): What Changed and Which to Take in 2026 — CertEmpire</span><a class="ref-url" href="https://certempire.com/itil-4-vs-itil-5/" target="_blank" rel="noopener">https://certempire.com/itil-4-vs-itil-5/</a></li>
+          </ul>
+        </div>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
+          <p>上記16.2の記事は、いずれもPeopleCert非公式の第三者による解説記事です。内容の正確性・最新性は執筆時点(2026年9月)のものであり、試験の正式な出題範囲・配点は必ず<strong>PeopleCert公式シラバス(16.1の1〜2)</strong>および<strong>ITIL® Product (Version 5) Official Book</strong>で確認してください。特に合格ライン・配点比率は執筆時点でTBC(未確定)であり、受験前に最新の公式情報を確認することを強く推奨します。</p>
+        </div>
+      </section>
+
       <footer>
         本ガイドは学習補助を目的とした独自の解説資料です。ITIL®はPeopleCert International Limitedの登録商標です。試験の正式な出題範囲・配点は必ず公式シラバスおよびOfficial Bookで確認してください。
       </footer>
@@ -2036,6 +2135,19 @@ tr:last-child td {
   text-align: center;
   padding: 24px;
 }
+
+/* ===================== Reference list ===================== */
+.ref-group { margin-bottom: 28px; }
+.ref-group h4 { margin-top: 0; }
+.ref-list { list-style: none; margin: 0; padding: 0; }
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+.ref-list li:last-child { border-bottom: none; }
+.ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+.ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
 
 footer {
   margin-top: 96px;
