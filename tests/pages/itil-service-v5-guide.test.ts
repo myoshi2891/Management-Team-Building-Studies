@@ -257,6 +257,7 @@ defineSourceParityContract({
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: [],
+  allowedHeadingSkips: ["h2 -> h4"],
   seoTitleFragments: ["ITIL", "Service", "Version 5"],
   seoTitle: "ITIL® Service (Version 5) 認定資格 完全ガイド ｜ 初学者向けステップバイステップ解説",
   seoDescription: "PeopleCert ITIL Service (Version 5) 認定資格の学習ガイド。PSLM 8段階(Discover-Support)の目的・有効化プラクティス・CSFとベストプラクティスを初学者向けに解説。",

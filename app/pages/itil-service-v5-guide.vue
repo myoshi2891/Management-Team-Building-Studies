@@ -298,6 +298,15 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
 class PR1,PR2,PR3 box
 class IT1,IT2,IT3 hub`;
+
+const DIAGRAM_EXAMTIPSFIG20 = `flowchart TB
+T1["Step 1 前提資格Foundationの 内容を復習する"] --> T2["Step 2 本ガイドで PSLM 8段階の 目的・プラクティス・CSFを理解する"]
+T2 --> T3["Step 3 公式 eBook Learner Workbook で 細部の用語定義を確認する"]
+T3 --> T4["Step 4 公式模擬試験Official Mock Examで 出題形式に慣れる"]
+T4 --> T5["Step 5 間違えた問題の根拠箇所を 公式資料で特定し、索引化する"]
+T5 --> T6["Step 6 オープンブックでの 資料検索速度を本番想定で鍛える"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class T1,T2,T3,T4,T5,T6 box`;
 </script>
 
 <template>
@@ -2210,7 +2219,268 @@ class IT1,IT2,IT3 hub`;
       </div>
     </section>
 
-    
+    <section id="best-practices-summary" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 13</div>
+      <h2>ベストプラクティス総まとめ</h2>
+
+      <p>第3章〜第10章で解説した PSLM 8段階のベストプラクティスを、1枚の早見表として整理します。試験直前の復習や、実務導入時のチェックリストとして活用してください。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>段階</th>
+            <th>目的(一言で)</th>
+            <th>主要な有効化プラクティス</th>
+            <th>最重要ベストプラクティス</th>
+            <th>代表的な指標</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>① Discover</td>
+              <td>需要とニーズの継続的な把握</td>
+              <td>Business Analysis, Portfolio Management, Relationship Management</td>
+              <td>需要の「声」を単一のバックログに一元化する</td>
+              <td>インサイトからロードマップ反映までのリードタイム</td>
+            </tr>
+            <tr>
+              <td>② Design</td>
+              <td>仕様・プロトタイプの作成</td>
+              <td>Architecture Management, Service Level Management, Service Design</td>
+              <td>運用できる設計(可観測性を後付けにしない)</td>
+              <td>設計レビューでの非機能要件指摘件数</td>
+            </tr>
+            <tr>
+              <td>③ Acquire</td>
+              <td>必要リソースの確保</td>
+              <td>Supplier Management, IT Asset Management, Service Financial Management</td>
+              <td>初期コストではなく TCO で判断する</td>
+              <td>調達リードタイム</td>
+            </tr>
+            <tr>
+              <td>④ Build</td>
+              <td>設計の実装・テスト</td>
+              <td>Software Development and Management, Infrastructure and Platform Management, Service Validation and Testing</td>
+              <td>CI を早期導入し、小さく頻繁に統合する</td>
+              <td>テストカバレッジ、ビルド失敗率</td>
+            </tr>
+            <tr>
+              <td>⑤ Transition</td>
+              <td>本番環境への安全な導入</td>
+              <td>Change Enablement, Release Management, Deployment Management</td>
+              <td>変更のリスクに応じて審査の重さを変える</td>
+              <td>Change Failure Rate</td>
+            </tr>
+            <tr>
+              <td>⑥ Operate</td>
+              <td>稼働の維持・信頼性確保</td>
+              <td>Monitoring and Event Management, Infrastructure and Platform Management</td>
+              <td>エラーバジェットに基づく意思決定</td>
+              <td>SLO 達成率、MTTD</td>
+            </tr>
+            <tr>
+              <td>⑦ Deliver</td>
+              <td>サービスの提供とフィードバック収集</td>
+              <td>Service Request Management, Service Level Management, Service Desk</td>
+              <td>リクエストとインシデントを明確に区別する</td>
+              <td>SLA 達成率、初回解決率</td>
+            </tr>
+            <tr>
+              <td>⑧ Support</td>
+              <td>インシデント・問題への対応</td>
+              <td>Incident Management, Problem Management, Service Desk, Service Continuity Management</td>
+              <td>「復旧」と「原因究明」を分離する</td>
+              <td>MTTR、インシデント再発率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>12.1 段階を横断するベストプラクティス</h3>
+
+      <p>個々の段階のベストプラクティスに加え、PSLM 全体を横断して意識すべき原則を以下にまとめます。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ol>
+          <li><strong>フィードバックループを意図的に設計する</strong>: Support→Discover、Operate→Design のように、後工程の学びが前工程に還元される経路を、偶然ではなく仕組みとして構築してください(第11章 11.1参照)。</li>
+          <li><strong>4つの側面すべてに目を配る</strong>: 技術(Information and Technology)だけを強化する施策は、必ずどこかで限界に突き当たります(第1章 1.5参照)。</li>
+          <li><strong>SLA だけでなく体験(Experience)も測る</strong>: 稼働率が高くても、ユーザー体験が悪ければサービスの価値は損なわれます(第1章 1.8参照)。</li>
+          <li><strong>AI 施策は 6C モデルの語彙で定義する</strong>: 機能を明確にすることで、適切なガバナンスレベルを設定できます(第11章 11.2参照)。</li>
+          <li><strong>心理的安全性なくして正直な報告なし</strong>: ブレームレスな文化がなければ、インシデントの根本原因もリスクの早期警告も上がってきません(第10章 10.7参照)。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="exam-tips" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 14</div>
+      <h2>試験対策のポイント</h2>
+
+      <h3>13.1 試験の性質を理解する</h3>
+
+      <p>ITIL Service (Version 5) の試験は、<strong>オープンブックの選択式試験</strong>(40問・90分・合格ライン70%)です。暗記量そのものよりも、<strong>公式刊行物の中から必要な情報を素早く見つけ、状況に当てはめて判断する力</strong> が問われます。したがって学習の焦点は、丸暗記ではなく「概念同士の関係性を理解し、公式資料のどのあたりに何が書いてあるかを把握しておくこと」に置くべきです。</p>
+
+      <h3>13.2 頻出の混同ポイント</h3>
+
+      <p>試験・実務の双方で混同しやすい概念のペアを整理しておきます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>混同しやすいペア</th>
+            <th>区別のポイント</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Output(アウトプット) vs Outcome(アウトカム)</td>
+              <td>アウトプットは成果物そのもの、アウトカムはそれによって実現される結果(1.2参照)</td>
+            </tr>
+            <tr>
+              <td>Service Value Chain(6活動) vs PSLM(8活動)</td>
+              <td>バリューチェーンは普遍的な運用エンジン、PSLM は個別の製品・サービスの具体的な旅路(1.6参照)</td>
+            </tr>
+            <tr>
+              <td>Incident(インシデント) vs Problem(問題)</td>
+              <td>インシデントは個別の中断事象、問題はその原因または潜在的原因(10.2参照)</td>
+            </tr>
+            <tr>
+              <td>SLA vs XLA</td>
+              <td>SLA は技術的な合意指標、XLA は体験を定量化した指標(1.8参照)</td>
+            </tr>
+            <tr>
+              <td>Governance(ガバナンス) vs Management(マネジメント)</td>
+              <td>ガバナンスは「正しいことをする」方向づけ、マネジメントは「正しいやり方でやる」実行(1.9参照)</td>
+            </tr>
+            <tr>
+              <td>Service Request(サービスリクエスト) vs Incident</td>
+              <td>リクエストは定型的で計画済みの依頼、インシデントは予期しない中断(9.3参照)</td>
+            </tr>
+            <tr>
+              <td>Monitoring(監視) vs Observability(可観測性)</td>
+              <td>監視は既知の指標を見ること、可観測性は未知の障害モードにも対応できる設計思想(8.2参照)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>13.3 学習の進め方(推奨ステップ)</h3>
+
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_EXAMTIPSFIG20" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+        </ClientOnly>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>オープンブック試験だからといって準備を怠ると、90分で40問(1問あたり約2分15秒)というペースの中で資料を探す時間が足りなくなります。本ガイドの章構成(第0章〜第11章)を、公式刊行物の目次と自分の中で対応づけておく「索引化」の作業を、模擬試験の前に必ず行ってください。</p>
+      </div>
+
+      <h3>13.4 実務者としての心構え</h3>
+
+      <p>試験対策と並行して意識してほしいのは、ITIL Service (Version 5) が問うているのは「用語を知っているか」ではなく「サービスプロバイダーとして、変化し続けるデジタルサービスの信頼性と価値をどう守るか」という実務上の問いだという点です。第12章の横断的ベストプラクティスは、そのまま試験対策と実務導入の両方に使える指針として設計しています。</p>
+    </section>
+
+    <section id="glossary" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 15</div>
+      <h2>付録: 用語集</h2>
+
+      <div class="glossary-grid">
+        <div class="glossary-item"><div class="g-term">Product</div><div class="g-def">消費者に価値を提供するために設計された、組織のリソースの構成</div></div>
+        <div class="glossary-item"><div class="g-term">Service</div><div class="g-def">顧客が特定のコストとリスクを自ら管理することなく、望む成果の実現を可能にする、価値の共創手段</div></div>
+        <div class="glossary-item"><div class="g-term">Digital Product</div><div class="g-def">デジタル技術に基づく、組織のリソースの組み合わせ</div></div>
+        <div class="glossary-item"><div class="g-term">Digital Service</div><div class="g-def">デジタル製品に全面的または大部分を依存するサービス</div></div>
+        <div class="glossary-item"><div class="g-term">Output</div><div class="g-def">活動によって生み出される有形・無形の成果物</div></div>
+        <div class="glossary-item"><div class="g-term">Outcome</div><div class="g-def">1つ以上のアウトプットによって実現される、ステークホルダーにとっての結果</div></div>
+        <div class="glossary-item"><div class="g-term">Value</div><div class="g-def">何かの知覚された便益、有用性、重要性</div></div>
+        <div class="glossary-item"><div class="g-term">Cost</div><div class="g-def">特定の活動やリソースに費やされる金額</div></div>
+        <div class="glossary-item"><div class="g-term">Risk</div><div class="g-def">損害・損失を引き起こす可能性のある事象、または目標達成を困難にする事象</div></div>
+        <div class="glossary-item"><div class="g-term">ITIL Value System (ITIL VS)</div><div class="g-def">組織のあらゆる構成要素・活動が、いかに協働して価値創出を可能にするかを表すモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Guiding Principles</div><div class="g-def">あらゆる状況で組織を導く普遍的な推奨事項</div></div>
+        <div class="glossary-item"><div class="g-term">Governance</div><div class="g-def">組織が指揮・統制される仕組み</div></div>
+        <div class="glossary-item"><div class="g-term">Service Value Chain</div><div class="g-def">需要を価値に変換するための、6つの相互接続された活動からなる中核運用モデル</div></div>
+        <div class="glossary-item"><div class="g-term">Management Practice</div><div class="g-def">作業や目的達成のために設計された、組織のリソースの集合</div></div>
+        <div class="glossary-item"><div class="g-term">Continual Improvement</div><div class="g-def">あらゆる階層で行われる、パフォーマンスを期待水準に保ち続ける反復活動</div></div>
+        <div class="glossary-item"><div class="g-term">Product and Service Lifecycle Model (PSLM)</div><div class="g-def">Discover から Support までの8つの活動からなる、製品・サービスの一気通貫のライフサイクルモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Value Stream</div><div class="g-def">消費者に製品・サービスを創出・提供するために組織が行う一連のステップ</div></div>
+        <div class="glossary-item"><div class="g-term">Value Stream Mapping</div><div class="g-def">現状のワークフローを可視化し、ムダを特定・改善するリーン手法</div></div>
+        <div class="glossary-item"><div class="g-term">Service Provider</div><div class="g-def">サービスの提供とサポートに責任を持つ組織の役割</div></div>
+        <div class="glossary-item"><div class="g-term">Service Consumer</div><div class="g-def">サービスを取得・利用して自らの目的を達成する組織の役割</div></div>
+        <div class="glossary-item"><div class="g-term">Sponsor</div><div class="g-def">サービス消費の予算を承認する役割</div></div>
+        <div class="glossary-item"><div class="g-term">Customer</div><div class="g-def">サービス要件を定義し、消費のアウトカムに責任を持つ役割</div></div>
+        <div class="glossary-item"><div class="g-term">User</div><div class="g-def">サービスを日常的に利用する役割</div></div>
+        <div class="glossary-item"><div class="g-term">Service Journey</div><div class="g-def">Explore から Reflect までの7段階からなる、サービス関係の発展モデル</div></div>
+        <div class="glossary-item"><div class="g-term">Service Quality</div><div class="g-def">ニーズを満たす能力に関連する、サービスの特性の総体</div></div>
+        <div class="glossary-item"><div class="g-term">Service Level</div><div class="g-def">期待される、または達成されたサービス品質を定義する一連の指標</div></div>
+        <div class="glossary-item"><div class="g-term">Service Level Agreement (SLA)</div><div class="g-def">サービスの目標水準と期待値を規定した、プロバイダーと顧客の間の文書化された合意</div></div>
+        <div class="glossary-item"><div class="g-term">Experience Level Agreement (XLA)</div><div class="g-def">体験(Experience)を定量化し、目標として合意する指標</div></div>
+        <div class="glossary-item"><div class="g-term">Utility</div><div class="g-def">サービスが提供する機能性。目的に適っているか</div></div>
+        <div class="glossary-item"><div class="g-term">Warranty</div><div class="g-def">サービスの可用性・キャパシティ・継続性・セキュリティの保証。使用に適しているか</div></div>
+        <div class="glossary-item"><div class="g-term">Incident</div><div class="g-def">サービスの計画外の中断、またはサービス品質の低下</div></div>
+        <div class="glossary-item"><div class="g-term">Problem</div><div class="g-def">1つ以上のインシデントの原因、または潜在的な原因</div></div>
+        <div class="glossary-item"><div class="g-term">Known Error</div><div class="g-def">根本原因が特定されているが、恒久的な解決策が未実装の問題</div></div>
+        <div class="glossary-item"><div class="g-term">Workaround</div><div class="g-def">根本原因の解決を待たずに影響を軽減・除去する暫定的な解決策</div></div>
+        <div class="glossary-item"><div class="g-term">Service Desk</div><div class="g-def">ユーザーとサービスプロバイダーの単一の接点</div></div>
+        <div class="glossary-item"><div class="g-term">Service Request</div><div class="g-def">あらかじめ合意された、定型的なユーザーからの要求</div></div>
+        <div class="glossary-item"><div class="g-term">Monitoring and Event Management</div><div class="g-def">システム状態を継続的に監視し、イベントを検知・対応するプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">Change Enablement</div><div class="g-def">リスクを管理しながら変更を安全に実現するプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">Release Management</div><div class="g-def">複数の変更を計画的にリリース単位としてまとめるプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">Deployment Management</div><div class="g-def">実環境への実際の配置・切替を実行するプラクティス</div></div>
+        <div class="glossary-item"><div class="g-term">AI Capability Model(6C モデル)</div><div class="g-def">AI の機能を Creation・Curation・Clarification・Cognition・Communication・Coordination の6つに分類するモデル</div></div>
+        <div class="glossary-item"><div class="g-term">Four Dimensions of Service Management</div><div class="g-def">Organizations and People / Information and Technology / Partners and Suppliers / Value Streams and Processes の4つの側面</div></div>
+        <div class="glossary-item"><div class="g-term">PESTLE</div><div class="g-def">Political, Economic, Social, Technological, Legal, Environmental の頭文字。外部環境要因の分析枠組み</div></div>
+        <div class="glossary-item"><div class="g-term">EDM Model</div><div class="g-def">Evaluate, Direct, Monitor の頭文字。ガバナンスの継続的サイクル</div></div>
+      </div>
+    </section>
+
+    <section id="references" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 16</div>
+      <h2>参考文献・ソース URL 一覧</h2>
+
+      <p>本ガイドの作成にあたり参照した情報源を、性質ごとに分類して掲載します。ITIL (Version 5) は2026年に公開された新しいスキームであるため、PeopleCert・itil.com による一次情報に加えて、PeopleCert 認定トレーニング機関(ATO)や業界メディアによる解説記事も参照しています。最終的な正確性の確認には、必ず公式刊行物(Official eBook / Learner Workbook)をご参照ください。</p>
+      <div class="ref-group">
+        <h4>一次情報源(PeopleCert / itil.com 公式)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL Service (Version 5) 公式製品ページ(試験概要・前提条件・対象者)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-service-version-5-4181" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-service-version-5-4181</a></li>
+          <li><span class="ref-name">ITIL 認定資格一覧(ITIL Practice Manager / Product / Service / Transition の全体像)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1</a></li>
+          <li><span class="ref-name">ITIL Product and Service Lifecycle Model 公式解説記事(itil.com、David Cannon 氏執筆)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-product-and-service-lifecycle-model</a></li>
+          <li><span class="ref-name">ITIL Foundation (Version 5) の PSLM 紹介記事(itil.com)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide</a></li>
+          <li><span class="ref-name">ITIL Experience (Version 5) と 6C AI Capability Model の解説(itil.com)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
+        </ul>
+      </div>
+      <div class="ref-group">
+        <h4>PeopleCert 認定トレーニング機関(ATO)による公開コースアウトライン</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL (Version 5) Service コースアウトライン(Module 1〜10 の詳細構成、ITSM Academy)</span><a class="ref-url" href="https://itsmacademy.com/itil-service-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-service-course</a></li>
+          <li><span class="ref-name">ITIL® Service (Version 5) コース概要(QA)</span><a class="ref-url" href="https://www.qa.com/en-us/course-catalogue/courses/itil-service-version-5-itil5ser/" target="_blank" rel="noopener">https://www.qa.com/en-us/course-catalogue/courses/itil-service-version-5-itil5ser/</a></li>
+          <li><span class="ref-name">ITIL Foundation Bridge (Version 5) コース概要(HPE 経由)</span><a class="ref-url" href="https://www.hpe.com/us/en/collaterals/collateral.a50015158enw.html" target="_blank" rel="noopener">https://www.hpe.com/us/en/collaterals/collateral.a50015158enw.html</a></li>
+        </ul>
+      </div>
+      <div class="ref-group">
+        <h4>解説記事・業界メディア(補足情報、体系的な用語整理)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">ITIL® Version 5 Foundation 定義ガイド(Product/Service定義、PSLM各段階の目的・アウトプット・有効化プラクティス、4つの側面、継続的改善モデル等、PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+          <li><span class="ref-name">ITIL Version 5 の基本概念解説(バリューチェーンと PSLM の関係、PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/itil-version-5-get-to-know-the-fundamental-concepts-for-managing-digital-products-and-services/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/itil-version-5-get-to-know-the-fundamental-concepts-for-managing-digital-products-and-services/</a></li>
+          <li><span class="ref-name">情報と技術の側面・6C AI Capability Model 詳細(PMG Academy)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/</a></li>
+          <li><span class="ref-name">ITIL 5 と ITIL 4 の変更点比較(PSLM の8活動、InvGate)</span><a class="ref-url" href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">https://blog.invgate.com/itil-5-what-changes</a></li>
+          <li><span class="ref-name">ITIL 5 プロセスガイド(PSLM 各活動の説明、Dion Training)</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+          <li><span class="ref-name">ITIL 5 とサービスライフサイクル: AIを超えて(Netmind)</span><a class="ref-url" href="https://netmind.net/en/news/itil-5-service-lifecycle/" target="_blank" rel="noopener">https://netmind.net/en/news/itil-5-service-lifecycle/</a></li>
+          <li><span class="ref-name">ITIL v5 の要点整理(スペイン語、PSLM とサービスバリューチェーンの比較表、iPMOGuide)</span><a class="ref-url" href="https://ipmoguide.com/itil-v5-ya-esta-aqui-todo-lo-que-necesitas-saber/" target="_blank" rel="noopener">https://ipmoguide.com/itil-v5-ya-esta-aqui-todo-lo-que-necesitas-saber/</a></li>
+          <li><span class="ref-name">ITIL v5 の新しいバリューチェーンと変更点(PSLM 各活動の詳細、Passion IT Group)</span><a class="ref-url" href="https://passionitgroup.com/blog/thoughts-on-itil-version-5-the-new-itil-value-chain-and-what-changed-from-itil-4/" target="_blank" rel="noopener">https://passionitgroup.com/blog/thoughts-on-itil-version-5-the-new-itil-value-chain-and-what-changed-from-itil-4/</a></li>
+          <li><span class="ref-name">ITIL® Version 5 認定パスウェイ解説(Practice Manager の3系統プラクティスグルーピング、AgilePM Hub)</span><a class="ref-url" href="https://agilepmhub.com/blog/itil-version-5-certification-pathway" target="_blank" rel="noopener">https://agilepmhub.com/blog/itil-version-5-certification-pathway</a></li>
+          <li><span class="ref-name">ITIL 4 の34プラクティス概観(Practice Manager 系統の詳細、ITSM.tools)</span><a class="ref-url" href="https://itsm.tools/itil-4-explained/" target="_blank" rel="noopener">https://itsm.tools/itil-4-explained/</a></li>
+          <li><span class="ref-name">ITIL Service Operation の解説(可観測性・AI ガバナンスの実務適用、InvGate)</span><a class="ref-url" href="https://blog.invgate.com/itil-service-operation" target="_blank" rel="noopener">https://blog.invgate.com/itil-service-operation</a></li>
+          <li><span class="ref-name">ITIL® AI Governance トレーニング概要(6C モデルとガバナンスモデルの詳細、AgilePM Hub)</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></li>
+          <li><span class="ref-name">ITIL v4 vs v5 の主要な違い(6C モデル、実務への影響、Invensis Learning)</span><a class="ref-url" href="https://www.invensislearning.com/info/itil-4-vs-itil-v5-differences/" target="_blank" rel="noopener">https://www.invensislearning.com/info/itil-4-vs-itil-v5-differences/</a></li>
+          <li><span class="ref-name">ITIL v5 フレームワーク解説(6C モデル、SLA から XLA への移行、Spidya)</span><a class="ref-url" href="https://spidya.com/en/blog/it-service-management/what-is-itil-v5-framework-new-practices-itil-4-comparison" target="_blank" rel="noopener">https://spidya.com/en/blog/it-service-management/what-is-itil-v5-framework-new-practices-itil-4-comparison</a></li>
+          <li><span class="ref-name">ITIL (Version 5) 概説(6C モデルとガバナンス上の意味合い、Tideline Insights)</span><a class="ref-url" href="https://www.tidelineinsights.com/blog/itil-5-whats-coming.html" target="_blank" rel="noopener">https://www.tidelineinsights.com/blog/itil-5-whats-coming.html</a></li>
+          <li><span class="ref-name">ITIL v4 vs v5 認定ガイド(6C モデルの詳細な機能説明、PassItExams)</span><a class="ref-url" href="https://passitexams.com/articles/itil-v4-vs-v5-key-differences/" target="_blank" rel="noopener">https://passitexams.com/articles/itil-v4-vs-v5-key-differences/</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      本ガイドは学習支援を目的とした非公式の教材であり、PeopleCert または AXELOS の公式教材ではありません。ITIL® は PeopleCert グループの登録商標です。試験の最終的な出題範囲・合格基準は、必ず PeopleCert 公式サイトおよび受験時点の公式刊行物でご確認ください。
+    </footer>
       </main>
     </div>
   </div>
