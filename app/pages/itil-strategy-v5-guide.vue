@@ -213,6 +213,22 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class ITIL hub;
 class DEVOPS box;
 class PM done;`;
+
+const DIAGRAM_STUDY_SEQUENCE_ROADMAP = `flowchart LR
+S1["① Foundation復習 Module 1"]
+S2["② 用語の正確な理解 Module 2"]
+S3["③ 4つの側面とPESTLE Module 3"]
+S4["④ Strategy Management Modelの全体像 Module 4"]
+S5["⑤ 策定・実装サイクルの各活動を精読 Module 5・6"]
+S6["⑥ 戦略的能力と他フレームワーク統合 Module 7・8"]
+S7["⑦ 公式問題集で時間配分の練習"]
+S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S1,S2,S3 box;
+class S4,S5 hub;
+class S6,S7 done;`;
 </script>
 
 <template>
@@ -804,6 +820,115 @@ class PM done;`;
             <p><strong>AIガバナンスとの関連(参考)</strong>: PeopleCertはITIL AI Governanceという専用出版物も作成しており、これはITIL (Version 5) のいわゆる「コア」の製品・サービス管理ベストプラクティスガイダンスの一部ではないが、多くの組織が直面する重要なITSM課題への支援を提供するものである。ITIL Strategy試験のシラバス概要にも「AIガバナンス」という語が学習項目として挙げられているため、コア出版物ではない関連トピックとして概要だけは押さえておくとよい。</p>
           </div>
         </section>
+
+        <!-- ===================== 12. Best Practices Summary ===================== -->
+        <section id="best-practices-summary" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:list-check" aria-hidden="true" />
+            <span>SECTION 12</span>
+          </div>
+          <h2>11. ベストプラクティス総括表</h2>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>領域</th><th>ベストプラクティス</th><th>根拠・理由</th></tr></thead>
+              <tbody>
+                <tr><td>戦略の言語統一</td><td>ミッション・ビジョン・パーパス・ビジネス戦略・デジタル戦略の定義を組織内で文書化し共通言語にする</td><td>用語の混同は意思決定の齟齬に直結する(4.1〜4.2節)</td></tr>
+                <tr><td>VUCA対応</td><td>固定計画ではなくObserve-Orient-Decide-Planのループを定常運用に組み込む</td><td>環境変化速度に追随できない戦略は策定した瞬間から陳腐化する(4.3節)</td></tr>
+                <tr><td>外部環境分析</td><td>PESTLE分析を四半期など定期サイクルで見直す</td><td>半年前の分析が前提として使えなくなるスピード感がVUCA環境の特徴(5.5節)</td></tr>
+                <tr><td>意思決定の透明性</td><td>Decideフェーズの優先順位づけ基準(何を価値とみなすか)を事前に明文化する</td><td>ガイディングプリンシプル「Focus on value」の実務適用(7.5節)</td></tr>
+                <tr><td>実装と運用の両立</td><td>変革イニシアチブの進捗指標と既存運用のSLA/品質指標を同じダッシュボードで管理する</td><td>Synthesizeフェーズでの変革と運用のバランス確保(8.3節)</td></tr>
+                <tr><td>学習の制度化</td><td>Reflectで得た学びを個人の経験で終わらせず、次のObserveの入力として構造化して引き継ぐ</td><td>ループが1周で途切れると戦略疲れが起きる(8.4節、9.4節)</td></tr>
+                <tr><td>権限設計</td><td>誰が何を決定できるかというガバナンスの枠組みをDecideフェーズの前に明確化する</td><td>権限が曖昧だと意思決定サイクル自体が機能不全になる(9.2節)</td></tr>
+                <tr><td>フレームワーク間の役割分担</td><td>ITILは方向性、DevOpsは高速デリバリー、PRINCE2は統制された実行、と役割を混同しない</td><td>競合させず補完関係として設計するのがベストプラクティス(10.1〜10.2節)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===================== 13. Exam Tips ===================== -->
+        <section id="exam-tips" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:map-2" aria-hidden="true" />
+            <span>SECTION 13</span>
+          </div>
+          <h2>12. 試験対策のポイント</h2>
+
+          <h3>12.1 出題されやすいポイント</h3>
+          <ul>
+            <li><strong>用語の入れ替えひっかけ。</strong>ミッション・ビジョン・パーパス、ビジネス戦略・デジタル戦略、戦略策定サイクルのPlan・戦略実装サイクルのPlan、など類似語の混同を狙った選択肢が頻出する構造になっている。</li>
+            <li><strong>サイクルの活動順序。</strong>Observe&rarr;Orient&rarr;Decide&rarr;Plan、Plan&rarr;Execute&rarr;Synthesize&rarr;Reflectの順序と、各活動の目的・アウトプットの対応関係。</li>
+            <li><strong>4つの側面とPESTLEの重ね合わせ。</strong>どの外部要因がどの側面に主に影響するかという組み合わせ問題。</li>
+          </ul>
+
+          <h3>12.2 オープンブックの活用戦略</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>&#9989; 効果的な使い方</th><th>&#10060; 非効率な使い方</th></tr></thead>
+              <tbody>
+                <tr><td>用語の正確な定義を素早く確認するための索引として使う</td><td>試験中に初めて読んで理解しようとする</td></tr>
+                <tr><td>事前にサイクル図・4つの側面の図にタブやマーカーで印をつけておく</td><td>ページ番号を覚えずその場で目次から探す</td></tr>
+                <tr><td>頻出用語(VUCA、PESTLE、戦略策定・実装サイクルの活動名)は暗記した上で、細かい言い回しの確認にのみ本を使う</td><td>全問をオープンブックに頼り、時間切れになる</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>12.3 学習の進め方(推奨シーケンス)</h3>
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STUDY_SEQUENCE_ROADMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">7ステップの推奨学習シーケンス</div>
+          </div>
+        </section>
+
+        <!-- ===================== 14. References ===================== -->
+        <section id="references" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:link" aria-hidden="true" />
+            <span>SECTION 14</span>
+          </div>
+          <h2>13. 参考文献・出典</h2>
+
+          <p>本ガイドは以下の一次・準一次情報源に基づいて構成した。試験直前の最終確認には、必ず公式eBook・Learner Workbookを参照すること。</p>
+
+          <div class="ref-group">
+            <h4>公式情報源</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">PeopleCert公式認定ページ「ITIL Strategy (Version 5)」(試験概要・学習目標・前提条件)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-strategy-version-5-4175" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-strategy-version-5-4175</a></li>
+              <li><span class="ref-name">ITSM Academy「ITIL (Version 5) Updates」(公式書籍・学習教材の提供状況、オープンブック試験における公式出版物の重要性)</span><a class="ref-url" href="https://itsmacademy.com/press-room/itil-version-5/" target="_blank" rel="noopener">https://itsmacademy.com/press-room/itil-version-5/</a></li>
+              <li><span class="ref-name">innovativelearning.eu「ITIL Strategy (Version 5)」ダウンロードページ(公式PDF資料の存在確認・出版概要)</span><a class="ref-url" href="https://www.innovativelearning.eu/news-resources/free-resources/downloads/itil-strategy-version-5.html" target="_blank" rel="noopener">https://www.innovativelearning.eu/news-resources/free-resources/downloads/itil-strategy-version-5.html</a></li>
+            </ul>
+          </div>
+
+          <div class="ref-group">
+            <h4>認定トレーニングパートナーのコースアウトライン</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">QA(PeopleCertプラチナパートナー)公式コースページ(8モジュールの詳細アウトライン・学習成果・試験構成の一次情報として本ガイドの骨格に使用)</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/itil-strategy-version-5-itil5str/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/itil-strategy-version-5-itil5str/</a></li>
+              <li><span class="ref-name">Asseco Academy 公式トレーニングページ(戦略策定・実装サイクルの各活動の学習目標の英語原文確認)</span><a class="ref-url" href="https://academy.asseco.pl/szkolenie/itil-strategy-wersja-5-in-english/" target="_blank" rel="noopener">https://academy.asseco.pl/szkolenie/itil-strategy-wersja-5-in-english/</a></li>
+              <li><span class="ref-name">Tieturi 公式トレーニングページ(モジュール5〜7の学習目標の相互確認)</span><a class="ref-url" href="https://www.tieturi.fi/tuote/itil-strategy/" target="_blank" rel="noopener">https://www.tieturi.fi/tuote/itil-strategy/</a></li>
+              <li><span class="ref-name">itil.org.uk 公式トレーニングページ(戦略実装サイクルの詳細な学習目標、AIガバナンス・DevOps・PRINCE2との統合範囲の確認)</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-strategic-leader-sl/itil-strategy-certification-training-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-strategic-leader-sl/itil-strategy-certification-training-course</a></li>
+              <li><span class="ref-name">ib-formation.fr 公式トレーニングページ(フランス語)(モジュール構成のクロスチェック用)</span><a class="ref-url" href="https://www.ib-formation.fr/formations/gouvernance-des-si-referentiels/itil-strategy-version-5" target="_blank" rel="noopener">https://www.ib-formation.fr/formations/gouvernance-des-si-referentiels/itil-strategy-version-5</a></li>
+            </ul>
+          </div>
+
+          <div class="ref-group">
+            <h4>解説記事・関連情報源</h4>
+            <ul class="ref-list">
+              <li><span class="ref-name">ITSM.tools「ITIL (Version 5) Explained」(AXELOS ITSMポートフォリオ開発マネージャー Roman Jouravlev氏による公式解説記事。ITIL (Version 5) 全体の変更点、Strategy出版物とAI Governance出版物の位置づけ)</span><a class="ref-url" href="https://itsm.tools/itil-version-5-explained-key-changes-lifecycle-ai-governance/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-explained-key-changes-lifecycle-ai-governance/</a></li>
+              <li><span class="ref-name">nex-arc-learning.com ITILFND-V5 Study Guide Cheat Sheet(ミッション・ビジョン・パーパス・戦略・VUCAの用語定義)</span><a class="ref-url" href="https://nex-arc-learning.com/peoplecert/itilfnd-v5/study-guide/cheat-sheet/" target="_blank" rel="noopener">https://nex-arc-learning.com/peoplecert/itilfnd-v5/study-guide/cheat-sheet/</a></li>
+              <li><span class="ref-name">PMG Academy「The Definitive Guide to ITIL Version 5 Foundation」(ITIL Product and Service Lifecycleの8段階の定義、バリューチェーン活動の定義)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/</a></li>
+              <li><span class="ref-name">TeamDynamix「What is ITIL 5?」(Product and Service Lifecycleの8段階名称の相互確認)</span><a class="ref-url" href="https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/" target="_blank" rel="noopener">https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/</a></li>
+              <li><span class="ref-name">DionTraining「ITIL 5 Process Guide」(Product and Service Lifecycle各段階の役割の相互確認)</span><a class="ref-url" href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">https://www.diontraining.com/blogs/news/itil-5-process</a></li>
+              <li><span class="ref-name">itil.com 公式ニュース「ITIL Version 5 Foundation - What's New Guide」(Discover/Design/Acquire/Build/Transition/Operate/Deliver/Supportの8段階名称の一次確認)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-foundation-whats-new-guide</a></li>
+              <li><span class="ref-name">Vivantio「ITIL Best Practices and Processes for CSM」(PESTLEフレームワークと4つの側面モデルの重ね合わせの説明)</span><a class="ref-url" href="https://www.vivantio.com/blog/https-blog-vivantio-com-itil-best-practices-viv/" target="_blank" rel="noopener">https://www.vivantio.com/blog/https-blog-vivantio-com-itil-best-practices-viv/</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <footer>
+          本ガイドはPeopleCert公式教材の代替ではなく、学習の全体像を掴むための独立した補助教材である。ITIL&reg;はPeopleCert International Limitedの登録商標。最終的な学習・受験準備は必ず公式Learner Workbook・Quick Reference Guide・Official eBookを参照すること。
+        </footer>
 
       </main>
     </div>
