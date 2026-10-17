@@ -123,6 +123,28 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
 class A,B,C,D,E box
 class F done`;
+
+const DIAGRAM_TRANSITION_STEPS = `flowchart TB
+A["移行計画とリスク評価"] --> B["移行アプローチの選定 (一括/段階的/並行稼働)"]
+B --> C["リハーサル・ 移行テスト"]
+C --> D["運用準備状況の確認 (Operational Readiness)"]
+D --> E["本番移行の実行"]
+E --> F(("アウトプット: 本番稼働状態・ 移行記録"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
+
+const DIAGRAM_OPERATE_STEPS = `flowchart TB
+A["監視・オブザーバビリティ の実装"] --> B["キャパシティ・ 可用性の計画"]
+B --> C["日常運用 (パフォーマンス管理)"]
+C --> D["異常検知と 自動対応/エスカレーション"]
+D --> E["継続性計画の維持 (Continuity Planning)"]
+E --> F(("アウトプット: 安定稼働・ 運用データ"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
 </script>
 
 <template>
@@ -1066,6 +1088,160 @@ class F done`;
           <ul>
             <li><a href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">ITIL 5 Process Guide, Workflows, Practices & Real Examples</a></li>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 09 -->
+      <section id="transition" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:transfer" aria-hidden="true" />
+          <span>SECTION 09</span>
+        </div>
+        <h2>Transition(移行)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Transitionは、構築されたプロダクトを<strong>開発環境から本番環境へ、リスクを管理しながら安全に移行する</strong>活動です。シラバスは「プロダクト移行への複数のアプローチ(approaches to product transition)」を理解することを求めており、一括移行・段階的移行・並行稼働など複数の移行戦略があることを前提としています。</p>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_TRANSITION_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Transition活動のステップとアウトプット</div>
+        </div>
+        <h3>Transitionを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Transitionでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Change enablement</td><td>変更の評価・承認・スケジューリングを行う</td></tr>
+              <tr><td>Release management</td><td>リリース単位の計画・調整・展開を管理する</td></tr>
+              <tr><td>Deployment management</td><td>環境への実際の展開作業を実行する</td></tr>
+              <tr><td>Service validation and testing</td><td>本番相当の環境で受け入れ基準を検証する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>移行に伴う障害・手戻りが最小化されている</td><td>変更起因インシデント率(Change Failure Rate)</td></tr>
+              <tr><td>移行の意思決定が迅速である</td><td>変更リードタイム(Lead Time for Changes)</td></tr>
+              <tr><td>運用チームが移行後すぐに対応できる</td><td>移行後のEarly Life Support期間中のエスカレーション件数</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>移行前に<strong>ロールバック計画</strong>を必ず用意し、「戻れない移行」をしない</li>
+            <li><strong>運用準備性(Operational Readiness)のチェックリスト</strong>を移行のGoサインの必須条件にする(監視設定、ランブック、オンコール体制の確認など)</li>
+            <li>リリース頻度を上げることでリスクを分散する(<strong>小さく・頻繁な移行</strong>は、大きく・稀な移行よりも一般に失敗コストが低い)</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>段階的な移行によりビジネスへの影響を最小化できる</td><td>移行中の並行稼働はコストと複雑性を増大させる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+            <li><a href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">ITIL 5 vs ITIL 4: What Changed</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 10 -->
+      <section id="operate" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:activity" aria-hidden="true" />
+          <span>SECTION 10</span>
+        </div>
+        <h2>Operate(運用)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Operateは、本番稼働しているインフラ・システムを<strong>日々稼働させ続け、パフォーマンスを監視する</strong>活動です。シラバスは「プロダクト運用へのアプローチ(approaches to product operation)」の理解を求めており、SRE(Site Reliability Engineering)的な考え方との親和性が高い領域です。</p>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_OPERATE_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Operate活動のステップとアウトプット</div>
+        </div>
+        <h3>Operateを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Operateでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Monitoring and event management</td><td>システム状態を継続的に監視し異常を検知する</td></tr>
+              <tr><td>Availability management</td><td>合意された可用性水準を維持する</td></tr>
+              <tr><td>Capacity and performance management</td><td>需要に応じたキャパシティを計画・調整する</td></tr>
+              <tr><td>Service continuity management</td><td>大規模障害時の事業継続性を確保する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>システムが高い信頼性で稼働している</td><td>可用性(Uptime %)、MTTR(平均復旧時間)</td></tr>
+              <tr><td>異常を早期に検知できている</td><td>アラートのノイズ比率、検知から対応開始までの時間</td></tr>
+              <tr><td>将来の需要に備えられている</td><td>キャパシティ予測の精度</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li><strong>SRE原則(エラーバジェット、SLO/SLI)</strong>を導入し、信頼性と機能開発速度のバランスを定量的に管理する</li>
+            <li>監視は「システムが落ちたことを知る」だけでなく、<strong>オブザーバビリティ(ログ・メトリクス・トレースの統合)</strong>によって「なぜ落ちたか」を素早く特定できる状態を目指す</li>
+            <li>インシデント対応の<strong>自動化(Auto-remediation)</strong>を、繰り返し発生する既知の問題から優先的に導入する</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>高い信頼性がブランド価値・顧客満足に直結する</td><td>過剰な信頼性投資は機能開発リソースを圧迫する(信頼性とスピードのトレードオフ)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+            <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-product-version-5-4179" target="_blank" rel="noopener">ITIL Product (Version 5) | peoplecert.org(「Reliable and Observable Operations」の記述)</a></li>
           </ul>
         </div>
       </section>
