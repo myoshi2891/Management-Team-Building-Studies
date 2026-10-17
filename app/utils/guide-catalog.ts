@@ -798,6 +798,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-service-v5-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Service (v5)",
+    title: "ITIL® Service (Version 5) 認定資格 完全ガイド",
+    description: "PeopleCert ITIL Service (Version 5) 認定資格の学習ガイド。PSLM 8段階(Discover-Support)の目的・有効化プラクティス・CSFとベストプラクティスを初学者向けに解説。",
+    meta: "17セクション",
+    icon: "tabler:server-2",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
