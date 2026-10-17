@@ -187,6 +187,33 @@ MoP -. "成熟度の測定" .-> P3M3
 classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class MoP hub;`;
 
+const TOC_IDS = [
+  "exam-overview",
+  "what-is-portfolio-management",
+  "mop-framework-overview",
+  "five-principles",
+  "organizational-energy",
+  "definition-cycle",
+  "delivery-cycle",
+  "key-roles",
+  "key-documents",
+  "implementation-and-maturity",
+  "best-practices-summary",
+  "related-frameworks",
+  "exam-tips",
+  "references",
+] as const;
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
 useSeoMeta({
   title: "MoP Foundation® 認定資格 完全ガイド | PRINCE2 Portfolio Management Foundation対策",
   description: "PeopleCert MoP Foundation（PRINCE2 Portfolio Management Foundation）試験対策のための、5つの原則・定義サイクル・デリバリーサイクル・主要な役割と文書・導入と成熟度評価を網羅した初学者向け日本語ガイド。",
@@ -194,45 +221,58 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="layout">
-    <nav class="sidebar" aria-label="ページ内目次">
-      <div class="sidebar-brand">
-        <svg class="seal" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-          <circle cx="18" cy="18" r="17" stroke="#B8802A" stroke-width="2" fill="#FAF1DF"/>
-          <path d="M18 6L21.5 14.5L30.5 15L23.5 20.5L26 29.5L18 24.5L10 29.5L12.5 20.5L5.5 15L14.5 14.5L18 6Z" fill="#B8802A"/>
-        </svg>
-        <div class="brand-text">
-          <div class="brand-title">MoP Foundation</div>
-          <div class="brand-subtitle">学習ガイド</div>
+  <div>
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      :aria-expanded="sidebarOpen"
+      aria-controls="sidebar"
+      aria-label="目次を開閉する"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
+    <div class="layout">
+      <aside id="sidebar" class="sidebar" :class="{ 'is-open': sidebarOpen }" aria-label="目次">
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <circle cx="18" cy="18" r="17" stroke="#B8802A" stroke-width="2" fill="#FAF1DF"/>
+            <path d="M18 6L21.5 14.5L30.5 15L23.5 20.5L26 29.5L18 24.5L10 29.5L12.5 20.5L5.5 15L14.5 14.5L18 6Z" fill="#B8802A"/>
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">MoP Foundation</div>
+            <div class="brand-subtitle">学習ガイド</div>
+          </div>
         </div>
-      </div>
 
-      <ul class="sidebar-nav">
-        <li class="nav-group-label">概要・基本概念</li>
-        <li><a href="#exam-overview"><Icon name="tabler:certificate" aria-hidden="true" />試験概要</a></li>
-        <li><a href="#what-is-portfolio-management"><Icon name="tabler:building-bank" aria-hidden="true" />ポートフォリオマネジメントとは</a></li>
-        <li><a href="#mop-framework-overview"><Icon name="tabler:route" aria-hidden="true" />MoP全体像</a></li>
+        <ul class="sidebar-nav">
+          <li class="nav-group-label">概要・基本概念</li>
+          <li><a href="#exam-overview" :class="{ active: activeId === 'exam-overview' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />試験概要</a></li>
+          <li><a href="#what-is-portfolio-management" :class="{ active: activeId === 'what-is-portfolio-management' }" @click="closeSidebar"><Icon name="tabler:building-bank" aria-hidden="true" />ポートフォリオマネジメントとは</a></li>
+          <li><a href="#mop-framework-overview" :class="{ active: activeId === 'mop-framework-overview' }" @click="closeSidebar"><Icon name="tabler:route" aria-hidden="true" />MoP全体像</a></li>
 
-        <li class="nav-group-label">原則と変革文化</li>
-        <li><a href="#five-principles"><Icon name="tabler:shield-check" aria-hidden="true" />5つの原則</a></li>
-        <li><a href="#organizational-energy"><Icon name="tabler:bolt" aria-hidden="true" />組織のエネルギー</a></li>
+          <li class="nav-group-label">原則と変革文化</li>
+          <li><a href="#five-principles" :class="{ active: activeId === 'five-principles' }" @click="closeSidebar"><Icon name="tabler:shield-check" aria-hidden="true" />5つの原則</a></li>
+          <li><a href="#organizational-energy" :class="{ active: activeId === 'organizational-energy' }" @click="closeSidebar"><Icon name="tabler:bolt" aria-hidden="true" />組織のエネルギー</a></li>
 
-        <li class="nav-group-label">2つのサイクル</li>
-        <li><a href="#definition-cycle"><Icon name="tabler:list-check" aria-hidden="true" />定義サイクル(5)</a></li>
-        <li><a href="#delivery-cycle"><Icon name="tabler:git-branch" aria-hidden="true" />デリバリーサイクル(7)</a></li>
+          <li class="nav-group-label">2つのサイクル</li>
+          <li><a href="#definition-cycle" :class="{ active: activeId === 'definition-cycle' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />定義サイクル(5)</a></li>
+          <li><a href="#delivery-cycle" :class="{ active: activeId === 'delivery-cycle' }" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />デリバリーサイクル(7)</a></li>
 
-        <li class="nav-group-label">体制とガバナンス</li>
-        <li><a href="#key-roles"><Icon name="tabler:users-group" aria-hidden="true" />主要な役割</a></li>
-        <li><a href="#key-documents"><Icon name="tabler:clipboard-text" aria-hidden="true" />主要文書</a></li>
-        <li><a href="#implementation-and-maturity"><Icon name="tabler:refresh" aria-hidden="true" />導入と成熟度</a></li>
+          <li class="nav-group-label">体制とガバナンス</li>
+          <li><a href="#key-roles" :class="{ active: activeId === 'key-roles' }" @click="closeSidebar"><Icon name="tabler:users-group" aria-hidden="true" />主要な役割</a></li>
+          <li><a href="#key-documents" :class="{ active: activeId === 'key-documents' }" @click="closeSidebar"><Icon name="tabler:clipboard-text" aria-hidden="true" />主要文書</a></li>
+          <li><a href="#implementation-and-maturity" :class="{ active: activeId === 'implementation-and-maturity' }" @click="closeSidebar"><Icon name="tabler:refresh" aria-hidden="true" />導入と成熟度</a></li>
 
-        <li class="nav-group-label">実務・試験対策</li>
-        <li><a href="#best-practices-summary"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス早見表</a></li>
-        <li><a href="#related-frameworks"><Icon name="tabler:git-merge" aria-hidden="true" />関連フレームワーク</a></li>
-        <li><a href="#exam-tips"><Icon name="tabler:target" aria-hidden="true" />試験対策</a></li>
-        <li><a href="#references"><Icon name="tabler:link" aria-hidden="true" />参考文献</a></li>
-      </ul>
-    </nav>
+          <li class="nav-group-label">実務・試験対策</li>
+          <li><a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス早見表</a></li>
+          <li><a href="#related-frameworks" :class="{ active: activeId === 'related-frameworks' }" @click="closeSidebar"><Icon name="tabler:git-merge" aria-hidden="true" />関連フレームワーク</a></li>
+          <li><a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" @click="closeSidebar"><Icon name="tabler:target" aria-hidden="true" />試験対策</a></li>
+          <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />参考文献</a></li>
+        </ul>
+      </aside>
 
     <main class="main-content">
       <header class="hero">
@@ -1004,22 +1044,161 @@ useSeoMeta({
     <!-- ===================== 8. Key Roles ===================== -->
 
       <!-- Section 8 -->
-      <section id="key-roles">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 08</div>
-        <h2>主要な役割(Key Roles)</h2>
-      </section>
+<section id="key-roles">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 08</div>
+      <h2>主要な役割(Key Roles)</h2>
+
+      <p>MoPは、ポートフォリオの導入・継続運用を担う主要なステークホルダーグループとして、以下の役割を定義しています。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_ROLES" /></div>
+        <div class="diagram-caption">主要な役割の階層関係</div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>役割</th><th>主な責務</th></tr></thead>
+          <tbody>
+            <tr><td>ポートフォリオ・ディレクション・グループ(PDG)</td><td>ポートフォリオマネジメントの実務(フレームワークと定義サイクルのプロセス)を承認。ポートフォリオのバランス・実現可能性を確認しポートフォリオ戦略とデリバリープランを承認。資金提供と個々の施策の承認(中止判断を含む)。組織目標に照らした定期レビューと方向づけ。最上位のエスカレーション先として組織の最善の利益に沿った紛争解決を行う</td></tr>
+            <tr><td>ポートフォリオ・プログレス・グループ(PPG)</td><td>デリバリーサイクルの各プロセスが効果的に実行されることに責任を持つ。全体進捗のモニタリングと、便益実現を損ないかねない課題の解決。予算・便益・リスク・課題・前提・依存関係・リソースの積極的なマネジメント(必要に応じた予測を含む)。上級管理層・ステークホルダーへのポートフォリオレベルの通信を承認する</td></tr>
+            <tr><td>ポートフォリオ・ディレクター(PD)</td><td>個人としてポートフォリオ全体に説明責任を持つ役割(「ビジネスチェンジ・ディレクター」とも呼ばれる)</td></tr>
+            <tr><td>ポートフォリオ・マネージャー</td><td>ポートフォリオ全体の計画・運営を担う実務責任者</td></tr>
+            <tr><td>ポートフォリオ・ベネフィット・マネージャー</td><td>ポートフォリオレベルの便益の統合・追跡・報告を担う</td></tr>
+            <tr><td>プロジェクト・プログラムマネージャー(PPMs)</td><td>個々の施策のデリバリーに責任を持ち、ポートフォリオマネジメントへ情報をインプットする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/key-roles/" target="_blank" rel="noopener noreferrer">mop.wiki「Key Portfolio Management Roles」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>PDGとPPGを明確に分離する。</strong>PDG(投資委員会)とPPG(デリバリー委員会)を明確に分離すること。前者は「何を、どれだけの予算で、ポートフォリオに含めるか」という定義サイクル寄りの意思決定機関、後者は「含めた施策が計画通りに進んでいるか」というデリバリーサイクル寄りの監督機関であり、両者を一つの会議体に統合すると、戦略的意思決定と日々の進捗管理の議題が混在し、いずれの意思決定の質も低下しがちです。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 9. Key Documents ===================== -->
 
       <!-- Section 9 -->
-      <section id="key-documents">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 09</div>
-        <h2>主要文書(Key Documents)</h2>
-      </section>
+<section id="key-documents">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 09</div>
+      <h2>主要文書(Key Documents)</h2>
+
+      <p>MoPフレームワークは、ポートフォリオマネジメントを実践する上で以下9つの主要文書を定義しています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>文書</th><th>目的・内容</th></tr></thead>
+          <tbody>
+            <tr><td>ポートフォリオ戦略(Portfolio Strategy)</td><td>ポートフォリオが「何を」届けるかを示す。ビジョン・ミッション・目的を含め、ポートフォリオがどこへ向かい、どう組織の戦略目標達成に寄与するかをステークホルダーが理解できるようにする</td></tr>
+            <tr><td>ポートフォリオ・デリバリープラン</td><td>ポートフォリオ戦略よりも詳細で、進捗モニタリングのベースラインとして機能する。いつ届けるか、マイルストーン、リスク、コスト、人員要件などの詳細を含む</td></tr>
+            <tr><td>ポートフォリオ・ベネフィット実現計画</td><td>ポートフォリオレベルでの便益実現の計画・追跡を担う文書</td></tr>
+            <tr><td>ポートフォリオ・ダッシュボード</td><td>ポートフォリオの状況を一覧できる可視化ツール</td></tr>
+            <tr><td>ポートフォリオ・リソース・スケジュール</td><td>ポートフォリオ内の変革施策を支えるリソースのキャパシティと稼働可能量を規定。余剰・過小稼働・過剰稼働も含む</td></tr>
+            <tr><td>ポートフォリオ財務プラン</td><td>ポートフォリオの予算を定め、支出追跡のベースラインとなる(実績値は含まない)</td></tr>
+            <tr><td>ポートフォリオマネジメント・フレームワーク</td><td>組織のポートフォリオマネジメント実務とガバナンスのあり方について、ステークホルダーへの参照文書として機能する</td></tr>
+            <tr><td>ポートフォリオ・ベネフィットマネジメント・フレームワーク</td><td>ポートフォリオ内のすべての施策の便益を一貫した仕組みで管理するための枠組み</td></tr>
+            <tr><td>ポートフォリオ・ステークホルダーエンゲージメントプラン</td><td>ポートフォリオに関する一貫したステークホルダーエンゲージメントとコミュニケーションの枠組み</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/key-documents/" target="_blank" rel="noopener noreferrer">mop.wiki「Key Portfolio Management Documents」</a></li>
+          <li><a href="https://goodelearning.com/articles/what-is-management-of-portfolios-mop/" target="_blank" rel="noopener noreferrer">Good e-Learning「What is MoP?」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>文書を2つのサイクルに紐づけて覚える。</strong>これら9文書のうち、<strong>ポートフォリオ戦略</strong>と<strong>ポートフォリオ・デリバリープラン</strong>の2つが定義サイクルの直接のアウトプットです。<strong>ポートフォリオマネジメント・フレームワーク</strong>は、定義サイクルのプロセスを含むポートフォリオマネジメント実務全体を規定する文書であり(PDGの承認対象)、定義サイクルとデリバリーサイクルの両方にまたがります。残り6文書(ベネフィット実現計画・ダッシュボード・リソーススケジュール・財務プラン・ベネフィットマネジメントフレームワーク・ステークホルダーエンゲージメントプラン)は、デリバリーサイクルの各プラクティスを運用するための実務文書という位置づけです。試験対策としては、どの文書がどちらのサイクルに紐づくかを整理して覚えておくと出題への対応力が上がります。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 10. Implementation and Maturity ===================== -->
 
       <!-- Section 10 -->
-      <section id="implementation-and-maturity">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 10</div>
-        <h2>導入・定着・成熟度評価</h2>
-      </section>
+<section id="implementation-and-maturity">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 10</div>
+      <h2>導入・定着・成熟度評価</h2>
+
+      <h3>10.1 3つの実装アプローチ</h3>
+
+      <p>プロジェクトやプログラムと異なり、ポートフォリオには明確な立ち上げ段階(イニシエーション)がありません。組織がプロジェクトをポートフォリオとして管理する重要性を認識した時点で、既に稼働中の施策とパイプライン中の施策を抱えた状態から導入が始まります。MoPは3つの導入アプローチを提示しています。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_IMPLEMENTATION_APPROACHES" /></div>
+        <div class="diagram-caption">3つの実装アプローチの比較</div>
+      </div>
+
+      <p><strong>P3O(Portfolio, Programme and Project Offices)ガイドラインは、ビッグバンともアドホックとも比較して、エボリューショナリー(漸進的)アプローチを最も有効な選択肢として推奨しています。</strong>漸進的アプローチは「両者の良いとこ取り」とされ、組織への急激な混乱を避けつつ、可視化された便益によって早期にポートフォリオマネジメントの価値を証明できます。導入を遅延させないためには、周到な計画と規律ある実行が鍵となります。不安定で戦略が流動的な環境では、この漸進的アプローチが最も適しているとされます。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/implementing-portfolio-management/" target="_blank" rel="noopener noreferrer">mop.wiki「Implementing Portfolio Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>10.2 定着(Sustaining)のための要因</h3>
+
+      <p>導入後、ポートフォリオマネジメントの取り組みを組織に定着させ、進捗を維持するための代表的な要因には以下が挙げられます。</p>
+
+      <ul>
+        <li>最上位レベルでの焦点維持とポートフォリオ視点の継続的な推進を担う、上級レベルのスポンサーの存在</li>
+        <li>最も必要性の高い領域から着手し、「クイックウィン」によって早期に価値を実証する、段階的・漸進的なアプローチの継続</li>
+      </ul>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://training.houseofpmo.com/pmolearning-blog/p3o/pmo-course-deep-dive-mop-foundation/" target="_blank" rel="noopener noreferrer">House of PMO「MoP Foundationコース詳解」</a></li>
+        </ul>
+      </div>
+
+      <h3>10.3 成熟度評価: P3M3(Portfolio, Programme and Project Management Maturity Model)</h3>
+
+      <p>MoP Foundationでは、導入したポートフォリオマネジメントの成熟度を評価する枠組みとして、AXELOSが開発した<strong>P3M3</strong>にも言及します。P3M3はポートフォリオ(PfM3)・プログラム(PgM3)・プロジェクト(PjM3)の3つのサブモデルから構成され、いずれも5段階の成熟度レベルで評価されます。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_P3M3_LEVELS" /></div>
+        <div class="diagram-caption">P3M3の5段階成熟度レベル</div>
+      </div>
+
+      <p>各成熟度レベルは、以下<strong>7つのプロセス・パースペクティブ</strong>(= ポートフォリオ・デリバリーサイクルの7プラクティスと同一の枠組み)で評価されます。</p>
+
+      <ol>
+        <li>マネジメントコントロール</li>
+        <li>ベネフィットマネジメント</li>
+        <li>財務マネジメント</li>
+        <li>ステークホルダーエンゲージメント</li>
+        <li>リスクマネジメント</li>
+        <li>組織ガバナンス</li>
+        <li>リソースマネジメント</li>
+      </ol>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://eu-assets.contentstack.com/v3/assets/blt637b065823946b12/blt6582c2653720d239/620b6e06e413e76824f96dda/P3M3-Overview.pdf" target="_blank" rel="noopener noreferrer">AXELOS「P3M3 Overview」</a></li>
+          <li><a href="https://www.vanharen.net/standards/p3m3/p3m3-portfolio-programme-and-project-management-maturity-model-in-3-minutes/" target="_blank" rel="noopener noreferrer">Van Haren Publishing「P3M3 in 3 minutes」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>P3M3の7視点をデリバリーサイクルと重ねて覚える。</strong>P3M3の7パースペクティブが、デリバリーサイクルの7プラクティスとほぼ1対1で対応していることに注目すると、両者を別々に暗記する必要がなくなります。「デリバリーサイクルの各プラクティスを、どれだけ成熟したレベルで実行できているか」を測る物差しがP3M3である、と理解するのが最も効率的です。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 11. Best Practices Summary ===================== -->
 
       <!-- Section 11 -->
       <section id="best-practices-summary">
@@ -1049,6 +1228,7 @@ useSeoMeta({
         「MoP」および「Management of Portfolios」はAXELOS Limitedの登録商標です。「PRINCE2」もAXELOS Limitedの登録商標です。本ページはAXELOSまたはPeopleCertの公式資料ではなく、学習支援を目的とした非公式の解説教材です。
       </footer>
     </main>
+    </div>
   </div>
 </template>
 
