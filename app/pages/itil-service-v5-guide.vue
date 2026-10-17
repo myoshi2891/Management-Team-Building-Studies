@@ -148,6 +148,35 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
 class S1,S2,S3,S4,S5,S6 box
 class S7 done`;
+
+const DIAGRAM_MODULE1FIG8 = `flowchart TB
+subgraph PRODUCT["主に「製品」寄りの活動"]
+direction LR
+A1["① Discover 発見"] --> A2["② Design 設計"] --> A3["③ Acquire 獲得"] --> A4["④ Build 構築"]
+end
+subgraph BRIDGE["製品とサービスの橋渡し"]
+direction LR
+A5["⑤ Transition 移行"] --> A6["⑥ Operate 運用"]
+end
+subgraph SERVICE["主に「サービス」寄りの活動"]
+direction LR
+A7["⑦ Deliver 提供"] --> A8["⑧ Support サポート"]
+end
+PRODUCT --> BRIDGE --> SERVICE
+A8 -.->|フィードバックは<br/>どの活動にも還元される| A1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class A1,A2,A3,A4,A7,A8 box
+class A5,A6 hub`;
+
+const DIAGRAM_DISCOVERFIG9 = `flowchart TB
+S1["市場・内部環境の スキャニング"] --> S2["ステークホルダーとの 対話・ニーズ収集"]
+S2 --> S3["ビジネス分析による 要件の構造化"]
+S3 --> S4["組織戦略・ビジョンとの 整合性チェック"]
+S4 --> S5["ポートフォリオへの 反映・優先順位づけ"]
+S5 --> S6["ロードマップ・ サービスオファリングの更新"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`;
 </script>
 
 <template>
@@ -848,6 +877,282 @@ class S7 done`;
       </div>
 
       <p>Service モジュールでは、これらのプラクティスが PSLM の Deliver・Support 段階を中心に登場します(第9章・第10章で詳述)。</p>
+    </section>
+
+    
+      <section id="module1-key-concepts" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 03</div>
+      <h2>Module 1: デジタル製品とサービスの主要概念</h2>
+
+      <h3>2.1 このモジュールの狙い</h3>
+
+      <p>Module 1 は、Service モジュール全体の「地図」を描く導入章です。ここで PSLM(Product and Service Lifecycle Model)の全体像と、サービスプロバイダー視点で見たときの意義を理解しておくことで、第3章以降の各段階(Discover〜Support)の学習がスムーズになります。</p>
+
+      <h3>2.2 デジタルサービスの特徴</h3>
+
+      <p>デジタルサービスには、従来型のサービスと比べて次のような特徴があります。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>特徴</th>
+            <th>説明</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>ソフトウェア基盤への依存</td>
+              <td>サービスの提供能力が、デジタル製品(アプリ・API・プラットフォーム)の品質に直結する</td>
+            </tr>
+            <tr>
+              <td>継続的な変化</td>
+              <td>CI/CD により、機能追加・修正が高頻度かつ継続的に行われる</td>
+            </tr>
+            <tr>
+              <td>エコシステム化</td>
+              <td>クラウド、複数のパートナー・サプライヤーを跨いで提供される</td>
+            </tr>
+            <tr>
+              <td>スケーラビリティ</td>
+              <td>需要変動に応じて、人手を介さず能力を伸縮できる</td>
+            </tr>
+            <tr>
+              <td>測定可能性の向上</td>
+              <td>テレメトリ・ログ・利用データにより、体験や品質をリアルタイムに可視化できる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.3 デジタル製品とサービスによる価値創出</h3>
+
+      <p>前章 1.1〜1.2 で述べたとおり、製品(Product)は価値創出の「能力」を、サービス(Service)は「アウトカムの実現」を担います。Service モジュールでは、この関係を <strong>サービスプロバイダーの立場から</strong> 捉え直します。すなわち、「良い製品を作ること」がゴールなのではなく、「その製品を用いて、消費者が望むアウトカムを、コストとリスクを引き受けた上で確実に実現し続けること」がサービスプロバイダーの使命です。</p>
+
+      <h3>2.4 PSLM の範囲と目的(サービスプロバイダー視点)</h3>
+
+      <p>PSLM は、製品とサービスという従来別々の「部族(tribes)」が担っていた活動を、単一のエコシステムとして統合するモデルです。8つの活動は次のとおりです。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_MODULE1FIG8" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <p><strong>重要な特性</strong>: この図は理解を助けるために左から右への流れとして描いていますが、公式モデルはこれを「固定された順序」とは位置づけていません。実際には、どの活動から別の活動へも行き来でき(例えば Support 中に新たな Discover が生まれる)、複数バージョンの同じ製品・サービスが異なる段階に同時に存在し得る、<strong>非線形なエコシステム</strong> として説明されています。この「行きつ戻りつする現実」を前提に運用を設計することが、Service モジュールの実践的な学びの核心です。</p>
+
+      <h3>2.5 サービスプロバイダー視点で見た PSLM のメリット</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>メリット</th>
+            <th>説明</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>手戻りの削減</td>
+              <td>要件の伝言ゲームによる誤解が減り、後工程での手戻りが減る</td>
+            </tr>
+            <tr>
+              <td>価値実現の迅速化</td>
+              <td>製品チームとサービスチームが「一度で正しく」作業し、受け渡しの往復が減る</td>
+            </tr>
+            <tr>
+              <td>デプロイ・リリースの信頼性向上</td>
+              <td>依存関係や非効率が早期に特定・管理される</td>
+            </tr>
+            <tr>
+              <td>障害解決・改善の迅速化</td>
+              <td>製品チームとサービスチームがアウトカムに対する責任を共有し、優先順位の共通理解を持てる</td>
+            </tr>
+            <tr>
+              <td>ガバナンスの一元化</td>
+              <td>マッピング、活動、技術投資を単一のガバナンスフレームワークで扱える</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.6 サービスプロバイダー視点で見た PSLM の課題</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>課題</th>
+            <th>説明</th>
+            <th>対応の方向性</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>組織構造の慣性</td>
+              <td>製品チームとサービスチームが別部門・別KPIで動いている場合が多い</td>
+              <td>共同のOKR・共同のオンコール体制など、構造面での統合を先に着手する</td>
+            </tr>
+            <tr>
+              <td>スキルギャップ</td>
+              <td>サービス運用担当者が製品開発の文脈(アーキテクチャ、コードベース)を理解していない</td>
+              <td>シャドーイングやペアオンコールで知識移転を促進する</td>
+            </tr>
+            <tr>
+              <td>ツールのサイロ化</td>
+              <td>製品開発ツール(バックログ管理等)と運用ツール(監視・チケット管理等)が分断されている</td>
+              <td>テレメトリとインシデント管理、バックログとの連携を自動化する</td>
+            </tr>
+            <tr>
+              <td>ガバナンスの複雑化</td>
+              <td>複数のパートナー・サプライヤーを跨ぐサービスでは、単一のガバナンスモデルの適用が難しい</td>
+              <td>サプライヤーごとの責任分界点(RACI)を明文化する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>2.7 組織のバリューチェーン活動が PSLM をどう支えるか</h3>
+
+      <p>第1章 1.6 で述べたとおり、サービスバリューチェーンの6活動(Plan / Improve / Engage / Design &amp; Transition / Obtain-Build / Deliver &amp; Support)は、PSLM の8段階それぞれを実行するための「エンジン」として機能します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>バリューチェーン活動</th>
+            <th>主に支える PSLM 段階</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Plan</td>
+              <td>Discover(方向性の共有)</td>
+            </tr>
+            <tr>
+              <td>Engage</td>
+              <td>Discover, Deliver(ステークホルダーとの対話)</td>
+            </tr>
+            <tr>
+              <td>Design &amp; Transition</td>
+              <td>Design, Build, Transition</td>
+            </tr>
+            <tr>
+              <td>Obtain/Build</td>
+              <td>Acquire, Build</td>
+            </tr>
+            <tr>
+              <td>Deliver &amp; Support</td>
+              <td>Operate, Deliver, Support</td>
+            </tr>
+            <tr>
+              <td>Improve</td>
+              <td>全段階を横断(継続的改善として)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>組織にPSLMを導入する際は、既存のバリューチェーン活動(特に Engage と Deliver &amp; Support)が、どの部門・どのツールによって担われているかを棚卸しすることから始めてください。ゼロから新しい体制を作るのではなく、「現在地から始める(Start where you are)」原則に従い、既存の強みを PSLM の各段階にマッピングするのが最も現実的な導入手順です。</p>
+      </div>
+    </section>
+
+    
+
+<section id="module2-discover" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:search" aria-hidden="true" />SECTION 04</div>
+      <h2>Module 2: Discover(発見)</h2>
+
+      <h3>3.1 目的(Purpose)</h3>
+
+      <p>Discover 活動の目的は、<strong>製品ロードマップとサービスオファリングを、消費者ニーズと組織戦略に継続的に整合させ続けること</strong> です。市場・顧客・内部関係者から需要とニーズを収集し、それを組織の戦略的方向性と突き合わせる、PSLM の起点となる活動です。</p>
+
+      <h3>3.2 主要概念</h3>
+
+      <ul>
+        <li><strong>ビジョン(Vision)</strong>: 組織が目指す将来像。Discover 活動のすべての意思決定の判断基準になる</li>
+        <li><strong>ポジショニング(Positioning)</strong>: 市場・組織内における製品・サービスの立ち位置。競合や代替手段との違いを明確にする</li>
+        <li><strong>ポートフォリオ(Portfolio)</strong>: 組織が保有する製品・サービス・投資機会の全体集合。Discover はポートフォリオの内容を更新するインプットを生み出す</li>
+      </ul>
+
+      <p>ビジョン・ポジショニング・ポートフォリオの3つは相互に作用します。ビジョンが方向性を示し、ポジショニングが「どこで戦うか」を定め、ポートフォリオが「何にリソースを割くか」の意思決定を記録します。</p>
+
+      <h3>3.3 Discover を支える有効化プラクティス(Enabling Practices)</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Discover における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Business Analysis(ビジネス分析)</td>
+              <td>ステークホルダーのニーズを構造化し、要件として言語化する</td>
+            </tr>
+            <tr>
+              <td>Portfolio Management(ポートフォリオ管理)</td>
+              <td>発見された機会・需要を、既存の投資・優先順位と照らして評価する</td>
+            </tr>
+            <tr>
+              <td>Relationship Management(関係性管理)</td>
+              <td>顧客・パートナーとの対話チャネルを維持し、継続的なニーズ収集を可能にする</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.4 Discover 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DISCOVERFIG9" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>3.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>更新された製品ロードマップ</li>
+        <li>更新されたサービスオファリング案</li>
+        <li>ポートフォリオへの反映(新規投資候補、既存サービスの廃止候補を含む)</li>
+      </ul>
+
+      <h3>3.6 CSF(重要成功要因)と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>市場・顧客ニーズを継続的に捕捉できている</td>
+              <td>収集されたインサイトの件数 / 四半期、インサイトからロードマップ反映までの平均リードタイム</td>
+            </tr>
+            <tr>
+              <td>発見された機会が組織戦略と整合している</td>
+              <td>戦略目標にマッピングされたロードマップ項目の割合</td>
+            </tr>
+            <tr>
+              <td>ステークホルダーとの関係が良好である</td>
+              <td>関係性管理における顧客満足度スコア、対話の頻度</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>需要の「声」を一元化する</strong>: 営業・サポート・SNS・利用ログなど、バラバラなチャネルから上がってくるニーズを単一のバックログまたはインサイト管理ツールに集約してください。分散したままでは優先順位づけができません。</li>
+          <li><strong>Discover を一度きりのフェーズにしない</strong>: Support 活動(第10章)で得られたインシデント・問い合わせの傾向は、そのまま次の Discover サイクルへの重要なインプットです。PSLM がエコシステム型である所以はここにあります。</li>
+          <li><strong>仮説検証のコストを下げる</strong>: 本格的な Build に入る前に、プロトタイプやコンセプト検証(PoC)で仮説を安価に検証し、Design 段階への手戻りを防いでください。</li>
+        </ul>
+      </div>
     </section>
 
     
