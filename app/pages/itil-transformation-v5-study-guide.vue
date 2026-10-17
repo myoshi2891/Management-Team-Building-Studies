@@ -599,6 +599,225 @@ class S5,S6 done;`;
           </ul>
         </div>
       </section>
+
+      <!-- ===================== 05. Transformation Model ===================== -->
+      <section id="transformation-model">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-layout-grid" aria-hidden="true" />SECTION 05</div>
+        <h2>ITIL Transformation Model － 全体構造</h2>
+
+        <h3>4つのレイヤー</h3>
+        <p>ITIL Transformation Modelは、Governance・Positioning・Execution・Learningという4つの相互接続したレイヤー(層)で構成される。公式教材では、この4層がさらにステージ(Stage)とステップ(Step)に分解され、あわせて12のステージで構成されるとされている(ステージ単位の詳細な名称・内容は有償の公式教材に収録されており、本ガイドでは扱わない)。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>レイヤー</th><th>役割の要点</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Governance</strong></td><td>Transformationの戦略的な方向づけと意思決定の枠組みを提供する。何を、なぜ、どこまでやるかの判断基準を定める</td></tr>
+              <tr><td><strong>Positioning</strong></td><td>組織が置かれている状況(複雑性、制約、ステークホルダーの期待)を理解し、Transformationの立ち位置を明確にする</td></tr>
+              <tr><td><strong>Execution</strong></td><td>実際に変革を実行するレイヤー。複数の実行アプローチを並行して用いることが前提となる</td></tr>
+              <tr><td><strong>Learning</strong></td><td>実行から得られた結果を測定・評価し、組織の学習として蓄積し、次の意思決定にフィードバックする</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>レイヤー間の関係</h3>
+        <p>4つのレイヤーは一方通行の工程(ウォーターフォール)ではなく、相互にフィードバックしあう循環構造として描かれる。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FOUR_LAYERS_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">Governance・Positioning・Execution・Learningの循環構造</div>
+        </div>
+
+        <ul>
+          <li><strong>Governanceが起点:</strong> Transformationの方向性はGovernanceレイヤーで定められるが、これはPositioningやExecutionから得られた学習結果によって継続的に見直される</li>
+          <li><strong>PositioningとExecutionの並走:</strong> 状況把握(Positioning)と実行(Execution)は一度で終わる工程ではなく、Transformationの進行中、繰り返し行われる</li>
+          <li><strong>Learningが全体をつなぐ:</strong> Learningレイヤーは単なる「振り返り」ではなく、GovernanceとExecutionの両方に継続的にフィードバックを返す役割を持つ</li>
+        </ul>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>4層モデルを「フェーズ(順番に一度だけ通過する工程)」として運用しないこと。特にGovernanceとLearningの往復(フィードバックループ)を止めてしまうと、当初の前提が古いまま変革が進み、環境変化に対応できなくなる</li>
+            <li>Positioningを軽視して直接Executionに入ると、状況認識のズレによって後工程での手戻りが発生しやすい。小規模なTransformationであっても、Positioningに相当する状況整理のステップを省略しないことが推奨される</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/" target="_blank" rel="noopener">ITIL® Transformation (Version 5) e-Learning+ | Advanced Training</a></li>
+            <li><a href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">ITIL Transformation (Version 5) Practice Tests | Udemy</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 06. BAU vs Transformation Governance ===================== -->
+      <section id="bau-vs-transformation-governance">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-gavel" aria-hidden="true" />SECTION 06</div>
+        <h2>BAU Governance と Transformation Governance</h2>
+
+        <h3>なぜGovernanceを2つに分けるのか</h3>
+        <p>ITIL Transformationの大きな特徴のひとつは、Governanceを「BAU(Business As Usual＝通常業務)のGovernance」と「Transformation自体のGovernance」の2種類に明確に分けて扱う点にある。</p>
+        <ul>
+          <li><strong>BAU Governance:</strong> 組織が普段どのように価値を測定し、チーム間の整合性をどう取り、承認プロセスや資金調達の仕組み(Bureaucracy)がどう機能しているかを定めるもの</li>
+          <li><strong>Transformation Governance:</strong> Transformationそのものを、BAUとの関係の中でどのようにガバナンスするかを定めるもの</li>
+        </ul>
+        <p>例えば、Transformationの成功のためにアジャイルな働き方が必要であるにもかかわらず、組織の標準的なGovernanceがウォーターフォール型である場合、両者の間に緊張関係(Tension)が生じる。ITIL Transformationは、この緊張関係に橋渡し(Bridge)をかけ、アジャイルな活動を本来あるべき形で進めながら、組織が求める報告構造やドキュメントを、重複作業を最小限にしつつ両立させるアプローチを提供する。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_GOVERNANCE_BRIDGE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">BAU GovernanceとTransformation Governanceの橋渡し</div>
+        </div>
+
+        <h3>比較表</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>BAU Governance</th><th>Transformation Governance</th></tr></thead>
+            <tbody>
+              <tr><td>目的</td><td>日常業務の安定運用と価値測定</td><td>変革の推進と整合性の確保</td></tr>
+              <tr><td>典型的な特性</td><td>標準化・予測可能・反復的</td><td>探索的・状況に応じて柔軟</td></tr>
+              <tr><td>意思決定のスピード</td><td>定例のサイクルに沿う</td><td>状況変化に応じて迅速な場合が多い</td></tr>
+              <tr><td>リスクへの態度</td><td>リスク回避的になりやすい</td><td>一定の不確実性を許容する必要がある</td></tr>
+              <tr><td>主な担い手</td><td>既存の管理層・委員会</td><td>Transformationスポンサー・推進チーム</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>Transformationの立ち上げ時に、「このTransformationはBAU Governanceのどの部分と衝突しうるか」を明示的に洗い出す。承認フロー、予算執行のタイミング、報告様式などは特に衝突が起きやすい領域である</li>
+            <li>衝突を解消する際は、どちらか一方を全面的に廃止するのではなく、「最小限の重複」で両立させるブリッジ(報告テンプレートの共通化、既存委員会への定期報告枠の追加など)を設計することが推奨される</li>
+            <li>Transformation Governanceは恒久的な仕組みではなく、Transformationの完了・定着とともにBAU Governanceへ統合されるべきものであることを、関係者に事前に合意しておく</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change(Kaimar Karu, Lead Author) | itil.com</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 07. Patterns and Toolkit ===================== -->
+      <section id="patterns-and-toolkit">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-puzzle" aria-hidden="true" />SECTION 07</div>
+        <h2>Transformation Patterns と Toolkit</h2>
+
+        <p>ITIL Transformationモジュールの中核をなすのが、Initiation Patterns・Governance Patterns・Execution Patternsという3種類のPatterns、およびそれらを支えるToolkitである。</p>
+
+        <h3>3つのPatternsとToolkitの役割</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>要素</th><th>役割</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Initiation Patterns(開始パターン)</strong></td><td>組織がTransformationのどの出発点にいるかを、期待・目的・課題に基づいて理解しやすくする</td></tr>
+              <tr><td><strong>Governance Patterns(統治パターン)</strong></td><td>BAU Governanceの要求とTransformation Governanceの要求を突き合わせるためのアセスメントモデルを提供し、両者の間の緊張を和らげる</td></tr>
+              <tr><td><strong>Execution Patterns(実行パターン)</strong></td><td>変革実行のための方法を記述し、複数のアプローチを並行して調整しながら、フィードバックループを伴って進められるようにする</td></tr>
+              <tr><td><strong>Toolkit(ツールキット)</strong></td><td>Transformationで頻繁に使われる手法・ツール・テクニックを、ITILの視点から整理したもの。特定のITIL Practiceが、どのようにTransformation活動を支援するかの概要も含む</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PATTERNS_TOOLKIT" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">Initiation・Governance・Execution PatternsとToolkitの関係</div>
+        </div>
+
+        <h3>Patternsごとのベストプラクティス</h3>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />Initiation Patterns － ベストプラクティス</div>
+          <ul>
+            <li>Transformationの立ち上げ前に、「なぜ今この変革が必要なのか」「何を期待しているのか」をステークホルダー間で言語化し、認識のズレを可視化する</li>
+            <li>過去の失敗した変革の経験がある組織では、その原因(多くの場合、将来の運用モデルを前提として計画してしまい、その前提が数年後に崩れること)を振り返り、同じ轍を踏まない設計にする</li>
+          </ul>
+        </div>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />Governance Patterns － ベストプラクティス</div>
+          <ul>
+            <li>BAU Governanceの承認フローをそのままTransformationに適用しようとせず、まず両者のギャップをアセスメントする</li>
+            <li>Governanceの緊張を「対立」ではなく「橋渡しが必要な設計課題」として捉え、双方の代表者を交えて解決策を設計する</li>
+          </ul>
+        </div>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />Execution Patterns － ベストプラクティス</div>
+          <ul>
+            <li>単一の実行方法論(例：純粋なウォーターフォールのプロジェクト管理、あるいは純粋なアジャイル)に固執せず、状況に応じてProject/Programme Managementと探索的・反応的なアプローチを併用する</li>
+            <li>並行して走る複数の実行アプローチの間で、フィードバックループを定期的に設け、学習を横展開する仕組みを作る</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change(Kaimar Karu, Lead Author) | itil.com</a></li>
+            <li><a href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">ITIL (Version 5) Transformation Training Course | ITSM Academy</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 08. Governance and Transformation Alignment ===================== -->
+      <section id="governance-alignment">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-target" aria-hidden="true" />SECTION 08</div>
+        <h2>Governance and Transformation Alignment</h2>
+
+        <p>第6章で扱ったBAU／Transformation Governanceの区分を踏まえ、この章では「Governanceがどのように柔軟性と価値提供を両立させながらTransformationを支えるか」を深掘りする。</p>
+
+        <h3>Governanceが果たす2つの機能</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>機能</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>統制(Control)</td><td>Transformationの範囲・リスク・投資判断について、一貫した意思決定の枠組みを提供する</td></tr>
+              <tr><td>有効化(Enablement)</td><td>過度な統制によって変革のスピードや柔軟性を失わないよう、必要な裁量を現場に委譲する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Governanceが「統制」だけに偏ると変革は硬直化し、「有効化」だけに偏ると整合性やリスク管理が失われる。ITIL Transformationは、この2つのバランスをTransformation Governance Patternsを通じて取ることを推奨している。</p>
+
+        <h3>Alignmentのための実務ポイント</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ALIGNMENT_LEVELS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">戦略・戦術・実行レベルをつなぐAlignmentの流れ</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>Governanceの意思決定機関(委員会等)に、Transformationの進捗と学習結果を定期的にフィードバックする場を設け、戦略レベルの前提を継続的に更新する</li>
+            <li>「誰が何を承認できるか」をTransformationの規模に応じて事前に定義し、小さな意思決定のたびに上位の委員会を待つ必要がないようにする(権限委譲の設計)</li>
+            <li>AccountableとResponsibleを明確に分離する(例：RACI／RASCIの活用。第11章参照)ことで、Governanceのボトルネックを避ける</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">ITIL Transformation (Version 5) | peoplecert.org</a></li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
 </template>
