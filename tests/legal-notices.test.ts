@@ -32,6 +32,7 @@ const PUBLISHED = GUIDES.map((guide) => ({ route: guide.to, source: readPage(gui
  * - ITIL / PRINCE2 / MoP の権利者は PeopleCert group（AXELOS は旧権利者）
  * - Scrum.org と Scrum, Inc. は別法人。「Scrum」自体は Scrum Alliance の商標ではない
  * - © の主体は運営者。書名・ガイド名を権利者のように見せない
+ * - The Nexus Guide（2021）の著作権者は Scrum.org のみ
  */
 const FORBIDDEN_PHRASES = [
   "許可を得て使用",
@@ -43,6 +44,7 @@ const FORBIDDEN_PHRASES = [
   "© Team Topologies",
   "&copy; 2026 Engineering Executive's Playbook",
   "&copy; リーダーの作法",
+  "© 2021 Ken Schwaber and Scrum.org",
 ] as const;
 
 /**
@@ -63,19 +65,19 @@ const EXAM_DUMP_DOMAINS = [
  * CC BY-SA 4.0 の文書（Scrum Guide / Kanban Guide for Scrum Teams / EBM Guide）を
  * 訳出・引用しているページ。フッターに原典と CC BY-SA 4.0 を明示しなければならない。
  */
-const CC_BY_SA_PAGES = [
-  "/csm-certified-scrummaster-guide",
-  "/csm-scrum-master-core-competencies",
-  "/a-csd-advanced-certified-scrum-developer-study-guide",
-  "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
-  "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
-  "/cal1-chapter3-leading-agile-teams",
-  "/psm-ai-essentials-guide",
-  "/professional-scrum-product-owner",
-  "/professional-scrum-product-backlog-management-skills",
-  "/professional-scrum-with-kanban",
-  "/professional-agile-leadership-evidence-based-management",
-] as const;
+const CC_BY_SA_PAGES = {
+  "/csm-certified-scrummaster-guide": ["The Scrum Guide"],
+  "/csm-scrum-master-core-competencies": ["The Scrum Guide"],
+  "/a-csd-advanced-certified-scrum-developer-study-guide": ["The Scrum Guide"],
+  "/a-cspo-advanced-certified-scrum-product-owner-study-guide": ["The Scrum Guide", "The Nexus Guide"],
+  "/csp-sm-certified-scrum-professional-scrummaster-study-guide": ["The Scrum Guide"],
+  "/cal1-chapter3-leading-agile-teams": ["The Scrum Guide"],
+  "/psm-ai-essentials-guide": ["The Scrum Guide"],
+  "/professional-scrum-product-owner": ["The Scrum Guide"],
+  "/professional-scrum-product-backlog-management-skills": ["The Scrum Guide"],
+  "/professional-scrum-with-kanban": ["The Scrum Guide", "Kanban Guide for Scrum Teams"],
+  "/professional-agile-leadership-evidence-based-management": ["Evidence-Based Management Guide"],
+} as const satisfies Record<string, readonly string[]>;
 
 describe("公開ページの法的表示", () => {
   it("権利者・ライセンスを誤る表示を含まない", () => {
@@ -95,9 +97,11 @@ describe("公開ページの法的表示", () => {
   });
 
   it("CC BY-SA 文書を訳出するページはフッターで原典とライセンスを明示する", () => {
-    const missing = CC_BY_SA_PAGES.filter((route) => {
+    const missing = Object.entries(CC_BY_SA_PAGES).flatMap(([route, originals]) => {
       const footer = footerOf(readPage(route));
-      return !footer.includes("CC BY-SA 4.0") || !footer.includes("creativecommons.org/licenses/by-sa/4.0");
+      return [...originals, "CC BY-SA 4.0", "creativecommons.org/licenses/by-sa/4.0"]
+        .filter((required) => !footer.includes(required))
+        .map((required) => `${route}: ${required}`);
     });
 
     expect(missing).toEqual([]);
