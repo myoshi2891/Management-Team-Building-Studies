@@ -75,6 +75,79 @@ class PM,MP1,MP3,SL1,SL2,AIG box
 class MP2 hub
 class MP,SLD done
 class MST done`;
+
+const DIAGRAM_FOUNDATIONFIG2 = `flowchart LR
+IN1["Opportunity 機会"] --> VS
+IN2["Demand 需要"] --> VS
+subgraph VS["ITIL Value System"]
+direction TB
+GP["Guiding Principles 指導原則"]
+GOV["Governance ガバナンス"]
+SVC["Service Value Chain サービスバリューチェーン"]
+PRAC["34 Management Practices 34の管理プラクティス"]
+CI["Continual Improvement 継続的改善"]
+GOV --> SVC
+GP -.-> SVC
+PRAC -.-> SVC
+CI -.-> SVC
+end
+VS --> OUT["Value 価値"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class IN1,IN2,OUT box
+class VS hub`;
+
+const DIAGRAM_FOUNDATIONFIG3 = `flowchart TB
+PESTLE["外部要因PESTLE 政治・経済・社会・技術・法律・環境"]
+PESTLE --> D1["① 組織と人材 Organizations and People"]
+PESTLE --> D2["② 情報と技術 Information and Technology"]
+PESTLE --> D3["③ パートナーと供給者 Partners and Suppliers"]
+PESTLE --> D4["④ バリューストリームとプロセス Value Streams and Processes"]
+D1 --- CENTER["サービスの 価値提供"]
+D2 --- CENTER
+D3 --- CENTER
+D4 --- CENTER
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class D1,D2,D3,D4 box
+class CENTER hub`;
+
+const DIAGRAM_FOUNDATIONFIG4 = `flowchart LR
+subgraph SVC["Service Value Chain6活動"]
+direction LR
+P1["Plan"] --- P2["Improve"] --- P3["Engage"] --- P4["Design & Transition"] --- P5["Obtain Build"] --- P6["Deliver & Support"]
+end
+SVC -->|"より詳細な 8段階モデルへ分解"| PSLM["Product and Service Lifecycle ModelPSLM"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class P1,P2,P3,P4,P5,P6 box
+class PSLM hub`;
+
+const DIAGRAM_FOUNDATIONFIG5 = `flowchart LR
+A["Explore 探索"] --> B["Engage 関与"] --> C["Offer 提示"] --> D["Agree 合意"] --> E["Onboard 導入"] --> F["Co-create 共創"] --> G["Reflect 振り返り"]
+G -.->|継続的改善| A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class A,B,C,D,E,F box
+class G done`;
+
+const DIAGRAM_FOUNDATIONFIG6 = `flowchart LR
+E["Evaluate 評価"] --> D["Direct 指示"] --> M["Monitor 監視"] --> E
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class E,D,M box`;
+
+const DIAGRAM_FOUNDATIONFIG7 = `flowchart TB
+S1["① What is the vision? ビジョンは何か"] --> S2["② Where are we now? 現在地はどこか"]
+S2 --> S3["③ Where do we want to be? 目指す姿はどこか"]
+S3 --> S4["④ How do we get there? どう到達するか"]
+S4 --> S5["⑤ Take action 行動する"]
+S5 --> S6["⑥ Are we getting there? 到達できているか"]
+S6 --> S7["⑦ How do we keep the momentum going? 改善をどう定着させるか"]
+S7 -.->|次の改善サイクルへ| S1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box
+class S7 done`;
 </script>
 
 <template>
@@ -291,6 +364,493 @@ class MST done`;
 
           <p><strong>読み方のポイント</strong>: Product・Service・Experience の3モジュールをすべて取得すると「ITIL Managing Professional」称号が得られます。同様に Strategy・Transformation を取得すると「ITIL Strategic Leader」となり、両方を揃えると最上位の「ITIL Master」に到達します。Service モジュール単体でも実務知識として十分に価値がありますが、資格戦略上は Product・Experience とセットで捉えると学習効率が上がります。</p>
         </section>
+      <section id="foundation-review" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
+      <h2>前提知識の総復習: ITIL Version 5 の全体構造</h2>
+
+      <p>Service モジュールの各章に入る前に、ITIL (Version 5) の土台となる概念を整理しておきます。すでに Foundation を取得済みの方は復習として、ITIL 4 からの移行者は「何が変わったか」の確認として読んでください。</p>
+
+      <h3>1.1 Product と Service の定義</h3>
+
+      <p>ITIL (Version 5) では、Product と Service を明確に区別して定義します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>用語</th>
+            <th>定義</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Product(製品)</strong></td>
+              <td>消費者に価値を提供するために設計された、組織のリソース(人、技術など)の構成</td>
+            </tr>
+            <tr>
+              <td><strong>Service(サービス)</strong></td>
+              <td>顧客が特定のコストとリスクを自ら管理することなく、望む成果(アウトカム)の実現を可能にする、価値の共創手段</td>
+            </tr>
+            <tr>
+              <td><strong>Digital Product(デジタル製品)</strong></td>
+              <td>デジタル技術に基づく、組織のリソースの組み合わせ</td>
+            </tr>
+            <tr>
+              <td><strong>Digital Service(デジタルサービス)</strong></td>
+              <td>デジタル製品に全面的または大部分を依存するサービス</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>具体例</strong>: 銀行のモバイルアプリとその API・基幹システムが「デジタル製品」であり、深夜でも安全かつ即座に振込ができるという「サービス」を成立させています。製品(アプリ)が落ちればサービス(振込体験)も止まり、価値が失われます。この製品とサービスの不可分な関係こそが、ITIL (Version 5) が両者を単一のライフサイクルモデルで扱う理由です。</p>
+
+      <h3>1.2 価値の方程式: アウトプットとアウトカム</h3>
+
+      <p>ITIL 試験で最も誤解されやすい概念の一つです。</p>
+
+      <ul>
+        <li><strong>Output(アウトプット)</strong>: 活動によって生み出される有形・無形の成果物(例: 新しい人事システムが稼働した)</li>
+        <li><strong>Outcome(アウトカム)</strong>: 1つ以上のアウトプットによって実現される、ステークホルダーにとっての結果(例: 採用リードタイムが30日から10日に短縮された)</li>
+      </ul>
+
+      <p>アウトプットを出してもアウトカムが実現しないケース(システムは稼働したが、使いにくくて誰も使わない)は典型的な失敗パターンとして頻出します。</p>
+
+      <p>価値は次の式で概念化されます。</p>
+
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>価値 = (実現したアウトカム + 除去されたコスト + 除去されたリスク) − (課されたコスト + 課されたリスク)</p>
+      </div>
+
+      <h3>1.3 ITIL Value System(ITIL VS)の5つの構成要素</h3>
+
+      <p>ITIL 4 の「Service Value System(SVS)」は、Version 5 で <strong>ITIL Value System(ITIL VS)</strong> に改称され、対象範囲が「ITサービス」から「デジタル製品とサービス」全体に拡張されました。構成要素自体は5つのまま維持されています。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUNDATIONFIG2" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>構成要素</th>
+            <th>役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Guiding Principles(指導原則)</td>
+              <td>あらゆる状況で組織の意思決定を導く普遍的な推奨事項(7原則)</td>
+            </tr>
+            <tr>
+              <td>Governance(ガバナンス)</td>
+              <td>組織を指揮・統制する仕組み。Evaluate–Direct–Monitor(EDM)サイクルで運用</td>
+            </tr>
+            <tr>
+              <td>Service Value Chain(サービスバリューチェーン)</td>
+              <td>需要を価値に変換する中核の運用モデル(6つの活動)</td>
+            </tr>
+            <tr>
+              <td>Management Practices(管理プラクティス)</td>
+              <td>バリューチェーン活動を実行するための34の「道具箱」</td>
+            </tr>
+            <tr>
+              <td>Continual Improvement(継続的改善)</td>
+              <td>あらゆる階層で行われる、パフォーマンスを期待水準に保ち続ける反復活動</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.4 指導原則(Guiding Principles)— 7原則の早見表</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>#</th>
+            <th>原則</th>
+            <th>一言で言うと</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Focus on value(価値に焦点を当てる)</td>
+              <td>すべての活動を顧客・ステークホルダーの価値に結びつける</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Start where you are(現在地から始める)</td>
+              <td>ゼロから作り直す前に、既存の資産・成果を評価し活用する</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Progress iteratively with feedback(フィードバックを伴う反復的な進化)</td>
+              <td>大きく作りすぎず、小さく作ってフィードバックを得る</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Collaborate and promote visibility(協働と可視性の促進)</td>
+              <td>サイロを越えて協働し、作業を可視化する</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Think and work holistically(全体的に考え行動する)</td>
+              <td>部分最適ではなく、システム全体としての結果を重視する</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Keep it simple and practical(シンプルかつ実践的に)</td>
+              <td>価値を生まない手順は削り、最小限の手数で目的を達成する</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Optimize and automate(最適化と自動化)</td>
+              <td>自動化の前に最適化する。非効率なプロセスを自動化すると非効率が増幅するだけ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Service モジュールの文脈では、特に原則7「最適化と自動化」が重要です。監視・自動修復・チャットボットなど AI を活用した運用改善(第8章 Operate、第11章参照)を導入する前に、まず対象プロセスが「シンプルかつ実践的」であるかを確認してください。壊れたプロセスを自動化しても、壊れたまま速くなるだけです。</p>
+      </div>
+
+      <h3>1.5 4つの側面(Four Dimensions of Service Management)</h3>
+
+      <p>サービスを一面的(技術だけ、プロセスだけ)に見てしまうと、必ずどこかで破綻します。ITIL は全体最適を保証するために、常に4つの側面をバランスさせることを求めます。外部環境の変化は <strong>PESTLE</strong>(Political, Economic, Social, Technological, Legal, Environmental)の6要因を通じてこれらの側面に影響します。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUNDATIONFIG3" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>側面</th>
+            <th>要点</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>組織と人材</td>
+              <td>文化(心理的安全性)、リーダーシップ、組織構造。コンウェイの法則(システムは組織のコミュニケーション構造を反映する)に留意</td>
+            </tr>
+            <tr>
+              <td>情報と技術</td>
+              <td>データ→情報→知識の階層。AI 活用の基盤となる(後述の 6C モデルに接続)</td>
+            </tr>
+            <tr>
+              <td>パートナーと供給者</td>
+              <td>自組織だけで完結するサービスは存在しない。ソーシング戦略(内製 vs 外部委託)が鍵</td>
+            </tr>
+            <tr>
+              <td>バリューストリームとプロセス</td>
+              <td>組織内外のワークフロー。複雑さのレベルに応じて柔軟に設計する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>新しいツールや自動化施策を検討する際は、必ず4つの側面すべてに与える影響を点検してください。「情報と技術」だけを強化しても、「組織と人材」(トレーニング不足)や「パートナーと供給者」(回線品質)がボトルネックのままでは、全体のサービス品質は向上しません。</p>
+      </div>
+
+      <h3>1.6 サービスバリューチェーン(6活動)と PSLM(8活動)の違い</h3>
+
+      <p>ここは ITIL 4 経験者が最も混同しやすいポイントです。<strong>サービスバリューチェーンは「今も存在する」概念です</strong>。ただし ITIL (Version 5) では、製品とサービスの一気通貫のライフサイクルを表現するために、新たに <strong>Product and Service Lifecycle Model(PSLM)</strong> が導入されました。両者は置き換え関係ではなく、階層が異なる概念として共存します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>比較軸</th>
+            <th>Service Value Chain(6活動)</th>
+            <th>Product and Service Lifecycle Model(8活動)</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>位置づけ</td>
+              <td>ITIL VS の中核運用モデル(普遍的なエンジン)</td>
+              <td>個別の製品・サービスが辿る具体的な旅路</td>
+            </tr>
+            <tr>
+              <td>活動</td>
+              <td>Plan / Improve / Engage / Design &amp; Transition / Obtain-Build / Deliver &amp; Support</td>
+              <td>Discover / Design / Acquire / Build / Transition / Operate / Deliver / Support</td>
+            </tr>
+            <tr>
+              <td>性質</td>
+              <td>抽象的・普遍的(レゴブロックのように組み合わせる)</td>
+              <td>具体的・反復的(前後の活動を行き来する「エコシステム」)</td>
+            </tr>
+            <tr>
+              <td>主な用途</td>
+              <td>バリューストリームを組み立てる際の「部品」</td>
+              <td>特定の製品・サービスのライフサイクル管理を可視化する「地図」</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUNDATIONFIG4" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <p>Service モジュールの Module 1〜10 は、この右側の <strong>PSLM(8活動)を「サービスプロバイダーの視点」から深掘りする</strong> ことに主眼を置いています。次章以降で1活動ずつ丁寧に見ていきます。</p>
+
+      <h3>1.7 サービス関係性(Service Relationships)とサービスジャーニー</h3>
+
+      <p>PeopleCert の紹介文が明示するとおり、Service モジュールは「サービス関係の管理」を重視します。</p>
+
+      <p><strong>役割の整理</strong>: </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>役割</th>
+            <th>説明</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Service Provider(サービスプロバイダー)</td>
+              <td>サービスの提供・サポートに責任を持つ組織の役割</td>
+            </tr>
+            <tr>
+              <td>Service Consumer(サービス消費者)</td>
+              <td>サービスを取得・利用して自らの目的を達成する組織の役割</td>
+            </tr>
+            <tr>
+              <td>Digital Product Vendor(デジタル製品ベンダー)</td>
+              <td>サービスの基盤となるデジタル製品を開発・改善する組織</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>消費側組織内の三者(Service Consumer Triad)</strong>: </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>ペルソナ</th>
+            <th>関心事</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Sponsor(スポンサー)</td>
+              <td>予算承認、費用対効果・ROI</td>
+            </tr>
+            <tr>
+              <td>Customer(カスタマー)</td>
+              <td>サービス要件の定義、消費のアウトカムに対する説明責任</td>
+            </tr>
+            <tr>
+              <td>User(ユーザー)</td>
+              <td>日々の利用、使いやすさ・UX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>この三者の利害は必ずしも一致しません(スポンサーは安価なプランを望み、カスタマーは技術要件を定義し、ユーザーは使いやすさを求める)。優れたサービスプロバイダーは、この三者間の緊張関係を理解した上でバランスを取ります。</p>
+
+      <p><strong>サービスジャーニー(7段階)</strong>: サービス関係は、以下の7段階を通じて発展します。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUNDATIONFIG5" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>段階</th>
+            <th>内容</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Explore</td>
+              <td>両者が市場・ニーズ・提供可能な能力を調査する</td>
+            </tr>
+            <tr>
+              <td>Engage</td>
+              <td>関係が確立され、初期のコミュニケーションと信頼が構築される</td>
+            </tr>
+            <tr>
+              <td>Offer</td>
+              <td>プロバイダーがサービスオファリングを提示し、消費者が需要を明確化する</td>
+            </tr>
+            <tr>
+              <td>Agree</td>
+              <td>期待値がすり合わされ、契約や SLA として正式化される</td>
+            </tr>
+            <tr>
+              <td>Onboard</td>
+              <td>移行段階。消費者が利用を開始し、ユーザーがトレーニングを受ける</td>
+            </tr>
+            <tr>
+              <td>Co-create</td>
+              <td>サービス提供・消費の日常。実際に価値が生成される段階</td>
+            </tr>
+            <tr>
+              <td>Reflect</td>
+              <td>パフォーマンスと創出された価値を両者で評価する、継続的改善の段階</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.8 品質・サービスレベル・SLA(そして XLA)</h3>
+
+      <p><strong>Service Quality(サービス品質)</strong> と <strong>Service Level(サービスレベル)</strong> は似て非なる概念です。品質は「これは良いサービスだ」という全体的な知覚であり、サービスレベルはそれを測定可能にした客観的指標(例: 「稼働率 99.9%」)です。</p>
+
+      <p>品質を管理可能な指標に変換するため、ITIL (Version 5) は4つのカテゴリーを提示します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>カテゴリー</th>
+            <th>定義</th>
+            <th>平易な言い換え</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Utility(有用性)</td>
+              <td>サービスが「何をするか」。特定のニーズを満たす機能性</td>
+              <td>目的に適っているか(fit for purpose)</td>
+            </tr>
+            <tr>
+              <td>Warranty(保証)</td>
+              <td>サービスが「どう機能するか」。可用性・キャパシティ・継続性・セキュリティの保証</td>
+              <td>使用に適しているか(fit for use)</td>
+            </tr>
+            <tr>
+              <td>Experience(体験)</td>
+              <td>ユーザーが「どう感じるか」。機能的・感情的な相互作用の総体</td>
+              <td>体験として好ましいか</td>
+            </tr>
+            <tr>
+              <td>Sustainability(持続可能性)</td>
+              <td>サービスの「与える影響」。環境・社会・経済的要件への適合</td>
+              <td>長期的に許容できるか</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>これらは <strong>Service Level Agreement(SLA)</strong> として文書化され、プロバイダーと顧客の期待値を揃えます。近年の実務では、稼働率のような技術指標(SLA)に加え、体験(Experience)を定量化する <strong>Experience Level Agreement(XLA)</strong> が併用される傾向が強まっており、ITIL (Version 5) はこの潮流を反映して「体験に基づくサービス品質」を明示的に重視しています。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>SLA を「稼働率 99.9%」のような技術指標だけで設計しないでください。Utility・Warranty・Experience・Sustainability の4カテゴリーすべてに対応する目標を最低1つずつ持たせることで、「技術的には正常だが利用者の体験は悪い」という典型的な失敗を防げます。</p>
+      </div>
+
+      <h3>1.9 ガバナンスと EDM サイクル</h3>
+
+      <p>ガバナンスとマネジメントは異なります。ガバナンスは「正しいことをしているか」を決める船長であり、マネジメントは「正しいやり方でやっているか」を実行する乗組員です。ガバナンスは以下の3活動からなる <strong>EDM サイクル</strong> を通じて継続的に行われます。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUNDATIONFIG6" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>活動</th>
+            <th>内容</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Evaluate(評価)</td>
+              <td>組織・戦略・ポートフォリオ・関係性を評価し、内外の状況変化を分析する</td>
+            </tr>
+            <tr>
+              <td>Direct(指示)</td>
+              <td>評価に基づき、責任を割り当て、戦略の方向性と方針を定める</td>
+            </tr>
+            <tr>
+              <td>Monitor(監視)</td>
+              <td>組織のパフォーマンスとプラクティスの遵守状況を監視する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>1.10 継続的改善モデル(7ステップ)</h3>
+
+      <p>「継続的改善」は ITIL VS の一構成要素であると同時に、単独の管理プラクティスでもあります。7ステップの反復モデルとして定義されており、規模を問わず適用できます。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUNDATIONFIG7" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>改善提案を「プロジェクト」として一度きりで終わらせず、必ずステップ⑦「関連性を保ち続ける方法」を組織文化・レトロスペクティブの定例に組み込んでください。改善が文化に根づかないと、組織は元の基準線に静かに後退します。</p>
+      </div>
+
+      <h3>1.11 34の管理プラクティス概観</h3>
+
+      <p>ITIL (Version 5) は ITIL 4 から引き続き <strong>34の管理プラクティス</strong> を定義しています(用語の一部微調整はあるものの、大枠は維持)。Service モジュールでは、PSLM の各段階(第3章〜第10章)に紐づく形でこれらのプラクティスを学びます。参考として、ITIL 4 時代の実践的なグルーピング(Practice Manager 資格の3系統)を示します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>系統</th>
+            <th>含まれるプラクティス</th>
+            <th>主な関心領域</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Monitor, Support and Fulfil(MSF)</td>
+              <td>Service Desk / Incident Management / Problem Management / Service Request Management / Monitoring and Event Management</td>
+              <td>日々の問い合わせ対応と障害対応</td>
+            </tr>
+            <tr>
+              <td>Plan, Implement and Control(PIC)</td>
+              <td>Change Enablement / Deployment Management / Release Management / Service Configuration Management / IT Asset Management</td>
+              <td>変更の計画的な実装と統制</td>
+            </tr>
+            <tr>
+              <td>Collaborate, Assure and Improve(CAI)</td>
+              <td>Relationship Management / Supplier Management / Service Level Management / Continual Improvement / Information Security Management</td>
+              <td>関係性の構築と品質保証</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Service モジュールでは、これらのプラクティスが PSLM の Deliver・Support 段階を中心に登場します(第9章・第10章で詳述)。</p>
+    </section>
+
+    
       </main>
     </div>
   </div>
