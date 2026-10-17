@@ -1,0 +1,115 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { describe, expect, it } from "vitest";
+import { GUIDES } from "~/utils/guide-catalog";
+
+/*
+ * 公開ページの法的表示の契約（2026-10 の公開前監査で是正した内容の回帰防止）。
+ *
+ * 商標・著作権・ライセンス表示の誤りは、型検査・lint・原本照合監査のいずれでも検知できない
+ * （原本照合監査は「原本にあってページに無いもの」しか見ず、原本自体の誤りは素通しする）。
+ * したがって公開中ページ（GUIDES）のソースを走査して固定する。
+ */
+
+const PAGES_DIR = join(import.meta.dirname, "..", "app", "pages");
+
+/** ルートから SFC のソースを読む（app/pages/<route>.vue）。 */
+function readPage(route: string): string {
+  return readFileSync(join(PAGES_DIR, `${route.slice(1)}.vue`), "utf-8");
+}
+
+/** <footer> 要素の中身だけを返す。無ければ空文字。 */
+function footerOf(source: string): string {
+  const match = /<footer[^>]*>([\s\S]*?)<\/footer>/.exec(source);
+  return match?.[1] ?? "";
+}
+
+const PUBLISHED = GUIDES.map((guide) => ({ route: guide.to, source: readPage(guide.to) }));
+
+/**
+ * 事実と異なる、または権利者を誤る表示。
+ * - ライセンスを受けていないのに「許可を得て使用」と書くのは虚偽表示になる
+ * - ITIL / PRINCE2 / MoP の権利者は PeopleCert group（AXELOS は旧権利者）
+ * - Scrum.org と Scrum, Inc. は別法人。「Scrum」自体は Scrum Alliance の商標ではない
+ * - © の主体は運営者。書名・ガイド名を権利者のように見せない
+ */
+const FORBIDDEN_PHRASES = [
+  "許可を得て使用",
+  "used under licence",
+  "AXELOS Limitedの登録商標",
+  "AXELOS Limited の登録商標",
+  "Scrum, Inc. (Scrum.org)",
+  "Scrum®, Scrum Alliance®",
+  "© Team Topologies",
+  "&copy; 2026 Engineering Executive's Playbook",
+  "&copy; リーダーの作法",
+] as const;
+
+/**
+ * 試験問題の流出（ブレインダンプ）を扱う、または扱うと見なされうるサイト。
+ * 出典として示すと、受験規約（NDA）違反を助長する印象を与え、ガイドの信頼性も損なう。
+ */
+const EXAM_DUMP_DOMAINS = [
+  "certempire.com",
+  "passitexams.com",
+  "open-exam-prep.com",
+  "certificationbox.com",
+  "scrum-exams.info",
+  "prepforscrum.com",
+  "certshero.com",
+] as const;
+
+/**
+ * CC BY-SA 4.0 の文書（Scrum Guide / Kanban Guide for Scrum Teams / EBM Guide）を
+ * 訳出・引用しているページ。フッターに原典と CC BY-SA 4.0 を明示しなければならない。
+ */
+const CC_BY_SA_PAGES = [
+  "/csm-certified-scrummaster-guide",
+  "/csm-scrum-master-core-competencies",
+  "/a-csd-advanced-certified-scrum-developer-study-guide",
+  "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
+  "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
+  "/cal1-chapter3-leading-agile-teams",
+  "/psm-ai-essentials-guide",
+  "/professional-scrum-product-owner",
+  "/professional-scrum-product-backlog-management-skills",
+  "/professional-scrum-with-kanban",
+  "/professional-agile-leadership-evidence-based-management",
+] as const;
+
+describe("公開ページの法的表示", () => {
+  it("権利者・ライセンスを誤る表示を含まない", () => {
+    const hits = PUBLISHED.flatMap(({ route, source }) =>
+      FORBIDDEN_PHRASES.filter((phrase) => source.includes(phrase)).map((phrase) => `${route}: ${phrase}`),
+    );
+
+    expect(hits).toEqual([]);
+  });
+
+  it("試験問題の流出を扱うサイトへリンクしない", () => {
+    const hits = PUBLISHED.flatMap(({ route, source }) =>
+      EXAM_DUMP_DOMAINS.filter((domain) => source.includes(domain)).map((domain) => `${route}: ${domain}`),
+    );
+
+    expect(hits).toEqual([]);
+  });
+
+  it("CC BY-SA 文書を訳出するページはフッターで原典とライセンスを明示する", () => {
+    const missing = CC_BY_SA_PAGES.filter((route) => {
+      const footer = footerOf(readPage(route));
+      return !footer.includes("CC BY-SA 4.0") || !footer.includes("creativecommons.org/licenses/by-sa/4.0");
+    });
+
+    expect(missing).toEqual([]);
+  });
+
+  it("資格ガイドはすべてフッターに商標の帰属を明示する", () => {
+    // 認定名は各団体の商標。非公式であることと権利者を、ページ末尾で必ず示す。
+    const missing = GUIDES
+      .filter((guide) => ["pmi", "scrum-alliance", "scrum-org", "peoplecert"].includes(guide.programId))
+      .map((guide) => guide.to)
+      .filter((route) => !/商標|trademark/.test(footerOf(readPage(route))));
+
+    expect(missing).toEqual([]);
+  });
+});
