@@ -238,6 +238,66 @@ S4 --> S5["SLA XLA 実績の 記録・レポーティング"]
 S5 --> S6["フィードバック収集"]
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
 class S1,S2,S3,S4,S5,S6 box`;
+
+const DIAGRAM_SUPPORTFIG16 = `flowchart TB
+S1["インシデントの 検知・記録"] --> S2["トリアージ・ 優先度づけ"]
+S2 --> S3{"既知のエラー ワークアラウンドが存在するか"}
+S3 -->|Yes| S4["ワークアラウンド 適用"]
+S3 -->|No| S5["調査・診断"]
+S5 --> S4
+S4 --> S6["サービス復旧の 確認"]
+S6 --> S7["インシデントクローズ"]
+S7 -.->|再発傾向がある場合| S8["Problem Management へ引き継ぎ根本原因分析"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px
+class S1,S2,S4,S5,S6 box
+class S3 hub
+class S7,S8 done`;
+
+const DIAGRAM_LIFECYCLEFIG17 = `flowchart TB
+subgraph LOOP["PSLM継続的なフィードバックループ"]
+direction LR
+D1["Discover"] --> D2["Design"] --> D3["Acquire"] --> D4["Build"]
+D4 --> D5["Transition"] --> D6["Operate"] --> D7["Deliver"] --> D8["Support"]
+D8 -.->|障害・問題の傾向| D1
+D6 -.->|性能上の学び| D2
+D7 -.->|ユーザーフィードバック| D1
+D3 -.->|調達上の制約| D2
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class D1,D2,D3,D4,D5,D6,D7,D8 box`;
+
+const DIAGRAM_LIFECYCLEFIG18 = `flowchart TB
+subgraph OUTPUT["アウトプット生成系"]
+C1["Creation 生成 新しいコンテンツ・コード・ ドキュメントの生成"]
+C2["Curation キュレーション 既存データの品質・関連性の向上、 重複の排除"]
+end
+subgraph INTERPRET["解釈・分析系"]
+C3["Clarification 明確化 複雑な内容の要約・ 意図の明確化"]
+C4["Cognition 認知 パターン認識と 予兆の発見"]
+end
+subgraph INTERACT["対話・実行系"]
+C5["Communication コミュニケーション チャットボット等の 自然な対話インターフェース"]
+C6["Coordination 調整 複数システムを横断した 自律的な実行・オーケストレーション"]
+end
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class C1,C2,C3,C4,C5,C6 box`;
+
+const DIAGRAM_LIFECYCLEFIG19 = `flowchart LR
+subgraph P["PRINCE2 の管掌範囲"]
+direction LR
+PR1["プロジェクト開始"] --> PR2["管理・統制された 実行"] --> PR3["プロジェクト クロージャー"]
+end
+subgraph I["ITIL Version 5 の管掌範囲"]
+direction LR
+IT1["Operate"] --> IT2["Deliver"] --> IT3["Support"]
+end
+PR3 -->|"成果物新規 変更システムの 引き継ぎ"| IT1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class PR1,PR2,PR3 box
+class IT1,IT2,IT3 hub`;
 </script>
 
 <template>
@@ -1865,6 +1925,288 @@ class S1,S2,S3,S4,S5,S6 box`;
           <li><strong>SLA レポートを「守れたか否か」の報告に留めない</strong>: 達成率の推移、逸脱の根本原因、次のサイクルでの改善計画までをセットで報告し、Service Level Management を継続的改善のインプットとして機能させてください。</li>
           <li><strong>セルフサービスは「置き換え」ではなく「選択肢」として提供する</strong>: すべてのユーザーがセルフサービスを好むわけではありません。人的サポートへのエスカレーション経路を必ず残し、体験(Experience)の観点で選べる状態を維持してください。</li>
         </ul>
+      </div>
+    </section>
+
+    
+      <section id="module9-support" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:lifebuoy" aria-hidden="true" />SECTION 11</div>
+      <h2>Module 9: Support(サポート)</h2>
+
+      <h3>10.1 目的(Purpose)</h3>
+
+      <p>Support 活動の目的は、<strong>インシデントと問題を特定・解決し、可能な限り迅速に通常のサービス運用を回復すること</strong> です。PSLM の中でも最もユーザーの信頼に直結する、いわば「サービスの最後の砦」です。</p>
+
+      <h3>10.2 主要概念</h3>
+
+      <ul>
+        <li><strong>インシデント(Incident)</strong>: サービスの計画外の中断、またはサービス品質の低下</li>
+        <li><strong>問題(Problem)</strong>: 1つ以上のインシデントの原因、または潜在的な原因</li>
+        <li><strong>ワークアラウンド(Workaround)</strong>: 根本原因が解決していなくても、影響を軽減・除去する暫定的な解決策</li>
+        <li><strong>既知のエラー(Known Error)</strong>: 根本原因が特定されているが、恒久的な解決策がまだ実装されていない問題</li>
+      </ul>
+
+      <p>インシデント管理とプロブレム管理の違いを混同しないことが重要です。インシデント管理のゴールは「できるだけ早くサービスを復旧すること」であり、根本原因の特定はプロブレム管理の役割です。復旧を急ぐあまり原因調査を後回しにするのは正しい判断ですが、その後の根本原因分析を省略してよいという意味ではありません。</p>
+
+      <h3>10.3 Support を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Support における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Incident Management(インシデント管理)</td>
+              <td>サービス中断を検知し、可能な限り迅速に復旧する</td>
+            </tr>
+            <tr>
+              <td>Problem Management(問題管理)</td>
+              <td>インシデントの根本原因を特定し、再発を防止する</td>
+            </tr>
+            <tr>
+              <td>Service Desk(サービスデスク)</td>
+              <td>ユーザーからの問い合わせ・障害報告の単一の窓口として機能する</td>
+            </tr>
+            <tr>
+              <td>Service Continuity Management(サービス継続性管理)</td>
+              <td>大規模障害・災害時にもサービスを継続または迅速に復旧できるよう事前に計画する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>10.4 Support 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_SUPPORTFIG16" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>10.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>通常運用への復旧</li>
+        <li>ワークアラウンド、既知のエラーの記録</li>
+        <li>根本原因分析(RCA)結果</li>
+      </ul>
+
+      <h3>10.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>サービス復旧が迅速である</td>
+              <td>平均復旧時間(MTTR: Mean Time To Restore)</td>
+            </tr>
+            <tr>
+              <td>根本原因分析により再発が防止されている</td>
+              <td>インシデント再発率、既知のエラーからの恒久対応完了率</td>
+            </tr>
+            <tr>
+              <td>ユーザーへのコミュニケーションが適切である</td>
+              <td>障害対応時のステータス更新頻度、事後対応への満足度</td>
+            </tr>
+            <tr>
+              <td>大規模障害への備えができている</td>
+              <td>サービス継続計画の訓練実施頻度、目標復旧時間(RTO)の達成率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>10.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>「復旧」と「原因究明」を分離する</strong>: インシデント対応中はまず復旧を最優先し、根本原因の特定はプロブレム管理のプロセスに委ねてください。両方を同時に追おうとすると、復旧が遅れるだけでなく調査も浅くなりがちです。</li>
+          <li><strong>ブレームレスなポストモーテム(Blameless Postmortem)を実施する</strong>: 4つの側面のうち「組織と人材」(1.5参照)が示すとおり、心理的安全性がなければ正直なインシデント報告は得られません。個人の責任追及ではなく、システム・プロセスの改善に焦点を当ててください。</li>
+          <li><strong>既知のエラーデータベース(KEDB)を実務で使い倒す</strong>: 記録するだけでなく、新規インシデントのトリアージ時に必ず照合する運用を徹底することで、平均復旧時間を大幅に短縮できます。</li>
+          <li><strong>サービス継続計画は「作って終わり」にしない</strong>: 定期的な訓練(ゲームデイ、障害注入テストなど)を通じて、計画が実際に機能することを検証し続けてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+
+<section id="module10-lifecycle-ai" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:brain" aria-hidden="true" />SECTION 12</div>
+      <h2>Module 10: ライフサイクル管理・AI・他フレームワーク統合</h2>
+
+      <h3>11.1 エンドツーエンドのライフサイクル管理</h3>
+
+      <p>第3章〜第10章では、PSLM の8段階を1つずつ個別に学びました。Module 10 は、それらを <strong>1つの統合されたシステムとして管理する視点</strong> を養う総括章です。</p>
+
+      <p>重要なのは、8つの活動を「順番にこなすチェックリスト」として扱わないことです。実際の現場では、Support 活動から得られた学びが即座に Discover の新たな入力になり、Operate 中に発見された性能課題が Design の見直しを促す、というように、<strong>すべての活動が並行し、相互にフィードバックし合っています</strong>。この非線形性を前提に、複数のバリューストリーム(特定の需要に応じて組み合わされた活動の連なり)を同時並行で管理する能力が、Service モジュールの実務上の到達点です。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_LIFECYCLEFIG17" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>バリューストリームごとに「どの活動を、どの順序で、誰が担うか」を可視化するバリューストリームマッピング(第1章の考え方を実務に適用したもの)を定期的に実施してください。特に Support→Discover のフィードバックループが機能しているかどうかは、組織の学習能力を測る重要な指標になります。</p>
+      </div>
+
+      <h3>11.2 ITIL AI Capability Model(6C モデル)</h3>
+
+      <p>ITIL (Version 5) の最大の特徴の一つが、AI を「後付けの自動化ツール」としてではなく、フレームワークの中核に組み込んでいる点です(AI-native by design)。この考え方を体系化したのが <strong>ITIL AI Capability Model</strong>、通称 <strong>6C モデル</strong> です。AI システムが実際に何をしているのかを、6つの機能カテゴリーで正確に言語化するためのモデルであり、機能ごとにリスクの性質やガバナンスの必要度が異なる、という前提に立っています。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_LIFECYCLEFIG18" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>機能</th>
+            <th>説明</th>
+            <th>PSLM 上での典型的な適用例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Creation(生成)</td>
+              <td>新しいコンテンツ・コード・ドキュメントを生成する</td>
+              <td>Build 段階でのコード補完、Design 段階での仕様書ドラフト生成</td>
+            </tr>
+            <tr>
+              <td>Curation(キュレーション)</td>
+              <td>既存データの質・関連性を高め、重複や不整合を除去する</td>
+              <td>Discover 段階での顧客インサイトの整理、ナレッジベースの整備</td>
+            </tr>
+            <tr>
+              <td>Clarification(明確化)</td>
+              <td>複雑な内容の要約や、曖昧な要求から意図を汲み取る</td>
+              <td>Support 段階でのインシデントチケットの自動要約</td>
+            </tr>
+            <tr>
+              <td>Cognition(認知)</td>
+              <td>パターンを認識し、予兆や隠れた洞察を発見する</td>
+              <td>Operate 段階での異常検知、キャパシティ予測</td>
+            </tr>
+            <tr>
+              <td>Communication(コミュニケーション)</td>
+              <td>チャットボット等、自然言語での対話インターフェース</td>
+              <td>Deliver 段階でのセルフサービスチャットボット</td>
+            </tr>
+            <tr>
+              <td>Coordination(調整)</td>
+              <td>複数システムを横断した自律的な実行・オーケストレーション</td>
+              <td>Operate 段階での自動修復(負荷分散の自動再配置など)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>AI 施策を企画する際は、必ず「これは6つのうちどの機能か」を最初に明確にしてください。Coordination(自律実行)は Creation(生成支援)よりもはるかに高いガバナンス・人的監督が必要です。機能を曖昧なまま「AIを導入する」と言うのではなく、6C モデルの語彙で施策を定義することで、必要なガバナンスレベルを正しく見積もれます。</p>
+      </div>
+
+      <h3>11.3 AI 統合における注意点</h3>
+
+      <p>6C モデルは可能性を示す一方で、データガバナンスと倫理面の課題も伴います。AI を活用する際は、次の観点を必ず組み込んでください。</p>
+
+      <ul>
+        <li><strong>説明可能性</strong>: AI の判断根拠を人間が追跡・検証できるか(特に Cognition・Coordination 機能)</li>
+        <li><strong>人的関与ポイント(Human-in-the-loop)</strong>: どの意思決定に、どの段階で人間の承認を必須とするか</li>
+        <li><strong>バイアスとデータ品質</strong>: Curation 機能で扱うデータの偏りが、下流の判断に伝播しないか</li>
+        <li><strong>エスカレーション経路</strong>: AI が処理しきれないケースを、確実に人間に引き継ぐ仕組みがあるか</li>
+      </ul>
+
+      <p>より高度な AI ガバナンスは、ITIL (Version 5) の拡張モジュール <strong>ITIL AI Governance</strong> で専門的に扱われます。興味のある方は本ガイド末尾の参考文献を参照してください。</p>
+
+      <h3>11.4 DevOps との関係</h3>
+
+      <p>ITIL (Version 5) と DevOps は競合するフレームワークではなく、<strong>異なるレイヤーの問いに答える、補完関係にある枠組み</strong> です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>観点</th>
+            <th>ITIL (Version 5) が答える「何を」</th>
+            <th>DevOps が答える「どうやって」</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>変更管理</td>
+              <td>変更はリスクに応じて統制されるべき、という要件(Change Enablement)</td>
+              <td>CI/CD パイプラインと自動テストによる高速・安全な実装手段</td>
+            </tr>
+            <tr>
+              <td>サービスの信頼性</td>
+              <td>信頼性を維持する責任の所在とガバナンス</td>
+              <td>SRE の実践(SLI/SLO/エラーバジェット、オンコール体制)</td>
+            </tr>
+            <tr>
+              <td>継続的改善</td>
+              <td>改善を組織文化に根づかせる7ステップモデル</td>
+              <td>レトロスペクティブ、ポストモーテムの実践</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>要点: <strong>ITIL 5 は DevOps の速度がガバナンスを失わずにスケールするための安定構造を提供する</strong>、という捉え方が実務上最も有用です。低リスクな変更を自動化されたパイプラインに委ね、高リスクな変更にのみ人的レビューを集中させるという第7章のベストプラクティスは、まさにこの統合を体現したものです。</p>
+      </div>
+
+      <h3>11.5 PRINCE2 との関係</h3>
+
+      <p>PRINCE2(PRojects IN Controlled Environments)はプロジェクトマネジメントのフレームワークであり、ITIL (Version 5) はサービスマネジメントのフレームワークです。両者は同じライフサイクルの異なるフェーズを担当します。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_LIFECYCLEFIG19" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <ul>
+        <li><strong>PRINCE2</strong>: 明確な開始・中間・終了を持つ、期限付きの取り組み(例: 新しい CRM システムの導入)を担う</li>
+        <li><strong>ITIL (Version 5)</strong>: 終わりのない継続的な取り組み(例: 導入された CRM サービスの日々の運用・保守・改善)を担う</li>
+      </ul>
+
+      <p>統合が機能するのは「引き継ぎの瞬間」です。PRINCE2 がプロジェクトの成果物(製品・変更)を届け、ITIL (Version 5) がそれを受け取ってサービスとして運用・サポート・改善していく、という明確な橋渡しが必要です。</p>
+
+      <h3>11.6 共通する原則</h3>
+
+      <p>DevOps・PRINCE2・Agile・ITIL (Version 5) といった複数のフレームワークが実務で共存できるのは、以下の基礎的な原則を共有しているためです。</p>
+
+      <ul>
+        <li>顧客価値への focus(焦点)</li>
+        <li>チームを越えた協働(Collaboration)</li>
+        <li>フィードバックを伴う反復的な進化</li>
+        <li>あらゆる活動を通じた継続的改善</li>
+      </ul>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「うちはアジャイルだからプロセスは不要」「うちはITILだからDevOpsの俊敏さは危険」といった二項対立の議論は、いずれも実務上は価値を破壊します。フレームワークはそれぞれ異なる問いに答えるための道具であり、組織の成熟度と文脈に応じて適切に組み合わせることが、Service モジュールが一貫して伝えるメッセージです。</p>
       </div>
     </section>
 
