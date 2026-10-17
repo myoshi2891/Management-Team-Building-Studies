@@ -21,12 +21,12 @@
         --sunk: #eef0f4;
         --ink: #161b26;
         --soft: #4b5566;
-        --faint: #8a93a3;
+        --faint: #646d7d;
         --bd: #dfe3ea;
         --bd2: #c7cdd9;
         --indigo: #2e3f72;
         --itint: #eef1f8;
-        --gold: #b8802a;
+        --gold: #8f6220;
         --forest: #1b6e6a;
         --ftint: #e7f3f2;
         --plum: #8c3a5c;
@@ -1842,6 +1842,8 @@
     <script>
       var DIAGRAMS = {
         threeLenses: `flowchart TB
+accTitle: MSP の 3 つのレンズの関係
+accDescr: 原則はテーマに方向性を与え、テーマはプロセスの各工程で適用され、プロセスは実践を通じて原則の実現度を検証する循環構造を示す。
 subgraph L1["レンズ1: 原則 Principles"]
 P["7つの普遍的な指針 プログラム全体を貫く価値観"]
 end
@@ -1863,6 +1865,8 @@ class P box
 class T hub
 class PR done`,
         orgStructure: `flowchart TB
+accTitle: MSP プログラムの組織構造
+accDescr: スポンサリンググループが SRO を任命し、SRO の下にプログラムボードが置かれる。ボードの下にプログラムマネージャーとビジネスチェンジマネージャーが並び、プログラムマネージャーはプログラムオフィスと構成プロジェクト群を統括する。ビジネスチェンジマネージャーはベネフィット実現の説明責任をボードへ負う。
 SG["Sponsoring Group スポンサリンググループ  戦略的な投資判断・SROの任命"]
 SRO["Senior Responsible Owner  SRO プログラム全体の説明責任を負う 単一の説明責任者 Accountable Owner"]
 PB["Programme Board プログラムボード  SROの意思決定を支援"]
@@ -1884,6 +1888,8 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
 class SG,SRO box
 class PB,PM,BCM,PO,PROJ hub`,
         themesMap: `flowchart LR
+accTitle: MSP の 7 つのテーマ
+accDescr: 組織、設計、正当化、構造、知識、保証、意思決定の 7 テーマを順に並べ、意思決定から組織へ戻る点線で、すべてのテーマが並行して継続的に機能することを示す。
 O["Organization 組織"] --> D["Design 設計"]
 D --> J["Justification 正当化"]
 J --> S["Structure 構造"]
@@ -1895,6 +1901,8 @@ DE -.->|"すべてのテーマは 並行して継続的に機能する"| O
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
 class O,D,J,S,K,A,DE box`,
         lifecycleDiagram: `flowchart TB
+accTitle: MSP プログラムのライフサイクル
+accDescr: プログラムの着想から①特定、②成果の設計、③段階的デリバリーの計画、④ケイパビリティの提供、⑤成果の定着、⑥新しい情報の評価へ進む。⑥で継続なら次のトランシェとして②へ戻り、完了または中止と判断すれば⑦終結を経て運用へ完全移行する。
 START(["プログラムの着想"]) --> P1["① Identify the Programme プログラムを特定する"]
 P1 --> P2["② Design the Outcomes 成果を設計する"]
 P2 --> P3["③ Plan Progressive Delivery 段階的デリバリーを計画する"]
