@@ -906,6 +906,170 @@ class F done`;
         </div>
       </section>
 
+      <!-- SECTION 07 -->
+      <section id="acquire" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:shopping-cart" aria-hidden="true" />
+          <span>SECTION 07</span>
+        </div>
+        <h2>Acquire(調達)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Acquireは、プロダクトを実現するために必要な<strong>リソース(技術・人材・サードパーティサービス)</strong>を、どのように獲得するかを決定・実行する活動です。シラバスは特に、<strong>技術の調達・人材の調達・サードパーティサービスの調達の違い</strong>を理解することを求めています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>調達対象</th><th>典型的な調達方法</th><th>判断のポイント</th></tr></thead>
+            <tbody>
+              <tr><td><strong>技術(Technology)</strong></td><td>購入・ライセンス・クラウド利用・自社開発</td><td>Build vs Buy、TCO、ベンダーロックインのリスク</td></tr>
+              <tr><td><strong>人材(People)</strong></td><td>社内異動・新規採用・業務委託</td><td>必要スキルの希少性、長期的な内製化戦略</td></tr>
+              <tr><td><strong>サードパーティサービス</strong></td><td>アウトソーシング・マネージドサービス契約</td><td>SLA、責任分界点、供給継続性</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ACQUIRE_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Acquire活動のステップとアウトプット</div>
+        </div>
+        <h3>Acquireを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Acquireでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Supplier management</td><td>サプライヤーの選定・契約・パフォーマンス管理を行う</td></tr>
+              <tr><td>Service financial management</td><td>調達コストの予算化・投資対効果の評価を行う</td></tr>
+              <tr><td>Workforce and talent management</td><td>必要な人材の獲得・育成計画を支える</td></tr>
+              <tr><td>IT asset management</td><td>調達した資産のライフサイクルを記録・管理する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>調達判断(Make/Buy/Partner)が妥当である</td><td>調達後のコスト超過・遅延の発生率</td></tr>
+              <tr><td>サプライヤーが信頼できる</td><td>サプライヤーのSLA達成率</td></tr>
+              <tr><td>長期的な供給リスクが管理されている</td><td>単一サプライヤー依存度(ベンダーロックインの指標)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>Make/Buy/Partnerの判断は、<strong>初期コストだけでなく、TCO(総保有コスト)と将来の柔軟性</strong>の両面で評価する</li>
+            <li>重要なサードパーティサービスについては、<strong>単一障害点(Single Point of Failure)にならないよう複数サプライヤー戦略</strong>を検討する</li>
+            <li>調達判断の根拠を<strong>ポートフォリオ・ビジョンとの整合性</strong>に照らして記録し、将来の監査・レビューに備える</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>内製できない専門性を迅速に補える</td><td>サプライヤー依存によるガバナンス・セキュリティリスクの増大</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+            <li><a href="https://www.theknowledgeacademy.com/courses/itil-training/itil-5-managing-professional-transition-training-course/" target="_blank" rel="noopener">ITIL® 5 Managing Professional Transition Course</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 08 -->
+      <section id="build" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:hammer" aria-hidden="true" />
+          <span>SECTION 08</span>
+        </div>
+        <h2>Build(構築)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Buildは、Design活動で作られた仕様を、実際に<strong>コーディング・設定・組み立て・テスト</strong>して形にする活動です。シラバスは特に「<strong>設計をBuild活動にどう統合するか(integration of design into build)</strong>」を重視しており、設計とビルドを別チームの断絶した工程として扱わないことがポイントになります。</p>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_BUILD_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Build活動のステップとアウトプット</div>
+        </div>
+        <h3>Buildを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Buildでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Software development and management</td><td>ソフトウェアの開発・構成管理を行う</td></tr>
+              <tr><td>Infrastructure and platform management</td><td>基盤・プラットフォームの構築を支える</td></tr>
+              <tr><td>Change enablement</td><td>ビルド成果物を本番投入可能な変更として評価する</td></tr>
+              <tr><td>Knowledge management</td><td>実装判断・既知の制約をチーム間で共有する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>ビルドの品質が高い</td><td>テストカバレッジ、欠陥密度(Defect Density)</td></tr>
+              <tr><td>技術的負債が管理されている</td><td>技術的負債バックログの増減トレンド</td></tr>
+              <tr><td>リリース可能な状態を迅速に作れる</td><td>ビルドからデプロイ可能状態までのリードタイム</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>テスト・ガバナンス・技術的負債管理を<strong>自動化パイプライン(CI/CD)に組み込み</strong>、人手の確認に頼らない品質保証を実現する</li>
+            <li><strong>技術的負債を「見えない借金」にせず、バックログとして可視化</strong>し、Discover/Designへのフィードバックとして定期的に扱う</li>
+            <li>Design活動の担当者がBuild活動に継続的に関与できる体制(設計と実装の分業を最小化)を作る</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>自動化により高速かつ一貫した品質のリリースが可能になる</td><td>自動化への初期投資と、技術的負債の蓄積による長期的な速度低下リスク</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">ITIL 5 Process Guide, Workflows, Practices & Real Examples</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+          </ul>
+        </div>
+      </section>
+
       <footer>
         本ガイドは学習補助を目的とした独自の解説資料です。ITIL®はPeopleCert International Limitedの登録商標です。試験の正式な出題範囲・配点は必ず公式シラバスおよびOfficial Bookで確認してください。
       </footer>
