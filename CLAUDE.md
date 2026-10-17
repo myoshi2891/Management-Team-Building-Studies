@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-最終更新: 2026-09-10
+最終更新: 2026-10-17
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -28,6 +28,7 @@ docs/PROGRESS.md                                 Nuxt 移行の進捗と「正�
 .markdownlint.json                               Markdown lint 設定
 .claude/                                         エージェント用のスキルとルール（Claude Code）
 .gemini/settings.json                            Gemini CLI に CLAUDE.md を読ませる設定
+netlify.toml                                     Netlify の設定（nuxt generate の dist を配信）
 ```
 
 `app/` 配下の構成（Nuxt 4 の既定 `srcDir` は `app/`。テストだけリポジトリ直下）:
@@ -96,6 +97,11 @@ app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 > `icon.clientBundle.scan.globInclude` から `.ts` を外すとビルド成果物からアイコンが
 > 欠落する（dev サーバーでは再現しない）。
 >
+> **公開を見合わせるガイドは `UNPUBLISHED_GUIDE_ROUTES`（同ファイル）に登録する。**
+> `GUIDES` は `ALL_GUIDES` からこの一覧を除いて導出され、`nuxt.config.ts` の `pages:extend` が
+> ルートごと除去する（直接アクセス・静的生成・sitemap にも出ない）。再公開は一覧から外すだけでよい。
+> 現在の 8 本は著作権上の懸念による見合わせ（理由は `docs/PROGRESS.md` §83）。
+>
 > 固定ヘッダーの高さは `--global-nav-height`（`app/assets/css/main.css`）が SSoT。
 > sticky なサイドバー・TOC・見出しアンカーは必ずこの変数で退避させる（数値の直書き禁止）。
 
@@ -142,6 +148,16 @@ CAPM・EM キャリアパスの 2 本は移行済み（最新状況は `docs/PRO
 - **監査のゲート原本は `.html`**。CAPM では `.md` と `.html` の構造が乖離しており
   （h2 の個数・番号の有無・ステップの再構造化）、`.md` 監査は情報提供として扱う。
   詳細は `docs/PROGRESS.md`「正当な差分の記録」
+
+## デプロイ（Netlify）
+
+設定は `netlify.toml`。ビルドは固定版 Bun で依存を入れてから `nuxt generate` を実行し、`dist` を配信する。
+`NUXT_SITE_URL` は Netlify が注入する `$URL` から渡す（未指定だと sitemap の prerender で失敗する）。
+プレビュー / ブランチデプロイは `NUXT_SITE_ENV=preview` で noindex になる。
+
+公開ページの法的表示（商標の権利者・CC BY-SA 帰属・試験問題流出サイトへのリンク禁止）は
+`tests/legal-notices.test.ts` が固定する。資格ページを追加するときはフッターに商標の帰属を、
+Scrum Guide 等の CC BY-SA 文書を訳出するときは原典と CC BY-SA 4.0 を必ず書く。
 
 ## 静的 HTML の現状と既知のリスク
 
