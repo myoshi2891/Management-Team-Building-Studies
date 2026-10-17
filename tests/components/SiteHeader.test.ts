@@ -83,6 +83,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
       { label: "PMI 認定", summary: "CAPM・PMP の全出題ドメイン", href: "/certifications/pmi" },
       { label: "Scrum Alliance 認定", summary: "CSM・CSPO・CSD・CAL の各体系", href: "/certifications/scrum-alliance" },
       { label: "Scrum.org 認定", summary: "PSM・PSPO・PSD の各体系", href: "/certifications/scrum-org" },
+      { label: "PeopleCert 認定", summary: "ITIL の各体系", href: "/certifications/peoplecert" },
       { label: "資格で学ぶをすべて見る", summary: null, href: "/certifications" },
     ]);
 
@@ -165,6 +166,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
       "/certifications/pmi",
       "/certifications/scrum-alliance",
       "/certifications/scrum-org",
+      "/certifications/peoplecert",
       "/certifications",
       "/books/management",
       "/books/leadership",
@@ -247,6 +249,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "true",
+      undefined,
       undefined,
       undefined,
       undefined,

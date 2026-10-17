@@ -319,6 +319,36 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "ITIL® Foundation (Version 5) 完全学習ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-foundation-v5-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "ITIL® Experience (Version 5) 認定資格 完全ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-experience-version-5-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "ITIL® Managing Professional Transition (Version 5) 認定資格 完全ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-managing-professional-transition-v5-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "ITIL® Product (Version 5) 認定資格 完全ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-product-version5-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
+        title: "ITIL® Service (Version 5) 認定資格 完全ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-service-v5-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
@@ -482,7 +512,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "45 ガイド", hub: "/certifications", cards: 45 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "50 ガイド", hub: "/certifications", cards: 50 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "18 ガイド", hub: "/books", cards: 18 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);

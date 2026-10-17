@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-09-13)
+(最終更新日: 2026-10-17)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `4d60f7f` — style(pspo-ai): apply authentic typography, color palette and component styles（本ファイルのコミットより前のコード側コミット） |
+| コードコミット HEAD | `d21d644` — style(itil-service-v5): expand main content to full width and pin sidebar to left edge（本ファイルのコミットより前のコード側コミット） |
 | 次の作業 | 保守・新規ガイドの追加（横スクロール禁止は e2e で全幅域を固定済み。§50 参照。登録先は **`app/utils/guide-catalog.ts` の `GUIDES` 1 か所**。ホームのセクション・グローバルナビ・種別ハブ・プログラムハブ・サイト内検索がすべて自動で追随する。**`programId` / `seriesId` はいずれも省略不可**。§63 参照） |
-| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:em-career` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2-p2` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run audit:an-elegant-puzzle` ✔ / `npm run audit:caf` ✔ / `npm run audit:csd` ✔ / `npm run audit:a-csd` ✔ / `npm run audit:csp-d` ✔ / `npm run audit:cspo` ✔ / `npm run audit:a-cspo` ✔ / `npm run audit:csp-po` ✔ / `npm run audit:casp` ✔ / `npm run audit:psm-ai` ✔ / `npm run audit:csp-sm` ✔ / `npm run audit:a-csm` ✔ / `npm run audit:psd` ✔ / `npm run audit:pal-i` ✔ / `npm run audit:psfs` ✔ / `npm run audit:pspo` ✔ / `npm run audit:psk` ✔ / `npm run audit:sps` ✔ / `npm run audit:psu` ✔ / `npm run audit:pal-ebm` ✔ / `npm run audit:psm` ✔ / `npm run audit:pspbm` ✔ / `npm run audit:pspo-ai` ✔ / `npm run build` ✔ **ただし `NUXT_SITE_URL` の指定が必要**（未指定だと `@nuxt/sitemap` が `/sitemap.xml` の prerender に失敗して exit 1。`NUXT_SITE_URL=https://example.com npm run build` は exit 0）/ `npm run test:e2e` ✔（2026-09-10 実測・29 件） |
-| テスト数 | **1839** ユニット（MermaidDiagram 11 + SiteHeader 24 + SiteSearch 12 + GuideCard 3 + GuideKindHub 4 + GuideProgramHub 8 + SiteDisclaimer 18 + useActiveHeading 9 + guide-catalog 24 + guide-search 10 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 10 + professional-scrum-product-owner-ai-essentials page 24 + professional-scrum-product-backlog-management-skills page 24 + professional-scrum-master page 25 + professional-agile-leadership-evidence-based-management page 25 + professional-scrum-with-user-experience page 31 + scaled-professional-scrum-guide page 29 + professional-scrum-with-kanban page 28 + professional-scrum-product-owner page 27 + pal-i-study-guide page 25 + professional-scrum-facilitation-skills page 28 + professional-scrum-developer page 25 + a-csm-advanced-certified-scrummaster-study-guide page 25 + csp-sm-certified-scrum-professional-scrummaster-study-guide page 24 + psm-ai-essentials-guide page 24 + a-cspo-advanced-certified-scrum-product-owner-study-guide page 25 + cspo-certified-scrum-product-owner-study-guide page 25 + csp-po-certified-scrum-professional-product-owner-study-guide page 25 + csp-d-certified-scrum-professional-developer-study-guide page 25 + csd-certified-scrum-developer-study-guide page 25 + casp-certified-agile-scaling-practitioner-study-guide page 25 + a-csd-advanced-certified-scrum-developer-study-guide page 25 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 Part 2 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25 + an-elegant-puzzle-guide page 25 + caf-certified-agile-facilitator-study-guide page 24）+ **29** E2E（capm 4 + site-header 15 + no-horizontal-scroll 3 + site-disclaimer 4 + favicon 3）— これがベースライン |
-| 原本照合監査 | ✔ **全 69 本 exit 0**（全要素一致）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:em-career` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2-p2` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run audit:an-elegant-puzzle` ✔ / `npm run audit:caf` ✔ / `npm run audit:csd` ✔ / `npm run audit:a-csd` ✔ / `npm run audit:csp-d` ✔ / `npm run audit:cspo` ✔ / `npm run audit:a-cspo` ✔ / `npm run audit:csp-po` ✔ / `npm run audit:casp` ✔ / `npm run audit:psm-ai` ✔ / `npm run audit:csp-sm` ✔ / `npm run audit:a-csm` ✔ / `npm run audit:psd` ✔ / `npm run audit:pal-i` ✔ / `npm run audit:psfs` ✔ / `npm run audit:pspo` ✔ / `npm run audit:psk` ✔ / `npm run audit:sps` ✔ / `npm run audit:psu` ✔ / `npm run audit:pal-ebm` ⚠ exit 1（意図的例外。§74） / `npm run audit:psm` ✔ / `npm run audit:pspbm` ⚠ exit 1（意図的例外。§74） / `npm run audit:pspo-ai` ✔ / `npm run audit:itil-v5` ✔ / `npm run audit:itil-foundation-v5` ✔ / `npm run audit:itil-mpt-v5` ✔ / `npm run audit:itil-product-v5` ✔ / `npm run audit:itil-service-v5` ✔ / `npm run build` ✔ **ただし `NUXT_SITE_URL` の指定が必要**（未指定だと `@nuxt/sitemap` が `/sitemap.xml` の prerender に失敗して exit 1。`NUXT_SITE_URL=https://example.com npm run build` は exit 0）/ `bun run test:e2e` ✘（2026-10-17 実測・29 件中 28 passed / 1 failed。`e2e/no-horizontal-scroll.spec.ts` 幅 390px で `/itil-foundation-v5-study-guide` +206px・`/itil-experience-version-5-study-guide` +185px・`/itil-managing-professional-transition-v5-guide` +197px の横スクロール。1440 / 1024px は全 89 ページ Green） |
+| テスト数 | **1964** ユニット（MermaidDiagram 11 + SiteHeader 24 + SiteSearch 12 + GuideCard 3 + GuideKindHub 4 + GuideProgramHub 8 + SiteDisclaimer 18 + useActiveHeading 9 + guide-catalog 24 + guide-search 10 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 10 + itil-service-v5-guide page 23 + itil-product-version5-guide page 24 + itil-managing-professional-transition-v5-guide page 24 + itil-experience-version-5-study-guide page 24 + itil-foundation-v5-study-guide page 24 + professional-scrum-product-owner-ai-essentials page 24 + professional-scrum-product-backlog-management-skills page 24 + professional-scrum-master page 25 + professional-agile-leadership-evidence-based-management page 25 + professional-scrum-with-user-experience page 31 + scaled-professional-scrum-guide page 29 + professional-scrum-with-kanban page 28 + professional-scrum-product-owner page 27 + pal-i-study-guide page 25 + professional-scrum-facilitation-skills page 28 + professional-scrum-developer page 25 + a-csm-advanced-certified-scrummaster-study-guide page 25 + csp-sm-certified-scrum-professional-scrummaster-study-guide page 24 + psm-ai-essentials-guide page 24 + a-cspo-advanced-certified-scrum-product-owner-study-guide page 25 + cspo-certified-scrum-product-owner-study-guide page 25 + csp-po-certified-scrum-professional-product-owner-study-guide page 25 + csp-d-certified-scrum-professional-developer-study-guide page 25 + csd-certified-scrum-developer-study-guide page 25 + casp-certified-agile-scaling-practitioner-study-guide page 25 + a-csd-advanced-certified-scrum-developer-study-guide page 25 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 Part 2 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25 + an-elegant-puzzle-guide page 25 + caf-certified-agile-facilitator-study-guide page 24）+ **29** E2E（capm 4 + site-header 15 + no-horizontal-scroll 3 + site-disclaimer 4 + favicon 3）— これがベースライン |
+| 原本照合監査 | ✔ **74 本中 72 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -88,6 +88,11 @@
 | `archive/Professional-Scrum-Master/Professional-Scrum-Master.html` | `app/pages/professional-scrum-master.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Product-Backlog-Management-Skills/Professional-Scrum-Product-Backlog-Management-Skills.html` | `app/pages/professional-scrum-product-backlog-management-skills.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Product-Owner-AI-Essentials/Professional-Scrum-Product-Owner-AI-Essentials.html` | `app/pages/professional-scrum-product-owner-ai-essentials.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Itil-experience-version-5-study-guide/Itil-experience-version-5-study-guide.html` | `app/pages/itil-experience-version-5-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Itil-foundation-v5-study-guide/Itil-foundation-v5-study-guide.html` | `app/pages/itil-foundation-v5-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Itil-managing-professional-transition-v5-guide/Itil-managing-professional-transition-v5-guide.html` | `app/pages/itil-managing-professional-transition-v5-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Itil-product-version5-guide/Itil-product-version5-guide.html` | `app/pages/itil-product-version5-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Itil-service-v5-guide/Itil-service-v5-guide.html` | `app/pages/itil-service-v5-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -1124,7 +1129,7 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: 4d60f7f
+コードコミット HEAD: d21d644
 次の作業: 保守・新規ガイドの追加
   新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
@@ -1143,6 +1148,7 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   超えたら閾値ではなくプログラム／シリーズの粒度を分割し直すこと。
 
 完了済み:
+  - app/pages/itil-product-version5-guide.vue（ITIL® Product (Version 5) 完全ガイド）
   - app/pages/capm.vue（CAPM ガイド）
   - app/pages/certified-associate-in-project-management-domain1.vue（CAPM ドメイン1 ガイド）
   - app/pages/certified-associate-in-project-management-domain2.vue（CAPM ドメイン2 ガイド）
@@ -1280,3 +1286,112 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
 
 原本 HTML（`archive/.../*.html`）側は本セッションでは更新していない。原本自体の修正が
 必要かはユーザー判断を要するため、次回セッションで確認すること。
+
+### §75. ITIL® Experience (Version 5) 原本照合監査 exit 0 と移行完了
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Itil-experience-version-5-study-guide/Itil-experience-version-5-study-guide.html`）と移行先 Vue SFC（`app/pages/itil-experience-version-5-study-guide.vue`）を機械照合し、全要素（リスト 105, 表行 122, 段落 45, 見出し 91, 外部リンク 20, Mermaid 8, Callout 33, SVG 1）が 100% 一致して **exit 0** を達成。
+- **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション、Heroの stat-row、13個のセクション（資格概要、試験概要、基礎概念のリフレッシュ、Experience主要概念、体験フレームワーク全体像、体験捕捉、サービスジャーニー、ITILとAI、他フレームワーク連携、ベストプラクティス総まとめ表、試験対策ポイント、用語集、参考文献一覧）を漏れなく転写。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下に新規プログラム `peoplecert`（PeopleCert 認定、`/certifications/peoplecert`）、新規シリーズ `pc-itil`（ITIL）およびガイド `/itil-experience-version-5-study-guide` を追加登録（種別の追加は無し）。これにより公開中ガイド総数は 69 → 70 件、資格ガイド総数は 45 → 46 件となった。
+- **契約テスト（S/C/D/Q/N）**: `tests/pages/itil-experience-version-5-study-guide.test.ts` で全 24 件のテストが Green。
+- **原本アーカイブ**: `Itil-experience-version-5-study-guide.html` および `Itil-experience-version-5-study-guide.md` を `archive/Itil-experience-version-5-study-guide/` へ移動し、`package.json` の `audit:itil-v5` スクリプトをアーカイブ先パスに設定。
+- **コミット履歴**:
+  1. `test(catalog): add failing spec for peoplecert and itil experience v5` (`fb0200f`)
+  2. `feat(catalog): register peoplecert and itil experience in guide-catalog` (`96c53c8`)
+  3. `test(itil-v5): add comprehensive contract test suite for itil experience v5` (`7993762`)
+  4. `feat(itil-v5): initialize page skeleton with hero, toc, seo meta and layout` (`8f228e5`)
+  5. `feat(itil-v5): implement sec 00-01 overview and exam structure` (`7c53728`)
+  6. `feat(itil-v5): implement sec 02-03 foundations refresh and key concepts` (`83a7a28`)
+  7. `feat(itil-v5): implement sec 04 experience framework and role mapping` (`9433fe0`)
+  8. `feat(itil-v5): implement sec 05 capturing experience and data quality` (`1f43f76`)
+  9. `feat(itil-v5): implement sec 06 service journey and improvement loop` (`aa7e266`)
+  10. `feat(itil-v5): implement sec 07-08 ai integration and related frameworks` (`471ed60`)
+  11. `feat(itil-v5): implement sec 09-12 best practices, exam tips, glossary and references` (`4aa6159`)
+  12. `refactor(itil-v5): complete source parity and styling verification` (`49c9eea`)
+  13. `chore(itil-v5): archive original files and add parity audit script` (`71feff0`)
+  14. `style(itil-v5): expand main content to full width` (`43d2adc`)
+  15. `style(itil-v5): unify sidebar and footer layout with standard guide design` (`71180d2`)
+  16. `style(itil-v5): restore complete authentic styles for tables, callouts, diagrams and typography` (`d7beb38`)
+
+### §76. ITIL® Foundation (Version 5) 完全学習ガイド 原本照合監査 exit 0 と移行完了
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Itil-foundation-v5-study-guide/Itil-foundation-v5-study-guide.html`）と移行先 Vue SFC（`app/pages/itil-foundation-v5-study-guide.vue`）を機械照合し、全要素（リスト 75, 表行 167, 段落 43, 見出し 43, 外部リンク 19, Mermaid 11, Callout 22, SVG 1）が 100% 一致して **exit 0** を達成。
+- **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション（3グループのnav-group-label）、Heroの stat-row、免責事項、13個のセクション（このガイドの使い方、出題配点マップ、第1章 主要用語と定義、第2章 4つの側面、第3章 製品・サービスライフサイクル、第4章 ITILバリューシステム、第5章 バリューストリーム、第6章 ITILとAI、第7章 他フレームワークとの関係、第8章 出題形式と学習計画、付録A 用語集、付録B マネジメントプラクティス早見表、付録C 出典・参考文献一覧）およびFooterを漏れなく転写。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）、シリーズ `pc-itil`（ITIL）にガイド `/itil-foundation-v5-study-guide` を追加登録。これにより公開中ガイド総数は 70 → 71 件、資格ガイド総数は 46 → 47 件となった。
+- **契約テスト（S/C/D/Q/N）**: `tests/pages/itil-foundation-v5-study-guide.test.ts` で全 24 件のテストが Green。
+- **原本アーカイブ**: `Itil-foundation-v5-study-guide.html` および `Itil-foundation-v5-study-guide.md` を `archive/Itil-foundation-v5-study-guide/` へ移動し、`package.json` の `audit:itil-foundation-v5` スクリプトをアーカイブ先パスに設定。
+- **コミット履歴**:
+  1. `test(itil-foundation-v5): add failing contract specs and catalog entry` (`ecb4fc5`)
+  2. `feat(itil-foundation-v5): implement hero and layout skeleton` (`34ca258`)
+  3. `feat(itil-foundation-v5): implement how-to-use and exam blueprint sections` (`e559d00`)
+  4. `feat(itil-foundation-v5): implement chapter 1 key terms and definitions` (`e112dbb`)
+  5. `feat(itil-foundation-v5): implement four dimensions and lifecycle sections` (`9792814`)
+  6. `feat(itil-foundation-v5): implement ITIL value system section` (`92c1daf`)
+  7. `feat(itil-foundation-v5): implement value streams, AI, and other frameworks sections` (`ae1e57c`)
+  8. `feat(itil-foundation-v5): implement exam strategy, glossary, practices, and references sections` (`5e7e43a`)
+  9. `refactor(itil-foundation-v5): complete source parity and styling verification` (`e54e1ea`)
+
+### §77. ITIL® Managing Professional Transition (Version 5) 認定資格 完全ガイド 原本照合監査 exit 0 と移行完了
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Itil-managing-professional-transition-v5-guide/Itil-managing-professional-transition-v5-guide.html`）と移行先 Vue SFC（`app/pages/itil-managing-professional-transition-v5-guide.vue`）を機械照合し、全要素（リスト 114, 表行 105, 段落 65, 見出し 43, 外部リンク 50, Mermaid 9, Callout 27, SVG 1）が 100% 一致して **exit 0** を達成。
+- **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション（10個のセクション）、Heroの stat-row、免責事項、10個のセクション（この資格について、ITIL (Version 5) 全体像、共通基盤概念、試験1: Transformation、試験2: Product, Service, Experience、共通トピック: ITIL and AI、ITIL と他フレームワークとの関係、試験対策のポイント、学習チェックリスト、参考文献）およびFooterを漏れなく転写。
+- **チェックリスト機能の実装**: 学習チェックリスト（18項目）について、localStorage と連携したチェック状態の保持、達成進捗バーのリアルタイム計算（リアクティブ連動）を原本のマークアップ完全維持のもとで Vue 3 実装。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）、シリーズ `pc-itil`（ITIL）にガイド `/itil-managing-professional-transition-v5-guide` を追加登録。これにより公開中ガイド総数は 71 → 72 件、資格ガイド総数は 47 → 48 件となった。
+- **契約テスト（S/C/D/Q/N）**: `tests/pages/itil-managing-professional-transition-v5-guide.test.ts` で全 24 件のテストが Green。
+- **原本アーカイブ**: `Itil-managing-professional-transition-v5-guide.html` および `Itil-managing-professional-transition-v5-guide.md` を `archive/Itil-managing-professional-transition-v5-guide/` へ移動し、`package.json` に `audit:itil-mpt-v5` スクリプトを追加設定。
+- **コミット履歴**:
+  1. `test(itil-mpt-v5): add failing contract specs and catalog entry` (`94eec83`)
+  2. `feat(itil-mpt-v5): implement hero and sections 1-2 (about-mpt, evolution)` (`ccd260a`)
+  3. `feat(itil-mpt-v5): implement sections 3-4 (foundational concepts, transformation)` (`ceb09aa`)
+  4. `feat(itil-mpt-v5): implement section 5 (product, service, experience)` (`032b556`)
+  5. `feat(itil-mpt-v5): implement sections 6-7 (ai capability model, other frameworks)` (`e4c0231`)
+  6. `feat(itil-mpt-v5): implement sections 8-10 (exam strategy, checklist, references)` (`2e0bc95`)
+  7. `refactor(itil-mpt-v5): complete source parity and styling verification` (`fc56ab2`)
+  8. `style(itil-mpt-v5): expand main content to full width and unify sidebar and footer with standard guide design` (`6941f49`)
+  9. `test(itil-mpt-v5): remove unused MERMAID_DIAGRAM_DECLARATION import and normalizeMermaidSource function` (`3a387a7`)
+- **レイアウト・デザインの標準化**:
+  - メインコンテンツの横幅制約（`max-width: 900px`）を撤廃し、画面いっぱいにフルワイド展開。
+  - サイドバーを `position: sticky` から `position: fixed`（標準ガイド仕様）に統一し、アクティブ項目の左ボーダーやアイコンカラー、レスポンシブ時のオーバーレイとトグルボタンを標準化。
+  - フッターを標準フォントサイズ・行間（`font-size: 15px; line-height: 1.6;`）に統一。
+
+### §78. ITIL® Product (Version 5) 完全ガイド 原本照合監査 exit 0 と移行完了
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Itil-product-version5-guide/Itil-product-version5-guide.html`）と移行先 Vue SFC（`app/pages/itil-product-version5-guide.vue`）を機械照合し、全要素（リスト 126, 表行 185, 段落 58, 見出し 87, 外部リンク 17, Mermaid 13, Callout 31, SVG 1）が 100% 一致して **exit 0** を達成。
+- **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション（16個のセクション）、Heroの stat-row、免責事項、16個のセクション（ITIL Productとは何か、試験概要と出題形式、基礎概念、PSLM全体像、Discover、Design、Acquire、Build、Transition、Operate、Deliver、Support、ライフサイクル全体のマネジメント、ITIL・AI・他フレームワーク、学習チェックリスト、参考文献・出典）およびFooterを漏れなく転写。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）、シリーズ `pc-itil`（ITIL）にガイド `/itil-product-version5-guide` を追加登録。これにより公開中ガイド総数は 72 → 73 件、資格ガイド総数は 48 → 49 件となった。
+- **契約テスト（S/C/D/Q/N）**: `tests/pages/itil-product-version5-guide.test.ts` で全 24 件のテストが Green。
+- **原本アーカイブ**: `Itil-product-version5-guide.html` および `Itil-product-version5-guide.md` を `archive/Itil-product-version5-guide/` へ移動し、`package.json` に `audit:itil-product-v5` スクリプトを追加設定。
+- **コミット履歴**:
+  1. `test(itil-product-v5): add failing contract specs and catalog entry` (`a00aef8`)
+  2. `feat(itil-product-v5): implement hero and sections 1-2 (about-product, exam-format)` (`1c2d204`)
+  3. `feat(itil-product-v5): implement sections 3-4 (basic-concepts, lifecycle-overview)` (`62f8693`)
+  4. `feat(itil-product-v5): implement sections 5-6 (discover, design)` (`c089397`)
+  5. `feat(itil-product-v5): implement sections 7-8 (acquire, build)` (`23f404c`)
+  6. `feat(itil-product-v5): implement sections 9-10 (transition, operate)` (`88395bf`)
+  7. `feat(itil-product-v5): implement sections 11-12 (deliver, support)` (`6844292`)
+  8. `feat(itil-product-v5): implement sections 13-14 (lifecycle-management, ai-and-frameworks)` (`bdc08aa`)
+  9. `feat(itil-product-v5): implement sections 15-16 (study-checklist, references)` (`592a546`)
+
+### §79. ITIL® Service (Version 5) 完全ガイド 原本照合監査 exit 0 と移行完了
+
+- **原本照合監査**: `audit_source_parity.mjs` で原本 HTML（`archive/Itil-service-v5-guide/Itil-service-v5-guide.html`）と移行先 Vue SFC（`app/pages/itil-service-v5-guide.vue`）を機械照合し、全要素（表行 192, 段落 78, 見出し 114, 外部リンク 25, Mermaid 20, Callout 20, SVG 1）が 100% 一致して **exit 0** を達成。
+- **原本構造の忠実な再現とスタイリング**: 原本サイドバーのブランドロゴ（SVG Seal）、セクション別ナビゲーション（17個のセクション）、Heroの stat-row、免責事項、17個のセクション（本ガイドについて、試験の全体像と認定パスウェイ、ITIL Foundation の復習、PSLMの中核概念、Discover、Design、Acquire、Build、Transition、Operate、Deliver、Support、ライフサイクル全体とAI・他フレームワーク、ベストプラクティス総まとめ、試験対策のポイント、付録: 用語集、参考文献・ソース URL 一覧）およびFooterを漏れなく転写。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）、シリーズ `pc-itil`（ITIL）にガイド `/itil-service-v5-guide` を追加登録。これにより公開中ガイド総数は 73 → 74 件、資格ガイド総数は 49 → 50 件となった。
+- **契約テスト（S/C/D/Q/N）**: `tests/pages/itil-service-v5-guide.test.ts` で全 23 件のテストが Green。
+- **原本アーカイブ**: `Itil-service-v5-guide.html` および `Itil-service-v5-guide.md` を `archive/Itil-service-v5-guide/` へ移動し、`package.json` に `audit:itil-service-v5` スクリプトを追加設定。
+- **コミット履歴**:
+  1. `test(itil-service-v5): add failing contract specs and catalog entry` (`fe51458`)
+  2. `feat(itil-service-v5): implement hero and sections 1-2 (about-guide, exam-overview)` (`84f0b44`)
+  3. `feat(itil-service-v5): implement section 3 (foundation-review)` (`f7c2fb5`)
+  4. `feat(itil-service-v5): implement sections 4-5 (module1-key-concepts, module2-discover)` (`9e5c078`)
+  5. `feat(itil-service-v5): implement sections 6-7 (module3-design, module4-acquire)` (`7556ab3`)
+  6. `feat(itil-service-v5): implement sections 8-9 (module5-build, module6-transition)` (`55c167f`)
+  7. `feat(itil-service-v5): implement sections 10-11 (module7-operate, module8-deliver)` (`bc6b264`)
+  8. `feat(itil-service-v5): implement sections 12-13 (module9-support, module10-lifecycle-ai)` (`3391dd7`)
+  9. `feat(itil-service-v5): implement sections 14-17 (summary, exam-tips, glossary, references)` (`e5d8962`)
+  10. `style(itil-service-v5): expand main content to full width and pin sidebar to left edge` (`d21d644`)
+- **レイアウト・デザインの標準化**:
+  - メインコンテンツの横幅制約（`max-width: 1440px; margin: 0 auto;`）を撤廃し、画面いっぱいにフルワイド展開（`margin-left: var(--sidebar-width); max-width: 100%;`）。
+  - サイドバーを `position: sticky` から `position: fixed; left: 0;`（標準ガイド仕様）に統一し、アクティブ項目の左ボーダーやアイコンカラー、レスポンシブ時のオーバーレイとトグルボタンを標準化。
+  - フッターを標準フォントサイズ・行間（`font-size: 16px; line-height: 1.6;`）に統一。
+
+
