@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { GUIDES } from "~/utils/guide-catalog";
+import { GUIDES, type GuideProgramId } from "~/utils/guide-catalog";
 
 /*
  * 公開ページの法的表示の契約（2026-10 の公開前監査で是正した内容の回帰防止）。
@@ -79,6 +79,14 @@ const CC_BY_SA_PAGES = {
   "/professional-agile-leadership-evidence-based-management": ["Evidence-Based Management Guide"],
 } as const satisfies Record<string, readonly string[]>;
 
+/** 資格プログラムごとの商標権利者。フッターにこの名称が無ければ帰属表示として認めない。 */
+const TRADEMARK_HOLDERS: Readonly<Partial<Record<GuideProgramId, string>>> = {
+  pmi: "Project Management Institute",
+  "scrum-alliance": "Scrum Alliance",
+  "scrum-org": "Scrum.org",
+  peoplecert: "PeopleCert",
+};
+
 describe("公開ページの法的表示", () => {
   it("権利者・ライセンスを誤る表示を含まない", () => {
     const hits = PUBLISHED.flatMap(({ route, source }) =>
@@ -107,12 +115,17 @@ describe("公開ページの法的表示", () => {
     expect(missing).toEqual([]);
   });
 
-  it("資格ガイドはすべてフッターに商標の帰属を明示する", () => {
+  it("資格ガイドはすべてフッターに商標の帰属と権利者を明示する", () => {
     // 認定名は各団体の商標。非公式であることと権利者を、ページ末尾で必ず示す。
-    const missing = GUIDES
-      .filter((guide) => ["pmi", "scrum-alliance", "scrum-org", "peoplecert"].includes(guide.programId))
-      .map((guide) => guide.to)
-      .filter((route) => !/商標|trademark/.test(footerOf(readPage(route))));
+    // 「商標」の語だけでは権利者の誤記（旧権利者のまま等）を素通しするため、権利者名まで照合する。
+    const missing = GUIDES.flatMap((guide) => {
+      const holder = TRADEMARK_HOLDERS[guide.programId];
+      if (holder === undefined) return [];
+      const footer = footerOf(readPage(guide.to));
+      return [/商標|trademark/.test(footer) ? null : "商標", footer.includes(holder) ? null : holder]
+        .filter((required) => required !== null)
+        .map((required) => `${guide.to}: ${required}`);
+    });
 
     expect(missing).toEqual([]);
   });
