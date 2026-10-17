@@ -167,6 +167,29 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
 class A,B,C,D,E box
 class F done`;
+
+const DIAGRAM_VALUE_STREAM_FEATURE = `flowchart LR
+S(("開始: 利用者からの 改善要望")) --> D1["Discover (機会の検証)"]
+D1 --> D2["Design (解決策の設計)"]
+D2 --> B1["Build (実装とテスト)"]
+B1 --> T1["Transition (段階的リリース)"]
+T1 --> DL1["Deliver (利用者への公開)"]
+DL1 --> E(("完了: 価値の実現"))
+DL1 -.->|"利用データ"| D1
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+class D1,D2,B1,T1,DL1 box
+class S,E hub`;
+
+const DIAGRAM_VALUE_STREAM_INCIDENT = `flowchart LR
+S2(("開始: インシデント発生")) --> SU["Support (トリアージ・診断)"]
+SU --> O1["Operate (復旧措置)"]
+O1 --> SU2["Support (根本原因分析)"]
+SU2 --> E2(("完了: 正常状態への復帰・ 再発防止"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+class SU,O1,SU2 box
+class S2,E2 hub`;
 </script>
 
 <template>
@@ -1417,6 +1440,216 @@ class F done`;
           <ul>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
             <li><a href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">ITIL 5 Process Guide</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 13 -->
+      <section id="lifecycle-management" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:sitemap" aria-hidden="true" />
+          <span>SECTION 13</span>
+        </div>
+        <h2>ライフサイクル全体のマネジメント(Category 10.1)</h2>
+
+        <p>ここまでの8活動は、それぞれ独立した「機能」として解説してきましたが、実際の組織では<strong>これらを状況に応じて組み合わせて使う</strong>ことが求められます。シラバスCategory 10「Lifecycle Management」は、この統合的な視点を扱います。</p>
+        <h3>オペレーティングモデルと責任分担</h3>
+        <p>「オペレーティングモデル」とは、<strong>8つのライフサイクル活動それぞれの責任を、組織内のどのチーム・役割が担うか</strong>を定義したものです。組織の規模や成熟度によって、以下のようなパターンがあります。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>パターン</th><th>特徴</th><th>適したケース</th></tr></thead>
+            <tbody>
+              <tr><td>活動別専門チーム型</td><td>Discoverチーム、Buildチームのように活動ごとに専門部隊を置く</td><td>大規模組織、複数プロダクトを並行運用する場合</td></tr>
+              <tr><td>クロスファンクショナル・プロダクトチーム型</td><td>1つのプロダクトチームが複数活動を横断的に担う(Discover〜Supportまで)</td><td>プロダクト志向・アジャイル/DevOps文化が浸透した組織</td></tr>
+              <tr><td>ハイブリッド型</td><td>中核活動(Design/Build)は専任チーム、周辺活動(Discover/Support)は横断的に協業</td><td>成長過程にある組織、専門性とスピードのバランスを取りたい場合</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <p>どのパターンを選んでも、<strong>「誰がどの活動に対してどんな意思決定権を持つか」を明文化</strong>し、サイロ化(部門間の壁)を防ぐことが最重要です。ITIL Product (Version 5)全体を貫くテーマである「Cross-Functional Value Alignment(部門横断的な価値の整合)」は、まさにこのオペレーティングモデル設計の巧拙にかかっています。</p>
+        </div>
+        <h3>プロダクトベンダーのバリューストリーム</h3>
+        <p><strong>バリューストリーム(Value Stream)</strong>とは、特定の目的(例:新機能をリリースする、インシデントに対応する)を達成するために、8つのライフサイクル活動の中から<strong>必要なものだけを選び、実際の業務フローとして具体化したもの</strong>です。</p>
+        <p>以下は、「新機能のアイデアを市場に届ける」という目的で組み立てた、プロダクトベンダーのバリューストリームの例です。</p>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_VALUE_STREAM_FEATURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">バリューストリーム例: 新機能のアイデアを市場に届ける</div>
+        </div>
+        <p>同じ8活動から、<strong>「インシデントに対応する」という別の目的</strong>では、まったく異なるバリューストリームが組み立てられます。</p>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_VALUE_STREAM_INCIDENT" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">バリューストリーム例: インシデントに対応する</div>
+        </div>
+        <p>このように、<strong>同じ8活動という「部品」を、目的別に異なる順序・組合せで再利用するのがバリューストリームの本質</strong>です。ITIL 4で学んだ「Value Stream Mapping」の考え方が、8活動を対象にそのまま拡張されています。</p>
+        <h3>バリューストリームがライフサイクル段階を統合する方法</h3>
+        <p>バリューストリームがうまく機能するためには、以下の点が重要です。</p>
+        <ul>
+          <li><strong>各活動間のハンドオフ(引き継ぎ)を最小化</strong>する: Design→Buildのような引き継ぎで情報が失われないよう、共通のツール・ドキュメント基盤を用意する</li>
+          <li><strong>フローの可視化</strong>: バリューストリームマッピングを行い、どこに待ち時間(Wait Time)やボトルネックがあるかを可視化する</li>
+          <li><strong>フィードバックループを明示的に設計する</strong>: Support→Discoverのように、下流の知見が上流に還流する経路を意図的に作る</li>
+        </ul>
+        <h3>組織・テクノロジーイネーブルメント</h3>
+        <p>ライフサイクル全体を横断してスムーズに機能させるには、次の2つのイネーブルメント(実現要因)が必要です。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>イネーブルメント</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><strong>組織的イネーブルメント</strong></td><td>部門横断チームの権限設計、共通の評価指標(KPI)、心理的安全性のある文化</td></tr>
+              <tr><td><strong>技術的イネーブルメント</strong></td><td>全活動を貫く共通のツールチェーン(バックログ管理・CI/CD・監視基盤)、データの一元管理、AIによる自動化基盤</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>デジタルプロダクトマネジメント成功要因(横断的まとめ)</h3>
+        <p>各活動のCSF(5〜12章)を横断して見ると、以下の共通パターンが浮かび上がります。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>横断的な成功要因</th><th>該当する活動</th></tr></thead>
+            <tbody>
+              <tr><td>エビデンスに基づく意思決定</td><td>Discover, Design</td></tr>
+              <tr><td>自動化による品質と速度の両立</td><td>Build, Operate</td></tr>
+              <tr><td>リスクを管理した変化への対応</td><td>Transition</td></tr>
+              <tr><td>利用者体験を中心に据えた運用</td><td>Deliver, Support</td></tr>
+              <tr><td>フィードバックループの継続的な還流</td><td>Support → Discover</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>プロダクトマネジメントを支える組織構造</h3>
+        <p>シラバスは「適切な組織構造をプロダクトマネジメントの成功に適用する(Apply an appropriate organizational structure)」ことをBL3(適用)レベルで求めています。実務上のポイントは以下のとおりです。</p>
+        <ul>
+          <li>プロダクトオーナー/プロダクトマネージャーに<strong>明確な意思決定権限</strong>を与える(権限のない責任者を作らない)</li>
+          <li>サプライヤー・パートナーを含めた<strong>エコシステム全体を見渡せるガバナンス層</strong>を設ける</li>
+          <li>組織構造は固定的なものではなく、<strong>プロダクトの成熟度(発見期・成長期・成熟期)に応じて見直す</strong></li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-product-version-5-4179" target="_blank" rel="noopener">ITIL Product (Version 5) | peoplecert.org(Value Stream Integration and Flow Optimizationの記述)</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 14 -->
+      <section id="ai-and-frameworks" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:robot" aria-hidden="true" />
+          <span>SECTION 14</span>
+        </div>
+        <h2>ITIL・AI・他フレームワークとの関係(Category 10.2)</h2>
+
+        <h3>ITIL AI Capability Model(6Cモデル)</h3>
+        <p>ITIL(Version 5)最大の新機軸のひとつが、<strong>ITIL AI Capability Model(通称「6Cモデル」)</strong>です。これは、AIソリューションが果たす機能を6つのカテゴリに分類し、組織がAI活用のケイパビリティを評価・育成するためのモデルです。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Capability(能力)</th><th>内容</th><th>プロダクトマネジメントでの活用例</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Creation(創出)</strong></td><td>新しいコンテンツ・コード・ドキュメントを生成する</td><td>設計仕様のドラフト生成、コード自動生成</td></tr>
+              <tr><td><strong>Curation(整理)</strong></td><td>既存データの重複を除去し、品質・関連性を高める</td><td>ナレッジベースの整理、重複バックログの統合</td></tr>
+              <tr><td><strong>Clarification(明確化)</strong></td><td>複雑な内容の理解を助ける</td><td>インシデントチケットの要約、長文要件の平易化</td></tr>
+              <tr><td><strong>Cognition(認知)</strong></td><td>パターンを識別し、隠れた洞察を見つける</td><td>障害の予兆検知、利用データからの機会発見</td></tr>
+              <tr><td><strong>Communication(対話)</strong></td><td>自然な対話インターフェースを提供する</td><td>チャットボット、バーチャルアシスタントによる一次対応</td></tr>
+              <tr><td><strong>Coordination(調整)</strong></td><td>複数のアクションを自律的に実行・オーケストレーションする</td><td>自動復旧(Auto-remediation)、承認フローの自動化</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
+          <p>6Cモデルの目的は「どのAI技術を使うべきか」を指定することではなく、<strong>「このAI機能は6つのうちどの役割を果たしているか」を明確に言語化する</strong>ことです(参考: 各能力は異なるリスクプロファイルとガバナンス要件を持つため、この分類がAIガバナンスの出発点になります)。</p>
+        </div>
+        <h3>AIがプロダクトマネジメントを支援する方法</h3>
+        <p>シラバスは、AIが以下のような場面でプロダクトマネジメントを支援すると位置づけています。</p>
+        <ul>
+          <li><strong>Build活動</strong>: コード生成・自動テストによる開発速度の向上</li>
+          <li><strong>Operate活動</strong>: 異常検知・予測的キャパシティ計画</li>
+          <li><strong>Deliver/Support活動</strong>: チャットボットによる一次対応、リクエストの自動トリアージ</li>
+          <li><strong>Lifecycle Management全体</strong>: 利用データ・フィードバックの分析による、Discoverへのインサイト提供</li>
+        </ul>
+        <h3>AI・自動化が手法とツールに与える影響</h3>
+        <p>AIの浸透により、Discover〜Operateにかけて使われる手法・ツールにも変化が生じています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>変化の方向性</th><th>具体例</th></tr></thead>
+            <tbody>
+              <tr><td>分析の高速化</td><td>大量の利用者フィードバックをAIが要約・分類し、Discoverの初期分析を短縮</td></tr>
+              <tr><td>開発支援の高度化</td><td>AIコーディングアシスタントによるBuild活動の効率化</td></tr>
+              <tr><td>運用の予測化</td><td>障害発生前の予兆検知(Predictive Operations)</td></tr>
+              <tr><td>ガバナンスの必要性増大</td><td>AIの判断根拠の説明責任(Explainability)、人間による監督(Human-in-the-loop)の設計</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <p>AIを導入する際は、<strong>「どのCapability(6Cのどれ)を、どの活動に、どの程度の自律性(人間の関与レベル)で適用するか」を明示的に設計</strong>することが、AIガバナンス上の出発点になります。特にCoordination(自律実行)は最もリスクが高いため、人間による承認ゲートを残す設計が推奨されます。</p>
+        </div>
+        <h3>ITILとDevOpsの補完関係</h3>
+        <p>ITIL(Version 5)とDevOpsは競合するフレームワークではなく、<strong>互いを補完する関係</strong>として位置づけられています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>ITILが強い領域</th><th>DevOpsが強い領域</th></tr></thead>
+            <tbody>
+              <tr><td>ガバナンス</td><td>ライフサイクル全体のガバナンス・リスク管理・CSF定義</td><td>—</td></tr>
+              <tr><td>実行速度</td><td>—</td><td>CI/CD、自動化されたBuild〜Transitionの高速な反復</td></tr>
+              <tr><td>統合ポイント</td><td>Build活動の実行手段としてDevOpsのプラクティス(継続的インテグレーション等)を採用</td><td>ITILのCSF・メトリクスをDevOpsパイプラインの品質ゲートとして活用</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>実務的には、<strong>「何を(What)・なぜ(Why)・どのレベルで(How well)」を定義するのがITILの役割</strong>であり、<strong>「どうやって高速に実現するか(How fast)」を担うのがDevOpsの役割</strong>、という住み分けが一般的な理解です。</p>
+        <h3>ITILとPRINCE2の補完関係</h3>
+        <p>PRINCE2は<strong>プロジェクトマネジメント</strong>のフレームワークであり、ITIL Productの中では、主にAcquire活動やBuild活動のような<strong>有期性のある取り組み(プロジェクト)</strong>を統制する手段として位置づけられます。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>役割分担</th></tr></thead>
+            <tbody>
+              <tr><td>ITIL Product</td><td>プロダクトの「継続的なライフサイクル」全体を扱う(終わりのない反復活動)</td></tr>
+              <tr><td>PRINCE2</td><td>ライフサイクルの中で発生する「有期のプロジェクト」(大規模な移行や新規構築など)を統制する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
+          <p>プロダクトそのものは終わりのない継続的な活動ですが、その中の特定のマイルストーン(大規模リニューアルなど)は、明確な開始・終了を持つプロジェクトとしてPRINCE2的な統制が有効に機能します。</p>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4</a></li>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">Information and Technology in ITIL Version 5</a></li>
+            <li><a href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">ITIL® AI Governance Training & Certification</a></li>
+            <li><a href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">A new ITIL, so what?</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
           </ul>
         </div>
       </section>
