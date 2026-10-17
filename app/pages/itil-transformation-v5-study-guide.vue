@@ -321,7 +321,7 @@ class S5,S6 done;`;
 
     <main id="main-content" class="main-content">
       <div class="hero">
-        <div class="hero-eyebrow"><i class="ti ti-award" aria-hidden="true" />PeopleCert公式シラバスに基づく学習ガイド</div>
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert公式シラバスに基づく学習ガイド</div>
         <h1>ITIL Transformation(Version 5) 学習ガイド</h1>
         <p class="hero-lede">
           初学者向け ステップバイステップ解説
@@ -335,7 +335,7 @@ class S5,S6 done;`;
         </div>
 
         <div class="disclaimer-box">
-          <i class="ti ti-info-circle" aria-hidden="true" />
+          <Icon name="tabler:info-circle" aria-hidden="true" />
           <span>本ガイドは PeopleCert / ITIL 公式サイトおよび公認トレーニングプロバイダが公開しているシラバス概要・記事をもとに独自にまとめた学習補助教材であり、PeopleCert International Ltd. が発行する有償の公式教材(Official eBook、Learner Workbook、Quick Reference Guide)の代替にはならない。特に「Transformation Model の4層に含まれる12ステージの詳細な活動内容・ステップの詳細」は有償の公式教材にのみ収録されている粒度の情報であるため(ステージの名称自体はPeopleCert公開記事にも掲載されている)、本ガイドでは層(レイヤー)単位の概念構造までを解説し、ステージ単位の詳細な一次情報は出典として公式教材への参照を明示するにとどめる。最新情報は<a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">PeopleCert公式サイト</a>で必ず確認すること。</span>
         </div>
       </div>
@@ -1406,89 +1406,88 @@ class S5,S6 done;`;
 }
 
 .hero {
-  margin-bottom: 48px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 56px;
 }
 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--color-indigo);
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(svg) {
+  font-size: 17px;
+  width: 17px;
+  height: 17px;
 }
 
 h1 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1.25;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
   color: var(--color-ink);
-  margin: 0 0 12px;
-  letter-spacing: -0.02em;
 }
 
 .hero-lede {
   font-size: 18px;
   color: var(--color-ink-soft);
   margin: 0 0 28px;
-  line-height: 1.5;
 }
 
 .stat-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
   gap: 16px;
-  margin-bottom: 24px;
 }
 
 .stat-card {
-  background: var(--color-paper-raised);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 16px 20px;
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
 }
 
 .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 28px;
-  font-weight: 800;
   color: var(--color-indigo);
   line-height: 1.1;
-  margin-bottom: 4px;
 }
 
 .stat-label {
-  font-size: 12px;
+  font-size: 16px;
   color: var(--color-ink-soft);
-  line-height: 1.4;
+  margin-top: 6px;
 }
 
 .disclaimer-box {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
   padding: 16px 20px;
-  background: var(--color-paper-raised);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  font-size: 13px;
-  color: var(--color-ink-soft);
-  line-height: 1.6;
+  font-size: 16px;
+  margin-top: 28px;
+  line-height: 1.75;
 }
 
-.disclaimer-box i {
+.disclaimer-box :deep(svg) {
   font-size: 18px;
-  color: var(--color-indigo);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.disclaimer-box > span {
-  flex: 1;
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: -0.15em;
+  display: inline-block;
+  color: var(--color-info-text);
 }
 
 .disclaimer-box a {
@@ -1655,6 +1654,18 @@ tr:last-child td {
   .main-content {
     margin-left: 0;
     padding: 32px 24px 80px;
+  }
+  .hero h1 {
+    font-size: 32px;
+  }
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
   }
 }
 
