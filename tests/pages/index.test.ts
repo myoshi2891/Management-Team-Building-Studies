@@ -361,6 +361,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "MoP Foundation（Management of Portfolios）学習ガイド",
+        category: "PEOPLECERT",
+        href: "/mop-foundation-guide",
+        accentClass: "guide-card-gold",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
