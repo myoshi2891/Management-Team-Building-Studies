@@ -1577,7 +1577,7 @@ footer {
   margin-top: 96px;
   padding-top: 32px;
   border-top: 1px solid var(--color-border);
-  color: var(--color-ink-faint);
+  color: var(--color-ink-soft);
   font-size: 16px;
 }
 
