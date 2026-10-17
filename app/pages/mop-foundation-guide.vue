@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useSeoMeta } from "#imports";
+
 const LIGHT_THEME_VARS = {
   fontSize: "16px",
   primaryColor: "#FAF1DF",
@@ -268,85 +270,231 @@ useSeoMeta({
 
       <!-- Section 1 -->
       <section id="exam-overview">
-        <div class="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
         <h2>このガイドについて(試験概要)</h2>
+
+        <p>MoP Foundation(現在の正式名称は「PRINCE2® Portfolio Management Foundation」)は、PeopleCert社が提供する、ポートフォリオマネジメントの入門資格です。PRINCE2 Portfolio Managementパスウェイの最初のモジュールにあたり、効果的かつ戦略的なポートフォリオマネジメントを行うための原則・技法・プラクティスを学びます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>資格名</td><td>MoP Foundation(PRINCE2 Portfolio Management Foundation)</td></tr>
+              <tr><td>前提条件</td><td>なし</td></tr>
+              <tr><td>出題形式</td><td>四肢択一(multiple choice)</td></tr>
+              <tr><td>問題数</td><td>50問</td></tr>
+              <tr><td>試験時間</td><td>40分</td></tr>
+              <tr><td>合格基準</td><td>50%以上の正答(25問以上)</td></tr>
+              <tr><td>受験形式</td><td>クローズドブック(資料持ち込み不可)</td></tr>
+              <tr><td>結果通知</td><td>公式結果は2営業日以内</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>PeopleCertの「At a Glance」によれば、本資格は主にポートフォリオマネージャーを対象とし、以下の学習アウトカムをカバーします。</p>
+
+        <ul>
+          <li>ポートフォリオマネジメントの中核概念・構造・用語</li>
+          <li>戦略目標とポートフォリオの整合(Strategic alignment)</li>
+          <li>プロジェクト / プログラムの優先順位付け(Prioritization)</li>
+          <li>ポートフォリオ全体のリスクマネジメント</li>
+          <li>ベネフィット(便益)の定義・測定・追跡</li>
+          <li>ガバナンスとコンプライアンス</li>
+          <li>ポートフォリオの計画・デリバリー</li>
+          <li>チェンジマネジメント</li>
+          <li>リソースマネジメント</li>
+        </ul>
+
+        <h3>想定される対象読者・応用可能な職種</h3>
+
+        <ul>
+          <li>ポートフォリオマネージャー / プログラムマネージャー / プロジェクトマネージャー</li>
+          <li>ビジネスチェンジマネージャー</li>
+          <li>ベネフィットマネージャー</li>
+          <li>ディレクター・オブ・チェンジ</li>
+          <li>シニア・リスポンシブル・オーナー(SRO)</li>
+          <li>ビジネスアナリスト</li>
+          <li>経営会議メンバー</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener noreferrer">PeopleCert公式 MoP Foundation商品ページ</a></li>
+          </ul>
+        </div>
       </section>
 
       <!-- Section 2 -->
       <section id="what-is-portfolio-management">
-        <div class="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
         <h2>ポートフォリオマネジメントとは何か</h2>
+
+        <h3>定義</h3>
+
+        <p>MoPにおける「ポートフォリオ」とは、組織の戦略目標を達成するために選定され、まとめて管理される、プロジェクトおよびプログラムの集合体を指します。「ポートフォリオマネジメント」とは、組織の変革(change)と定常業務(Business as Usual, BAU)とのバランスを最も効果的に保つために協調された、一連の戦略的プロセスと意思決定の集合です。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes" target="_blank" rel="noopener noreferrer">Van Haren Publishing「MoP in 3 minutes」</a></li>
+          </ul>
+        </div>
+
+        <h3>プロジェクト・プログラム・ポートフォリオの違い</h3>
+
+        <p>MoP Foundationでは、この3つの階層の違いを明確に理解することが問われます。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_HIERARCHY" />
+          </div>
+          <div class="diagram-caption">組織戦略からプロジェクトまでの階層関係</div>
+        </div>
+
+        <p>ポートフォリオには「始まりも終わりもない」という点が、プロジェクトやプログラムとの決定的な違いです。プロジェクトとプログラムは有期的(成果物を出して終了する)ですが、ポートフォリオは組織が戦略を持ち続ける限り継続するマネジメント活動です。</p>
+
+        <h3>ポートフォリオマネジメントが答える3つの根本的な問い</h3>
+
+        <p>MoPは、次の3つの問いに答えるための仕組みとして設計されています。</p>
+
+        <ol>
+          <li><strong>正しいことをしているか?(Are we doing the right things?)</strong> 戦略に整合した、正しいプロジェクト・プログラムを選んでいるか</li>
+          <li><strong>物事を正しく行っているか?(Are we doing these things right?)</strong> 選んだ施策を効果的・効率的に実行できているか</li>
+          <li><strong>効果的なサービスや効率化による便益を、実際に実現できているか?(Are we realising the benefits?)</strong> 変革の結果として期待した便益が得られているか</li>
+        </ol>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener noreferrer">PeopleCert公式ページ</a></li>
+            <li><a href="https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes" target="_blank" rel="noopener noreferrer">Van Haren Publishing</a></li>
+          </ul>
+        </div>
+
+        <h3>戦略的・組織的コンテキスト: 6つの連携機能</h3>
+
+        <p>ポートフォリオマネジメントは単独で機能するものではなく、組織内の以下6つの機能・活動と連携して戦略目標の達成を支えます。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_CONTEXT" />
+          </div>
+          <div class="diagram-caption">ポートフォリオマネジメントと連携する6つの機能</div>
+        </div>
+
+        <p>ポートフォリオマネジメントは、これら6つの機能と連携することで、組織の戦略目標達成を下支えし、同時に実効性のあるコーポレートガバナンスを実現します。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener noreferrer">QA「MoP Foundation」コース概要</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>既存プロセスへの橋渡しを設計する。</strong>ポートフォリオオフィスを新設・再稼働する際は、まずこの6機能それぞれの既存プロセス(例: 年次予算編成サイクル、既存のPMOレポーティング)を洗い出し、ポートフォリオマネジメントを「新しい別のプロセス」として並走させるのではなく、既存プロセスに橋渡しする設計にすることが定着の鍵となります。</p>
+        </div>
       </section>
 
       <!-- Section 3 -->
       <section id="mop-framework-overview">
-        <div class="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 03</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 03</div>
         <h2>MoPフレームワークの全体像</h2>
+
+        <p>MoPは、<strong>5つの原則</strong>、<strong>2つの管理サイクル(定義サイクル・デリバリーサイクル)</strong>、そしてそれらをつなぐ<strong>組織のエネルギー</strong>という3層構造で成り立っています。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_MOP_MODEL" />
+          </div>
+          <div class="diagram-caption">MoPフレームワークの全体像(原則・2つのサイクル・組織のエネルギー)</div>
+        </div>
+
+        <ul>
+          <li><strong>定義サイクル(Definition Cycle)</strong>: 「正しいものを選ぶ」段階。5つのプラクティスは基本的に<strong>逐次的(sequential)</strong>に進みますが、重なり合うこともあります。</li>
+          <li><strong>デリバリーサイクル(Delivery Cycle)</strong>: 「選んだものを正しく届ける」段階。7つのプラクティスは基本的に<strong>並行的(parallel)</strong>に進みます。</li>
+          <li><strong>組織のエネルギー</strong>: この2つのサイクルをつなぐ「のり」の役割を果たします。</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/management-cycles/" target="_blank" rel="noopener noreferrer">mop.wiki「Portfolio Management Cycles」</a></li>
+            <li><a href="https://mop.wiki/" target="_blank" rel="noopener noreferrer">mop.wiki トップページ</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>2つのサイクルを一方通行と誤解しない。</strong>実務では、四半期ごとの戦略レビューのたびに定義サイクルが繰り返され、その間もデリバリーサイクルの7プラクティスは常時並行して回り続けます。デリバリー側からのフィードバック(実績・リスクの顕在化・便益の未達など)が次の定義サイクルの優先順位付けにも反映されるべきです。</p>
+        </div>
       </section>
 
       <!-- Section 4 -->
       <section id="five-principles">
-        <div class="section-eyebrow"><Icon name="tabler:shield-check" aria-hidden="true" />SECTION 04</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:shield-check" aria-hidden="true" />SECTION 04</div>
         <h2>5つの原則(Principles)</h2>
       </section>
 
       <!-- Section 5 -->
       <section id="organizational-energy">
-        <div class="section-eyebrow"><Icon name="tabler:bolt" aria-hidden="true" />SECTION 05</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bolt" aria-hidden="true" />SECTION 05</div>
         <h2>組織のエネルギーと活力ある変革文化</h2>
       </section>
 
       <!-- Section 6 -->
       <section id="definition-cycle">
-        <div class="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 06</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 06</div>
         <h2>ポートフォリオ定義サイクル(5つのプラクティス)</h2>
       </section>
 
       <!-- Section 7 -->
       <section id="delivery-cycle">
-        <div class="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 07</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 07</div>
         <h2>ポートフォリオ・デリバリーサイクル(7つのプラクティス)</h2>
       </section>
 
       <!-- Section 8 -->
       <section id="key-roles">
-        <div class="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 08</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users-group" aria-hidden="true" />SECTION 08</div>
         <h2>主要な役割(Key Roles)</h2>
       </section>
 
       <!-- Section 9 -->
       <section id="key-documents">
-        <div class="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 09</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 09</div>
         <h2>主要文書(Key Documents)</h2>
       </section>
 
       <!-- Section 10 -->
       <section id="implementation-and-maturity">
-        <div class="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 10</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 10</div>
         <h2>導入・定着・成熟度評価</h2>
       </section>
 
       <!-- Section 11 -->
       <section id="best-practices-summary">
-        <div class="section-eyebrow"><Icon name="tabler:bulb" aria-hidden="true" />SECTION 11</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bulb" aria-hidden="true" />SECTION 11</div>
         <h2>プラクティス別ベストプラクティス早見表</h2>
       </section>
 
       <!-- Section 12 -->
       <section id="related-frameworks">
-        <div class="section-eyebrow"><Icon name="tabler:git-merge" aria-hidden="true" />SECTION 12</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-merge" aria-hidden="true" />SECTION 12</div>
         <h2>関連フレームワークとの関係</h2>
       </section>
 
       <!-- Section 13 -->
       <section id="exam-tips">
-        <div class="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 13</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 13</div>
         <h2>試験対策のポイント</h2>
       </section>
 
       <!-- Section 14 -->
       <section id="references">
-        <div class="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 14</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 14</div>
         <h2>参考文献・ソース一覧</h2>
       </section>
 
