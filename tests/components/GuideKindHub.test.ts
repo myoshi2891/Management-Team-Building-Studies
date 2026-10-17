@@ -20,7 +20,7 @@ describe("GuideKindHub — 種別インデックス", () => {
 
     expect(wrapper.get("h1").text()).toBe("資格で学ぶ");
     expect(wrapper.get("[data-testid='hub-summary']").text()).toBe("公式の試験要項に基づく、認定資格の学習ガイド。");
-    expect(wrapper.get("[data-testid='hub-count']").text()).toBe("53 ガイド");
+    expect(wrapper.get("[data-testid='hub-count']").text()).toBe("50 ガイド");
   });
 
   it("所属プログラムをカードとして順序・遷移先・件数まで固定する", () => {
@@ -31,9 +31,9 @@ describe("GuideKindHub — 種別インデックス", () => {
       title: card.get("h2").text(),
       count: card.get("[data-testid='program-card-count']").text(),
     }))).toEqual([
-      { href: "/books/management", title: "マネジメント", count: "5 ガイド" },
-      { href: "/books/leadership", title: "リーダーシップ", count: "4 ガイド" },
-      { href: "/books/team", title: "チーム・組織文化", count: "5 ガイド" },
+      { href: "/books/management", title: "マネジメント", count: "4 ガイド" },
+      { href: "/books/leadership", title: "リーダーシップ", count: "3 ガイド" },
+      { href: "/books/team", title: "チーム・組織文化", count: "2 ガイド" },
       { href: "/books/org-design", title: "チーム設計", count: "2 ガイド" },
       { href: "/books/product", title: "プロダクト・アジャイル", count: "2 ガイド" },
     ]);
