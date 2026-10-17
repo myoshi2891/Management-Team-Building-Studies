@@ -809,6 +809,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-strategy-v5-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Strategy (v5)",
+    title: "ITIL® Strategy (Version 5) 完全学習ガイド",
+    description: "PeopleCert ITIL Strategy (Version 5)資格試験の全体像を、8モジュールの学習目標・Strategy Management Model・ベストプラクティスとともに解説する非公式学習ガイド。",
+    meta: "14セクション",
+    icon: "tabler:compass",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
