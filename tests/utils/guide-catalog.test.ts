@@ -87,6 +87,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { id: "so-user-experience", programId: "scrum-org", navLabel: "ユーザーエクスペリエンス", cardLabel: "USER EXPERIENCE" },
       { id: "pc-itil", programId: "peoplecert", navLabel: "ITIL", cardLabel: "ITIL" },
       { id: "pc-mop", programId: "peoplecert", navLabel: "MoP", cardLabel: "MOP" },
+      { id: "pc-msp", programId: "peoplecert", navLabel: "MSP", cardLabel: "MSP" },
       { id: "book-management", programId: "management", navLabel: "マネジメントの原典", cardLabel: "MANAGEMENT CLASSICS" },
       { id: "book-leadership", programId: "leadership", navLabel: "リーダーシップの実践", cardLabel: "LEADERSHIP PRACTICE" },
       { id: "book-team", programId: "team", navLabel: "チームづくり", cardLabel: "TEAM BUILDING" },
@@ -161,6 +162,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/itil-strategy-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Strategy (v5)" },
       { to: "/itil-transformation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Transformation (v5)" },
       { to: "/mop-foundation-guide", programId: "peoplecert", seriesId: "pc-mop", navLabel: "MoP 完全ガイド" },
+      { to: "/msp-foundation-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP 完全ガイド" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },
@@ -339,6 +341,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         seriesGroups: [
           { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)", "ITIL Service (v5)", "ITIL Strategy (v5)", "ITIL Transformation (v5)"] },
           { seriesId: "pc-mop", guides: ["MoP 完全ガイド"] },
+          { seriesId: "pc-msp", guides: ["MSP 完全ガイド"] },
         ],
       },
       {

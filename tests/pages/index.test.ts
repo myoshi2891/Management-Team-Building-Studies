@@ -349,6 +349,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
+        title: "MSP Foundation, 5th edition 完全学習ガイド",
+        category: "PEOPLECERT",
+        href: "/msp-foundation-5th-edition-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
