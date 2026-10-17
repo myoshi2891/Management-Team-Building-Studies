@@ -626,16 +626,382 @@ useSeoMeta({
       </section>
 
       <!-- Section 6 -->
-      <section id="definition-cycle">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 06</div>
-        <h2>ポートフォリオ定義サイクル(5つのプラクティス)</h2>
-      </section>
+<section id="definition-cycle">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 06</div>
+      <h2>ポートフォリオ定義サイクル(5つのプラクティス)</h2>
+
+      <p>定義サイクルは、上級管理層が意思決定を行うために必要な情報を生成する段階であり、「ポートフォリオは組織を目指す場所へ導いてくれるか?」という問いに答えます。定義サイクルの最終的なアウトプットは<strong>ポートフォリオ戦略</strong>と<strong>デリバリープラン</strong>の2つです。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_DEFINITION_CYCLE" /></div>
+        <div class="diagram-caption">ポートフォリオ定義サイクルの5つのプラクティスとアウトプット</div>
+      </div>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/" target="_blank" rel="noopener noreferrer">mop.wiki「Portfolio Definition Cycle」</a></li>
+        </ul>
+      </div>
+
+      <h3>6.1 Understand(理解する)</h3>
+
+      <p><strong>目的</strong>: 組織の戦略計画と、ポートフォリオに含めるべきプロジェクト・プログラムとを結びつけるプラクティスです。ポートフォリオマネジメントと上級管理層との間の<strong>双方向コミュニケーション</strong>である点が重要です。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>既存のポートフォリオ運用がある場合、ポートフォリオオフィスは既存プロジェクト・プログラムについて、計画されているビジネスインパクト、予測便益、コストと資源、集約リスク、これまでの実績を上級管理層へ提示します</li>
+        <li>上級管理層は、PESTLE分析(政治・経済・社会・技術・環境・法律)やSWOT分析、バランスト・スコアカード、VRIO分析、BCGマトリクスなどのツールを用いて事業環境をスキャンし、戦略を設計します</li>
+        <li>戦略策定プロセスはトップダウン型、ボトムアップ型、またはその両者を組み合わせたハイブリッド型のいずれかを取ります</li>
+      </ul>
+
+      <p><strong>アウトプット</strong>: (1)既進行中・パイプライン中を含む組織のプロジェクト・プログラムポートフォリオの明確な一覧、(2)現状と戦略的期待とのギャップ分析</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/understand/" target="_blank" rel="noopener noreferrer">mop.wiki「Understand」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>高レベル・低専門用語での可視化に徹する。</strong>情報は「できるだけ専門用語を排し、高レベルな概要」にとどめること。詳細な計画・管理は個々のプロジェクト・プログラムマネジメントチームの責務であり、上級管理層に必要なのはマイルストーン、概算コスト、リスク、便益実現状況の全体像です。</p>
+      </div>
+
+      <h3>6.2 Categorize(分類する)</h3>
+
+      <p><strong>目的</strong>: Understandで洗い出した施策の一覧を、あらかじめ定めた基準(カテゴリー)に分類します。組織の目標が複数ある場合(例: 有機的成長60%・非有機的成長40%といった戦略配分)、それに対応するカテゴリー群を設計します。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>カテゴリーはリスクベース、投資基準ベースなど様々な切り口で設計可能で、MoPは一般的な汎用カテゴリーセットも提案しています</li>
+        <li>1つの施策が複数カテゴリーにまたがることもあり、その場合はポートフォリオマネジメントチームがどちらか一方、あるいは両方に位置づけるかを判断します</li>
+        <li><strong>どのカテゴリーにも当てはまらない施策は、その存在意義自体を問い直す必要があります</strong></li>
+      </ul>
+
+      <p><strong>アウトプット</strong>: 組織のプロジェクト・プログラムを、1つ以上の定義済みカテゴリーにタグ付けしたマップ</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/categorize/" target="_blank" rel="noopener noreferrer">mop.wiki「Categorize」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>カテゴリーを戦略目標の構造に合わせる。</strong>カテゴリー設計を、上級管理層が設定した戦略目標の構造とできる限り一致させること。組織目標の構造とカテゴリーがずれていると、ポートフォリオオフィスから経営層への報告のたびに「翻訳作業」が発生し、意思決定の遅延と誤解の温床になります。</p>
+      </div>
+
+      <h3>6.3 Prioritize(優先順位付け)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオ内の施策に順位をつけることです。重要なのは、優先順位付けが同時に「劣後順位付け(de-prioritization)」でもある、という点です。ある施策に高い優先度を与えることは、他の施策の優先度を相対的に下げること、場合によっては中止することを意味します。</p>
+
+      <p><strong>技法(Techniques)</strong></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>技法</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>単一基準分析(Single-criterion Analysis, SCA)</td><td>NPV・IRR・回収期間などの財務指標や、顧客インパクトなど単一の基準で評価する手法。シンプルだが「組織の存在意義が金銭のみ」という前提に陥りやすく、実務では非現実的なことが多い</td></tr>
+            <tr><td>多基準分析(Multi-criteria Analysis, MCA)</td><td>複数の基準それぞれにスコアを割り当て、各施策のインパクトを評価・合算する手法。組織・業界のニーズを反映した基準設計が求められる</td></tr>
+            <tr><td>三点見積り・リファレンスクラス予測</td><td>楽観値・悲観値・最頻値の3点見積りや、過去の類似実績(リファレンスクラス)に基づく予測により、見積りの精度とバイアス補正を高める技法</td></tr>
+            <tr><td>ドライバーベース戦略貢献度分析</td><td>高次戦略から戦略目標・便益・施策へとブレークダウンする「ドライバーモデル」(4.3節参照)を用いて、各施策の戦略貢献度を評価する技法</td></tr>
+            <tr><td>ディシジョン・カンファレンシング</td><td>主要な意思決定者を一堂に集め、ファシリテーターの進行のもとで各施策を協働評価し、合意形成を図るワークショップ形式の技法</td></tr>
+            <tr><td>クリア・ライン・オブ・サイト</td><td>戦略目標から個々の施策までの因果関係を明瞭に可視化し、優先順位の妥当性を関係者が直感的に理解できるようにする考え方</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>アウトプット</strong>: 優先順位付けされた変革施策の一覧</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/prioritize/" target="_blank" rel="noopener noreferrer">mop.wiki「Prioritize」</a></li>
+          <li><a href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener noreferrer">QA「MoP Foundation and Practitioner」コース概要</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>セグメントごとに基準を変えてよい。</strong>優先順位付けの基準は、ポートフォリオが複数のセグメントやサブポートフォリオに分かれている場合、セグメントごとに異なる基準を設定してもよいとされています。全社一律の単一基準に固執しないこと。</p>
+      </div>
+
+      <h3>6.4 Balance(バランスを取る)</h3>
+
+      <p><strong>目的</strong>: 優先順位付けの結果、似たタイプの施策ばかりが上位を占め、偏った(unbalanced)ポートフォリオになることがあります。バランシングは、施策群を最適な形に組み替え、組織全体として最良のアウトプットが得られるようにするプラクティスです。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>バランシングは必ず優先順位付けの<strong>後</strong>に行います</li>
+        <li>リスクと報酬(reward)のような2軸のグラフでポートフォリオを可視化し、偏りを把握することが有効です</li>
+        <li>手作業での定性評価、ポートフォリオガバナンス機関による全体アセスメント、大規模組織ではアルゴリズムによる定量評価など、様々な方法が取られます</li>
+      </ul>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_RISK_REWARD" /></div>
+        <div class="diagram-caption">リスク・報酬マトリクスによるバランス評価の例</div>
+      </div>
+
+      <p><strong>アウトプット</strong>: 選定したバランシング基準に照らしてバランスの取れたポートフォリオ。可視化(グラフ表現)、ガバナンス機関の関与、客観的手法(アルゴリズム等)の活用が良い実践とされ、バランシングの結果を誰か(特に経営層)が独断で覆すべきではなく、ポートフォリオオフィスによる承認(サインオフ)を経ることが望ましいとされます。</p>
+
+      <p>なお、ここでのポートフォリオオフィスのサインオフは、Balanceプラクティスの段階で<strong>バランシング結果を承認する</strong>ものであり、ポートフォリオ戦略とデリバリープランを最終承認するものではありません。その最終承認はガバナンス機関であるポートフォリオ・ディレクション・グループ(PDG)の役割であり、PDGは続くPlanプラクティスで、サインオフ済みのバランシング結果を反映したポートフォリオ戦略とデリバリープランを審議し、必要に応じて修正したうえで承認します(6.5節、および主要な役割の表を参照)。つまり「ポートフォリオオフィス = Balance段階でのバランシング結果のサインオフ」「PDG = Plan段階でのポートフォリオ戦略・デリバリープランの審議・修正・最終承認」という段階的な関係です。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/balance/" target="_blank" rel="noopener noreferrer">mop.wiki「Balance」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>優先順位の結果を鵜呑みにしない。</strong>「高リスク・高報酬」案件が同時に何件もプライオリティ上位に並ぶ場合、それらを一斉に実行するのではなく、一部を後続タイムラインへずらす、あるいは中止するという判断を、バランシングの段階で行うこと。</p>
+      </div>
+
+      <h3>6.5 Plan(計画する)</h3>
+
+      <p><strong>目的</strong>: 定義サイクルの最終プラクティスであり、それまでの4つのプラクティスで得られた情報を統合します。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>2つの主要アウトプットである<strong>ポートフォリオ戦略</strong>と<strong>デリバリープラン</strong>を作成し、上級管理層(正確には委任された責任を持つポートフォリオ・ディレクション・グループ)の承認を得ます</li>
+        <li>提示内容には、(1)ポートフォリオが事業戦略とどう整合し、どう戦略達成を後押しするかを示すポートフォリオ戦略、(2)マイルストーン・予算・期待便益・リスク概要を含む、全ステークホルダーに明快な概要、(3)進捗モニタリングとレビューのためのベースライン、が含まれます</li>
+      </ul>
+
+      <p><strong>アウトプット</strong></p>
+      <ul>
+        <li><strong>ポートフォリオ戦略</strong>: ポートフォリオが「何を」届けるかを示す</li>
+        <li><strong>ポートフォリオ・デリバリープラン</strong>: 「いつ・どのように」届けるかを示す、より詳細な文書</li>
+      </ul>
+
+      <p>ポートフォリオ戦略とデリバリープランは、一度作成して終わりの静的文書ではなく「生きた文書」です。組織の戦略レビュー(多くは四半期ごと、場合によっては年次)に合わせて定期的に見直され、事業環境の急変などに応じた臨時レビューも行われます。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/practices/plan/" target="_blank" rel="noopener noreferrer">mop.wiki「Plan」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>全社戦略レビューと同期させる。</strong>ポートフォリオ戦略とデリバリープランの改訂サイクルを、組織の全社戦略レビューサイクルと明示的に同期させること。ポートフォリオ側だけが独自のレビュー頻度を持つと、戦略変更への追随が遅れます。</p>
+      </div>
+
+      <h3>6.6 定義サイクルを適切に運用する意義</h3>
+
+      <p>定義サイクルが不十分だと、以下のような問題が起こります。</p>
+
+      <ul>
+        <li>ポートフォリオが組織戦略を反映しなくなる</li>
+        <li>戦略的に重要な施策が見過ごされ、表面的に重要に見える施策に不当な優先度が与えられる</li>
+        <li>上級管理層の「お気に入り案件」が優先されてしまう</li>
+        <li>戦略的に重要な施策への資金が不足する一方、誤った施策に資金が流れる</li>
+        <li>プロジェクトのアウトプットがBAUで十分活用されず、便益実現が不十分になる</li>
+      </ul>
+
+      <p>定義サイクルは一度きりの立ち上げ作業ではなく、上級管理層からの継続的な関与を必要とします。ポートフォリオマネージャーと上級管理層の定期的なレビュー会議が不可欠です。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/definition-cycle/" target="_blank" rel="noopener noreferrer">mop.wiki「Portfolio Definition Cycle」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Portfolio Delivery Cycle ===================== -->
 
       <!-- Section 7 -->
-      <section id="delivery-cycle">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 07</div>
-        <h2>ポートフォリオ・デリバリーサイクル(7つのプラクティス)</h2>
-      </section>
+<section id="delivery-cycle">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 07</div>
+      <h2>ポートフォリオ・デリバリーサイクル(7つのプラクティス)</h2>
+
+      <p>デリバリーサイクルは、ポートフォリオ戦略とデリバリープランに基づいて選定された施策を実際に実行に移す段階です。個々のプロジェクト・プログラム内部のリスクや資源は各プロジェクト・プログラムチームが管理しますが、ポートフォリオレベルでは<strong>集約された(aggregate)</strong>視点でこれらを評価・管理します。7つのプラクティスは基本的に並行して進行します。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_DELIVERY_CYCLE" /></div>
+        <div class="diagram-caption">ポートフォリオ・デリバリーサイクルの7つのプラクティス</div>
+      </div>
+
+      <p>デリバリーサイクルが不十分だと、以下のような問題が起こります。</p>
+
+      <ul>
+        <li>施策が期限・予算どおりに実現しない</li>
+        <li>施策間の論理的依存関係により遅延が連鎖する</li>
+        <li>リソース活用が最適化されない</li>
+        <li>ビジネス環境の変化にポートフォリオ自体が追随できない</li>
+        <li>ポートフォリオが戦略に最適な形で貢献できない</li>
+      </ul>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/" target="_blank" rel="noopener noreferrer">mop.wiki「Portfolio Delivery Cycle」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.1 マネジメントコントロール(Management Control)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオ戦略とデリバリープランという2つの主要アウトプットが確実に遵守され、ポートフォリオが戦略と整合し続けるようにするプラクティスです。プロジェクト・プログラムのデリバリー活動と、ポートフォリオマネジメントの期待とのギャップを埋める役割を担います。</p>
+
+      <p><strong>5つの活動要素</strong></p>
+      <ol>
+        <li><strong>明確化されたプロセス</strong>: プロジェクト開始時点で正しいオプションが選ばれ、正しい便益が得られる仕組み、および意思決定の権限を超えた際のエスカレーションプロセスを整備すること</li>
+        <li><strong>ガイダンスとテンプレート</strong>: 特に重要な2つの成果物である「ビジネスケース」と「ベネフィット実現計画」については、標準テンプレートとガイダンスを整備すること。加えてプロジェクト開始文書、実行可能性調査、投資評価などのテンプレートやツールも提供します</li>
+        <li><strong>定期的な進捗報告</strong>: ポートフォリオレベルでのレビューの対象読者は、組織の上級管理層です</li>
+        <li><strong>ポートフォリオレベルのレビュー</strong>: 適切に設計されたレポーティングは、レビューの必要回数を減らせます。目安として四半期または半年ごとのレビュー頻度が一般的に十分とされます(年次レビューでも許容されます)</li>
+        <li><strong>ステージゲート</strong>: プロジェクト・プログラムは継続的なビジネス上の正当性(continued business justification)を持ち続けなければならず、それを定期的に検証するチェックポイントがステージゲートです。ポートフォリオレベルのレビューとは別物である点に注意してください</li>
+      </ol>
+
+      <p><strong>成功の鍵</strong>: ライフサイクルを通じた定期的なステージレビュー、定期的な進捗報告、戦略と整合したレビュー、明確化されたプロセスと統一されたテンプレート・ガイダンス。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/management-control/" target="_blank" rel="noopener noreferrer">mop.wiki「Management Control」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>レビューとステージゲートを混同しない。</strong>「ポートフォリオレベルのレビュー」と「ステージゲート」を混同しないこと。前者はポートフォリオ全体の戦略整合性を扱う経営層向けの場、後者は個々のプロジェクト・プログラムの継続妥当性を判定する現場寄りの関門であり、両者は目的も参加者も異なります。</p>
+      </div>
+
+      <h3>7.2 ベネフィットマネジメント(Benefits Management)</h3>
+
+      <p><strong>目的</strong>: すべての変革施策は便益を生み出すために実施されます。プロジェクト・プログラムから実現される便益が、組織戦略の達成に貢献します。このプラクティスは個々の施策単位の便益ではなく、ポートフォリオ全体としての便益を扱う点が特徴です。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>便益の適格ルールと分類基準の策定</strong>: すべてのプロジェクト・プログラムで同一の基準を用いて便益を分類し、ポートフォリオオフィスが統合してポートフォリオレベルの視点を提供できるようにします</li>
+        <li><strong>ポートフォリオレベルのベネフィット実現計画の作成</strong>: 各プロジェクト・プログラムの便益実現計画を単純に足し合わせるのではなく、将来の計画期間に向けた便益予測として統合します</li>
+        <li><strong>便益の予測</strong>: 過去の実績データに基づく<strong>リファレンスクラス予測</strong>を活用します</li>
+        <li><strong>各ステージでのレビュー</strong>: 蓄積された便益および将来便益を定期的にレビューし、戦略目標との整合を確認します。これは経営層との場でもあり、コミットメントを再確認する機会にもなります</li>
+        <li><strong>報告と追跡</strong>: 一貫した仕組みで便益を追跡・報告し、ステークホルダーに「一つの真実(one version of the truth)」を提供する、計画されたルートとスケジュールを維持することが重要です</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: リファレンスクラス予測により、過去の類似実績から便益を精度高く見積もれること。報告に際しては、あらかじめ定めたルートとスケジュールを守り、単一の情報源からの一貫した内容をステークホルダーに届けること。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/benefits-management/" target="_blank" rel="noopener noreferrer">mop.wiki「Benefits Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.3 財務マネジメント(Financial Management)</h3>
+
+      <p><strong>目的</strong>: 組織のパフォーマンスを測る最も重要な指標は、非営利組織であっても常に財務です。ポートフォリオマネジメントを組織の財務管理プロセスと整合させることが不可欠です。このプラクティスは個々の施策の財務ではなく、ポートフォリオ全体の財務を扱います。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>適切な指標の選定</strong>: NPV(正味現在価値)、IRR(内部収益率)、損益分岐点などが投資判断でよく用いられる指標です。財務部門と上級管理層が、組織のビジネスモデルに最適な指標を選定します</li>
+        <li><strong>資金の段階的リリース</strong>: 資金はプロジェクト開始時に一括で渡されることは稀で、プロジェクト・プログラムの進捗に応じて段階的にリリースされます。これはポートフォリオ全体の財務計画を必要とする理由でもあります</li>
+        <li><strong>財務コンティンジェンシーとモニタリング</strong>: 予期せぬリスクの影響を緩和するための財務コンティンジェンシー計画を、プロジェクト・プログラムレベルだけでなくポートフォリオレベルでも持つこと。ポートフォリオレベルでの支出モニタリングは、戦略目標達成コストの重要な指標になります</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: NPVは将来のコストと便益を現在の貨幣価値に換算した指標であり、貨幣価値が時間とともに目減りすることを考慮した財務便益評価に広く使われます。段階的資金リリースは、プロジェクトのマイルストーンやゲートと連動させることで資金の最適活用につながります。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/financial-management/" target="_blank" rel="noopener noreferrer">mop.wiki「Financial Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.4 リスクマネジメント(Risk Management)</h3>
+
+      <p><strong>目的</strong>: リスクとは、起こるかもしれないし起こらないかもしれない予期せぬ事象です。リスクはプロジェクト・プログラム・ポートフォリオのいずれのレベルでも発生しえます。このプラクティスは個々の施策のリスクではなく、ポートフォリオ全体の<strong>集約リスク(aggregate risk)</strong>を扱います。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>組織のリスクマネジメントとの整合</strong>: 組織に既存のリスク管理方針・実務がある場合、ポートフォリオマネジメントはそれと密接に連携し、重複や矛盾を避けること</li>
+        <li><strong>プロジェクト・プログラム間の相互依存関係の管理</strong>: ある施策のリスク軽減策が、別の施策に影響を及ぼす「リスクシフティング」の抑制。また、あるプロジェクトが別プロジェクトの成果物を待つ論理的依存関係(dependency)の管理</li>
+        <li><strong>財務コンティンジェンシーの維持</strong>: 組織のリスク許容度(risk appetite)も考慮した、ポートフォリオ独自の財務コンティンジェンシー予算の確保</li>
+        <li><strong>優先順位付けプロセスへのリスクの組み込み</strong>: 多基準分析における評価軸の一つとしてリスクを組み込み、財務リターンとリスク管理の労力とのバランスを検討すること</li>
+        <li><strong>組織へのポートフォリオリスクの影響検討</strong>: ポートフォリオが生み出すリスクが組織全体に与える影響をモニタリング・管理すること</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: プロジェクト・プログラム間の相互依存関係の管理、十分なポートフォリオレベルの財務コンティンジェンシーの維持、リターンと並んでリスクを優先順位付けに組み込むことが主要な要素です。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/risk-management/" target="_blank" rel="noopener noreferrer">mop.wiki「Risk Management」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.5 ステークホルダーエンゲージメント(Stakeholder Engagement)</h3>
+
+      <p><strong>目的</strong>: 内部・外部を問わず、すべてのステークホルダーはポートフォリオオフィスの「顧客」です。エンゲージメントとは単に情報提供や指示に従わせることではなく、ステークホルダーの関心と影響力を組織目標の達成のために活用することを意味します。ポートフォリオのステークホルダーは多くの場合、上級で影響力のある人物であり、その期待値マネジメントは容易ではありません。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>共有ビジョンの形成</strong>: 各上級リーダーが異なるビジョンを持ちがちな中で、共通のビジョンを形成すること</li>
+        <li><strong>経営層による支持の獲得</strong>: ポートフォリオに関するコミュニケーション活動への経営層の支持を得ること</li>
+        <li><strong>影響度・関心度マトリクスの構築</strong>: ステークホルダーを影響力と関心度の2軸で整理し、関与の優先順位を設計すること</li>
+        <li><strong>ステークホルダーごとのエンゲージメント戦略構築</strong>: 個別のニーズ・嗜好に合わせたアプローチを設計すること</li>
+        <li><strong>チャンピオン・チャレンジャーモデルの活用</strong>: 現行の推進者(チャンピオン)よりも優れたアイデアを持つ関係者(チャレンジャー)が現れた場合、その人物を新たなチャンピオンとして前向きに位置づける手法</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: 共有ビジョンの形成、経営層の支持獲得、影響度・関心度マトリクスの構築、ステークホルダーごとの個別戦略、チャンピオン・チャレンジャーモデルの活用。これらはポートフォリオ・デリバリープランの中核をなす要素です。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/stakeholder-engagement/" target="_blank" rel="noopener noreferrer">mop.wiki「Stakeholder Engagement」</a></li>
+        </ul>
+      </div>
+
+      <h3>7.6 組織ガバナンス(Organizational Governance)</h3>
+
+      <p><strong>目的</strong>: 組織ガバナンスとは、組織がその目的を追求する上で意思決定を行い、実行する仕組みのことです。上級管理層のような内部関係者だけでなく、規制当局・政府(法規制を通じて)・圧力団体・証券取引所などの外部関係者からも影響を受けます。ポートフォリオマネジメントを組織構造と整合させることで、内外のコンプライアンス要件を満たし、組織の実務と効果的に整合させます。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li><strong>ビジョンの整合</strong>: ポートフォリオのビジョンと組織のビジョンを整合させ、上級管理層のサインオフを得ること。もし戦略目標が組織ビジョンと整合していなければ、まずその問題自体に対処する必要があります</li>
+        <li><strong>ポートフォリオの成功基準とステージゲート</strong>: 計画通りに進んでいるかを評価する成功基準(メトリクス)を、組織横断で普遍的に使える指標は存在しないため、組織のリーダーシップと協働で設計すること。定期的なステージゲートで評価を実施します(マネジメントコントロールの成功にも直結します)</li>
+        <li><strong>役割記述</strong>: 職務記述書と同様、個人やグループがポートフォリオマネジメントにおいて何を期待されているかを明文化すること</li>
+      </ul>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/organizational-governance/" target="_blank" rel="noopener noreferrer">mop.wiki「Organizational Governance」</a></li>
+        </ul>
+      </div>
+
+      <div class="callout practice" data-testid="callout" data-variant="practice">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p><strong>原則を具体的な仕組みへ落とし込む。</strong>組織ガバナンスの整備は「4.2 ガバナンスの整合」の原則をデリバリーサイクルの日々の運用に落とし込む実装部分にあたります。原則レベルの整合が取れていても、役割記述やステージゲートといった具体的な仕組みが伴わなければ、実務では形骸化しがちです。</p>
+      </div>
+
+      <h3>7.7 リソースマネジメント(Resource Management)</h3>
+
+      <p><strong>目的</strong>: ポートフォリオオフィスの最も重要な役割の一つが、リソースの効率的な管理です。優先度の高いプロジェクトに優れたリソースを配分しつつ、他の関係者の期待値もマネジメントするという、難しい判断が求められます。このプラクティスも個々の施策内部のリソース管理ではなく、ポートフォリオ全体のリソースを扱います。</p>
+
+      <p><strong>実施内容</strong></p>
+      <ul>
+        <li>リソース(人員・技術・その他資産)は現実の組織では常に制約があり、過剰なリソース保有は非効率を招きます。効率性は組織の存続そのものにも関わる重要課題です</li>
+        <li>理想的には適材適所ですが、現実にはそうもいかないため、希少なリソースは最も戦略的に整合した施策へ優先配分されるべきです</li>
+        <li>プロジェクト間の相互依存関係にも配慮した配分が必要です</li>
+      </ul>
+
+      <p><strong>成功の鍵</strong>: ポートフォリオレベルでの資源のキャパシティと稼働可能量を把握し(ポートフォリオ・リソース・スケジュールとして文書化)、余剰・過小稼働・過剰稼働を可視化すること。</p>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://mop.wiki/management-cycles/delivery-cycle/practices/resource-management/" target="_blank" rel="noopener noreferrer">mop.wiki「Resource Management」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 8. Key Roles ===================== -->
 
       <!-- Section 8 -->
       <section id="key-roles">
