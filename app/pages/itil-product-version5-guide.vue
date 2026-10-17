@@ -56,6 +56,29 @@ S -->|"通常の4択"| A["Standard: 設問+4択から1つ選択"]
 S -->|"否定形の設問"| B["Negative: NOTを含む設問文で誤りでない選択肢を除外"]
 S -->|"穴埋め"| C["Missing word: 文中の空欄に入る語句を選択"]
 S -->|"正しい記述の組合せ"| D["List: 4項目中、正しい2項目の組合せを選択"]`;
+
+const DIAGRAM_LIFECYCLE_OVERVIEW = `flowchart LR
+subgraph PRODUCT["プロダクト志向が強い活動"]
+direction LR
+DIS["Discover 発見"] --> DES["Design 設計"] --> ACQ["Acquire 調達"] --> BLD["Build 構築"]
+end
+subgraph BRIDGE["橋渡しの活動"]
+direction LR
+TRA["Transition 移行"] --> OPE["Operate 運用"]
+end
+subgraph SERVICE["サービス志向が強い活動"]
+direction LR
+DEL["Deliver 提供"] --> SUP["Support サポート"]
+end
+BLD --> TRA
+OPE --> DEL
+SUP -.->|"フィードバック"| DIS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class DIS,DES,ACQ,BLD box
+class TRA,OPE hub
+class DEL,SUP done`;
 </script>
 
 <template>
@@ -434,6 +457,229 @@ S -->|"正しい記述の組合せ"| D["List: 4項目中、正しい2項目の�
           <ul>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus, Version 5.0 PL (February 2026), PeopleCert International Limited</a></li>
             <li><a href="https://www.oxfordcollegeoftechnology.com/itil-version-5/itil-product-version-5/" target="_blank" rel="noopener">ITIL® Product (Version 5)(Oxford College of Technology)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 03 -->
+      <section id="basic-concepts" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:building-bank" aria-hidden="true" />
+          <span>SECTION 03</span>
+        </div>
+        <h2>基礎概念:デジタルプロダクトとサービス(Category 1)</h2>
+
+        <p>シラバスCategory 1「Digital Products and Services」は、以降すべてのカテゴリの土台となる用語・概念を扱います。</p>
+        <h3>プロダクトとサービスの定義</h3>
+        <p>ITIL(Version 5)は、ITIL 4から継承した基本定義を土台にしています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>用語</th>
+                <th>定義(要旨)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>プロダクト(Product)</strong></td>
+                <td>人・技術・情報などの組織のリソースを、消費者に価値を提供する形に構成したもの</td>
+              </tr>
+              <tr>
+                <td><strong>サービス(Service)</strong></td>
+                <td>顧客がコストとリスクを自ら管理することなく、望む成果(outcome)を達成できるよう、価値の共創を可能にする手段</td>
+              </tr>
+              <tr>
+                <td><strong>デジタルプロダクト(Digital Product)</strong></td>
+                <td>ソフトウェア・データ・デジタルインターフェースを中核とし、顧客に対して直接的なケイパビリティ(capability)を提供するプロダクト</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>ポイントは、<strong>プロダクトは「ケイパビリティ(できること)」を提供し、サービスは「そのケイパビリティを使って成果を実現するプロセス」を提供する</strong>、という役割分担です。両者は別々の管理対象ではなく、<strong>単一の統合システム</strong>としてマネジメントされるべきだ、というのがITIL Productの中心思想です。</p>
+
+        <h3>デジタルプロダクトの特徴</h3>
+        <p>デジタルプロダクトには、物理的なプロダクトと異なる以下のような特徴があります。</p>
+        <ul>
+          <li><strong>複製・配布コストがほぼゼロ</strong>: 一度構築すれば、追加の利用者への提供コストが極めて低い</li>
+          <li><strong>継続的な変更が前提</strong>: リリース後も継続的にアップデート・改善されることが標準</li>
+          <li><strong>データを介した即時のフィードバックループ</strong>: 利用状況やテレメトリが即座に観測可能</li>
+          <li><strong>サービスとの分離が難しい</strong>: プロダクト単体で価値を持つことは稀で、多くの場合サポートやデリバリーといったサービス的要素と一体で価値を生む</li>
+          <li><strong>AIによる能力拡張が前提になりつつある</strong>: 生成・要約・自動化などのAI機能がプロダクトの一部として組み込まれる</li>
+        </ul>
+
+        <h3>価値創出のメカニズム(価値共創)</h3>
+        <p>ITIL(Version 5)においても、価値は組織が一方的に「提供」するものではなく、<strong>プロバイダーと消費者が協働して創出するもの(Value Co-creation)</strong>という考え方が中心にあります。デジタルプロダクトの文脈では、次の2段階で価値が実現します。</p>
+        <ol>
+          <li>プロダクトが利用者に<strong>ケイパビリティ</strong>を提供する(例:予約ができる、データを分析できる)</li>
+          <li>そのケイパビリティを、サービス(サポート、デリバリー、運用)が<strong>実際の成果</strong>に変換する(例:予約が完了し、旅行という成果が実現する)</li>
+        </ol>
+
+        <h3>ITIL Product and Service Lifecycle Modelの目的と範囲</h3>
+        <p>ITIL(Version 5)最大の構造的な追加は、Service Value System(SVS)の中核である「Service Value Chain(6活動)」をそのまま残したうえで、これと併存する形で<strong>「ITIL Product and Service Lifecycle Model」(8活動)</strong>という、プロダクトとサービスを統合したライフサイクルモデルが新設されたことです。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Service Value Chain(ITIL 4から継続)</th>
+                <th>Product and Service Lifecycle Model(Version 5で新設)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>活動数</td>
+                <td>6(Plan, Improve, Engage, Design & Transition, Obtain/Build, Deliver & Support)</td>
+                <td>8(Discover, Design, Acquire, Build, Transition, Operate, Deliver, Support)</td>
+              </tr>
+              <tr>
+                <td>主眼</td><td>組織全体のサービスバリューチェーン</td><td>プロダクトとサービスを一体とした、より粒度の細かい統合ライフサイクル</td>
+              </tr>
+              <tr>
+                <td>位置づけ</td><td>Service Value System(SVS)の中核として存続</td><td>SVS内でバリューチェーン活動をより具体的に実行する、実務に近いモデルとして併存</td>
+              </tr>
+              <tr>
+                <td>流れ方</td><td>非線形・反復的</td><td>非線形・反復的(バリューストリームとして自由に組合せ可能)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>この8活動は、<strong>厳密な順序を持つ直線的プロセスではなく</strong>、組織が状況に応じて組み合わせる「部品」です。この組合せ方こそが後述の<strong>バリューストリーム(Value Stream)</strong>であり、Category 10で詳しく扱います。</p>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
+          <p>8活動のうち、Discover〜Buildは「プロダクト志向」が強く、Deliver・Supportは「サービス志向」が強く、Transition・Operateはその橋渡し役、という性格分けが一般的な理解として紹介されています(公式教材の正式な分類ではなく、複数の認定トレーニングプロバイダーが共通して説明する整理です)。</p>
+        </div>
+
+        <h3>バリューチェーン活動とライフサイクルの関係</h3>
+        <p>組織の「バリューチェーン活動」(Plan, Improve, Engage, Design & Transition, Obtain/Build, Deliver & Support に相当する、より抽象度の高い組織活動)は、8つのライフサイクル活動を実行するための基盤を提供します。ライフサイクル活動はこのバリューチェーンの上で具体的に実行される、より実務に近い活動という位置づけです。</p>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>プロダクトとサービスを<strong>分業ではなく1つの連続体</strong>として捉え、組織図上でもプロダクトチームとサービス運用チームの間に壁を作らない</li>
+            <li>「これはプロダクトの問題か、サービスの問題か」という二択の議論を避け、<strong>どのライフサイクル活動・どのバリューストリームの問題か</strong>という粒度で会話する</li>
+            <li>デジタルプロダクトの特徴(継続的変更、即時フィードバック)を前提に、<strong>一度作って終わりではない予算・体制</strong>を組む</li>
+          </ul>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL(Version 5) Changes Explained</a></li>
+            <li><a href="https://www.teamdynamix.com/blog/an-introduction-to-the-itil-framework/" target="_blank" rel="noopener">What is ITIL 5? A Guide to the New ITIL Framework</a></li>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">The Definitive Guide to ITIL® Version 5 Foundation(PMG Academy)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 04 -->
+      <section id="lifecycle-overview" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:route" aria-hidden="true" />
+          <span>SECTION 04</span>
+        </div>
+        <h2>ITIL Product and Service Lifecycle Model全体像</h2>
+
+        <p>本章では、5〜12章で個別に解説する8活動の全体像を先に俯瞰します。</p>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_LIFECYCLE_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">8つのライフサイクル活動の全体像とフィードバックループ</div>
+        </div>
+        <p>重要なのは、上図の矢印は<strong>典型的な進行イメージ</strong>であって、<strong>実際には固定された一方向の順序ではない</strong>という点です。組織は自らの状況に応じて、これら8活動の中から必要なものを選び、順序を入れ替え、繰り返し実行しながら「バリューストリーム」を組み立てます(詳細はCategory 10で解説)。</p>
+
+        <h3>各活動の一覧と目的(概要)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>活動</th>
+                <th>一言でいうと</th>
+                <th>主な問い</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td><strong>Discover</strong></td>
+                <td>市場・利用者ニーズを理解する</td>
+                <td>「何を作るべきか」</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td><strong>Design</strong></td>
+                <td>ニーズを具体的な解決策に変換する</td>
+                <td>「どう作るべきか」</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td><strong>Acquire</strong></td>
+                <td>必要なリソースを調達する</td>
+                <td>「作る・買う・借りる、どれか」</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td><strong>Build</strong></td>
+                <td>コンポーネントを構築・統合・テストする</td>
+                <td>「動くものを作る」</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td><strong>Transition</strong></td>
+                <td>本番環境へ安全に移行する</td>
+                <td>「安全に切り替えるには」</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td><strong>Operate</strong></td>
+                <td>インフラとシステムを稼働させ続ける</td>
+                <td>「動き続けさせるには」</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td><strong>Deliver</strong></td>
+                <td>利用者が実際に使える状態にする</td>
+                <td>「価値を届けるには」</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td><strong>Support</strong></td>
+                <td>問題やリクエストに対応する</td>
+                <td>「正常状態に戻すには」</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>各活動は、シラバス上、共通して次の3つの観点で出題されます。</p>
+        <ol>
+          <li><strong>Key concepts and practices</strong>(主要概念とその活動を支えるITILプラクティス)</li>
+          <li><strong>Steps and outputs</strong>(具体的なステップとアウトプット、BL3で「適用」が問われる)</li>
+          <li><strong>Success factors and metrics</strong>(CSFとメトリクス、実効性を高める実践的助言)</li>
+        </ol>
+        <p>以降の章では、この3観点に沿って8活動をひとつずつ解説します。</p>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">ITIL 5 Process Guide</a></li>
+            <li><a href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">ITIL 5 vs ITIL 4: What Changed</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus (公式シラバス)</a></li>
           </ul>
         </div>
       </section>
