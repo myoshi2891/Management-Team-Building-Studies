@@ -145,6 +145,28 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
 classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
 class A,B,C,D,E box
 class F done`;
+
+const DIAGRAM_DELIVER_STEPS = `flowchart TB
+A["提供チャネル・ アクセス方法の確定"] --> B["エンタイトルメント/ アクセス権の管理"]
+B --> C["サービスリクエストの 受付と履行"]
+C --> D["SLA/合意水準に 基づく提供"]
+D --> E["利用状況の可視化"]
+E --> F(("アウトプット: 利用可能な状態のプロダクト・ 履行済みリクエスト"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
+
+const DIAGRAM_SUPPORT_STEPS = `flowchart TB
+A["問い合わせ・ インシデントの受付"] --> B["トリアージと 優先順位付け"]
+B --> C["診断と解決 (または回避策の提供)"]
+C --> D["根本原因分析 (Problem Management)"]
+D --> E["ナレッジの 蓄積とフィードバック"]
+E --> F(("アウトプット: 解決済みインシデント・ ナレッジベース更新"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
 </script>
 
 <template>
@@ -1242,6 +1264,159 @@ class F done`;
           <ul>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
             <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-product-version-5-4179" target="_blank" rel="noopener">ITIL Product (Version 5) | peoplecert.org(「Reliable and Observable Operations」の記述)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 11 -->
+      <section id="deliver" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:truck-delivery" aria-hidden="true" />
+          <span>SECTION 11</span>
+        </div>
+        <h2>Deliver(提供)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Deliverは、稼働しているプロダクトを<strong>実際に利用者が消費できる状態にする</strong>活動です。シラバスは「プロダクトライフサイクルにおけるサービスデリバリー(service delivery in product lifecycle)」という表現を使っており、Operateが「動かし続ける」ことに主眼を置くのに対し、Deliverは「<strong>利用者の手元に価値を届け、アクセスやリクエストを管理する</strong>」ことに主眼を置きます。</p>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DELIVER_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Deliver活動のステップとアウトプット</div>
+        </div>
+        <h3>Deliverを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Deliverでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Service level management</td><td>合意されたサービス水準(SLA)の遵守を管理する</td></tr>
+              <tr><td>Service catalogue management</td><td>利用可能なプロダクト・サービスを一元的に可視化する</td></tr>
+              <tr><td>Service request management</td><td>利用者からの標準化されたリクエストを履行する</td></tr>
+              <tr><td>Relationship management</td><td>顧客・利用者との関係を維持し、期待値を調整する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>利用者が迅速に価値へアクセスできている</td><td>オンボーディング完了までのリードタイム</td></tr>
+              <tr><td>合意した水準でサービスが提供されている</td><td>SLA達成率</td></tr>
+              <tr><td>リクエスト対応が効率的である</td><td>リクエスト充足時間(Request Fulfilment Time)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>サービスカタログを<strong>常に最新化</strong>し、利用者が「何が使えるか」を自己解決できるセルフサービス化を進める</li>
+            <li>頻出するリクエストは<strong>自動化・ワークフロー化</strong>し、人手の介在を最小限にする</li>
+            <li>SLAは一方的な約束ではなく、<strong>利用者の実際の期待値とすり合わせた上で設定</strong>する</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>セルフサービス化により運用コストを抑えつつ満足度を高められる</td><td>過度な自動化は複雑な例外リクエストへの対応力を下げるリスクがある</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 12 -->
+      <section id="support" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:headset" aria-hidden="true" />
+          <span>SECTION 12</span>
+        </div>
+        <h2>Support(サポート)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Supportは、稼働中に発生する<strong>インシデントやリクエストに対応し、正常な状態を回復する</strong>活動です。多くの利用者にとって、プロダクトとの「最も記憶に残る接点」はSupportであることが多く、体験(Experience)品質に直結する重要な活動として位置づけられます。</p>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_SUPPORT_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Support活動のステップとアウトプット</div>
+        </div>
+        <h3>Supportを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Supportでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Incident management</td><td>サービス中断からの迅速な復旧を担う</td></tr>
+              <tr><td>Problem management</td><td>繰り返し発生する問題の根本原因を特定・除去する</td></tr>
+              <tr><td>Service desk</td><td>利用者との単一窓口となる</td></tr>
+              <tr><td>Knowledge management</td><td>解決策やFAQをナレッジとして蓄積・再利用可能にする</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>インシデントが迅速に解決されている</td><td>平均解決時間(MTTR)、一次解決率(First Contact Resolution)</td></tr>
+              <tr><td>同じ問題の再発が防止されている</td><td>既知の問題(Known Error)からの再発インシデント件数</td></tr>
+              <tr><td>利用者体験が良好である</td><td>サポート満足度(CSAT)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>単発のインシデント対応で終わらせず、<strong>Problem Managementに必ず接続</strong>し、根本原因の除去まで責任を持つ</li>
+            <li>ナレッジベースを<strong>サポート担当者だけでなく利用者にも公開</strong>し、セルフサービスでの解決を促す</li>
+            <li>サポートで得られた知見を<strong>Discover活動へのフィードバックループ</strong>として明示的に接続し、次のプロダクト改善に活かす</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>高品質なサポートは解約率(チャーン)を下げるロイヤルティの源泉になる</td><td>サポート量の増加はコスト増に直結するため、根本原因解消による「サポート需要そのものの削減」が重要になる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+            <li><a href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">ITIL 5 Process Guide</a></li>
           </ul>
         </div>
       </section>
