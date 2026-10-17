@@ -12,180 +12,180 @@ const LIGHT_THEME_VARS = {
 };
 
 const DIAGRAM_HIERARCHY = `flowchart TB
-A["組織のビジョン 戦略目標"] --> B["ポートフォリオ 戦略目標達成のために選ばれた変革施策の集合"]
-B --> C["プログラム 関連プロジェクト群を束ねアウトカムとベネフィットを実現"]
-C --> D1["プログラム内プロジェクト プログラムの一部として成果物を生み出す有期的活動"]
-B --> D2["単独プロジェクト プログラムに属さずポートフォリオから直接管理される有期的活動"]
+    A["組織のビジョン 戦略目標"] --> B["ポートフォリオ 戦略目標達成のために選ばれた変革施策の集合"]
+    B --> C["プログラム 関連プロジェクト群を束ねアウトカムとベネフィットを実現"]
+    C --> D1["プログラム内プロジェクト プログラムの一部として成果物を生み出す有期的活動"]
+    B --> D2["単独プロジェクト プログラムに属さずポートフォリオから直接管理される有期的活動"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class B hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class B hub;`;
 
 const DIAGRAM_CONTEXT = `flowchart LR
-PM["ポートフォリオマネジメント"]
-PM --- BAU["定常業務 BAU"]
-PM --- SP["戦略計画"]
-PM --- RB["資源配分 予算編成"]
-PM --- PPM["プロジェクト プログラムマネジメント"]
-PM --- PerfM["パフォーマンスマネジメント"]
-PM --- CG["コーポレートガバナンス"]
+    PM["ポートフォリオマネジメント"]
+    PM --- BAU["定常業務 BAU"]
+    PM --- SP["戦略計画"]
+    PM --- RB["資源配分 予算編成"]
+    PM --- PPM["プロジェクト プログラムマネジメント"]
+    PM --- PerfM["パフォーマンスマネジメント"]
+    PM --- CG["コーポレートガバナンス"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class PM hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PM hub;`;
 
 const DIAGRAM_MOP_MODEL = `flowchart TB
-subgraph P["5つの原則"]
-    P1["上級管理層のコミットメント"]
-    P2["ガバナンスの整合"]
-    P3["戦略との整合"]
-    P4["ポートフォリオオフィス"]
-    P5["活力ある変革文化"]
-end
+    subgraph P["5つの原則"]
+        P1["上級管理層のコミットメント"]
+        P2["ガバナンスの整合"]
+        P3["戦略との整合"]
+        P4["ポートフォリオオフィス"]
+        P5["活力ある変革文化"]
+    end
 
-subgraph DC["ポートフォリオ定義サイクル 5プラクティス 逐次的"]
-    direction LR
-    D1["Understand 理解する"] --> D2["Categorize 分類する"] --> D3["Prioritize 優先順位付け"] --> D4["Balance バランスを取る"] --> D5["Plan 計画する"]
-end
+    subgraph DC["ポートフォリオ定義サイクル 5プラクティス 逐次的"]
+        direction LR
+        D1["Understand 理解する"] --> D2["Categorize 分類する"] --> D3["Prioritize 優先順位付け"] --> D4["Balance バランスを取る"] --> D5["Plan 計画する"]
+    end
 
-OE["組織のエネルギー"]
+    OE["組織のエネルギー"]
 
-subgraph DLC["ポートフォリオ デリバリーサイクル 7プラクティス 並行的"]
-    L1["マネジメントコントロール"]
-    L2["ベネフィットマネジメント"]
-    L3["財務マネジメント"]
-    L4["リスクマネジメント"]
-    L5["ステークホルダーエンゲージメント"]
-    L6["組織ガバナンス"]
-    L7["リソースマネジメント"]
-end
+    subgraph DLC["ポートフォリオ デリバリーサイクル 7プラクティス 並行的"]
+        L1["マネジメントコントロール"]
+        L2["ベネフィットマネジメント"]
+        L3["財務マネジメント"]
+        L4["リスクマネジメント"]
+        L5["ステークホルダーエンゲージメント"]
+        L6["組織ガバナンス"]
+        L7["リソースマネジメント"]
+    end
 
-P --> DC
-DC -- "ポートフォリオ戦略 デリバリープラン" --> OE
-OE --> DLC
-DLC -. "実績 学習のフィードバック" .-> DC
+    P --> DC
+    DC -- "ポートフォリオ戦略 デリバリープラン" --> OE
+    OE --> DLC
+    DLC -. "実績 学習のフィードバック" .-> DC
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class OE hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class OE hub;`;
 
 const DIAGRAM_PRINCIPLES = `flowchart TB
-C["活力ある変革文化 組織のエネルギーで駆動"]
-G["ガバナンスの整合"]
-S["戦略との整合"]
-O["ポートフォリオオフィス"]
-M["上級管理層のコミットメント 土台"]
-M --> G
-M --> S
-M --> O
-G --> C
-S --> C
-O --> C
+    C["活力ある変革文化 組織のエネルギーで駆動"]
+    G["ガバナンスの整合"]
+    S["戦略との整合"]
+    O["ポートフォリオオフィス"]
+    M["上級管理層のコミットメント 土台"]
+    M --> G
+    M --> S
+    M --> O
+    G --> C
+    S --> C
+    O --> C
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class M hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class M hub;`;
 
 const DIAGRAM_DRIVER_MODEL = `flowchart LR
-A["組織のビジョン 高次戦略"] --> B["戦略目標"] --> C["便益"] --> D["変革施策 プロジェクト プログラム"]`;
+    A["組織のビジョン 高次戦略"] --> B["戦略目標"] --> C["便益"] --> D["変革施策 プロジェクト プログラム"]`;
 
 const DIAGRAM_FOUR_CS = `flowchart TB
-OE["組織のエネルギー"]
-OE --> C1["Connection つながり 個人が組織目標にどう結びついているか"]
-OE --> C2["Content 満足度 仕事内容への満足度"]
-OE --> C3["Context 文脈 環境 組織のプラクティスが仕事の遂行をどう支えるか"]
-OE --> C4["Climate 風土 組織が人々の最良の力の発揮をどう支援するか"]
+    OE["組織のエネルギー"]
+    OE --> C1["Connection つながり 個人が組織目標にどう結びついているか"]
+    OE --> C2["Content 満足度 仕事内容への満足度"]
+    OE --> C3["Context 文脈 環境 組織のプラクティスが仕事の遂行をどう支えるか"]
+    OE --> C4["Climate 風土 組織が人々の最良の力の発揮をどう支援するか"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class OE hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class OE hub;`;
 
 const DIAGRAM_DEFINITION_CYCLE = `flowchart LR
-U["Understand 理解する"] --> C["Categorize 分類する"] --> P["Prioritize 優先順位付け"] --> B["Balance バランスを取る"] --> PL["Plan 計画する"]
-PL --> OUT1["ポートフォリオ戦略 何を届けるか"]
-PL --> OUT2["ポートフォリオ デリバリープラン いつ どのように届けるか"]
+    U["Understand 理解する"] --> C["Categorize 分類する"] --> P["Prioritize 優先順位付け"] --> B["Balance バランスを取る"] --> PL["Plan 計画する"]
+    PL --> OUT1["ポートフォリオ戦略 何を届けるか"]
+    PL --> OUT2["ポートフォリオ デリバリープラン いつ どのように届けるか"]
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class OUT1,OUT2 done;`;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class OUT1,OUT2 done;`;
 
 const DIAGRAM_RISK_REWARD = `flowchart TB
-subgraph RR["リスク 報酬マトリクスによるバランス評価の例"]
-HH["高リスク 高報酬 複数存在する場合は一部見直しを検討"]
-HL["高リスク 低報酬 原則 中止を検討"]
-LH["低リスク 高報酬 優良案件として維持"]
-LL["低リスク 低報酬 必要最小限に"]
-end
+    subgraph RR["リスク 報酬マトリクスによるバランス評価の例"]
+    HH["高リスク 高報酬 複数存在する場合は一部見直しを検討"]
+    HL["高リスク 低報酬 原則 中止を検討"]
+    LH["低リスク 高報酬 優良案件として維持"]
+    LL["低リスク 低報酬 必要最小限に"]
+    end
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class LH done;`;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class LH done;`;
 
 const DIAGRAM_DELIVERY_CYCLE = `flowchart TB
-STRAT["ポートフォリオ戦略 デリバリープラン 定義サイクルからのインプット"]
-STRAT --> MC["マネジメントコントロール"]
-STRAT --> BM["ベネフィットマネジメント"]
-STRAT --> FM["財務マネジメント"]
-STRAT --> RM["リスクマネジメント"]
-STRAT --> SE["ステークホルダーエンゲージメント"]
-STRAT --> OG["組織ガバナンス"]
-STRAT --> RSM["リソースマネジメント"]
+    STRAT["ポートフォリオ戦略 デリバリープラン 定義サイクルからのインプット"]
+    STRAT --> MC["マネジメントコントロール"]
+    STRAT --> BM["ベネフィットマネジメント"]
+    STRAT --> FM["財務マネジメント"]
+    STRAT --> RM["リスクマネジメント"]
+    STRAT --> SE["ステークホルダーエンゲージメント"]
+    STRAT --> OG["組織ガバナンス"]
+    STRAT --> RSM["リソースマネジメント"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class STRAT hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class STRAT hub;`;
 
 const DIAGRAM_ROLES = `flowchart TB
-PDG["ポートフォリオ ディレクション グループ PDG 投資委員会"]
-PPG["ポートフォリオ プログレス グループ PPG デリバリー委員会"]
-PD["ポートフォリオ ディレクター PD"]
-PM["ポートフォリオ マネージャー"]
-PBM["ポートフォリオ ベネフィット マネージャー"]
-PPM["プロジェクト プログラムマネージャー PPMs"]
+    PDG["ポートフォリオ ディレクション グループ PDG 投資委員会"]
+    PPG["ポートフォリオ プログレス グループ PPG デリバリー委員会"]
+    PD["ポートフォリオ ディレクター PD"]
+    PM["ポートフォリオ マネージャー"]
+    PBM["ポートフォリオ ベネフィット マネージャー"]
+    PPM["プロジェクト プログラムマネージャー PPMs"]
 
-PDG --> PD
-PDG --> PPG
-PD --> PM
-PPG --> PM
-PM --> PBM
-PM --> PPM
+    PDG --> PD
+    PDG --> PPG
+    PD --> PM
+    PPG --> PM
+    PM --> PBM
+    PM --> PPM
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class PDG hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PDG hub;`;
 
 const DIAGRAM_IMPLEMENTATION_APPROACHES = `flowchart TB
-subgraph BB["ビッグバン アプローチ"]
-    BB1["すべての進行中 パイプライン施策を一斉にポートフォリオへ組み入れる"]
-    BB2["長所 迅速な全体像の獲得"]
-    BB3["短所 組織への混乱 抵抗が大きい"]
-end
-subgraph EV["エボリューショナリー 漸進的 アプローチ"]
-    EV1["ポートフォリオマネジメントのプロセスを段階的 計画的に展開"]
-    EV2["長所 即時のニーズに対応し早期に価値を実証 BAUへの混乱を抑制"]
-    EV3["短所 導入完了までに時間がかかる 優先度の変化により遅延しうる"]
-end
-subgraph AH["アドホック アプローチ"]
-    AH1["場当たり的 非計画的な導入"]
-    AH2["P3Oガイドラインでは最も推奨されない"]
-end
+    subgraph BB["ビッグバン アプローチ"]
+        BB1["すべての進行中 パイプライン施策を一斉にポートフォリオへ組み入れる"]
+        BB2["長所 迅速な全体像の獲得"]
+        BB3["短所 組織への混乱 抵抗が大きい"]
+    end
+    subgraph EV["エボリューショナリー 漸進的 アプローチ"]
+        EV1["ポートフォリオマネジメントのプロセスを段階的 計画的に展開"]
+        EV2["長所 即時のニーズに対応し早期に価値を実証 BAUへの混乱を抑制"]
+        EV3["短所 導入完了までに時間がかかる 優先度の変化により遅延しうる"]
+    end
+    subgraph AH["アドホック アプローチ"]
+        AH1["場当たり的 非計画的な導入"]
+        AH2["P3Oガイドラインでは最も推奨されない"]
+    end
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class EV2 done;`;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class EV2 done;`;
 
 const DIAGRAM_P3M3_LEVELS = `flowchart TB
-L1["レベル1 プロセスの認識"] --> L2["レベル2 反復可能なプロセス"]
-L2 --> L3["レベル3 定義されたプロセス"]
-L3 --> L4["レベル4 管理されたプロセス"]
-L4 --> L5["レベル5 最適化されたプロセス"]
+    L1["レベル1 プロセスの認識"] --> L2["レベル2 反復可能なプロセス"]
+    L2 --> L3["レベル3 定義されたプロセス"]
+    L3 --> L4["レベル4 管理されたプロセス"]
+    L4 --> L5["レベル5 最適化されたプロセス"]
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class L5 done;`;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class L5 done;`;
 
 const DIAGRAM_RELATED_FRAMEWORKS = `flowchart TB
-MoP["MoP Portfolio Management 戦略とポートフォリオ"]
-MSP["MSP Managing Successful Programmes プログラムマネジメント"]
-P2["PRINCE2 プロジェクトマネジメント"]
-P3O["P3O Portfolio Programme and Project Offices オフィス機能の設計"]
-P3M3["P3M3 成熟度評価モデル"]
+    MoP["MoP Portfolio Management 戦略とポートフォリオ"]
+    MSP["MSP Managing Successful Programmes プログラムマネジメント"]
+    P2["PRINCE2 プロジェクトマネジメント"]
+    P3O["P3O Portfolio Programme and Project Offices オフィス機能の設計"]
+    P3M3["P3M3 成熟度評価モデル"]
 
-MoP --> MSP --> P2
-MoP -. "オフィス機能の設計指針" .-> P3O
-MoP -. "成熟度の測定" .-> P3M3
+    MoP --> MSP --> P2
+    MoP -. "オフィス機能の設計指針" .-> P3O
+    MoP -. "成熟度の測定" .-> P3M3
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class MoP hub;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class MoP hub;`;
 
 const TOC_IDS = [
   "exam-overview",
@@ -237,9 +237,10 @@ useSeoMeta({
     <div class="layout">
       <aside id="sidebar" class="sidebar" :class="{ 'is-open': sidebarOpen }" aria-label="目次">
         <div class="sidebar-brand">
-          <svg class="seal" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-            <circle cx="18" cy="18" r="17" stroke="#B8802A" stroke-width="2" fill="#FAF1DF"/>
-            <path d="M18 6L21.5 14.5L30.5 15L23.5 20.5L26 29.5L18 24.5L10 29.5L12.5 20.5L5.5 15L14.5 14.5L18 6Z" fill="#B8802A"/>
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div class="brand-text">
             <div class="brand-title">MoP Foundation</div>
@@ -275,38 +276,20 @@ useSeoMeta({
       </aside>
 
     <main class="main-content">
-      <header class="hero">
-        <div class="hero-eyebrow">
-          <Icon name="tabler:award" aria-hidden="true" />
-          PEOPLECERT CERTIFICATION STUDY GUIDE
-        </div>
+      <div class="hero">
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert公式試験対応ガイド</div>
         <h1>MoP Foundation（Management of Portfolios）学習ガイド</h1>
-        <p class="hero-lede">ポートフォリオマネジメントの基礎から、5つの原則、定義・デリバリーの2つのサイクル、主要な役割と文書、導入アプローチと成熟度評価(P3M3)までを体系的に学ぶ完全ガイド</p>
+        <p class="hero-lede">
+          本ガイドは、世界トップクラスのソフトウェアエンジニア／プロジェクトマネージャー／スクラムマスターの視点から、MoP Foundation試験の出題範囲を初学者にもわかりやすく、ステップ・バイ・ステップで解説するものです。各項目には実務でのベストプラクティスと、根拠となる一次・二次情報源のURLを付記しています。
+        </p>
 
         <div class="stat-row">
-          <div class="stat-card">
-            <div class="stat-number">5</div>
-            <div class="stat-label">5つの原則 原則ベースのアプローチ</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">12</div>
-            <div class="stat-label">12のプラクティス 定義(5) + デリバリー(7)</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">4</div>
-            <div class="stat-label">4つの源泉 組織のエネルギー (4Cs)</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5</div>
-            <div class="stat-label">5つの成熟度 P3M3 レベル1〜5</div>
-          </div>
+          <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">四肢択一・多肢選択形式</div></div>
+          <div class="stat-card"><div class="stat-number">40分</div><div class="stat-label">試験時間</div></div>
+          <div class="stat-card"><div class="stat-number">50%</div><div class="stat-label">合格基準（25問以上正答）</div></div>
+          <div class="stat-card"><div class="stat-number">クローズドブック</div><div class="stat-label">資料持ち込み不可</div></div>
         </div>
-
-        <div class="disclaimer-box">
-          <Icon name="tabler:info-circle" aria-hidden="true" />
-          <span>本書は PeopleCert / AXELOS の公式シラバスおよび Management of Portfolios (MoP®) ガイダンスに基づき作成された非公式の学習ガイドです。商標・著作権は各権利者に帰属します。最新の公式シラバスおよび受験要項は <a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener">PeopleCert公式サイト</a> にてご確認ください。</span>
-        </div>
-      </header>
+      </div>
 
       <!-- Section 1 -->
       <section id="exam-overview">
@@ -1201,28 +1184,148 @@ useSeoMeta({
     <!-- ===================== 11. Best Practices Summary ===================== -->
 
       <!-- Section 11 -->
-      <section id="best-practices-summary">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bulb" aria-hidden="true" />SECTION 11</div>
-        <h2>プラクティス別ベストプラクティス早見表</h2>
-      </section>
+<section id="best-practices-summary">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bulb" aria-hidden="true" />SECTION 11</div>
+      <h2>プラクティス別ベストプラクティス早見表</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>サイクル</th><th>プラクティス</th><th>一言でいうと</th><th>陥りやすい失敗</th><th>ベストプラクティス</th></tr></thead>
+          <tbody>
+            <tr><td>定義</td><td>Understand</td><td>現状把握と戦略のインプット</td><td>詳細に踏み込みすぎて経営層への説明が重くなる</td><td>高レベル・低専門用語での可視化に徹する</td></tr>
+            <tr><td>定義</td><td>Categorize</td><td>施策の分類</td><td>カテゴリーが組織目標の構造とズレる</td><td>戦略目標の構造とカテゴリー設計を一致させる</td></tr>
+            <tr><td>定義</td><td>Prioritize</td><td>優先順位(= 劣後順位)付け</td><td>単一の財務指標だけで判断する</td><td>多基準分析 + クリア・ライン・オブ・サイトで納得感を担保する</td></tr>
+            <tr><td>定義</td><td>Balance</td><td>偏りの是正</td><td>優先順位の結果をそのまま実行に移す</td><td>リスク・報酬マトリクス等で可視化し、ポートフォリオオフィスがサインオフ(最終承認はPlanでPDG)</td></tr>
+            <tr><td>定義</td><td>Plan</td><td>戦略・プランの確定</td><td>一度作って放置する</td><td>全社戦略レビューサイクルと同期して定期改訂する</td></tr>
+            <tr><td>デリバリー</td><td>マネジメントコントロール</td><td>計画遵守の仕組み化</td><td>ポートフォリオレビューとステージゲートを混同する</td><td>両者の対象・目的・参加者を明確に切り分ける</td></tr>
+            <tr><td>デリバリー</td><td>ベネフィットマネジメント</td><td>便益の統合管理</td><td>各施策の便益を単純合算する</td><td>リファレンスクラス予測で統合的に予測する</td></tr>
+            <tr><td>デリバリー</td><td>財務マネジメント</td><td>資金の統制</td><td>資金を一括でリリースする</td><td>マイルストーン・ゲート連動の段階的リリースを行う</td></tr>
+            <tr><td>デリバリー</td><td>リスクマネジメント</td><td>集約リスクの統制</td><td>個別プロジェクトのリスクだけを見る</td><td>リスクシフティングと依存関係を横断的に管理する</td></tr>
+            <tr><td>デリバリー</td><td>ステークホルダーエンゲージメント</td><td>関係者の巻き込み</td><td>一方的な情報提供にとどまる</td><td>影響度・関心度マトリクスとチャンピオン・チャレンジャーモデルを活用する</td></tr>
+            <tr><td>デリバリー</td><td>組織ガバナンス</td><td>内外統制との整合</td><td>原則レベルの整合で満足する</td><td>役割記述・成功基準・ステージゲートに具体化する</td></tr>
+            <tr><td>デリバリー</td><td>リソースマネジメント</td><td>資源の最適配分</td><td>早い者勝ちで資源を配分する</td><td>戦略的整合度の高い施策へ希少資源を優先配分する</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Related Frameworks ===================== -->
 
       <!-- Section 12 -->
-      <section id="related-frameworks">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-merge" aria-hidden="true" />SECTION 12</div>
-        <h2>関連フレームワークとの関係</h2>
-      </section>
+<section id="related-frameworks">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-merge" aria-hidden="true" />SECTION 12</div>
+      <h2>関連フレームワークとの関係</h2>
+
+      <p>MoP(PRINCE2 Portfolio Management)は、単独で使われるだけでなく、他のAXELOS / PeopleCertのベストプラクティスフレームワークと連携して用いられるよう設計されています。</p>
+
+      <div class="diagram-card">
+        <div class="mermaid-wrap"><MermaidDiagram :chart="DIAGRAM_RELATED_FRAMEWORKS" /></div>
+        <div class="diagram-caption">MoPと関連フレームワークとの関係</div>
+      </div>
+
+      <ul>
+        <li><strong>PRINCE2</strong>: 個々のプロジェクトマネジメント手法。ポートフォリオ内の各プロジェクトが実行段階で用いる</li>
+        <li><strong>MSP(Managing Successful Programmes)</strong>: 複数の関連プロジェクトを束ねるプログラムマネジメント手法</li>
+        <li><strong>P3O</strong>: ポートフォリオオフィス・プログラムオフィス・プロジェクトオフィスの設計・運営に関するガイダンス。MoPの「ポートフォリオオフィス」原則と直結します</li>
+        <li><strong>P3M3</strong>: これら3階層(ポートフォリオ・プログラム・プロジェクト)の管理成熟度を測定するモデル</li>
+      </ul>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.abebooks.co.uk/9780113312948/Management-Portfolios-MoP-AXELOS-0113312946/plp" target="_blank" rel="noopener noreferrer">AbeBooks「Management of Portfolios (MoP)」書誌情報</a></li>
+          <li><a href="https://goodelearning.com/articles/what-is-management-of-portfolios-mop/" target="_blank" rel="noopener noreferrer">Good e-Learning「What is MoP?」</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 13. Exam Tips ===================== -->
 
       <!-- Section 13 -->
-      <section id="exam-tips">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 13</div>
-        <h2>試験対策のポイント</h2>
-      </section>
+<section id="exam-tips">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 13</div>
+      <h2>試験対策のポイント</h2>
+
+      <p>MoP Foundation試験(50問・40分・多肢択一・クローズドブック・合格ライン50%)に向けた学習の勘所を整理します。</p>
+
+      <ol>
+        <li><strong>5原則・5定義プラクティス・7デリバリープラクティスの名称と順序を正確に</strong>: 特に定義サイクルの5プラクティス(Understand → Categorize → Prioritize → Balance → Plan)は逐次的な順序自体が問われやすいポイントです</li>
+        <li><strong>「誰が」「何を」承認するかを役割ごとに区別する</strong>: PDG(投資委員会)とPPG(デリバリー委員会)の役割の違いは頻出論点です</li>
+        <li><strong>9つの主要文書を、定義サイクル由来(2つ)・両サイクルにまたがるもの(フレームワーク1つ)・デリバリーサイクル運用由来(6つ)に分類して覚える</strong></li>
+        <li><strong>各プラクティスが「個別施策」ではなく「ポートフォリオ全体(集約)」を扱う、という視点の違いを意識する</strong>: リスクマネジメント・財務マネジメント・リソースマネジメントはいずれも、個々のプロジェクトの管理ではなく、ポートフォリオレベルでの統合的視点であることが繰り返し強調されます</li>
+        <li><strong>3つの実装アプローチのうち、推奨されるのはエボリューショナリー・アプローチであることを押さえる</strong></li>
+        <li><strong>P3M3の7パースペクティブ = デリバリーサイクルの7プラクティスという対応関係を理解しておく</strong></li>
+        <li><strong>技法(テクニック)は、それがどのプラクティスに属するかとセットで覚える</strong>: 例えば、三点見積り・リファレンスクラス予測、ドライバーベース戦略貢献度分析、多基準分析、ディシジョン・カンファレンシング、クリア・ライン・オブ・サイトはいずれも定義サイクル(主にUnderstand・Prioritize)に関連する技法です</li>
+      </ol>
+
+      <div class="callout source" data-testid="callout" data-variant="source">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener noreferrer">PeopleCert公式ページ(試験形式)</a></li>
+          <li><a href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener noreferrer">QA「MoP Foundation and Practitioner」コース概要(技法一覧)</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 14. References ===================== -->
 
       <!-- Section 14 -->
-      <section id="references">
-        <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 14</div>
-        <h2>参考文献・ソース一覧</h2>
-      </section>
+<section id="references">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 14</div>
+      <h2>参考文献・ソース一覧</h2>
+
+      <div class="ref-group">
+        <h4>公式情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert公式 MoP Foundation商品ページ(試験概要・学習アウトカム)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644" target="_blank" rel="noopener noreferrer">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MoP-4/mop-foundation-2644</a></li>
+          <li><span class="ref-name">AXELOS公式 MoP認定ページ</span><a class="ref-url" href="https://www.axelos.com/certifications/propath/mop-portfolio-management" target="_blank" rel="noopener noreferrer">https://www.axelos.com/certifications/propath/mop-portfolio-management</a></li>
+          <li><span class="ref-name">AXELOS公式 P3M3 Overview(PDF)</span><a class="ref-url" href="https://eu-assets.contentstack.com/v3/assets/blt637b065823946b12/blt6582c2653720d239/620b6e06e413e76824f96dda/P3M3-Overview.pdf" target="_blank" rel="noopener noreferrer">https://eu-assets.contentstack.com/v3/assets/blt637b065823946b12/blt6582c2653720d239/620b6e06e413e76824f96dda/P3M3-Overview.pdf</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>mop.wiki(認定トレーナーによる独立系解説サイト。AXELOSガイドラインに準拠するが非公式)</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">トップページ</span><a class="ref-url" href="https://mop.wiki/" target="_blank" rel="noopener noreferrer">https://mop.wiki/</a></li>
+          <li><span class="ref-name">5つの原則(一覧)</span><a class="ref-url" href="https://mop.wiki/principles/" target="_blank" rel="noopener noreferrer">https://mop.wiki/principles/</a></li>
+          <li><span class="ref-name">5つの原則: 上級管理層のコミットメント</span><a class="ref-url" href="https://mop.wiki/principles/senior-management-commitment/" target="_blank" rel="noopener noreferrer">https://mop.wiki/principles/senior-management-commitment/</a></li>
+          <li><span class="ref-name">5つの原則: ガバナンスの整合</span><a class="ref-url" href="https://mop.wiki/principles/governance-alignment/" target="_blank" rel="noopener noreferrer">https://mop.wiki/principles/governance-alignment/</a></li>
+          <li><span class="ref-name">5つの原則: 戦略との整合</span><a class="ref-url" href="https://mop.wiki/principles/strategy-alignment/" target="_blank" rel="noopener noreferrer">https://mop.wiki/principles/strategy-alignment/</a></li>
+          <li><span class="ref-name">5つの原則: ポートフォリオオフィス</span><a class="ref-url" href="https://mop.wiki/principles/portfolio-office/" target="_blank" rel="noopener noreferrer">https://mop.wiki/principles/portfolio-office/</a></li>
+          <li><span class="ref-name">5つの原則: 活力ある変革文化</span><a class="ref-url" href="https://mop.wiki/principles/energised-change-culture/" target="_blank" rel="noopener noreferrer">https://mop.wiki/principles/energised-change-culture/</a></li>
+          <li><span class="ref-name">管理サイクル: 組織のエネルギー</span><a class="ref-url" href="https://mop.wiki/management-cycles/organizational-energy/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/organizational-energy/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Understand</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/understand/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/definition-cycle/practices/understand/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Categorize</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/categorize/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/definition-cycle/practices/categorize/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Prioritize</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/prioritize/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/definition-cycle/practices/prioritize/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Balance</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/balance/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/definition-cycle/practices/balance/</a></li>
+          <li><span class="ref-name">ポートフォリオ定義サイクル: Plan</span><a class="ref-url" href="https://mop.wiki/management-cycles/definition-cycle/practices/plan/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/definition-cycle/practices/plan/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: マネジメントコントロール</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/management-control/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/management-control/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: ベネフィットマネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/benefits-management/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/benefits-management/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: 財務マネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/financial-management/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/financial-management/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: リスクマネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/risk-management/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/risk-management/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: ステークホルダーエンゲージメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/stakeholder-engagement/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/stakeholder-engagement/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: 組織ガバナンス</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/organizational-governance/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/organizational-governance/</a></li>
+          <li><span class="ref-name">ポートフォリオ・デリバリーサイクル: リソースマネジメント</span><a class="ref-url" href="https://mop.wiki/management-cycles/delivery-cycle/practices/resource-management/" target="_blank" rel="noopener noreferrer">https://mop.wiki/management-cycles/delivery-cycle/practices/resource-management/</a></li>
+          <li><span class="ref-name">主要な役割</span><a class="ref-url" href="https://mop.wiki/key-roles/" target="_blank" rel="noopener noreferrer">https://mop.wiki/key-roles/</a></li>
+          <li><span class="ref-name">主要文書</span><a class="ref-url" href="https://mop.wiki/key-documents/" target="_blank" rel="noopener noreferrer">https://mop.wiki/key-documents/</a></li>
+          <li><span class="ref-name">導入アプローチ</span><a class="ref-url" href="https://mop.wiki/implementing-portfolio-management/" target="_blank" rel="noopener noreferrer">https://mop.wiki/implementing-portfolio-management/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>その他の解説・研修プロバイダー</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">Van Haren Publishing「P3M3 in 3 minutes」</span><a class="ref-url" href="https://www.vanharen.net/standards/p3m3/p3m3-portfolio-programme-and-project-management-maturity-model-in-3-minutes/" target="_blank" rel="noopener noreferrer">https://www.vanharen.net/standards/p3m3/p3m3-portfolio-programme-and-project-management-maturity-model-in-3-minutes/</a></li>
+          <li><span class="ref-name">Van Haren Publishing「MoP in 3 minutes」</span><a class="ref-url" href="https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes" target="_blank" rel="noopener noreferrer">https://archive.vanharen.net/blog/mop-management-of-portfolios-in-3-minutes</a></li>
+          <li><span class="ref-name">Good e-Learning「What is Management of Portfolios (MoP)?」</span><a class="ref-url" href="https://goodelearning.com/articles/what-is-management-of-portfolios-mop/" target="_blank" rel="noopener noreferrer">https://goodelearning.com/articles/what-is-management-of-portfolios-mop/</a></li>
+          <li><span class="ref-name">QA「Management of Portfolios MoP Foundation and Practitioner」コース概要(技法・モジュール構成)</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/" target="_blank" rel="noopener noreferrer">https://www.qa.com/course-catalogue/courses/management-of-portfolios-mop-foundation-and-practitioner-pbpmopfp/</a></li>
+          <li><span class="ref-name">Lumify Work「MoP Foundation」コース概要(原則の解説)</span><a class="ref-url" href="https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/" target="_blank" rel="noopener noreferrer">https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/</a></li>
+          <li><span class="ref-name">Advantage Learning「5 Principles of Portfolio Management in MoP」</span><a class="ref-url" href="http://www.advantagelearning.co.uk/news/mop-5-principles.html" target="_blank" rel="noopener noreferrer">http://www.advantagelearning.co.uk/news/mop-5-principles.html</a></li>
+          <li><span class="ref-name">House of PMO「MoP Foundationコース詳解」(実装・定着)</span><a class="ref-url" href="https://training.houseofpmo.com/pmolearning-blog/p3o/pmo-course-deep-dive-mop-foundation/" target="_blank" rel="noopener noreferrer">https://training.houseofpmo.com/pmolearning-blog/p3o/pmo-course-deep-dive-mop-foundation/</a></li>
+          <li><span class="ref-name">AbeBooks「Management of Portfolios (MoP)」書誌情報(フレームワーク解説)</span><a class="ref-url" href="https://www.abebooks.co.uk/9780113312948/Management-Portfolios-MoP-AXELOS-0113312946/plp" target="_blank" rel="noopener noreferrer">https://www.abebooks.co.uk/9780113312948/Management-Portfolios-MoP-AXELOS-0113312946/plp</a></li>
+        </ul>
+      </div>
+    </section>
 
       <footer>
         「MoP」および「Management of Portfolios」はAXELOS Limitedの登録商標です。「PRINCE2」もAXELOS Limitedの登録商標です。本ページはAXELOSまたはPeopleCertの公式資料ではなく、学習支援を目的とした非公式の解説教材です。

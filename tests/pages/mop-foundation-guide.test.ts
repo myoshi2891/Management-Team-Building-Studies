@@ -148,168 +148,168 @@ const EXPECTED_EXTERNAL_URLS = [
 
 const EXPECTED_MERMAID_SOURCES = [
   `flowchart TB
-A["組織のビジョン 戦略目標"] --> B["ポートフォリオ 戦略目標達成のために選ばれた変革施策の集合"]
-B --> C["プログラム 関連プロジェクト群を束ねアウトカムとベネフィットを実現"]
-C --> D1["プログラム内プロジェクト プログラムの一部として成果物を生み出す有期的活動"]
-B --> D2["単独プロジェクト プログラムに属さずポートフォリオから直接管理される有期的活動"]
+    A["組織のビジョン 戦略目標"] --> B["ポートフォリオ 戦略目標達成のために選ばれた変革施策の集合"]
+    B --> C["プログラム 関連プロジェクト群を束ねアウトカムとベネフィットを実現"]
+    C --> D1["プログラム内プロジェクト プログラムの一部として成果物を生み出す有期的活動"]
+    B --> D2["単独プロジェクト プログラムに属さずポートフォリオから直接管理される有期的活動"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class B hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class B hub;`,
   `flowchart LR
-PM["ポートフォリオマネジメント"]
-PM --- BAU["定常業務 BAU"]
-PM --- SP["戦略計画"]
-PM --- RB["資源配分 予算編成"]
-PM --- PPM["プロジェクト プログラムマネジメント"]
-PM --- PerfM["パフォーマンスマネジメント"]
-PM --- CG["コーポレートガバナンス"]
+    PM["ポートフォリオマネジメント"]
+    PM --- BAU["定常業務 BAU"]
+    PM --- SP["戦略計画"]
+    PM --- RB["資源配分 予算編成"]
+    PM --- PPM["プロジェクト プログラムマネジメント"]
+    PM --- PerfM["パフォーマンスマネジメント"]
+    PM --- CG["コーポレートガバナンス"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class PM hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PM hub;`,
   `flowchart TB
-subgraph P["5つの原則"]
-    P1["上級管理層のコミットメント"]
-    P2["ガバナンスの整合"]
-    P3["戦略との整合"]
-    P4["ポートフォリオオフィス"]
-    P5["活力ある変革文化"]
-end
+    subgraph P["5つの原則"]
+        P1["上級管理層のコミットメント"]
+        P2["ガバナンスの整合"]
+        P3["戦略との整合"]
+        P4["ポートフォリオオフィス"]
+        P5["活力ある変革文化"]
+    end
 
-subgraph DC["ポートフォリオ定義サイクル 5プラクティス 逐次的"]
-    direction LR
-    D1["Understand 理解する"] --> D2["Categorize 分類する"] --> D3["Prioritize 優先順位付け"] --> D4["Balance バランスを取る"] --> D5["Plan 計画する"]
-end
+    subgraph DC["ポートフォリオ定義サイクル 5プラクティス 逐次的"]
+        direction LR
+        D1["Understand 理解する"] --> D2["Categorize 分類する"] --> D3["Prioritize 優先順位付け"] --> D4["Balance バランスを取る"] --> D5["Plan 計画する"]
+    end
 
-OE["組織のエネルギー"]
+    OE["組織のエネルギー"]
 
-subgraph DLC["ポートフォリオ デリバリーサイクル 7プラクティス 並行的"]
-    L1["マネジメントコントロール"]
-    L2["ベネフィットマネジメント"]
-    L3["財務マネジメント"]
-    L4["リスクマネジメント"]
-    L5["ステークホルダーエンゲージメント"]
-    L6["組織ガバナンス"]
-    L7["リソースマネジメント"]
-end
+    subgraph DLC["ポートフォリオ デリバリーサイクル 7プラクティス 並行的"]
+        L1["マネジメントコントロール"]
+        L2["ベネフィットマネジメント"]
+        L3["財務マネジメント"]
+        L4["リスクマネジメント"]
+        L5["ステークホルダーエンゲージメント"]
+        L6["組織ガバナンス"]
+        L7["リソースマネジメント"]
+    end
 
-P --> DC
-DC -- "ポートフォリオ戦略 デリバリープラン" --> OE
-OE --> DLC
-DLC -. "実績 学習のフィードバック" .-> DC
+    P --> DC
+    DC -- "ポートフォリオ戦略 デリバリープラン" --> OE
+    OE --> DLC
+    DLC -. "実績 学習のフィードバック" .-> DC
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class OE hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class OE hub;`,
   `flowchart TB
-C["活力ある変革文化 組織のエネルギーで駆動"]
-G["ガバナンスの整合"]
-S["戦略との整合"]
-O["ポートフォリオオフィス"]
-M["上級管理層のコミットメント 土台"]
-M --> G
-M --> S
-M --> O
-G --> C
-S --> C
-O --> C
+    C["活力ある変革文化 組織のエネルギーで駆動"]
+    G["ガバナンスの整合"]
+    S["戦略との整合"]
+    O["ポートフォリオオフィス"]
+    M["上級管理層のコミットメント 土台"]
+    M --> G
+    M --> S
+    M --> O
+    G --> C
+    S --> C
+    O --> C
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class M hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class M hub;`,
   `flowchart LR
-A["組織のビジョン 高次戦略"] --> B["戦略目標"] --> C["便益"] --> D["変革施策 プロジェクト プログラム"]`,
+    A["組織のビジョン 高次戦略"] --> B["戦略目標"] --> C["便益"] --> D["変革施策 プロジェクト プログラム"]`,
   `flowchart TB
-OE["組織のエネルギー"]
-OE --> C1["Connection つながり 個人が組織目標にどう結びついているか"]
-OE --> C2["Content 満足度 仕事内容への満足度"]
-OE --> C3["Context 文脈 環境 組織のプラクティスが仕事の遂行をどう支えるか"]
-OE --> C4["Climate 風土 組織が人々の最良の力の発揮をどう支援するか"]
+    OE["組織のエネルギー"]
+    OE --> C1["Connection つながり 個人が組織目標にどう結びついているか"]
+    OE --> C2["Content 満足度 仕事内容への満足度"]
+    OE --> C3["Context 文脈 環境 組織のプラクティスが仕事の遂行をどう支えるか"]
+    OE --> C4["Climate 風土 組織が人々の最良の力の発揮をどう支援するか"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class OE hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class OE hub;`,
   `flowchart LR
-U["Understand 理解する"] --> C["Categorize 分類する"] --> P["Prioritize 優先順位付け"] --> B["Balance バランスを取る"] --> PL["Plan 計画する"]
-PL --> OUT1["ポートフォリオ戦略 何を届けるか"]
-PL --> OUT2["ポートフォリオ デリバリープラン いつ どのように届けるか"]
+    U["Understand 理解する"] --> C["Categorize 分類する"] --> P["Prioritize 優先順位付け"] --> B["Balance バランスを取る"] --> PL["Plan 計画する"]
+    PL --> OUT1["ポートフォリオ戦略 何を届けるか"]
+    PL --> OUT2["ポートフォリオ デリバリープラン いつ どのように届けるか"]
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class OUT1,OUT2 done;`,
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class OUT1,OUT2 done;`,
   `flowchart TB
-subgraph RR["リスク 報酬マトリクスによるバランス評価の例"]
-HH["高リスク 高報酬 複数存在する場合は一部見直しを検討"]
-HL["高リスク 低報酬 原則 中止を検討"]
-LH["低リスク 高報酬 優良案件として維持"]
-LL["低リスク 低報酬 必要最小限に"]
-end
+    subgraph RR["リスク 報酬マトリクスによるバランス評価の例"]
+    HH["高リスク 高報酬 複数存在する場合は一部見直しを検討"]
+    HL["高リスク 低報酬 原則 中止を検討"]
+    LH["低リスク 高報酬 優良案件として維持"]
+    LL["低リスク 低報酬 必要最小限に"]
+    end
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class LH done;`,
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class LH done;`,
   `flowchart TB
-STRAT["ポートフォリオ戦略 デリバリープラン 定義サイクルからのインプット"]
-STRAT --> MC["マネジメントコントロール"]
-STRAT --> BM["ベネフィットマネジメント"]
-STRAT --> FM["財務マネジメント"]
-STRAT --> RM["リスクマネジメント"]
-STRAT --> SE["ステークホルダーエンゲージメント"]
-STRAT --> OG["組織ガバナンス"]
-STRAT --> RSM["リソースマネジメント"]
+    STRAT["ポートフォリオ戦略 デリバリープラン 定義サイクルからのインプット"]
+    STRAT --> MC["マネジメントコントロール"]
+    STRAT --> BM["ベネフィットマネジメント"]
+    STRAT --> FM["財務マネジメント"]
+    STRAT --> RM["リスクマネジメント"]
+    STRAT --> SE["ステークホルダーエンゲージメント"]
+    STRAT --> OG["組織ガバナンス"]
+    STRAT --> RSM["リソースマネジメント"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class STRAT hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class STRAT hub;`,
   `flowchart TB
-PDG["ポートフォリオ ディレクション グループ PDG 投資委員会"]
-PPG["ポートフォリオ プログレス グループ PPG デリバリー委員会"]
-PD["ポートフォリオ ディレクター PD"]
-PM["ポートフォリオ マネージャー"]
-PBM["ポートフォリオ ベネフィット マネージャー"]
-PPM["プロジェクト プログラムマネージャー PPMs"]
+    PDG["ポートフォリオ ディレクション グループ PDG 投資委員会"]
+    PPG["ポートフォリオ プログレス グループ PPG デリバリー委員会"]
+    PD["ポートフォリオ ディレクター PD"]
+    PM["ポートフォリオ マネージャー"]
+    PBM["ポートフォリオ ベネフィット マネージャー"]
+    PPM["プロジェクト プログラムマネージャー PPMs"]
 
-PDG --> PD
-PDG --> PPG
-PD --> PM
-PPG --> PM
-PM --> PBM
-PM --> PPM
+    PDG --> PD
+    PDG --> PPG
+    PD --> PM
+    PPG --> PM
+    PM --> PBM
+    PM --> PPM
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class PDG hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class PDG hub;`,
   `flowchart TB
-subgraph BB["ビッグバン アプローチ"]
-    BB1["すべての進行中 パイプライン施策を一斉にポートフォリオへ組み入れる"]
-    BB2["長所 迅速な全体像の獲得"]
-    BB3["短所 組織への混乱 抵抗が大きい"]
-end
-subgraph EV["エボリューショナリー 漸進的 アプローチ"]
-    EV1["ポートフォリオマネジメントのプロセスを段階的 計画的に展開"]
-    EV2["長所 即時のニーズに対応し早期に価値を実証 BAUへの混乱を抑制"]
-    EV3["短所 導入完了までに時間がかかる 優先度の変化により遅延しうる"]
-end
-subgraph AH["アドホック アプローチ"]
-    AH1["場当たり的 非計画的な導入"]
-    AH2["P3Oガイドラインでは最も推奨されない"]
-end
+    subgraph BB["ビッグバン アプローチ"]
+        BB1["すべての進行中 パイプライン施策を一斉にポートフォリオへ組み入れる"]
+        BB2["長所 迅速な全体像の獲得"]
+        BB3["短所 組織への混乱 抵抗が大きい"]
+    end
+    subgraph EV["エボリューショナリー 漸進的 アプローチ"]
+        EV1["ポートフォリオマネジメントのプロセスを段階的 計画的に展開"]
+        EV2["長所 即時のニーズに対応し早期に価値を実証 BAUへの混乱を抑制"]
+        EV3["短所 導入完了までに時間がかかる 優先度の変化により遅延しうる"]
+    end
+    subgraph AH["アドホック アプローチ"]
+        AH1["場当たり的 非計画的な導入"]
+        AH2["P3Oガイドラインでは最も推奨されない"]
+    end
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class EV2 done;`,
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class EV2 done;`,
   `flowchart TB
-L1["レベル1 プロセスの認識"] --> L2["レベル2 反復可能なプロセス"]
-L2 --> L3["レベル3 定義されたプロセス"]
-L3 --> L4["レベル4 管理されたプロセス"]
-L4 --> L5["レベル5 最適化されたプロセス"]
+    L1["レベル1 プロセスの認識"] --> L2["レベル2 反復可能なプロセス"]
+    L2 --> L3["レベル3 定義されたプロセス"]
+    L3 --> L4["レベル4 管理されたプロセス"]
+    L4 --> L5["レベル5 最適化されたプロセス"]
 
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class L5 done;`,
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class L5 done;`,
   `flowchart TB
-MoP["MoP Portfolio Management 戦略とポートフォリオ"]
-MSP["MSP Managing Successful Programmes プログラムマネジメント"]
-P2["PRINCE2 プロジェクトマネジメント"]
-P3O["P3O Portfolio Programme and Project Offices オフィス機能の設計"]
-P3M3["P3M3 成熟度評価モデル"]
+    MoP["MoP Portfolio Management 戦略とポートフォリオ"]
+    MSP["MSP Managing Successful Programmes プログラムマネジメント"]
+    P2["PRINCE2 プロジェクトマネジメント"]
+    P3O["P3O Portfolio Programme and Project Offices オフィス機能の設計"]
+    P3M3["P3M3 成熟度評価モデル"]
 
-MoP --> MSP --> P2
-MoP -. "オフィス機能の設計指針" .-> P3O
-MoP -. "成熟度の測定" .-> P3M3
+    MoP --> MSP --> P2
+    MoP -. "オフィス機能の設計指針" .-> P3O
+    MoP -. "成熟度の測定" .-> P3M3
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-class MoP hub;`,
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    class MoP hub;`,
 ] as const;
 
 const EXPECTED_CALLOUT_VARIANTS: Readonly<Record<string, number>> = {
@@ -363,8 +363,8 @@ describe("pages/mop-foundation-guide.vue (固有契約)", () => {
     const wrapper = mountPage();
     const lede = wrapper.find(".hero-lede");
     expect(lede.exists()).toBe(true);
-    expect(lede.text().trim()).toBe(
-      "ポートフォリオマネジメントの基礎から、5つの原則、定義・デリバリーの2つのサイクル、主要な役割と文書、導入アプローチと成熟度評価(P3M3)までを体系的に学ぶ完全ガイド"
+    expect(lede.text().trim()).toContain(
+      "本ガイドは、世界トップクラスのソフトウェアエンジニア／プロジェクトマネージャー／スクラムマスターの視点から、MoP Foundation試験の出題範囲を初学者にもわかりやすく、ステップ・バイ・ステップで解説するものです。"
     );
   });
 
@@ -373,10 +373,10 @@ describe("pages/mop-foundation-guide.vue (固有契約)", () => {
     const cards = wrapper.findAll(".stat-card");
     expect(cards).toHaveLength(4);
     const expectedStats = [
-      { number: "5", label: "5つの原則 原則ベースのアプローチ" },
-      { number: "12", label: "12のプラクティス 定義(5) + デリバリー(7)" },
-      { number: "4", label: "4つの源泉 組織のエネルギー (4Cs)" },
-      { number: "5", label: "5つの成熟度 P3M3 レベル1〜5" },
+      { number: "50問", label: "四肢択一・多肢選択形式" },
+      { number: "40分", label: "試験時間" },
+      { number: "50%", label: "合格基準（25問以上正答）" },
+      { number: "クローズドブック", label: "資料持ち込み不可" },
     ];
     cards.forEach((card, i) => {
       expect(card.find(".stat-number").text().trim()).toBe(expectedStats[i].number);
