@@ -1031,6 +1031,239 @@ class S5,S6 done;`;
           </ul>
         </div>
       </section>
+
+      <!-- ===================== 12. AI and Transformation ===================== -->
+      <section id="ai-and-transformation">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-robot" aria-hidden="true" />SECTION 12</div>
+        <h2>AI and Transformation</h2>
+
+        <p>ITIL(Version 5)全体を通じた大きな特徴が、AI(人工知能)の位置づけを明確にしたことである。ITIL Transformationにおいても、AIの機会とリスクを踏まえた変革準備・実行のガイダンスが組み込まれている。</p>
+
+        <h3>ITIL AI Capability Model(6Cモデル)</h3>
+        <p>ITIL(Version 5)のFour Dimensionsのうち「情報と技術(Information and Technology)」ディメンションに新設されたのが、ITIL AI Capability Model(通称：6Cモデル)である。これは、AIソリューションが果たす機能を6つの能力(Capability)に分類し、組織がAI導入をどう構造化して捉えるかを助けるツールである。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Capability</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Creation(創出)</strong></td><td>新しいコンテンツ・コード・ドキュメントを生成する</td></tr>
+              <tr><td><strong>Curation(キュレーション)</strong></td><td>既存データの重複を洗い出す等、質と関連性を高める</td></tr>
+              <tr><td><strong>Clarification(明確化)</strong></td><td>複雑な内容の理解・ナビゲーションを助ける(例：インシデントチケットの要約)</td></tr>
+              <tr><td><strong>Cognition(認知)</strong></td><td>パターンや隠れた知見を特定し、問題を先回りして検知する</td></tr>
+              <tr><td><strong>Communication(コミュニケーション)</strong></td><td>チャットボットなど自然なインターフェースを提供する</td></tr>
+              <tr><td><strong>Coordination(調整)</strong></td><td>複数システムにまたがるアクションを自律的に実行・調整する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_AI_CAPABILITY_MODEL" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">ITIL AI Capability Model(6Cモデル)</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>AI導入の企画段階で、「このAIソリューションは6つのCapabilityのうちどれに該当するか」を明示する。実装が進むにつれて、手続き・法規制・財務面などの準備不足が判明することが多いため、複数のCapabilityにまたがる場合は特に注意する</li>
+            <li>1つのAI活用アイデアを「創出(Creation)」だけの取り組みとして矮小化せず、それが将来的に「調整(Coordination)」のような自律実行に発展しうるかを見据えてGovernance設計を行う</li>
+          </ul>
+        </div>
+
+        <h3>AI導入の不確実性とTransformationの探索的アプローチ</h3>
+        <p>AIがもたらす機会・影響の大きさが未知数である場合、ITIL Transformationの探索的アプローチ(第4章・第9章)が特に有効とされている。小さな実験を積み重ね、結果を観察しながら組織全体でAI関連活動を調整する能力を養うことが推奨される。</p>
+
+        <h3>ITIL AI Governance Improvement Model(参考)</h3>
+        <p>ITIL AI Capability Modelを補完するものとして、AI活用の適切なGovernanceアプローチを決めるための「ITIL AI Governance Improvement Model」が用意されている(独立した認定「ITIL AI Governance(Version 5)」で詳細に扱われる領域であり、ITIL Transformationの前提資格とはならない)。4つのステップ(アセスメント・ストレステスト実施(Assess and Stress-Test)／要求定義と設計調整(Define and Design)／改善の実装(Implement)／継続的なガバナンス維持(Maintain))で構成される、とされている。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>AI Governanceを別モジュールの話として切り離さず、Transformation Governance(第6章・第8章)の一部としてAIに関する意思決定基準(誰がAIの出力をレビューするか、誰が上書き権限を持つか)を組み込む</p>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4 | ITSM.tools</a></li>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">Information and Technology in ITIL Version 5 | PMG Academy</a></li>
+            <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance" target="_blank" rel="noopener">Governing AI in organizations | itil.com</a></li>
+            <li><a href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">ITIL® AI Governance Training & Certification | AgilePM Hub</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 13. Integration with other frameworks ===================== -->
+      <section id="framework-integration">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-git-branch" aria-hidden="true" />SECTION 13</div>
+        <h2>他フレームワークとの統合(PRINCE2 / DevOps / Agile)</h2>
+
+        <p>ITIL Transformationは、「ITILの他にどんな方法論を使っている組織であっても適用できる」ことを明確に意図して設計されている。特定のガバナンスや実行方法論を前提とせず、既存のフレームワークと組み合わせて使うための柔軟な枠組みという位置づけである。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>フレームワーク</th><th>Transformationとの関係</th></tr></thead>
+            <tbody>
+              <tr><td><strong>PRINCE2</strong></td><td>プロジェクトレベルの計画・統制手法として、Execution Patterns(特にProject / Programme Management的な進め方)と組み合わせやすい</td></tr>
+              <tr><td><strong>DevOps</strong></td><td>継続的デリバリー・自動化の実践知として、Execution PatternsやLearningレイヤーの高速なフィードバックループと親和性が高い</td></tr>
+              <tr><td><strong>Agile</strong></td><td>探索的・反復的なExecution Patternsの実践方法として、複雑な環境下でのTransformationに適する</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FRAMEWORK_INTEGRATION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">ITIL Transformation Modelと他フレームワークとの関係</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>「ITILか、PRINCE2か、Agileか」という二者択一で考えず、Transformationのどのワークストリームにどのフレームワークを充てるかを、第9章の「複数アプローチの並行運用」の考え方で設計する</li>
+            <li>既存のフレームワークをすでに組織で運用している場合、ITIL Transformationを新たな別レイヤーとして重ねるのではなく、Governance PatternsとExecution Patternsを使って既存の仕組みとの整合を取ることを優先する</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">ITIL (Version 5) Transformation Training Course | ITSM Academy</a></li>
+            <li><a href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">ITIL® Transformation Course & Examination | ITSM Hub</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 14. Exam prep and career ===================== -->
+      <section id="exam-prep-career">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-map-2" aria-hidden="true" />SECTION 14</div>
+        <h2>試験対策とキャリアパス</h2>
+
+        <h3>学習の進め方(ステップバイステップ)</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_STUDY_ROADMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">ITIL Transformation学習の6ステップ</div>
+        </div>
+
+        <h3>出題傾向への対策</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>対策</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>用語の暗記だけに頼らない</td><td>「なぜこの用語が必要か」を、Transformationの課題(環境の複雑性、Governanceの緊張)に結びつけて理解する</td></tr>
+              <tr><td>シナリオ演習を重視する</td><td>「〇〇という状況で、どのPatternを適用すべきか」という設問形式に慣れる</td></tr>
+              <tr><td>Open bookの特性を活かす</td><td>本試験はOpen bookだが、時間内に該当箇所を探す練習をしておかないと時間切れになりやすい</td></tr>
+              <tr><td>4層モデルの循環構造を図で説明できるようにする</td><td>Governance→Positioning→Execution→Learningの一方通行ではなく、フィードバックが循環する構造を自分の言葉で説明できるようにする</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>キャリアパスとの接続</h3>
+        <p>ITIL Transformation(Version 5)は、次のような役割・キャリアに直結する知識として位置づけられている。</p>
+        <ul>
+          <li>Digital Transformation Manager</li>
+          <li>Change Manager</li>
+          <li>Service Improvement Manager</li>
+          <li>Practice Owner</li>
+          <li>Digital Product Manager</li>
+          <li>Experience Manager</li>
+          <li>Solution Designer</li>
+          <li>Strategy Analyst</li>
+          <li>IT Director</li>
+          <li>Business and Transformation Consultant</li>
+          <li>C-suiteレベルの役割</li>
+        </ul>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">ITIL Transformation (Version 5) | peoplecert.org</a></li>
+            <li><a href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">ITIL Transformation (Version 5) Practice Tests | Udemy</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 15. Glossary ===================== -->
+      <section id="glossary">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-book-2" aria-hidden="true" />SECTION 15</div>
+        <h2>用語集</h2>
+
+        <div class="glossary-grid">
+          <div class="glossary-item"><div class="g-term">Transformation</div><div class="g-def">組織、あるいはその大部分を対象とした、複数の相互依存領域にまたがる調整された大規模な変化</div></div>
+          <div class="glossary-item"><div class="g-term">BAU(Business As Usual)</div><div class="g-def">通常の日常業務・運用</div></div>
+          <div class="glossary-item"><div class="g-term">ITIL Transformation Model</div><div class="g-def">Governance・Positioning・Execution・Learningの4層とステージ・ステップで構成される、Transformationのための構造化フレームワーク</div></div>
+          <div class="glossary-item"><div class="g-term">Initiation Patterns</div><div class="g-def">Transformationの出発点(期待・目的・課題)を理解するためのパターン</div></div>
+          <div class="glossary-item"><div class="g-term">Governance Patterns</div><div class="g-def">BAU GovernanceとTransformation Governanceの緊張を評価・調整するためのパターン</div></div>
+          <div class="glossary-item"><div class="g-term">Execution Patterns</div><div class="g-def">複数の実行アプローチを並行して調整しながら変革を進めるためのパターン</div></div>
+          <div class="glossary-item"><div class="g-term">Toolkit</div><div class="g-def">Transformationで用いる手法・ツール・テクニックの、ITIL視点での整理</div></div>
+          <div class="glossary-item"><div class="g-term">ITIL AI Capability Model(6Cモデル)</div><div class="g-def">AIソリューションの機能をCreation/Curation/Clarification/Cognition/Communication/Coordinationの6つに分類するモデル</div></div>
+          <div class="glossary-item"><div class="g-term">ITIL Maturity Model</div><div class="g-def">SVSおよびPracticeの成熟度をLevel 1から5で評価するモデル</div></div>
+          <div class="glossary-item"><div class="g-term">Value Stream Mapping(VSM)</div><div class="g-def">価値提供の流れを可視化し、ムダやボトルネックを特定する手法</div></div>
+          <div class="glossary-item"><div class="g-term">OKR</div><div class="g-def">Objectives and Key Results。目標と測定可能な成果指標をセットで管理する手法</div></div>
+          <div class="glossary-item"><div class="g-term">Theory of Constraints</div><div class="g-def">システム全体のスループットは最大のボトルネックによって決まるという考え方</div></div>
+          <div class="glossary-item"><div class="g-term">RACI／RASCI</div><div class="g-def">役割分担(実行責任・説明責任・支援・相談・報告)を整理するマトリクス</div></div>
+          <div class="glossary-item"><div class="g-term">Bloom's Taxonomy</div><div class="g-def">教育評価で用いられる認知レベルの分類(知識・理解・適用・分析・評価・創造)</div></div>
+        </div>
+      </section>
+
+      <!-- ===================== 16. References ===================== -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-link" aria-hidden="true" />SECTION 16</div>
+        <h2>参考文献・出典URL一覧</h2>
+
+        <div class="ref-group">
+          <h4>公式情報源</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">ITIL Transformation (Version 5) — 公式認定ページ(PeopleCert)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-transformation-version-5-4173</a></li>
+            <li><span class="ref-name">ITIL Transformation (Version 5) — 公式認定ページ(itil.com)</span><a class="ref-url" href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5</a></li>
+            <li><span class="ref-name">ITIL Transformation (Version 5): A continual approach to major organizational change(Kaimar Karu, Lead Author)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5</a></li>
+            <li><span class="ref-name">New ITIL Explained for Certified Professionals(ITIL Managing Professional designation構成の説明)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-explained" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-explained</a></li>
+            <li><span class="ref-name">Introduction to the ITIL Maturity Model(PeopleCert公式PDF)</span><a class="ref-url" href="https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf" target="_blank" rel="noopener">https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf</a></li>
+            <li><span class="ref-name">Governing AI in organizations(ITIL AI Capability ModelとAI Governanceの背景)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-ai-governance-guidance</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>公認トレーニングプロバイダ</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">ITIL® Transformation (Version 5) course — QA</span><a class="ref-url" href="https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/" target="_blank" rel="noopener">https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/</a></li>
+            <li><span class="ref-name">ITIL® Transformation Course & Examination — ITSM Hub</span><a class="ref-url" href="https://www.itsmhub.com/products/itil-transformation-course-examination" target="_blank" rel="noopener">https://www.itsmhub.com/products/itil-transformation-course-examination</a></li>
+            <li><span class="ref-name">ITIL (Version 5) Transformation Training Course — ITSM Academy</span><a class="ref-url" href="https://itsmacademy.com/itil-transformation-course" target="_blank" rel="noopener">https://itsmacademy.com/itil-transformation-course</a></li>
+            <li><span class="ref-name">ITIL Transformation (Version 5) Practice Tests — Udemy</span><a class="ref-url" href="https://www.udemy.com/course/itil-transformation-version-5-practice-tests/" target="_blank" rel="noopener">https://www.udemy.com/course/itil-transformation-version-5-practice-tests/</a></li>
+            <li><span class="ref-name">ITIL Transformation (Version 5) e-Learning+ — Advanced Training</span><a class="ref-url" href="https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/" target="_blank" rel="noopener">https://advancedtraining.com.au/product/itil-transformation-version-5-e-learning-plus/</a></li>
+            <li><span class="ref-name">ITIL® AI Governance Training & Certification — AgilePM Hub</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>解説記事</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">ITIL (Version 5) Changes Explained: 20 Important Changes from ITIL 4(ITIL AI Capability Modelの解説)</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
+            <li><span class="ref-name">Information and Technology in ITIL Version 5(6Cモデルの解説)</span><a class="ref-url" href="https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/" target="_blank" rel="noopener">https://www.pmgacademy.com/en/articles/itil/information-and-technology-in-itil-version-5-the-guide-for-the-ai-era-and-data-governance/</a></li>
+          </ul>
+        </div>
+
+        <div class="callout note" data-variant="note" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-info-circle" aria-hidden="true" />補足</div>
+          <p>本ガイドは上記の公開情報をもとに独自に構成した学習補助教材である。最終的な試験対策には、PeopleCertが提供する公式eBook・Learner Workbook・Quick Reference Guideを必ず併用すること。</p>
+        </div>
+      </section>
+
+      <footer>
+        ITIL® は AXELOS Limited の登録商標であり、AXELOS Limited の許可を得て使用されている。本ガイドは PeopleCert / AXELOS の公式教材ではなく、公開情報をもとに独自に構成した非公式の学習補助教材である。最終的な試験対策には、PeopleCert が提供する公式 eBook・Learner Workbook・Quick Reference Guide を必ず併用すること。
+      </footer>
     </main>
   </div>
 </template>
@@ -1423,5 +1656,83 @@ tr:last-child td {
     margin-left: 0;
     padding: 32px 24px 80px;
   }
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 24px 0 12px;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 700;
+  color: var(--color-indigo);
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-name {
+  color: var(--color-ink);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ref-url {
+  color: var(--color-indigo);
+  word-break: break-all;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 80px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 13px;
+  line-height: 1.6;
 }
 </style>
