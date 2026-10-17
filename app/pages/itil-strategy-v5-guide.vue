@@ -1315,11 +1315,14 @@ tr:last-child td {
   }
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    /* 画面外へ退避するだけではリンクが Tab 順に残るため、閉じている間は visibility で外す。 */
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0.25s ease;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
   }
   .sidebar.open {
     transform: translateX(0);
+    visibility: visible;
   }
   .sidebar-backdrop {
     position: fixed;
