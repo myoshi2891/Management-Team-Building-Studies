@@ -65,6 +65,70 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class D1,D2,D3,D4 box;
 class D5,D6 hub;
 class D7,D8 done;`;
+
+const DIAGRAM_BUSINESS_DIGITAL_STRATEGY = `flowchart TB
+BS["ビジネス戦略 組織全体の目標と達成方法"]
+DS["デジタル戦略 デジタル技術の活用方法"]
+OP["製品・サービス戦略 個別の実行計画"]
+BS --> DS --> OP
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class BS hub;
+class DS box;
+class OP done;`;
+
+const DIAGRAM_VUCA_MODEL = `flowchart TB
+V["Volatility 変動性 変化の速さ・振れ幅が大きい"]
+U["Uncertainty 不確実性 将来の予測が困難"]
+C["Complexity 複雑性 要因が相互に絡み合う"]
+A["Ambiguity 曖昧性 因果関係が不明瞭"]
+CENTER["VUCA環境における戦略"]
+V --> CENTER
+U --> CENTER
+C --> CENTER
+A --> CENTER
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class V,C box;
+class U,A box;
+class CENTER hub;`;
+
+const DIAGRAM_FOUR_DIMENSIONS_STRATEGY = `flowchart TB
+STRAT["戦略的意図 Strategic Intent"]
+OP["組織と人材 文化・構造・ケイパビリティ"]
+PS["パートナーとサプライヤー ソーシング・関係性"]
+IT["情報と技術 イノベーション・データ活用"]
+VS["バリューストリームとプロセス 設計・最適化"]
+STRAT --> OP
+STRAT --> PS
+STRAT --> IT
+STRAT --> VS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class OP,PS,IT,VS box;
+class STRAT hub;`;
+
+const DIAGRAM_PESTLE_FOUR_DIMENSIONS = `flowchart TB
+subgraph PESTLE["外部環境要因 PESTLE"]
+direction LR
+P["Political"]
+E["Economic"]
+S["Social"]
+T["Technological"]
+L["Legal"]
+EN["Environmental"]
+end
+FD["4つの側面 組織・人材、パートナー・サプライヤー、情報・技術、バリューストリーム・プロセス"]
+VALUE["価値創出への影響"]
+PESTLE --> FD
+FD --> VALUE
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,E,S,T,L,EN box;
+class FD hub;
+class VALUE done;`;
 </script>
 
 <template>
@@ -259,6 +323,170 @@ class D7,D8 done;`;
 
           <h3>2.4 Strategic Leaderパスにおける位置づけ</h3>
           <p>ITIL Strategyは、組織の方向性そのものを扱う<strong>Strategic Leader</strong>パスに属するモジュールである。Strategic Leaderの称号は、前提資格である<strong>ITIL Foundation</strong>を基盤に、<strong>ITIL Strategy</strong>と全designation共通の中核モジュールである<strong>ITIL Transformation</strong>の2つを取得することで得られる。ITIL Product・ITIL Service・ITIL Experience・ITIL Transformationの4モジュールで構成される Managing Professional パスとは上下関係ではなく、並列の別個の認定ストリームである。対象者は組織のあらゆる階層で戦略的責任を持つリーダー、戦略実行に戦術的責任を持つ専門家、戦略目標の支援に運用的責任を持つ専門家である。</p>
+        </section>
+
+        <!-- ===================== 04. Module 1: Foundation Review ===================== -->
+        <section id="foundation-review" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:stack-2" aria-hidden="true" />
+            <span>SECTION 04</span>
+          </div>
+          <h2>3. Module 1: ITIL Foundationの復習と価値創出</h2>
+
+          <p><em>K1〜K2</em>: 前提知識の確認。試験本体の配点は小さいが、以降の全モジュールの共通言語になる。</p>
+
+          <h3>3.1 デジタル製品・デジタルサービスの定義</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>用語</th><th>定義(要旨)</th></tr></thead>
+              <tbody>
+                <tr><td>デジタル製品(Digital Product)</td><td>ソフトウェア・データ・インフラ等で構成される、バージョン管理・構成可能な技術的成果物の集合</td></tr>
+                <tr><td>デジタルサービス(Digital Service)</td><td>1つ以上のデジタル製品を活用してビジネス成果・利用者体験・測定可能な結果を実現する価値実現の仕組み</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>デジタル製品はインフラ・アプリケーション・ミドルウェア・データプラットフォーム・API・関連コンポーネントで構成されるバージョン管理・構成可能なバンドルであり有形の技術基盤である一方、デジタルサービスは1つ以上のデジタル製品を活用してビジネス成果・利用者体験・測定可能な結果を実現する価値実現の仕組みである。</p>
+          <p><strong>理由(なぜ区別するのか)</strong>: 製品とサービスを明確に区別しないと、「何を作るか(製品)」と「どう価値を届けるか(サービス)」の責任が曖昧になり、戦略が実行部隊に落とし込まれた時に迷子になる。Strategyモジュールが繰り返し強調するのは、この区別を<strong>戦略レベルで最初に固定する</strong>重要性である。</p>
+
+          <h3>3.2 バリューチェーン活動と価値共創</h3>
+          <p>ITIL 4のService Value SystemはITIL Value Systemへと発展し、製品とサービス両方の視点を明示的に支える。バリューチェーンの構成要素として、Planはすべての製品・サービスに関するビジョン・現状・改善方向の共通理解を確保し、Improveはすべてのバリューチェーン活動と4つの側面にわたる製品・サービス・プラクティスの継続的改善を確保し、Engageはステークホルダーのニーズ・透明性・強固な関係性についての明確な理解を提供し、Design &amp; Transitionは製品・サービスが品質・コスト・市場投入時間についてステークホルダーの期待を継続的に満たすことを確保し、Obtain/Buildはサービスコンポーネントが必要なときに必要な場所で利用可能であり合意された仕様を満たすことを確保し、Deliver and Supportは合意された仕様とステークホルダーの期待に従ってサービスが提供・サポートされることを確保する。</p>
+          <p><strong>具体例</strong>: ある企業が新しい社内向けAIアシスタント機能をリリースする場合、「Discover」で業務部門のニーズを掘り起こし、「Engage」でステークホルダー(法務・情報セキュリティ含む)の期待値をすり合わせ、「Plan」でロードマップ上の優先順位を決める&mdash;&mdash;という流れがバリューチェーン活動の実例になる。</p>
+        </section>
+
+        <!-- ===================== 05. Module 2: Key Concepts ===================== -->
+        <section id="key-concepts" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:target" aria-hidden="true" />
+            <span>SECTION 05</span>
+          </div>
+          <h2>4. Module 2: ITIL戦略の主要概念</h2>
+
+          <p><em>K2(理解レベル)</em>: 用語の混同がそのまま失点に直結する、試験で最も狙われやすい領域。</p>
+
+          <h3>4.1 戦略・ビジネス戦略・デジタル戦略</h3>
+          <p>ITIL Strategyにおいて、戦略とは組織がどのように目標を達成するかを記述した計画である。ビジネス戦略は組織全体の目標とその達成方法を定義し、デジタル戦略はその事業目標を達成するために組織がどのようにデジタル技術を活用するかを定義する。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_BUSINESS_DIGITAL_STRATEGY" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">ビジネス戦略からデジタル戦略、製品・サービス戦略への展開</div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>&#10060; よくある誤解</th><th>&#9989; 正しい理解</th></tr></thead>
+              <tbody>
+                <tr><td>デジタル戦略＝IT部門だけの計画</td><td>デジタル戦略はビジネス戦略の実現手段であり、全社的な整合が前提</td></tr>
+                <tr><td>ビジネス戦略とデジタル戦略は独立して作れる</td><td>デジタル戦略はビジネス戦略から導出され、常にビジネス目標にトレース可能でなければならない</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>4.2 ミッション・ビジョン・パーパス</h3>
+          <p>ミッションとは組織が現在行っていることとその存在理由であり、ビジョンとは組織が将来なりたい姿の願望的な記述であり、パーパスとは組織が消費者やその他のステークホルダーのために何を行い、なぜそれを行うのかを示すものである。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>用語</th><th>時制</th><th>問いかけ</th></tr></thead>
+              <tbody>
+                <tr><td>ミッション(Mission)</td><td>現在</td><td>「私たちは今、何をしているか」</td></tr>
+                <tr><td>ビジョン(Vision)</td><td>未来</td><td>「私たちは将来、何になりたいか」</td></tr>
+                <tr><td>パーパス(Purpose)</td><td>普遍</td><td>「私たちは誰のために、なぜ存在するか」</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>具体例</strong>: 「私たちは都市の電車を毎日安全に運行している」はミッションの例であり、「私たちは通勤者や地元企業に信頼できる移動手段を提供するために存在する」はパーパスの例として区別される。試験ではこの3つを入れ替えたひっかけ選択肢が頻出するため、時制と主語(組織自身・未来の組織・ステークホルダー)で機械的に判定できるようにしておくとよい。</p>
+
+          <h3>4.3 VUCA環境</h3>
+          <p>VUCAとはVolatility(変動性)・Uncertainty(不確実性)・Complexity(複雑性)・Ambiguity(曖昧性)の頭文字であり、多くの組織が現在直面している困難で急速に変化する環境を表す言葉である。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_VUCA_MODEL" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">VUCAの4要素と戦略への影響</div>
+          </div>
+
+          <p><strong>理由(なぜVUCAが戦略の前提になるのか)</strong>: 従来の戦略立案(3〜5年の固定計画を作って粛々と実行する)は、環境が安定していることを前提にしていた。ITIL Strategyは、変動的・不確実・複雑・曖昧(VUCA)な環境において戦略を策定・実装・継続的に調整するためのガイダンスを提供するものであり、「一度立てた計画をやり切る」のではなく「観察と適応を繰り返す」ループ構造(後述のStrategy Management Model)が中核になっている。</p>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label">
+              <Icon name="tabler:bulb" aria-hidden="true" />
+              <span>ベストプラクティス</span>
+            </div>
+            <p>VUCAの4要素はそれぞれ異なる対処法を要求する。実務では「Volatility&rarr;シナリオプランニングとバッファ確保」「Uncertainty&rarr;情報収集と仮説検証サイクルの短縮」「Complexity&rarr;システム思考と関係者間の対話促進」「Ambiguity&rarr;小さな実験による因果関係の可視化」のように、要素ごとに打ち手を分けて考えると戦略が具体化しやすい。</p>
+          </div>
+
+          <h3>4.4 効果的な戦略の特性</h3>
+          <p>QAの公開コースアウトラインおよび公式ページの記述から、効果的な戦略に求められる特性として次の要素が繰り返し強調されている。</p>
+          <ul>
+            <li><strong>アウトカム志向(Outcome-driven)。</strong>戦略策定は観察・方向づけ・意思決定・計画を通じて、効果的でアウトカム志向の戦略を定義することを学ぶ領域として位置づけられている。</li>
+            <li><strong>実行可能性(Actionable)。</strong>戦略実装は計画・実行・統合・振り返りを通じて、戦略を実行可能な取り組みと持続的な価値へと転換することが求められる。</li>
+            <li><strong>AI対応環境への適応。</strong>複雑でAI主導の環境において明確さと方向性を維持しながら、戦略がどのように進化するかを扱うことが明示的にスコープに含まれる。</li>
+          </ul>
+
+          <h3>4.5 ビジネスモデルとオペレーティングモデル</h3>
+          <p>ITIL Strategyでは、パートナーやサプライヤーの役割・情報技術の戦略的役割・バリューストリームやプロセスに関する検討と並んで、ビジネスモデルとオペレーティングモデルがどのように戦略的意図を支え価値創造を可能にするかを扱う。一般的な経営理論との整合で理解すると、ビジネスモデルは「何を・誰に・なぜ提供するか(Why/What)」を定義し、オペレーティングモデルは「どう実現するか(How)」を定義する、という役割分担で捉えると整理しやすい。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>モデル</th><th>焦点</th><th>主な構成要素</th></tr></thead>
+              <tbody>
+                <tr><td>ビジネスモデル</td><td>Why / What</td><td>価値提案、顧客セグメント、収益モデル</td></tr>
+                <tr><td>オペレーティングモデル</td><td>How</td><td>プロセス、役割、システム、ガバナンス</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><strong>具体例</strong>: SaaS企業が「サブスクリプション課金への転換」を決めるのはビジネスモデルの変更。それを実現するために「カスタマーサクセス部門を新設し、解約予兆検知の運用フローを整備する」のはオペレーティングモデルの変更。両者は独立ではなく、ビジネスモデルの変更は必ずオペレーティングモデルの見直しを伴う。</p>
+        </section>
+
+        <!-- ===================== 06. Module 3: Four Dimensions ===================== -->
+        <section id="four-dimensions" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:layout-grid" aria-hidden="true" />
+            <span>SECTION 06</span>
+          </div>
+          <h2>5. Module 3: 4つの側面における戦略的考慮事項</h2>
+
+          <p><em>K2〜K3</em>: ITIL Foundationで学ぶ「4つの側面(Four Dimensions)」を、戦略立案という上位レイヤーに適用する。</p>
+
+          <p>この領域では、組織や人材に関する戦略的考慮事項、情報技術の戦略的役割、バリューストリームとプロセスに関する戦略的考慮事項、そしてパートナーやサプライヤーに関する戦略的考慮事項という4つの側面を扱う。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FOUR_DIMENSIONS_STRATEGY" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">戦略的意図と4つの側面の関係</div>
+          </div>
+
+          <h3>5.1 組織と人材</h3>
+          <p>戦略立案における組織の文化・構造・ケイパビリティを検討する領域。戦略がどれだけ優れていても、組織構造や文化がそれを実行できる形になっていなければ絵に描いた餅になる。</p>
+
+          <h3>5.2 パートナーとサプライヤー</h3>
+          <p>ソーシングや戦略的関係性におけるパートナーとサプライヤーの役割を理解する。自前で全てを構築するのか、外部パートナーに委ねるのかという「Make or Buy」判断は戦略レベルの意思決定であり、ベンダーロックインのリスクや、パートナーのケイパビリティが自社の戦略スピードに追随できるかを事前に評価する必要がある。</p>
+
+          <h3>5.3 情報と技術</h3>
+          <p>イノベーション・データ活用・デジタルケイパビリティにおける情報技術の戦略的役割を探求する。ここでAI活用の戦略的位置づけも扱われる(詳細はModule 7・8のAIガバナンスとも関連)。</p>
+
+          <h3>5.4 バリューストリームとプロセス</h3>
+          <p>戦略的方向性によってバリューストリームとプロセスがどのように形作られるかを理解する。戦略が設計・最適化・価値創出を含むバリューストリームとプロセスにどう影響するかを検討する領域でもある。</p>
+
+          <h3>5.5 PESTLE要因との関係</h3>
+          <p>4つの側面は組織の内部要因の整理軸だが、外部環境を捉える枠組みとして<strong>PESTLE</strong>(Political・Economic・Social・Technological・Legal・Environmental)が組み合わされる。PESTLEは政治・経済・社会・技術・法律・環境の各要因が事業運営に与える影響を指し、ITILはこのPESTLEフレームワークを4つの側面モデルに重ね合わせることで、外部要因がそれぞれの側面にどう作用し、各側面が相互にどう価値に影響するかを示す。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_PESTLE_FOUR_DIMENSIONS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">PESTLE要因と4つの側面の重ね合わせ</div>
+          </div>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label">
+              <Icon name="tabler:bulb" aria-hidden="true" />
+              <span>ベストプラクティス</span>
+            </div>
+            <p>PESTLE分析は「一度やって終わり」にせず、戦略策定サイクルのObserveフェーズ(後述)で定期的に見直す運用に組み込む。VUCA環境では外部要因の変化速度が速く、半年前のPESTLE分析が前提として使えなくなっていることは珍しくない。</p>
+          </div>
         </section>
 
       </main>
