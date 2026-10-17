@@ -820,6 +820,17 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-transformation-v5-study-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Transformation (v5)",
+    title: "ITIL® Transformation (Version 5) 学習ガイド",
+    description: "PeopleCert公式シラバスに基づくITIL Transformation (Version 5)の学習ガイド。4層のTransformation Model、BAUと変革ガバナンスの両立、3つのパターンとToolkit、AI連携を初学者向けに詳細解説。",
+    meta: "16セクション",
+    icon: "tabler:refresh",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",

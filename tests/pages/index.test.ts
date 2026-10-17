@@ -355,6 +355,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "ITIL® Transformation (Version 5) 学習ガイド",
+        category: "PEOPLECERT",
+        href: "/itil-transformation-v5-study-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
@@ -518,7 +524,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "51 ガイド", hub: "/certifications", cards: 51 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "52 ガイド", hub: "/certifications", cards: 52 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "18 ガイド", hub: "/books", cards: 18 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);
