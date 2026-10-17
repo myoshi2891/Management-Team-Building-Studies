@@ -1623,6 +1623,9 @@ tr:last-child td {
   background: var(--color-paper-raised);
   border-radius: 10px;
   padding: 16px 20px;
+  /* 「Creation/Curation/…」「Explore→Engage→…」のような区切りの無い語が
+     min-content 幅を押し広げ、狭い幅でグリッドごと画面外へはみ出すのを防ぐ。 */
+  overflow-wrap: anywhere;
 }
 
 .glossary-item .g-term {
@@ -1703,6 +1706,11 @@ footer {
 
 /* ===================== Responsive ===================== */
 @media (max-width: 980px) {
+  /* 2 カラムの最小幅 280px × 2 は狭い画面に収まらない。Experience ガイドと同じく 1 カラムに畳む。 */
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+
   .sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;

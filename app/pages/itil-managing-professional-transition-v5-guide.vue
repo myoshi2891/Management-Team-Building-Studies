@@ -2031,6 +2031,11 @@ code {
   outline-offset: 3px;
 }
 
+/* 「Creation/Curation/…」のような区切りの無い語でフレックス項目が縮めず、狭い幅で画面外へはみ出すのを防ぐ。 */
+.checklist-text {
+  overflow-wrap: anywhere;
+}
+
 .checklist-label.is-checked .checklist-text {
   color: var(--color-ink-faint);
 }

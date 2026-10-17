@@ -1575,6 +1575,9 @@ td strong, th strong {
   background: var(--color-paper-raised);
   border-radius: 10px;
   padding: 16px 20px;
+  /* 「Creation/Curation/…」「Explore→Engage→…」のような区切りの無い語が
+     min-content 幅を押し広げ、狭い幅でグリッドごと画面外へはみ出すのを防ぐ。 */
+  overflow-wrap: anywhere;
 }
 
 .glossary-item .g-term {
