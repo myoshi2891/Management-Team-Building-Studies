@@ -2380,9 +2380,10 @@ class T1,T2,T3,T4,T5,T6 box`;
       <p>試験対策と並行して意識してほしいのは、ITIL Service (Version 5) が問うているのは「用語を知っているか」ではなく「サービスプロバイダーとして、変化し続けるデジタルサービスの信頼性と価値をどう守るか」という実務上の問いだという点です。第12章の横断的ベストプラクティスは、そのまま試験対策と実務導入の両方に使える指針として設計しています。</p>
     </section>
 
-    <section id="glossary" tabindex="-1">
+    <section id="glossary" class="guide-section appendix-section" tabindex="-1">
       <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 15</div>
       <h2>付録: 用語集</h2>
+      <p class="appendix-intro">学習中に立ち返りたい主要用語をまとめました。英語の用語と日本語の定義を対応させて、理解の確認に活用してください。</p>
 
       <div class="glossary-grid">
         <div class="glossary-item"><div class="g-term">Product</div><div class="g-def">消費者に価値を提供するために設計された、組織のリソースの構成</div></div>
@@ -2432,7 +2433,7 @@ class T1,T2,T3,T4,T5,T6 box`;
       </div>
     </section>
 
-    <section id="references" tabindex="-1">
+    <section id="references" class="guide-section appendix-section" tabindex="-1">
       <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 16</div>
       <h2>参考文献・ソース URL 一覧</h2>
 
@@ -2833,6 +2834,135 @@ footer {
   color: var(--color-ink-faint);
   font-size: 16px;
   line-height: 1.6;
+}
+
+/* Appendices: a compact dictionary and a readable source catalogue. */
+.appendix-section {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+.appendix-intro,
+#references > p {
+  color: var(--color-ink-faint);
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.glossary-item {
+  min-width: 0;
+  padding: 20px 22px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-paper-raised);
+}
+.g-term {
+  margin-bottom: 8px;
+  color: var(--color-indigo);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.g-def {
+  color: var(--color-ink);
+  font-size: 14px;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+.ref-group {
+  margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-paper-raised);
+}
+.ref-group h4 {
+  margin: 0;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-paper-sunken);
+  color: var(--color-indigo);
+  font-size: 14px;
+  line-height: 1.7;
+}
+#references > p + .ref-group h4 {
+  background: var(--color-gold-tint);
+}
+.ref-list {
+  margin: 0;
+  padding: 0 24px;
+  list-style: none;
+  counter-reset: reference;
+}
+.ref-list li {
+  position: relative;
+  margin: 0;
+  padding: 20px 0 20px 38px;
+  counter-increment: reference;
+}
+.ref-list li + li {
+  border-top: 1px solid var(--color-border);
+}
+.ref-list li::before {
+  content: counter(reference, decimal-leading-zero);
+  position: absolute;
+  top: 22px;
+  left: 0;
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.ref-name {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+.ref-url {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--color-indigo);
+  font-size: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 3px;
+}
+.ref-url:hover {
+  text-decoration-color: currentColor;
+}
+.ref-url:focus-visible {
+  outline: 2px solid var(--color-indigo);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+@media (max-width: 640px) {
+  .glossary-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .glossary-item {
+    padding: 18px;
+  }
+  .ref-group h4 {
+    padding: 16px;
+  }
+  .ref-list {
+    padding: 0 16px;
+  }
+  .ref-list li {
+    padding-left: 30px;
+  }
 }
 
 /* ===================== Responsive ===================== */
