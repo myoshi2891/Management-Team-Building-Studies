@@ -262,6 +262,7 @@ PB --> BO["Business Operations BCMを通じたビジネス運用への定着"]
 BO -.->|"実績・課題のフィードバック"| CG
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class SG,PB,DEL,BO box;
 class CG hub;`,
   `flowchart LR
@@ -271,6 +272,7 @@ BEN --> OBJ["組織目標への貢献"]
 OC -.->|"意図しない場合"| DIS["ディスベネフィット 測定可能な悪化"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class OUT,OC,BEN,OBJ box;
 class DIS hub;`,
   `flowchart TB
@@ -281,6 +283,7 @@ L1 --> L2 --> L3
 L3 -.->|"経営層・監査委員会への報告"| GOV["Corporate Governing Body"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class L1,L2,L3 box;
 class GOV hub;`,
 ] as const;

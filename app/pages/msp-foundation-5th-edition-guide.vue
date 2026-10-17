@@ -117,6 +117,7 @@ PJ --> DR["Decision Register に記録"]
 PB2 --> DR
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class E,RR,IR,PJ,DR box;
 class Q,DA,PB2 hub;`;
 
@@ -164,6 +165,7 @@ BEN --> OBJ["組織目標への貢献"]
 OC -.->|"意図しない場合"| DIS["ディスベネフィット 測定可能な悪化"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class OUT,OC,BEN,OBJ box;
 class DIS hub;`;
 
@@ -175,6 +177,7 @@ L1 --> L2 --> L3
 L3 -.->|"経営層・監査委員会への報告"| GOV["Corporate Governing Body"]
 
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class L1,L2,L3 box;
 class GOV hub;`;
 
@@ -863,24 +866,176 @@ useSeoMeta({
         <section id="benefits">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 09</div>
           <h2>ベネフィット管理の実践</h2>
+
+          <p>MSPの中心にある考え方は「<strong>プログラムはベネフィットによって駆動される(Benefits drive programmes)</strong>」というものです。</p>
+
+          <h3>用語の定義</h3>
+
+          <ul>
+            <li><strong>ベネフィット(Benefit)</strong>: アウトカムによってもたらされる測定可能な改善であり、投資組織にとって有利であると認識され、1つ以上の組織目標に貢献するもの。</li>
+            <li><strong>ディスベネフィット(Dis-benefit)</strong>: アウトカムによって生じる測定可能な悪化であり、投資組織にとって不利であると認識され、1つ以上の組織目標を損なうもの。</li>
+          </ul>
+
+          <h3>ベネフィット実現の流れ</h3>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_BENEFITS_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">ベネフィット実現の流れ</div>
+          </div>
+
+          <h3>主要な管理文書</h3>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>文書</th><th>役割</th></tr></thead>
+              <tbody>
+                <tr><td>ベネフィットマップ(Benefits Map)</td><td>アウトプットからベネフィットまでの因果関係を可視化する図</td></tr>
+                <tr><td>ベネフィットプロファイル(Benefits Profile)</td><td>個々のベネフィットについて、定義・測定方法・オーナー・実現時期などを記述する文書</td></tr>
+                <tr><td>ベネフィット管理アプローチ</td><td>ベネフィットの識別・定量化・追跡・実現の全体方針(Justificationテーマに関連)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>ベネフィットには必ず「オーナー」を割り当てる。多くの場合、プログラムマネージャーではなくBCM(またはビジネス側の該当責任者)がベネフィットの実現に責任を持つ。</li>
+              <li>ベネフィットは定量的な指標だけでなく、測定のタイミング・測定方法・ベースライン(現状値)まで具体的に定義しておく。「感覚的には良くなった」で終わらせない。</li>
+              <li>ベネフィットの実現はプログラムクローズ後まで続くことが多い。クローズ時には、誰が・いつまで・どのようにベネフィットの追跡を継続するのかを明確にしてから組織を解散する。</li>
+              <li>ディスベネフィットを隠さず可視化する。負の影響を認識した上で、それでも投資に見合うと判断できるかがビジネスケースの本質である。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>MSP Blueprint解説記事(TheKnowledgeAcademy)、SlideShare「The 4 key elements of best practice programme design」</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 10 -->
         <section id="risk-decisions">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:alert-triangle" aria-hidden="true" />SECTION 10</div>
           <h2>リスク・課題・意思決定管理</h2>
+
+          <p>Decisionsテーマとしてまとめられている領域ですが、実務上は「リスクマネジメント」「課題マネジメント」「意思決定ガバナンス」の3つの側面を持ちます(第6.7節も参照)。</p>
+
+          <h3>リスクと課題の違い</h3>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>観点</th><th>リスク(Risk)</th><th>課題(Issue)</th></tr></thead>
+              <tbody>
+                <tr><td>時間軸</td><td>将来起こりうる不確実な事象</td><td>すでに発生した事象</td></tr>
+                <tr><td>対応の性質</td><td>予防的(発生確率と影響度を評価し、対応を計画)</td><td>是正的(発生した事態への対処)</td></tr>
+                <tr><td>記録先</td><td>Risk Register</td><td>Issue Register</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>意思決定の階層</h3>
+
+          <p>プログラムでは、日常的な小さな判断から、プログラムの継続可否に関わる重大な判断まで、多様なレベルの意思決定が発生します。意思決定アプローチでは、どのレベルの判断を誰が行うかをあらかじめ定義しておくことで、迅速かつ一貫性のある対応を可能にします。一般的には、プロジェクトレベル → プログラムマネージャーレベル → プログラムボードレベル → スポンサリンググループレベルという階層でエスカレーションの経路が設計されます。</p>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>リスクレジスターを「作って終わり」にせず、各トランシェレビュー(Evaluate New Information)のタイミングで必ず再評価する。</li>
+              <li>課題はリスクが顕在化したものであることが多い。リスク対応が功を奏さなかった場合に、速やかに課題として扱いを切り替える運用ルールを持つ。</li>
+              <li>意思決定レジスターに「なぜその判断をしたか」の根拠まで記録することで、後からの説明責任だけでなく、将来の類似プログラムへの教訓(Knowledgeテーマ)としても活用する。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Passitexams「MSP Practitioner 5th Ed Study Guide」、Open Exam Prep解説記事</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 11 -->
         <section id="assurance">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:scale" aria-hidden="true" />SECTION 11</div>
           <h2>アシュアランスと三線防御モデル</h2>
+
+          <p>MSPのAssuranceテーマは、一般的なガバナンス・内部統制分野で広く使われる「<strong>三線防御モデル(Three Lines of Defence)</strong>」の考え方を、プログラムマネジメントの文脈に適用したものです。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_THREE_LINES" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">アシュアランスと三線防御モデル</div>
+          </div>
+
+          <ul>
+            <li><strong>第1線(First Line)</strong>: プロジェクト・プログラムを直接運営する現場のマネジメント。リスクを識別し、コントロールを実装し、進捗を報告する一次的な責任を負う。</li>
+            <li><strong>第2線(Second Line)</strong>: リスク管理・品質管理・情報セキュリティ・コンプライアンスなど、現場から独立しつつも経営のマネジメントラインの一部として、第1線の実践を監督・支援する機能。</li>
+            <li><strong>第3線(Third Line)</strong>: 内部監査に代表される、第1線・第2線から独立した客観的な保証を提供する機能。監査委員会・取締役会に直接報告する。</li>
+          </ul>
+
+          <p>試験でも問われる重要な文書として、<strong>アシュアランス・アプローチ(Assurance Approach)</strong>があります。これは三線それぞれについて、どのような監視活動を実施するかを定義する文書です。</p>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>同一人物・同一チームが複数の線の役割を兼務しないよう、責任分界を明確にする。第2線と第1線を兼ねてしまうと、客観的な監督機能が失われる。</li>
+              <li>第3線(独立監査)の存在意義は「第1線・第2線が機能しているかどうか」を確認することにある。個別の作業内容そのものを再チェックする役割ではない点を混同しない。</li>
+              <li>アシュアランス活動はプログラム計画の初期段階から組み込み、監査を「後から差し込まれるもの」にしない。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>Good Governance Institute「The three lines of defence for assurance and reassurance」、Acumon「The Three Lines of Defence Model — and Its 2020 Successor」(IIAによる2020年改訂の考え方を含む一般的な三線モデルの解説)</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 12 -->
         <section id="tailoring">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:refresh" aria-hidden="true" />SECTION 12</div>
           <h2>テーラリング ― 組織・状況への適応</h2>
+
+          <p>MSPは「そのまま適用すべき固定的な手順書」ではなく、組織やプログラムの状況に応じて調整(テーラリング)することが前提のフレームワークです。5th editionでは、各テーマ章に4つの「プログラムの動機(ドライバー)」別シナリオが用意されており、これがテーラリングの学習材料となっています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>ドライバー</th><th>想定される状況</th></tr></thead>
+              <tbody>
+                <tr><td>Innovation and growth(革新と成長)</td><td>新規事業・新市場開拓など、成長を目的とした変革</td></tr>
+                <tr><td>Organizational re-alignment(組織再編)</td><td>合併・買収・組織再編など、構造そのものを変える変革</td></tr>
+                <tr><td>Effective delivery(効果的なデリバリー)</td><td>複雑で大規模な変革を、確実に効果を出しながら進める必要がある状況</td></tr>
+                <tr><td>Efficient delivery(効率的なデリバリー)</td><td>資源制約の中で、複数の変革を効率よく並行して進める必要がある状況</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>テーラリングは「MSPの一部を省略すること」ではなく、「原則・テーマ・プロセスの本質を保ったまま、適用の深さや形式を状況に合わせること」と理解する。</li>
+              <li>小規模なプログラムでは、ガバナンスボードの構成を簡略化する(例: SROがプログラムマネージャーを兼務する等)ことはあり得るが、原則そのもの(特にRealize measurable benefitsやDeal with ambiguity)を無視してよいわけではない。</li>
+              <li>アジャイルなデリバリーを行うプロジェクトが混在するプログラムでは、Structureテーマのトランシェ設計を、スプリント / リリースサイクルと整合させるようテーラリングする。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>GoodeLearning「MSP 5th Edition: What's Changed About Managing Successful Programmes?」</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 13 -->
