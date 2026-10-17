@@ -215,6 +215,29 @@ classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
 
 class S1,S2,S3,S4,S5 box
 class S6 hub`;
+
+const DIAGRAM_OPERATEFIG14 = `flowchart TB
+S1["監視対象・指標 SLIの定義"] --> S2["継続的な監視 Monitoring"]
+S2 --> S3["イベントの検知・ 分類"]
+S3 --> S4{"対応要否の 判定"}
+S4 -->|自動修復可能| S5["自動修復 Self-healing"]
+S4 -->|人的対応が必要| S6["Support 活動へ エスカレーション"]
+S5 --> S7["パフォーマンス記録・ キャパシティ管理へ反映"]
+S6 --> S7
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px
+class S1,S2,S3,S5,S7 box
+class S4 hub
+class S6 box`;
+
+const DIAGRAM_DELIVERFIG15 = `flowchart TB
+S1["リクエスト受付 Service Desk ポータル"] --> S2["リクエストの分類・ 承認要否判定"]
+S2 --> S3["履行 Fulfilment"]
+S3 --> S4["ユーザーへの 提供完了通知"]
+S4 --> S5["SLA XLA 実績の 記録・レポーティング"]
+S5 --> S6["フィードバック収集"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`;
 </script>
 
 <template>
@@ -1642,6 +1665,205 @@ class S6 hub`;
           <li><strong>変更の分類に応じて審査の重さを変える</strong>: 低リスクで頻度の高い変更(標準変更)は事前承認済みの自動化パイプラインに乗せ、高リスクな変更にのみ人的なレビューの労力を集中させてください。すべての変更を同じ重さで審査すると、変更管理そのものがボトルネックになります。</li>
           <li><strong>ロールバック手順は展開前に必ず検証しておく</strong>: 本番障害が発生してから初めてロールバック手順を試す、という事態は避けてください。カナリアリリースやBlue-Greenデプロイメントは、ロールバックの容易さという観点でも有効です。</li>
           <li><strong>Deployment Frequency と Change Failure Rate をセットで追う</strong>: リリース頻度だけを追うと品質が犠牲になり、変更失敗率だけを追うとリリースが停滞します。両方を DORA 指標的な発想でバランスさせてください。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+      <section id="module7-operate" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:activity" aria-hidden="true" />SECTION 09</div>
+      <h2>Module 7: Operate(運用)</h2>
+
+      <p>Operate は、PeopleCert の紹介文にある「運用の信頼性(operational reliability)」を直接担う、Service モジュールの中核的な活動です。</p>
+
+      <h3>8.1 目的(Purpose)</h3>
+
+      <p>Operate 活動の目的は、<strong>デジタル製品とそれを支えるシステムを維持・監視し、最適なパフォーマンスと信頼性を確保し続けること</strong> です。</p>
+
+      <h3>8.2 主要概念</h3>
+
+      <ul>
+        <li><strong>可観測性(Observability)</strong>: ログ・メトリクス・トレースの3要素を通じて、システム内部の状態を外部から推測できる度合い。単なる「監視(Monitoring)」よりも一段広い概念で、未知の障害モードにも対応できる設計を指す</li>
+        <li><strong>信頼性(Reliability)</strong>: システムが期待どおりに機能し続ける度合い。SRE(Site Reliability Engineering)の考え方では、<strong>SLI(Service Level Indicator)</strong>、<strong>SLO(Service Level Objective)</strong>、<strong>エラーバジェット(Error Budget)</strong> という具体的な指標体系で運用される</li>
+        <li><strong>イベント(Event)</strong>: サービス管理上意味のある状態変化。すべてのイベントが問題を意味するわけではなく、正常な状態変化(情報イベント)、注意を要する状態(警告イベント)、異常事態(例外イベント)に分類される</li>
+      </ul>
+
+      <h3>8.3 Operate を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Operate における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Monitoring and Event Management(監視とイベント管理)</td>
+              <td>システムの状態を継続的に監視し、イベントを検知・分類・対応につなげる</td>
+            </tr>
+            <tr>
+              <td>Infrastructure and Platform Management(インフラ・プラットフォーム管理)</td>
+              <td>基盤システムの可用性・キャパシティを維持する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>8.4 Operate 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_OPERATEFIG14" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>8.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>稼働中の製品・サービス</li>
+        <li>パフォーマンス記録・キャパシティトレンドデータ</li>
+        <li>イベントログ、アラート履歴</li>
+      </ul>
+
+      <h3>8.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>サービスの可用性が目標水準を維持している</td>
+              <td>稼働率(Uptime)、SLO 達成率、エラーバジェットの消費率</td>
+            </tr>
+            <tr>
+              <td>異常を早期に検知できている</td>
+              <td>平均検知時間(MTTD: Mean Time To Detect)</td>
+            </tr>
+            <tr>
+              <td>監視のノイズが管理されている</td>
+              <td>誤検知(false positive)率、アラート疲労の指標(1人当たりのアラート受信数)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>8.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>「監視しているか」ではなく「意味のあるアラートを出せているか」を問う</strong>: ログを大量に集めていても、アラートが多すぎて誰も見なくなる「アラート疲労」は運用信頼性を著しく損ないます。SLO 逸脱に直結する少数の重要指標にアラートを絞り込んでください。</li>
+          <li><strong>エラーバジェットで意思決定する</strong>: 可用性目標に対する余裕(エラーバジェット)を可視化し、余裕があるうちは新機能リリースを積極化し、消費し尽くしたらリリースを抑制して安定化に注力する、というメリハリのある運用判断を行ってください。</li>
+          <li><strong>自動修復(Self-healing)を段階的に拡張する</strong>: まず既知のパターンに対する自動復旧(再起動、スケールアウトなど)から始め、信頼が蓄積された範囲を徐々に広げてください。人手を完全に排除することではなく、人が本当に判断すべき例外に集中できる状態を作ることが目的です。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+
+<section id="module8-deliver" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:truck-delivery" aria-hidden="true" />SECTION 10</div>
+      <h2>Module 8: Deliver(提供)</h2>
+
+      <h3>9.1 目的(Purpose)</h3>
+
+      <p>Deliver 活動の目的は、<strong>アクセスとリクエストを管理しながらサービスをユーザーへ提供し、フィードバックを収集すること</strong> です。ここは PSLM の中で最も直接的に「価値の共創」がユーザーの手元で起こる段階です。</p>
+
+      <h3>9.2 サービス提供活動がどのように価値共創を可能にするか</h3>
+
+      <p>Deliver 活動は、単に「サービスを使えるようにする」だけでなく、消費者が実際にアウトカムを実現できるよう能動的に支援する段階です。アクセス権の付与、オンボーディング、リクエストへの迅速な対応はすべて、ユーザーが自らコストとリスクを管理せずに済むようにするという「サービス」の定義(1.1参照)を具現化する活動です。</p>
+
+      <h3>9.3 主要概念</h3>
+
+      <ul>
+        <li><strong>アクセス管理</strong>: 適切な人に、適切なタイミングで、適切な権限を付与・削除する</li>
+        <li><strong>サービスリクエスト</strong>: あらかじめ合意された、定型的な要求(パスワードリセット、アクセス権限の追加、新規アカウント発行など)。インシデント(予期しない障害)とは明確に区別される</li>
+        <li><strong>セルフサービス化</strong>: ポータルやチャットボットを通じて、ユーザー自身が定型リクエストを完結できるようにする仕組み</li>
+      </ul>
+
+      <h3>9.4 Deliver を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Deliver における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Service Request Management(サービスリクエスト管理)</td>
+              <td>定型的な要求を受付から履行まで一貫して管理する</td>
+            </tr>
+            <tr>
+              <td>Service Level Management(サービスレベル管理)</td>
+              <td>合意した SLA/XLA に対する実績を継続的にモニタリング・報告する</td>
+            </tr>
+            <tr>
+              <td>Service Desk(サービスデスク)</td>
+              <td>ユーザーとサービスプロバイダーの単一の接点(Single Point of Contact)として機能する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>9.5 Deliver 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DELIVERFIG15" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>9.6 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>消費者に提供されたサービス</li>
+        <li>SLA 実績レポート</li>
+        <li>ユーザーフィードバック・満足度データ</li>
+      </ul>
+
+      <h3>9.7 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>リクエストが迅速かつ正確に履行されている</td>
+              <td>平均履行時間、初回解決率(First Contact Resolution)</td>
+            </tr>
+            <tr>
+              <td>SLA/XLA の実績が目標を満たしている</td>
+              <td>SLA 達成率、XLA スコア(体験指標)</td>
+            </tr>
+            <tr>
+              <td>セルフサービスの活用が進んでいる</td>
+              <td>セルフサービス経由での解決率</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>9.8 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>サービスリクエストとインシデントを混同しない</strong>: 定型的な依頼(リクエスト)と予期しない障害(インシデント)を同じキューで扱うと、優先順位づけが破綻します。カタログ化されたリクエストは可能な限り自動履行のワークフローに乗せてください。</li>
+          <li><strong>SLA レポートを「守れたか否か」の報告に留めない</strong>: 達成率の推移、逸脱の根本原因、次のサイクルでの改善計画までをセットで報告し、Service Level Management を継続的改善のインプットとして機能させてください。</li>
+          <li><strong>セルフサービスは「置き換え」ではなく「選択肢」として提供する</strong>: すべてのユーザーがセルフサービスを好むわけではありません。人的サポートへのエスカレーション経路を必ず残し、体験(Experience)の観点で選べる状態を維持してください。</li>
         </ul>
       </div>
     </section>
