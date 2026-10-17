@@ -743,29 +743,25 @@ MSPは「そのまま適用すべき固定的な手順書」ではなく、組�
    https://umbrex.com/resources/frameworks/project-management-frameworks/msp-managing-successful-programmes/
 6. TrustedInstitute "The MSP Processes and Programme Lifecycle Flashcards"
    https://trustedinstitute.com/flashcards/msp-foundation/the-msp-processes-and-programme-lifecycle/
-7. Open Exam Prep "100+ Free MSP Foundation Practice Questions"
-   https://open-exam-prep.com/practice/msp-foundation
-8. Know-How-What "Key Roles in Managing Successful Programmes 5th Edition"
+7. Know-How-What "Key Roles in Managing Successful Programmes 5th Edition"
    http://www.know-how-what.com/Home/news-detail/key-roles-in-managing-successful-programmes-5th-edition
-9. PDCAコンサルティング MSP 5th Edition サマリー資料（PDF）
+8. PDCAコンサルティング MSP 5th Edition サマリー資料（PDF）
    https://pdcaconsulting.com/wp-content/uploads/2025/03/MSP-Summary-v5.pdf
-10. TheKnowledgeAcademy "MSP Blueprint - (Managing Successful Programmes)"
-    https://www.theknowledgeacademy.com/blog/msp-blueprint/
-11. Axelos MSP Practitioner Candidate Syllabus（PDF・公式シラバス）
+9. TheKnowledgeAcademy "MSP Blueprint - (Managing Successful Programmes)"
+   https://www.theknowledgeacademy.com/blog/msp-blueprint/
+10. Axelos MSP Practitioner Candidate Syllabus（PDF・公式シラバス）
     https://www.avtechcn.com/pdf/M-S-P-5th-Edition-Practitioner_Candidate_Syllabus.pdf
-12. TheKnowledgeAcademy "MSP® Courses"（7テーマ・コースアウトライン）
+11. TheKnowledgeAcademy "MSP® Courses"（7テーマ・コースアウトライン）
     https://www.theknowledgeacademy.com/courses/msp-training/
-13. 1World Training "MSP Foundation, 5th Edition"各種コース概要（モジュール構成）
+12. 1World Training "MSP Foundation, 5th Edition"各種コース概要（モジュール構成）
     https://www.1worldtraining.com/book/live-online/3-days-live-online/msp-foundation-live-online-and-official-peoplecert-certification-exam-course-code-mspfnd-l/
-14. Tecknologia "Managing Successful Programmes (MSP) Manual"（PeopleCertによるリブランディングの記載）
+13. Tecknologia "Managing Successful Programmes (MSP) Manual"（PeopleCertによるリブランディングの記載）
     https://www.tecknologia.co.uk/home/book-detail/managing-successful-programmes-(msp)-manual
-15. Good Governance Institute "The three lines of defence for assurance and reassurance"
+14. Good Governance Institute "The three lines of defence for assurance and reassurance"
     https://www.good-governance.org.uk/publications/insights/the-three-lines-of-defence-for-assurance-and-reassurance
-16. Acumon "The Three Lines of Defence Model — and Its 2020 Successor"
+15. Acumon "The Three Lines of Defence Model — and Its 2020 Successor"
     https://acumon.com/blog/three-lines-of-defence-model/
-17. Passitexams "MSP Practitioner (5th Edition) Study Guide 2026"
-    https://passitexams.com/study-guide/msp-practitioner/
-18. Aaron Percival "Innovate, Iterate, Integrate"（プロセスの循環構造の解説）
+16. Aaron Percival "Innovate, Iterate, Integrate"（プロセスの循環構造の解説）
     https://aaronpercival.substack.com/p/innovate-iterate-integrate
 
 > **注記**：本ガイドは学習補助のために独自にまとめた二次資料であり、PeopleCert公式教材の代替とはなりません。試験対策には、必ず公式の Managing Successful Programmes 5th edition マニュアルおよび公式サンプル問題を併用してください。

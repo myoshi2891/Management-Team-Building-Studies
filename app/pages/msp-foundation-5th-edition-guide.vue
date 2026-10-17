@@ -233,14 +233,14 @@ useSeoMeta({
     <div class="layout">
       <aside id="sidebar" class="sidebar" :class="{ 'is-open': sidebarOpen }" aria-label="目次">
         <div class="sidebar-brand">
-          <svg class="seal" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="36" height="36" rx="8" fill="#EEF1F8"/>
-            <path d="M10 24L18 10L26 24H10Z" stroke="#2E3F72" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="18" cy="19" r="2" fill="#B8802A"/>
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <div class="brand-text">
-            <div class="brand-title">MSP 5th Guide</div>
-            <div class="brand-subtitle">Foundation 学習ガイド</div>
+            <div class="brand-title">MSP® 完全ガイド</div>
+            <div class="brand-subtitle">Foundation 5th edition</div>
           </div>
         </div>
 
@@ -1042,24 +1042,139 @@ useSeoMeta({
         <section id="checklist">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 13</div>
           <h2>テーマ・プロセス別ベストプラクティスチェックリスト</h2>
+
+          <h3>Organizationテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">SROに十分な権限と組織内影響力があるか確認したか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">BCMを事業側から選任したか(プログラム実行側との兼務を避けたか)</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">プログラムオフィスが単なる事務局でなく情報ハブとして機能しているか</span></label>
+          </div>
+
+          <h3>Designテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">ビジョンステートメントが簡潔で、具体的な期日を含まない表現になっているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">Target Operating Modelを「一度作って終わり」にせず更新し続けているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">ビジョンとTOMが明確に紐づいているか</span></label>
+          </div>
+
+          <h3>Justificationテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">ビジネスケースを各トランシェレビューのたびに見直しているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">非金銭的ベネフィットも定義・測定方法を決めているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">ディスベネフィットを隠さず明示しているか</span></label>
+          </div>
+
+          <h3>Structureテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">トランシェの区切りをベネフィット実現の観点で設計しているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">各トランシェの終わりに正式なレビューゲートを設けているか</span></label>
+          </div>
+
+          <h3>Knowledgeテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">教訓を形式的な儀式でなく、次のトランシェ計画に実際に反映しているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">情報アクセス権限とバージョン管理のルールを明文化しているか</span></label>
+          </div>
+
+          <h3>Assuranceテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">三線の役割・責任者が明確に分かれており、兼務による利益相反がないか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">アシュアランス活動を計画の初期段階から組み込んでいるか</span></label>
+          </div>
+
+          <h3>Decisionsテーマ</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">リスクと課題を区別し、それぞれの記録・エスカレーション経路を明文化しているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">意思決定の根拠を記録に残しているか</span></label>
+          </div>
+
+          <h3>プロセス全体</h3>
+
+          <div class="check-list">
+            <label class="check-item"><input type="checkbox"><span class="check-text">Identifyのプロセスを「短く鋭く」保ち、詳細検討を先送りできているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">Evaluate New Informationのゲートで「Stop」という選択肢が実質的に機能しているか</span></label>
+            <label class="check-item"><input type="checkbox"><span class="check-text">プログラムクローズ後のベネフィット追跡責任の引き継ぎ先を決めているか</span></label>
+          </div>
         </section>
 
         <!-- Section 14 -->
         <section id="anti-patterns">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:flag-3" aria-hidden="true" />SECTION 14</div>
           <h2>よくある落とし穴(アンチパターン)</h2>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>アンチパターン</th><th>何が問題か</th><th>対処のヒント</th></tr></thead>
+              <tbody>
+                <tr><td>プログラムをただの「大きなプロジェクト」として扱う</td><td>アウトプット管理に終始し、ベネフィット・アウトカムへの意識が薄れる</td><td>Justification・Designテーマを起点に、常にベネフィットへの貢献を問い直す</td></tr>
+                <tr><td>SROが名目上の存在にとどまる</td><td>重要な意思決定が滞留し、プログラムの推進力が失われる</td><td>Organizationテーマに基づき、SROの実質的な権限とコミットメントを確認する</td></tr>
+                <tr><td>ビジネスケースを一度作って更新しない</td><td>環境変化に投資判断が追従できず、手遅れになるまで気づかない</td><td>Evaluate New Informationのタイミングでビジネスケースの見直しを必須プロセスとする</td></tr>
+                <tr><td>トランシェレビューを形骸化させる</td><td>本来ここで下せる「Stop」判断が事実上機能しなくなる</td><td>レビューの評価基準(ベネフィット実現度、戦略整合性)を事前に明文化しておく</td></tr>
+                <tr><td>アシュアランスの三線を兼務させる</td><td>客観的な保証が得られず、問題の早期発見が遅れる</td><td>第1〜3線の責任者を明確に分離し、報告ラインを独立させる</td></tr>
+                <tr><td>教訓を蓄積するだけで活用しない</td><td>同じ失敗を繰り返し、継続的改善が進まない</td><td>Knowledgeテーマの教訓を、次のPlan Progressive Deliveryの計画に必ず反映するルールにする</td></tr>
+              </tbody>
+            </table>
+          </div>
         </section>
 
         <!-- Section 15 -->
         <section id="glossary">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 15</div>
           <h2>用語集</h2>
+
+          <div class="glossary-grid">
+            <div class="glossary-item"><div class="g-term">プログラム(Programme)</div><div class="g-def">関連する複数のプロジェクトや活動を調整・指揮・監督するために作られた、一時的で柔軟な組織。組織の戦略目標に関連するアウトカムとベネフィットの実現を目的とする</div></div>
+            <div class="glossary-item"><div class="g-term">プロジェクト(Project)</div><div class="g-def">合意されたビジネスケースに従って1つ以上のアウトプットを提供する一時的な組織</div></div>
+            <div class="glossary-item"><div class="g-term">アウトプット(Output)</div><div class="g-def">プロジェクトが提供する具体的な成果物</div></div>
+            <div class="glossary-item"><div class="g-term">アウトカム(Outcome)</div><div class="g-def">アウトプットの利用によってもたらされる、業務や行動の変化の結果</div></div>
+            <div class="glossary-item"><div class="g-term">ベネフィット(Benefit)</div><div class="g-def">アウトカムによってもたらされる測定可能な改善で、組織目標に貢献するもの</div></div>
+            <div class="glossary-item"><div class="g-term">ディスベネフィット(Dis-benefit)</div><div class="g-def">アウトカムによって生じる測定可能な悪化で、組織目標を損なうもの</div></div>
+            <div class="glossary-item"><div class="g-term">Target Operating Model(TOM)</div><div class="g-def">プログラム完了後の組織の将来状態を、役割・文化・プロセス・技術・情報・知識などの観点で描写したモデル(旧称: ブループリント)</div></div>
+            <div class="glossary-item"><div class="g-term">トランシェ(Tranche)</div><div class="g-def">ケイパビリティの段階的な変化とベネフィット実現を軸に編成された、一連のプロジェクト・活動のまとまり</div></div>
+            <div class="glossary-item"><div class="g-term">SRO(Senior Responsible Owner)</div><div class="g-def">プログラムのアウトカム実現に対して全体的な説明責任を負う役割</div></div>
+            <div class="glossary-item"><div class="g-term">BCM(Business Change Manager)</div><div class="g-def">事業側から選任され、提供されたアウトプットを業務に定着させベネフィット実現を担う役割</div></div>
+            <div class="glossary-item"><div class="g-term">三線防御モデル(Three Lines of Defence)</div><div class="g-def">現場管理・監視機能・独立監査という3つの層でアシュアランスを構造化するモデル</div></div>
+            <div class="glossary-item"><div class="g-term">プログラムマンデート(Programme Mandate)</div><div class="g-def">プログラム識別プロセスの起点となる、経営層からの戦略的方向性の表明</div></div>
+          </div>
         </section>
 
         <!-- Section 16 -->
         <section id="references">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 16</div>
           <h2>参考文献・ソース一覧</h2>
+
+          <p>本ガイドの作成にあたり、以下の一次情報・解説記事を参照しました。詳細な学習には、PeopleCert公式の Managing Successful Programmes 5th edition マニュアル(公式教材)を必ず参照してください。</p>
+
+          <div class="ref-cards" role="list">
+            <div class="ref-card" role="listitem"><div class="ref-num">1</div><div class="ref-body"><span class="ref-name">PeopleCert公式 MSP Foundation, 5th edition 製品ページ(試験概要・出題テーマ)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">2</div><div class="ref-body"><span class="ref-name">Henny Portman "Brief comparison between MSP 5th edition and MSP 2011 edition"(原則・テーマ・プロセス対応表)</span><a class="ref-url" href="https://hennyportman.wordpress.com/2020/10/07/brief-comparison-between-msp-5th-edition-and-msp-2011-edition/" target="_blank" rel="noopener">https://hennyportman.wordpress.com/2020/10/07/brief-comparison-between-msp-5th-edition-and-msp-2011-edition/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">3</div><div class="ref-body"><span class="ref-name">Good e-Learning "MSP 5th Edition: What's Changed About Managing Successful Programmes?"</span><a class="ref-url" href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/" target="_blank" rel="noopener">https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">4</div><div class="ref-body"><span class="ref-name">PM Today "MSP 5th Edition: The What, Where And Why"</span><a class="ref-url" href="https://www.pmtoday.co.uk/msp-5th-edition-the-what-where-and-why/" target="_blank" rel="noopener">https://www.pmtoday.co.uk/msp-5th-edition-the-what-where-and-why/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">5</div><div class="ref-body"><span class="ref-name">Umbrex "MSP (Managing Successful Programmes)" フレームワーク解説</span><a class="ref-url" href="https://umbrex.com/resources/frameworks/project-management-frameworks/msp-managing-successful-programmes/" target="_blank" rel="noopener">https://umbrex.com/resources/frameworks/project-management-frameworks/msp-managing-successful-programmes/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">6</div><div class="ref-body"><span class="ref-name">TrustedInstitute "The MSP Processes and Programme Lifecycle Flashcards"</span><a class="ref-url" href="https://trustedinstitute.com/flashcards/msp-foundation/the-msp-processes-and-programme-lifecycle/" target="_blank" rel="noopener">https://trustedinstitute.com/flashcards/msp-foundation/the-msp-processes-and-programme-lifecycle/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">7</div><div class="ref-body"><span class="ref-name">Know-How-What "Key Roles in Managing Successful Programmes 5th Edition"</span><a class="ref-url" href="http://www.know-how-what.com/Home/news-detail/key-roles-in-managing-successful-programmes-5th-edition" target="_blank" rel="noopener">http://www.know-how-what.com/Home/news-detail/key-roles-in-managing-successful-programmes-5th-edition</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">8</div><div class="ref-body"><span class="ref-name">PDCAコンサルティング MSP 5th Edition サマリー資料(PDF)</span><a class="ref-url" href="https://pdcaconsulting.com/wp-content/uploads/2025/03/MSP-Summary-v5.pdf" target="_blank" rel="noopener">https://pdcaconsulting.com/wp-content/uploads/2025/03/MSP-Summary-v5.pdf</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">9</div><div class="ref-body"><span class="ref-name">TheKnowledgeAcademy "MSP Blueprint - (Managing Successful Programmes)"</span><a class="ref-url" href="https://www.theknowledgeacademy.com/blog/msp-blueprint/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/blog/msp-blueprint/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">10</div><div class="ref-body"><span class="ref-name">Axelos MSP Practitioner Candidate Syllabus(PDF・公式シラバス)</span><a class="ref-url" href="https://www.avtechcn.com/pdf/M-S-P-5th-Edition-Practitioner_Candidate_Syllabus.pdf" target="_blank" rel="noopener">https://www.avtechcn.com/pdf/M-S-P-5th-Edition-Practitioner_Candidate_Syllabus.pdf</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">11</div><div class="ref-body"><span class="ref-name">TheKnowledgeAcademy "MSP® Courses"(7テーマ・コースアウトライン)</span><a class="ref-url" href="https://www.theknowledgeacademy.com/courses/msp-training/" target="_blank" rel="noopener">https://www.theknowledgeacademy.com/courses/msp-training/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">12</div><div class="ref-body"><span class="ref-name">1World Training "MSP Foundation, 5th Edition"各種コース概要(モジュール構成)</span><a class="ref-url" href="https://www.1worldtraining.com/book/live-online/3-days-live-online/msp-foundation-live-online-and-official-peoplecert-certification-exam-course-code-mspfnd-l/" target="_blank" rel="noopener">https://www.1worldtraining.com/book/live-online/3-days-live-online/msp-foundation-live-online-and-official-peoplecert-certification-exam-course-code-mspfnd-l/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">13</div><div class="ref-body"><span class="ref-name">Tecknologia "Managing Successful Programmes (MSP) Manual"(PeopleCertによるリブランディングの記載)</span><a class="ref-url" href="https://www.tecknologia.co.uk/home/book-detail/managing-successful-programmes-(msp)-manual" target="_blank" rel="noopener">https://www.tecknologia.co.uk/home/book-detail/managing-successful-programmes-(msp)-manual</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">14</div><div class="ref-body"><span class="ref-name">Good Governance Institute "The three lines of defence for assurance and reassurance"</span><a class="ref-url" href="https://www.good-governance.org.uk/publications/insights/the-three-lines-of-defence-for-assurance-and-reassurance" target="_blank" rel="noopener">https://www.good-governance.org.uk/publications/insights/the-three-lines-of-defence-for-assurance-and-reassurance</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">15</div><div class="ref-body"><span class="ref-name">Acumon "The Three Lines of Defence Model — and Its 2020 Successor"</span><a class="ref-url" href="https://acumon.com/blog/three-lines-of-defence-model/" target="_blank" rel="noopener">https://acumon.com/blog/three-lines-of-defence-model/</a></div></div>
+            <div class="ref-card" role="listitem"><div class="ref-num">16</div><div class="ref-body"><span class="ref-name">Aaron Percival "Innovate, Iterate, Integrate"(プロセスの循環構造の解説)</span><a class="ref-url" href="https://aaronpercival.substack.com/p/innovate-iterate-integrate" target="_blank" rel="noopener">https://aaronpercival.substack.com/p/innovate-iterate-integrate</a></div></div>
+          </div>
+
+          <div class="callout note" data-variant="note" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />注記</div>
+            <p>本ガイドは学習補助のために独自にまとめた二次資料であり、PeopleCert公式教材の代替とはなりません。試験対策には、必ず公式の Managing Successful Programmes 5th edition マニュアルおよび公式サンプル問題を併用してください。</p>
+          </div>
         </section>
 
         <footer>

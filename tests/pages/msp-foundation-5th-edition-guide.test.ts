@@ -112,8 +112,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://acumon.com/blog/three-lines-of-defence-model/",
   "https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/",
   "https://hennyportman.wordpress.com/2020/10/07/brief-comparison-between-msp-5th-edition-and-msp-2011-edition/",
-  "https://open-exam-prep.com/practice/msp-foundation",
-  "https://passitexams.com/study-guide/msp-practitioner/",
   "https://pdcaconsulting.com/wp-content/uploads/2025/03/MSP-Summary-v5.pdf",
   "https://trustedinstitute.com/flashcards/msp-foundation/the-msp-processes-and-programme-lifecycle/",
   "https://umbrex.com/resources/frameworks/project-management-frameworks/msp-managing-successful-programmes/",
