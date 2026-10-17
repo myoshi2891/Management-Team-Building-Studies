@@ -436,12 +436,193 @@ useSeoMeta({
       <section id="five-principles">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:shield-check" aria-hidden="true" />SECTION 04</div>
         <h2>5つの原則(Principles)</h2>
+
+        <p>「原則(Principle)」とは、あらゆる状況に適用できる基本的な前提のことです。MoPは5つの原則をすべて適用することを求めますが、組織の実情に合わせてテーラリング(調整)することも認めています。</p>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_PRINCIPLES" />
+          </div>
+          <div class="diagram-caption">5つの原則の関係性</div>
+        </div>
+
+        <h3>4.1 上級管理層のコミットメント(Senior Management Commitment)</h3>
+
+        <p><strong>目的</strong>: どんな変革施策も、トップの支持なしには成功しません。MoPが5原則の筆頭にこれを置いているのはそのためです。</p>
+
+        <p><strong>達成のポイント</strong></p>
+        <ul>
+          <li><strong>ガバナンス構造への積極的な関与と承認</strong>: 上級管理層はポートフォリオ・ディレクション・グループの一員として、優先順位付け基準の承認、予算・資源の承認、責任分担の合意、ポートフォリオマネジメントチームの組織上の位置づけの決定に関与します。</li>
+          <li><strong>専門知識の提供</strong>: 上級管理層が持つ組織固有の知見を、ポートフォリオマネジメントの実践に積極的に取り入れることが成功の一助となります。</li>
+          <li><strong>チャンピオンとして発信・伝達すること</strong>: ポートフォリオマネジメントが生み出す価値と、意思決定の根拠を組織全体に発信し続けることが求められます。</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/principles/senior-management-commitment/" target="_blank" rel="noopener noreferrer">mop.wiki「Senior Management Commitment」</a></li>
+            <li><a href="http://www.advantagelearning.co.uk/news/mop-5-principles.html" target="_blank" rel="noopener noreferrer">Advantage Learning</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>お気に入り案件にも例外を認めない。</strong>上級管理層自身の「お気に入り案件(pet project)」であっても、正式な優先順位付け基準を通過しなければポートフォリオに残せない、というルールを明文化し、例外なく適用すること。これが「アメとムチ」のうち“ムチ”の部分であり、原則を骨抜きにしないための最重要ルールです。</p>
+        </div>
+
+        <h3>4.2 ガバナンスの整合(Governance Alignment)</h3>
+
+        <p><strong>目的</strong>: どの意思決定を、誰が、どのレベルで行うのかが明確でなければ、ポートフォリオマネジメントは機能しません。</p>
+
+        <p><strong>達成のポイント</strong></p>
+        <ul>
+          <li>プロジェクト・プログラムマネージャーから、ポートフォリオ・プログレス・グループ、ディレクター / 投資委員会レベルまで、意思決定の階層構造を明示すること</li>
+          <li>P3O(Portfolio, Programme and Project Offices)モデルと整合させ、変革の影響を受けるBAU領域とも連携すること</li>
+          <li>各役割について、すぐ使えるテンプレートとしての役割記述(role description)を用意すること</li>
+          <li>組織内に複数のサブポートフォリオが存在する場合は、それぞれに一貫した原則・サイクルを適用し、整合を取ること</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/principles/governance-alignment/" target="_blank" rel="noopener noreferrer">mop.wiki「Governance Alignment」</a></li>
+            <li><a href="https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/" target="_blank" rel="noopener noreferrer">Lumify Work コース概要</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>全社とサブポートフォリオで様式を統一する。</strong>部門ごとのサブポートフォリオがある大企業では、当該部門以外の上級管理層がサブポートフォリオへの関心を失いがちです。全社ポートフォリオとサブポートフォリオで、同一の原則・サイクル・報告様式を使うことで一貫性を保ち、経営層の関心の希薄化を防ぐこと。</p>
+        </div>
+
+        <h3>4.3 戦略との整合(Strategy Alignment)</h3>
+
+        <p><strong>目的</strong>: 便益を生まない変革施策は、リソースの浪費と組織の混乱を招くだけです。ポートフォリオマネジメントの最終目的は、組織の戦略目標を達成することにあります。</p>
+
+        <p><strong>達成のポイント</strong></p>
+        <ul>
+          <li><strong>ドライバーベースモデル</strong>: 非常に高いレベルの戦略から、戦略目標、便益、そして最終的にそれらを実現する変革施策へと段階的にブレークダウンする手法を用いること</li>
+          <li><strong>文書化された戦略</strong>: バランスト・スコアカードのようなツールを用いて、戦略を測定可能な目標へと変換すること</li>
+          <li><strong>ビジネスケースと組織戦略の接続</strong>: すべてのプロジェクト・プログラムのビジネスケースにおいて、少なくとも1つの便益が組織の戦略目標のいずれかと紐づいていることを確認すること。紐づかない施策は、その存在意義自体を問い直す必要があります</li>
+        </ul>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_DRIVER_MODEL" />
+          </div>
+          <div class="diagram-caption">戦略からベネフィット、施策へのドライバーベースモデル</div>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/principles/strategy-alignment/" target="_blank" rel="noopener noreferrer">mop.wiki「Strategy Alignment」</a></li>
+            <li><a href="https://www.lumifywork.com/en-au/courses/management-of-portfolios-mop-foundation/" target="_blank" rel="noopener noreferrer">Lumify Work コース概要</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>ビジネスケースに戦略目標欄を必須化する。</strong>ビジネスケースのテンプレートに「本施策が貢献する戦略目標」を必須記入欄として設けること。これにより「戦略との整合」の原則を、レビュー担当者の主観に頼らず機械的にチェック可能な仕組みへと落とし込めます。</p>
+        </div>
+
+        <h3>4.4 ポートフォリオオフィス(Portfolio Office)</h3>
+
+        <p><strong>目的</strong>: ポートフォリオマネージャーが的確な意思決定を行うためには、最新かつ正確な情報を継続的に提供する専任のビジネス機能が必要です。この役割を担うのが「ポートフォリオオフィス」であり、物理的・仮想的な組織のいずれの形態も取り得ます。この原則はOGC(英国政府商務局)標準であるP3Oと強く結びついています。</p>
+
+        <p><strong>確立のポイント</strong></p>
+        <ul>
+          <li><strong>組織構造上の適切な位置づけ</strong>: C-level(経営層)に直接アクセスできる、C-levelの一段下程度の階層に置くことが望ましいとされます</li>
+          <li><strong>適切なリーダーシップ</strong>: ポートフォリオオフィスを率いる人材(ポートフォリオ・ディレクター)は、組織上層部と対等に議論でき、かつ現場のプロジェクト・プログラムマネジメントチームを導けるだけの知識・スキル・経験を持つ必要があります</li>
+          <li>要員は必ずしもフルタイムでなくてよく、組織の規模やアプローチに応じて柔軟に設計できます</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/principles/portfolio-office/" target="_blank" rel="noopener noreferrer">mop.wiki「Portfolio Office」</a></li>
+            <li><a href="http://www.advantagelearning.co.uk/news/mop-5-principles.html" target="_blank" rel="noopener noreferrer">Advantage Learning</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>P3Oモデルで機能分離する。</strong>ポートフォリオオフィスを、恒久的な機能(Permanent Portfolio Office)と、プログラム・プロジェクト単位で一時的に設置されるオフィス(temporary Programme/Project Office)、およびセンター・オブ・エクセレンス(Centre of Excellence)に機能分離するP3Oモデルを参考にすること。すべてを一つの巨大な恒久組織にまとめようとすると、組織変化への機敏さが失われます。</p>
+        </div>
+
+        <h3>4.5 活力ある変革文化(Energised Change Culture)</h3>
+
+        <p><strong>目的</strong>: ポートフォリオの成功は、プロセスと同じくらい「人」に依存します。この原則は、ポートフォリオの定義・デリバリーに向けて一丸となって取り組むエンゲージされたチームの必要性を扱う、MoPの“ソフト面”です。</p>
+
+        <p><strong>達成のポイント</strong>(詳細は次節「組織のエネルギー」を参照)</p>
+        <ul>
+          <li>上級管理層による継続的な発信と動機づけ</li>
+          <li>戦略目標から個人目標までの明確な紐づけ</li>
+          <li>従業員エンゲージメント戦略の展開</li>
+          <li>組織文化に見合った適切な公式度(フォーマリティ)の設定</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/principles/energised-change-culture/" target="_blank" rel="noopener noreferrer">mop.wiki「Energised Change Culture」</a></li>
+            <li><a href="https://www.lumifywork.com/en-ph/offers/mop-foundation-and-practitioner-combo/" target="_blank" rel="noopener noreferrer">Lumify Work</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>役割記述を縦に一貫させる。</strong>役割記述(role description)を、組織戦略 → ポートフォリオ → プログラム / プロジェクト → 個人の職務内容、という縦のラインで一貫させること。従業員が「自分の日々の仕事が、どの戦略目標にどうつながっているか」を説明できる状態を目指します。</p>
+        </div>
       </section>
 
       <!-- Section 5 -->
       <section id="organizational-energy">
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:bolt" aria-hidden="true" />SECTION 05</div>
         <h2>組織のエネルギーと活力ある変革文化</h2>
+
+        <p>「組織のエネルギー(Organizational Energy)」とは、組織目標の達成に向けた、組織内のすべての個人の努力の集合体です。ここでいう「努力」は単なる作業量ではなく、チーム全体の感情・行動・認知面でのコミットメントの度合いを指します。</p>
+
+        <h3>5.1 組織のエネルギーの4つの源泉(4つのC)</h3>
+
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <MermaidDiagram :chart="DIAGRAM_FOUR_CS" />
+          </div>
+          <div class="diagram-caption">組織のエネルギーの4つの源泉(4つのC)</div>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/management-cycles/organizational-energy/" target="_blank" rel="noopener noreferrer">mop.wiki「Organizational Energy」</a></li>
+          </ul>
+        </div>
+
+        <h3>5.2 組織のエネルギーとポートフォリオマネジメントの関係</h3>
+
+        <p>組織のエネルギーは、あらゆる組織的取り組みの成否を左右しますが、とりわけポートフォリオマネジメントの導入においては組織全体に影響が及ぶため、その重要性は一層高まります。生産的なエネルギー(productive energy)は、以下によって引き出すことができます。</p>
+
+        <ul>
+          <li>上級管理層によるコミットメント・コミュニケーション・関与</li>
+          <li>従業員エンゲージメント</li>
+          <li>実効性のあるガバナンス</li>
+          <li>組織全体の成功への焦点化</li>
+        </ul>
+
+        <p>MoP自体は組織のエネルギーを変化させる具体的技法までは規定していませんが、Heike BruchとBernd Vogelの著書『Fully Charged: How Great Leaders Boost Their Organization's Energy and Ignite High Performance』などが参考文献として挙げられています。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://mop.wiki/management-cycles/organizational-energy/" target="_blank" rel="noopener noreferrer">mop.wiki「Organizational Energy」</a></li>
+          </ul>
+        </div>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p><strong>4つのCの観点で定性的にモニタリングする。</strong>同一組織内でも、チームによって「生産的エネルギー」を持つ部署と「消耗的エネルギー(corrosive energy)」を持つ部署が併存することがあります。ポートフォリオオフィスは、四半期レビューなどの定例の場で、単に進捗(KPI)だけでなくこの4つのCの観点からチームの状態を定性的にモニタリングすることが望ましいです。</p>
+        </div>
       </section>
 
       <!-- Section 6 -->
