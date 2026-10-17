@@ -346,7 +346,6 @@ defineSourceParityContract({
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: [],
-  allowedHeadingSkips: ["h2 -> h4"],
   seoTitleFragments: ["ITIL® Product (Version 5)", "完全ガイド"],
   seoTitle: "ITIL® Product (Version 5) 完全ガイド | デジタルプロダクトを統合バリューストリームでマネジメントする",
   seoDescription:
