@@ -818,6 +818,219 @@ class S5,S6 done;`;
           </ul>
         </div>
       </section>
+
+      <!-- ===================== 09. Execution and Delivery of Change ===================== -->
+      <section id="execution-and-delivery">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-rocket" aria-hidden="true" />SECTION 09</div>
+        <h2>Execution and Delivery of Change</h2>
+
+        <h3>「唯一の正解」を前提にしない実行アプローチ</h3>
+        <p>ITIL Transformationの実行に関する考え方の核心は、「1つの実行方法論を選んで押し通すのではなく、状況に応じて複数の実行アプローチを組み合わせる」という点にある。プロジェクト・プログラムマネジメントの要素(計画・予算・マイルストーン管理)を用いつつも、その限界(未知の要素、想定外の変化)を認識し、探索的・反応的な進め方も等しく正当な手段として扱う。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>実行アプローチ</th><th>向いている状況</th><th>留意点</th></tr></thead>
+            <tbody>
+              <tr><td>Project / Programme Management的な進め方</td><td>ゴールと道筋が比較的明確</td><td>前提が崩れたときの計画修正コストが高い</td></tr>
+              <tr><td>探索的・反復的な進め方(Agile的)</td><td>不確実性が高く、試行錯誤が必要</td><td>Governanceとの整合をどう取るかが課題(第6章)</td></tr>
+              <tr><td>緊急対応型の進め方</td><td>混沌とした状況で即応が必要</td><td>まず状況を安定化させてから通常のアプローチに戻す</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>複数アプローチの並行運用</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_PARALLEL_EXECUTION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">複数のワークストリームを並行運用しフィードバックループで同期する</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>複数のワークストリームを並行させる場合、「どのワークストリームがどの実行アプローチを採用しているか」を関係者全員が把握できるよう可視化する</li>
+            <li>ワークストリーム間の依存関係(あるチームの成果物が別チームの前提になっているなど)を定期的に棚卸しし、フィードバックループのタイミングで調整する</li>
+            <li>混沌とした状況(インシデント対応に近い緊急事態)が発生した場合は、まず安定化を最優先し、通常のTransformation実行アプローチに戻すタイミングを明確に判断する</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.itil.com/Itil-News-and-Announcements/itil-transformation-version-5" target="_blank" rel="noopener">ITIL Transformation | A Continual Approach to Change | itil.com</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 10. Measurement, Learning, Continual Improvement ===================== -->
+      <section id="measurement-learning">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-chart-line" aria-hidden="true" />SECTION 10</div>
+        <h2>Measurement, Learning, and Continual Improvement</h2>
+
+        <h3>測定と学習の位置づけ</h3>
+        <p>第5章のTransformation Modelにおける「Learning」レイヤーは、単なる振り返りのイベントではなく、Governanceと実行の両方に継続的にフィードバックを返す仕組みである。ITIL TransformationはITIL Foundationの「Continual Improvement」の考え方をTransformationの文脈に適用し、次の問いに答えられるようにする。</p>
+        <ul>
+          <li>進捗(Progress)をどう測定するか</li>
+          <li>結果(Outcome)をどう評価するか</li>
+          <li>継続的な学習をどう組織に埋め込むか</li>
+        </ul>
+
+        <h3>測定から学習への流れ</h3>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_MEASUREMENT_LEARNING_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">測定から評価・学習・意思決定への反映までのサイクル</div>
+        </div>
+
+        <h3>測定設計のポイント</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ポイント</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>先行指標と遅行指標</td><td>最終成果(遅行指標)だけでなく、変化の兆候を早期に捉える先行指標も併用する</td></tr>
+              <tr><td>定性と定量の両立</td><td>数値化しやすい指標だけでなく、ステークホルダーの実感(定性情報)も収集する</td></tr>
+              <tr><td>学習の記録先</td><td>個人の頭の中ではなく、組織として再利用可能な形(ナレッジベース等)に残す</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <ul>
+            <li>Transformation開始時点で「何をもって成功とみなすか」の測定基準を、Governanceレイヤーの合意事項として明文化しておく(後付けで基準を作ると、恣意的な評価になりやすい)</li>
+            <li>測定結果が思わしくない場合でも、それを個人の失敗として扱うのではなく、Transformation Model自体へのフィードバック(アプローチの見直し)として扱う文化を作る</li>
+            <li>Learningの内容を次のTransformation Initiativeの立ち上げ(Initiation Patterns)に活かす仕組みを用意し、組織が同じ問題を繰り返し経験することを防ぐ</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.itil.com/professionals/certifications/ITIL-Transformation-Version-5" target="_blank" rel="noopener">ITIL Transformation (Version 5) | itil.com</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== 11. Tools, Methods, and Techniques ===================== -->
+      <section id="tools-methods-techniques">
+        <div class="section-eyebrow" data-testid="section-eyebrow"><i class="ti ti-tools" aria-hidden="true" />SECTION 11</div>
+        <h2>Tools, Methods, and Techniques</h2>
+
+        <p>ITIL Transformationの公認講座シラバスでは、Toolkitの一部として次のようなツール・手法が挙げられている。それぞれ、ITILに限らず一般的に使われる手法であるが、ここでは「Transformationの文脈でどう活きるか」という観点から解説する。</p>
+
+        <h3>Value Stream Mapping(VSM)</h3>
+        <p>顧客への価値提供の流れ(Value Stream)を、開始から完了まで可視化し、付加価値を生まない待ち時間・手戻りを特定する手法。Transformationにおいては、変革前の現状(Current State)と変革後の理想像(Future State)を、それぞれValue Stream図として描き比較することで、どこにボトルネックがあるかを関係者全員で共有できる。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_VALUE_STREAM_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">Value Stream Mappingの例(要求受付から提供までの流れ)</div>
+        </div>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>VSMは一度描いて終わりにせず、Transformationの進行に合わせて定期的に描き直し、実際にボトルネックが解消されているかを検証する</p>
+        </div>
+
+        <h3>OKR(Objectives and Key Results)</h3>
+        <p>「何を達成したいか(Objective)」と「その達成度をどう測るか(Key Results)」をセットで定義するゴール設定手法。Transformationにおいては、Governanceレイヤーで定めた戦略的な方向性を、Execution側の具体的な行動目標に落とし込む橋渡し役として使える。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>要素</th><th>例</th></tr></thead>
+            <tbody>
+              <tr><td>Objective</td><td>インシデント対応の顧客体験を大きく改善する</td></tr>
+              <tr><td>Key Result 1</td><td>平均初動応答時間を50%短縮する</td></tr>
+              <tr><td>Key Result 2</td><td>顧客満足度スコアを一定水準まで引き上げる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>OKRの数を絞り込み、Transformationの最重要テーマに集中させる。KRを「タスクの完了」ではなく「測定可能な結果」として定義する</p>
+        </div>
+
+        <h3>ITIL Maturity Model</h3>
+        <p>組織のService Value System(SVS)の成熟度、および個々のPracticeの能力レベルを客観的に評価するためのモデル。PeopleCert公式ドキュメントでは、次の5段階の成熟度レベルが定義されている。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>レベル</th><th>名称</th><th>特徴</th></tr></thead>
+            <tbody>
+              <tr><td>Level 1</td><td>Initial</td><td>作業は完了するが、SVSの目的・目標が常に達成されるわけではない</td></tr>
+              <tr><td>Level 2</td><td>Managed</td><td>計画と実績測定が行われ、目的・目標は繰り返し達成されるが、標準化はされていない</td></tr>
+              <tr><td>Level 3</td><td>Defined</td><td>組織横断の標準がSVS全体にわたってガイダンスを提供する</td></tr>
+              <tr><td>Level 4</td><td>Quantitative</td><td>SVSがデータドリブンであり、定量的なパフォーマンス評価が行われる</td></tr>
+              <tr><td>Level 5</td><td>Optimizing</td><td>SVSが最適化され、継続的改善に焦点が当てられている</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_MATURITY_LEVELS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <div class="diagram-loading">図を読み込み中...</div>
+            </template>
+          </ClientOnly>
+          <div class="diagram-caption">ITIL Maturity Modelの5段階</div>
+        </div>
+
+        <p>Practice単位の能力評価(Capability Criteria)はLevel 2から採点が始まり、あるレベルの基準をすべて満たさなければ次のレベルには進めない、という積み上げ式の評価ルールになっている。</p>
+
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>Transformationの開始前にITIL Maturity Modelで現状のベースラインを測定し、Transformation完了後に再評価することで、成果を客観的に示すエビデンスとして使う</p>
+        </div>
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.itil.com/-/media/itilsite/site-assets/documents/capability-and-maturity/introduction-to-the-itil-mm.pdf" target="_blank" rel="noopener">Introduction to the ITIL Maturity Model(PeopleCert公式PDF)</a></li>
+          </ul>
+        </div>
+
+        <h3>Theory of Constraints(制約理論)</h3>
+        <p>システム全体のスループットは、最も弱いボトルネック(制約)によって決まるという考え方。Transformationにおいては、「組織全体を同時に変えよう」とするのではなく、まず最大のボトルネックを特定し、そこに集中的にリソースを投じることで、全体の変革スピードを底上げできる。</p>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>Transformationのバックログが多岐にわたる場合、Theory of Constraintsの視点で「今、全体の足を引っ張っている制約は何か」を定期的に問い直し、優先順位を見直す</p>
+        </div>
+
+        <h3>RACI／RASCI</h3>
+        <p>Responsible(実行責任)・Accountable(説明責任)・Consulted(相談対象)・Informed(報告対象)(RASCIではこれにSupportive＝支援担当が加わる)を整理する責任分担マトリクス。第8章で触れたGovernanceのAlignmentにおいて、意思決定のボトルネックを可視化・解消するために使われる。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>役割</th><th>意味</th></tr></thead>
+            <tbody>
+              <tr><td>R(Responsible)</td><td>実際にタスクを実行する人</td></tr>
+              <tr><td>A(Accountable)</td><td>最終的な成果に説明責任を持つ人(原則1人)</td></tr>
+              <tr><td>S(Supportive)</td><td>実行を支援する人(RASCIのみ)</td></tr>
+              <tr><td>C(Consulted)</td><td>意思決定前に意見を求められる人</td></tr>
+              <tr><td>I(Informed)</td><td>結果を事後に知らされる人</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-variant="practice" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-bulb" aria-hidden="true" />ベストプラクティス</div>
+          <p>Transformation Governanceの緊張が生じやすい意思決定ポイント(予算承認、リリース判断など)について、事前にRACI／RASCIを作成し、「誰がAccountableか」を1人に絞り込んでおく</p>
+        </div>
+        <div class="callout source" data-variant="source" data-testid="callout">
+          <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link" aria-hidden="true" />ソース</div>
+          <ul>
+            <li><a href="https://www.qa.com/course-catalogue/courses/itil-transformation-version-5-itil5trf/" target="_blank" rel="noopener">ITIL® Transformation (Version 5) | QA</a></li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
 </template>
