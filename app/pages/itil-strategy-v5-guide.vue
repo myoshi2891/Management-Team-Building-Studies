@@ -8,21 +8,21 @@ useSeoMeta({
   description: "PeopleCert ITIL Strategy (Version 5)資格試験の全体像を、8モジュールの学習目標・Strategy Management Model・ベストプラクティスとともに解説する非公式学習ガイド。",
 });
 
-const TOC_SECTIONS = [
-  { id: "about-this-guide", label: "本ガイドについて", icon: "tabler:certificate" },
-  { id: "exam-overview", label: "1. 試験概要", icon: "tabler:clipboard-check" },
-  { id: "itil-v5-context", label: "2. ITIL v5全体像の位置づけ", icon: "tabler:building-bank" },
-  { id: "foundation-review", label: "3. Module 1: 復習と価値創出", icon: "tabler:stack-2" },
-  { id: "key-concepts", label: "4. Module 2: 主要概念", icon: "tabler:target" },
-  { id: "four-dimensions", label: "5. Module 3: 4つの側面", icon: "tabler:layout-grid" },
-  { id: "strategy-management-model", label: "6. Module 4: Strategy Management Model", icon: "tabler:infinity" },
-  { id: "strategy-development-cycle", label: "7. Module 5: 戦略策定サイクル", icon: "tabler:compass" },
-  { id: "strategy-implementation-cycle", label: "8. Module 6: 戦略実装サイクル", icon: "tabler:rocket" },
-  { id: "strategic-capabilities", label: "9. Module 7: 戦略的能力", icon: "tabler:shield-check" },
-  { id: "framework-integration", label: "10. Module 8: 他フレームワーク統合", icon: "tabler:git-merge" },
-  { id: "best-practices-summary", label: "11. ベストプラクティス総括", icon: "tabler:list-check" },
-  { id: "exam-tips", label: "12. 試験対策のポイント", icon: "tabler:map-2" },
-  { id: "references", label: "13. 参考文献・出典", icon: "tabler:link" },
+const TOC_IDS = [
+  "about-this-guide",
+  "exam-overview",
+  "itil-v5-context",
+  "foundation-review",
+  "key-concepts",
+  "four-dimensions",
+  "strategy-management-model",
+  "strategy-development-cycle",
+  "strategy-implementation-cycle",
+  "strategic-capabilities",
+  "framework-integration",
+  "best-practices-summary",
+  "exam-tips",
+  "references",
 ] as const;
 
 const sidebarOpen = ref(false);
@@ -34,7 +34,7 @@ function closeSidebar(): void {
   if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
 }
 
-const activeId = useActiveHeading(TOC_SECTIONS.map((s) => s.id));
+const activeId = useActiveHeading(TOC_IDS);
 
 const LIGHT_THEME_VARS = {
   background: "transparent",
@@ -260,22 +260,29 @@ class S6,S7 done;`;
             <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
           <div class="brand-text">
-            <div class="brand-title">ITIL Strategy</div>
-            <div class="brand-subtitle">Strategic Leader (V5)</div>
+            <div class="brand-title">ITIL Strategy 完全ガイド</div>
+            <div class="brand-subtitle">Version 5・Strategic Leader</div>
           </div>
         </div>
 
         <ul class="sidebar-nav">
-          <li v-for="item in TOC_SECTIONS" :key="item.id">
-            <a
-              :href="'#' + item.id"
-              :class="{ active: activeId === item.id }"
-              @click="closeSidebar"
-            >
-              <Icon :name="item.icon" aria-hidden="true" />
-              <span>{{ item.label }}</span>
-            </a>
-          </li>
+          <li><a href="#about-this-guide" :class="{ active: activeId === 'about-this-guide' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" /><span>本ガイドについて</span></a></li>
+          <li class="nav-group-label">試験の全体像</li>
+          <li><a href="#exam-overview" :class="{ active: activeId === 'exam-overview' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" aria-hidden="true" /><span>1. 試験概要</span></a></li>
+          <li><a href="#itil-v5-context" :class="{ active: activeId === 'itil-v5-context' }" @click="closeSidebar"><Icon name="tabler:building-bank" aria-hidden="true" /><span>2. ITIL v5全体像の位置づけ</span></a></li>
+          <li class="nav-group-label">8モジュール解説</li>
+          <li><a href="#foundation-review" :class="{ active: activeId === 'foundation-review' }" @click="closeSidebar"><Icon name="tabler:stack-2" aria-hidden="true" /><span>Module 1: 復習と価値創出</span></a></li>
+          <li><a href="#key-concepts" :class="{ active: activeId === 'key-concepts' }" @click="closeSidebar"><Icon name="tabler:target" aria-hidden="true" /><span>Module 2: 主要概念</span></a></li>
+          <li><a href="#four-dimensions" :class="{ active: activeId === 'four-dimensions' }" @click="closeSidebar"><Icon name="tabler:layout-grid" aria-hidden="true" /><span>Module 3: 4つの側面</span></a></li>
+          <li><a href="#strategy-management-model" :class="{ active: activeId === 'strategy-management-model' }" @click="closeSidebar"><Icon name="tabler:infinity" aria-hidden="true" /><span>Module 4: Strategy Management Model</span></a></li>
+          <li><a href="#strategy-development-cycle" :class="{ active: activeId === 'strategy-development-cycle' }" @click="closeSidebar"><Icon name="tabler:compass" aria-hidden="true" /><span>Module 5: 戦略策定サイクル</span></a></li>
+          <li><a href="#strategy-implementation-cycle" :class="{ active: activeId === 'strategy-implementation-cycle' }" @click="closeSidebar"><Icon name="tabler:rocket" aria-hidden="true" /><span>Module 6: 戦略実装サイクル</span></a></li>
+          <li><a href="#strategic-capabilities" :class="{ active: activeId === 'strategic-capabilities' }" @click="closeSidebar"><Icon name="tabler:shield-check" aria-hidden="true" /><span>Module 7: 戦略的能力</span></a></li>
+          <li><a href="#framework-integration" :class="{ active: activeId === 'framework-integration' }" @click="closeSidebar"><Icon name="tabler:git-merge" aria-hidden="true" /><span>Module 8: 他フレームワーク統合</span></a></li>
+          <li class="nav-group-label">まとめ</li>
+          <li><a href="#best-practices-summary" :class="{ active: activeId === 'best-practices-summary' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" /><span>ベストプラクティス総括</span></a></li>
+          <li><a href="#exam-tips" :class="{ active: activeId === 'exam-tips' }" @click="closeSidebar"><Icon name="tabler:map-2" aria-hidden="true" /><span>試験対策のポイント</span></a></li>
+          <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" /><span>参考文献・出典</span></a></li>
         </ul>
       </nav>
 
@@ -1028,6 +1035,19 @@ class S6,S7 done;`;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
+
+.sidebar-nav .nav-group-label:first-child {
+  margin-top: 0;
 }
 
 .sidebar-nav li {
