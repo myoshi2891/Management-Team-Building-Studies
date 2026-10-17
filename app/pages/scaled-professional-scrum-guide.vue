@@ -321,7 +321,7 @@ useSeoMeta({
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:alert-triangle" aria-hidden="true" />この割合は Scrum.org の公式発表ではありません(非公式の目安)</div>
-        <p>ケーススタディ型の「約20%」は受験者コミュニティサイト <a href="https://scrum-exams.info/sps/" target="_blank" rel="noopener">Scrum-Exams.info の SPS ページ</a> の記載("Approximately 20% of the SPS exam consists of case studies")に基づくものです。「Nexus フレームワークの知識 約80%」はどこにも公表されておらず、上記20%の<strong>残余として本ガイドが算出した値</strong>です。Scrum.org は <a href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">公式アセスメントページ</a> でカテゴリー別の出題比率を公表していません。学習配分の参考にとどめ、受験判断の根拠にはしないでください。(確認日: 2026-09-08)</p>
+        <p>ケーススタディ型の「約20%」は受験者コミュニティサイト Scrum-Exams.info の SPS ページ の記載("Approximately 20% of the SPS exam consists of case studies")に基づくものです。「Nexus フレームワークの知識 約80%」はどこにも公表されておらず、上記20%の<strong>残余として本ガイドが算出した値</strong>です。Scrum.org は <a href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">公式アセスメントページ</a> でカテゴリー別の出題比率を公表していません。学習配分の参考にとどめ、受験判断の根拠にはしないでください。(確認日: 2026-09-08)</p>
       </div>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
@@ -356,7 +356,6 @@ useSeoMeta({
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">Scaled Professional Scrum™ Certification(公式アセスメントページ)</a></li>
-          <li><a href="https://scrum-exams.info/sps/" target="_blank" rel="noopener">Scaled Professional Scrum(SPS)攻略ガイド:Scrum-Exams.info</a></li>
           <li><a href="https://www.scrum.org/professional-scrum-competencies" target="_blank" rel="noopener">The Professional Scrum Competencies</a></li>
         </ul>
       </div>
@@ -736,7 +735,7 @@ useSeoMeta({
     <section id="dependency-management-best-practices">
       <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 07</div>
       <h2>依存関係マネジメントとチーム編成のベストプラクティス</h2>
-      <p>SPS 試験のケーススタディ問題(§1.2 の非公式の目安で約20%。出典は <a href="https://scrum-exams.info/sps/" target="_blank" rel="noopener">Scrum-Exams.info</a> であり Scrum.org の公式発表ではない。確認日: 2026-09-08)は、多くの場合「依存関係にどう対処するか」というテーマに集約されます。この章では Nexus Guide 本体を超えて、Scrum.org の公式トレーナー(PST)コミュニティが蓄積してきた実務知見(Nexus with Nexus コースで教えられる「50以上のプラクティス」の一部)を紹介します。</p>
+      <p>SPS 試験のケーススタディ問題(§1.2 の非公式の目安で約20%。出典は Scrum-Exams.info であり Scrum.org の公式発表ではない。確認日: 2026-09-08)は、多くの場合「依存関係にどう対処するか」というテーマに集約されます。この章では Nexus Guide 本体を超えて、Scrum.org の公式トレーナー(PST)コミュニティが蓄積してきた実務知見(Nexus with Nexus コースで教えられる「50以上のプラクティス」の一部)を紹介します。</p>
 
       <h3>7.1 依存関係のライフサイクル</h3>
       <div class="diagram-card">
@@ -832,7 +831,6 @@ useSeoMeta({
       <div class="callout source" data-testid="callout" data-variant="source">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
-          <li><a href="https://prepforscrum.com/scaling-scrum-frameworks-less-safe-nexus-scrum-at-scale/" target="_blank" rel="noopener">Scaling Scrum: LeSS, SAFe, Nexus, or Scrum@Scale?(比較記事)</a></li>
           <li><a href="https://www.scrum-tips.com/agile/nexus-scaling-scrum-framework/" target="_blank" rel="noopener">Nexus - the scaling Scrum framework(解説記事)</a></li>
         </ul>
       </div>
@@ -946,14 +944,12 @@ useSeoMeta({
       <div class="ref-group">
         <h3>二次情報源(コミュニティ・実務解説)</h3>
         <ul class="ref-list">
-          <li><span class="ref-name">Scaled Professional Scrum(SPS)攻略ガイド・出題傾向分析:Scrum-Exams.info</span><a class="ref-url" href="https://scrum-exams.info/sps/" target="_blank" rel="noopener">https://scrum-exams.info/sps/</a></li>
           <li><span class="ref-name">How To Pass The Scaled Professional Scrum (SPS) Assessment:TheScrumMaster.co.uk</span><a class="ref-url" href="https://www.thescrummaster.co.uk/scrum/how-to-pass-the-scaled-professional-scrum-sps-assessment-from-scrum-org/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/scrum/how-to-pass-the-scaled-professional-scrum-sps-assessment-from-scrum-org/</a></li>
           <li><span class="ref-name">Scaled Professional Scrum With Nexus コース詳細・学習目標:TheScrumMaster.co.uk</span><a class="ref-url" href="https://www.thescrummaster.co.uk/scaled-professional-scrum/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/scaled-professional-scrum/</a></li>
           <li><span class="ref-name">Nexus Sprint Planning in Practice(実務解説):Accentient</span><a class="ref-url" href="https://accentient.com/blog/nexus-sprint-planning-in-practice/" target="_blank" rel="noopener">https://accentient.com/blog/nexus-sprint-planning-in-practice/</a></li>
           <li><span class="ref-name">Scaling Scrum:Scrum.org 公式リソース</span><a class="ref-url" href="https://www.scrum.org/resources/scaling-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/scaling-scrum</a></li>
           <li><span class="ref-name">Nexus Guide 詳細解説(Martin Hinshelwood, Professional Scrum Trainer)</span><a class="ref-url" href="https://engineering-leadership.hinshelwood.com/guides/nexus-guide" target="_blank" rel="noopener">https://engineering-leadership.hinshelwood.com/guides/nexus-guide</a></li>
           <li><span class="ref-name">Nexus - the scaling Scrum framework(解説記事)</span><a class="ref-url" href="https://www.scrum-tips.com/agile/nexus-scaling-scrum-framework/" target="_blank" rel="noopener">https://www.scrum-tips.com/agile/nexus-scaling-scrum-framework/</a></li>
-          <li><span class="ref-name">Scaling Scrum: LeSS, SAFe, Nexus, or Scrum@Scale?(比較記事)</span><a class="ref-url" href="https://prepforscrum.com/scaling-scrum-frameworks-less-safe-nexus-scrum-at-scale/" target="_blank" rel="noopener">https://prepforscrum.com/scaling-scrum-frameworks-less-safe-nexus-scrum-at-scale/</a></li>
         </ul>
       </div>
 
