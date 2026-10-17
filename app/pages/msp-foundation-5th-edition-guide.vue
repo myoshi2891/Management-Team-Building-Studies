@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useSeoMeta } from "#imports";
 import { nextTick, ref } from "vue";
 import { useActiveHeading } from "~/composables/useActiveHeading";
 
@@ -292,24 +293,147 @@ useSeoMeta({
         <section id="what-is-msp">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
           <h2>はじめに ― MSPとは何か</h2>
+
+          <p><strong>MSP(Managing Successful Programmes)</strong> は、複数のプロジェクトや関連活動を束ねて組織の戦略的な目標を達成するための「プログラムマネジメント」のベストプラクティス・フレームワークです。PeopleCert(2021年に AXELOS を買収)が提供しており、PRINCE2 や MoP(Management of Portfolios)と同じファミリーに属する資格体系の一つです。</p>
+
+          <p>MSPが解決しようとしている課題は明確です。多くの組織変革プログラムは、次のような理由で失敗します。</p>
+
+          <ul>
+            <li>個々のプロジェクトは順調に進んでいても、組織全体として期待した便益(ベネフィット)が得られない</li>
+            <li>プロジェクト間の依存関係や優先順位の調整ができていない</li>
+            <li>経営層のスポンサーシップが弱く、変化への抵抗に対処できない</li>
+            <li>環境変化(市場・規制・技術)にプログラムが追従できない</li>
+          </ul>
+
+          <p>MSP 5th edition(2020年公開)は、こうした失敗パターンに関する調査結果を踏まえ、デジタル変革の加速、アジャイルワークの普及、不確実性の増大に対応できるよう、2011年版から大幅に構造を見直したものです。</p>
+
+          <h3>5th edition での主な変更点</h3>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>観点</th><th>4th edition(2011年版)</th><th>5th edition(2020年版)</th></tr></thead>
+              <tbody>
+                <tr><td>テーマ数</td><td>9つの「ガバナンステーマ」</td><td>7つの「テーマ」(各テーマ名は単語1つで表現)</td></tr>
+                <tr><td>原則数</td><td>7原則(一部異なる表現)</td><td>7原則(新規に「境界を越えた協働」「曖昧さへの対処」を追加)</td></tr>
+                <tr><td>ブループリント</td><td>Blueprint</td><td><strong>Target Operating Model(TOM)</strong> に改称し、内容を拡充</td></tr>
+                <tr><td>プロセス数</td><td>6つのトランスフォーメーショナルフロー</td><td><strong>7つのプロセス</strong>(Evaluate New Information が新設)</td></tr>
+                <tr><td>適用の柔軟性</td><td>比較的固定的</td><td>4つの「プログラムの動機(ドライバー)」シナリオに基づくテーラリングを明示</td></tr>
+                <tr><td>デリバリー方式</td><td>ウォーターフォール前提が強い</td><td>アジャイル / ウォーターフォール / ハイブリッドを問わず適用可能な設計</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>PeopleCert公式製品ページ(後掲)、Henny Portman氏によるMSP 5th/2011版比較記事、PM Today誌の解説記事を基に構成。</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 2 -->
         <section id="exam-overview">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-check" aria-hidden="true" />SECTION 02</div>
           <h2>試験の全体像</h2>
+
+          <p>MSP Foundation, 5th edition の試験概要は以下の通りです(2026年9月時点、PeopleCert公式サイトの記載に基づく)。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>問題数</td><td>60問</td></tr>
+                <tr><td>出題形式</td><td>四肢択一(Multiple choice)</td></tr>
+                <tr><td>試験時間</td><td>60分</td></tr>
+                <tr><td>教材持ち込み</td><td>不可(Closed book)</td></tr>
+                <tr><td>合格基準</td><td>60%以上(60問中36問以上の正答)</td></tr>
+                <tr><td>対応言語</td><td>英語・中国語</td></tr>
+                <tr><td>資格更新</td><td>3年ごと(PeopleCert Plus で CPDポイント 60点を記録するか、更新期限までにプロダクトスイート内の別資格を取得することで更新可能)</td></tr>
+                <tr><td>前提資格</td><td>なし(Foundationは誰でも受験可能)</td></tr>
+                <tr><td>主な対象者</td><td>プロジェクトマネージャー、シニアプロジェクトマネージャー、プログラムマネージャー、ポートフォリオマネージャー、ビジネスチェンジマネージャー、ベネフィットマネージャー、SRO、ビジネスアナリストなど</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>出題の柱は次の3点に整理されます。</p>
+
+          <ol>
+            <li><strong>原則(Principles)を状況に照らして理解しているか</strong></li>
+            <li><strong>テーマ(Themes)とその主要概念・関連文書を理解しているか</strong></li>
+            <li><strong>プロセス(Processes)=プログラムライフサイクルの流れを理解しているか</strong></li>
+          </ol>
+
+          <p>上位資格である MSP Practitioner では、これらを「実際の状況に適用・テーラリングできるか」まで問われますが、Foundationはあくまで知識理解が中心です。</p>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930</a></li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 3 -->
         <section id="programme-project-portfolio">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 03</div>
           <h2>プログラム・プロジェクト・ポートフォリオの違い</h2>
+
+          <p>MSPを学ぶ最初のステップは、「プログラム」という言葉の定義を正確に理解することです。</p>
+
+          <ul>
+            <li><strong>プロジェクト(Project)</strong>: 合意されたビジネスケースに従って、1つまたは複数の「アウトプット(成果物)」を生み出すための一時的な組織。比較的短期間で完結する。</li>
+            <li><strong>プログラム(Programme)</strong>: 関連する複数のプロジェクトやその他の活動を調整・指揮・監督するために作られた、一時的で柔軟な組織。組織の戦略目標に関連する「<strong>アウトカム(結果)</strong>」と「<strong>ベネフィット(便益)</strong>」を届けることを目的とし、多くの場合、数年にわたって存続する。</li>
+            <li><strong>ポートフォリオ(Portfolio)</strong>: 組織(またはその一部)が投資対効果を最大化するために管理する、プログラムとプロジェクトの全体集合。</li>
+          </ul>
+
+          <p>重要な違いは、<strong>プロジェクトは「アウトプット」を扱い、プログラムは「アウトカムとベネフィット」を扱う</strong>という点です。プログラムマネジメントとプロジェクトマネジメントは対立する概念ではなく、補完関係にあります。プログラムのライフサイクルの中で、複数のプロジェクトが立ち上げられ、実行され、クローズされていきます。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_PORTFOLIO_HIERARCHY" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">プログラム・プロジェクト・ポートフォリオの違い</div>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <p>組織でプログラムマネジメントを導入する際は、まず「これはプログラムとして扱うべき取り組みなのか、それとも単一の大規模プロジェクトで十分なのか」を見極めることが重要です。目安として、①複数のプロジェクトの調整が必要、②組織横断的な変革を伴う、③ベネフィットの実現に組織の業務プロセスや文化そのものの変化が必要、のいずれかに該当する場合はプログラムとして扱うべきとされています。</p>
+          </div>
         </section>
 
         <!-- Section 4 -->
         <section id="framework-structure">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 04</div>
           <h2>MSPフレームワークの全体構造</h2>
+
+          <p>MSP 5th edition は、<strong>7つの原則(Principles)・7つのテーマ(Themes)・7つのプロセス(Processes)</strong> という3層構造で構成されています。</p>
+
+          <ul>
+            <li><strong>原則(Principles)</strong>: プログラムマネジメントから価値を得るために、常に守り続けるべき「指針となる要請事項」。プログラムの識別からクローズまで一貫して適用される、最も普遍的なレイヤー。</li>
+            <li><strong>テーマ(Themes)</strong>: 原則をガバナンスに落とし込む「本質的な側面」。組織構造・文書・役割など、統制のための仕組みを定義する。</li>
+            <li><strong>プロセス(Processes)</strong>: テーマを通じて原則を実践に移す「プログラムライフサイクルの経路」。時系列で具体的にどう進めるかを示す。</li>
+          </ul>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_FRAMEWORK_LAYERS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">MSPフレームワークの全体構造</div>
+          </div>
+
+          <p><strong>関係性のポイント(試験頻出)</strong></p>
+
+          <ul>
+            <li>原則は「なぜ」を示し、テーマは「何を」統制すべきかを示し、プロセスは「いつ・どう」実行するかを示す。</li>
+            <li>7つのテーマは、プログラムライフサイクルの各プロセスの中で<strong>繰り返し適用</strong>される(一度定義して終わりではない)。</li>
+            <li>「7・7・7」という数字の組み合わせは頻出の記憶ポイントである。</li>
+          </ul>
         </section>
 
         <!-- Section 5 -->
