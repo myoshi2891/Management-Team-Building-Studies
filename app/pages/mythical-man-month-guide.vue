@@ -432,7 +432,7 @@ const DIAGRAM_COMPLEXITY_TREE = `flowchart TB
 
       <div class="callout note" data-variant="note" data-testid="callout">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>「パイロット版を作って捨てるかどうかを議論する必要はない。あなたはどのみちそれをやることになる。だから最初からそのつもりで計画せよ」</p>
+        <p>「パイロット版を作って捨てるかどうかを議論する必要はない。あなたはどのみちそれをやることになる。だから最初からそのつもりで計画せよ」<br>(拙訳。出典: Frederick P. Brooks, Jr.『The Mythical Man-Month』初版、第11章「Plan to Throw One Away」)</p>
       </div>
 
       <p><strong>ただし Brooks 自身が、20周年記念版の第19章でこの提言を撤回に近い形で見直しています。</strong> 「捨てるための試作を1つ作る」という一括の考え方よりも、動くものを少しずつ育てながら継続的にフィードバックを受け取る<strong>漸進的な構築(incremental construction)</strong>のほうが優れている、というのが本人の到達点です。したがって、本章を「使い捨てのプロトタイピングは単独で有効なベストプラクティスである」と読むべきではありません。</p>

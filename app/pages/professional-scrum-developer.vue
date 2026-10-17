@@ -998,7 +998,7 @@ class S7 done;`;
       </section>
 
       <footer>
-        Scrum.org®、Professional Scrum Developer™、PSD I™ は Scrum, Inc. (Scrum.org)の商標です。本ガイドはScrum.orgとは無関係な非公式の学習支援コンテンツであり、正式な認定要件・出題内容・受験料等は必ず<a href="https://www.scrum.org/assessments/professional-scrum-developer-certification" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
+        Scrum.org®、Professional Scrum Developer™、PSD I™ は Scrum.org の商標です。本ガイドはScrum.orgとは無関係な非公式の学習支援コンテンツであり、正式な認定要件・出題内容・受験料等は必ず<a href="https://www.scrum.org/assessments/professional-scrum-developer-certification" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
       </footer>
     </main>
   </div>

@@ -297,14 +297,14 @@ const DIAGRAM_COACHING_STANCES = `flowchart TB
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"Guide people through any type of interaction at work, fostering collaboration, effective communication, and dynamic problem-solving."<br>(職場のあらゆる種類の相互作用を通じて人々を導き、コラボレーション、効果的なコミュニケーション、ダイナミックな問題解決を促進する)</p>
+        <p>"Guide people through any type of interaction at work, fostering collaboration, effective communication, and dynamic problem-solving."<br>(職場のあらゆる種類の相互作用を通じて人々を導き、コラボレーション、効果的なコミュニケーション、ダイナミックな問題解決を促進する)<br>(出典: <a href="https://www.scrumalliance.org/get-certified/certified-agile-facilitator" target="_blank" rel="noopener">Certified Agile Facilitator - Scrum Alliance 公式ページ</a>。和訳は本ガイド作成者による)</p>
       </div>
 
       <p>CAFは「会議の進め方」のようなテクニックだけを教えるコースではありません。公式サイトが強調しているのは、<strong>ファシリテーターとしてのマインドセット</strong>を身につけることです。</p>
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"Facilitation supports groups of people as they collaborate, create, and make decisions. The Certified Agile Facilitator course provides training for anyone interested in developing their facilitation mindset and knowledge while learning from experienced agile practitioners."</p>
+        <p>"Facilitation supports groups of people as they collaborate, create, and make decisions. The Certified Agile Facilitator course provides training for anyone interested in developing their facilitation mindset and knowledge while learning from experienced agile practitioners."<br>(出典: <a href="https://www.scrumalliance.org/get-certified/certified-agile-facilitator" target="_blank" rel="noopener">Certified Agile Facilitator - Scrum Alliance 公式ページ</a>)</p>
       </div>
 
       <h3>1.1 コースの特徴(公式FAQより)</h3>
@@ -357,7 +357,7 @@ const DIAGRAM_COACHING_STANCES = `flowchart TB
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"Facilitation supports groups of people as they collaborate, create, and make decisions."<br>(ファシリテーションとは、人々のグループが協働し、創造し、意思決定を行う過程を支援すること)</p>
+        <p>"Facilitation supports groups of people as they collaborate, create, and make decisions."<br>(ファシリテーションとは、人々のグループが協働し、創造し、意思決定を行う過程を支援すること)<br>(出典: <a href="https://www.scrumalliance.org/get-certified/certified-agile-facilitator" target="_blank" rel="noopener">Certified Agile Facilitator - Scrum Alliance 公式ページ</a>。和訳は本ガイド作成者による)</p>
       </div>
 
       <h3>2.2 Roger Schwarzの定義(学術的に最も引用される定義の一つ)</h3>
@@ -366,7 +366,7 @@ const DIAGRAM_COACHING_STANCES = `flowchart TB
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"a process in which a person who is acceptable to all members of the group, substantively neutral and has no decision-making authority intervenes to help a group improve the way it identifies and solves problems and makes decisions, in order to increase the group's effectiveness"<br>(グループの全メンバーに受け入れられ、実質的に中立であり、意思決定権を持たない人物が、グループの効果性を高めるために、問題の特定・解決・意思決定の方法を改善する手助けをする介入プロセス)</p>
+        <p>"a process in which a person who is acceptable to all members of the group, substantively neutral and has no decision-making authority intervenes to help a group improve the way it identifies and solves problems and makes decisions, in order to increase the group's effectiveness"<br>(グループの全メンバーに受け入れられ、実質的に中立であり、意思決定権を持たない人物が、グループの効果性を高めるために、問題の特定・解決・意思決定の方法を改善する手助けをする介入プロセス)<br>(出典: Schwarz, R.(1994). <em>The Skilled Facilitator</em>. Jossey-Bass. 和訳は本ガイド作成者による)</p>
       </div>
 
       <p>この定義から、ファシリテーターの3条件が導かれます。</p>
@@ -503,7 +503,7 @@ const DIAGRAM_COACHING_STANCES = `flowchart TB
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"A facilitator also helps with conflict when it arises. It's normal and expected for disagreement to arise when a group of passionate people gets together on a topic. Without an effective facilitator, conflict may lead to an impasse, while a skilled facilitator knows how to support the group through disagreement and how to show the group to use conflict to come to a well-considered decision."</p>
+        <p>"A facilitator also helps with conflict when it arises. It's normal and expected for disagreement to arise when a group of passionate people gets together on a topic. Without an effective facilitator, conflict may lead to an impasse, while a skilled facilitator knows how to support the group through disagreement and how to show the group to use conflict to come to a well-considered decision."<br>(出典: <a href="https://resources.scrumalliance.org/article/facilitation-skills-important" target="_blank" rel="noopener">Why Facilitation Skills Are Important - Scrum Alliance Resource Library</a>)</p>
       </div>
 
       <p>つまり、対立(コンフリクト)は異常事態ではなく、情熱を持った人々が集まれば自然に起こるものであり、ファシリテーターの仕事は対立を消すことではなく、対立を「行き詰まり(impasse)」ではなく「よく検討された意思決定」に変換することです。詳細は第9章。</p>
@@ -559,7 +559,7 @@ const DIAGRAM_COACHING_STANCES = `flowchart TB
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"The group needs this neutral support because it allows them to focus on their expertise: the content of the meeting/event. The team is the expert on the content and the facilitator provides the process support."</p>
+        <p>"The group needs this neutral support because it allows them to focus on their expertise: the content of the meeting/event. The team is the expert on the content and the facilitator provides the process support."<br>(出典: <a href="https://resources.scrumalliance.org/article/facilitation-skills-important" target="_blank" rel="noopener">Why Facilitation Skills Are Important - Scrum Alliance Resource Library</a>)</p>
       </div>
 
       <h3>5.1 中立性がないとどうなるか</h3>

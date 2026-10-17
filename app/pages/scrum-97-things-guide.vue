@@ -717,7 +717,7 @@ useSeoMeta({
           </div>
 
           <p><strong>プライムディレクティブ(Norm Kerth):</strong><br>
-          レトロスペクティブの冒頭で読み上げることが推奨される宣言文で、「何が判明しようとも、私たちは、その時に知り得た情報、持っていたスキルと能力、利用可能なリソース、そして当時の状況を踏まえて、誰もが最善を尽くしたということを、心から理解し信じる」という考え方を共有し、犯人探しではなく学習に焦点を当てる場を作ります。</p>
+          レトロスペクティブの冒頭で読み上げることが推奨される宣言文で、「何が判明しようとも、私たちは、その時に知り得た情報、持っていたスキルと能力、利用可能なリソース、そして当時の状況を踏まえて、誰もが最善を尽くしたということを、心から理解し信じる」(拙訳。出典: Norm Kerth『Project Retrospectives』2001年)という考え方を共有し、犯人探しではなく学習に焦点を当てる場を作ります。</p>
 
           <div class="callout source" data-variant="source" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" />ソース</div>

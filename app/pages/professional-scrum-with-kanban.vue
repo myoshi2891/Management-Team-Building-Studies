@@ -620,6 +620,7 @@ const DIAGRAM_EXPEDITE_LANE = `flowchart LR
 
       <footer>
         Professional Scrum™、Scrum.org® はScrum.orgの登録商標です。本ガイドはScrum.orgとは無関係な非公式の学習資料であり、内容の正確性について保証するものではありません。最新情報は必ず<a href="https://www.scrum.org/resources/professional-scrum-with-kanban" target="_blank" rel="noopener">Scrum with Kanban リソースハブ</a>でご確認ください。
+        The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>） および Kanban Guide for Scrum Teams（© Scrum.org、<a href="https://www.scrum.org/resources/kanban-guide-scrum-teams" target="_blank" rel="noopener">scrum.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおけるこれらのガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
       </footer>
     </main>
   </div>

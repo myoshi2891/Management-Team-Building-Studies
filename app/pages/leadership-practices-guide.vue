@@ -559,7 +559,7 @@ const DIAGRAM_DECISION_FLOW = `flowchart TD
       </section>
 
       <footer>
-        &copy; リーダーの作法 実践ガイド。本ページは教育目的の非公式資料であり、引用元の著作権は各権利者に帰属します。書籍・記事名は各社・各著者の商標または著作物です。
+        &copy; 2026 Management Studies。本ページは教育目的の非公式資料であり、引用元の著作権は各権利者に帰属します。書籍・記事名は各社・各著者の商標または著作物です。
       </footer>
     </main>
   </div>

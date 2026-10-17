@@ -859,6 +859,7 @@ useSeoMeta({
 
     <footer>
       CSM / Certified ScrumMaster は Scrum Alliance の登録商標です。本ページは学習支援を目的とした非公式資料であり、Scrum Alliance とは無関係です。試験の最新の出題範囲・合格基準・費用は変更される可能性があるため、受験前に必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>で最新情報をご確認ください。
+      The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
     </footer>
 
   

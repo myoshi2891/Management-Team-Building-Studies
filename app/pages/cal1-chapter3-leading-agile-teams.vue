@@ -882,6 +882,7 @@ const DIAGRAM_SBI_FEEDBACK_FLOW = `flowchart LR
 
       <footer>
         Certified Agile Leader®・CAL 1™ は Scrum Alliance, Inc. の登録商標です。本ページはScrum Allianceおよびその関連団体による公式資料ではありません。内容の正確性には配慮していますが、最新情報は必ず<a href="https://www.scrumalliance.org/get-certified/agile-leader/cal-1" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
+        The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
       </footer>
     </main>
   </div>

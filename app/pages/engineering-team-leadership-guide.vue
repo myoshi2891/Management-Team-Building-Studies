@@ -748,7 +748,7 @@ const DIAGRAM_ANTIPATTERN_LEVELS = `flowchart TB
     </section>
 
     <footer>
-      本ページは公開情報の要約・再構成であり、引用は最小限にとどめています。各出典の詳細は本文および参考文献セクションをご確認ください。 &copy; 2026
+      本ページは公開情報の要約・再構成であり、引用は最小限にとどめています。各出典の詳細は本文および参考文献セクションをご確認ください。 &copy; 2026 Management Studies
     </footer>
 
   

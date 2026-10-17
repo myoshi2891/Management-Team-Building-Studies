@@ -699,7 +699,7 @@ class Ri done;`;
 
       <div class="callout note" data-testid="callout" data-variant="note">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
-        <p>"Partners with the client and relevant stakeholders to create clear agreements about the coaching relationship, process, plans and goals. Establishes agreements for the overall coaching engagement as well as those for each coaching session."</p>
+        <p>"Partners with the client and relevant stakeholders to create clear agreements about the coaching relationship, process, plans and goals. Establishes agreements for the overall coaching engagement as well as those for each coaching session."<br>(出典: <a href="https://coachingfederation.org/credentialing/coaching-competencies/icf-core-competencies/" target="_blank" rel="noopener">ICF Core Competencies - International Coaching Federation</a>)</p>
       </div>
 
       <p>コーチング・アグリーメントには2つの階層があります。</p>
@@ -1362,6 +1362,7 @@ class Ri done;`;
 
     <footer>
       CSP&reg;、CSP-SM&reg;、Certified Scrum Professional&reg;、Certified ScrumMaster&reg;、CSM&reg;、A-CSM&reg;、Advanced Certified ScrumMaster&reg;、CST&reg;、Scrum Alliance&reg; は Scrum Alliance, Inc. の登録商標です。本ガイドは学習支援を目的とした非公式の解説資料であり、Scrum Alliance による承認・提携関係はありません。認定制度の詳細・最新の要件・料金は必ず<a href="https://www.scrumalliance.org/get-certified/scrum-master-track/certified-scrum-professional-scrummaster" target="_blank" rel="noopener">Scrum Alliance 公式サイト</a>でご確認ください。
+      The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
     </footer>
       </main>
     </div>
