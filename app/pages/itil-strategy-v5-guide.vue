@@ -182,6 +182,37 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
 class P,E,S hub;
 class R done;
 class OBS box;`;
+
+const DIAGRAM_STRATEGIC_CAPABILITIES_MAP = `flowchart TB
+CAP["戦略的能力 Strategic Capabilities"]
+LEAD["リーダーシップ 方向性の提示と動機づけ"]
+GOV["ガバナンス 意思決定の枠組みと説明責任"]
+ALIGN["組織的整合性 戦略と実行部隊の接続"]
+LEARN["継続的改善と組織学習 Reflectの学びを制度化"]
+RES["レジリエンスと適応力 変化への耐性と回復力"]
+CAP --> LEAD
+CAP --> GOV
+CAP --> ALIGN
+CAP --> LEARN
+CAP --> RES
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class LEAD,GOV,ALIGN,LEARN,RES box;
+class CAP hub;`;
+
+const DIAGRAM_ITIL_DEVOPS_PRINCE2 = `flowchart LR
+ITIL["ITIL 何を・なぜ・誰のために 価値の方向性"]
+DEVOPS["DevOps どう速く安全に届けるか フロー・自動化"]
+PM["プロジェクト・PRINCE2 どう統制して実行するか 統治・段階管理"]
+ITIL <--> DEVOPS
+ITIL <--> PM
+DEVOPS -.->|"協調"| PM
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class ITIL hub;
+class DEVOPS box;
+class PM done;`;
 </script>
 
 <template>
@@ -694,6 +725,83 @@ class OBS box;`;
                 <tr><td>Executeの結果だけを評価し、Synthesizeで運用とのバランスを見ない</td><td>変革の進捗指標と既存運用のSLA/品質指標を同じダッシュボードで並べて追跡する</td></tr>
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <!-- ===================== 10. Module 7: Strategic Capabilities ===================== -->
+        <section id="strategic-capabilities" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:shield-check" aria-hidden="true" />
+            <span>SECTION 10</span>
+          </div>
+          <h2>9. Module 7: 戦略的能力(Strategic Capabilities)</h2>
+
+          <p><em>K2(理解レベル)</em>: 戦略を「継続的に実行し続けられる」組織能力に関する領域。</p>
+
+          <p>長期的な戦略実行を支えるために必要な能力を理解し、リーダーシップ・ガバナンス・組織的整合性を探求し、継続的な改善と組織学習を支え、戦略実行におけるレジリエンスと適応力を構築することが本モジュールのスコープである。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STRATEGIC_CAPABILITIES_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">戦略実行を支える5つの戦略的能力</div>
+          </div>
+
+          <h3>9.1 リーダーシップ</h3>
+          <p>ITIL Strategyにおいて、新たに就任したIT組織のトップが明確な方向性を定め、個人を動機づけ、影響を与え、コミットメントを引き出すために自ら時間を割く、という描写がリーダーシップの実践例として示される。リーダーシップは肩書きではなく行動であり、戦略の実装サイクルにおいてExecute・Synthesizeを支える推進力になる。</p>
+
+          <h3>9.2 ガバナンス</h3>
+          <p>戦略的意思決定の枠組みと説明責任の所在を明確にする活動。誰が何について意思決定できるのか(Decideフェーズの権限設計)が曖昧なままだと、策定サイクルのDecideが機能不全に陥る。</p>
+
+          <h3>9.3 組織的整合性</h3>
+          <p>戦略と現場実行部隊の間に断絶が生じないようにする能力。Module 3で扱った「組織と人材」の側面と密接に関連する。</p>
+
+          <h3>9.4 継続的改善と組織学習</h3>
+          <p>実装サイクルのReflectで得られた学びを、個人の経験に留めず組織的な知識として制度化する能力。ITIL Foundationの継続的改善(Continual Improvement)の考え方が、戦略レベルでも同様に適用される。</p>
+
+          <h3>9.5 レジリエンスと適応力</h3>
+          <p>VUCA環境で戦略の実行力を維持し続けるための回復力。想定外の環境変化(規制の急変、競合の破壊的参入など)が発生しても、組織として立て直せる能力を指す。</p>
+
+          <div class="callout practice" data-testid="callout" data-variant="practice">
+            <div class="callout-title" data-testid="callout-label">
+              <Icon name="tabler:bulb" aria-hidden="true" />
+              <span>ベストプラクティス</span>
+            </div>
+            <p>これら5つの戦略的能力は独立した個別施策ではなく、Strategy Management Modelの2サイクルを継続的に回すための「土台」として機能する。能力開発への投資を怠ると、モデル自体は正しくても実装サイクルが1周で止まってしまう(いわゆる「戦略疲れ」)リスクが高まる。</p>
+          </div>
+        </section>
+
+        <!-- ===================== 11. Module 8: Framework Integration ===================== -->
+        <section id="framework-integration" tabindex="-1">
+          <div class="section-eyebrow" data-testid="section-eyebrow">
+            <Icon name="tabler:git-merge" aria-hidden="true" />
+            <span>SECTION 11</span>
+          </div>
+          <h2>10. Module 8: 他フレームワークとの統合</h2>
+
+          <p><em>K2(理解レベル)</em>: ITIL単体で完結せず、DevOpsやプロジェクトマネジメント手法とどう補完し合うかを理解する。</p>
+
+          <p>ITILがデジタル製品・サービスライフサイクル全体を通じてDevOpsをどう補完するか、ITILプラクティスとDevOpsのワークウェイズがどう協働するか、ITILプラクティスの適用においてプロジェクトマネジメントがどのような役割を果たすか、そしてITILとPRINCE2をどう組み合わせて製品・サービスを効果的に提供できるかを理解することが本モジュールの学習目標である。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ITIL_DEVOPS_PRINCE2" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">ITIL・DevOps・PRINCE2の役割分担</div>
+          </div>
+
+          <h3>10.1 ITILとDevOpsの補完関係</h3>
+          <p>ITILは「何を・なぜ・誰のために」という価値の方向性と統制の枠組みを提供し、DevOpsは「どう速く安全に届けるか」というフローと自動化の実践を提供する。両者は競合するフレームワークではなく、ITIL Strategyが方向づけた戦略的意図を、DevOpsの高速なデリバリーサイクルが実現する、という補完関係で理解するのがベストプラクティスである。</p>
+
+          <h3>10.2 プロジェクトマネジメントとPRINCE2との関係</h3>
+          <p>戦略実装サイクルのExecuteフェーズで、個別の実装イニシアチブを統制されたプロジェクトとして遂行する際に、PRINCE2のようなプロジェクトマネジメント手法が活用される。ITIL Strategyが「何を優先するか」を決め、PRINCE2が「どう段階的に統治しながら実行するか」を担う、という役割分担になる。</p>
+
+          <div class="callout note" data-testid="callout" data-variant="note">
+            <div class="callout-title" data-testid="callout-label">
+              <Icon name="tabler:info-circle" aria-hidden="true" />
+              <span>補足</span>
+            </div>
+            <p><strong>AIガバナンスとの関連(参考)</strong>: PeopleCertはITIL AI Governanceという専用出版物も作成しており、これはITIL (Version 5) のいわゆる「コア」の製品・サービス管理ベストプラクティスガイダンスの一部ではないが、多くの組織が直面する重要なITSM課題への支援を提供するものである。ITIL Strategy試験のシラバス概要にも「AIガバナンス」という語が学習項目として挙げられているため、コア出版物ではない関連トピックとして概要だけは押さえておくとよい。</p>
           </div>
         </section>
 
