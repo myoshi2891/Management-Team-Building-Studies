@@ -734,12 +734,129 @@ useSeoMeta({
         <section id="lifecycle">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 07</div>
           <h2>プログラムライフサイクル: 7つのプロセス</h2>
+
+          <p>MSP 5th edition の7つのプロセスは、2011年版の「6つのトランスフォーメーショナルフロー」を刷新したもので、プログラムがどのようにライフサイクルを進んでいくかを示します。重要な特徴は、<strong>プロセス1(Identify)とプロセス7(Close)は一度きり実行されるのに対し、プロセス2〜6は各トランシェごとに繰り返される(サイクリック)</strong>という点です。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_LIFECYCLE_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">プログラムライフサイクル: 7つのプロセス</div>
+          </div>
+
+          <h3>Identify the Programme(プログラムを識別する)― 一度きり</h3>
+
+          <p><strong>目的</strong>: 初期のアイデア(多くの場合「プログラムマンデート」として表現される)を、確固たる基礎を持つ具体的な構想へと変換し、より詳細な検討プロセスに進むための正式な認可を得ること。</p>
+
+          <p><strong>主な活動</strong></p>
+
+          <ul>
+            <li>SROの任命とプログラムのスポンサリング</li>
+            <li>プログラムブリーフ(Programme Brief)の作成: ビジョン、想定ベネフィット、概算コスト、スケジュール、リスク、デリバリーの選択肢を含む、高レベルの記述</li>
+            <li>プログラム準備計画(Programme Preparation Plan)の作成: 次工程に必要な資源・活動・スケジュールを定義</li>
+          </ul>
+
+          <p><strong>アウトプット</strong>: プログラムブリーフと準備計画は、ガバナンスボードが「このプログラムに投資して進めるべきか」を判断するための材料となる。</p>
+
+          <h3>Design the Outcomes(アウトカムをデザインする)― サイクリック</h3>
+
+          <p><strong>目的</strong>: 戦略的なビジョンを、具体的で実現可能なTarget Operating Modelへと橋渡しすること。組織の将来状態(構造・プロセス・技術・情報・文化・人材・働き方)を明確化する。</p>
+
+          <p><strong>主な活動</strong>: 現状の理解、必要な変化の特定、アウトカムからベネフィットへの貢献のマッピング、実現可能性・リスク・依存関係の評価。</p>
+
+          <h3>Plan Progressive Delivery(段階的デリバリーを計画する)― サイクリック</h3>
+
+          <p><strong>目的</strong>: プログラムデザインを土台として、プロジェクトやその他の活動をトランシェへと構造化し、必要なケイパビリティとベネフィットを段階的に実現する計画を立てること。あわせて、デリバリーに進む前にプログラムの正当性を再確認する。</p>
+
+          <p><strong>主な活動</strong>: トランシェごとの詳細計画の策定(プロジェクト・活動・順序・依存関係・資源要件・スケジュール)。</p>
+
+          <h3>Deliver the Capabilities(ケイパビリティを届ける)― サイクリック</h3>
+
+          <p><strong>目的</strong>: 当該トランシェの計画を実行し、成果物がデザインされたアウトカムと整合していることを確実にする。</p>
+
+          <h3>Embed the Outcomes(アウトカムを定着させる)― サイクリック</h3>
+
+          <p><strong>目的</strong>: 届けられた成果を、実際の業務運用にしっかりと組み込む。移行(トランジション)の実行、変化の伝達、BCMを中心としたビジネス側での受け入れ、ベネフィット実現の測定開始などを含む。</p>
+
+          <h3>Evaluate New Information(新しい情報を評価する)― サイクリック</h3>
+
+          <p><strong>目的</strong>: プログラムを取り巻く環境を定期的に評価し、新しい知見や変化に適応できるようにする。トランシェレビューを通じて、ベネフィットの実現状況・ビジネスケースの妥当性・戦略との整合性を確認し、次のトランシェへ進むか、計画を調整するか、プログラムを早期にクローズするかを判断する重要なゲートとなる。</p>
+
+          <h3>Close the Programme(プログラムをクローズする)― 一度きり</h3>
+
+          <p><strong>目的</strong>: プログラムがベネフィットを実現し、目的を達成したことを正式に確認して、プログラムを終結させること。</p>
+
+          <p><strong>クローズの2つのパターン</strong></p>
+
+          <ul>
+            <li><strong>自然閉鎖(Natural Closure)</strong>: TOMに描かれたケイパビリティが提供され、ベネフィットの実現が評価された段階</li>
+            <li><strong>早期閉鎖(Premature Closure)</strong>: これまでの証跡から、これ以上の投資がビジネス上の合理性を持たないと判断された場合</li>
+          </ul>
+
+          <p><strong>主な活動</strong>: 残存プロジェクトのクローズ、アクセス権限・コントロールの解除、ベネフィット実現状況のレビューと報告、プログラム情報の最終更新、経営ガバナンスへのフィードバック、プログラム組織・サポート機能の解散。なお、一部のベネフィットはプログラムクローズ後も実現され続けることがあり、その追跡責任はビジネス側(BCMやビジネスオペレーション)に引き継がれる。</p>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス(プロセス全体を通じて)</div>
+            <ul>
+              <li>プロセス1と7は「一度きり」であることを意識し、通常のトランシェサイクルと同じ感覚で運用しない。特にIdentifyは短く鋭く(short and sharp)行い、詳細検討はDesign the Outcomes以降に委ねることで、時期尚早な資源投入を避ける。</li>
+              <li>Evaluate New Informationのゲートを形骸化させない。「継続することが前提」の儀式的なレビューにせず、本当に「Stop」という選択肢が取りうる場として機能させる。</li>
+              <li>各トランシェの終わりに、次のトランシェの計画(Plan Progressive Delivery)を作り直す際は、直前のEmbed the OutcomesとEvaluate New Informationで得られた学びを必ず反映する。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>TrustedInstitute「MSP Processes and Programme Lifecycle Flashcards」、Aaron Percival氏「Innovate, Iterate, Integrate」、Altkom Akademia MSP Foundation資料、Henny Portman氏プロセス対応表</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 8 -->
         <section id="governance">
           <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:shield-check" aria-hidden="true" />SECTION 08</div>
           <h2>ガバナンスと組織構造</h2>
+
+          <p>MSPにおける「プログラムガバナンス」とは、プログラムが組織の戦略目標と整合し、適切な権限のもとで統制されるための仕組み全体を指します。プログラムガバナンスは、コーポレートガバナンス(企業統治)の枠組みの中に位置づけられ、独立した存在ではありません。</p>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_GOVERNANCE_STRUCTURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">ガバナンスと組織構造</div>
+          </div>
+
+          <p><strong>PDCA(Plan-Do-Check-Act)サイクルとの関係</strong></p>
+
+          <p>MSPのテーマ章では、プログラムガバナンスの実践を、おなじみのPDCAサイクルになぞらえて説明することがあります。プログラム戦略(Programme Strategy)で「どう統治するか」を計画し(Plan)、各プロセスで実行し(Do)、Evaluate New InformationやAssuranceの仕組みで確認し(Check)、得られた教訓を次のトランシェの計画に反映する(Act)という循環です。</p>
+
+          <p><strong>プログラム戦略(Programme Strategy)とプログラムプラン(Programme Plans)の違い</strong></p>
+
+          <ul>
+            <li><strong>プログラム戦略</strong>: ガバナンスのアプローチ(組織構造を含む)を定義する、方針レベルの文書。</li>
+            <li><strong>プログラムプラン</strong>: 戦略に基づいて具体的にどう実行するかを定める、実行レベルの計画群(デリバリープラン、ベネフィット実現計画、ステークホルダー関与・コミュニケーション計画など)。</li>
+          </ul>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <ul>
+              <li>ガバナンス構造を「一度決めたら固定」にしない。プログラムの規模やフェーズが変わるタイミングで、スポンサリンググループやプログラムボードの構成が適切かを見直す。</li>
+              <li>コーポレートガバナンスとプログラムガバナンスの接続点(監査委員会への報告ラインなど)を明確にし、プログラム単体で閉じたガバナンスにしない。</li>
+            </ul>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li>1World Training MSP Foundationコース概要、PDCAコンサルティング MSPサマリー資料</li>
+            </ul>
+          </div>
         </section>
 
         <!-- Section 9 -->
