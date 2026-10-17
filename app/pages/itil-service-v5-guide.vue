@@ -177,6 +177,24 @@ S4 --> S5["ポートフォリオへの 反映・優先順位づけ"]
 S5 --> S6["ロードマップ・ サービスオファリングの更新"]
 classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
 class S1,S2,S3,S4,S5,S6 box`;
+
+const DIAGRAM_DESIGNFIG10 = `flowchart TB
+S1["要件・機会の 詳細化"] --> S2["アーキテクチャ・ 技術方式の検討"]
+S2 --> S3["サービスレベル目標 SLA XLAの組み込み"]
+S3 --> S4["プロトタイプ作成・ ユーザー検証"]
+S4 --> S5["運用モデル 誰がどう運用するかの設計"]
+S5 --> S6["仕様書の確定"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`;
+
+const DIAGRAM_ACQUIREFIG11 = `flowchart TB
+S1["必要リソースの 特定技術 人材 サービス"] --> S2["内製 vs 購入の ソーシング戦略決定"]
+S2 --> S3["サプライヤー評価・ 選定"]
+S3 --> S4["契約・SLA の 締結"]
+S4 --> S5["資産としての 登録・配分"]
+S5 --> S6["TCO を含めた 予算管理への反映"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px
+class S1,S2,S3,S4,S5,S6 box`;
 </script>
 
 <template>
@@ -1151,6 +1169,232 @@ class S1,S2,S3,S4,S5,S6 box`;
           <li><strong>需要の「声」を一元化する</strong>: 営業・サポート・SNS・利用ログなど、バラバラなチャネルから上がってくるニーズを単一のバックログまたはインサイト管理ツールに集約してください。分散したままでは優先順位づけができません。</li>
           <li><strong>Discover を一度きりのフェーズにしない</strong>: Support 活動(第10章)で得られたインシデント・問い合わせの傾向は、そのまま次の Discover サイクルへの重要なインプットです。PSLM がエコシステム型である所以はここにあります。</li>
           <li><strong>仮説検証のコストを下げる</strong>: 本格的な Build に入る前に、プロトタイプやコンセプト検証(PoC)で仮説を安価に検証し、Design 段階への手戻りを防いでください。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+      <section id="module3-design" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:ruler-2" aria-hidden="true" />SECTION 05</div>
+      <h2>Module 3: Design(設計)</h2>
+
+      <h3>4.1 目的(Purpose)</h3>
+
+      <p>Design 活動の目的は、<strong>製品とサービスのプロトタイプおよび仕様を作成し、機能性・ユーザー体験・運用モデルを詳細化すること</strong> です。Discover で発見された機会を、実装可能な設計へと落とし込みます。</p>
+
+      <h3>4.2 主要概念</h3>
+
+      <ul>
+        <li><strong>仕様(Specification)</strong>: 機能要件・非機能要件(性能、セキュリティ、可用性など)を明文化したもの</li>
+        <li><strong>プロトタイプ(Prototype)</strong>: 低コストで検証可能な試作。実装前にユーザー体験や技術的実現可能性を確認する</li>
+        <li><strong>運用モデル(Operating Model)</strong>: 誰が、どのプラクティスで、どのように日々の運用を担うかを事前に設計しておく考え方。Design 段階で後工程(Operate・Support)を見据えることが、運用可能性(Operability)の高い設計につながる</li>
+      </ul>
+
+      <h3>4.3 Design を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Design における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Architecture Management(アーキテクチャ管理)</td>
+              <td>システム構成要素間の関係性を設計し、将来の拡張性・保守性を担保する</td>
+            </tr>
+            <tr>
+              <td>Service Level Management(サービスレベル管理)</td>
+              <td>設計段階から SLA・XLA の目標値を組み込み、「後付けの品質保証」を避ける</td>
+            </tr>
+            <tr>
+              <td>Service Design(サービスデザイン)</td>
+              <td>ユーザー体験(UX)を含めた、サービス全体の設計手法を提供する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.4 Design 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DESIGNFIG10" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>4.5 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>製品・サービスの仕様書</li>
+        <li>プロトタイプ</li>
+        <li>サービスレベル目標(SLA/XLA のドラフト)</li>
+        <li>運用モデルの設計文書</li>
+      </ul>
+
+      <h3>4.6 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>設計段階で非機能要件が担保されている</td>
+              <td>設計レビューでの非機能要件(可用性・セキュリティ等)指摘件数の低さ</td>
+            </tr>
+            <tr>
+              <td>ユーザー体験が検証されている</td>
+              <td>プロトタイプに対するユーザビリティテストの実施率、体験スコア</td>
+            </tr>
+            <tr>
+              <td>設計と運用が乖離していない</td>
+              <td>Design 段階のレビューに Operate/Support 担当者が参加した割合</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>4.7 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>「運用できる設計(Design for Operability)」を徹底する</strong>: 可観測性(ログ・メトリクス・トレース)を後付けにせず、設計段階で組み込んでください。Operate・Support 担当者を Design レビューに巻き込むことが最も効果的な予防策です。</li>
+          <li><strong>SLA/XLA は設計の入力であり、事後の交渉材料にしない</strong>: 目標可用性やレスポンスタイムは、アーキテクチャの意思決定(冗長化構成、キャッシュ戦略など)に直結します。設計完了後に SLA を握るのではなく、設計の前提として先に合意してください。</li>
+          <li><strong>プロトタイプは「安く速く失敗する」ために使う</strong>: 本番相当の作り込みをする前に、最小限のプロトタイプで技術的リスクとユーザー体験の両方を検証し、Build 段階での手戻りコストを最小化してください。</li>
+        </ul>
+      </div>
+    </section>
+
+    
+
+<section id="module4-acquire" class="guide-section" tabindex="-1">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:shopping-cart" aria-hidden="true" />SECTION 06</div>
+      <h2>Module 4: Acquire(獲得)</h2>
+
+      <h3>5.1 目的(Purpose)</h3>
+
+      <p>Acquire 活動の目的は、<strong>必要なリソース(技術、人材、サードパーティサービスなど)を効率的に確保・配分すること</strong> です。設計を実現するために「何を、どこから、どう調達するか」を決定する段階です。</p>
+
+      <h3>5.2 技術・人材・サードパーティサービス調達の違い</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>調達対象</th>
+            <th>特徴</th>
+            <th>主な検討事項</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>技術(ハードウェア・ソフトウェア)</td>
+              <td>比較的定型化されている</td>
+              <td>ライセンス条件、拡張性、既存アーキテクチャとの整合性</td>
+            </tr>
+            <tr>
+              <td>人材</td>
+              <td>採用・育成・外部人材活用のバランスが必要</td>
+              <td>スキルギャップの特定、内製 vs 外部委託の判断</td>
+            </tr>
+            <tr>
+              <td>サードパーティサービス</td>
+              <td>継続的な関係管理が必要</td>
+              <td>SLA の設定、サプライヤーのガバナンス体制、ベンダーロックインのリスク</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.3 主要概念</h3>
+
+      <ul>
+        <li><strong>ソーシング戦略(Sourcing Strategy)</strong>: 内製(Build)か購入(Buy)か、あるいはハイブリッドかを決定する戦略的判断。コスト、専門性、戦略的重要度によって左右される</li>
+        <li><strong>サービス財務管理の視点</strong>: 調達コストは一時費用だけでなく、運用中の継続コスト(TCO: 総所有コスト)まで見積もる必要がある</li>
+      </ul>
+
+      <h3>5.4 Acquire を支える有効化プラクティス</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>プラクティス</th>
+            <th>Acquire における役割</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>Supplier Management(サプライヤー管理)</td>
+              <td>外部サプライヤーとの契約・パフォーマンス管理を担う</td>
+            </tr>
+            <tr>
+              <td>IT Asset Management(IT資産管理)</td>
+              <td>調達した資産のライフサイクル(登録・追跡・廃棄)を管理する</td>
+            </tr>
+            <tr>
+              <td>Service Financial Management(サービス財務管理)</td>
+              <td>調達コストの予算化、投資対効果の評価を担う</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.5 Acquire 活動のステップ</h3>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ACQUIREFIG11" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中…</p>
+              </template>
+            </ClientOnly>
+          </div>
+
+      <h3>5.6 アウトプット(Outputs)</h3>
+
+      <ul>
+        <li>調達済みのリソース・サービス</li>
+        <li>サプライヤー契約・SLA</li>
+        <li>更新された IT 資産台帳</li>
+      </ul>
+
+      <h3>5.7 CSF と指標の例</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>CSF</th>
+            <th>指標例</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td>必要なリソースが適時に確保されている</td>
+              <td>調達リードタイム、調達遅延によるプロジェクト遅延件数</td>
+            </tr>
+            <tr>
+              <td>サプライヤーの品質が担保されている</td>
+              <td>サプライヤー SLA 達成率</td>
+            </tr>
+            <tr>
+              <td>総所有コストが適切に管理されている</td>
+              <td>予算対比の調達コスト、TCO の見積り精度</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>5.8 実践的な推奨事項(ベストプラクティス)</h3>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <ul>
+          <li><strong>TCO で判断する</strong>: 初期調達コストの安さだけで判断せず、運用・保守・サポート・将来の拡張コストまで含めた総所有コストで比較検討してください。</li>
+          <li><strong>サプライヤー管理を「契約締結後」で終わらせない</strong>: Acquire は一度きりの取引ではなく、Supplier Management プラクティスを通じた継続的な関係管理の起点です。定期的なパフォーマンスレビューを最初から契約に組み込んでください。</li>
+          <li><strong>ベンダーロックインのリスクを可視化する</strong>: 特に AI・クラウド関連の調達では、移行コストやデータポータビリティを事前に評価し、将来の選択肢を狭めすぎないようにしてください。</li>
         </ul>
       </div>
     </section>
