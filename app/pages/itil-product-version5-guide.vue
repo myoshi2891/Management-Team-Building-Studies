@@ -79,6 +79,50 @@ classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
 class DIS,DES,ACQ,BLD box
 class TRA,OPE hub
 class DEL,SUP done`;
+
+const DIAGRAM_DISCOVER_STEPS = `flowchart TB
+A["機会・課題の特定 (市場動向・利用者の声・データ分析)"] --> B["ビジョン/ポジショニング/ ポートフォリオと照合"]
+B --> C["仮説の設定 (誰に・何を・なぜ)"]
+C --> D["初期評価 (実現可能性・市場性・戦略適合度)"]
+D --> E["優先順位付けと合意形成"]
+E --> F(("アウトプット: 検証済み機会・ プロダクトコンセプト"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
+
+const DIAGRAM_DESIGN_STEPS = `flowchart TB
+A["要件の具体化 (機能/非機能)"] --> B["ソリューション設計 (アーキテクチャ・UX)"]
+B --> C["プロトタイプ/ 詳細仕様の作成"]
+C --> D["リスク・セキュリティ・ コンプライアンス評価"]
+D --> E["設計レビューと承認"]
+E --> F(("アウトプット: 詳細設計仕様・ アーキテクチャ決定"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
+
+const DIAGRAM_ACQUIRE_STEPS = `flowchart TB
+A["必要リソースの特定 (技術/人材/サードパーティ)"] --> B["Make/Buy/Partner の意思決定"]
+B --> C["サプライヤー評価・ 調達先の選定"]
+C --> D["契約・SLA・ 条件の合意"]
+D --> E["オンボーディングと 受け入れ確認"]
+E --> F(("アウトプット: 利用可能なリソース・ サプライヤー契約"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
+
+const DIAGRAM_BUILD_STEPS = `flowchart TB
+A["設計仕様の 実装計画への分解"] --> B["コンポーネントの 開発・構成・組み立て"]
+B --> C["自動化されたテスト (単体/結合/セキュリティ)"]
+C --> D["技術的負債の 可視化と管理"]
+D --> E["品質ゲートの通過確認"]
+E --> F(("アウトプット: テスト済みビルド成果物"))
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class A,B,C,D,E box
+class F done`;
 </script>
 
 <template>
@@ -680,6 +724,184 @@ class DEL,SUP done`;
             <li><a href="https://www.diontraining.com/blogs/news/itil-5-process" target="_blank" rel="noopener">ITIL 5 Process Guide</a></li>
             <li><a href="https://blog.invgate.com/itil-5-what-changes" target="_blank" rel="noopener">ITIL 5 vs ITIL 4: What Changed</a></li>
             <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus (公式シラバス)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 05 -->
+      <section id="discover" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:search" aria-hidden="true" />
+          <span>SECTION 05</span>
+        </div>
+        <h2>Discover(発見)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Discoverは、ライフサイクルの起点であり、「<strong>市場や利用者が何を必要としているかを理解し、それを組織の戦略と整合させる</strong>」ことを目的とする活動です。</p>
+        <p>シラバスは、Discoverの主要概念として、<strong>ビジョン(Vision)・ポジショニング(Positioning)・ポートフォリオ(Portfolio)</strong> の3つが発見活動にどう情報を与えるかを重視しています。</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>要素</th><th>発見活動における役割</th></tr></thead>
+            <tbody>
+              <tr><td><strong>ビジョン</strong></td><td>組織が長期的に実現したい未来像。どの機会を追求すべきかの判断基準になる</td></tr>
+              <tr><td><strong>ポジショニング</strong></td><td>競合・市場の中で自組織のプロダクトをどう位置づけるか。差別化の軸を定める</td></tr>
+              <tr><td><strong>ポートフォリオ</strong></td><td>現在保有しているプロダクト・サービスの全体像。新しい機会が既存ポートフォリオとどう関係するかを判断する土台になる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DISCOVER_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Discover活動のステップとアウトプット</div>
+        </div>
+        <p><strong>主なアウトプット</strong>:</p>
+        <ul>
+          <li>検証された市場機会・課題の定義</li>
+          <li>初期のプロダクトコンセプト、または既存プロダクトの改善仮説</li>
+          <li>優先順位付けされた機会のリスト(ポートフォリオへのインプット)</li>
+        </ul>
+        <h3>Discoverを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Discoverでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Strategy management</td><td>組織の長期方向性と発見された機会の整合を取る</td></tr>
+              <tr><td>Portfolio management</td><td>新しい機会を既存ポートフォリオの中で評価・優先順位付けする</td></tr>
+              <tr><td>Business analysis</td><td>利用者・ステークホルダーのニーズを構造化して可視化する</td></tr>
+              <tr><td>Relationship management</td><td>顧客・利用者からの継続的なインサイト収集チャネルを維持する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>戦略と整合した機会が特定できている</td><td>ビジョン/戦略目標にひも付いた発見案件の比率</td></tr>
+              <tr><td>意思決定が根拠(エビデンス)に基づいている</td><td>定性・定量データに裏付けられた仮説の割合</td></tr>
+              <tr><td>発見から意思決定までのリードタイムが適切</td><td>機会特定〜Go/No-Go判断までの平均日数</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li>「思いつき」ではなく、<strong>利用者インタビュー・利用データ・市場データという複数の証拠源</strong>を突き合わせてから機会を確定させる</li>
+            <li>Discoverの結果を<strong>ポートフォリオに即座に反映</strong>し、他の進行中プロダクトとの重複・競合を早期に発見する</li>
+            <li>発見のサイクルを<strong>一度きりのフェーズにせず、継続的な活動</strong>として運用する(プロダクトが稼働した後もSupport活動からのフィードバックがDiscoverに還流する設計にする)</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>市場投入前に無駄な投資を回避できる</td><td>ステークホルダーの声が大きい要求と、実際の市場ニーズが乖離するリスク</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://www.pmgacademy.com/en/articles/itil/the-definitive-guide-to-itil-version-5-foundation/" target="_blank" rel="noopener">The Definitive Guide to ITIL® Version 5 Foundation</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 06 -->
+      <section id="design" tabindex="-1">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:pencil" aria-hidden="true" />
+          <span>SECTION 06</span>
+        </div>
+        <h2>Design(設計)活動</h2>
+
+        <h3>目的と主要概念</h3>
+        <p>Designは、Discoverで特定された機会を、<strong>具体的で実現可能な解決策</strong>に変換する活動です。ここでは、機能要件だけでなく、非機能要件(セキュリティ・スケーラビリティ・アクセシビリティなど)も含めた包括的な設計判断が行われます。</p>
+        <h3>ステップとアウトプット</h3>
+        <div class="diagram-card">
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_DESIGN_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+          </div>
+          <div class="diagram-caption">Design活動のステップとアウトプット</div>
+        </div>
+        <p><strong>主なアウトプット</strong>:</p>
+        <ul>
+          <li>詳細設計仕様書・アーキテクチャ決定記録</li>
+          <li>プロトタイプ、またはユーザーテスト済みのデザイン成果物</li>
+          <li>後続のAcquire/Build活動へのインプットとなる技術要件</li>
+        </ul>
+        <h3>Designを支える代表的プラクティス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>プラクティス</th><th>Designでの役割</th></tr></thead>
+            <tbody>
+              <tr><td>Architecture management</td><td>全体アーキテクチャとの整合性を確保する</td></tr>
+              <tr><td>Service design</td><td>サービスとしての利用体験・運用性を設計に織り込む</td></tr>
+              <tr><td>Business analysis</td><td>要件を設計仕様へ翻訳する</td></tr>
+              <tr><td>Risk management</td><td>設計上のリスクを早期に特定し軽減策を組み込む</td></tr>
+              <tr><td>Information security management</td><td>セキュリティ・バイ・デザインを実現する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>成功要因(CSF)とメトリクス(例)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>CSF</th><th>代表的なメトリクス例</th></tr></thead>
+            <tbody>
+              <tr><td>設計が利用者ニーズを的確に反映している</td><td>ユーザーテストでの合格率・満足度</td></tr>
+              <tr><td>設計が後工程で手戻りを起こさない</td><td>Build/Transition段階での設計起因の手戻り件数</td></tr>
+              <tr><td>セキュリティ・コンプライアンスが設計段階で担保されている</td><td>設計レビューで検出されたセキュリティ懸念の解消率</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <ul>
+            <li><strong>人間中心設計(Human-Centred Design)</strong>の手法を用い、実際の利用者を設計プロセスの早い段階から巻き込む</li>
+            <li>アーキテクチャ判断は<strong>Architecture Decision Record(ADR)</strong>のような形で記録し、後の意思決定の根拠を追跡可能にする</li>
+            <li>「一度に完璧な設計」を目指さず、<strong>検証可能な最小単位の設計→フィードバック→反復</strong>というサイクルを回す</li>
+          </ul>
+        </div>
+        <h3>プロダクトベンダー視点でのメリットと課題</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>メリット</th><th>課題</th></tr></thead>
+            <tbody>
+              <tr><td>ベンダー視点</td><td>手戻りの少ない実装が可能になる</td><td>設計に時間をかけすぎると市場投入(Time to Market)が遅れる</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <ul>
+            <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL(Version 5) Changes Explained</a></li>
+            <li><a href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Product-Syllabus.pdf" target="_blank" rel="noopener">ITIL® Product | Syllabus</a></li>
           </ul>
         </div>
       </section>
