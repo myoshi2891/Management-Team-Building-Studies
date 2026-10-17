@@ -55,7 +55,7 @@ app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 ```
 
 > [!IMPORTANT]
-> **新規ガイドページの登録先は `app/utils/guide-catalog.ts` の `GUIDES` 1 か所。**
+> **新規ガイドページの登録先は `app/utils/guide-catalog.ts` の `ALL_GUIDES` 1 か所**（公開一覧 `GUIDES` は `ALL_GUIDES` から導出されるため直接編集しない）。
 > ここに 1 件追加すれば、ホームのカード一覧（`app/pages/index.vue`）・
 > グローバルナビ（`app/components/SiteHeader.vue`）・種別ハブ・プログラムハブ・
 > サイト内検索（`app/utils/guide-search.ts`）がすべて追随する。
