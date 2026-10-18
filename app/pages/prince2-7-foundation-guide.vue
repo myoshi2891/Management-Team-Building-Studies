@@ -141,6 +141,39 @@ class EXAM,PROP,DEC box;
 class CAP hub;
 class IMPL done;`;
 
+// managementProductsMap
+const DIAGRAM_MANAGEMENT_PRODUCTS_MAP = `flowchart TB
+accTitle: マネジメント製品の分類
+accDescr: マネジメント製品をベースライン・記録類・報告類の3分類に分け、それぞれに含まれる具体的な製品名を列挙したマップ図
+MP["マネジメント製品"]
+MP --> BL["ベースライン(Baselines)"]
+MP --> REC["記録類(Project Log: レジスター/ログ)"]
+MP --> REP["報告類(Reports)"]
+BL --> BL1["ビジネスケース"]
+BL --> BL2["各種マネジメント・アプローチ(Benefits/Change/Commercial/Communication/Digital and Data/Issue/Quality/Risk/Sustainability)"]
+BL --> BL3["プラン(Project/Stage/Team/Exception)"]
+BL --> BL4["プロダクト・ディスクリプション"]
+BL --> BL5["プロジェクトブリーフ"]
+BL --> BL6["プロジェクト・イニシエーション ドキュメンテーション(PID)"]
+BL --> BL7["ワークパッケージ・ディスクリプション"]
+REC --> REC1["デイリーログ"]
+REC --> REC2["課題レジスター"]
+REC --> REC3["教訓ログ"]
+REC --> REC4["プロダクトレジスター"]
+REC --> REC5["品質レジスター"]
+REC --> REC6["リスクレジスター"]
+REP --> REP1["チェックポイント報告"]
+REP --> REP2["ハイライト報告"]
+REP --> REP3["例外報告"]
+REP --> REP4["エンドステージ報告"]
+REP --> REP5["エンドプロジェクト報告"]
+REP --> REP6["教訓報告"]
+REP --> REP7["課題報告"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class BL,REC,REP,BL1,BL2,BL3,BL4,BL5,BL6,BL7,REC1,REC2,REC3,REC4,REC5,REC6,REP1,REP2,REP3,REP4,REP5,REP6,REP7 box;
+class MP hub;`;
+
 const TOC_IDS = [
   "exam-overview",
   "what-is-prince2",
@@ -654,6 +687,99 @@ useSeoMeta({
     </section>
 
     <!-- ===================== 5. Management Products ===================== -->
+    
+        <!-- ===================== 5. Management Products ===================== -->
+<section id="management-products">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:files" aria-hidden="true" />SECTION 05</div>
+      <h2>マネジメント製品(Management Products)の全体像</h2>
+
+      <p>PRINCE2の全プラクティス・プロセスは、以下の3系統の「マネジメント製品(文書類)」でトレーサビリティを保つ。</p>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_MANAGEMENT_PRODUCTS_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">マネジメント製品の全体マップ(ベースライン・記録類・報告類)</div>
+          </div>
+
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足(用語の変遷とV7での新設)</div>
+        <p>「戦略(Strategy)」から<strong>「マネジメント・アプローチ(Management Approach)」</strong>への改称はV6(2017年版)で行われ、V7では引き続きこの呼称が使われている。V7ではこれに加えて、<strong>コマーシャル・マネジメント・アプローチ</strong>、<strong>デジタル&amp;データ・マネジメント・アプローチ</strong>、<strong>サステナビリティ・マネジメント・アプローチ</strong>の3つが新設された。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/" target="_blank" rel="noopener">prince2.wiki — Define roles, responsibilities and relationships</a></li>
+        </ul>
+      </div>
+
+      <p><strong>プロジェクト・イニシエーション・ドキュメンテーション(PID)の主な構成</strong></p>
+      <ul>
+        <li>プロジェクト定義(目的・スコープ・除外事項・制約・前提)</li>
+        <li>詳細ビジネスケース</li>
+        <li>プロジェクトアプローチ</li>
+        <li>各種マネジメント・アプローチ</li>
+        <li>プロジェクトプラン</li>
+        <li>プロジェクトガバナンス構造(役割・責任)</li>
+        <li>プロジェクトコントロール(ステージ数、トレランス)</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 6. Roles and Responsibilities ===================== -->
+    <section id="roles-responsibilities">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:sitemap" aria-hidden="true" />SECTION 06</div>
+      <h2>役割と責任(Roles and Responsibilities)</h2>
+
+      <p>PRINCE2の原則③「明確な役割と責任」を具体化したのがこの組織構造です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>階層</th><th>役割</th><th>代表する利害</th><th>主な責任</th></tr></thead>
+          <tbody>
+            <tr><td>指揮</td><td><strong>エグゼクティブ (Executive)</strong></td><td>ビジネス</td><td>ビジネスケースの所有者。プロジェクトボードの議長。最終意思決定者。資金確保</td></tr>
+            <tr><td>指揮</td><td><strong>シニアユーザー (Senior User)</strong></td><td>ユーザー</td><td>要求事項・受け入れ基準の代弁。便益実現の確認責任</td></tr>
+            <tr><td>指揮</td><td><strong>シニアサプライヤー (Senior Supplier)</strong></td><td>サプライヤー</td><td>プロダクトの技術的実現可能性・品質・リソースの確保</td></tr>
+            <tr><td>管理</td><td><strong>プロジェクトマネージャー (Project Manager)</strong></td><td>—</td><td>日々のプロジェクト運営。計画・監視・統制・報告</td></tr>
+            <tr><td>実行</td><td><strong>チームマネージャー (Team Manager)</strong></td><td>—</td><td>ワークパッケージの実行管理。チームへの割当と統制</td></tr>
+            <tr><td>支援</td><td><strong>プロジェクトアシュアランス (Project Assurance)</strong></td><td>ビジネス/ユーザー/サプライヤー</td><td>プロジェクトボードに代わって(委任を受けて)チェックを行う機能。プロジェクトマネージャーからは独立</td></tr>
+            <tr><td>支援</td><td><strong>チェンジオーソリティ (Change Authority)</strong></td><td>—</td><td>変更要求・仕様逸脱の承認権限(委譲された場合)</td></tr>
+            <tr><td>支援</td><td><strong>プロジェクトサポート (Project Support)</strong></td><td>—</td><td>管理事務(ログ・レジスターの維持、会議調整、ツール運用等)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>兼務(役割の共有)に関するルール</h3>
+      <ul>
+        <li><strong>共有できる役割の例:</strong> シニアユーザー、シニアサプライヤー、プロジェクトアシュアランス、チェンジオーソリティ、プロジェクトサポート、チームマネージャー</li>
+        <li><strong>兼務してはいけない組み合わせの代表例:</strong>
+          <ul>
+            <li><strong>エグゼクティブとプロジェクトマネージャーは兼務不可</strong>(意思決定と実行の分離のため)</li>
+            <li>プロジェクトマネージャーがプロジェクトアシュアランス(独立したチェック機能)を兼務することは不可(自らの仕事を自ら監査することになるため)</li>
+            <li>エグゼクティブの説明責任(アカウンタビリティ)自体は委譲できない</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「誰が何を兼務できるか」は毎回のように出題される頻出テーマ。判断軸は「意思決定者」と「独立したチェック機能」を同一人物にしない、という一貫した原則で覚えると迷わない。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-roles-responsibilities" target="_blank" rel="noopener">knowledgetrain.co.uk — PRINCE2 Roles and Responsibilities</a></li>
+          <li><a href="https://prince2.wiki/practices/organizing/" target="_blank" rel="noopener">prince2.wiki — Organizing</a></li>
+          <li><a href="https://www.spoclearn.com/blog/prince2-7-roles-responsibilities/" target="_blank" rel="noopener">spoclearn.com — PRINCE2 7 Roles Explained</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 7. Processes ===================== -->
     
       </main>
     </div>
