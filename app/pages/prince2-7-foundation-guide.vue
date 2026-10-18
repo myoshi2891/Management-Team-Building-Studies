@@ -29,6 +29,20 @@ class A,B,C,E box;
 class D hub;
 class F done;`;
 
+const DIAGRAM_TOLERANCE_ESCALATION = `flowchart LR
+accTitle: トレランスとエスカレーションの経路
+accDescr: コーポレート/プログラムマネジメントがプロジェクトトレランス、プロジェクトボードがステージトレランス、プロジェクトマネージャーがワークパッケージトレランスを設定し、逸脱予測時は下位から上位へ例外報告としてエスカレーションされる関係を示す図
+Corp["コーポレート/プログラムマネジメント"] -->|"プロジェクトトレランスを設定"| Board["プロジェクトボード"]
+Board -->|"ステージトレランスを設定"| PM["プロジェクトマネージャー"]
+PM -->|"ワークパッケージトレランスを設定"| TM["チームマネージャー"]
+TM -->|"トレランス逸脱の予測"| PM
+PM -->|"例外報告"| Board
+Board -->|"トレランス逸脱の予測(プロジェクトレベル)"| Corp
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Corp,PM,TM box;
+class Board hub;`;
+
 const TOC_IDS = [
   "exam-overview",
   "what-is-prince2",
@@ -206,6 +220,130 @@ useSeoMeta({
           <div class="callout practice" data-variant="practice" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
             <p>原則は「守るべき絶対条件」、プラクティスは「継続的に扱うべき観点」、プロセスは「実行の手順」と整理して覚えると混同しにくい。試験でも「これは原則か、プラクティスか」を問う設問が頻出する。</p>
+          </div>
+        </section>
+
+        <!-- ===================== 2. Principles ===================== -->
+        <section id="principles">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
+          <h2>7つの原則(Principles)</h2>
+
+          <p>原則はPRINCE2プロジェクトであるための<strong>必須条件</strong>です。7つすべてを満たさないプロジェクトは「PRINCE2ベース」を名乗れません。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>#</th><th>原則(英語)</th><th>原則(日本語)</th><th>要点</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Ensure Continued Business Justification</td><td>継続的なビジネス上の正当化</td><td>プロジェクトは常に「望ましさ(Desirability)」「実現可能性(Viability)」「達成可能性(Achievability)」を満たす必要がある</td></tr>
+                <tr><td>2</td><td>Learn from Experience</td><td>経験からの学習</td><td>過去の教訓を取り入れ、自らの教訓も記録し継承する</td></tr>
+                <tr><td>3</td><td>Define Roles, Responsibilities and Relationships</td><td>役割・責任・関係性の定義</td><td>ビジネス・ユーザー・サプライヤーの3つの利害関係者の視点を明示的に代表する体制を作る</td></tr>
+                <tr><td>4</td><td>Manage by Stages</td><td>段階(ステージ)による管理</td><td>プロジェクトを管理可能な単位(マネジメントステージ)に分割し、段階ごとに計画・監視・統制する</td></tr>
+                <tr><td>5</td><td>Manage by Exception</td><td>例外による管理</td><td>各レベルに許容範囲(トレランス)を委譲し、逸脱が予測される場合のみ上位へエスカレーションする</td></tr>
+                <tr><td>6</td><td>Focus on Products</td><td>プロダクトへの焦点</td><td>「何を作るか」を起点に計画し、要求事項・品質基準を明確化する</td></tr>
+                <tr><td>7</td><td>Tailor to Suit the Project</td><td>プロジェクトに合わせたテーラリング</td><td>規模・複雑さ・重要性・リスク等に応じて手法を調整する(方法自体は削らないが適用度合いを変える)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>原則の詳細解説</h3>
+
+          <p><strong>① 継続的なビジネス上の正当化</strong></p>
+          <ul>
+            <li>「望ましさ」= コスト・便益・リスクのバランスが取れているか</li>
+            <li>「実現可能性」= プロダクトを実際に提供できるか</li>
+            <li>「達成可能性」= 提供後に期待した便益(ベネフィット)が実現できるか</li>
+            <li>この正当化はビジネスケース(Business Case)practiceによって文書化・継続検証される。</li>
+          </ul>
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <p>ビジネスケースは「一度作って終わり」ではなく、各マネジメントステージ境界(Stage Boundary)で必ず見直す。正当化が崩れた時点でプロジェクトは中止すべきであり、これは失敗ではなく正しいガバナンスの証拠と理解する。</p>
+          </div>
+
+          <p><strong>② 経験からの学習</strong></p>
+          <ul>
+            <li>プロジェクト開始時:類似プロジェクトの教訓を探す</li>
+            <li>実行中:教訓ログ(Lessons Log)に継続記録</li>
+            <li>終結時:教訓報告(Lessons Report)として組織に還元</li>
+          </ul>
+
+          <p><strong>③ 明確な役割と責任</strong></p>
+          <ul>
+            <li>PRINCE2は「ビジネス」「ユーザー」「サプライヤー」の3視点を常に代表させることを要求する。</li>
+            <li>詳細は本ガイド「6. 役割と責任」を参照。</li>
+          </ul>
+
+          <p><strong>④ 段階による管理</strong></p>
+          <ul>
+            <li>最低2つのマネジメントステージ(初期化ステージ+提供ステージ)が必要。</li>
+            <li>ステージ数はリスク・不確実性の高さに応じて増減する(不確実性が高いほど、ステージを短く刻む)。</li>
+          </ul>
+
+          <p><strong>⑤ 例外による管理</strong></p>
+          <ul>
+            <li>トレランス(Tolerance)は7つの目標領域で設定される:<strong>時間(Time)・コスト(Cost)・品質(Quality)・スコープ(Scope)・リスク(Risk)・便益(Benefit)・サステナビリティ(Sustainability)</strong></li>
+            <li>トレランスを超える(または超えると予測される)場合のみ、例外報告(Exception Report)により上位層へエスカレーションする。</li>
+            <li>これにより、上位マネジメントは日常業務ではなく戦略的意思決定に集中できる。</li>
+          </ul>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_TOLERANCE_ESCALATION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">トレランスの委譲とエスカレーションの流れ</div>
+          </div>
+
+          <p><strong>⑥ プロダクトへの焦点</strong></p>
+          <ul>
+            <li>プロジェクト・プロダクト・ディスクリプション(Project Product Description)で最終成果物の要求事項・品質基準・受け入れ基準を定義する。</li>
+            <li>ここから個々のプロダクト・ディスクリプション(Product Description)へブレイクダウンする「プロダクトベース・プランニング」につながる(詳細は「4.3 Plans」)。</li>
+          </ul>
+
+          <p><strong>⑦ テーラリング</strong></p>
+          <ul>
+            <li>テーラリングは「原則を省略すること」ではない。プラクティスの<strong>適用の厚み</strong>やプロセスの<strong>形式度</strong>を調整することを指す。</li>
+            <li>小規模プロジェクトでは、複数の役割を1人が兼務したり、報告書を簡略化したりできる(ただし兼務不可の組み合わせがある。「6. 役割と責任」参照)。</li>
+          </ul>
+        </section>
+
+        <!-- ===================== 3. People ===================== -->
+        <section id="people">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:users" aria-hidden="true" />SECTION 03</div>
+          <h2>People(人) — V7で新設された章</h2>
+
+          <p>PRINCE2 7版最大の変更点の一つが、この「People」章の新設です。従来版は手法・統制プロセスに重点を置いていましたが、V7では「プロジェクトを成功させるのは結局は人である」という前提を明示しました。</p>
+
+          <h3>Peopleに関する3つの活動</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>活動</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>Leading Successful Change(効果的な変革のリード)</td><td>プロジェクトはアウトプット提供だけでなく、組織における行動・文化の変化を伴う。変革管理の観点(ステークホルダーの受容度、抵抗への対処)を統合する</td></tr>
+                <tr><td>Leading Successful Teams(効果的なチームのリード)</td><td>チーム形成、動機づけ、心理的安全性、分散/バーチャルチームのマネジメントなど</td></tr>
+                <tr><td>Communication(コミュニケーション)</td><td>ステークホルダーとの双方向コミュニケーションの計画と実践</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <p>「People」は独立した1プラクティスとしてではなく、7原則・7プラクティス・7プロセス<strong>すべてに横断的に関わる基盤</strong>として位置づけられている。試験では「Peopleはどのプラクティスに属するか」ではなく「プロジェクト全体にどう統合されるか」という視点で出題されやすい。</p>
+          </div>
+
+          <h3>コミュニケーション・マネジメント・アプローチ</h3>
+          <ul>
+            <li>ステークホルダーとの情報共有方法を定める文書 <strong>Communication Management Approach(コミュニケーション・マネジメント・アプローチ)</strong> はV6で導入された用語で、V7でもそのまま引き継がれている(V5では「Communication Management Strategy」と呼ばれていた)。</li>
+            <li>内容:誰に・何を・いつ・どの手段で・誰が責任を持つか、を定義する。</li>
+          </ul>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li><a href="https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked" target="_blank" rel="noopener">Managing Successful Projects with PRINCE2 7th Edition 目次(scribd)</a></li>
+              <li><a href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2" target="_blank" rel="noopener">knowledgetrain.co.uk PRINCE2マニュアル解説</a></li>
+            </ul>
           </div>
         </section>
       </main>
