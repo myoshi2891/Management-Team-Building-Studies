@@ -174,6 +174,43 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class BL,REC,REP,BL1,BL2,BL3,BL4,BL5,BL6,BL7,REC1,REC2,REC3,REC4,REC5,REC6,REP1,REP2,REP3,REP4,REP5,REP6,REP7 box;
 class MP hub;`;
 
+// processOverallFlow
+const DIAGRAM_PROCESS_OVERALL_FLOW = `flowchart TB
+accTitle: PRINCE2プロセス全体の流れ
+accDescr: プロジェクト開始前のSU、全期間を通じて継続するDP、初期化ステージのIP、繰り返される提供ステージのCS・MP・SB、最終ステージのCPへと連なるプロセス全体の流れを示す図
+subgraph PreProject["プロジェクト開始前"]
+SU["SU: プロジェクト開始"]
+end
+subgraph Direct["DP: プロジェクト指揮(全期間を通じて継続)"]
+DP1["初期化の認可"]
+DP2["プロジェクトの認可"]
+DP3["ステージ/例外プランの認可"]
+DP4["アドホックな方向付け"]
+DP5["終結の認可"]
+end
+subgraph Initiation["初期化ステージ"]
+IP["IP: プロジェクト初期化"]
+end
+subgraph Delivery["提供ステージ(繰り返し)"]
+CS["CS: ステージ統制"]
+MP["MP: プロダクト提供管理"]
+SB["SB: ステージ境界管理"]
+CS <--> MP
+CS --> SB
+end
+subgraph FinalStage["最終ステージ"]
+CP["CP: プロジェクト終結"]
+end
+SU --> DP1 --> IP --> DP2 --> CS
+SB --> DP3 --> CS
+CS --> CP --> DP5
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class DP1,DP2,DP3,DP4,DP5,IP,CS,MP,SB box;
+class SU hub;
+class CP done;`;
+
 const TOC_IDS = [
   "exam-overview",
   "what-is-prince2",
@@ -780,6 +817,98 @@ useSeoMeta({
     </section>
 
     <!-- ===================== 7. Processes ===================== -->
+    
+        <!-- ===================== 7. Processes ===================== -->
+<section id="processes">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 07</div>
+      <h2>7つのプロセス(Processes)</h2>
+
+      <p>プロセスは「誰が・いつ・何をするか」を時系列で示した実行手順です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>プロセス(略称)</th><th>主体</th><th>目的(要約)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Starting up a Project (SU)</td><td>エグゼクティブ/PM</td><td>プロジェクトを開始する前提条件が揃っているかを確認する</td></tr>
+            <tr><td>2</td><td>Directing a Project (DP)</td><td>プロジェクトボード</td><td>プロジェクト全期間にわたり、意思決定・方向付けを行う(開始~終結まで継続)</td></tr>
+            <tr><td>3</td><td>Initiating a Project (IP)</td><td>PM</td><td>大きな支出の前に、確固たる土台(PID)を確立する</td></tr>
+            <tr><td>4</td><td>Controlling a Stage (CS)</td><td>PM</td><td>各マネジメントステージの日々の監視・統制を行う</td></tr>
+            <tr><td>5</td><td>Managing Product Delivery (MP)</td><td>チームマネージャー</td><td>合意したワークパッケージのプロダクトを規定の品質で提供する</td></tr>
+            <tr><td>6</td><td>Managing a Stage Boundary (SB)</td><td>PM</td><td>現ステージの終了報告と次ステージ計画をまとめ、ボードの承認を得る</td></tr>
+            <tr><td>7</td><td>Closing a Project (CP)</td><td>PM</td><td>プロジェクトを統制された形で終結させる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>プロセス全体の流れ</h3>
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_PROCESS_OVERALL_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">PRINCE2 7プロセス全体の流れ</div>
+          </div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>DP(Directing a Project)はプロジェクトボードの活動であり、プロジェクト開始から終結まで「継続して」存在する点に注意。他のプロセスのように「1回だけ実行される線形ステップ」ではない。SUとIPは直列で実行され、その間にDPへの「橋渡し(開始認可)」が入る、という関係を図で押さえておくと試験で迷わない。</p>
+      </div>
+
+      <h3>各プロセスの詳細</h3>
+
+      <p><strong>① Starting up a Project (SU)</strong></p>
+      <ul>
+        <li>目的:プロジェクトマンデート(Project Mandate)を受け、初期化(IP)に進む価値があるかを確認する。</li>
+        <li>主な活動:プロジェクトマネージャーの任命、既存の教訓の確認、アウトラインビジネスケースの作成、プロジェクトブリーフ(Project Brief)の作成、プロジェクトアプローチの選定、初期化ステージプランの作成。</li>
+      </ul>
+
+      <p><strong>② Directing a Project (DP)</strong></p>
+      <ul>
+        <li>目的:プロジェクトボードが説明責任を果たし、意思決定を行うための仕組みを提供する。</li>
+        <li>主な活動:初期化の認可、プロジェクトの認可、ステージ/例外プランの認可、アドホックな方向付け(必要な時のみ)、プロジェクト終結の認可。</li>
+      </ul>
+
+      <p><strong>③ Initiating a Project (IP)</strong></p>
+      <ul>
+        <li>目的:大きな支出にコミットする前に、プロジェクトの確固たる土台(何を・なぜ・どのように・いつ・誰が)を確立する。</li>
+        <li>主な活動:各マネジメント・アプローチの作成、品質・リスク・課題管理の仕組み構築、プロジェクトプランの作成、詳細ビジネスケースの精緻化、プロジェクトガバナンスの確立、PIDの作成。</li>
+      </ul>
+
+      <p><strong>④ Controlling a Stage (CS)</strong></p>
+      <ul>
+        <li>目的:ステージ内の作業を日々監視・統制し、承認されたトレランスの範囲内に収める。</li>
+        <li>主な活動:ワークパッケージの認可、進捗の監視(チェックポイント報告のレビュー)、課題・リスクの捕捉と評価、ハイライト報告の作成、トレランス逸脱の予測時に例外報告を作成。</li>
+      </ul>
+
+      <p><strong>⑤ Managing Product Delivery (MP)</strong></p>
+      <ul>
+        <li>目的:チームマネージャーとPM間のインターフェースを明確にし、合意した作業を規定の品質・コスト・時間内で確実に実行する。</li>
+        <li>主な活動:ワークパッケージの受諾、実行、チェックポイント報告の提供、完了したワークパッケージの引き渡し。</li>
+      </ul>
+
+      <p><strong>⑥ Managing a Stage Boundary (SB)</strong></p>
+      <ul>
+        <li>目的:現在のステージの状況をプロジェクトボードに報告し、次のステージ(または例外プラン)の承認を得る。</li>
+        <li>主な活動:現ステージの実績評価、次ステージプランの作成、ビジネスケースとリスクの更新、エンドステージ報告の作成。</li>
+      </ul>
+
+      <p><strong>⑦ Closing a Project (CP)</strong></p>
+      <ul>
+        <li>目的:プロジェクトの目的が達成された(または達成できないと判断された)ことを確認し、統制された形で終結させる。</li>
+        <li>主な活動:計画実績とプロダクトの受け入れ確認、フォローオン・アクション勧告の作成、教訓報告の作成、便益管理アプローチの更新、プロジェクト終結の推奨、リソースの解放。</li>
+      </ul>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.projex.com/processes-and-practices-in-prince2-7-project-management/" target="_blank" rel="noopener">projex.com — Processes and Practices in PRINCE2 7</a></li>
+          <li><a href="https://goodelearning.com/downloads/project-program-management/learning-prince2-poster-56-7-prince2-processes/" target="_blank" rel="noopener">goodelearning.com — 7プロセス概要ポスター</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== 8. Tailoring ===================== -->
     
       </main>
     </div>
