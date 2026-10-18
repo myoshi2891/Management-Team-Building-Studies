@@ -1372,84 +1372,100 @@ function closeSidebarAndFocusToggle() {
           </p>
         </div>
         <h3>7.1 各プロセスの詳細とベストプラクティス</h3>
-        <p><strong>① Identify the Programme(プログラムを特定する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            この変革の取り組みが本当に「プログラム」として管理すべき規模・複雑性を持つかを見極め、最初の正当性(マンデート)を確立する。
-          </li>
-          <li><strong>主要ロール</strong>: スポンサリンググループが主導し、SROを任命する。</li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            単なる大型プロジェクトをプログラムとして過剰に統治構造化しない。プログラムマネジメントが必要な理由(相互に関連するプロジェクトやその他の作業を調整し、組織にとってのベネフィットをもたらすアウトカムを段階的に実現する必要性)を明確に説明できるかを確認する。
-          </li>
-        </ul>
-        <p><strong>② Design the Outcomes(成果を設計する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            プログラムの「将来状態」を確定させ、その後の全工程の土台となる設計文書群を整える。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            この段階でビジョン・ベネフィット・リスク・TOMの整合性を取っておくことが、後工程の手戻りを防ぐ最大のポイントです。
-          </li>
-        </ul>
-        <p><strong>③ Plan Progressive Delivery(段階的デリバリーを計画する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            全体設計をもとに、直近のトランシェの詳細計画を策定する。「Progressive(漸進的)」という名称の通り、全期間を一度に詳細計画するのではなく、<strong>近い将来ほど詳しく、遠い将来ほど粗く</strong>計画するローリングウェーブ的な考え方が推奨されます。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            各トランシェの終了条件(何を達成したら次に進むか)を事前に明確化しておく。
-          </li>
-        </ul>
-        <p><strong>④ Deliver the Capabilities(ケイパビリティを提供する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            構成プロジェクトの実行を監督し、合意された新しい能力(システム・プロセス・組織)を生み出す。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            プログラムマネージャーは個々のプロジェクトの詳細管理(それはプロジェクトマネージャーの仕事)ではなく、<strong>プロジェクト間の統合・依存関係・優先順位調整</strong>に集中する。
-          </li>
-        </ul>
-        <p><strong>⑤ Embed the Outcomes(成果を定着させる)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            新しい能力を実際の業務運用に移行し、想定していたベネフィットが実際に発生することを確認する。ここはBCM(ビジネスチェンジマネージャー)が主導する工程です。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            「システムを納品したら終わり」ではなく、利用者が新しい働き方に適応し、実際に便益指標が動き出すまでをスコープに含める。変更管理(チェンジマネジメント)・トレーニング計画をセットで用意する。
-          </li>
-        </ul>
-        <p><strong>⑥ Evaluate New Information(新しい情報を評価する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            実績データ、外部環境の変化、教訓などの新しい情報を収集・分析し、「このままトランシェを継続するか、計画を調整するか、あるいはプログラムを中止するか」を判断する。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            この工程を形式的なゲートレビューで終わらせず、Justificationテーマのビジネスケース見直しと直結させる。ネガティブな情報(想定通りいっていない兆候)を早期に可視化する文化を作ることが重要です。
-          </li>
-        </ul>
-        <p><strong>⑦ Close the Programme(プログラムを終結する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            プログラムを正式に終わらせ、残っている責任・資源を運用組織やその他の体制へ引き継ぐ。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            早すぎる解散(まだベネフィットが実現しきっていないのに体制を解いてしまう)と、逆に不要に長く体制を維持し続けるコスト超過の両方を避けるバランス感覚が問われます。教訓の記録(Knowledgeテーマ)を組織のナレッジベースに確実に残すことも忘れないようにします。
-          </li>
-        </ul>
+        <div class="process-grid">
+          <div class="process-card">
+            <p class="process-title"><strong>① Identify the Programme(プログラムを特定する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                この変革の取り組みが本当に「プログラム」として管理すべき規模・複雑性を持つかを見極め、最初の正当性(マンデート)を確立する。
+              </li>
+              <li><strong>主要ロール</strong>: スポンサリンググループが主導し、SROを任命する。</li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                単なる大型プロジェクトをプログラムとして過剰に統治構造化しない。プログラムマネジメントが必要な理由(相互に関連するプロジェクトやその他の作業を調整し、組織にとってのベネフィットをもたらすアウトカムを段階的に実現する必要性)を明確に説明できるかを確認する。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>② Design the Outcomes(成果を設計する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                プログラムの「将来状態」を確定させ、その後の全工程の土台となる設計文書群を整える。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                この段階でビジョン・ベネフィット・リスク・TOMの整合性を取っておくことが、後工程の手戻りを防ぐ最大のポイントです。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>③ Plan Progressive Delivery(段階的デリバリーを計画する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                全体設計をもとに、直近のトランシェの詳細計画を策定する。「Progressive(漸進的)」という名称の通り、全期間を一度に詳細計画するのではなく、<strong>近い将来ほど詳しく、遠い将来ほど粗く</strong>計画するローリングウェーブ的な考え方が推奨されます。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                各トランシェの終了条件(何を達成したら次に進むか)を事前に明確化しておく。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>④ Deliver the Capabilities(ケイパビリティを提供する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                構成プロジェクトの実行を監督し、合意された新しい能力(システム・プロセス・組織)を生み出す。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                プログラムマネージャーは個々のプロジェクトの詳細管理(それはプロジェクトマネージャーの仕事)ではなく、<strong>プロジェクト間の統合・依存関係・優先順位調整</strong>に集中する。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>⑤ Embed the Outcomes(成果を定着させる)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                新しい能力を実際の業務運用に移行し、想定していたベネフィットが実際に発生することを確認する。ここはBCM(ビジネスチェンジマネージャー)が主導する工程です。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                「システムを納品したら終わり」ではなく、利用者が新しい働き方に適応し、実際に便益指標が動き出すまでをスコープに含める。変更管理(チェンジマネジメント)・トレーニング計画をセットで用意する。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>⑥ Evaluate New Information(新しい情報を評価する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                実績データ、外部環境の変化、教訓などの新しい情報を収集・分析し、「このままトランシェを継続するか、計画を調整するか、あるいはプログラムを中止するか」を判断する。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                この工程を形式的なゲートレビューで終わらせず、Justificationテーマのビジネスケース見直しと直結させる。ネガティブな情報(想定通りいっていない兆候)を早期に可視化する文化を作ることが重要です。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>⑦ Close the Programme(プログラムを終結する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                プログラムを正式に終わらせ、残っている責任・資源を運用組織やその他の体制へ引き継ぐ。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                早すぎる解散(まだベネフィットが実現しきっていないのに体制を解いてしまう)と、逆に不要に長く体制を維持し続けるコスト超過の両方を避けるバランス感覚が問われます。教訓の記録(Knowledgeテーマ)を組織のナレッジベースに確実に残すことも忘れないようにします。
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="callout note" data-testid="callout" data-variant="note">
           <div class="callout-title" data-testid="callout-label">
             <Icon name="tabler:info-circle" aria-hidden="true" />
@@ -1531,7 +1547,7 @@ function closeSidebarAndFocusToggle() {
           MSP
           Practitioner試験はオープンブックのオブジェクティブテストであり、多くの場合「架空のプログラムのシナリオ」が提示され、そのシナリオに最も適した対応(または最も不適切な対応)を選ぶ形式で出題されます。以下は学習・受験時の実践的なコツです。
         </p>
-        <ol>
+        <ol class="step-list">
           <li>
             <strong>シナリオを先に読み、症状を書き出す</strong>:
             「意思決定が遅い」「ベネフィットが測定されていない」「同じ失敗が繰り返されている」といった具体的な症状を特定し、どのテーマ・原則に対応するかをマッピングします。
@@ -2116,6 +2132,198 @@ tbody tr:nth-child(even) {
   margin: 24px 0;
 }
 
+.diagram-loading {
+  color: var(--color-ink-faint, #646d7d);
+  font-size: 15px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ===================== 7.1 Process detail cards ===================== */
+.process-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0 28px;
+}
+
+.process-card {
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-left: 4px solid var(--color-indigo, #2e3f72);
+  border-radius: 10px;
+  padding: 20px 24px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.process-card:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  border-left-color: var(--color-indigo, #2e3f72);
+  box-shadow: 0 3px 10px rgba(22, 27, 38, 0.05);
+}
+
+.process-title {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border, #dfe3ea);
+  font-family: var(--font-display, serif);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.process-title strong {
+  color: var(--color-indigo, #2e3f72);
+  font-weight: 700;
+}
+
+.process-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.process-points li {
+  margin: 0;
+  color: var(--color-ink-soft, #4b5566);
+  line-height: 1.7;
+}
+
+.process-points li > strong:first-child {
+  display: inline-block;
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-right: 4px;
+}
+
+/* ===================== Exam tips step list ===================== */
+.step-list {
+  counter-reset: step-counter;
+  list-style: none;
+  margin: 20px 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.step-list li {
+  counter-increment: step-counter;
+  position: relative;
+  margin: 0;
+  padding: 18px 22px 18px 68px;
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-radius: 10px;
+  color: var(--color-ink-soft, #4b5566);
+  line-height: 1.7;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.step-list li:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  box-shadow: 0 2px 8px rgba(22, 27, 38, 0.04);
+}
+
+.step-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo, #2e3f72);
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-list li > strong:first-child {
+  color: var(--color-indigo, #2e3f72);
+  font-weight: 700;
+}
+
+/* ===================== Numbered reference list cards ===================== */
+.ref-list {
+  counter-reset: ref-counter;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  margin: 0;
+  padding: 16px 20px 16px 66px;
+  border: 1px solid var(--color-border, #dfe3ea);
+  background: var(--color-paper-raised, #ffffff);
+  border-radius: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ref-list li:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  box-shadow: 0 2px 8px rgba(22, 27, 38, 0.04);
+}
+
+.ref-list li::before {
+  content: counter(ref-counter);
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo, #2e3f72);
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ref-list .ref-name {
+  display: block;
+  color: var(--color-ink, #161b26);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.ref-list .ref-url {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.ref-list .ref-url a {
+  color: var(--color-ink-faint, #646d7d);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.ref-list .ref-url a:hover {
+  color: var(--color-indigo, #2e3f72);
+  text-decoration: underline;
+}
+
 footer {
   margin-top: 96px;
   padding-top: 32px;
@@ -2155,3 +2363,4 @@ footer {
   }
 }
 </style>
+
