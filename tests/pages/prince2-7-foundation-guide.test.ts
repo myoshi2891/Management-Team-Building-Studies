@@ -328,6 +328,7 @@ defineSourceParityContract({
   seoTitle: "PRINCE2® Project Management Foundation (Version 7) 完全ガイド | PeopleCert公式資格対応",
   seoDescription:
     "PeopleCert PRINCE2 Project Management Foundation (Version 7) の出題範囲を、7つの原則・7つのプラクティス・7つのプロセス・役割と責任・People・デジタル&データマネジメント・サステナビリティまで初学者向けに解説する学習ガイド。",
+  allowedHeadingSkips: ["h2 -> h4"],
 });
 
 const mountPage = createMountPage(Page);

@@ -991,6 +991,53 @@ useSeoMeta({
 
     <!-- ===================== 12. Exam Tips ===================== -->
     
+        <!-- ===================== 12. Exam Tips & 13. References ===================== -->
+<section id="exam-tips">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:checklist" aria-hidden="true" />SECTION 12</div>
+      <h2>試験対策のポイント</h2>
+
+      <ol>
+        <li><strong>用語の日英対応を正確に覚える。</strong> 特にV6→V7の改称(Themes→Practices、Change→Issues)は誤答を誘発しやすい。</li>
+        <li><strong>原則・プラクティス・プロセスの数字(7・7・7)と各名称のスペルを正確に書けるようにする。</strong></li>
+        <li><strong>トレランスの7領域(時間・コスト・品質・スコープ・リスク・便益・サステナビリティ)</strong> を即答できるようにする。</li>
+        <li><strong>兼務不可の組み合わせ(特にエグゼクティブ×プロジェクトマネージャー)</strong> は頻出。</li>
+        <li><strong>リスクの脅威/好機それぞれの対応戦略の単語</strong>を混同しないよう分けて暗記する。</li>
+        <li>過去問形式の演習では、単なる暗記ではなく「なぜその答えがPRINCE2の思想に合致するか」を毎回説明できるようにすると定着しやすい。</li>
+        <li>本試験はClosed book・60分・60問というタイトな時間配分のため、迷った設問は一旦保留し、全問一周後に見直す時間管理を練習しておく。</li>
+      </ol>
+    </section>
+
+    <!-- ===================== 13. References ===================== -->
+    <section id="references">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 13</div>
+      <h2>参考文献・出典(URL)</h2>
+
+      <p>学習にあたっては、必ず一次情報である公式マニュアルとPeopleCert公式ページを参照してください。本ガイドの内容は以下のソースを根拠としています。</p>
+
+      <div class="ref-group">
+        <h4>出典一覧</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert公式「PRINCE2 Project Management Foundation (Version 7)」製品ページ(試験形式・出題範囲)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579</a></li>
+          <li><span class="ref-name">公式マニュアル『Managing Successful Projects with PRINCE2 (7th Edition)』目次・章構成の確認</span><a class="ref-url" href="https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked" target="_blank" rel="noopener">https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked</a></li>
+          <li><span class="ref-name">PRINCE2マニュアル解説(章構成、People章の位置づけ)</span><a class="ref-url" href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2" target="_blank" rel="noopener">https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2</a></li>
+          <li><span class="ref-name">V6→V7の変更点整理</span><a class="ref-url" href="https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know/" target="_blank" rel="noopener">https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know/</a></li>
+          <li><span class="ref-name">プロセスとプラクティスの関係整理</span><a class="ref-url" href="https://www.projex.com/processes-and-practices-in-prince2-7-project-management/" target="_blank" rel="noopener">https://www.projex.com/processes-and-practices-in-prince2-7-project-management/</a></li>
+          <li><span class="ref-name">役割と責任(プロジェクトボード、兼務ルール)</span><a class="ref-url" href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-roles-responsibilities" target="_blank" rel="noopener">https://www.knowledgetrain.co.uk/project-management/prince2/prince2-roles-responsibilities</a></li>
+          <li><span class="ref-name">役割と責任 — PRINCE2 7 Roles Explained(spoclearn.com)</span><a class="ref-url" href="https://www.spoclearn.com/blog/prince2-7-roles-responsibilities/" target="_blank" rel="noopener">https://www.spoclearn.com/blog/prince2-7-roles-responsibilities/</a></li>
+          <li><span class="ref-name">Organizing プラクティス(マネジメント製品の全体分類を含む)</span><a class="ref-url" href="https://prince2.wiki/practices/organizing/" target="_blank" rel="noopener">https://prince2.wiki/practices/organizing/</a></li>
+          <li><span class="ref-name">Organizing プラクティス — Define roles, responsibilities and relationships(prince2.wiki)</span><a class="ref-url" href="https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/" target="_blank" rel="noopener">https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/</a></li>
+          <li><span class="ref-name">原則の詳細解説</span><a class="ref-url" href="https://www.whatisprince2.net/principles" target="_blank" rel="noopener">https://www.whatisprince2.net/principles</a></li>
+          <li><span class="ref-name">プラクティス(旧テーマ)の要点整理</span><a class="ref-url" href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-course/prince2-practices" target="_blank" rel="noopener">https://www.knowledgetrain.co.uk/project-management/prince2/prince2-course/prince2-practices</a></li>
+          <li><span class="ref-name">7プロセスの概要ポスター</span><a class="ref-url" href="https://goodelearning.com/downloads/project-program-management/learning-prince2-poster-56-7-prince2-processes/" target="_blank" rel="noopener">https://goodelearning.com/downloads/project-program-management/learning-prince2-poster-56-7-prince2-processes/</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      PRINCE2&reg;はAXELOS Limitedの登録商標です。本ガイドは学習補助を目的とした独自の要約・解説であり、公式教材の代替にはなりません。正式な学習には公式eBook・公式トレーニング教材(Learning Resource Kit)を併用してください。
+    </footer>
+
+  
       </main>
     </div>
   </div>
@@ -1386,4 +1433,59 @@ tr:last-child td {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+h4 {
+  font-family: var(--font-sans, sans-serif);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink, #161b26);
+  margin: 28px 0 12px;
+}
+
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border, #dfe3ea);
+  font-size: 15px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink, #161b26);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint, #626b7c);
+  word-break: break-all;
+  font-size: 14px;
+}
+
+footer {
+  border-top: 1px solid var(--color-border, #dfe3ea);
+  margin-top: 80px;
+  padding-top: 24px;
+  font-size: 13px;
+  color: var(--color-ink-faint, #626b7c);
+  line-height: 1.6;
+}
+
 </style>
