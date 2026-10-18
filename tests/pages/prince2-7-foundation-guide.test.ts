@@ -384,7 +384,11 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
     const wrapper = mountPage();
     expect(wrapper.text()).not.toContain("明確な役割と責任");
     const principle3 = wrapper.findAll("strong").filter((el) => el.text().startsWith("③"));
-    expect(principle3.map((el) => el.text())).toEqual(["③ 役割・責任・関係性の定義"]);
+    // ③ は原則（SECTION 04）とプロセス（SECTION 07）の 2 か所に現れる
+    expect(principle3.map((el) => el.text())).toEqual([
+      "③ 役割・責任・関係性の定義",
+      "③ Initiating a Project (IP)",
+    ]);
     expect(wrapper.text()).toContain("PRINCE2の原則③「役割・責任・関係性の定義」を具体化したのがこの組織構造です。");
     const organizingRow = wrapper
       .findAll("tr")
