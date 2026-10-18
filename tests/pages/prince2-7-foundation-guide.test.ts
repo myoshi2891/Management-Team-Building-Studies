@@ -89,17 +89,29 @@ const EXPECTED_SECTION_EYEBROWS = [
   "SECTION 13",
 ] as const;
 
+// S-3 は出現回数で照合するため、原本で複数回出る URL は回数分列挙する（12 種・23 件）。
 const EXPECTED_EXTERNAL_URLS = [
   "https://goodelearning.com/downloads/project-program-management/learning-prince2-poster-56-7-prince2-processes",
+  "https://goodelearning.com/downloads/project-program-management/learning-prince2-poster-56-7-prince2-processes",
+  "https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know",
   "https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know",
   "https://prince2.wiki/practices/organizing",
+  "https://prince2.wiki/practices/organizing",
+  "https://prince2.wiki/principles/define-roles-responsibilities-and-relationships",
   "https://prince2.wiki/principles/define-roles-responsibilities-and-relationships",
   "https://www.knowledgetrain.co.uk/project-management/prince2/prince2-course/prince2-practices",
   "https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2",
+  "https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2",
+  "https://www.knowledgetrain.co.uk/project-management/prince2/prince2-roles-responsibilities",
   "https://www.knowledgetrain.co.uk/project-management/prince2/prince2-roles-responsibilities",
   "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579",
+  "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579",
+  "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579",
+  "https://www.projex.com/processes-and-practices-in-prince2-7-project-management",
   "https://www.projex.com/processes-and-practices-in-prince2-7-project-management",
   "https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked",
+  "https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked",
+  "https://www.spoclearn.com/blog/prince2-7-roles-responsibilities",
   "https://www.spoclearn.com/blog/prince2-7-roles-responsibilities",
   "https://www.whatisprince2.net/principles",
 ] as const;
