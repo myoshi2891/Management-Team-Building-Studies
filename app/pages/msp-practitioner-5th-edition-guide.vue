@@ -1437,6 +1437,34 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 09</span>
         </div>
         <h2>プラクティショナー試験対策:シナリオ適用のコツ</h2>
+        <p>
+          MSP
+          Practitioner試験はオープンブックのオブジェクティブテストであり、多くの場合「架空のプログラムのシナリオ」が提示され、そのシナリオに最も適した対応(または最も不適切な対応)を選ぶ形式で出題されます。以下は学習・受験時の実践的なコツです。
+        </p>
+        <ol>
+          <li>
+            <strong>シナリオを先に読み、症状を書き出す</strong>:
+            「意思決定が遅い」「ベネフィットが測定されていない」「同じ失敗が繰り返されている」といった具体的な症状を特定し、どのテーマ・原則に対応するかをマッピングします。
+          </li>
+          <li>
+            <strong>原則→テーマ→プロセスの順で当てはめる</strong>:
+            まずどの原則が損なわれているかを特定し、次にそれを是正するためにどのテーマの活動を強化すべきか、最後にそれをどのプロセス工程で実施すべきかを考えます。
+          </li>
+          <li>
+            <strong>「もっとも適切な」選択肢を選ぶ訓練をする</strong>:
+            MSPの試験は複数の選択肢がそれっぽく見えるよう設計されています。教科書的に正しいだけでなく、<strong>そのシナリオの制約条件(規模・リスク・組織文化)に最も適合する</strong>選択肢を選ぶ練習をしましょう。
+          </li>
+          <li>
+            <strong>オープンブックを過信しない</strong>:
+            試験時間は限られているため、マニュアルは「用語の正確な定義を確認する」ための補助として使い、全体の判断は事前学習した理解力で行う前提で臨みましょう。
+          </li>
+          <li>
+            <strong>旧版(第4版)の知識と混同しない</strong>:
+            第4版の「9つのガバナンステーマ」「Transformational
+            Flow」といった用語は第5版では使われません。本ガイドの用語(7テーマ、Programme
+            Lifecycle等)で統一して覚え直すことが重要です。
+          </li>
+        </ol>
       </section>
 
       <section id="best-practices">
@@ -1445,6 +1473,64 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 10</span>
         </div>
         <h2>ベストプラクティス総まとめ表</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>領域</th>
+                <th>ベストプラクティス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>原則全般</td>
+                <td>シナリオの「症状」から損なわれている原則を逆引きできるようにする</td>
+              </tr>
+              <tr>
+                <td>Organization</td>
+                <td>ロールと個人を分離して考える。トレランスを明確に定義し意思決定の遅延を防ぐ</td>
+              </tr>
+              <tr>
+                <td>Design</td>
+                <td>ビジョンは将来状態(To-Be)で記述し、ベネフィット・リスク・TOMと整合させる</td>
+              </tr>
+              <tr>
+                <td>Justification</td>
+                <td>ビジネスケースは一度作って終わりにせず、各トランシェで継続的に検証する</td>
+              </tr>
+              <tr>
+                <td>Structure</td>
+                <td>
+                  デリバリーアプローチはプログラム内で混在(ハイブリッド)させてよい。早期に価値を出すトランシェ設計を優先する
+                </td>
+              </tr>
+              <tr>
+                <td>Knowledge</td>
+                <td>教訓は収集するだけでなく、次の計画立案で必ず参照する仕組みにする</td>
+              </tr>
+              <tr>
+                <td>Assurance</td>
+                <td>
+                  三線防御(プロジェクト/業務運用・プログラム・企業の各権限レベル)で責任を整理し、リスクベースで重点配置する
+                </td>
+              </tr>
+              <tr>
+                <td>Decisions</td>
+                <td>意思決定の記録を残し、一貫したアプローチ(オプション分析)を用いる</td>
+              </tr>
+              <tr>
+                <td>プロセス全般</td>
+                <td>
+                  プロセス工程とテーマの関連を結びつけて理解する(例:③はStructureとJustificationが中心)
+                </td>
+              </tr>
+              <tr>
+                <td>テーラリング</td>
+                <td>「なぜその適用方法を選んだか」を常に説明できる状態を目指す</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section id="references">
@@ -1453,6 +1539,190 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 11</span>
         </div>
         <h2>参考文献・出典(ソースURL)</h2>
+        <ul class="ref-list">
+          <li>
+            <span class="ref-name"
+              >MSP Practitioner, 5th edition(公式製品ページ・試験概要・前提条件)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+                target="_blank"
+                rel="noopener"
+                >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name">MSP Foundation, 5th edition(前提資格の公式ページ)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930"
+                target="_blank"
+                rel="noopener"
+                >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >AXELOS Resource Hub「MSP 5th edition – what has
+              changed?」(第4版から第5版への変更点、テーマの再編・Designテーマ統合)</span
+            ><span class="ref-url"
+              ><a
+                href="https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed"
+                target="_blank"
+                rel="noopener"
+                >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Good e-Learning「What is MSP? Everything you Need to
+              Know」(7原則・7テーマの概説、三線防御)</span
+            ><span class="ref-url"
+              ><a
+                href="https://goodelearning.com/articles/what-is-msp/"
+                target="_blank"
+                rel="noopener"
+                >https://goodelearning.com/articles/what-is-msp/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Good e-Learning「MSP® 5th Edition
+              Foundation」コースシラバス(テーマ別モジュール構成、試験形式)</span
+            ><span class="ref-url"
+              ><a
+                href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+                target="_blank"
+                rel="noopener"
+                >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Good e-Learning「MSP 5th Edition update」記事(Programme
+              Lifecycleへの名称変更、プロセスの位置づけ)</span
+            ><span class="ref-url"
+              ><a
+                href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/"
+                target="_blank"
+                rel="noopener"
+                >https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Aaron Percival「Innovate, Iterate, Integrate」(7プロセスの解説)</span
+            ><span class="ref-url"
+              ><a
+                href="https://aaronpercival.substack.com/p/innovate-iterate-integrate"
+                target="_blank"
+                rel="noopener"
+                >https://aaronpercival.substack.com/p/innovate-iterate-integrate</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >The Knowledge Academy「MSP® Foundation &amp; Practitioner
+              Course」シラバス(第5版7原則の正式名称、Practitionerの学習目標)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/"
+                target="_blank"
+                rel="noopener"
+                >https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Zoboko「Managing Successful Programmes (5th
+              Edition)」公式マニュアル章立て(原則・各テーマの節構成)</span
+            ><span class="ref-url"
+              ><a
+                href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+                target="_blank"
+                rel="noopener"
+                >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >OpenExamPrep「4.1 The Design Theme &amp; Vision」(Design テーマの構成要素: ビジョン・TOM・リスク)</span
+            ><span class="ref-url"
+              ><a href="https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision" target="_blank" rel="noopener"
+                >https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name">Finance NI「Programme Board」(プログラムボードの構成・役割)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.finance-ni.gov.uk/articles/programme-board"
+                target="_blank"
+                rel="noopener"
+                >https://www.finance-ni.gov.uk/articles/programme-board</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name">Finance NI「Senior Responsible Owner」(SROの責務)</span
+            ><span class="ref-url"
+              ><a
+                href="https://www.finance-ni.gov.uk/articles/senior-responsible-owner"
+                target="_blank"
+                rel="noopener"
+                >https://www.finance-ni.gov.uk/articles/senior-responsible-owner</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >Open Exam Prep「Programme Governance
+              Structure」(スポンサリンググループ・トレランスの解説)</span
+            ><span class="ref-url"
+              ><a
+                href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
+                target="_blank"
+                rel="noopener"
+                >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
+              ></span
+            >
+          </li>
+          <li>
+            <span class="ref-name"
+              >ILX Group「MSP® Practitioner」コース概要(Practitionerの学習目標)</span
+            ><span class="ref-url"
+              ><a
+                href="https://ilxgroup.com/uk/training/msp/practitioner"
+                target="_blank"
+                rel="noopener"
+                >https://ilxgroup.com/uk/training/msp/practitioner</a
+              ></span
+            >
+          </li>
+        </ul>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
+          <p>
+            <strong>注記</strong>: 本ガイドはMSP® 第5版(Managing Successful Programmes, 5th
+            edition)の公開されている公式製品情報・認定トレーニングプロバイダーの公開シラバス・公式マニュアルの章立て情報をもとに、初学者向けに要約・再構成したものです。MSP®はPeopleCert
+            International
+            Limitedの登録商標です。実際の受験にあたっては、必ず公式マニュアル『Managing Successful
+            Programmes, 5th edition』(PeopleCert発行)を一次情報として参照してください。
+          </p>
+        </div>
       </section>
 
       <footer>
