@@ -361,6 +361,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "PRINCE2® Project Management Foundation (Version 7) 学習ガイド",
+        category: "PEOPLECERT",
+        href: "/prince2-7-foundation-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
