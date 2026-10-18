@@ -120,10 +120,13 @@ const isSidebarOpen = ref(false);
 const sidebarToggleRef = ref<HTMLButtonElement | null>(null);
 
 function closeSidebarAndFocusToggle() {
+  const wasOpen = isSidebarOpen.value;
   isSidebarOpen.value = false;
-  nextTick(() => {
-    sidebarToggleRef.value?.focus();
-  });
+  if (wasOpen) {
+    nextTick(() => {
+      sidebarToggleRef.value?.focus();
+    });
+  }
 }
 </script>
 
@@ -460,6 +463,175 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 04</span>
         </div>
         <h2>7つの原則(Principles)とその実践適用</h2>
+        <p>
+          第5版における7つの原則は、旧版(第4版)から名称・切り口が刷新されており、より現代的な変革リーダーシップの語彙で表現されています。
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>原則(英語)</th>
+                <th>原則(和訳)</th>
+                <th>一言でいうと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Lead with purpose</td>
+                <td>目的を持って導く</td>
+                <td>望ましい成果を描き、伝え続ける</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Collaborate across boundaries</td>
+                <td>境界を越えて協働する</td>
+                <td>組織横断的な効果的ガバナンスを促進する</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Deal with ambiguity</td>
+                <td>曖昧さに対処する</td>
+                <td>意思決定に伴うリスクを理解し受け入れる</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Align with priorities</td>
+                <td>優先順位に整合させる</td>
+                <td>新しい情報や創発的な変化に適応する</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Deploy diverse skills</td>
+                <td>多様なスキルを配置する</td>
+                <td>変化する業務ニーズに応える</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Realize measurable benefits</td>
+                <td>測定可能なベネフィットを実現する</td>
+                <td>一貫性のある組織能力を設計・提供する</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Bring pace and value</td>
+                <td>ペースと価値をもたらす</td>
+                <td>段階的に価値を届け続ける</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/"
+              target="_blank"
+              rel="noopener"
+              >https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/</a
+            >
+            、
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (公式マニュアルの章立て:第2章 Principles / 2.1〜2.7)
+          </p>
+        </div>
+        <h3>4.1 各原則の意味とPractitionerレベルの適用ポイント</h3>
+        <p>
+          <strong>① Lead with purpose(目的を持って導く)</strong
+          ><br />プログラムは「なぜこの変革が必要か」という明確な目的意識のもとに導かれなければなりません。プログラムマネージャーやSRO(後述)は、ビジョンを繰り返し発信し、意思決定の軸をぶらさないリーダーシップが求められます。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            シナリオ問題では、ビジョンが曖昧・頻繁に変わる・関係者に伝わっていない、といった兆候が「Lead
+            with
+            purposeの原則が守られていない」ことを示すヒントになります。対応策としては、ビジョンステートメントの再確認・コミュニケーション計画の強化を提案します。
+          </li>
+        </ul>
+        <p>
+          <strong>② Collaborate across boundaries(境界を越えて協働する)</strong
+          ><br />プログラムは複数の部門・組織・サプライヤーにまたがるため、通常の部門ガバナンスだけでは統治できません。組織横断的な合意形成の仕組みが必要です。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            部門間の対立、サイロ化した意思決定、ステークホルダー間の情報格差が見られるシナリオでは、Organizationテーマにおけるガバナンス構造の見直しや、Sponsoring
+            Group(後述)による調整が解決策になります。
+          </li>
+        </ul>
+        <p>
+          <strong>③ Deal with ambiguity(曖昧さに対処する)</strong
+          ><br />プログラムの初期段階では不確実性が高く、すべてを事前に計画しきることはできません。曖昧さを前提としたリスクベースの意思決定が必要です。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            「情報が不十分なまま意思決定を迫られている」というシナリオでは、Decisionsテーマのデータ収集・オプション分析のアプローチを適用し、段階的に確度を高めていく提案が適切です。
+          </li>
+        </ul>
+        <p>
+          <strong>④ Align with priorities(優先順位に整合させる)</strong
+          ><br />外部環境や組織戦略は変化し続けるため、プログラムは定期的に優先順位を見直し、必要であれば方向転換(リフォーカス)する柔軟性を持つ必要があります。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            戦略変更や市場環境の変化が描かれるシナリオでは、Evaluate New
+            Information(後述プロセス)を通じた計画の見直しが求められているサインです。
+          </li>
+        </ul>
+        <p>
+          <strong>⑤ Deploy diverse skills(多様なスキルを配置する)</strong
+          ><br />プログラムは技術・チェンジマネジメント・財務・調達など多様な専門性を必要とします。硬直的な組織図ではなく、必要なスキルを機動的に配置できる体制が求められます。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            リソース不足・スキルミスマッチのシナリオでは、Structureテーマのリソースマネジメントとの関連付けが評価されます。
+          </li>
+        </ul>
+        <p>
+          <strong>⑥ Realize measurable benefits(測定可能なベネフィットを実現する)</strong
+          ><br />※原則6は英語表記で "Realize measurable benefits"
+          ですが、公式教材によっては「一貫性のある組織能力(capability)の設計・提供」という説明が併記される場合があります。プログラムの成果は<strong>測定可能な形で定義</strong>され、単発のプロジェクト完了ではなく、実際の便益実現まで追跡されなければなりません。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            「プロジェクトは完了したがベネフィットが計測されていない」というシナリオは典型的な出題パターンです。Design/Justificationテーマのベネフィットマップ・ベネフィットプロファイルの整備を提案します。
+          </li>
+        </ul>
+        <p>
+          <strong>⑦ Bring pace and value(ペースと価値をもたらす)</strong
+          ><br />すべてを完成させてから価値を届けるのではなく、<strong>段階的(トランシェ単位)に早期から価値を提供</strong>し続けることが重視されます。
+        </p>
+        <ul>
+          <li>
+            <strong>適用のポイント</strong>:
+            「最終成果物まで何も価値が出ない」計画になっているシナリオでは、Structureテーマのトランシェ設計・Plan
+            Progressive Delivery(後述プロセス)の見直しが解答の方向性になります。
+          </li>
+        </ul>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <p>
+            <strong>ベストプラクティス</strong>:
+            Practitioner試験では、シナリオ文中の「症状(何がうまくいっていないか)」から、どの原則が損なわれているかを逆引きする訓練が有効です。7原則を「目的→協働→曖昧さ→優先順位→スキル→ベネフィット→ペース」の順で暗唱できるようにし、それぞれに対応する典型的な失敗パターンと解決策(テーマ・プロセスとの紐付け)をセットで覚えましょう。
+          </p>
+        </div>
       </section>
 
       <section id="governance-structure">
@@ -468,6 +640,117 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 05</span>
         </div>
         <h2>プログラム組織とガバナンス構造</h2>
+        <p>
+          7つのテーマの中でも「Organization(組織)」テーマはプログラム全体の土台となるため、先に主要な役割と構造を整理します。
+        </p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ORG_STRUCTURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中...</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ロール</th>
+                <th>主な責務</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Sponsoring Group(スポンサリンググループ)</strong></td>
+                <td>
+                  組織戦略とプログラムを結びつける最上位の投資決定機関。SROを任命し、資金・企業リソースを承認する。組織横断的な対立の最終調整も担う。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Senior Responsible Owner (SRO)</strong></td>
+                <td>
+                  プログラムの成功に対する<strong>単一の説明責任</strong>を負うシニアリーダー。ビジョンとビジネスケースの健全性を守り、主要な意思決定・資金確保・アシュアランス計画の承認を行う。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Programme Board(プログラムボード)</strong></td>
+                <td>
+                  SROを議長とし、委任された権限(トレランス)の範囲内でプログラムの推進を統治し、助言・挑戦(チャレンジ)・承認を行う機関。最低限、SRO・プログラムマネージャー・BCM・プログラムオフィス責任者で構成される。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Programme Manager</strong></td>
+                <td>
+                  プログラムの日常運営責任者。構成プロジェクト群の計画・統合・進捗管理を行い、MSPの主要文書の大部分(プログラム戦略、プログラム計画、リスク登録簿等)を作成する。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Business Change Manager (BCM)</strong></td>
+                <td>
+                  新しい能力を業務運用に組み込み、実際のベネフィット実現を確認する責任者。ベネフィットマップ・ベネフィットプロファイルの作成責任を持つ。複数名配置されることもある。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Programme Office</strong></td>
+                <td>
+                  情報管理・進捗レポーティング・標準化支援などプログラムマネジメントを下支えする機能。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://www.finance-ni.gov.uk/articles/programme-board"
+              target="_blank"
+              rel="noopener"
+              >https://www.finance-ni.gov.uk/articles/programme-board</a
+            >
+            、
+            <a
+              href="https://www.finance-ni.gov.uk/articles/senior-responsible-owner"
+              target="_blank"
+              rel="noopener"
+              >https://www.finance-ni.gov.uk/articles/senior-responsible-owner</a
+            >
+            、
+            <a href="https://eapad.dk/?p=6228" target="_blank" rel="noopener"
+              >https://eapad.dk/?p=6228</a
+            >
+          </p>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <p>
+            <strong>ベストプラクティス(委譲権限/トレランス)</strong>:
+            プログラムボードとSROの間、SROとスポンサリンググループの間では、コスト・スケジュール・スコープ・品質・リスク・ベネフィットの6つの側面について<strong>委譲された許容範囲(トレランス)</strong>を明確に定義しておくことが重要です。これにより、些細な判断まで上位機関にエスカレーションする必要がなくなり、意思決定のスピードが確保されます(Decisionsテーマ・Bring
+            pace and value原則とも直結する実務ポイントです)。
+          </p>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
+              target="_blank"
+              rel="noopener"
+              >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
+            >
+          </p>
+        </div>
       </section>
 
       <section id="themes">
