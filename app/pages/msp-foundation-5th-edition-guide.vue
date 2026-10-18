@@ -1485,6 +1485,20 @@ tbody tr:nth-child(even) {
   margin: 28px 0;
 }
 
+.diagram-caption {
+  font-size: 14px;
+  color: var(--color-ink-faint, #8a93a3);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint, #8a93a3);
+  font-size: 15px;
+  padding: 20px 0;
+  text-align: center;
+}
+
 .callout {
   border-left: 4px solid var(--color-indigo, #2e3f72);
   background: var(--color-indigo-tint, #eef1f8);
@@ -1533,6 +1547,196 @@ tbody tr:nth-child(even) {
   margin-bottom: 0;
 }
 
+/* ===================== Checklist cards ===================== */
+.check-list {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  counter-reset: chk;
+}
+
+.check-item {
+  counter-increment: chk;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border: 1px solid var(--color-border, #dfe3ea);
+  background: var(--color-paper-raised, #ffffff);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.check-item:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  box-shadow: 0 2px 8px rgba(22, 27, 38, 0.04);
+}
+
+.check-item::before {
+  content: counter(chk);
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.check-item input {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin: 3px 0 0;
+  border: 1.5px solid var(--color-border-strong, #c7cdd9);
+  border-radius: 6px;
+  background: var(--color-paper-raised, #ffffff);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.check-item input:checked {
+  border-color: var(--color-indigo, #2e3f72);
+  background: var(--color-indigo, #2e3f72) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-6.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat;
+}
+
+.check-item input:focus-visible {
+  outline: 2px solid var(--color-indigo, #2e3f72);
+  outline-offset: 2px;
+}
+
+.check-item .check-text {
+  color: var(--color-ink-soft, #4b5566);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.check-item:has(input:checked) {
+  background: var(--color-success-bg, #eaf4ec);
+  border-color: var(--color-success-border, #bfe0c6);
+}
+
+.check-item:has(input:checked)::before {
+  background: var(--color-success-border, #bfe0c6);
+  color: var(--color-success-text, #2f6b3d);
+}
+
+.check-item:has(input:checked) .check-text {
+  text-decoration: line-through;
+  color: var(--color-ink-faint, #8a93a3);
+}
+
+/* ===================== Glossary ===================== */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-top: 3px solid var(--color-indigo, #2e3f72);
+  background: var(--color-paper-raised, #ffffff);
+  border-radius: 10px;
+  padding: 18px 20px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.glossary-item:hover {
+  box-shadow: 0 3px 10px rgba(22, 27, 38, 0.05);
+}
+
+.glossary-item .g-term {
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--color-indigo, #2e3f72);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft, #4b5566);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ===================== Numbered reference cards ===================== */
+.ref-cards {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.ref-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid var(--color-border, #dfe3ea);
+  background: var(--color-paper-raised, #ffffff);
+  border-radius: 10px;
+  padding: 16px 20px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ref-card:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  box-shadow: 0 2px 8px rgba(22, 27, 38, 0.04);
+}
+
+.ref-num {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo, #2e3f72);
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.ref-card .ref-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.ref-card .ref-name {
+  display: block;
+  color: var(--color-ink, #161b26);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.ref-card .ref-url {
+  display: inline-block;
+  color: var(--color-ink-faint, #8a93a3);
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-all;
+  transition: color 0.15s ease;
+}
+
+.ref-card .ref-url:hover {
+  color: var(--color-indigo, #2e3f72);
+}
+
 footer {
   margin-top: 96px;
   padding-top: 32px;
@@ -1562,6 +1766,9 @@ footer {
   .stat-row {
     grid-template-columns: repeat(2, 1fr);
   }
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1570,3 +1777,4 @@ footer {
   }
 }
 </style>
+
