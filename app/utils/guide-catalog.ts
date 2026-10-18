@@ -856,6 +856,17 @@ export const ALL_GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/msp-practitioner-5th-edition-guide",
+    programId: "peoplecert",
+    seriesId: "pc-msp",
+    navLabel: "MSP Practitioner 完全ガイド",
+    title: "MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説",
+    description: "MSP Practitioner 5th edition の原則・テーマ・プロセスを、シナリオ適用とテーラリングの視点で学ぶ初学者向けガイド。",
+    meta: "11セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
