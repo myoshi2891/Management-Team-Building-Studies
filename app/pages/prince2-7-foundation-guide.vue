@@ -910,6 +910,87 @@ useSeoMeta({
 
     <!-- ===================== 8. Tailoring ===================== -->
     
+        <!-- ===================== 8. Tailoring ~ 11. Cross Mapping ===================== -->
+<section id="tailoring">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:adjustments" aria-hidden="true" />SECTION 08</div>
+      <h2>テーラリング(Tailoring)</h2>
+
+      <p>テーラリングは原則の1つであると同時に、PRINCE2適用における横断的な考え方です。</p>
+
+      <p><strong>テーラリングの判断材料</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>具体例</th></tr></thead>
+          <tbody>
+            <tr><td>プロジェクト規模</td><td>小規模なら報告の簡略化・役割の統合</td></tr>
+            <tr><td>複雑さ</td><td>複雑なら追加のプロジェクトアシュアランス層</td></tr>
+            <tr><td>重要性</td><td>重要度が高いほどステージを細かく刻む</td></tr>
+            <tr><td>チームの能力</td><td>経験豊富なチームなら手続きを簡略化できる</td></tr>
+            <tr><td>リスクレベル</td><td>リスクが高いほど統制頻度を上げる</td></tr>
+            <tr><td>組織文化・開発手法</td><td>アジャイル環境ではワークパッケージ単位をスプリントに合わせる、など</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>テーラリングは「プロセスや文書を省くこと」ではなく、<strong>目的を満たす最小限かつ適切な形式に調整すること</strong>。例えば「リスクレジスターを作らない」のではなく「1枚のスプレッドシートで十分」というように、目的(トレーサビリティの確保)は必ず維持する。</p>
+      </div>
+    </section>
+
+    <!-- ===================== 9. Digital and Data Management ===================== -->
+    <section id="digital-data-management">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:database" aria-hidden="true" />SECTION 09</div>
+      <h2>デジタル&amp;データマネジメント(Digital and Data Management)— V7新規要素</h2>
+
+      <p>V7では、プロジェクト情報がデジタルツール上で管理されることを前提とした視点が全体に統合されました。</p>
+
+      <ul>
+        <li><strong>デジタル&amp;データ・マネジメント・アプローチ</strong>:プロジェクト情報(文書、データ)をどのツール・形式・アクセス権限で管理するかを定義する新設の文書。</li>
+        <li>対象領域の例:コラボレーションツール、バージョン管理、データセキュリティ、AIツールの活用方針、情報のライフサイクル管理。</li>
+        <li>既存プラクティス(特にPlans、Progress、Issues)の実務が、デジタルツール上でどう運用されるかという観点で出題されうる。</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 10. Sustainability ===================== -->
+    <section id="sustainability">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:recycle" aria-hidden="true" />SECTION 10</div>
+      <h2>サステナビリティ(Sustainability)の統合</h2>
+
+      <p>V6にはなかった「サステナビリティ・マネジメント・アプローチ」がV7で新設され、プロジェクトの環境・社会的影響を計画的に管理することが明示されました。</p>
+
+      <ul>
+        <li>サステナビリティは、時間・コスト・品質・スコープ・リスク・便益と並ぶ<strong>第7のパフォーマンス目標</strong>として正式に位置づけられている。</li>
+        <li>ビジネスケースの評価軸(コスト・便益・リスク)に、環境・社会的影響の観点を含める。</li>
+        <li>サステナビリティトレランス(Sustainability Tolerance)として、他の目標領域と同様に許容範囲がビジネスケースに記載され、逸脱時は同様にエスカレーションされる。</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 11. Cross Mapping ===================== -->
+    <section id="cross-mapping">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:network" aria-hidden="true" />SECTION 11</div>
+      <h2>プラクティス×プロセス×原則の関係(横断整理)</h2>
+
+      <p>試験では「このプラクティスはどの原則を支えるか」「このプロセスはどのプラクティスを使うか」という<strong>横断的な関連性</strong>を問う設問が出やすいため、代表的な対応関係を整理しておきます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>プラクティス</th><th>主に支える原則</th><th>主に使われるプロセス</th></tr></thead>
+          <tbody>
+            <tr><td>Business Case</td><td>継続的なビジネス上の正当化</td><td>SU, IP, SB, CP, DP</td></tr>
+            <tr><td>Organizing</td><td>明確な役割と責任</td><td>SU, IP</td></tr>
+            <tr><td>Plans</td><td>プロダクトへの焦点、段階による管理</td><td>IP, SB, CS</td></tr>
+            <tr><td>Quality</td><td>プロダクトへの焦点</td><td>IP, MP, CS</td></tr>
+            <tr><td>Risk</td><td>経験からの学習</td><td>全プロセスを通じて継続</td></tr>
+            <tr><td>Issues</td><td>例外による管理</td><td>CS, SB</td></tr>
+            <tr><td>Progress</td><td>例外による管理、段階による管理</td><td>DP, CS, SB</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 12. Exam Tips ===================== -->
+    
       </main>
     </div>
   </div>
