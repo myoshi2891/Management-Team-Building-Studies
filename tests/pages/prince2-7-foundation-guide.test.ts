@@ -412,4 +412,14 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
       "原則の名称は一部改められました(例:「Defined roles and responsibilities」→「Define roles, responsibilities and relationships」)。",
     );
   });
+
+  // 受け入れ基準はプロジェクト・プロダクト・ディスクリプションの構成要素であり、個々のプロダクト・ディスクリプションは
+  // 品質基準・品質許容度・品質方法などの品質仕様を持つ。原本 HTML は両者を混同しているため、この差分は原本照合監査の対象外（正当な差分）。
+  it("受け入れ基準をプロジェクト・プロダクト・ディスクリプションの手順に置き、個々のプロダクト・ディスクリプションは品質仕様として記述する", () => {
+    const wrapper = mountPage();
+    const items = wrapper.findAll("li").map((el) => el.text());
+    expect(items).toContain("プロジェクト・プロダクト・ディスクリプションの作成(顧客の品質期待・受け入れ基準を含む)");
+    expect(items).toContain("プロダクト・ディスクリプションの作成(各プロダクトの品質基準・品質許容度・品質方法などの品質仕様を含む)");
+    expect(items).not.toContain("プロダクト・ディスクリプションの作成(品質基準・受け入れ基準を含む)");
+  });
 });
