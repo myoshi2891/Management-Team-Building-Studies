@@ -9,7 +9,7 @@
  * @param ids 監視対象セクションの id。TOC の並び順で渡すこと。
  * @returns 現在アクティブなセクションの id（初期値は先頭）
  */
-export function useActiveHeading(ids: string[]): Readonly<Ref<string>> {
+export function useActiveHeading(ids: readonly string[]): Readonly<Ref<string>> {
   // 初期値に先頭を入れる。原本の静的 HTML には .active が無く JS が後付けして
   // いたため、これが無いと初回描画で TOC が全て非アクティブになる。
   const activeId = ref(ids[0] ?? "");

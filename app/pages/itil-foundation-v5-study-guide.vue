@@ -849,7 +849,7 @@ class BuildOp,Discover done;`;
         <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:file-text" aria-hidden="true" />SECTION 08</div>
         <h2>第6章: ITILとAI(配点2.5% / 1点)</h2>
 
-        <p>配点は小さいものの、ITIL (Version 5) を象徴する新設カテゴリーです。AIをブラックボックス扱いせず、ITILの枠組みの中でどう位置づけ、どう統制するかを問う内容です [5] [11] [16]。</p>
+        <p>配点は小さいものの、ITIL (Version 5) を象徴する新設カテゴリーです。AIをブラックボックス扱いせず、ITILの枠組みの中でどう位置づけ、どう統制するかを問う内容です [5] [11] [14]。</p>
 
         <h3>6-1. 基本用語の定義</h3>
         <div class="table-wrap">
@@ -878,7 +878,7 @@ class BuildOp,Discover done;`;
         <p><strong>AI governance(AIガバナンス)</strong>とは、AIの活用が組織の目的・倫理原則・規制要件と整合するように、評価・指示・監視する仕組みです。第4章で学んだ「Governance(ガバナンス)」の考え方を、AI特有のリスク(バイアス、透明性の欠如、説明可能性など)に適用したものと理解すると整理しやすくなります。</p>
 
         <h3>6-4. ITIL AI Capability Model(6Cモデル)</h3>
-        <p>AI活用の範囲・機能を体系的に理解するためのフレームワークが<strong>ITIL AI Capability Model(通称: 6Cモデル)</strong>です。AIソリューションが担う機能を6つのケイパビリティに分類し、ガバナンス上のリスクプロファイルや統制の設計に役立てます [16] [17]。</p>
+        <p>AI活用の範囲・機能を体系的に理解するためのフレームワークが<strong>ITIL AI Capability Model(通称: 6Cモデル)</strong>です。AIソリューションが担う機能を6つのケイパビリティに分類し、ガバナンス上のリスクプロファイルや統制の設計に役立てます [14]。</p>
 
         <div class="diagram-card">
           <div class="mermaid-wrap">
@@ -1185,26 +1185,14 @@ class BuildOp,Discover done;`;
             </div>
             <div class="ref-item">
               <div class="step-num">13</div>
-              <div class="ref-body"><span class="ref-name">CertEmpire &mdash; ITIL Foundation Version 5 (ITILFND V5): Complete Guide 2026</span><a class="ref-url" href="https://certempire.com/itil-foundation-v5-guide/" target="_blank" rel="noopener">https://certempire.com/itil-foundation-v5-guide/</a></div>
-            </div>
-            <div class="ref-item">
-              <div class="step-num">14</div>
               <div class="ref-body"><span class="ref-name">itil.org.uk &mdash; ITIL Version 5 Foundation Certification Course</span><a class="ref-url" href="https://www.itil.org.uk/training/itil-foundation-level-courses/itil-version-5-foundation-certification-course" target="_blank" rel="noopener">https://www.itil.org.uk/training/itil-foundation-level-courses/itil-version-5-foundation-certification-course</a></div>
             </div>
             <div class="ref-item">
-              <div class="step-num">15</div>
-              <div class="ref-body"><span class="ref-name">Open Exam Prep &mdash; ITIL Foundation Version 5 Exam Guide 2026</span><a class="ref-url" href="https://open-exam-prep.com/blog/itil-4-foundation-v5-exam-guide-2026" target="_blank" rel="noopener">https://open-exam-prep.com/blog/itil-4-foundation-v5-exam-guide-2026</a></div>
-            </div>
-            <div class="ref-item">
-              <div class="step-num">16</div>
+              <div class="step-num">14</div>
               <div class="ref-body"><span class="ref-name">AgilePM Hub &mdash; ITIL AI Governance (Version 5)</span><a class="ref-url" href="https://agilepmhub.com/itil-ai-governance" target="_blank" rel="noopener">https://agilepmhub.com/itil-ai-governance</a></div>
             </div>
             <div class="ref-item">
-              <div class="step-num">17</div>
-              <div class="ref-body"><span class="ref-name">CertsHero &mdash; PeopleCert ITIL-5-Foundation Exam Questions(6Cモデル解説)</span><a class="ref-url" href="https://www.certshero.com/peoplecert/itil-5-foundation/practice-test" target="_blank" rel="noopener">https://www.certshero.com/peoplecert/itil-5-foundation/practice-test</a></div>
-            </div>
-            <div class="ref-item">
-              <div class="step-num">18</div>
+              <div class="step-num">15</div>
               <div class="ref-body"><span class="ref-name">itecor &mdash; A new ITIL, so what?</span><a class="ref-url" href="https://itecor.com/a-new-itil-so-what/" target="_blank" rel="noopener">https://itecor.com/a-new-itil-so-what/</a></div>
             </div>
           </div>
@@ -1635,6 +1623,9 @@ tr:last-child td {
   background: var(--color-paper-raised);
   border-radius: 10px;
   padding: 16px 20px;
+  /* 「Creation/Curation/…」「Explore→Engage→…」のような区切りの無い語が
+     min-content 幅を押し広げ、狭い幅でグリッドごと画面外へはみ出すのを防ぐ。 */
+  overflow-wrap: anywhere;
 }
 
 .glossary-item .g-term {
@@ -1715,6 +1706,11 @@ footer {
 
 /* ===================== Responsive ===================== */
 @media (max-width: 980px) {
+  /* 2 カラムの最小幅 280px × 2 は狭い画面に収まらない。Experience ガイドと同じく 1 カラムに畳む。 */
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+
   .sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;

@@ -1,0 +1,37 @@
+# Netlify の設定。静的生成（nuxt generate）の成果物だけを配信する。
+#
+# archive/ とリポジトリ直下の原本 .md / .html は配信しない（generate の出力に含まれない）。
+
+[build]
+  # Netlify が bun.lock（テキスト形式）を検知できない場合は npm で依存を入れてしまうため、
+  # 固定バージョンの Bun で lockfile どおりに入れ直してから生成する（検知できる場合も無害）。
+  # NUXT_SITE_URL は sitemap / canonical の基準 URL。未指定だと sitemap の prerender で
+  # build が失敗する。$URL は Netlify が注入する本番 URL（独自ドメイン設定後はそのドメイン）。
+  command = "npx --yes bun@1.3.12 install --frozen-lockfile && NUXT_SITE_URL=$URL npx --yes bun@1.3.12 run generate"
+  # nuxt generate は出力先（.output/public 等）とは別に、常に dist を用意する
+  # （実体またはシンボリックリンク）。プリセットに依存しないよう dist を公開ディレクトリにする。
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# プレビュー・ブランチデプロイは検索エンジンに載せない（nuxt-site-config が noindex を出す）。
+[context.deploy-preview.environment]
+  NUXT_SITE_ENV = "preview"
+
+[context.branch-deploy.environment]
+  NUXT_SITE_ENV = "preview"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+# ビルドごとにハッシュ付きのファイル名が振られるため、長期キャッシュしてよい。
+[[headers]]
+  for = "/_nuxt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

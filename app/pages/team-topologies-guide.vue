@@ -774,7 +774,7 @@ const DIAGRAM_ROADMAP = `flowchart TB
     </section>
 
     <footer>
-      © Team Topologies 実践ガイド ― 本ページは教育・学習支援を目的とした非公式の解説資料です。Team TopologiesはMatthew Skelton氏およびManuel Pais氏の著作であり、書籍の著作権は著者およびIT Revolution Pressに帰属します。最新かつ正確な情報は必ず<a href="https://teamtopologies.com" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
+      © 2026 Management Studies ― 本ページは教育・学習支援を目的とした非公式の解説資料です。Team TopologiesはMatthew Skelton氏およびManuel Pais氏の著作であり、書籍の著作権は著者およびIT Revolution Pressに帰属します。最新かつ正確な情報は必ず<a href="https://teamtopologies.com" target="_blank" rel="noopener">公式サイト</a>でご確認ください。
     </footer>
 
   </main>

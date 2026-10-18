@@ -890,7 +890,7 @@ class ACCEPT done;`;
     </section>
 
     <footer>
-      SAFe®はScaled Agile, Inc.の登録商標です。
+      CAPM®、PMI®、PMBOK®はProject Management Institute, Inc.の登録商標です。SAFe®はScaled Agile, Inc.の登録商標です。本ページはいずれの団体とも提携・承認の関係にない、学習支援を目的とした非公式の解説資料です。
     </footer>
 
   </main>

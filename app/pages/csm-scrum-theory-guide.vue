@@ -747,7 +747,7 @@ useSeoMeta({
         </section>
 
         <footer>
-          Scrum®, Scrum Alliance®, Certified ScrumMaster®, CSM® は Scrum Alliance, Inc. の登録商標です。本ガイドの内容はThe Scrum Guide(2020, Ken Schwaber &amp; Jeff Sutherland)を出典とし、Creative Commons - Attribution - Share-Alike License v4.0の条件のもとで利用しています。本ガイドはいかなる形でもScrum Allianceによる公認・提携を意味しません。
+          Scrum Alliance®, Certified ScrumMaster®, CSM® は Scrum Alliance, Inc. の登録商標です。本ガイドの内容はThe Scrum Guide(2020, Ken Schwaber &amp; Jeff Sutherland)を出典とし、Creative Commons - Attribution - Share-Alike License v4.0の条件のもとで利用しています。本ガイドはいかなる形でもScrum Allianceによる公認・提携を意味しません。
         </footer>
       </main>
     </div>

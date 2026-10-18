@@ -1023,6 +1023,10 @@ class G done;`;
           </div>
         </section>
       </article>
+
+      <footer>
+        Professional Scrum Product Owner™、PSPO™、Scrum.org は Scrum.org の商標です。本ページは非公式の学習支援資料であり、Scrum.orgによる公式監修を受けていません。最新の試験情報は<a href="https://www.scrum.org/assessments/professional-scrum-product-owner-ai-essentials-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>でご確認ください。
+      </footer>
     </main>
   </div>
 </template>
@@ -1566,6 +1570,15 @@ td strong, th strong {
   color: var(--color-ink-faint);
   word-break: break-all;
   text-decoration: underline;
+}
+
+/* 原本の商標表記フッター。原本 HTML の footer 規則をそのまま移す。 */
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  font-size: 16px;
 }
 
 /* ===================== Responsive ===================== */

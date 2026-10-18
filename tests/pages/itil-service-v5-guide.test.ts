@@ -160,7 +160,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.invensislearning.com/info/itil-4-vs-itil-v5-differences/",
   "https://spidya.com/en/blog/it-service-management/what-is-itil-v5-framework-new-practices-itil-4-comparison",
   "https://www.tidelineinsights.com/blog/itil-5-whats-coming.html",
-  "https://passitexams.com/articles/itil-v4-vs-v5-key-differences/"
 ] as const;
 
 const EXPECTED_TOC_IDS = [

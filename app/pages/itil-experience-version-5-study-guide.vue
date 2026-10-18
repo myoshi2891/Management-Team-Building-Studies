@@ -420,7 +420,6 @@ class C1,C2,C3,C4,C5,C6 box;`;
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
           <ul>
             <li><a href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">ITIL (Version 5) の変更点まとめ(Four Dimensions・6Cモデル等)</a></li>
-            <li><a href="https://certempire.com/itil-4-vs-itil-5/" target="_blank" rel="noopener">ITIL Version 5 vs ITIL 4 比較</a></li>
           </ul>
         </div>
       </section>
@@ -1092,7 +1091,7 @@ class C1,C2,C3,C4,C5,C6 box;`;
         <h2>参考文献・ソース一覧</h2>
 
         <div class="ref-group">
-          <h4>参考文献一覧(17件)</h4>
+          <h4>参考文献一覧(16件)</h4>
           <ul class="ref-list">
             <li><span class="ref-name">1. PeopleCert 公式製品ページ(試験概要・前提資格・キャリアパス)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/it-governance-and-service-management/ITIL-1/itil-experience-version-5-4177</a></li>
             <li><span class="ref-name">2. ITIL® Experience (Version 5) 公式シラバス PDF(Version 5.0 PL, Feb 2026)</span><a class="ref-url" href="https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeoftechnology.com/wp-content/uploads/2026/03/ITIL-Version-5-Experience-Syllabus.pdf</a></li>
@@ -1110,7 +1109,6 @@ class C1,C2,C3,C4,C5,C6 box;`;
             <li><span class="ref-name">14. ITIL ExperienceとUXの関係(itil.com公式ニュース)</span><a class="ref-url" href="https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience" target="_blank" rel="noopener">https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience</a></li>
             <li><span class="ref-name">15. 継続的改善ループとTrust/Psychological Safety解説(edutrainings)</span><a class="ref-url" href="https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake/" target="_blank" rel="noopener">https://edutrainings.eu/training/itil-experience-version-5-exam-and-retake/</a></li>
             <li><span class="ref-name">16. ITIL Version 5 全体の変更点まとめ(itsm.tools)</span><a class="ref-url" href="https://itsm.tools/itil-version-5-vs-itil-4-key-changes/" target="_blank" rel="noopener">https://itsm.tools/itil-version-5-vs-itil-4-key-changes/</a></li>
-            <li><span class="ref-name">17. ITIL 4 vs ITIL Version 5 比較(certempire)</span><a class="ref-url" href="https://certempire.com/itil-4-vs-itil-5/" target="_blank" rel="noopener">https://certempire.com/itil-4-vs-itil-5/</a></li>
           </ul>
         </div>
 
@@ -1577,6 +1575,9 @@ td strong, th strong {
   background: var(--color-paper-raised);
   border-radius: 10px;
   padding: 16px 20px;
+  /* 「Creation/Curation/…」「Explore→Engage→…」のような区切りの無い語が
+     min-content 幅を押し広げ、狭い幅でグリッドごと画面外へはみ出すのを防ぐ。 */
+  overflow-wrap: anywhere;
 }
 
 .glossary-item .g-term {

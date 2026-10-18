@@ -202,6 +202,8 @@ export const GUIDE_SERIES = [
   { id: "so-scaling", programId: "scrum-org", navLabel: "スケーリング", cardLabel: "SCALING" },
   { id: "so-user-experience", programId: "scrum-org", navLabel: "ユーザーエクスペリエンス", cardLabel: "USER EXPERIENCE" },
   { id: "pc-itil", programId: "peoplecert", navLabel: "ITIL", cardLabel: "ITIL" },
+  { id: "pc-mop", programId: "peoplecert", navLabel: "MoP", cardLabel: "MOP" },
+  { id: "pc-msp", programId: "peoplecert", navLabel: "MSP", cardLabel: "MSP" },
   { id: "book-management", programId: "management", navLabel: "マネジメントの原典", cardLabel: "MANAGEMENT CLASSICS" },
   { id: "book-leadership", programId: "leadership", navLabel: "リーダーシップの実践", cardLabel: "LEADERSHIP PRACTICE" },
   { id: "book-team", programId: "team", navLabel: "チームづくり", cardLabel: "TEAM BUILDING" },
@@ -246,7 +248,8 @@ export type Guide = {
 };
 
 /**
- * 公開中のガイド。
+ * 定義済みのすべてのガイド（公開を見合わせ中のものを含む）。
+ * サイトの導線はこれを直接使わず、非公開分を除いた `GUIDES` を使う。
  *
  * 並び順の不変条件は「種別順（GUIDE_KINDS）→ プログラム順（GUIDE_PROGRAMS）
  * → シリーズ順（GUIDE_SERIES）→ 定義順」。
@@ -257,7 +260,7 @@ export type Guide = {
  * ただしプログラムとシリーズの**組み合わせ**の整合は型では表現しないため、
  * tests/utils/guide-catalog.test.ts の契約テストで固定する。
  */
-export const GUIDES = [
+export const ALL_GUIDES = [
   {
     to: "/capm",
     programId: "pmi",
@@ -809,6 +812,61 @@ export const GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/itil-strategy-v5-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Strategy (v5)",
+    title: "ITIL® Strategy (Version 5) 完全学習ガイド",
+    description: "PeopleCert ITIL Strategy (Version 5)資格試験の全体像を、8モジュールの学習目標・Strategy Management Model・ベストプラクティスとともに解説する非公式学習ガイド。",
+    meta: "14セクション",
+    icon: "tabler:compass",
+    accent: "indigo",
+  },
+  {
+    to: "/itil-transformation-v5-study-guide",
+    programId: "peoplecert",
+    seriesId: "pc-itil",
+    navLabel: "ITIL Transformation (v5)",
+    title: "ITIL® Transformation (Version 5) 学習ガイド",
+    description: "PeopleCert公式シラバスに基づくITIL Transformation (Version 5)の学習ガイド。4層のTransformation Model、BAUと変革ガバナンスの両立、3つのパターンとToolkit、AI連携を初学者向けに詳細解説。",
+    meta: "16セクション",
+    icon: "tabler:refresh",
+    accent: "indigo",
+  },
+  {
+    to: "/mop-foundation-guide",
+    programId: "peoplecert",
+    seriesId: "pc-mop",
+    navLabel: "MoP 完全ガイド",
+    title: "MoP Foundation（Management of Portfolios）学習ガイド",
+    description: "PeopleCert MoP Foundation（PRINCE2 Portfolio Management Foundation）試験対策のための、5つの原則・定義サイクル・デリバリーサイクル・主要な役割と文書・導入と成熟度評価を網羅した初学者向け日本語ガイド。",
+    meta: "14セクション",
+    icon: "tabler:briefcase-2",
+    accent: "gold",
+  },
+  {
+    to: "/msp-foundation-5th-edition-guide",
+    programId: "peoplecert",
+    seriesId: "pc-msp",
+    navLabel: "MSP 完全ガイド",
+    title: "MSP Foundation, 5th edition 完全学習ガイド",
+    description: "PeopleCert MSP Foundation, 5th edition の出題範囲を、初学者向けにステップバイステップで解説した日本語の学習ガイド。",
+    meta: "16セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
+    to: "/msp-practitioner-5th-edition-guide",
+    programId: "peoplecert",
+    seriesId: "pc-msp",
+    navLabel: "MSP Practitioner 完全ガイド",
+    title: "MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説",
+    description: "MSP Practitioner 5th edition の原則・テーマ・プロセスを、シナリオ適用とテーラリングの視点で学ぶ初学者向けガイド。",
+    meta: "11セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
@@ -1073,6 +1131,43 @@ export const GUIDES = [
     accent: "indigo",
   },
 ] as const satisfies readonly Guide[];
+
+/**
+ * 公開を見合わせているガイドのルート。
+ *
+ * 著作権上の懸念が解消するまで公開しない（2026-10 の公開前監査による）。
+ * - CSPO / CSP-PO / CSP-D: Scrum Alliance の Learning Objectives 英文をほぼ全件転載している
+ * - Managing Humans / Leadership Challenge / Team Geek / Peopleware / No Rules Rules:
+ *   原著の章立てに沿った網羅的要約、または要約サービス・第三者の読書ノートへの依存
+ *
+ * ページのファイルと ALL_GUIDES の定義は残す。再公開は改稿のうえこの一覧から外すだけでよい。
+ * nuxt.config.ts の pages:extend がこの一覧でルートごと取り除くため、
+ * 直接アクセス・静的生成・sitemap のいずれにも現れない。
+ */
+export const UNPUBLISHED_GUIDE_ROUTES: readonly string[] = [
+  "/cspo-certified-scrum-product-owner-study-guide",
+  "/csp-po-certified-scrum-professional-product-owner-study-guide",
+  "/csp-d-certified-scrum-professional-developer-study-guide",
+  "/managing-humans-best-practices-guide",
+  "/leadership-challenge-workbook-guide",
+  "/team-geek-guide",
+  "/peopleware-guide",
+  "/no-rules-rules-guide",
+];
+
+/**
+ * ルートが公開見合わせ中かを判定する（完全一致）。
+ * @param route - ページのルート（例: "/team-geek-guide"）
+ */
+export function isUnpublishedRoute(route: string): boolean {
+  return UNPUBLISHED_GUIDE_ROUTES.includes(route);
+}
+
+/**
+ * 公開中のガイド。ホーム・ナビ・ハブ・検索・e2e の巡回はすべてこれから導出する。
+ * ALL_GUIDES の並び順の不変条件は、フィルタ後もそのまま保たれる。
+ */
+export const GUIDES: readonly Guide[] = ALL_GUIDES.filter((guide) => !isUnpublishedRoute(guide.to));
 
 /** シリーズ単位のガイド束（ハブページの 1 セクション）。 */
 export type GuideSeriesGroup = {

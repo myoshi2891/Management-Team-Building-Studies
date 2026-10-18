@@ -2014,6 +2014,7 @@ class E done;`;
 
     <footer>
       A-CSD®、CSD®、CSP-D® は Scrum Alliance® の登録商標です。本ページは非公式の学習補助資料であり、Scrum Alliance® とは無関係です。最終更新: 2026年8月。
+      The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
     </footer>
 
   

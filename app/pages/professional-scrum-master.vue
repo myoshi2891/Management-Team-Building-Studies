@@ -783,7 +783,7 @@ class S9 done;`;
         <div class="callout source" data-testid="callout" data-variant="source">
           <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース(非公式の分析記事)</div>
           <ul>
-            <li><a href="https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/" target="_blank" rel="noopener">PSM II Is Not a Harder Version of PSM I(certificationbox.com)</a></li>
+            <li>PSM II Is Not a Harder Version of PSM I(2026-09-04 公開の非公式分析記事。試験対策サイト掲載のためリンクは省略)</li>
           </ul>
         </div>
 
@@ -943,7 +943,6 @@ class S9 done;`;
         <div class="ref-group">
           <h3>補足情報源(非公式の学習・分析リソース)</h3>
           <ul class="ref-list">
-            <li><span class="ref-name">PSM II Is Not a Harder Version of PSM I(certificationbox.com)</span><a class="ref-url" href="https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/" target="_blank" rel="noopener">https://www.certificationbox.com/2026/09/04/psm-ii-scrum-master-assessment-people-focus/</a></li>
             <li><span class="ref-name">How To Pass The Professional Scrum Master II (PSM II) Assessment(TheScrumMaster.co.uk)</span><a class="ref-url" href="https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-ii-psm-ii-assessment-from-scrum-org/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-ii-psm-ii-assessment-from-scrum-org/</a></li>
             <li><span class="ref-name">How To Pass The Professional Scrum Master III (PSM III) Assessment(TheScrumMaster.co.uk)</span><a class="ref-url" href="https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-iii-psm-iii-assessment-from-scrum-org/" target="_blank" rel="noopener">https://www.thescrummaster.co.uk/scrum/how-to-pass-the-professional-scrum-master-iii-psm-iii-assessment-from-scrum-org/</a></li>
           </ul>

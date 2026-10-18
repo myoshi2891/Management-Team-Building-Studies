@@ -1,12 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
+  ALL_GUIDES,
   GUIDES,
+  UNPUBLISHED_GUIDE_ROUTES,
   GUIDE_KINDS,
   GUIDE_PROGRAMS,
   GUIDE_SERIES,
   allSiteRoutes,
   findProgram,
   groupGuidesByKind,
+  isUnpublishedRoute,
   programCardLabel,
   programGroup,
   programNavLabel,
@@ -83,6 +86,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { id: "so-scaling", programId: "scrum-org", navLabel: "スケーリング", cardLabel: "SCALING" },
       { id: "so-user-experience", programId: "scrum-org", navLabel: "ユーザーエクスペリエンス", cardLabel: "USER EXPERIENCE" },
       { id: "pc-itil", programId: "peoplecert", navLabel: "ITIL", cardLabel: "ITIL" },
+      { id: "pc-mop", programId: "peoplecert", navLabel: "MoP", cardLabel: "MOP" },
+      { id: "pc-msp", programId: "peoplecert", navLabel: "MSP", cardLabel: "MSP" },
       { id: "book-management", programId: "management", navLabel: "マネジメントの原典", cardLabel: "MANAGEMENT CLASSICS" },
       { id: "book-leadership", programId: "leadership", navLabel: "リーダーシップの実践", cardLabel: "LEADERSHIP PRACTICE" },
       { id: "book-team", programId: "team", navLabel: "チームづくり", cardLabel: "TEAM BUILDING" },
@@ -124,12 +129,9 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csm-scrum-master-core-competencies", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSM コアコンピテンシー" },
       { to: "/a-csm-advanced-certified-scrummaster-study-guide", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "A-CSM 完全ガイド" },
       { to: "/csp-sm-certified-scrum-professional-scrummaster-study-guide", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSP-SM 完全ガイド" },
-      { to: "/cspo-certified-scrum-product-owner-study-guide", programId: "scrum-alliance", seriesId: "sa-product-owner", navLabel: "CSPO 完全ガイド" },
       { to: "/a-cspo-advanced-certified-scrum-product-owner-study-guide", programId: "scrum-alliance", seriesId: "sa-product-owner", navLabel: "A-CSPO 完全ガイド" },
-      { to: "/csp-po-certified-scrum-professional-product-owner-study-guide", programId: "scrum-alliance", seriesId: "sa-product-owner", navLabel: "CSP-PO 完全ガイド" },
       { to: "/csd-certified-scrum-developer-study-guide", programId: "scrum-alliance", seriesId: "sa-developer", navLabel: "CSD 完全ガイド" },
       { to: "/a-csd-advanced-certified-scrum-developer-study-guide", programId: "scrum-alliance", seriesId: "sa-developer", navLabel: "A-CSD 完全ガイド" },
-      { to: "/csp-d-certified-scrum-professional-developer-study-guide", programId: "scrum-alliance", seriesId: "sa-developer", navLabel: "CSP-D 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL1 第1章" },
       { to: "/agile-leadership-in-action", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL1 第2章" },
@@ -157,19 +159,19 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/itil-managing-professional-transition-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL MPT (v5)" },
       { to: "/itil-product-version5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Product (v5)" },
       { to: "/itil-service-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Service (v5)" },
+      { to: "/itil-strategy-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Strategy (v5)" },
+      { to: "/itil-transformation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Transformation (v5)" },
+      { to: "/mop-foundation-guide", programId: "peoplecert", seriesId: "pc-mop", navLabel: "MoP 完全ガイド" },
+      { to: "/msp-foundation-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP 完全ガイド" },
+      { to: "/msp-practitioner-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP Practitioner 完全ガイド" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
-      { to: "/managing-humans-best-practices-guide", programId: "management", seriesId: "book-management", navLabel: "Managing Humans" },
       { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },
       { to: "/engineering-manager-guide", programId: "management", seriesId: "book-management", navLabel: "EM 入門" },
       { to: "/engineering-executive-playbook", programId: "leadership", seriesId: "book-leadership", navLabel: "統括責任者の手引き" },
       { to: "/elastic-leadership-guide", programId: "leadership", seriesId: "book-leadership", navLabel: "Elastic Leadership" },
-      { to: "/leadership-challenge-workbook-guide", programId: "leadership", seriesId: "book-leadership", navLabel: "Leadership Challenge" },
       { to: "/radical-candor-guide", programId: "leadership", seriesId: "book-leadership", navLabel: "Radical Candor" },
-      { to: "/team-geek-guide", programId: "team", seriesId: "book-team", navLabel: "Team Geek" },
       { to: "/debugging-teams-guide", programId: "team", seriesId: "book-team", navLabel: "Debugging Teams" },
-      { to: "/peopleware-guide", programId: "team", seriesId: "book-team", navLabel: "Peopleware" },
-      { to: "/no-rules-rules-guide", programId: "team", seriesId: "book-team", navLabel: "No Rules Rules" },
       { to: "/five-dysfunctions-of-a-team-guide", programId: "team", seriesId: "book-team", navLabel: "5つの機能不全" },
       { to: "/team-topologies-guide", programId: "org-design", seriesId: "book-org-design", navLabel: "Team Topologies" },
       { to: "/dynamic-reteaming-guide", programId: "org-design", seriesId: "book-org-design", navLabel: "ダイナミック・リチーミング" },
@@ -182,6 +184,45 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/developer-architect-communication-guide", programId: "career", seriesId: "practice-collaboration", navLabel: "開発者・アーキテクト" },
       { to: "/ai-driven-project-management-guide", programId: "ai", seriesId: "practice-ai", navLabel: "AI-PM 実践ガイド" },
     ]);
+  });
+
+  it("公開を見合わせるガイドを完全一致で固定する", () => {
+    /*
+     * 著作権上の懸念（原著の章立てに沿った網羅的要約・要約サービス依存・
+     * Learning Objectives 英文の体系的転載）が解消するまで公開しないページ。
+     * ページのファイルとカタログ定義は残し、再公開はこの一覧から外すだけで済むようにする。
+     */
+    expect([...UNPUBLISHED_GUIDE_ROUTES]).toEqual([
+      "/cspo-certified-scrum-product-owner-study-guide",
+      "/csp-po-certified-scrum-professional-product-owner-study-guide",
+      "/csp-d-certified-scrum-professional-developer-study-guide",
+      "/managing-humans-best-practices-guide",
+      "/leadership-challenge-workbook-guide",
+      "/team-geek-guide",
+      "/peopleware-guide",
+      "/no-rules-rules-guide",
+    ]);
+  });
+
+  it("非公開ガイドは公開一覧・巡回ルートから除かれ、定義だけが残る", () => {
+    const publishedRoutes = GUIDES.map((guide) => guide.to);
+
+    // 公開一覧 = 全定義 − 非公開（順序込み）。ホーム・ナビ・ハブ・検索はすべて GUIDES から導出される。
+    expect(publishedRoutes).toEqual(
+      ALL_GUIDES.map((guide) => guide.to).filter((to) => !UNPUBLISHED_GUIDE_ROUTES.includes(to)),
+    );
+    expect(ALL_GUIDES.map((guide) => guide.to)).toEqual(expect.arrayContaining([...UNPUBLISHED_GUIDE_ROUTES]));
+    expect(allSiteRoutes().filter((route) => UNPUBLISHED_GUIDE_ROUTES.includes(route))).toEqual([]);
+  });
+
+  it("非公開ルートの判定はルート文字列の完全一致で行う", () => {
+    // nuxt.config.ts の pages:extend がこの判定でルートごと取り除く（直接アクセス・sitemap も断つ）。
+    expect(UNPUBLISHED_GUIDE_ROUTES.map((route) => isUnpublishedRoute(route))).toEqual(
+      UNPUBLISHED_GUIDE_ROUTES.map(() => true),
+    );
+    expect(isUnpublishedRoute("/debugging-teams-guide")).toBe(false);
+    expect(isUnpublishedRoute("/team-geek-guide/")).toBe(false);
+    expect(isUnpublishedRoute("/")).toBe(false);
   });
 
   it("すべてのガイドが実在するプログラムに属する", () => {
@@ -243,7 +284,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       ...GUIDE_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 74);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 71);
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -252,8 +293,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 50, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
-      { id: "books", count: 18, programs: ["management", "leadership", "team", "org-design", "product"] },
+      { id: "certifications", count: 52, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
+      { id: "books", count: 13, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
   });
@@ -277,8 +318,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         programId: "scrum-alliance",
         seriesGroups: [
           { seriesId: "sa-scrum-master", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "A-CSM 完全ガイド", "CSP-SM 完全ガイド"] },
-          { seriesId: "sa-product-owner", guides: ["CSPO 完全ガイド", "A-CSPO 完全ガイド", "CSP-PO 完全ガイド"] },
-          { seriesId: "sa-developer", guides: ["CSD 完全ガイド", "A-CSD 完全ガイド", "CSP-D 完全ガイド"] },
+          { seriesId: "sa-product-owner", guides: ["A-CSPO 完全ガイド"] },
+          { seriesId: "sa-developer", guides: ["CSD 完全ガイド", "A-CSD 完全ガイド"] },
           { seriesId: "sa-agile-leader", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド"] },
           { seriesId: "sa-facilitation", guides: ["CAF 完全ガイド", "CASP 完全ガイド"] },
         ],
@@ -299,25 +340,27 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       {
         programId: "peoplecert",
         seriesGroups: [
-          { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)", "ITIL Service (v5)"] },
+          { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)", "ITIL Service (v5)", "ITIL Strategy (v5)", "ITIL Transformation (v5)"] },
+          { seriesId: "pc-mop", guides: ["MoP 完全ガイド"] },
+          { seriesId: "pc-msp", guides: ["MSP 完全ガイド", "MSP Practitioner 完全ガイド"] },
         ],
       },
       {
         programId: "management",
         seriesGroups: [
-          { seriesId: "book-management", guides: ["High Output Management", "An Elegant Puzzle", "Managing Humans", "人月の神話", "EM 入門"] },
+          { seriesId: "book-management", guides: ["High Output Management", "An Elegant Puzzle", "人月の神話", "EM 入門"] },
         ],
       },
       {
         programId: "leadership",
         seriesGroups: [
-          { seriesId: "book-leadership", guides: ["統括責任者の手引き", "Elastic Leadership", "Leadership Challenge", "Radical Candor"] },
+          { seriesId: "book-leadership", guides: ["統括責任者の手引き", "Elastic Leadership", "Radical Candor"] },
         ],
       },
       {
         programId: "team",
         seriesGroups: [
-          { seriesId: "book-team", guides: ["Team Geek", "Debugging Teams", "Peopleware", "No Rules Rules", "5つの機能不全"] },
+          { seriesId: "book-team", guides: ["Debugging Teams", "5つの機能不全"] },
         ],
       },
       {

@@ -1054,6 +1054,7 @@ class B,C,D,E box;`;
 
       <footer class="doc-footer">
         Professional Agile Leadership™、Evidence-Based Management™、PAL-EBM、Scrum、Scrum.org は Scrum.org の商標です。本ガイドは非公式の学習教材であり、Scrum.org との提携・承認関係はありません。最新の試験情報は必ず公式サイトをご確認ください。
+        Evidence-Based Management Guide（© Scrum.org。Ken Schwaber、Christina Schwaber および Professional Scrum Trainer Community による作成、<a href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">scrum.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
       </footer>
     </main>
   </div>

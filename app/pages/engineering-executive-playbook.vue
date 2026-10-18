@@ -766,7 +766,7 @@ class S1,S2,S3 box;`;
       </section>
 
       <footer>
-        本ガイドは教育目的の要約であり、原典の著作権はそれぞれの著者・発行元に帰属します。より深く学びたい場合は、上記の書籍・記事の原文を直接参照することを強く推奨します。&copy; 2026 Engineering Executive's Playbook（非公式・教育目的の要約資料）
+        本ガイドは教育目的の要約であり、原典の著作権はそれぞれの著者・発行元に帰属します。より深く学びたい場合は、上記の書籍・記事の原文を直接参照することを強く推奨します。&copy; 2026 Management Studies（非公式・教育目的の要約資料。書名『The Engineering Executive's Primer』等は各著者・発行元に帰属します）
       </footer>
     </main>
   </div>

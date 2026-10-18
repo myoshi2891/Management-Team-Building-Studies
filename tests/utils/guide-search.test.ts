@@ -41,7 +41,7 @@ describe("utils/guide-search — カタログ全体を対象にした絞り込�
     // ナビ表記だけを見ると「認定団体で探す」「訳語で探す」が空振りする。
     expect(searchGuides("Scrum Alliance").length).toBeGreaterThan(0);
     expect(searchGuides("プロダクトオーナー").map((hit) => hit.guide.to))
-      .toContain("/cspo-certified-scrum-product-owner-study-guide");
+      .toContain("/a-cspo-advanced-certified-scrum-product-owner-study-guide");
     expect(searchGuides("心理的安全性").length).toBeGreaterThan(0);
   });
 

@@ -166,7 +166,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://agilepmhub.com/itil-ai-governance",
   "https://itecor.com/a-new-itil-so-what/",
   "https://www.itil.com/Itil-News-and-Announcements/itil-version-5-experience-user-experience",
-  "https://certempire.com/itil-4-vs-itil-5/",
 ] as const;
 
 const EXPECTED_MERMAID_SOURCES = [

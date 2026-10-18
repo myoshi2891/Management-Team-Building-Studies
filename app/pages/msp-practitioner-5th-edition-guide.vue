@@ -1,404 +1,270 @@
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MSP® Practitioner 第5版 完全ガイド | 実践適用ステップバイステップ解説</title>
-    <meta
-      name="description"
-      content="MSP Practitioner 5th edition の原則・テーマ・プロセスを、シナリオ適用とテーラリングの視点で学ぶ初学者向けガイド"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css"
-      integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p"
-      crossorigin="anonymous"
-    />
-    <style>
-      :root {
-        --paper: #f6f7f9;
-        --raised: #fff;
-        --sunk: #eef0f4;
-        --ink: #161b26;
-        --soft: #4b5566;
-        --faint: #646d7d;
-        --bd: #dfe3ea;
-        --bd2: #c7cdd9;
-        --indigo: #2e3f72;
-        --itint: #eef1f8;
-        --gold: #8f6220;
-        --forest: #1b6e6a;
-        --ftint: #e7f3f2;
-        --plum: #8c3a5c;
-        --serif: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-        --sans:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic",
-          "Noto Sans JP", sans-serif;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        background: var(--paper);
-        color: var(--ink);
-        font: 16px/1.75 var(--sans);
-      }
-      a {
-        color: var(--indigo);
-        word-break: break-all;
-      }
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 288px;
-        height: 100vh;
-        overflow-y: auto;
-        background: var(--raised);
-        border-right: 1px solid var(--bd);
-        padding: 32px 24px;
-        z-index: 20;
-      }
-      .brand-title {
-        font: 700 19px var(--serif);
-      }
-      .brand-subtitle {
-        color: var(--faint);
-        margin: 2px 0 24px;
-      }
-      .sidebar-nav {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      .sidebar-nav a {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        padding: 8px 12px;
-        border-radius: 8px;
-        color: var(--soft);
-        text-decoration: none;
-        border-left: 2px solid transparent;
-      }
-      .sidebar-nav a:hover,
-      .sidebar-nav a.active {
-        background: var(--itint);
-        color: var(--indigo);
-      }
-      .sidebar-nav a.active {
-        border-left-color: var(--indigo);
-        font-weight: 600;
-      }
-      .sidebar-toggle {
-        display: none;
-        position: fixed;
-        top: 16px;
-        left: 16px;
-        z-index: 30;
-        width: 42px;
-        height: 42px;
-        background: var(--raised);
-        border: 1px solid var(--bd);
-        border-radius: 8px;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        cursor: pointer;
-      }
-      .main-content {
-        margin-left: 288px;
-        padding: 56px 72px 120px;
-      }
-      .hero-eyebrow {
-        color: var(--gold);
-        font-weight: 600;
-        letter-spacing: 0.08em;
-        margin-bottom: 16px;
-      }
-      h1 {
-        font: 700 38px/1.3 var(--serif);
-        margin: 0 0 16px;
-      }
-      .hero-lede {
-        font-size: 18px;
-        color: var(--soft);
-      }
-      .stat-row {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 16px;
-        margin: 24px 0;
-      }
-      .stat-card {
-        background: var(--raised);
-        border: 1px solid var(--bd);
-        border-radius: 10px;
-        padding: 18px 20px;
-      }
-      .stat-number {
-        font: 700 26px var(--serif);
-        color: var(--indigo);
-      }
-      .stat-label {
-        color: var(--soft);
-        margin-top: 6px;
-      }
-      .disclaimer-box {
-        background: var(--itint);
-        border: 1px solid #c7d1ea;
-        color: var(--indigo);
-        border-radius: 10px;
-        padding: 16px 20px;
-      }
-      section {
-        margin: 72px 0;
-        scroll-margin-top: 32px;
-      }
-      .section-eyebrow {
-        color: var(--faint);
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        margin-bottom: 10px;
-      }
-      h2 {
-        font: 700 29px var(--serif);
-        margin: 0 0 24px;
-        padding-bottom: 16px;
-        border-bottom: 1px solid var(--bd);
-      }
-      h3 {
-        font: 600 21px var(--serif);
-        margin: 40px 0 16px;
-      }
-      h4 {
-        font-weight: 600;
-        font-size: 17px;
-        margin: 28px 0 12px;
-      }
-      p {
-        margin: 0 0 18px;
-      }
-      ul,
-      ol {
-        margin: 0 0 18px;
-        padding-left: 24px;
-      }
-      li {
-        margin-bottom: 8px;
-      }
-      .table-wrap {
-        overflow-x: auto;
-        border: 1px solid var(--bd);
-        border-radius: 10px;
-        margin: 0 0 24px;
-      }
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th {
-        background: var(--sunk);
-        text-align: left;
-        padding: 12px 16px;
-        border-bottom: 1px solid var(--bd2);
-      }
-      td {
-        padding: 12px 16px;
-        border-bottom: 1px solid var(--bd);
-        color: var(--soft);
-        vertical-align: top;
-      }
-      tr:last-child td {
-        border-bottom: 0;
-      }
-      tbody tr:nth-child(even) {
-        background: var(--paper);
-      }
-      .callout {
-        border: 1px solid var(--bd);
-        border-left: 4px solid var(--indigo);
-        background: var(--raised);
-        border-radius: 10px;
-        padding: 18px 24px;
-        margin: 24px 0;
-      }
-      .callout p {
-        margin: 0;
-      }
-      .callout-title {
-        font-weight: 600;
-        color: var(--indigo);
-        margin-bottom: 8px;
-      }
-      .callout.practice {
-        border-left-color: var(--gold);
-      }
-      .callout.practice .callout-title {
-        color: var(--gold);
-      }
-      .callout.source {
-        border-left-color: var(--forest);
-        background: var(--ftint);
-      }
-      .callout.source .callout-title,
-      .callout.source a {
-        color: var(--forest);
-      }
-      .callout.note {
-        border-left-color: var(--plum);
-      }
-      .callout.note .callout-title {
-        color: var(--plum);
-      }
-      .diagram-card {
-        background: var(--raised);
-        border: 1px solid var(--bd);
-        border-radius: 12px;
-        padding: 28px;
-        margin: 24px 0;
-      }
-      .diagram-container {
-        display: block;
-        overflow-x: auto;
-      }
-      .diagram-container svg {
-        display: block;
-        margin: 0 auto;
-        max-width: none;
-        height: auto;
-      }
-      .diagram-loading,
-      .diagram-error {
-        color: var(--faint);
-      }
-      .ref-list {
-        list-style: none;
-        padding: 0;
-      }
-      .ref-list li {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--bd);
-      }
-      .ref-name {
-        display: block;
-        font-weight: 500;
-      }
-      .ref-url {
-        display: block;
-      }
-      code {
-        background: var(--sunk);
-        padding: 2px 6px;
-        border-radius: 4px;
-      }
-      footer {
-        margin-top: 96px;
-        padding-top: 32px;
-        border-top: 1px solid var(--bd);
-        color: var(--faint);
-      }
-      @media (max-width: 980px) {
-        .sidebar-toggle {
-          display: flex;
-        }
-        .sidebar {
-          transform: translateX(-100%);
-          visibility: hidden;
-          transition:
-            transform 0.2s,
-            visibility 0.2s;
-        }
-        .sidebar.open {
-          transform: none;
-          visibility: visible;
-        }
-        .main-content {
-          margin-left: 0;
-          padding: 88px 24px 100px;
-        }
-        h1 {
-          font-size: 30px;
-        }
-        .stat-row {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media (max-width: 560px) {
-        .stat-row {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        .sidebar {
-          transition: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+import { nextTick, ref } from "vue";
+import { useActiveHeading } from "~/composables/useActiveHeading";
+
+const LIGHT_THEME_VARS = {
+  fontSize: "16px",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  tertiaryColor: "#FFFFFF",
+};
+
+const DIAGRAM_THREE_LENSES = `flowchart TB
+accTitle: MSP の 3 つのレンズの関係
+accDescr: 原則はテーマに方向性を与え、テーマはプロセスの各工程で適用され、プロセスは実践を通じて原則の実現度を検証する循環構造を示す。
+subgraph L1["レンズ1: 原則 Principles"]
+P["7つの普遍的な指針 プログラム全体を貫く価値観"]
+end
+subgraph L2["レンズ2: テーマ Themes"]
+T["7つの統治領域 継続的に対処し続ける管理側面"]
+end
+subgraph L3["レンズ3: プロセス Processes"]
+PR["7つのライフサイクル工程 段階的・循環的な進め方"]
+end
+
+P -->|"方向性を与える"| T
+T -->|"各工程で適用される"| PR
+PR -->|"実践を通じて 原則の実現度を検証"| P
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class P box
+class T hub
+class PR done`;
+
+const DIAGRAM_ORG_STRUCTURE = `flowchart TB
+accTitle: MSP プログラムの組織構造
+accDescr: スポンサリンググループが SRO を任命し、SRO の下にプログラムボードが置かれる。ボードの下にプログラムマネージャーとビジネスチェンジマネージャーが並び、プログラムマネージャーはプログラムオフィスと構成プロジェクト群を統括する。ビジネスチェンジマネージャーはベネフィット実現の説明責任をボードへ負う。
+SG["Sponsoring Group スポンサリンググループ  戦略的な投資判断・SROの任命"]
+SRO["Senior Responsible Owner  SRO プログラム全体の説明責任を負う 単一の説明責任者 Accountable Owner"]
+PB["Programme Board プログラムボード  SROの意思決定を支援"]
+PM["Programme Manager プログラムマネージャー  日常運営・プロジェクト群の統合"]
+BCM["Business Change Manager(s) ビジネスチェンジマネージャー  ベネフィット実現・業務側の変革"]
+PO["Programme Office プログラムオフィス  情報管理・支援機能"]
+PROJ["構成プロジェクト群 Constituent Projects"]
+
+SG --> SRO
+SRO --> PB
+PB --> PM
+PB --> BCM
+PM --> PO
+PM --> PROJ
+BCM -.->|"ベネフィット実現の 説明責任"| PB
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+class SG,SRO box
+class PB,PM,BCM,PO,PROJ hub`;
+
+const DIAGRAM_THEMES_MAP = `flowchart LR
+accTitle: MSP の 7 つのテーマ
+accDescr: 組織、設計、正当化、構造、知識、保証、意思決定の 7 テーマを順に並べ、意思決定から組織へ戻る点線で、すべてのテーマが並行して継続的に機能することを示す。
+O["Organization 組織"] --> D["Design 設計"]
+D --> J["Justification 正当化"]
+J --> S["Structure 構造"]
+S --> K["Knowledge 知識"]
+K --> A["Assurance 保証"]
+A --> DE["Decisions 意思決定"]
+DE -.->|"すべてのテーマは 並行して継続的に機能する"| O
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+class O,D,J,S,K,A,DE box`;
+
+const DIAGRAM_LIFECYCLE = `flowchart TB
+accTitle: MSP プログラムのライフサイクル
+accDescr: プログラムの着想から①特定、②成果の設計、③段階的デリバリーの計画、④ケイパビリティの提供、⑤成果の定着、⑥新しい情報の評価へ進む。⑥で継続なら次のトランシェとして②へ戻り、完了または中止と判断すれば⑦終結を経て運用へ完全移行する。
+START(["プログラムの着想"]) --> P1["① Identify the Programme プログラムを特定する"]
+P1 --> P2["② Design the Outcomes 成果を設計する"]
+P2 --> P3["③ Plan Progressive Delivery 段階的デリバリーを計画する"]
+P3 --> P4["④ Deliver the Capabilities ケイパビリティを提供する"]
+P4 --> P5["⑤ Embed the Outcomes 成果を定着させる"]
+P5 --> P6["⑥ Evaluate New Information 新しい情報を評価する"]
+P6 -->|"継続: 次のトランシェへ"| P2
+P6 -->|"完了/中止判断"| P7["⑦ Close the Programme プログラムを終結する"]
+P7 --> END(["プログラム終了 運用への完全移行"])
+
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
+class P1,P2 box
+class P3,P4,P5,P6 hub
+class P7 done`;
+
+useSeoMeta({
+  title: "MSP® Practitioner 第5版 完全ガイド | 実践適用ステップバイステップ解説",
+  description:
+    "MSP Practitioner 5th edition の原則・テーマ・プロセスを、シナリオ適用とテーラリングの視点で学ぶ初学者向けガイド",
+});
+
+const TOC_SECTIONS = [
+  "what-is-msp-practitioner",
+  "exam-overview",
+  "three-lenses",
+  "principles",
+  "governance-structure",
+  "themes",
+  "lifecycle",
+  "tailoring",
+  "exam-tips",
+  "best-practices",
+  "references",
+] as const;
+
+const activeId = useActiveHeading([...TOC_SECTIONS]);
+const isSidebarOpen = ref(false);
+const sidebarToggleRef = ref<HTMLButtonElement | null>(null);
+
+function closeSidebarAndFocusToggle() {
+  const wasOpen = isSidebarOpen.value;
+  isSidebarOpen.value = false;
+  if (wasOpen) {
+    nextTick(() => {
+      sidebarToggleRef.value?.focus();
+    });
+  }
+}
+</script>
+
+<template>
+  <div class="doc-layout">
     <button
+      ref="sidebarToggleRef"
       type="button"
       class="sidebar-toggle"
-      id="sidebarToggle"
       aria-label="目次を開閉する"
-      aria-controls="sidebar"
-      aria-expanded="false"
+      :aria-expanded="isSidebarOpen"
+      @click="isSidebarOpen = !isSidebarOpen"
     >
-      <i class="ti ti-menu-2"></i>
+      <Icon name="tabler:menu-2" aria-hidden="true" />
     </button>
-    <nav class="sidebar" id="sidebar" aria-label="目次">
+
+    <nav class="sidebar" :class="{ 'is-open': isSidebarOpen }" aria-label="目次">
       <div class="brand-title">MSP® Practitioner 完全ガイド</div>
       <div class="brand-subtitle">第5版・実践適用解説</div>
       <ul class="sidebar-nav">
         <li>
-          <a href="#what-is-msp-practitioner"
-            ><i class="ti ti-certificate"></i>MSPプラクティショナーとは</a
+          <a
+            href="#what-is-msp-practitioner"
+            :class="{ active: activeId === 'what-is-msp-practitioner' }"
+            @click="closeSidebarAndFocusToggle"
           >
+            <Icon name="tabler:certificate" aria-hidden="true" />
+            <span>MSPプラクティショナーとは</span>
+          </a>
         </li>
         <li>
-          <a href="#exam-overview"><i class="ti ti-list-check"></i>試験概要</a>
+          <a
+            href="#exam-overview"
+            :class="{ active: activeId === 'exam-overview' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:list-check" aria-hidden="true" />
+            <span>試験概要</span>
+          </a>
         </li>
         <li>
-          <a href="#three-lenses"><i class="ti ti-git-branch"></i>3つのレンズ</a>
+          <a
+            href="#three-lenses"
+            :class="{ active: activeId === 'three-lenses' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:git-branch" aria-hidden="true" />
+            <span>3つのレンズ</span>
+          </a>
         </li>
         <li>
-          <a href="#principles"><i class="ti ti-clipboard-check"></i>7つの原則</a>
+          <a
+            href="#principles"
+            :class="{ active: activeId === 'principles' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:clipboard-check" aria-hidden="true" />
+            <span>7つの原則</span>
+          </a>
         </li>
         <li>
-          <a href="#governance-structure"><i class="ti ti-building-bank"></i>組織とガバナンス</a>
+          <a
+            href="#governance-structure"
+            :class="{ active: activeId === 'governance-structure' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:building-bank" aria-hidden="true" />
+            <span>組織とガバナンス</span>
+          </a>
         </li>
         <li>
-          <a href="#themes"><i class="ti ti-clipboard-text"></i>7つのテーマ</a>
+          <a
+            href="#themes"
+            :class="{ active: activeId === 'themes' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:clipboard-text" aria-hidden="true" />
+            <span>7つのテーマ</span>
+          </a>
         </li>
         <li>
-          <a href="#lifecycle"><i class="ti ti-route"></i>7つのプロセス</a>
+          <a
+            href="#lifecycle"
+            :class="{ active: activeId === 'lifecycle' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:route" aria-hidden="true" />
+            <span>7つのプロセス</span>
+          </a>
         </li>
         <li>
-          <a href="#tailoring"><i class="ti ti-refresh"></i>テーラリング</a>
+          <a
+            href="#tailoring"
+            :class="{ active: activeId === 'tailoring' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:refresh" aria-hidden="true" />
+            <span>テーラリング</span>
+          </a>
         </li>
         <li>
-          <a href="#exam-tips"><i class="ti ti-map-2"></i>試験対策のコツ</a>
+          <a
+            href="#exam-tips"
+            :class="{ active: activeId === 'exam-tips' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:map-2" aria-hidden="true" />
+            <span>試験対策のコツ</span>
+          </a>
         </li>
         <li>
-          <a href="#best-practices"><i class="ti ti-flag-3"></i>ベストプラクティス総まとめ</a>
+          <a
+            href="#best-practices"
+            :class="{ active: activeId === 'best-practices' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:flag-3" aria-hidden="true" />
+            <span>ベストプラクティス総まとめ</span>
+          </a>
         </li>
         <li>
-          <a href="#references"><i class="ti ti-link"></i>参考文献・出典</a>
+          <a
+            href="#references"
+            :class="{ active: activeId === 'references' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:link" aria-hidden="true" />
+            <span>参考文献・出典</span>
+          </a>
         </li>
       </ul>
     </nav>
+
     <main class="main-content">
       <div class="hero">
         <div class="hero-eyebrow">
-          <i class="ti ti-award"></i>PeopleCert 公式情報に基づく学習ガイド
+          <Icon name="tabler:award" aria-hidden="true" />
+          <span>PeopleCert 公式情報に基づく学習ガイド</span>
         </div>
         <h1>
           MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説
@@ -431,17 +297,22 @@
           </div>
         </div>
         <div class="disclaimer-box">
-          <i class="ti ti-info-circle"></i>
-          本ガイドは非公式の学習支援資料です。受験にあたっては、必ず<a
+          <Icon name="tabler:info-circle" aria-hidden="true" />
+          <span>本ガイドは非公式の学習支援資料です。受験にあたっては、必ず<a
             href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
             target="_blank"
             rel="noopener"
             >PeopleCert公式サイト</a
-          >で最新情報をご確認ください。
+          >で最新情報をご確認ください。</span>
         </div>
       </div>
+
+      <!-- プレースホルダーセクション（Step 1 以降で順次実装） -->
       <section id="what-is-msp-practitioner">
-        <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:certificate" aria-hidden="true" />
+          <span>SECTION 01</span>
+        </div>
         <h2>はじめに:MSPプラクティショナーとは何か</h2>
         <p>
           <strong>MSP®(Managing Successful Programmes)</strong>
@@ -490,8 +361,11 @@
           <li>MSPのテーマの関連する側面を文脈に応じて適用・テーラリングする方法を理解する</li>
           <li>MSPのプロセスの関連する側面を文脈に応じて適用・テーラリングする方法を理解する</li>
         </ul>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -509,8 +383,11 @@
           <strong>受験前提条件(Prerequisite)</strong>:
           MSP第5版Foundation、またはMSP第4版Practitionerのいずれかの保有が必須です。
         </p>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -522,8 +399,12 @@
           </p>
         </div>
       </section>
+
       <section id="exam-overview">
-        <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 02</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:list-check" aria-hidden="true" />
+          <span>SECTION 02</span>
+        </div>
         <h2>試験概要</h2>
         <div class="table-wrap">
           <table>
@@ -569,8 +450,11 @@
             </tbody>
           </table>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -588,24 +472,34 @@
             >
           </p>
         </div>
-        <div class="callout practice">
-          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
           <p>
             <strong>ベストプラクティス</strong>:
             オープンブック試験とはいえ、150分で58問(70点分)を解くには1問あたり平均2〜3分弱しか使えません。マニュアルを試験中に一から探しても間に合わないため、事前学習で「どの情報がマニュアルのどの章にあるか」の<strong>目次感覚</strong>を身につけておくことが合格の鍵になります。本ガイドの章立ては公式マニュアルの構成(原則→テーマ→プロセス)に沿っているため、学習の地図として活用してください。
           </p>
         </div>
       </section>
+
       <section id="three-lenses">
-        <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 03</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:git-branch" aria-hidden="true" />
+          <span>SECTION 03</span>
+        </div>
         <h2>MSPの全体構造:3つのレンズ</h2>
         <p>
           MSP第5版は、プログラムマネジメントを3つの異なる視点(レンズ)から捉える構造になっています。
         </p>
-        <div class="diagram-card">
-          <div class="diagram-container" id="threeLenses">
-            <div class="diagram-loading">図を読み込み中...</div>
-          </div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_THREE_LENSES" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中...</p>
+            </template>
+          </ClientOnly>
         </div>
         <ul>
           <li>
@@ -626,8 +520,11 @@
             >MSP Programme Lifecycle(プログラムライフサイクル)</strong
           >」という呼称に変わり、段階的(incremental)な価値提供とアジャイル的な繰り返しの性質がより強調されています。
         </p>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -643,8 +540,11 @@
           Realization Management」「Risk and Issue
           Management」等は、新版では再編され、ビジョン・ベネフィット・プログラムリスク・ターゲットオペレーティングモデル(TOM)は「Design」テーマで一体的に扱われる一方、課題(イシュー)解決のアプローチやリスク対応(リスクへの対処の選択)は「Decisions」テーマで扱われるようになっています。
         </p>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -656,8 +556,12 @@
           </p>
         </div>
       </section>
+
       <section id="principles">
-        <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 04</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:clipboard-check" aria-hidden="true" />
+          <span>SECTION 04</span>
+        </div>
         <h2>7つの原則(Principles)とその実践適用</h2>
         <p>
           第5版における7つの原則は、旧版(第4版)から名称・切り口が刷新されており、より現代的な変革リーダーシップの語彙で表現されています。
@@ -718,8 +622,11 @@
             </tbody>
           </table>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -815,24 +722,34 @@
             Progressive Delivery(後述プロセス)の見直しが解答の方向性になります。
           </li>
         </ul>
-        <div class="callout practice">
-          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
           <p>
             <strong>ベストプラクティス</strong>:
             Practitioner試験では、シナリオ文中の「症状(何がうまくいっていないか)」から、どの原則が損なわれているかを逆引きする訓練が有効です。7原則を「目的→協働→曖昧さ→優先順位→スキル→ベネフィット→ペース」の順で暗唱できるようにし、それぞれに対応する典型的な失敗パターンと解決策(テーマ・プロセスとの紐付け)をセットで覚えましょう。
           </p>
         </div>
       </section>
+
       <section id="governance-structure">
-        <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 05</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:building-bank" aria-hidden="true" />
+          <span>SECTION 05</span>
+        </div>
         <h2>プログラム組織とガバナンス構造</h2>
         <p>
           7つのテーマの中でも「Organization(組織)」テーマはプログラム全体の土台となるため、先に主要な役割と構造を整理します。
         </p>
-        <div class="diagram-card">
-          <div class="diagram-container" id="orgStructure">
-            <div class="diagram-loading">図を読み込み中...</div>
-          </div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_ORG_STRUCTURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中...</p>
+            </template>
+          </ClientOnly>
         </div>
         <div class="table-wrap">
           <table>
@@ -882,8 +799,11 @@
             </tbody>
           </table>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -905,37 +825,44 @@
             >
           </p>
         </div>
-        <div class="callout practice">
-          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
           <p>
             <strong>ベストプラクティス(委譲権限/トレランス)</strong>:
             プログラムボードとSROの間、SROとスポンサリンググループの間では、コスト・スケジュール・スコープ・品質・リスク・ベネフィットの6つの側面について<strong>委譲された許容範囲(トレランス)</strong>を明確に定義しておくことが重要です。これにより、些細な判断まで上位機関にエスカレーションする必要がなくなり、意思決定のスピードが確保されます(Decisionsテーマ・Bring
             pace and value原則とも直結する実務ポイントです)。
           </p>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
-            出典:
-            <a
-              href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
-              target="_blank"
-              rel="noopener"
-              >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
-            >
+            出典: Open Exam Prep「Programme Governance Structure」(スポンサリンググループ・トレランスの解説)
           </p>
         </div>
       </section>
+
       <section id="themes">
-        <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 06</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:clipboard-text" aria-hidden="true" />
+          <span>SECTION 06</span>
+        </div>
         <h2>7つのテーマ(Themes)詳細解説</h2>
         <p>
           7つのテーマは、プログラムのライフサイクル全体を通じて<strong>継続的に</strong>対処されるガバナンス側面です。Practitionerレベルでは、単にテーマの定義を覚えるのではなく、「このシナリオではどのテーマの、どの側面を、どの程度厚く(あるいは軽く)適用すべきか」というテーラリング判断が問われます。
         </p>
-        <div class="diagram-card">
-          <div class="diagram-container" id="themesMap">
-            <div class="diagram-loading">図を読み込み中...</div>
-          </div>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_THEMES_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中...</p>
+            </template>
+          </ClientOnly>
         </div>
         <h3>6.1 Organization(組織)テーマ</h3>
         <p>
@@ -970,8 +897,11 @@
             プログラムボードの人数は「主要な意見を代表できる最小限」に絞り、意思決定の停滞を防ぐ。
           </li>
         </ul>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1031,8 +961,11 @@
             </tbody>
           </table>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1040,10 +973,6 @@
               target="_blank"
               rel="noopener"
               >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
-            >
-            、
-            <a href="https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision" target="_blank" rel="noopener"
-              >https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision</a
             >
           </p>
         </div>
@@ -1076,8 +1005,11 @@
           <li>財務計画・キャッシュフロー管理</li>
           <li>資金調達のガバナンス(トランシェごとの投資承認)</li>
         </ul>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1122,8 +1054,11 @@
           <li>ベネフィット実現計画(Benefits Realization Plan)</li>
           <li>リソースマネジメント(人・設備・資金の配分と最適化)</li>
         </ul>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1171,8 +1106,11 @@
           <li>知識管理(教訓(レッスンズラーンド)の収集と再利用)</li>
           <li>継続的改善の仕組み</li>
         </ul>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a href="https://goodelearning.com/articles/what-is-msp/" target="_blank" rel="noopener"
@@ -1237,8 +1175,11 @@
         <p>
           特定の組織(プログラムオフィスや内部監査など)を一律にいずれかの線へ割り当てるものではありません。内部監査は、状況に応じてアシュアランスを提供しうる主体の一つとして位置づけます。
         </p>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a href="https://goodelearning.com/articles/what-is-msp/" target="_blank" rel="noopener"
@@ -1276,8 +1217,11 @@
           <li>データ収集とレポーティング</li>
           <li>オプション分析(複数の選択肢を比較評価する手法)</li>
         </ul>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1308,20 +1252,33 @@
           </li>
         </ul>
       </section>
+
       <section id="lifecycle">
-        <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 07</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:route" aria-hidden="true" />
+          <span>SECTION 07</span>
+        </div>
         <h2>7つのプロセス(プログラムライフサイクル)</h2>
         <p>
           プロセスは、プログラムを立ち上げてから閉じるまでの流れを示す「レンズ」です。第4版の「Transformational
           Flow」から名称が変わり、直線的な工程ではなく、<strong>トランシェを繰り返しながら段階的に前進する循環的な流れ</strong>として描かれます。
         </p>
         <div class="diagram-card">
-          <div class="diagram-container" id="lifecycleDiagram">
-            <div class="diagram-loading">図を読み込み中...</div>
+          <div class="mermaid-wrap" data-testid="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram
+                :chart="DIAGRAM_LIFECYCLE"
+                theme="base"
+                :theme-variables="LIGHT_THEME_VARS"
+              />
+            </ClientOnly>
           </div>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1398,8 +1355,11 @@
             </tbody>
           </table>
         </div>
-        <div class="callout source">
-          <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
           <p>
             出典:
             <a
@@ -1412,86 +1372,105 @@
           </p>
         </div>
         <h3>7.1 各プロセスの詳細とベストプラクティス</h3>
-        <p><strong>① Identify the Programme(プログラムを特定する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            この変革の取り組みが本当に「プログラム」として管理すべき規模・複雑性を持つかを見極め、最初の正当性(マンデート)を確立する。
-          </li>
-          <li><strong>主要ロール</strong>: スポンサリンググループが主導し、SROを任命する。</li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            単なる大型プロジェクトをプログラムとして過剰に統治構造化しない。プログラムマネジメントが必要な理由(相互に関連するプロジェクトやその他の作業を調整し、組織にとってのベネフィットをもたらすアウトカムを段階的に実現する必要性)を明確に説明できるかを確認する。
-          </li>
-        </ul>
-        <p><strong>② Design the Outcomes(成果を設計する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            プログラムの「将来状態」を確定させ、その後の全工程の土台となる設計文書群を整える。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            この段階でビジョン・ベネフィット・リスク・TOMの整合性を取っておくことが、後工程の手戻りを防ぐ最大のポイントです。
-          </li>
-        </ul>
-        <p><strong>③ Plan Progressive Delivery(段階的デリバリーを計画する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            全体設計をもとに、直近のトランシェの詳細計画を策定する。「Progressive(漸進的)」という名称の通り、全期間を一度に詳細計画するのではなく、<strong>近い将来ほど詳しく、遠い将来ほど粗く</strong>計画するローリングウェーブ的な考え方が推奨されます。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            各トランシェの終了条件(何を達成したら次に進むか)を事前に明確化しておく。
-          </li>
-        </ul>
-        <p><strong>④ Deliver the Capabilities(ケイパビリティを提供する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            構成プロジェクトの実行を監督し、合意された新しい能力(システム・プロセス・組織)を生み出す。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            プログラムマネージャーは個々のプロジェクトの詳細管理(それはプロジェクトマネージャーの仕事)ではなく、<strong>プロジェクト間の統合・依存関係・優先順位調整</strong>に集中する。
-          </li>
-        </ul>
-        <p><strong>⑤ Embed the Outcomes(成果を定着させる)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            新しい能力を実際の業務運用に移行し、想定していたベネフィットが実際に発生することを確認する。ここはBCM(ビジネスチェンジマネージャー)が主導する工程です。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            「システムを納品したら終わり」ではなく、利用者が新しい働き方に適応し、実際に便益指標が動き出すまでをスコープに含める。変更管理(チェンジマネジメント)・トレーニング計画をセットで用意する。
-          </li>
-        </ul>
-        <p><strong>⑥ Evaluate New Information(新しい情報を評価する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            実績データ、外部環境の変化、教訓などの新しい情報を収集・分析し、「このままトランシェを継続するか、計画を調整するか、あるいはプログラムを中止するか」を判断する。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            この工程を形式的なゲートレビューで終わらせず、Justificationテーマのビジネスケース見直しと直結させる。ネガティブな情報(想定通りいっていない兆候)を早期に可視化する文化を作ることが重要です。
-          </li>
-        </ul>
-        <p><strong>⑦ Close the Programme(プログラムを終結する)</strong></p>
-        <ul>
-          <li>
-            <strong>目的</strong>:
-            プログラムを正式に終わらせ、残っている責任・資源を運用組織やその他の体制へ引き継ぐ。
-          </li>
-          <li>
-            <strong>ベストプラクティス</strong>:
-            早すぎる解散(まだベネフィットが実現しきっていないのに体制を解いてしまう)と、逆に不要に長く体制を維持し続けるコスト超過の両方を避けるバランス感覚が問われます。教訓の記録(Knowledgeテーマ)を組織のナレッジベースに確実に残すことも忘れないようにします。
-          </li>
-        </ul>
-        <div class="callout note">
-          <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="process-grid">
+          <div class="process-card">
+            <p class="process-title"><strong>① Identify the Programme(プログラムを特定する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                この変革の取り組みが本当に「プログラム」として管理すべき規模・複雑性を持つかを見極め、最初の正当性(マンデート)を確立する。
+              </li>
+              <li><strong>主要ロール</strong>: スポンサリンググループが主導し、SROを任命する。</li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                単なる大型プロジェクトをプログラムとして過剰に統治構造化しない。プログラムマネジメントが必要な理由(相互に関連するプロジェクトやその他の作業を調整し、組織にとってのベネフィットをもたらすアウトカムを段階的に実現する必要性)を明確に説明できるかを確認する。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>② Design the Outcomes(成果を設計する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                プログラムの「将来状態」を確定させ、その後の全工程の土台となる設計文書群を整える。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                この段階でビジョン・ベネフィット・リスク・TOMの整合性を取っておくことが、後工程の手戻りを防ぐ最大のポイントです。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>③ Plan Progressive Delivery(段階的デリバリーを計画する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                全体設計をもとに、直近のトランシェの詳細計画を策定する。「Progressive(漸進的)」という名称の通り、全期間を一度に詳細計画するのではなく、<strong>近い将来ほど詳しく、遠い将来ほど粗く</strong>計画するローリングウェーブ的な考え方が推奨されます。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                各トランシェの終了条件(何を達成したら次に進むか)を事前に明確化しておく。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>④ Deliver the Capabilities(ケイパビリティを提供する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                構成プロジェクトの実行を監督し、合意された新しい能力(システム・プロセス・組織)を生み出す。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                プログラムマネージャーは個々のプロジェクトの詳細管理(それはプロジェクトマネージャーの仕事)ではなく、<strong>プロジェクト間の統合・依存関係・優先順位調整</strong>に集中する。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>⑤ Embed the Outcomes(成果を定着させる)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                新しい能力を実際の業務運用に移行し、想定していたベネフィットが実際に発生することを確認する。ここはBCM(ビジネスチェンジマネージャー)が主導する工程です。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                「システムを納品したら終わり」ではなく、利用者が新しい働き方に適応し、実際に便益指標が動き出すまでをスコープに含める。変更管理(チェンジマネジメント)・トレーニング計画をセットで用意する。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>⑥ Evaluate New Information(新しい情報を評価する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                実績データ、外部環境の変化、教訓などの新しい情報を収集・分析し、「このままトランシェを継続するか、計画を調整するか、あるいはプログラムを中止するか」を判断する。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                この工程を形式的なゲートレビューで終わらせず、Justificationテーマのビジネスケース見直しと直結させる。ネガティブな情報(想定通りいっていない兆候)を早期に可視化する文化を作ることが重要です。
+              </li>
+            </ul>
+          </div>
+          <div class="process-card">
+            <p class="process-title"><strong>⑦ Close the Programme(プログラムを終結する)</strong></p>
+            <ul class="process-points">
+              <li>
+                <strong>目的</strong>:
+                プログラムを正式に終わらせ、残っている責任・資源を運用組織やその他の体制へ引き継ぐ。
+              </li>
+              <li>
+                <strong>ベストプラクティス</strong>:
+                早すぎる解散(まだベネフィットが実現しきっていないのに体制を解いてしまう)と、逆に不要に長く体制を維持し続けるコスト超過の両方を避けるバランス感覚が問われます。教訓の記録(Knowledgeテーマ)を組織のナレッジベースに確実に残すことも忘れないようにします。
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
           <p>
             <strong>プロセスとテーマの関係のベストプラクティス</strong>:
             7つのプロセスは「いつ」行うかを、7つのテーマは「何を」継続的に管理するかを示しています。たとえば③Plan
@@ -1500,8 +1479,12 @@
           </p>
         </div>
       </section>
+
       <section id="tailoring">
-        <div class="section-eyebrow"><i class="ti ti-refresh"></i>SECTION 08</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:refresh" aria-hidden="true" />
+          <span>SECTION 08</span>
+        </div>
         <h2>テーラリング(Tailoring):MSPを現場に合わせる</h2>
         <p>
           MSP第5版の学習目標には、「原則・テーマ・プロセスの関連する側面を<strong>文脈に応じてテーラリング</strong>する」ことが明記されています。テーラリングとは、フレームワークを機械的にすべて適用するのではなく、プログラムの規模・複雑性・組織文化・リスクレベルに応じて<strong>厚みを調整する</strong>ことです。
@@ -1542,22 +1525,29 @@
             </tbody>
           </table>
         </div>
-        <div class="callout practice">
-          <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
           <p>
             <strong>ベストプラクティス</strong>:
             テーラリングは「省略してよい」という意味ではなく、「なぜその厚み・その方法を選んだかを説明できる」状態を指します。Practitioner試験のシナリオ問題では、単に「このテーマを適用する」ではなく、「このシナリオの特性(例:規制産業である、初めてプログラムマネジメントを導入する組織である等)を踏まえ、なぜこの適用方法が適切か」まで説明できる選択肢が高得点を得やすい傾向があります。
           </p>
         </div>
       </section>
+
       <section id="exam-tips">
-        <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 09</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:map-2" aria-hidden="true" />
+          <span>SECTION 09</span>
+        </div>
         <h2>プラクティショナー試験対策:シナリオ適用のコツ</h2>
         <p>
           MSP
           Practitioner試験はオープンブックのオブジェクティブテストであり、多くの場合「架空のプログラムのシナリオ」が提示され、そのシナリオに最も適した対応(または最も不適切な対応)を選ぶ形式で出題されます。以下は学習・受験時の実践的なコツです。
         </p>
-        <ol>
+        <ol class="step-list">
           <li>
             <strong>シナリオを先に読み、症状を書き出す</strong>:
             「意思決定が遅い」「ベネフィットが測定されていない」「同じ失敗が繰り返されている」といった具体的な症状を特定し、どのテーマ・原則に対応するかをマッピングします。
@@ -1582,8 +1572,12 @@
           </li>
         </ol>
       </section>
+
       <section id="best-practices">
-        <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 10</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:flag-3" aria-hidden="true" />
+          <span>SECTION 10</span>
+        </div>
         <h2>ベストプラクティス総まとめ表</h2>
         <div class="table-wrap">
           <table>
@@ -1644,8 +1638,12 @@
           </table>
         </div>
       </section>
+
       <section id="references">
-        <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 11</div>
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:link" aria-hidden="true" />
+          <span>SECTION 11</span>
+        </div>
         <h2>参考文献・出典(ソースURL)</h2>
         <ul class="ref-list">
           <li>
@@ -1762,15 +1760,6 @@
             >
           </li>
           <li>
-            <span class="ref-name"
-              >OpenExamPrep「4.1 The Design Theme &amp; Vision」(Design テーマの構成要素: ビジョン・TOM・リスク)</span
-            ><span class="ref-url"
-              ><a href="https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision" target="_blank" rel="noopener"
-                >https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision</a
-              ></span
-            >
-          </li>
-          <li>
             <span class="ref-name">Finance NI「Programme Board」(プログラムボードの構成・役割)</span
             ><span class="ref-url"
               ><a
@@ -1794,19 +1783,6 @@
           </li>
           <li>
             <span class="ref-name"
-              >Open Exam Prep「Programme Governance
-              Structure」(スポンサリンググループ・トレランスの解説)</span
-            ><span class="ref-url"
-              ><a
-                href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
-                target="_blank"
-                rel="noopener"
-                >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
-              ></span
-            >
-          </li>
-          <li>
-            <span class="ref-name"
               >ILX Group「MSP® Practitioner」コース概要(Practitionerの学習目標)</span
             ><span class="ref-url"
               ><a
@@ -1818,8 +1794,11 @@
             >
           </li>
         </ul>
-        <div class="callout note">
-          <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
           <p>
             <strong>注記</strong>: 本ガイドはMSP® 第5版(Managing Successful Programmes, 5th
             edition)の公開されている公式製品情報・認定トレーニングプロバイダーの公開シラバス・公式マニュアルの章立て情報をもとに、初学者向けに要約・再構成したものです。MSP®はPeopleCert
@@ -1829,194 +1808,559 @@
           </p>
         </div>
       </section>
+
       <footer>
         MSP® is a registered trademark of PeopleCert International Limited.
         本ページは非公式の学習資料です。
       </footer>
     </main>
-    <script
-      src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js"
-      integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      var DIAGRAMS = {
-        threeLenses: `flowchart TB
-accTitle: MSP の 3 つのレンズの関係
-accDescr: 原則はテーマに方向性を与え、テーマはプロセスの各工程で適用され、プロセスは実践を通じて原則の実現度を検証する循環構造を示す。
-subgraph L1["レンズ1: 原則 Principles"]
-P["7つの普遍的な指針 プログラム全体を貫く価値観"]
-end
-subgraph L2["レンズ2: テーマ Themes"]
-T["7つの統治領域 継続的に対処し続ける管理側面"]
-end
-subgraph L3["レンズ3: プロセス Processes"]
-PR["7つのライフサイクル工程 段階的・循環的な進め方"]
-end
+  </div>
+</template>
 
-P -->|"方向性を与える"| T
-T -->|"各工程で適用される"| PR
-PR -->|"実践を通じて 原則の実現度を検証"| P
+<style scoped>
+.doc-layout {
+  position: relative;
+  min-height: calc(100vh - var(--global-nav-height, 0px));
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
-class P box
-class T hub
-class PR done`,
-        orgStructure: `flowchart TB
-accTitle: MSP プログラムの組織構造
-accDescr: スポンサリンググループが SRO を任命し、SRO の下にプログラムボードが置かれる。ボードの下にプログラムマネージャーとビジネスチェンジマネージャーが並び、プログラムマネージャーはプログラムオフィスと構成プロジェクト群を統括する。ビジネスチェンジマネージャーはベネフィット実現の説明責任をボードへ負う。
-SG["Sponsoring Group スポンサリンググループ  戦略的な投資判断・SROの任命"]
-SRO["Senior Responsible Owner  SRO プログラム全体の説明責任を負う 単一の説明責任者 Accountable Owner"]
-PB["Programme Board プログラムボード  SROの意思決定を支援"]
-PM["Programme Manager プログラムマネージャー  日常運営・プロジェクト群の統合"]
-BCM["Business Change Manager(s) ビジネスチェンジマネージャー  ベネフィット実現・業務側の変革"]
-PO["Programme Office プログラムオフィス  情報管理・支援機能"]
-PROJ["構成プロジェクト群 Constituent Projects"]
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height, 0px) + 16px);
+  left: 16px;
+  z-index: 30;
+  width: 42px;
+  height: 42px;
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink, #161b26);
+  cursor: pointer;
+}
 
-SG --> SRO
-SRO --> PB
-PB --> PM
-PB --> BCM
-PM --> PO
-PM --> PROJ
-BCM -.->|"ベネフィット実現の 説明責任"| PB
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height, 0px);
+  left: 0;
+  width: 288px;
+  height: calc(100vh - var(--global-nav-height, 0px));
+  overflow-y: auto;
+  background: var(--color-paper-raised, #ffffff);
+  border-right: 1px solid var(--color-border, #dfe3ea);
+  padding: 32px 24px;
+  z-index: 20;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
-class SG,SRO box
-class PB,PM,BCM,PO,PROJ hub`,
-        themesMap: `flowchart LR
-accTitle: MSP の 7 つのテーマ
-accDescr: 組織、設計、正当化、構造、知識、保証、意思決定の 7 テーマを順に並べ、意思決定から組織へ戻る点線で、すべてのテーマが並行して継続的に機能することを示す。
-O["Organization 組織"] --> D["Design 設計"]
-D --> J["Justification 正当化"]
-J --> S["Structure 構造"]
-S --> K["Knowledge 知識"]
-K --> A["Assurance 保証"]
-A --> DE["Decisions 意思決定"]
-DE -.->|"すべてのテーマは 並行して継続的に機能する"| O
+.brand-title {
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink, #161b26);
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
-class O,D,J,S,K,A,DE box`,
-        lifecycleDiagram: `flowchart TB
-accTitle: MSP プログラムのライフサイクル
-accDescr: プログラムの着想から①特定、②成果の設計、③段階的デリバリーの計画、④ケイパビリティの提供、⑤成果の定着、⑥新しい情報の評価へ進む。⑥で継続なら次のトランシェとして②へ戻り、完了または中止と判断すれば⑦終結を経て運用へ完全移行する。
-START(["プログラムの着想"]) --> P1["① Identify the Programme プログラムを特定する"]
-P1 --> P2["② Design the Outcomes 成果を設計する"]
-P2 --> P3["③ Plan Progressive Delivery 段階的デリバリーを計画する"]
-P3 --> P4["④ Deliver the Capabilities ケイパビリティを提供する"]
-P4 --> P5["⑤ Embed the Outcomes 成果を定着させる"]
-P5 --> P6["⑥ Evaluate New Information 新しい情報を評価する"]
-P6 -->|"継続: 次のトランシェへ"| P2
-P6 -->|"完了/中止判断"| P7["⑦ Close the Programme プログラムを終結する"]
-P7 --> END(["プログラム終了 運用への完全移行"])
+.brand-subtitle {
+  color: var(--color-ink-faint, #646d7d);
+  font-size: 14px;
+  margin: 2px 0 24px;
+}
 
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26
-class P1,P2 box
-class P3,P4,P5,P6 hub
-class P7 done`,
-      };
-      (function () {
-        async function r() {
-          var ids = Object.keys(DIAGRAMS);
-          if (typeof mermaid === "undefined") {
-            ids.forEach(function (i) {
-              var e = document.getElementById(i);
-              if (e) e.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-            });
-            return;
-          }
-          mermaid.initialize({
-            startOnLoad: false,
-            securityLevel: "strict",
-            theme: "base",
-            themeVariables: {
-              background: "transparent",
-              primaryColor: "#EEF1F8",
-              primaryBorderColor: "#2E3F72",
-              primaryTextColor: "#161B26",
-              lineColor: "#2E3F72",
-              secondaryColor: "#FAF1DF",
-              tertiaryColor: "#FFFFFF",
-              fontSize: "16px",
-              fontFamily:
-                "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif",
-            },
-            flowchart: { useMaxWidth: false, htmlLabels: true, nodeSpacing: 45, rankSpacing: 48 },
-          });
-          for (var k = 0; k < ids.length; k++) {
-            var c = document.getElementById(ids[k]);
-            try {
-              var x = await mermaid.render(ids[k] + "-svg", DIAGRAMS[ids[k]]);
-              c.innerHTML = x.svg;
-              var s = c.querySelector("svg");
-              if (s) {
-                s.removeAttribute("width");
-                s.removeAttribute("height");
-                var vb = (s.getAttribute("viewBox") || "").split(/\s+/).map(Number);
-                if (vb.length === 4 && vb[2] > 0) s.style.width = vb[2] + "px";
-                s.style.maxWidth = "none";
-                s.style.height = "auto";
-              }
-            } catch (e) {
-              c.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-            }
-          }
-        }
-        function hl() {
-          var L = {};
-          document.querySelectorAll(".sidebar-nav a").forEach(function (a) {
-            L[a.getAttribute("href").slice(1)] = a;
-          });
-          if (!("IntersectionObserver" in window)) return;
-          var o = new IntersectionObserver(
-            function (es) {
-              es.forEach(function (e) {
-                if (e.isIntersecting && L[e.target.id]) {
-                  Object.values(L).forEach(function (a) {
-                    a.classList.remove("active");
-                  });
-                  L[e.target.id].classList.add("active");
-                }
-              });
-            },
-            { rootMargin: "-20% 0px -70% 0px" },
-          );
-          document.querySelectorAll("main section[id]").forEach(function (s) {
-            o.observe(s);
-          });
-        }
-        function tg() {
-          var t = document.getElementById("sidebarToggle"),
-            s = document.getElementById("sidebar");
-          t.addEventListener("click", function () {
-            t.setAttribute("aria-expanded", String(s.classList.toggle("open")));
-          });
-          document.querySelectorAll(".sidebar-nav a").forEach(function (a) {
-            a.addEventListener("click", function () {
-              var w = s.classList.contains("open");
-              s.classList.remove("open");
-              t.setAttribute("aria-expanded", "false");
-              if (!w) return;
-              var id = decodeURIComponent((a.getAttribute("href") || "").slice(1)),
-                sec = id && document.getElementById(id);
-              if (!sec) return;
-              if (!sec.hasAttribute("tabindex")) sec.setAttribute("tabindex", "-1");
-              // 既定のアンカースクロールを妨げないよう preventScroll を指定
-              sec.focus({ preventScroll: true });
-            });
-          });
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-          r();
-          hl();
-          tg();
-        });
-      })();
-    </script>
-  </body>
-</html>
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft, #4b5566);
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+}
+
+.sidebar-nav a.active {
+  border-left-color: var(--color-indigo, #2e3f72);
+  font-weight: 600;
+}
+
+.main-content {
+  margin-left: 288px;
+  padding: 56px 72px 120px;
+  max-width: none;
+}
+
+.hero {
+  margin-bottom: 48px;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gold, #b8802a);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: var(--font-display, serif);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 16px;
+  color: var(--color-ink, #161b26);
+}
+
+.hero-lede {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-ink-soft, #4b5566);
+  margin-bottom: 24px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.stat-card {
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-number {
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-indigo, #2e3f72);
+}
+
+.stat-label {
+  color: var(--color-ink-soft, #4b5566);
+  font-size: 13px;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--color-indigo-tint, #eef1f8);
+  border: 1px solid #c7d1ea;
+  color: var(--color-indigo, #2e3f72);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 24px;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-ink-faint, #646d7d);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-display, serif);
+  font-size: 29px;
+  font-weight: 700;
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border, #dfe3ea);
+  color: var(--color-ink, #161b26);
+  scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
+}
+
+h3 {
+  font-family: var(--font-display, serif);
+  font-size: 21px;
+  font-weight: 600;
+  margin: 40px 0 16px;
+  color: var(--color-ink, #161b26);
+  scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
+}
+
+p {
+  margin: 0 0 18px;
+  line-height: 1.75;
+}
+
+ul,
+ol {
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-radius: 10px;
+  margin: 0 0 24px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background: var(--color-paper-sunk, #eef0f4);
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong, #c7cdd9);
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border, #dfe3ea);
+  color: var(--color-ink-soft, #4b5566);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper, #f6f7f9);
+}
+
+.callout {
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-left: 4px solid var(--color-indigo, #2e3f72);
+  background: var(--color-paper-raised, #ffffff);
+  border-radius: 10px;
+  padding: 18px 24px;
+  margin: 24px 0;
+}
+
+.callout p {
+  margin: 0;
+}
+
+.callout-title {
+  font-weight: 600;
+  color: var(--color-indigo, #2e3f72);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold, #b8802a);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold, #b8802a);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest, #1b6e6a);
+  background: var(--color-forest-tint, #e7f3f2);
+}
+
+.callout.source .callout-title,
+.callout.source a {
+  color: var(--color-forest, #1b6e6a);
+}
+
+.callout.note {
+  border-left-color: var(--color-plum, #8c3a5c);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum, #8c3a5c);
+}
+
+.mermaid-wrap {
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 24px 0;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint, #646d7d);
+  font-size: 15px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ===================== 7.1 Process detail cards ===================== */
+.process-grid {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0 28px;
+}
+
+.process-card {
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-left: 4px solid var(--color-indigo, #2e3f72);
+  border-radius: 10px;
+  padding: 20px 24px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.process-card:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  border-left-color: var(--color-indigo, #2e3f72);
+  box-shadow: 0 3px 10px rgba(22, 27, 38, 0.05);
+}
+
+.process-title {
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border, #dfe3ea);
+  font-family: var(--font-display, serif);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.process-title strong {
+  color: var(--color-indigo, #2e3f72);
+  font-weight: 700;
+}
+
+.process-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.process-points li {
+  margin: 0;
+  color: var(--color-ink-soft, #4b5566);
+  line-height: 1.7;
+}
+
+.process-points li > strong:first-child {
+  display: inline-block;
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-right: 4px;
+}
+
+/* ===================== Exam tips step list ===================== */
+.step-list {
+  counter-reset: step-counter;
+  list-style: none;
+  margin: 20px 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.step-list li {
+  counter-increment: step-counter;
+  position: relative;
+  margin: 0;
+  padding: 18px 22px 18px 68px;
+  background: var(--color-paper-raised, #ffffff);
+  border: 1px solid var(--color-border, #dfe3ea);
+  border-radius: 10px;
+  color: var(--color-ink-soft, #4b5566);
+  line-height: 1.7;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.step-list li:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  box-shadow: 0 2px 8px rgba(22, 27, 38, 0.04);
+}
+
+.step-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo, #2e3f72);
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-list li > strong:first-child {
+  color: var(--color-indigo, #2e3f72);
+  font-weight: 700;
+}
+
+/* ===================== Numbered reference list cards ===================== */
+.ref-list {
+  counter-reset: ref-counter;
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.ref-list li {
+  counter-increment: ref-counter;
+  position: relative;
+  margin: 0;
+  padding: 16px 20px 16px 66px;
+  border: 1px solid var(--color-border, #dfe3ea);
+  background: var(--color-paper-raised, #ffffff);
+  border-radius: 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ref-list li:hover {
+  border-color: var(--color-border-strong, #c7cdd9);
+  box-shadow: 0 2px 8px rgba(22, 27, 38, 0.04);
+}
+
+.ref-list li::before {
+  content: counter(ref-counter);
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo, #2e3f72);
+  background: var(--color-indigo-tint, #eef1f8);
+  color: var(--color-indigo, #2e3f72);
+  font-family: var(--font-display, serif);
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ref-list .ref-name {
+  display: block;
+  color: var(--color-ink, #161b26);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 4px;
+}
+
+.ref-list .ref-url {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.ref-list .ref-url a {
+  color: var(--color-ink-faint, #646d7d);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.ref-list .ref-url a:hover {
+  color: var(--color-indigo, #2e3f72);
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border, #dfe3ea);
+  color: var(--color-ink-faint, #646d7d);
+  font-size: 14px;
+}
+
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s, visibility 0.2s;
+  }
+  .sidebar.is-open {
+    transform: none;
+    visibility: visible;
+  }
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+

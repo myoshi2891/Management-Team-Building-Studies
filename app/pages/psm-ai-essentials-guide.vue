@@ -775,6 +775,7 @@ class OK done;`;
 
         <footer>
           本ページは学習支援を目的とした非公式のファンメイド資料であり、Scrum.orgの公式資料ではありません。「Scrum.org」「Professional Scrum Master」「PSM」およびその関連ロゴはScrum.orgの商標です。最新かつ正式な情報は<a href="https://www.scrum.org/assessments/professional-scrum-master-ai-essentials-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>を参照してください。
+          The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
         </footer>
       </main>
     </div>

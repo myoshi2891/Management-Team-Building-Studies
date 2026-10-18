@@ -1054,6 +1054,7 @@ const DIAGRAM_EBM_KVA_DIAGRAM = `flowchart TB
 
       <footer>
         Professional Scrum Product Backlog Management Skills、PSPBM、Scrum.org は Scrum.org の商標です。本ガイドは学習支援を目的とした二次資料であり、Scrum.org とは関係のない非公式コンテンツです。試験の正式な出題範囲・最新情報は必ず<a href="https://www.scrum.org/assessments/professional-scrum-product-backlog-management-skills-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>でご確認ください。
+        The Scrum Guide（© 2020 Ken Schwaber and Jeff Sutherland、<a href="https://scrumguides.org/" target="_blank" rel="noopener">scrumguides.org</a>）は <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> のもとで提供されています。本ページにおける同ガイドの訳出・引用部分は本ガイド作成者による訳であり、同ライセンスに従います。
       </footer>
     </main>
   </div>

@@ -102,7 +102,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://agilepmhub.com/itil-managing-professional-version-5",
   "https://blog.invgate.com/itil-5-what-changes",
   "https://blog.invgate.com/itil-service-operation",
-  "https://certempire.com/itil-foundation-v5-guide/",
   "https://invgate.com/itsm/itil",
   "https://itsm.tools/itil-version-5-vs-itil-4-key-changes/",
   "https://itsmacademy.com/itil-transformation-course",
