@@ -759,6 +759,408 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 06</span>
         </div>
         <h2>7つのテーマ(Themes)詳細解説</h2>
+        <p>
+          7つのテーマは、プログラムのライフサイクル全体を通じて<strong>継続的に</strong>対処されるガバナンス側面です。Practitionerレベルでは、単にテーマの定義を覚えるのではなく、「このシナリオではどのテーマの、どの側面を、どの程度厚く(あるいは軽く)適用すべきか」というテーラリング判断が問われます。
+        </p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_THEMES_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中...</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <h3>6.1 Organization(組織)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムの統治構造・役割・説明責任を確立し、明確な意思決定経路を設計すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>ガバナンスアプローチ(意思決定の階層・トレランスの設計)</li>
+          <li>リスクアペタイト(組織としてどこまでリスクを許容するか)</li>
+          <li>組織構造(前章の図参照)と個々のロールの責務</li>
+          <li>ガバナンスを支える追加支援オフィス(法務・調達・財務など)</li>
+        </ul>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            小規模・単純なプログラムでは、スポンサリンググループとプログラムボードを兼務させる等、階層を圧縮するテーラリングが妥当。
+          </li>
+          <li>
+            複数国・複数事業部にまたがる大規模プログラムでは、地域別・機能別のサブガバナンス層を追加することが正当化される。
+          </li>
+          <li>
+            シナリオに「意思決定が遅い」「誰が最終責任者か不明確」という症状があれば、Organizationテーマの構造見直しが解答の軸になります。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            ロールと個人を混同しない(1人が複数ロールを兼務することはあっても、責務の所在は明確に保つ)。
+          </li>
+          <li>
+            プログラムボードの人数は「主要な意見を代表できる最小限」に絞り、意思決定の停滞を防ぐ。
+          </li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (第4章 Organization) 、
+            <a
+              href="https://www.finance-ni.gov.uk/articles/programme-board"
+              target="_blank"
+              rel="noopener"
+              >https://www.finance-ni.gov.uk/articles/programme-board</a
+            >
+          </p>
+        </div>
+        <h3>6.2 Design(設計)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムが実現しようとする「将来の望ましい状態」を明確化し、ビジョン・ベネフィット・リスク・ターゲットオペレーティングモデル(TOM)を一体的に設計すること。第5版ではこの4要素が統合され、設計の一貫性が強調されています。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>要素</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ビジョンステートメント</td>
+                <td>
+                  望ましい将来状態を簡潔に描いた文書。多様なステークホルダーが理解できる言葉で書かれ、プログラム全体を通じて参照される「北極星」の役割を果たす。
+                </td>
+              </tr>
+              <tr>
+                <td>ベネフィット(便益)</td>
+                <td>
+                  プログラムが生み出す価値。財務的/非財務的、直接的/間接的など複数の分類がある。トップダウン型(戦略目標から分解)・ボトムアップ型(個別成果から積み上げ)のベネフィットマップで可視化する。
+                </td>
+              </tr>
+              <tr>
+                <td>リスク</td>
+                <td>
+                  プログラムレベルの戦略的リスク・戦術的リスク・運用リスクを識別し、優先順位付けする。
+                </td>
+              </tr>
+              <tr>
+                <td>ターゲットオペレーティングモデル(TOM)</td>
+                <td>
+                  旧版の「ブループリント」に相当する概念。変革後の組織が実際にどう機能するか(プロセス・組織・技術・情報)を描いた設計図。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed"
+              target="_blank"
+              rel="noopener"
+              >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
+            >
+            、
+            <a href="https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision" target="_blank" rel="noopener"
+              >https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            ビジョン不在または形骸化しているシナリオ(例:「誰もビジョンステートメントを見たことがない」)は頻出パターン。対応策として、ビジョンの再策定とコミュニケーション計画の強化を提示する。
+          </li>
+          <li>
+            ベネフィットマップとビジネスケース(Justificationテーマ)の整合性が取れていないシナリオでは、テーマ間の連携不足を指摘する視点が評価されます。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            ビジョンステートメントは「現状(As-Is)」ではなく必ず「将来状態(To-Be)」を描写し、過度に詳細な実装方法には踏み込まない。
+          </li>
+          <li>
+            ベネフィットは定義段階で「誰が」「いつまでに」「どう測定するか」まで具体化し、ベネフィットプロファイルとして文書化する。
+          </li>
+        </ul>
+        <h3>6.3 Justification(正当化)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムへの投資が継続的に正当化されることを保証すること。単発の承認ではなく、ライフサイクル全体を通じた<strong>継続的なビジネスケースの検証</strong>が核心です。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>ビジネスケース(投資対効果、コスト・便益・リスクのバランス)</li>
+          <li>財務計画・キャッシュフロー管理</li>
+          <li>資金調達のガバナンス(トランシェごとの投資承認)</li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「最初の承認以降、ビジネスケースが一度も更新されていない」というシナリオは、Justificationテーマの継続的検証が機能していないことを示す典型例。
+          </li>
+          <li>
+            各トランシェの終了時に「続行/中止(Go/No-Go)」判断がビジネスケースに基づいてなされているかを確認する視点が重要です。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            ビジネスケースは一度作って終わりにせず、Evaluate New
+            Informationプロセスと連動させて定期的に見直す。
+          </li>
+          <li>
+            便益(ベネフィット)側だけでなく、コスト超過・便益未達のリスクも同じ重みで管理する。
+          </li>
+        </ul>
+        <h3>6.4 Structure(構造)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムをどのように段階的に届けるか(デリバリーアプローチ)、どのペースで進めるか、どうリソースを配分するかを計画すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>
+            デリバリーアプローチ(ウォーターフォール型・アジャイル/反復型・ハイブリッド型の選択)
+          </li>
+          <li>適切なペース(トランシェ)の設定</li>
+          <li>デリバリー計画・依存関係管理</li>
+          <li>ベネフィット実現計画(Benefits Realization Plan)</li>
+          <li>リソースマネジメント(人・設備・資金の配分と最適化)</li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (第7章 Structure) 、
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            第5版では、プログラムは作業ごとに適したデリバリーアプローチを選択し、状況が求める場合には複数の方式を組み合わせることができます(例:技術的に不確実性が高い部分にはアジャイル/反復型、規制要件が明確な部分にはウォーターフォール型)。ハイブリッドを既定として推奨するものではありません。
+          </li>
+          <li>
+            「最終トランシェまで何のベネフィットも実現しない」設計は、Bring pace and
+            value原則違反のサインであり、トランシェの再設計(早期に価値を出せる構成プロジェクトを前倒しする)が解答になります。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            トランシェの境界は、意味のあるベネフィットが実現できる単位、かつビジネスケースを見直せる自然な区切りに設定する。
+          </li>
+          <li>
+            依存関係(プロジェクト間・外部組織との依存)は、プログラムマネージャーが一元的に可視化・管理する。
+          </li>
+        </ul>
+        <h3>6.5 Knowledge(知識)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムが情報・知識をどのように取得・整理・活用し、経験から学び、継続的改善の文化を醸成するかを定義すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>情報管理(バージョン管理、アクセス制御、データプライバシーの確保)</li>
+          <li>知識管理(教訓(レッスンズラーンド)の収集と再利用)</li>
+          <li>継続的改善の仕組み</li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a href="https://goodelearning.com/articles/what-is-msp/" target="_blank" rel="noopener"
+              >https://goodelearning.com/articles/what-is-msp/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「過去の類似プログラムの教訓が今回のプログラムで再現されている失敗」というシナリオは、Knowledgeテーマ(教訓管理)の不備を示す典型パターン。
+          </li>
+          <li>
+            情報の版が混在しメンバーが古い資料を参照しているシナリオでは、情報管理(ドキュメント統制)の強化を提案します。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            教訓は「収集して終わり」ではなく、次のトランシェの計画立案時に<strong>必ず参照するプロセス</strong>として組み込む。
+          </li>
+          <li>
+            機密情報・個人情報を扱う場合は、アクセス権限の設計をKnowledgeテーマの一部として明示的に計画する。
+          </li>
+        </ul>
+        <h3>6.6 Assurance(保証)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムが正しく統治され、計画通りに進んでいることを独立した視点で確認する仕組みを設計すること。「<strong
+            >スリーラインズオブディフェンス(three lines of defense、三線防御)</strong
+          >」の考え方に基づき、役割と責任を階層的に整理します。
+        </p>
+        <p><strong>三線防御モデルの考え方</strong>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ライン</th>
+                <th>委譲された権限のレベル</th>
+                <th>役割</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第1線</td>
+                <td>プロジェクト/業務運用レベル</td>
+                <td>プロジェクトおよび業務運用のリスクとコントロールを管理する</td>
+              </tr>
+              <tr>
+                <td>第2線</td>
+                <td>プログラムレベル</td>
+                <td>プログラムレベルのリスクとコントロールを管理する</td>
+              </tr>
+              <tr>
+                <td>第3線</td>
+                <td>企業(エンタープライズ)レベル</td>
+                <td>企業レベルのリスクとコントロールを管理する</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          特定の組織(プログラムオフィスや内部監査など)を一律にいずれかの線へ割り当てるものではありません。内部監査は、状況に応じてアシュアランスを提供しうる主体の一つとして位置づけます。
+        </p>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a href="https://goodelearning.com/articles/what-is-msp/" target="_blank" rel="noopener"
+              >https://goodelearning.com/articles/what-is-msp/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「プログラムマネージャー自身が自分の進捗を評価するだけで、外部レビューが一度もない」というシナリオは、独立したアシュアランス(内部監査などによる客観的な保証)の欠如を示す典型例。
+          </li>
+          <li>
+            アシュアランス活動は計画段階から<strong>アシュアランスプラン</strong>として明示的に設計し、場当たり的なレビューにしないことが求められます。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            アシュアランスの独立性(誰が誰をレビューするか)を組織図上で明確にし、利益相反を避ける。
+          </li>
+          <li>
+            高リスクな領域(大規模な資金投入、規制要件が厳しい領域)には、より頻度の高い・より独立性の高いアシュアランスを重点配置する(リスクベースのアシュアランス)。
+          </li>
+        </ul>
+        <h3>6.7 Decisions(意思決定)テーマ</h3>
+        <p>
+          <strong>目的</strong>:
+          プログラムのライフサイクルを通じて発生する意思決定(課題解決、リスク対応、選択肢の評価など)を、一貫した・十分に統治された方法で行うための仕組みを定義すること。
+        </p>
+        <p><strong>主要な構成要素</strong>:</p>
+        <ul>
+          <li>課題(イシュー)解決のアプローチ</li>
+          <li>リスク対応(回避・低減・転嫁・受容などの選択)</li>
+          <li>データ収集とレポーティング</li>
+          <li>オプション分析(複数の選択肢を比較評価する手法)</li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <p><strong>プラクティショナーでの適用ポイント</strong>:</p>
+        <ul>
+          <li>
+            「同じような課題に対して毎回対応がバラバラ」というシナリオは、Decisionsテーマの一貫したアプローチの欠如を示します。
+          </li>
+          <li>
+            不確実性が高い意思決定(Deal with
+            ambiguity原則)では、断定的な結論を急がず、選択肢を並べて比較評価するオプション分析の適用を提案するのが適切です。
+          </li>
+        </ul>
+        <p><strong>ベストプラクティス</strong>:</p>
+        <ul>
+          <li>
+            意思決定の記録(誰が・いつ・どのような根拠で決定したか)を残し、後から説明責任を果たせるようにする。
+          </li>
+          <li>
+            意思決定の権限(トレランス内で誰が決められるか)をOrganizationテーマのガバナンス構造とセットで設計する。
+          </li>
+        </ul>
       </section>
 
       <section id="lifecycle">
