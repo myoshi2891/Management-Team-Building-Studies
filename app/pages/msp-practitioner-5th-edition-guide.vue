@@ -1169,6 +1169,209 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 07</span>
         </div>
         <h2>7つのプロセス(プログラムライフサイクル)</h2>
+        <p>
+          プロセスは、プログラムを立ち上げてから閉じるまでの流れを示す「レンズ」です。第4版の「Transformational
+          Flow」から名称が変わり、直線的な工程ではなく、<strong>トランシェを繰り返しながら段階的に前進する循環的な流れ</strong>として描かれます。
+        </p>
+        <div class="diagram-card">
+          <div class="mermaid-wrap" data-testid="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram
+                :chart="DIAGRAM_LIFECYCLE"
+                theme="base"
+                :theme-variables="LIGHT_THEME_VARS"
+              />
+            </ClientOnly>
+          </div>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://aaronpercival.substack.com/p/innovate-iterate-integrate"
+              target="_blank"
+              rel="noopener"
+              >https://aaronpercival.substack.com/p/innovate-iterate-integrate</a
+            >
+            、
+            <a
+              href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a
+            >
+          </p>
+        </div>
+        <h3>プロセス別サマリー表</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>プロセス</th>
+                <th>目的</th>
+                <th>主な成果物・活動</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>①</td>
+                <td>Identify the Programme</td>
+                <td>プログラムの必要性を認識し、初期の正当性を確立する</td>
+                <td>プログラムブリーフ、初期ビジョン、スポンサリンググループの結成、SRO任命</td>
+              </tr>
+              <tr>
+                <td>②</td>
+                <td>Design the Outcomes</td>
+                <td>変革の土台を固める</td>
+                <td>
+                  ビジョンステートメントの確定、ベネフィットマップ、TOM、リスク登録簿、初版ビジネスケース
+                </td>
+              </tr>
+              <tr>
+                <td>③</td>
+                <td>Plan Progressive Delivery</td>
+                <td>プログラム設計をもとに次のトランシェの計画を具体化する</td>
+                <td>トランシェ計画、デリバリー計画、資源計画、次のGo判断</td>
+              </tr>
+              <tr>
+                <td>④</td>
+                <td>Deliver the Capabilities</td>
+                <td>構成プロジェクトの実行を監督し、新しいケイパビリティを生み出す</td>
+                <td>プロジェクト群の統合管理、進捗レポーティング、課題・リスク対応</td>
+              </tr>
+              <tr>
+                <td>⑤</td>
+                <td>Embed the Outcomes</td>
+                <td>新しい働き方を業務に定着させ、ベネフィットを実現する</td>
+                <td>移行計画、運用への引き渡し、ベネフィット測定</td>
+              </tr>
+              <tr>
+                <td>⑥</td>
+                <td>Evaluate New Information</td>
+                <td>新しい情報を収集・評価・報告し、継続/中止を判断する</td>
+                <td>ビジネスケースの見直し、トランシェレビュー、次工程への意思決定</td>
+              </tr>
+              <tr>
+                <td>⑦</td>
+                <td>Close the Programme</td>
+                <td>プログラムを正式に終結し、資源を解放する</td>
+                <td>最終評価、残存ベネフィットの運用への引き継ぎ、教訓の記録、チーム解散</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
+              target="_blank"
+              rel="noopener"
+              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
+            >
+            (第11〜12章 Introduction to MSP processes / Identify the programme ほか)
+          </p>
+        </div>
+        <h3>7.1 各プロセスの詳細とベストプラクティス</h3>
+        <p><strong>① Identify the Programme(プログラムを特定する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            この変革の取り組みが本当に「プログラム」として管理すべき規模・複雑性を持つかを見極め、最初の正当性(マンデート)を確立する。
+          </li>
+          <li><strong>主要ロール</strong>: スポンサリンググループが主導し、SROを任命する。</li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            単なる大型プロジェクトをプログラムとして過剰に統治構造化しない。プログラムマネジメントが必要な理由(相互に関連するプロジェクトやその他の作業を調整し、組織にとってのベネフィットをもたらすアウトカムを段階的に実現する必要性)を明確に説明できるかを確認する。
+          </li>
+        </ul>
+        <p><strong>② Design the Outcomes(成果を設計する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            プログラムの「将来状態」を確定させ、その後の全工程の土台となる設計文書群を整える。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            この段階でビジョン・ベネフィット・リスク・TOMの整合性を取っておくことが、後工程の手戻りを防ぐ最大のポイントです。
+          </li>
+        </ul>
+        <p><strong>③ Plan Progressive Delivery(段階的デリバリーを計画する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            全体設計をもとに、直近のトランシェの詳細計画を策定する。「Progressive(漸進的)」という名称の通り、全期間を一度に詳細計画するのではなく、<strong>近い将来ほど詳しく、遠い将来ほど粗く</strong>計画するローリングウェーブ的な考え方が推奨されます。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            各トランシェの終了条件(何を達成したら次に進むか)を事前に明確化しておく。
+          </li>
+        </ul>
+        <p><strong>④ Deliver the Capabilities(ケイパビリティを提供する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            構成プロジェクトの実行を監督し、合意された新しい能力(システム・プロセス・組織)を生み出す。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            プログラムマネージャーは個々のプロジェクトの詳細管理(それはプロジェクトマネージャーの仕事)ではなく、<strong>プロジェクト間の統合・依存関係・優先順位調整</strong>に集中する。
+          </li>
+        </ul>
+        <p><strong>⑤ Embed the Outcomes(成果を定着させる)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            新しい能力を実際の業務運用に移行し、想定していたベネフィットが実際に発生することを確認する。ここはBCM(ビジネスチェンジマネージャー)が主導する工程です。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            「システムを納品したら終わり」ではなく、利用者が新しい働き方に適応し、実際に便益指標が動き出すまでをスコープに含める。変更管理(チェンジマネジメント)・トレーニング計画をセットで用意する。
+          </li>
+        </ul>
+        <p><strong>⑥ Evaluate New Information(新しい情報を評価する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            実績データ、外部環境の変化、教訓などの新しい情報を収集・分析し、「このままトランシェを継続するか、計画を調整するか、あるいはプログラムを中止するか」を判断する。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            この工程を形式的なゲートレビューで終わらせず、Justificationテーマのビジネスケース見直しと直結させる。ネガティブな情報(想定通りいっていない兆候)を早期に可視化する文化を作ることが重要です。
+          </li>
+        </ul>
+        <p><strong>⑦ Close the Programme(プログラムを終結する)</strong></p>
+        <ul>
+          <li>
+            <strong>目的</strong>:
+            プログラムを正式に終わらせ、残っている責任・資源を運用組織やその他の体制へ引き継ぐ。
+          </li>
+          <li>
+            <strong>ベストプラクティス</strong>:
+            早すぎる解散(まだベネフィットが実現しきっていないのに体制を解いてしまう)と、逆に不要に長く体制を維持し続けるコスト超過の両方を避けるバランス感覚が問われます。教訓の記録(Knowledgeテーマ)を組織のナレッジベースに確実に残すことも忘れないようにします。
+          </li>
+        </ul>
+        <div class="callout note" data-testid="callout" data-variant="note">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>補足</span>
+          </div>
+          <p>
+            <strong>プロセスとテーマの関係のベストプラクティス</strong>:
+            7つのプロセスは「いつ」行うかを、7つのテーマは「何を」継続的に管理するかを示しています。たとえば③Plan
+            Progressive
+            Deliveryの工程では、Structureテーマ(デリバリー計画・リソース)とJustificationテーマ(資金承認)が同時に強く関与します。Practitioner試験では、特定のプロセス工程においてどのテーマの活動が中心になるかを結びつけて説明できることが評価されます。
+          </p>
+        </div>
       </section>
 
       <section id="tailoring">
@@ -1177,6 +1380,55 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 08</span>
         </div>
         <h2>テーラリング(Tailoring):MSPを現場に合わせる</h2>
+        <p>
+          MSP第5版の学習目標には、「原則・テーマ・プロセスの関連する側面を<strong>文脈に応じてテーラリング</strong>する」ことが明記されています。テーラリングとは、フレームワークを機械的にすべて適用するのではなく、プログラムの規模・複雑性・組織文化・リスクレベルに応じて<strong>厚みを調整する</strong>ことです。
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>テーラリングの判断軸</th>
+                <th>考慮するポイント</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>プログラムの規模</td>
+                <td>小規模ならガバナンス階層を圧縮、大規模なら追加の統治層を設ける</td>
+              </tr>
+              <tr>
+                <td>組織の成熟度</td>
+                <td>プログラムマネジメント経験が浅い組織では、文書化やレビューをより手厚くする</td>
+              </tr>
+              <tr>
+                <td>リスクレベル</td>
+                <td>高リスク領域ほどAssurance(保証)を厚く、Decisionsの意思決定記録を詳細にする</td>
+              </tr>
+              <tr>
+                <td>変革の性質</td>
+                <td>
+                  ビジョン主導型(vision-led)・コンプライアンス主導型(compliance-driven)・創発型(emergent)のいずれかによって、Designテーマの重み付けが変わる
+                </td>
+              </tr>
+              <tr>
+                <td>デリバリーの性質</td>
+                <td>
+                  技術的不確実性が高い部分はアジャイル/反復型、規制要件が明確な部分はウォーターフォール型を混在させる
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <p>
+            <strong>ベストプラクティス</strong>:
+            テーラリングは「省略してよい」という意味ではなく、「なぜその厚み・その方法を選んだかを説明できる」状態を指します。Practitioner試験のシナリオ問題では、単に「このテーマを適用する」ではなく、「このシナリオの特性(例:規制産業である、初めてプログラムマネジメントを導入する組織である等)を踏まえ、なぜこの適用方法が適切か」まで説明できる選択肢が高得点を得やすい傾向があります。
+          </p>
+        </div>
       </section>
 
       <section id="exam-tips">
