@@ -434,7 +434,7 @@ useSeoMeta({
             <li>終結時:教訓報告(Lessons Report)として組織に還元</li>
           </ul>
 
-          <p><strong>③ 明確な役割と責任</strong></p>
+          <p><strong>③ 役割・責任・関係性の定義</strong></p>
           <ul>
             <li>PRINCE2は「ビジネス」「ユーザー」「サプライヤー」の3視点を常に代表させることを要求する。</li>
             <li>詳細は本ガイド「6. 役割と責任」を参照。</li>
@@ -771,7 +771,7 @@ useSeoMeta({
       <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:sitemap" aria-hidden="true" />SECTION 06</div>
       <h2>役割と責任(Roles and Responsibilities)</h2>
 
-      <p>PRINCE2の原則③「明確な役割と責任」を具体化したのがこの組織構造です。</p>
+      <p>PRINCE2の原則③「役割・責任・関係性の定義」を具体化したのがこの組織構造です。</p>
 
       <div class="table-wrap">
         <table>
@@ -978,7 +978,7 @@ useSeoMeta({
           <thead><tr><th>プラクティス</th><th>主に支える原則</th><th>主に使われるプロセス</th></tr></thead>
           <tbody>
             <tr><td>Business Case</td><td>継続的なビジネス上の正当化</td><td>SU, IP, SB, CP, DP</td></tr>
-            <tr><td>Organizing</td><td>明確な役割と責任</td><td>SU, IP</td></tr>
+            <tr><td>Organizing</td><td>役割・責任・関係性の定義</td><td>SU, IP</td></tr>
             <tr><td>Plans</td><td>プロダクトへの焦点、段階による管理</td><td>IP, SB, CS</td></tr>
             <tr><td>Quality</td><td>プロダクトへの焦点</td><td>IP, MP, CS</td></tr>
             <tr><td>Risk</td><td>経験からの学習</td><td>全プロセスを通じて継続</td></tr>
