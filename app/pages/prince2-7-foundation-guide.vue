@@ -337,7 +337,7 @@ useSeoMeta({
 
           <div class="callout note" data-variant="note" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足(V6→V7での構造変化)</div>
-            <p>PRINCE2 7版では、旧版の「7つのテーマ(Themes)」が<strong>「7つのプラクティス(Practices)」</strong>に名称変更され、そのうち旧「Change」テーマが<strong>「Issues」プラクティス</strong>に改称されました。さらに新章として<strong>「People(人)」</strong>が追加され、<strong>サステナビリティ(持続可能性)</strong>がProgress/Business Case等の既存プラクティスに統合され、<strong>デジタル&amp;データマネジメント(Digital and Data)</strong>の視点が全体に組み込まれています。原則(Principles)7つ・プロセス(Processes)7つの<strong>数</strong>は旧版と同じですが、原則の名称は一部改められました(例:「Defined roles and responsibilities」→「Define roles, responsibilities and relationships」、「Tailor to suit the project environment」→「Tailor to suit the project」)。</p>
+            <p>PRINCE2 7版では、旧版の「7つのテーマ(Themes)」が<strong>「7つのプラクティス(Practices)」</strong>に名称変更され、そのうち旧「Change」テーマが<strong>「Issues」プラクティス</strong>に改称されました。さらに新章として<strong>「People(人)」</strong>が追加され、<strong>サステナビリティ(持続可能性)</strong>がProgress/Business Case等の既存プラクティスに統合され、<strong>デジタル&amp;データマネジメント(Digital and Data)</strong>の視点が全体に組み込まれています。原則(Principles)7つ・プロセス(Processes)7つの<strong>数</strong>は旧版と同じですが、原則の名称は一部改められました(例:「Defined roles and responsibilities」→「Define roles, responsibilities and relationships」)。</p>
           </div>
 
           <div class="callout source" data-variant="source" data-testid="callout">
