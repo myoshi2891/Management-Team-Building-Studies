@@ -43,6 +43,104 @@ classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
 class Corp,PM,TM box;
 class Board hub;`;
 
+// practicesOverview
+const DIAGRAM_PRACTICES_OVERVIEW = `flowchart TB
+accTitle: 7つのプラクティスの関係
+accDescr: ビジネスケースを中心に、組織化・プラン・品質・リスク・課題・進捗の6つのプラクティスが環状に関連し合う構造を示す図
+BC["Business Case"] --- ORG["Organizing"]
+ORG --- PL["Plans"]
+PL --- Q["Quality"]
+Q --- R["Risk"]
+R --- I["Issues"]
+I --- P["Progress"]
+P --- BC
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class ORG,PL,Q,R,I,P box;
+class BC hub;`;
+
+// organizingLevels
+const DIAGRAM_ORGANIZING_LEVELS = `flowchart TB
+accTitle: プロジェクト組織の4階層
+accDescr: コーポレート/プログラムマネジメントから、指揮レベルのプロジェクトボード、管理レベルのプロジェクトマネージャー、実行レベルのチームマネージャーへと続く指揮命令の階層を示す図
+Corp["コーポレート/プログラムマネジメント(プロジェクト外)"]
+subgraph Direct["指揮レベル"]
+Board["プロジェクトボード(Executive / Senior User / Senior Supplier)"]
+end
+subgraph Manage["管理レベル"]
+PM["プロジェクトマネージャー"]
+end
+subgraph Deliver["実行レベル"]
+TM["チームマネージャー"]
+end
+Corp --> Board --> PM --> TM
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class Corp,PM,TM box;
+class Board hub;`;
+
+// productBasedPlanning
+const DIAGRAM_PRODUCT_BASED_PLANNING = `flowchart LR
+accTitle: プロダクトベースプランニングの手順
+accDescr: プロジェクト・プロダクト・ディスクリプションからプロダクト・ブレイクダウン・ストラクチャー、各プロダクトのディスクリプション、プロダクト・フロー・ダイアグラムを経てスケジュール化・見積りに至る一連の手順を示す図
+PPD["プロジェクト・プロダクト ディスクリプション"] --> PBS["プロダクト・ブレイクダウン ストラクチャー"]
+PBS --> PD["各プロダクトの ディスクリプション"]
+PD --> PFD["プロダクト・フロー ダイアグラム"]
+PFD --> SCHEDULE["スケジュール化・見積り"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PBS,PD,PFD box;
+class PPD hub;
+class SCHEDULE done;`;
+
+// qualityAuditTrail
+const DIAGRAM_QUALITY_AUDIT_TRAIL = `flowchart LR
+accTitle: 品質監査証跡の流れ
+accDescr: 顧客の品質期待から受け入れ基準、品質マネジメントアプローチ、プロダクト・ディスクリプションの品質基準を経て品質レジスターへ記録されるまでの追跡関係を示す図
+CQE["顧客の品質期待"] --> AC["受け入れ基準"]
+AC --> QMA["品質マネジメント アプローチ"]
+QMA --> PD2["プロダクト・ディスクリプション(品質基準/方法/責任)"]
+PD2 --> QR["品質レジスター(実施記録)"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class AC,QMA,PD2 box;
+class CQE hub;
+class QR done;`;
+
+// riskManagementProcedure
+const DIAGRAM_RISK_MANAGEMENT_PROCEDURE = `flowchart TB
+accTitle: リスクマネジメント手順
+accDescr: 特定・評価・計画・実行を繰り返す循環プロセスと、全ステップに継続的に関与するコミュニケーションの関係を示す図
+ID["特定(Identify)"] --> AS["評価(Assess)"]
+AS --> PLAN["計画(Plan)"]
+PLAN --> IMP["実行(Implement)"]
+IMP --> ID
+COMM["コミュニケーション(全ステップに継続的に関与)"] -.-> ID
+COMM -.-> AS
+COMM -.-> PLAN
+COMM -.-> IMP
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+class ID,AS,PLAN,IMP box;
+class COMM hub;`;
+
+// issueChangeControl
+const DIAGRAM_ISSUE_CHANGE_CONTROL = `flowchart LR
+accTitle: 課題と変更管理の手順
+accDescr: 捕捉・評価・推奨・決定・実施の5段階を順に経る課題および変更のコントロール手順を示す図
+CAP["捕捉(Capture)"] --> EXAM["評価(Assess)"]
+EXAM --> PROP["推奨(Recommend)"]
+PROP --> DEC["決定(Decide)"]
+DEC --> IMPL["実施(Implement)"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class EXAM,PROP,DEC box;
+class CAP hub;
+class IMPL done;`;
+
 const TOC_IDS = [
   "exam-overview",
   "what-is-prince2",
@@ -346,6 +444,217 @@ useSeoMeta({
             </ul>
           </div>
         </section>
+        <!-- ===================== 4. Practices ===================== -->
+<section id="practices">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:list-details" aria-hidden="true" />SECTION 04</div>
+      <h2>7つのプラクティス(Practices)</h2>
+
+      <p>プラクティスは、プロジェクトの間<strong>継続的に</strong>扱われるべき側面です。旧版の「テーマ(Themes)」から名称変更されました。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>プラクティス</th><th>目的(一言で)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Business Case(ビジネスケース)</td><td>プロジェクトが望ましく・実現可能で・達成可能であることを継続的に検証する</td></tr>
+            <tr><td>2</td><td>Organizing(組織化)</td><td>説明責任(アカウンタビリティ)の構造を定義する</td></tr>
+            <tr><td>3</td><td>Plans(計画)</td><td>誰が・何を・いつ・どこで・どのように・いくらで実行するかを定義する</td></tr>
+            <tr><td>4</td><td>Quality(品質)</td><td>ユーザーの要求と期待を満たすことを保証する</td></tr>
+            <tr><td>5</td><td>Risk(リスク)</td><td>不確実な事象を特定・評価・統制する</td></tr>
+            <tr><td>6</td><td>Issues(課題)</td><td>課題に対応し、ベースラインへの変更を統制する(旧版の「Change」テーマから改称)</td></tr>
+            <tr><td>7</td><td>Progress(進捗)</td><td>計画に対する現在地を追跡・監視・統制する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_PRACTICES_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">7つのプラクティスの循環関係</div>
+          </div>
+
+      <h3>Business Case(ビジネスケース)</h3>
+      <p><strong>目的:</strong> プロジェクトの望ましさ・実現可能性・達成可能性を確立し、意思決定の判断材料を提供し続ける。</p>
+      <ul>
+        <li><strong>アウトラインビジネスケース</strong>(SUプロセスで作成)→<strong>詳細ビジネスケース</strong>(IPプロセスで発展)へと段階的に精緻化される。</li>
+        <li>検証タイミング:各ステージ境界(Managing a Stage Boundary)、重要な例外発生時。</li>
+        <li>構成要素の例:理由(Reasons)、選択肢の検討、期待便益/非便益、コスト、タイムスケール、投資評価、主要リスク。</li>
+      </ul>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>ビジネスケースの「所有者」は常に<strong>エグゼクティブ(Executive)</strong>である。プロジェクトマネージャーはビジネスケースを作成・維持する実務を担うが、最終的な正当化の判断責任はエグゼクティブにある、という役割分担を混同しないこと。</p>
+      </div>
+      <p><strong>便益管理アプローチ(Benefits Management Approach)</strong></p>
+      <ul>
+        <li>プロジェクト完了後の便益realizationをどう測定するかを定義する文書。プロジェクト終結後(場合によっては数年後)まで継続する点が特徴。</li>
+      </ul>
+
+      <h3>Organizing(組織化)</h3>
+      <p><strong>目的:</strong> プロジェクトの説明責任構造(誰が誰に対して責任を負うか)を定義する。</p>
+      <ul>
+        <li>3つの利害関係者視点(ビジネス・ユーザー・サプライヤー)をプロジェクトボードに代表させる。</li>
+        <li>4つの管理レベル:<strong>コーポレート/プログラムマネジメント → 指揮(Directing)→ 管理(Managing)→ 実行(Delivering)</strong></li>
+      </ul>
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ORGANIZING_LEVELS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">PRINCE2の4つの管理レベル</div>
+          </div>
+      <p>(詳細な役割表は「6. 役割と責任」参照)</p>
+
+      <h3>Plans(計画)</h3>
+      <p><strong>目的:</strong> プロジェクトの「誰が・何を・いつ・どこで・どのように・いくらで」を定義する共通の理解を提供する。</p>
+      <ul>
+        <li>PRINCE2の計画は原則⑥「プロダクトへの焦点」に基づく<strong>プロダクトベース・プランニング</strong>を採用する。</li>
+        <li>3段階のプラン:<strong>プロジェクトプラン → ステージプラン → (必要に応じて)チームプラン</strong>。他に<strong>例外プラン(Exception Plan)</strong>がある。</li>
+      </ul>
+      <p><strong>プロダクトベース・プランニングの手順</strong></p>
+      <ol>
+        <li>プロジェクト・プロダクト・ディスクリプションの作成</li>
+        <li>プロダクト・ブレイクダウン・ストラクチャーの作成</li>
+        <li>プロダクト・ディスクリプションの作成(品質基準・受け入れ基準を含む)</li>
+        <li>プロダクト・フロー・ダイアグラム(依存関係の順序)の作成</li>
+      </ol>
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_PRODUCT_BASED_PLANNING" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">プロダクトベース・プランニングの流れ</div>
+          </div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「タスクから計画する」のではなく「必要なプロダクトから逆算して計画する」ことがPRINCE2流の要点。試験でも「プロダクトベース・プランニングの最初のステップ」がよく問われる。</p>
+      </div>
+
+      <h3>Quality(品質)</h3>
+      <p><strong>目的:</strong> プロダクトがユーザーの要求と期待を満たし、目的に適合(fit for purpose)することを保証する。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>Quality Planning(品質計画)</td><td>顧客の品質期待と受け入れ基準を明確化し、品質管理アプローチを定義する</td></tr>
+            <tr><td>Quality Control(品質管理)</td><td>個々のプロダクトが基準を満たしているか検証する活動(レビュー、テスト等)</td></tr>
+            <tr><td>Quality Assurance(品質保証)</td><td>プロジェクト外部からの独立した視点で、プロセス自体が適切に運用されているかを確認する</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>品質監査証跡(Quality Audit Trail)の流れ</strong></p>
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_QUALITY_AUDIT_TRAIL" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">品質監査証跡(Quality Audit Trail)</div>
+          </div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>品質基準は「測定可能」でなければならない。「使いやすいこと」ではなく「操作完了までのクリック数が3回以内であること」のように具体化する。</p>
+      </div>
+
+      <h3>Risk(リスク)</h3>
+      <p><strong>目的:</strong> 不確実な事象を特定・評価し、それに対して効果的に対応できるようにする。</p>
+      <p><strong>リスクマネジメント手順(5ステップ、継続的なコミュニケーションを伴う)</strong></p>
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_RISK_MANAGEMENT_PROCEDURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">リスクマネジメント手順</div>
+          </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>リスク選好度(Risk Appetite)</td><td>組織がどの程度のリスクを許容できるかという方針</td></tr>
+            <tr><td>リスクトレランス(Risk Tolerance)</td><td>許容範囲の具体的な閾値</td></tr>
+            <tr><td>発生確率(Probability)</td><td>リスクが起こる可能性</td></tr>
+            <tr><td>影響度(Impact)</td><td>発生した場合の影響の大きさ</td></tr>
+            <tr><td>近接性(Proximity)</td><td>リスクがいつ発生しうるか(時間的近さ)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>脅威(Threat)への対応:</strong> 回避(Avoid)・低減(Reduce)・転嫁(Transfer)・分担(Share)・受容(Accept)・コンティンジェンシー計画の準備(Prepare contingent plans)<br>
+      <strong>好機(Opportunity)への対応:</strong> 活用(Exploit)・増強(Enhance)・転嫁(Transfer)・分担(Share)・受容(Accept)・コンティンジェンシー計画の準備(Prepare contingent plans)</p>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>PRINCE2のリスクは「悪いこと(脅威)」だけでなく「良いこと(好機)」も対象とする。試験では両方の対応戦略を混同させる設問が出やすいので、脅威固有の用語(Avoid/Reduce)と好機固有の用語(Exploit/Enhance)を区別し、両者に共通する用語(Transfer/Share/Accept/Prepare contingent plans)とあわせて整理して暗記する。</p>
+      </div>
+
+      <h3>Issues(課題)— 旧「Change」からの改称</h3>
+      <p><strong>目的:</strong> 課題(問題・要求変更・仕様逸脱)を捕捉・評価し、ベースライン(合意済み計画や仕様)への変更を統制する。</p>
+      <p><strong>課題の種類</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>分類</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>Request for Change(変更要求)</td><td>承認済みプロダクトの仕様変更依頼</td></tr>
+            <tr><td>Off-Specification(仕様逸脱)</td><td>合意仕様を満たさない、または満たせない見込みの事態</td></tr>
+            <tr><td>Problem/Concern(問題・懸念)</td><td>変更要求・仕様逸脱・ビジネス機会・プロジェクト外の事象のいずれにも該当しない、対応が必要な事象</td></tr>
+            <tr><td>Business Opportunity(ビジネス機会)</td><td>追求すればプロジェクトや組織に便益をもたらしうる、計画外の好機</td></tr>
+            <tr><td>Event external to the project(プロジェクト外の事象)</td><td>プロジェクトの外部で発生し、プロジェクトに影響を及ぼしうる事象</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>課題・変更統制手順</strong></p>
+      <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_ISSUE_CHANGE_CONTROL" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+              <template #fallback>
+                <p class="diagram-loading">図を読み込み中...</p>
+              </template>
+            </ClientOnly>
+            <div class="diagram-caption">課題・変更統制手順</div>
+          </div>
+      <ul>
+        <li>決定権限は基本的に<strong>プロジェクトボード</strong>にあるが、日常的な軽微な変更対応の迅速化のため<strong>チェンジオーソリティ(Change Authority)</strong>に委譲できる(必要に応じて変更予算 Change Budget を設定)。</li>
+      </ul>
+
+      <h3>Progress(進捗)</h3>
+      <p><strong>目的:</strong> プランに対する実績を継続的に評価し、プロジェクトが計画通りに実行可能であり続けることを保証する意思決定の仕組みを提供する。</p>
+      <ul>
+        <li><strong>トレランス(7領域):</strong> 時間・コスト・品質・スコープ・リスク・便益・サステナビリティ(原則⑤参照)</li>
+        <li><strong>統制の種類:</strong></li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>統制手段</th><th>タイミング</th><th>主体</th></tr></thead>
+          <tbody>
+            <tr><td>イベント駆動型統制(Event-driven Control)</td><td>ステージ境界、例外の発生など特定のイベント時</td><td>プロジェクトボード/PM</td></tr>
+            <tr><td>時間駆動型統制(Time-driven Control)</td><td>あらかじめ定めた周期(例:週次)</td><td>PM(ハイライト報告)、TM(チェックポイント報告)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>主要な進捗報告類</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>報告</th><th>発信者→宛先</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>チェックポイント報告 (Checkpoint Report)</td><td>チームマネージャー→PM</td><td>ワークパッケージの進捗</td></tr>
+            <tr><td>ハイライト報告 (Highlight Report)</td><td>PM→プロジェクトボード</td><td>ステージの進捗サマリー(定期)</td></tr>
+            <tr><td>例外報告 (Exception Report)</td><td>PM→プロジェクトボード</td><td>トレランス逸脱の予測時に随時</td></tr>
+            <tr><td>エンドステージ報告 (End Stage Report)</td><td>PM→プロジェクトボード</td><td>ステージ終了時の実績報告</td></tr>
+            <tr><td>エンドプロジェクト報告 (End Project Report)</td><td>PM→プロジェクトボード</td><td>プロジェクト全体の実績報告</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== 5. Management Products ===================== -->
+    
       </main>
     </div>
   </div>
