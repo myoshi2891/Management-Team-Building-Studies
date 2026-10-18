@@ -1158,7 +1158,7 @@ useSeoMeta({
 .main-content {
   margin-left: 288px;
   padding: 56px 72px 120px;
-  max-width: 980px;
+  max-width: none;
 }
 
 .hero {
