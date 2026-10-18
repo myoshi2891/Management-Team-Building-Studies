@@ -1545,4 +1545,3 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   8. `feat(prince2): implement tailoring, digital, sustainability, and cross-mapping sections` (`925fd18`)
   9. `feat(prince2): implement exam tips, references, and trademark footer` (`98ba2b0`)
   10. `fix(prince2): update trademark attribution to PeopleCert group and align hub guide count` (`171cdd0`)
-
