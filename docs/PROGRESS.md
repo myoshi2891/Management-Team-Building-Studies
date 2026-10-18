@@ -1135,11 +1135,11 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ```text
 Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
 
-コードコミット HEAD: dd0396f
+コードコミット HEAD: 171cdd0
 次の作業: Netlify 公開（netlify.toml 追加済み。docs/PROGRESS.md §83）→
   公開見合わせ中 8 本（app/utils/guide-catalog.ts の UNPUBLISHED_GUIDE_ROUTES）の改稿 →
   保守・新規ガイドの追加
-  新規ページの登録先は app/utils/guide-catalog.ts の GUIDES 1 か所。
+  新規ページの登録先は app/utils/guide-catalog.ts の ALL_GUIDES 1 か所（GUIDES はそこから導出）。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
   グローバルナビ・種別ハブ（/certifications 等）・プログラムハブ（/certifications/[program] 等）が
   すべて自動で追随する（契約 N-1〜N-3）。
