@@ -72,7 +72,22 @@ const EXPECTED_TOC_IDS = [
   "references",
 ] as const;
 
-const EXPECTED_SECTION_EYEBROWS = [] as const;
+const EXPECTED_SECTION_EYEBROWS = [
+  "SECTION 00",
+  "SECTION 01",
+  "SECTION 02",
+  "SECTION 03",
+  "SECTION 04",
+  "SECTION 05",
+  "SECTION 06",
+  "SECTION 07",
+  "SECTION 08",
+  "SECTION 09",
+  "SECTION 10",
+  "SECTION 11",
+  "SECTION 12",
+  "SECTION 13",
+] as const;
 
 const EXPECTED_EXTERNAL_URLS = [
   "https://goodelearning.com/downloads/project-program-management/learning-prince2-poster-56-7-prince2-processes",
