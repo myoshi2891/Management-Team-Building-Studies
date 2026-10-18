@@ -374,4 +374,81 @@ describe("pages/msp-foundation-5th-edition-guide.vue (固有契約)", () => {
     expect(footer.exists()).toBe(true);
     expect(footer.text()).toContain("PeopleCert groupの登録商標");
   });
+
+  it("チェックリスト（Section 13）が check-list（8グループ）と check-item（20件）で構造化されている", () => {
+    const wrapper = mountPage();
+    const checklist = wrapper.find("#checklist");
+    expect(checklist.exists()).toBe(true);
+    const groups = checklist.findAll(".check-list");
+    expect(groups).toHaveLength(8);
+    const items = checklist.findAll(".check-item");
+    expect(items).toHaveLength(20);
+    for (const item of items) {
+      expect(item.find('input[type="checkbox"]').exists()).toBe(true);
+      expect(item.find(".check-text").exists()).toBe(true);
+    }
+  });
+
+  it("用語集（Section 15）が glossary-grid と glossary-item（12件）で構造化されている", () => {
+    const wrapper = mountPage();
+    const glossary = wrapper.find("#glossary");
+    expect(glossary.exists()).toBe(true);
+    const grid = glossary.find(".glossary-grid");
+    expect(grid.exists()).toBe(true);
+    const items = grid.findAll(".glossary-item");
+    expect(items).toHaveLength(12);
+    for (const item of items) {
+      expect(item.find(".g-term").exists()).toBe(true);
+      expect(item.find(".g-def").exists()).toBe(true);
+    }
+  });
+
+  it("参考文献・ソース一覧（Section 16）が ref-cards と ref-card（16件）で構造化されている", () => {
+    const wrapper = mountPage();
+    const references = wrapper.find("#references");
+    expect(references.exists()).toBe(true);
+    const container = references.find(".ref-cards");
+    expect(container.exists()).toBe(true);
+    const cards = container.findAll(".ref-card");
+    expect(cards).toHaveLength(16);
+    cards.forEach((card, index) => {
+      expect(card.find(".ref-num").text().trim()).toBe(String(index + 1));
+      expect(card.find(".ref-body .ref-name").exists()).toBe(true);
+      expect(card.find(".ref-body a.ref-url").exists()).toBe(true);
+    });
+  });
+
+  it("チェックリスト・用語集・参考文献の必須 CSS セレクタが scoped style 内に定義されている", async () => {
+    const fs = await import("node:fs/promises");
+    const content = await fs.readFile(
+      "app/pages/msp-foundation-5th-edition-guide.vue",
+      "utf-8"
+    );
+    const styleSection = content.slice(content.indexOf("<style scoped>"));
+
+    const REQUIRED_SELECTORS = [
+      ".check-list",
+      ".check-item",
+      ".check-item::before",
+      ".check-item input",
+      ".check-item input:checked",
+      ".check-item .check-text",
+      ".check-item:has(input:checked)",
+      ".glossary-grid",
+      ".glossary-item",
+      ".glossary-item .g-term",
+      ".glossary-item .g-def",
+      ".ref-cards",
+      ".ref-card",
+      ".ref-num",
+      ".ref-card .ref-body",
+      ".ref-card .ref-name",
+      ".ref-card .ref-url",
+    ];
+
+    for (const selector of REQUIRED_SELECTORS) {
+      expect(styleSection).toContain(selector);
+    }
+  });
 });
+
