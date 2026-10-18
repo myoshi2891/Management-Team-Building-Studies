@@ -1250,7 +1250,7 @@ section {
   margin-top: 64px;
 }
 
-:is(h2, h3) {
+:is(section, h2, h3) {
   scroll-margin-top: calc(var(--global-nav-height, 0px) + 32px);
 }
 
