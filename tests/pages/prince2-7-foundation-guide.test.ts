@@ -432,4 +432,14 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
     expect(rows).toContainEqual(["Concern(懸念)", "発生時期と影響の大きさを評価する必要がある事象"]);
     expect(rows.some((cells) => cells[0] === "Problem/Concern(問題・懸念)")).toBe(false);
   });
+
+  // prince2.wiki/principles/... は原則③のページであり Organizing プラクティスではない。
+  // 原本 HTML はラベルを「Organizing プラクティス」としているため、この差分は原本照合監査の対象外（正当な差分）。
+  it("参考文献で Define roles, responsibilities and relationships を原則として表記する", () => {
+    const wrapper = mountPage();
+    const ref = wrapper
+      .findAll(".ref-list li")
+      .find((li) => li.find("a").attributes("href") === "https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/");
+    expect(ref?.find(".ref-name").text()).toBe("原則③ — Define roles, responsibilities and relationships(prince2.wiki)");
+  });
 });
