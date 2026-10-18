@@ -1413,11 +1413,18 @@ tr:last-child td {
 @media (max-width: 980px) {
   .sidebar {
     transform: translateX(-100%);
-    transition: transform 0.25s ease;
+    visibility: hidden;
+    transition:
+      transform 0.25s ease,
+      visibility 0s linear 0.25s;
   }
 
   .sidebar.is-open {
     transform: translateX(0);
+    visibility: visible;
+    transition:
+      transform 0.25s ease,
+      visibility 0s linear 0s;
   }
 
   .sidebar-toggle {
