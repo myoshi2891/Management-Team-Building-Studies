@@ -163,6 +163,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/itil-transformation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Transformation (v5)" },
       { to: "/mop-foundation-guide", programId: "peoplecert", seriesId: "pc-mop", navLabel: "MoP 完全ガイド" },
       { to: "/msp-foundation-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP 完全ガイド" },
+      { to: "/msp-practitioner-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP Practitioner 完全ガイド" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },

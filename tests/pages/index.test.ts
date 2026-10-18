@@ -355,6 +355,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説",
+        category: "PEOPLECERT",
+        href: "/msp-practitioner-5th-edition-guide",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
