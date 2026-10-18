@@ -399,4 +399,17 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
       "SU, IP",
     ]);
   });
+
+  // 「Tailor to suit the project environment」→「Tailor to suit the project」は 2009 年版→2017 年版（V6）の改称であり、
+  // V6→V7 の変化ではない。原本 HTML はこの例を含むため、この差分は原本照合監査の対象外（正当な差分）。
+  it("V6→V7 の補足 callout が V6 以前の改称を V7 の変化として挙げない", () => {
+    const wrapper = mountPage();
+    const note = wrapper
+      .findAll('[data-variant="note"]')
+      .find((el) => el.text().includes("V6→V7での構造変化"));
+    expect(note?.text()).not.toContain("Tailor to suit the project environment");
+    expect(note?.text()).toContain(
+      "原則の名称は一部改められました(例:「Defined roles and responsibilities」→「Define roles, responsibilities and relationships」)。",
+    );
+  });
 });
