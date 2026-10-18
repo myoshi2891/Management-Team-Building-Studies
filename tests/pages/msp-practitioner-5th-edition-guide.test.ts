@@ -258,4 +258,83 @@ describe("pages/msp-practitioner-5th-edition-guide.vue (固有契約)", () => {
     expect(footer.text()).toContain("PeopleCert International Limited");
     expect(footer.text()).toContain("非公式の学習資料");
   });
+
+  it("7.1 各プロセスの詳細とベストプラクティス（Section 07）が process-grid と process-card（7件）で構造化されている", () => {
+    const wrapper = mountPage();
+    const lifecycle = wrapper.find("#lifecycle");
+    expect(lifecycle.exists()).toBe(true);
+    const grid = lifecycle.find(".process-grid");
+    expect(grid.exists()).toBe(true);
+    const cards = grid.findAll(".process-card");
+    expect(cards).toHaveLength(7);
+    const expectedTitles = [
+      "① Identify the Programme(プログラムを特定する)",
+      "② Design the Outcomes(成果を設計する)",
+      "③ Plan Progressive Delivery(段階的デリバリーを計画する)",
+      "④ Deliver the Capabilities(ケイパビリティを提供する)",
+      "⑤ Embed the Outcomes(成果を定着させる)",
+      "⑥ Evaluate New Information(新しい情報を評価する)",
+      "⑦ Close the Programme(プログラムを終結する)",
+    ];
+    cards.forEach((card, index) => {
+      expect(card.find(".process-title").text().trim()).toBe(expectedTitles[index]);
+      expect(card.findAll(".process-points li").length).toBeGreaterThanOrEqual(2);
+    });
+  });
+
+  it("プラクティショナー試験対策:シナリオ適用のコツ（Section 09）が step-list（5件）で構造化されている", () => {
+    const wrapper = mountPage();
+    const examTips = wrapper.find("#exam-tips");
+    expect(examTips.exists()).toBe(true);
+    const stepList = examTips.find("ol.step-list");
+    expect(stepList.exists()).toBe(true);
+    const items = stepList.findAll("li");
+    expect(items).toHaveLength(5);
+    for (const item of items) {
+      expect(item.find("strong").exists()).toBe(true);
+    }
+  });
+
+  it("参考文献・出典（Section 11）が ref-list（12件）と ref-name / ref-url で構造化されている", () => {
+    const wrapper = mountPage();
+    const references = wrapper.find("#references");
+    expect(references.exists()).toBe(true);
+    const refList = references.find("ul.ref-list");
+    expect(refList.exists()).toBe(true);
+    const items = refList.findAll("li");
+    expect(items).toHaveLength(12);
+    for (const item of items) {
+      expect(item.find(".ref-name").exists()).toBe(true);
+      expect(item.find(".ref-url a").exists()).toBe(true);
+    }
+  });
+
+  it("プロセス詳細・試験対策ステップ・参考文献の必須 CSS セレクタが scoped style 内に定義されている", async () => {
+    const fs = await import("node:fs/promises");
+    const content = await fs.readFile(
+      "app/pages/msp-practitioner-5th-edition-guide.vue",
+      "utf-8"
+    );
+    const styleSection = content.slice(content.indexOf("<style scoped>"));
+
+    const REQUIRED_SELECTORS = [
+      ".process-grid",
+      ".process-card",
+      ".process-title",
+      ".process-points",
+      ".step-list",
+      ".step-list li",
+      ".step-list li::before",
+      ".ref-list",
+      ".ref-list li",
+      ".ref-list li::before",
+      ".ref-list .ref-name",
+      ".ref-list .ref-url",
+    ];
+
+    for (const selector of REQUIRED_SELECTORS) {
+      expect(styleSection).toContain(selector);
+    }
+  });
 });
+
