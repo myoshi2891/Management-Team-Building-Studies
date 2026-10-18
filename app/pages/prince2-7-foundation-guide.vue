@@ -673,7 +673,8 @@ useSeoMeta({
           <tbody>
             <tr><td>Request for Change(変更要求)</td><td>承認済みプロダクトの仕様変更依頼</td></tr>
             <tr><td>Off-Specification(仕様逸脱)</td><td>合意仕様を満たさない、または満たせない見込みの事態</td></tr>
-            <tr><td>Problem/Concern(問題・懸念)</td><td>変更要求・仕様逸脱・ビジネス機会・プロジェクト外の事象のいずれにも該当しない、対応が必要な事象</td></tr>
+            <tr><td>Problem(問題)</td><td>プロジェクトに即座に悪影響を及ぼす、対応が必要な事象</td></tr>
+            <tr><td>Concern(懸念)</td><td>発生時期と影響の大きさを評価する必要がある事象</td></tr>
             <tr><td>Business Opportunity(ビジネス機会)</td><td>追求すればプロジェクトや組織に便益をもたらしうる、計画外の好機</td></tr>
             <tr><td>Event external to the project(プロジェクト外の事象)</td><td>プロジェクトの外部で発生し、プロジェクトに影響を及ぼしうる事象</td></tr>
           </tbody>
