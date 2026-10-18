@@ -204,7 +204,7 @@ flowchart TB
 出典: https://www.finance-ni.gov.uk/articles/programme-board 、 https://www.finance-ni.gov.uk/articles/senior-responsible-owner 、 https://eapad.dk/?p=6228
 
 > **ベストプラクティス(委譲権限/トレランス)**: プログラムボードとSROの間、SROとスポンサリンググループの間では、コスト・スケジュール・スコープ・品質・リスク・ベネフィットの6つの側面について**委譲された許容範囲(トレランス)**を明確に定義しておくことが重要です。これにより、些細な判断まで上位機関にエスカレーションする必要がなくなり、意思決定のスピードが確保されます(Decisionsテーマ・Bring pace and value原則とも直結する実務ポイントです)。
-出典: https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure
+出典: Open Exam Prep「Programme Governance Structure」(スポンサリンググループ・トレランスの解説)
 
 ---
 
@@ -260,7 +260,7 @@ flowchart LR
 | リスク | プログラムレベルの戦略的リスク・戦術的リスク・運用リスクを識別し、優先順位付けする。 |
 | ターゲットオペレーティングモデル(TOM) | 旧版の「ブループリント」に相当する概念。変革後の組織が実際にどう機能するか(プロセス・組織・技術・情報)を描いた設計図。 |
 
-出典: https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed 、 https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision
+出典: https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed
 
 **プラクティショナーでの適用ポイント**:
 - ビジョン不在または形骸化しているシナリオ(例:「誰もビジョンステートメントを見たことがない」)は頻出パターン。対応策として、ビジョンの再策定とコミュニケーション計画の強化を提示する。
@@ -515,14 +515,10 @@ MSP Practitioner試験はオープンブックのオブジェクティブテス�
   https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/
 - Zoboko「Managing Successful Programmes (5th Edition)」公式マニュアル章立て(原則・各テーマの節構成):
   https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition
-- OpenExamPrep「4.1 The Design Theme & Vision」(Design テーマの構成要素: ビジョン・TOM・リスク):
-  https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision
 - Finance NI「Programme Board」(プログラムボードの構成・役割):
   https://www.finance-ni.gov.uk/articles/programme-board
 - Finance NI「Senior Responsible Owner」(SROの責務):
   https://www.finance-ni.gov.uk/articles/senior-responsible-owner
-- Open Exam Prep「Programme Governance Structure」(スポンサリンググループ・トレランスの解説):
-  https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure
 - ILX Group「MSP® Practitioner」コース概要(Practitionerの学習目標):
   https://ilxgroup.com/uk/training/msp/practitioner
 

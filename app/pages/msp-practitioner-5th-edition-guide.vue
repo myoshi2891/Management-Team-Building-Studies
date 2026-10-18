@@ -101,21 +101,21 @@ useSeoMeta({
     "MSP Practitioner 5th edition の原則・テーマ・プロセスを、シナリオ適用とテーラリングの視点で学ぶ初学者向けガイド",
 });
 
-const TOC_ITEMS = [
-  { id: "what-is-msp-practitioner", label: "MSPプラクティショナーとは", icon: "tabler:certificate" },
-  { id: "exam-overview", label: "試験概要", icon: "tabler:list-check" },
-  { id: "three-lenses", label: "3つのレンズ", icon: "tabler:git-branch" },
-  { id: "principles", label: "7つの原則", icon: "tabler:clipboard-check" },
-  { id: "governance-structure", label: "組織とガバナンス", icon: "tabler:building-bank" },
-  { id: "themes", label: "7つのテーマ", icon: "tabler:clipboard-text" },
-  { id: "lifecycle", label: "7つのプロセス", icon: "tabler:route" },
-  { id: "tailoring", label: "テーラリング", icon: "tabler:refresh" },
-  { id: "exam-tips", label: "試験対策のコツ", icon: "tabler:map-2" },
-  { id: "best-practices", label: "ベストプラクティス総まとめ", icon: "tabler:flag-3" },
-  { id: "references", label: "参考文献・出典", icon: "tabler:link" },
+const TOC_SECTIONS = [
+  "what-is-msp-practitioner",
+  "exam-overview",
+  "three-lenses",
+  "principles",
+  "governance-structure",
+  "themes",
+  "lifecycle",
+  "tailoring",
+  "exam-tips",
+  "best-practices",
+  "references",
 ] as const;
 
-const activeId = useActiveHeading(TOC_ITEMS.map((item) => item.id));
+const activeId = useActiveHeading([...TOC_SECTIONS]);
 const isSidebarOpen = ref(false);
 const sidebarToggleRef = ref<HTMLButtonElement | null>(null);
 
@@ -147,14 +147,114 @@ function closeSidebarAndFocusToggle() {
       <div class="brand-title">MSP® Practitioner 完全ガイド</div>
       <div class="brand-subtitle">第5版・実践適用解説</div>
       <ul class="sidebar-nav">
-        <li v-for="item in TOC_ITEMS" :key="item.id">
+        <li>
           <a
-            :href="`#${item.id}`"
-            :class="{ active: activeId === item.id }"
+            href="#what-is-msp-practitioner"
+            :class="{ active: activeId === 'what-is-msp-practitioner' }"
             @click="closeSidebarAndFocusToggle"
           >
-            <Icon :name="item.icon" aria-hidden="true" />
-            <span>{{ item.label }}</span>
+            <Icon name="tabler:certificate" aria-hidden="true" />
+            <span>MSPプラクティショナーとは</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#exam-overview"
+            :class="{ active: activeId === 'exam-overview' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:list-check" aria-hidden="true" />
+            <span>試験概要</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#three-lenses"
+            :class="{ active: activeId === 'three-lenses' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:git-branch" aria-hidden="true" />
+            <span>3つのレンズ</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#principles"
+            :class="{ active: activeId === 'principles' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:clipboard-check" aria-hidden="true" />
+            <span>7つの原則</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#governance-structure"
+            :class="{ active: activeId === 'governance-structure' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:building-bank" aria-hidden="true" />
+            <span>組織とガバナンス</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#themes"
+            :class="{ active: activeId === 'themes' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:clipboard-text" aria-hidden="true" />
+            <span>7つのテーマ</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#lifecycle"
+            :class="{ active: activeId === 'lifecycle' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:route" aria-hidden="true" />
+            <span>7つのプロセス</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#tailoring"
+            :class="{ active: activeId === 'tailoring' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:refresh" aria-hidden="true" />
+            <span>テーラリング</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#exam-tips"
+            :class="{ active: activeId === 'exam-tips' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:map-2" aria-hidden="true" />
+            <span>試験対策のコツ</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#best-practices"
+            :class="{ active: activeId === 'best-practices' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:flag-3" aria-hidden="true" />
+            <span>ベストプラクティス総まとめ</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="#references"
+            :class="{ active: activeId === 'references' }"
+            @click="closeSidebarAndFocusToggle"
+          >
+            <Icon name="tabler:link" aria-hidden="true" />
+            <span>参考文献・出典</span>
           </a>
         </li>
       </ul>
@@ -742,13 +842,7 @@ function closeSidebarAndFocusToggle() {
             <span>ソース</span>
           </div>
           <p>
-            出典:
-            <a
-              href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
-              target="_blank"
-              rel="noopener"
-              >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
-            >
+            出典: Open Exam Prep「Programme Governance Structure」(スポンサリンググループ・トレランスの解説)
           </p>
         </div>
       </section>
@@ -879,10 +973,6 @@ function closeSidebarAndFocusToggle() {
               target="_blank"
               rel="noopener"
               >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
-            >
-            、
-            <a href="https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision" target="_blank" rel="noopener"
-              >https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision</a
             >
           </p>
         </div>
@@ -1654,15 +1744,6 @@ function closeSidebarAndFocusToggle() {
             >
           </li>
           <li>
-            <span class="ref-name"
-              >OpenExamPrep「4.1 The Design Theme &amp; Vision」(Design テーマの構成要素: ビジョン・TOM・リスク)</span
-            ><span class="ref-url"
-              ><a href="https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision" target="_blank" rel="noopener"
-                >https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision</a
-              ></span
-            >
-          </li>
-          <li>
             <span class="ref-name">Finance NI「Programme Board」(プログラムボードの構成・役割)</span
             ><span class="ref-url"
               ><a
@@ -1681,19 +1762,6 @@ function closeSidebarAndFocusToggle() {
                 target="_blank"
                 rel="noopener"
                 >https://www.finance-ni.gov.uk/articles/senior-responsible-owner</a
-              ></span
-            >
-          </li>
-          <li>
-            <span class="ref-name"
-              >Open Exam Prep「Programme Governance
-              Structure」(スポンサリンググループ・トレランスの解説)</span
-            ><span class="ref-url"
-              ><a
-                href="https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure"
-                target="_blank"
-                rel="noopener"
-                >https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure</a
               ></span
             >
           </li>

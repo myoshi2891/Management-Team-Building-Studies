@@ -90,7 +90,8 @@
     "audit:itil-strategy-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-strategy-v5-guide/Itil-strategy-v5-guide.html app/pages/itil-strategy-v5-guide.vue",
     "audit:itil-transformation-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-transformation-v5-study-guide/Itil-transformation-v5-study-guide.html app/pages/itil-transformation-v5-study-guide.vue",
     "audit:mop-foundation": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Mop-foundation-guide/Mop-foundation-guide.html app/pages/mop-foundation-guide.vue",
-    "audit:msp-foundation": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-foundation-5th-edition-guide/Msp-foundation-5th-edition-guide.html app/pages/msp-foundation-5th-edition-guide.vue"
+    "audit:msp-foundation": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-foundation-5th-edition-guide/Msp-foundation-5th-edition-guide.html app/pages/msp-foundation-5th-edition-guide.vue",
+    "audit:msp-practitioner": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-practitioner-5th-edition-guide/Msp-practitioner-5th-edition-guide.html app/pages/msp-practitioner-5th-edition-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",

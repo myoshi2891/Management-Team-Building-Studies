@@ -81,8 +81,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/",
   "https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/",
   "https://ilxgroup.com/uk/training/msp/practitioner",
-  "https://open-exam-prep.com/study-guides/msp-foundation/design-and-target-operating-model/design-theme-and-vision",
-  "https://open-exam-prep.com/study-guides/msp-foundation/organization-and-governance/governance-structure",
   "https://www.finance-ni.gov.uk/articles/programme-board",
   "https://www.finance-ni.gov.uk/articles/senior-responsible-owner",
   "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930",
