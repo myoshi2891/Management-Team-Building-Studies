@@ -422,4 +422,14 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
     expect(items).toContain("プロダクト・ディスクリプションの作成(各プロダクトの品質基準・品質許容度・品質方法などの品質仕様を含む)");
     expect(items).not.toContain("プロダクト・ディスクリプションの作成(品質基準・受け入れ基準を含む)");
   });
+
+  // Problem と Concern は Version 7 では別個の課題種別であり、性質も異なる（即時の悪影響 / 時期と影響の評価が必要）。
+  // 原本 HTML は「Problem/Concern」を 1 行に束ねているため、この差分は原本照合監査の対象外（正当な差分）。
+  it("課題の種類の表で Problem と Concern を別行に分けて記述する", () => {
+    const wrapper = mountPage();
+    const rows = wrapper.findAll("tr").map((tr) => tr.findAll("td").map((td) => td.text()));
+    expect(rows).toContainEqual(["Problem(問題)", "プロジェクトに即座に悪影響を及ぼす、対応が必要な事象"]);
+    expect(rows).toContainEqual(["Concern(懸念)", "発生時期と影響の大きさを評価する必要がある事象"]);
+    expect(rows.some((cells) => cells[0] === "Problem/Concern(問題・懸念)")).toBe(false);
+  });
 });
