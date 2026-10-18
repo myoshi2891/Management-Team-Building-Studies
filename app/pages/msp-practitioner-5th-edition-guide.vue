@@ -211,6 +211,90 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 01</span>
         </div>
         <h2>はじめに:MSPプラクティショナーとは何か</h2>
+        <p>
+          <strong>MSP®(Managing Successful Programmes)</strong>
+          は、PeopleCert(旧AXELOS)が管理する、世界的に認知されたプログラムマネジメント(複数のプロジェクトや活動を束ねて組織的な変革を実現する管理手法)のベストプラクティスフレームワークです。2020年に刊行された<strong
+            >第5版(5th edition)</strong
+          >では、俊敏性(アジリティ)・柔軟性・段階的な価値提供を強く意識した構成に刷新されました。
+        </p>
+        <p>
+          第5版の資格体系は Foundation と Practitioner
+          の2段階です(参考として、旧第4版の上位資格も併記します)。
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>段階</th>
+                <th>目的</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MSP Foundation(基礎)</td>
+                <td>
+                  MSPの用語・構造(原則・テーマ・プロセス)を<strong>記憶し理解している</strong>ことを確認する試験。暗記中心。
+                </td>
+              </tr>
+              <tr>
+                <td><strong>MSP Practitioner(実践)</strong></td>
+                <td>
+                  MSPの原則・テーマ・プロセスを<strong>実際のシナリオに適用し、テーラリング(調整)できる</strong>ことを確認する試験。応用力中心。
+                </td>
+              </tr>
+              <tr>
+                <td>MSP Advanced Practitioner(上級実践)</td>
+                <td>
+                  <strong>旧第4版(2011年版)の資格で、現在は廃止済み(レガシー)</strong
+                  >。第5版の資格体系(Foundation → Practitioner)には含まれない。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Practitionerレベルの学習目標は公式コース概要で次のように明示されています。</p>
+        <ul>
+          <li>MSPの原則を文脈(コンテキスト)に応じて適用する方法を理解する</li>
+          <li>MSPのテーマの関連する側面を文脈に応じて適用・テーラリングする方法を理解する</li>
+          <li>MSPのプロセスの関連する側面を文脈に応じて適用・テーラリングする方法を理解する</li>
+        </ul>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://ilxgroup.com/uk/training/msp/practitioner"
+              target="_blank"
+              rel="noopener"
+              >https://ilxgroup.com/uk/training/msp/practitioner</a
+            >
+          </p>
+        </div>
+        <p>
+          つまりFoundationが「知っているか」を問うのに対し、Practitionerは「<strong>与えられたプログラムのシナリオに対して、どのMSPの要素を、どの程度、どのようにテーラリングして適用するのが最適か</strong>」を問う、判断力・応用力の試験です。この違いを常に意識しながら本ガイドを読み進めてください。
+        </p>
+        <p>
+          <strong>受験前提条件(Prerequisite)</strong>:
+          MSP第5版Foundation、またはMSP第4版Practitionerのいずれかの保有が必須です。
+        </p>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+              target="_blank"
+              rel="noopener"
+              >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+            >
+          </p>
+        </div>
       </section>
 
       <section id="exam-overview">
@@ -219,6 +303,82 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 02</span>
         </div>
         <h2>試験概要</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>出題形式</td>
+                <td>58問(一部に小問を含む)、配点合計70点のオブジェクティブテスト方式</td>
+              </tr>
+              <tr>
+                <td>試験時間</td>
+                <td>150分</td>
+              </tr>
+              <tr>
+                <td>方式</td>
+                <td><strong>オープンブック</strong>(公式MSPマニュアルの持ち込み・参照が可能)</td>
+              </tr>
+              <tr>
+                <td>合格基準</td>
+                <td>60%以上の得点</td>
+              </tr>
+              <tr>
+                <td>試験言語</td>
+                <td>英語・中国語</td>
+              </tr>
+              <tr>
+                <td>受験前提</td>
+                <td>MSP第5版Foundation または MSP第4版Practitioner</td>
+              </tr>
+              <tr>
+                <td>認定有効期間</td>
+                <td>3年ごとに更新が必要(CPDポイント60点の取得等)</td>
+              </tr>
+              <tr>
+                <td>学習ボリューム目安</td>
+                <td>講座形式により10〜24時間(eラーニング)/ 2〜5日(集合研修)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932"
+              target="_blank"
+              rel="noopener"
+              >https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932</a
+            >
+            、
+            <a
+              href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/</a
+            >
+          </p>
+        </div>
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />
+            <span>ベストプラクティス</span>
+          </div>
+          <p>
+            <strong>ベストプラクティス</strong>:
+            オープンブック試験とはいえ、150分で58問(70点分)を解くには1問あたり平均2〜3分弱しか使えません。マニュアルを試験中に一から探しても間に合わないため、事前学習で「どの情報がマニュアルのどの章にあるか」の<strong>目次感覚</strong>を身につけておくことが合格の鍵になります。本ガイドの章立ては公式マニュアルの構成(原則→テーマ→プロセス)に沿っているため、学習の地図として活用してください。
+          </p>
+        </div>
       </section>
 
       <section id="three-lenses">
@@ -227,6 +387,71 @@ function closeSidebarAndFocusToggle() {
           <span>SECTION 03</span>
         </div>
         <h2>MSPの全体構造:3つのレンズ</h2>
+        <p>
+          MSP第5版は、プログラムマネジメントを3つの異なる視点(レンズ)から捉える構造になっています。
+        </p>
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_THREE_LENSES" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            <template #fallback>
+              <p class="diagram-loading">図を読み込み中...</p>
+            </template>
+          </ClientOnly>
+        </div>
+        <ul>
+          <li>
+            <strong>原則(Principles)</strong>:
+            プログラムが成功するために常に守られるべき、普遍的・自己検証的・力を与える(empowering)7つの指針。MSPに沿ったプログラムはこれらの原則に導かれます。原則が守られていなければ、そのプログラムはMSPの原則を効果的に適用できていないことになります。
+          </li>
+          <li>
+            <strong>テーマ(Themes)</strong>:
+            プログラムのライフサイクルを通じて<strong>継続的に</strong>対処し続けなければならない、統治(ガバナンス)上の側面。7つあり、いずれも一度整備して終わりではなく、常時見直しが必要です。
+          </li>
+          <li>
+            <strong>プロセス(Processes)</strong>:
+            プログラムを立ち上げてから閉じるまでの<strong>段階的・循環的</strong>な活動の流れ。7つの工程で構成され、直線的というより「反復しながら前進する」流れとして描かれます。
+          </li>
+        </ul>
+        <p>
+          第5版では、第4版(2011年)で「Transformational Flow」と呼ばれていたプロセス部分が「<strong
+            >MSP Programme Lifecycle(プログラムライフサイクル)</strong
+          >」という呼称に変わり、段階的(incremental)な価値提供とアジャイル的な繰り返しの性質がより強調されています。
+        </p>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/"
+              target="_blank"
+              rel="noopener"
+              >https://goodelearning.com/msp-5th-edition-whats-changed-about-managing-successful-programmes/</a
+            >
+          </p>
+        </div>
+        <p>
+          またテーマの数も、旧版(第4版)の「9つのガバナンステーマ」から<strong>7つのテーマ</strong>へ統合・再編されました。たとえば旧版の「Vision」「Benefits
+          Realization Management」「Risk and Issue
+          Management」等は、新版では再編され、ビジョン・ベネフィット・プログラムリスク・ターゲットオペレーティングモデル(TOM)は「Design」テーマで一体的に扱われる一方、課題(イシュー)解決のアプローチやリスク対応(リスクへの対処の選択)は「Decisions」テーマで扱われるようになっています。
+        </p>
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />
+            <span>ソース</span>
+          </div>
+          <p>
+            出典:
+            <a
+              href="https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed"
+              target="_blank"
+              rel="noopener"
+              >https://axelos.com/resource-hub/blog/msp-5th-edition-what-has-changed</a
+            >
+          </p>
+        </div>
       </section>
 
       <section id="principles">
