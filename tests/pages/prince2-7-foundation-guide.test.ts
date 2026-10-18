@@ -377,4 +377,22 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
     const refItems = wrapper.findAll(".ref-list li");
     expect(refItems).toHaveLength(12);
   });
+
+  // 原則③の公式名は Version 7 で "Define roles, responsibilities and relationships" に改められた。
+  // 原本 HTML は旧称「明確な役割と責任」のままのため、この差分は原本照合監査の対象外（正当な差分）。
+  it("原則③の名称が Version 7 の「役割・責任・関係性の定義」に統一されている", () => {
+    const wrapper = mountPage();
+    expect(wrapper.text()).not.toContain("明確な役割と責任");
+    const principle3 = wrapper.findAll("strong").filter((el) => el.text().startsWith("③"));
+    expect(principle3.map((el) => el.text())).toEqual(["③ 役割・責任・関係性の定義"]);
+    expect(wrapper.text()).toContain("PRINCE2の原則③「役割・責任・関係性の定義」を具体化したのがこの組織構造です。");
+    const organizingRow = wrapper
+      .findAll("tr")
+      .find((tr) => tr.findAll("td")[0]?.text() === "Organizing");
+    expect(organizingRow?.findAll("td").map((td) => td.text())).toEqual([
+      "Organizing",
+      "役割・責任・関係性の定義",
+      "SU, IP",
+    ]);
+  });
 });
