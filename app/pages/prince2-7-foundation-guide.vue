@@ -312,7 +312,7 @@ useSeoMeta({
 
           <div class="disclaimer-box">
             <Icon name="tabler:info-circle" aria-hidden="true" />
-            <span>本ガイドは教育・学習支援を目的とした非公式の解説資料です。PRINCE2&reg;はAXELOS Limitedの登録商標です。正式な出題範囲・試験要項は必ず<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579" target="_blank" rel="noopener">PeopleCert公式サイト</a>でご確認ください。</span>
+            <span>本ガイドは教育・学習支援を目的とした非公式の解説資料です。PRINCE2&reg;はPeopleCert groupの登録商標です。正式な出題範囲・試験要項は必ず<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579" target="_blank" rel="noopener">PeopleCert公式サイト</a>でご確認ください。</span>
           </div>
         </div>
 
@@ -1034,7 +1034,7 @@ useSeoMeta({
     </section>
 
     <footer>
-      PRINCE2&reg;はAXELOS Limitedの登録商標です。本ガイドは学習補助を目的とした独自の要約・解説であり、公式教材の代替にはなりません。正式な学習には公式eBook・公式トレーニング教材(Learning Resource Kit)を併用してください。
+      PRINCE2&reg;はPeopleCert groupの登録商標です。本ガイドは学習補助を目的とした独自の要約・解説であり、公式教材の代替にはなりません。正式な学習には公式eBook・公式トレーニング教材(Learning Resource Kit)を併用してください。
     </footer>
 
   

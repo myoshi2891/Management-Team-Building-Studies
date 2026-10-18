@@ -369,7 +369,7 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
     const wrapper = mountPage();
     const footer = wrapper.find("footer");
     expect(footer.exists()).toBe(true);
-    expect(footer.text()).toContain("PRINCE2®はAXELOS Limitedの登録商標です");
+    expect(footer.text()).toContain("PRINCE2®はPeopleCert groupの登録商標です");
   });
 
   it("参考文献・出典(URL)（Section 14）に出典一覧（12件）が存在する", () => {
