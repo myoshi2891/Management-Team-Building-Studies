@@ -100,3 +100,14 @@ describe("原本カテゴリー: people", () => {
     expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[3]!.diagrams);
   });
 });
+
+describe("原本カテゴリー: practices", () => {
+  it("見出し・段落全文・リスト構造・表の全セル・強調・リンクが順序込みで一致する", () => {
+    expect(snapshot(mountPage().get("#practices").element)).toEqual(expected.sections[4]!.content);
+  });
+  it("図解のソースと出現順が原本と完全一致し、ラッパー内に配置される", () => {
+    const section = mountPage().get("#practices");
+    expect(section.findAll('[data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[4]!.diagrams);
+    expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[4]!.diagrams);
+  });
+});
