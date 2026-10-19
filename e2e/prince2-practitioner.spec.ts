@@ -44,7 +44,7 @@ for (const width of WIDTHS) {
     }));
     for (const list of styles.lists) {
       expect(list.marker).toBe(list.reference || list.nav ? "none" : list.tag === "OL" ? "decimal" : "disc");
-      expect(list.padding).toBe(list.reference || list.nav ? "0px" : list.callout ? "20px" : "24px");
+      expect(list.padding).toBe(list.reference || list.nav ? "0px" : list.callout && list.tag === "UL" ? "20px" : "24px");
     }
     for (const callout of styles.callouts) {
       const color = callout.variant === "practice" ? "rgb(184, 128, 42)" : "rgb(140, 58, 92)";
