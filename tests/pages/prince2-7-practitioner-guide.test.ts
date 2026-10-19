@@ -78,3 +78,14 @@ describe("原本カテゴリー: what-is-prince2-7", () => {
     expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[1]!.diagrams);
   });
 });
+
+describe("原本カテゴリー: principles", () => {
+  it("見出し・段落全文・リスト構造・表の全セル・強調・リンクが順序込みで一致する", () => {
+    expect(snapshot(mountPage().get("#principles").element)).toEqual(expected.sections[2]!.content);
+  });
+  it("図解のソースと出現順が原本と完全一致し、ラッパー内に配置される", () => {
+    const section = mountPage().get("#principles");
+    expect(section.findAll('[data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[2]!.diagrams);
+    expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[2]!.diagrams);
+  });
+});
