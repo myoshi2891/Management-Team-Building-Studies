@@ -167,6 +167,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/msp-practitioner-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP Practitioner 完全ガイド" },
       { to: "/prince2-7-foundation-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Foundation" },
       { to: "/prince2-7-practitioner-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Practitioner" },
+      { to: "/prince2-agile-foundation-version2", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 Agile Foundation" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },
@@ -346,7 +347,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
           { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)", "ITIL Service (v5)", "ITIL Strategy (v5)", "ITIL Transformation (v5)"] },
           { seriesId: "pc-mop", guides: ["MoP 完全ガイド"] },
           { seriesId: "pc-msp", guides: ["MSP 完全ガイド", "MSP Practitioner 完全ガイド"] },
-          { seriesId: "pc-prince2", guides: ["PRINCE2 7 Foundation", "PRINCE2 7 Practitioner"] },
+          { seriesId: "pc-prince2", guides: ["PRINCE2 7 Foundation", "PRINCE2 7 Practitioner", "PRINCE2 Agile Foundation"] },
         ],
       },
       {

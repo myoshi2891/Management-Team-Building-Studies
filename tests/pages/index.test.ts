@@ -373,6 +373,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "PRINCE2® Agile Foundation (Version 2) 学習ガイド",
+        category: "PEOPLECERT",
+        href: "/prince2-agile-foundation-version2",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
         category: "MANAGEMENT",
         href: "/high-output-management-guide",
