@@ -91,3 +91,11 @@ describe("utils/guide-search — カタログ全体を対象にした絞り込�
       .toEqual(hits.map((hit) => hit.guide.to));
   });
 });
+
+it("PRINCE2 Practitioner を団体・シリーズ情報付きで検索できる", () => {
+  expect(searchGuides("PRINCE2 7 Practitioner").map(hit => ({
+    to: hit.guide.to, program: hit.programLabel, series: hit.seriesLabel,
+  }))).toEqual([{
+    to: "/prince2-7-practitioner-guide", program: "PeopleCert 認定", series: "PRINCE2",
+  }]);
+});

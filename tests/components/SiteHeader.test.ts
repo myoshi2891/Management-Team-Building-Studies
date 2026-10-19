@@ -484,3 +484,16 @@ describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", (
     }
   });
 });
+
+it("Practitioner 閲覧中は PeopleCert ハブだけを現在地として通知する", () => {
+  currentPath.value = "/prince2-7-practitioner-guide";
+  try {
+    const wrapper = mountHeader();
+    expect(wrapper.findAll('nav a[aria-current]').map(link => ({
+      href: link.attributes("href"), current: link.attributes("aria-current"),
+    }))).toEqual([{ href: "/certifications/peoplecert", current: "true" }]);
+    expect(triggers(wrapper).map(trigger => trigger.classes().includes("current"))).toEqual([true, false, false]);
+  } finally {
+    currentPath.value = "/capm";
+  }
+});

@@ -135,3 +135,12 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
       .toEqual(group.guides.map((guide) => guide.title));
   });
 });
+
+
+it("PeopleCert の PRINCE2 シリーズに Foundation、Practitioner の順で到達できる", () => {
+  const section = mountHub("peoplecert").findAll("[data-testid='hub-series']")
+    .find(node => node.get("h2").text() === "PRINCE2");
+  expect(section?.findAll("[data-testid='guide-card'] a").map(link => link.attributes("href"))).toEqual([
+    "/prince2-7-foundation-guide", "/prince2-7-practitioner-guide",
+  ]);
+});
