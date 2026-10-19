@@ -87,7 +87,7 @@ const TRADEMARK_HOLDERS: Readonly<Partial<Record<GuideProgramId, string>>> = {
   peoplecert: "PeopleCert",
 };
 
-const TRADEMARK_NOTICE = /商標|trademark/;
+const TRADEMARK_NOTICE = /商標|trade ?mark/i;
 
 describe("公開ページの法的表示", () => {
   it("権利者・ライセンスを誤る表示を含まない", () => {
