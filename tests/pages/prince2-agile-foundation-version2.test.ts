@@ -188,6 +188,7 @@ defineSourceParityContract({
   seoTitleFragments: ["PRINCE2", "Agile", "Foundation"],
   seoTitle: "PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCert公式シラバス準拠",
   seoDescription: "PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。",
+  allowedHeadingSkips: ["h2 -> h4"],
 });
 
 describe("pages/prince2-agile-foundation-version2.vue (固有契約)", () => {
@@ -236,6 +237,6 @@ describe("pages/prince2-agile-foundation-version2.vue (固有契約)", () => {
     const wrapper = mountPage();
     const footer = wrapper.find("footer");
     expect(footer.exists()).toBe(true);
-    expect(footer.text()).toContain("PRINCE2® および PRINCE2 Agile® は AXELOS Limited の登録商標です");
+    expect(footer.text()).toContain("PRINCE2® および PRINCE2 Agile® は PeopleCert group の登録商標です");
   });
 });

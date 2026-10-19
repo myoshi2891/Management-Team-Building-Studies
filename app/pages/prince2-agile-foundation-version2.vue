@@ -16,122 +16,125 @@ const LIGHT_THEME_VARS = {
 
 // 0.4 studyRoadmap
 const DIAGRAM_STUDY_ROADMAP = `flowchart LR
-F["PRINCE2 Agile Foundation (Version 2)"] --> P["PRINCE2 Agile Practitioner (Version 2)"]
-P --> E["PRINCE2 Agile Expert (Foundation + Practitioner 取得で到達)"]
+    F["PRINCE2 Agile Foundation (Version 2)"] --> P["PRINCE2 Agile Practitioner (Version 2)"]
+    P --> E["PRINCE2 Agile Expert (Foundation + Practitioner 取得で到達)"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class F hub;
-class P box;
-class E done;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class F hub;
+    class P box;
+    class E done;`;
 
 // 1.4 processFlow
 const DIAGRAM_PROCESS_FLOW = `flowchart TB
-DP["Directing a Project (プロジェクト指揮)"]
-SU["Starting up a Project (立ち上げ)"] --> IP["Initiating a Project (開始)"]
-IP --> CS["Controlling a Stage (ステージ管理)"]
-CS --> MP["Managing Product Delivery (プロダクト提供管理)"]
-MP --> CS
-CS --> SB["Managing a Stage Boundary (ステージ境界管理)"]
-SB --> CS
-SB --> CP["Closing a Project (プロジェクト終結)"]
-DP --- SU
-DP --- IP
-DP --- CS
-DP --- SB
-DP --- CP
+    DP["Directing a Project (プロジェクト指揮)"]
+    SU["Starting up a Project (立ち上げ)"] --> IP["Initiating a Project (開始)"]
+    IP --> CS["Controlling a Stage (ステージ管理)"]
+    CS --> MP["Managing Product Delivery (プロダクト提供管理)"]
+    MP --> CS
+    CS --> SB["Managing a Stage Boundary (ステージ境界管理)"]
+    SB --> CS
+    SB --> CP["Closing a Project (プロジェクト終結)"]
+    DP --- SU
+    DP --- IP
+    DP --- CS
+    DP --- SB
+    DP --- CP
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class DP hub;
-class SU,IP,CS,MP,SB,CP box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class DP hub;
+    class SU,IP,CS,MP,SB box;
+    class CP done;`;
 
 // 2.3 blendWeaveLevels
 const DIAGRAM_BLEND_WEAVE_LEVELS = `flowchart TB
-subgraph DirLevel["Direct (指揮レベル)"]
-  Board["プロジェクトボード (ビジネス・ユーザー・サプライヤ)"]
-end
-subgraph MgtLevel["Manage (管理レベル)"]
-  PM["プロジェクトマネージャー"]
-end
-subgraph DelLevel["Deliver (デリバリーレベル: アジャイル適用の中核)"]
-  TL["チームリーダー / スクラムマスター"]
-  Dev["デリバリーチーム (スプリント / カンバン)"]
-end
-DirLevel --> MgtLevel
-MgtLevel --> DelLevel
+    subgraph L1["プロジェクト指揮 (Project Direction)"]
+        A1["PRINCE2: プロジェクトボードによるガバナンスと意思決定"]
+    end
+    subgraph L2["プロジェクトマネジメント (Project Management)"]
+        A2["PRINCE2: プロセスとテーマによる管理の枠組み"]
+        A3["Agile: タイムボックス化された計画とレビュー"]
+    end
+    subgraph L3["プロダクトデリバリー (Product Delivery)"]
+        A4["Agile: Scrum / Kanban によるチームの日々の実行"]
+    end
+    L1 --> L2
+    L2 --> L3
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class Board hub;
-class PM,TL,Dev box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A1 hub;
+    class A2,A3 box;
+    class A4 done;`;
 
 // 4.2.1 scrumCycle
 const DIAGRAM_SCRUM_CYCLE = `flowchart LR
-PB["プロダクトバックログ"] --> SP["スプリントプランニング"]
-SP --> SB["スプリントバックログ"]
-SB --> SPR["スプリント実行 (1-4週間)"]
-SPR --> SR["スプリントレビュー"]
-SPR --> RET["レトロスペクティブ"]
-SR --> INC["完成したインクリメント"]
+    PB["プロダクトバックログ"] --> SP["スプリントプランニング"]
+    SP --> SB2["スプリントバックログ"]
+    SB2 --> DS["デイリースタンドアップ"]
+    DS --> INC["インクリメント (動くプロダクト)"]
+    INC --> SR["スプリントレビュー"]
+    SR --> RETRO["スプリントレトロスペクティブ"]
+    RETRO --> SP
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class PB,INC hub;
-class SP,SB,SPR,SR,RET box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class PB hub;
+    class SP,SB2,DS,INC,SR,RETRO box;`;
 
 // 4.2.2 kanbanFlow
 const DIAGRAM_KANBAN_FLOW = `flowchart LR
-TODO["To Do (バックログ)"] --> ANALYZE["分析中 (WIP: 3)"]
-ANALYZE --> DEV["開発中 (WIP: 4)"]
-DEV --> TEST["テスト中 (WIP: 2)"]
-TEST --> DONE["Done (完了)"]
+    TODO["To Do"] --> DOING["Doing (WIP制限あり)"]
+    DOING --> REVIEW["Review"]
+    REVIEW --> DONE["Done"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class DONE hub;
-class TODO,ANALYZE,DEV,TEST box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class TODO hub;
+    class DOING,REVIEW box;
+    class DONE done;`;
 
 // 4.2.3 leanStartupLoop
 const DIAGRAM_LEAN_STARTUP_LOOP = `flowchart LR
-IDEA["アイデア"] --> BUILD["構築 (Build)"]
-BUILD --> PROD["MVP / 計測可能プロダクト"]
-PROD --> MEASURE["計測 (Measure)"]
-MEASURE --> DATA["データ"]
-DATA --> LEARN["学習 (Learn: ピボットまたは維持)"]
-LEARN --> IDEA
+    B["構築 (Build)"] --> M["計測 (Measure)"]
+    M --> L["学習 (Learn)"]
+    L --> B
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class IDEA,PROD,DATA hub;
-class BUILD,MEASURE,LEARN box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class B hub;
+    class M,L box;`;
 
 // 5.1 focusAreasOverview
 const DIAGRAM_FOCUS_AREAS_OVERVIEW = `flowchart TB
-FA["PRINCE2 Agile 5つのフォーカスエリア"]
-FA --> AG["Agilometer (環境適合度評価)"]
-FA --> RQ["Requirements (要求事項: 優先順位付けと変更)"]
-FA --> RC["Rich Communication (コミュニケーションの最適化)"]
-FA --> FR["Frequent Releases (早期・頻繁な価値提供)"]
-FA --> CC["Contracts (アジャイル契約: Practitioner 範囲)"]
+    FA["4つのフォーカスエリア"] --> AG["Agilometer"]
+    FA --> RQ["Requirements (要求事項の優先順位付け)"]
+    FA --> RC["Rich Communication"]
+    FA --> FR["Frequent Releases"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class FA hub;
-class AG,RQ,RC,FR box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class FA hub;
+    class AG,RQ,RC,FR box;`;
 
 // 6.2 studySteps
 const DIAGRAM_STUDY_STEPS = `flowchart TB
-S1["Step 1: 第1部で PRINCE2 の土台(原則・テーマ・プロセス・管理プロダクト・ロール)を固める"] --> S2["Step 2: 第2部で PRINCE2 Agile の基本思想(ブレンドとウィーブ・ロール)を理解する"]
-S2 --> S3["Step 3: 第3部でテーマ・プロセスの個別適用とヘキサゴン(固定と柔軟)を徹底理解"]
-S3 --> S4["Step 4: 第4部でスクラム・カンバン・リーンスタートアップの基本用語を押さえる"]
-S4 --> S5["Step 5: 第5部で4つのフォーカスエリア(特にアジロメーター・MoSCoW)を攻略する"]
+    S1["Step 1: 第1部で PRINCE2 の土台(原則・テーマ・プロセス・管理プロダクト・ロール)を固める"] --> S2["Step 2: 第2部で PRINCE2 Agile 固有の考え方(ブレンドとウィーブ、8つのガイダンスポイント)を理解する"]
+    S2 --> S3["Step 3: 第3部で原則・テーマ・プロセス・管理プロダクトのアジャイル適用を、対応表として覚える"]
+    S3 --> S4["Step 4: 第4部で用語と技法を、実際の文脈の中で使えるレベルまで定着させる"]
+    S4 --> S5["Step 5: 第5部のフォーカスエリアを押さえ、模擬問題でシナリオ形式に慣れる"]
 
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-class S1 hub;
-class S2,S3,S4,S5 box;`;
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class S1 hub;
+    class S2,S3,S4 box;
+    class S5 done;`;
 
 const TOC_IDS = [
   "about-the-exam",
@@ -1010,25 +1013,109 @@ useSeoMeta({
 
         <!-- ===================== 6. Exam Preparation ===================== -->
         <section id="exam-preparation">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 07</div>
-          <h2>第6部: 試験対策</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 07</div>
+      <h2>第6部: 試験対策</h2>
+
+      <h3>6.1 出題形式のおさらい</h3>
+      <ul>
+        <li>40問の四肢択一式、60分、クローズドブック、合格ラインは60%(0.2節参照)。</li>
+        <li>設問は大きく分けて「用語・定義の再認を問うタイプ」と「短いシナリオに基づき、最も適切な対応を選ばせるタイプ」の2種類に分かれます。</li>
+      </ul>
+
+      <h3>6.2 学習の進め方(ステップバイステップ)</h3>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_STUDY_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Foundation 学習の5ステップ</div>
+</div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>各部の「ベストプラクティス」コールアウトを自分の言葉で言い換えて書き出す(アクティブリコール)と、単純な読み返しよりも定着率が高まります。第3部の対応表(3.3節・3.4節・3.5節)は、白紙の状態から再現できるようになるまで繰り返すことをお勧めします。</p>
+      </div>
+
+      <h3>6.3 頻出のひっかけパターン</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ひっかけの傾向</th><th>正しい理解</th></tr></thead>
+          <tbody>
+            <tr><td>「アジャイルを使うと PRINCE2 の原則やプロセスが不要になる」</td><td>原則もプロセスもすべて維持される。テーラリング(調整)されるのは実現手段であり、目的や構造そのものではない</td></tr>
+            <tr><td>「アジャイル = Scrum」</td><td>アジャイルは Scrum・Kanban・Lean Startup などを含む、より広い概念(2.3節ガイダンスポイント5・7)</td></tr>
+            <tr><td>「品質を柔軟にすれば納期を守れる」</td><td>柔軟にするのはスコープであり、品質基準は固定する(3.6節)</td></tr>
+            <tr><td>「Agilometer のスコアが低ければアジャイルは使えない」</td><td>スコアが低い領域には追加のガイダンス・緩和策が必要というシグナルであり、使用可否の単純な判定基準ではない(5.1節)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">本節は公式シラバスの Learning Outcome 全体(1〜5)を横断する形で、頻出論点を整理したものです</a></li>
+        </ul>
+      </div>
         </section>
 
         <!-- ===================== 7. Glossary Summary ===================== -->
         <section id="glossary-summary">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 08</div>
-          <h2>付録: 用語集まとめ表</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 08</div>
+      <h2>付録: 用語集まとめ表</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語(英語)</th><th>用語(日本語)</th><th>対応する本ガイドの節</th></tr></thead>
+          <tbody>
+            <tr><td>Business Case</td><td>ビジネスケース</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Organization</td><td>組織</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Quality</td><td>品質</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Plans</td><td>計画</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Risk</td><td>リスク</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Change</td><td>変更</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Progress</td><td>進捗</td><td>1.3 / 3.3</td></tr>
+            <tr><td>Blend and Weave</td><td>ブレンドとウィーブ</td><td>2.3</td></tr>
+            <tr><td>Agilometer</td><td>アジロメーター</td><td>5.1</td></tr>
+            <tr><td>MoSCoW</td><td>モスクワ(優先順位付け技法)</td><td>5.2</td></tr>
+            <tr><td>Fix and Flex</td><td>固定と柔軟</td><td>3.6</td></tr>
+            <tr><td>Definition of Ready / Done</td><td>準備完了・完了の定義</td><td>4.2.5</td></tr>
+            <tr><td>MVP</td><td>実用最小限のプロダクト</td><td>4.2.3</td></tr>
+            <tr><td>Velocity</td><td>ベロシティ</td><td>4.1</td></tr>
+            <tr><td>Information Radiator</td><td>情報ラジエーター</td><td>3.2 / 4.1</td></tr>
+          </tbody>
+        </table>
+      </div>
         </section>
 
         <!-- ===================== 8. References ===================== -->
         <section id="references">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 09</div>
-          <h2>参考文献・出典</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 09</div>
+      <h2>参考文献・出典</h2>
+
+      <div class="ref-group">
+        <h4>8.1 公式・一次情報源</h4>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert 公式製品ページ「PRINCE2 Agile Foundation」(Version 2 / 試験概要)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074</a></li>
+          <li><span class="ref-name">AXELOS 公式オンライン出版「PRINCE2 Agile」(第3.6節: Important points about PRINCE2 Agile and this manual)</span><a class="ref-url" href="https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25" target="_blank" rel="noopener">https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&amp;expandNav=true&amp;page=PRA_25</a></li>
+          <li><span class="ref-name">AXELOS 公式オンライン出版「PRINCE2 Agile」トップページ(目次・各章へのリンク)</span><a class="ref-url" href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">https://publications.axelos.com/PRINCE2Agile2016/</a></li>
+        </ul>
+      </div>
+
+      <div class="ref-group">
+        <h4>8.2 補足・研修プロバイダ資料(非公式・参考情報)</h4>
+        <p>以下は PeopleCert / AXELOS が発行する一次情報ではありませんが、内容の相互検証や補足解説として参照した二次情報源です。学習の際は必ず 8.1 の一次情報源を優先してください。</p>
+        <ul class="ref-list">
+          <li><span class="ref-name">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」(第三者サイトによる非公式ミラー版PDF。著作権は PeopleCert International Ltd. に帰属するが、公式ドメインでの配布ではなく内容が旧版の試験概要(50問・55%合格)のままである点に注意)</span><a class="ref-url" href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf</a></li>
+          <li><span class="ref-name">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」(ミラー2)</span><a class="ref-url" href="https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf</a></li>
+          <li><span class="ref-name">The Projex Academy「Important points about PRINCE2 7 with Agile」</span><a class="ref-url" href="https://www.projex.com/important-points-about-prince2-7-with-agile/" target="_blank" rel="noopener">https://www.projex.com/important-points-about-prince2-7-with-agile/</a></li>
+          <li><span class="ref-name">Brendan Martin「PRINCE2 Agile」学習ノート(8つのガイダンスポイント・主要概念の要約)</span><a class="ref-url" href="https://www.brendanmartin.com/prince2-agile/" target="_blank" rel="noopener">https://www.brendanmartin.com/prince2-agile/</a></li>
+          <li><span class="ref-name">What Is PRINCE2「PRINCE2 Agile Book Review」</span><a class="ref-url" href="https://www.whatisprince2.net/agile/prince2-agile" target="_blank" rel="noopener">https://www.whatisprince2.net/agile/prince2-agile</a></li>
+        </ul>
+      </div>
         </section>
 
         <footer>
           本ガイドは、公式・非公式情報源をもとに独自にまとめた学習教材です。原著作物からの長文引用は行わず、内容は要約・翻訳・再構成した独自の解説となっています。試験の出題範囲・形式は改定される可能性があるため、受験前には必ず PeopleCert 公式サイトで最新情報をご確認ください。<br>
-          PRINCE2® および PRINCE2 Agile® は AXELOS Limited の登録商標です。本ガイドは PeopleCert / AXELOS の公式資料ではありません。
+          PRINCE2® および PRINCE2 Agile® は PeopleCert group の登録商標です。本ガイドは PeopleCert の公式資料ではありません。
         </footer>
       </main>
     </div>
