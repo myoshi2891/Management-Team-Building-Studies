@@ -600,8 +600,201 @@ useSeoMeta({
 
         <!-- ===================== 3. Agile Tailoring ===================== -->
         <section id="agile-tailoring">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 04</div>
-          <h2>第3部: 原則・テーマ・プロセス・管理プロダクトのアジャイルへの適用 (Learning Outcome 3)</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 04</div>
+      <h2>第3部: 原則・テーマ・プロセス・管理プロダクトのアジャイルへの適用 (Learning Outcome 3)</h2>
+
+      <p>この第3部は Foundation 試験の中で最も配点比率が高い領域です。第1部・第2部で学んだ PRINCE2 の基礎知識を、実際にどうアジャイルに「テーラリング(調整)」するかを扱います。</p>
+
+      <h3>3.1 アジャイル文脈での PRINCE2 原則</h3>
+      <p>PRINCE2 の7原則は、アジャイル文脈でも一切省略されません。むしろ、アジャイルの実践はこれらの原則をより強く体現する形で表れます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原則</th><th>アジャイル文脈での現れ方</th></tr></thead>
+          <tbody>
+            <tr><td>継続的なビジネス正当化</td><td>プロダクトバックログの価値順の並び替えや、リリースごとのベネフィット確認を通じて、正当性が継続的に再検証される</td></tr>
+            <tr><td>経験からの学習</td><td>スプリントレトロスペクティブという形で、学習のサイクルが定例化・高頻度化される</td></tr>
+            <tr><td>役割と責任の明確化</td><td>Product Owner・Scrum Master・開発チームという明確な役割分担が PRINCE2 の役割構造と結びつけられる</td></tr>
+            <tr><td>段階による管理</td><td>ステージがリリースに、リリースがスプリントにと、入れ子構造でさらに細かく段階化される</td></tr>
+            <tr><td>例外による管理</td><td>チームへの権限委譲が徹底され、トレランスの範囲内であれば自己組織化チームが自律的に判断する</td></tr>
+            <tr><td>プロダクトへの焦点</td><td>プロダクトバックログアイテムや受け入れ基準(Acceptance Criteria)という形で、プロダクト志向がさらに具体化される</td></tr>
+            <tr><td>テーラリング</td><td>アジャイル自体がテーラリングの一形態であり、Agilometer(5.1節)を使って適用度合いを調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「アジャイルは PRINCE2 の原則を弱める」という誤解は試験でよく狙われるひっかけです。実際は逆で、アジャイルは原則(特に例外による管理と経験からの学習)を、より高頻度・高強度で実践する手段だと理解しておきましょう。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第7章 (Agile and the PRINCE2 principles)</a></li>
+        </ul>
+      </div>
+
+      <h3>3.2 PRINCE2 Agile の5つの振る舞い (Behaviours)</h3>
+      <p>PRINCE2 Agile は、特定の技法だけでなく「振る舞い(Behaviours)」の実践を重視します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>振る舞い</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Transparency (透明性)</td><td>進捗・課題・リスクを隠さず可視化する。情報ラジエーターなどで誰もが状況を確認できる状態を作る</td></tr>
+            <tr><td>2</td><td>Collaboration (協働)</td><td>役割の壁を越えてチーム・ステークホルダーが共に働く。プロジェクトボードとの協働的な意思決定も含む</td></tr>
+            <tr><td>3</td><td>Rich Communication (リッチコミュニケーション)</td><td>対面での会話や視覚的な手段など、最も情報量の多いコミュニケーション手段を優先する</td></tr>
+            <tr><td>4</td><td>Self-organization (自己組織化)</td><td>実行方法の詳細をチーム自身に委ね、プロジェクトマネージャーはファシリテーターとしての役割を担う</td></tr>
+            <tr><td>5</td><td>Exploration (探求)</td><td>頻繁な反復とフィードバックループを通じて、学びながら前進する姿勢</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>5つの振る舞いは互いに補強し合う関係にあります。例えば Transparency がなければ Collaboration は機能せず、Self-organization がなければ Exploration から得た学びをチームが素早く活かせません。試験では単独の定義よりも「なぜこの振る舞いが必要か」という文脈理解が問われます。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.2</a></li>
+        </ul>
+      </div>
+
+      <h3>3.3 テーマごとのアジャイルガイダンス</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>テーマ</th><th>アジャイル文脈での主な調整ポイント</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスケース</td><td>一度に確定させず、リリースごとに価値を検証し、ベネフィットを漸進的に実現していく。MVP(実用最小限のプロダクト)を用いて早期に仮説検証を行うこともある</td></tr>
+            <tr><td>組織</td><td>Product Owner・Scrum Master という一般的なアジャイルロールを、PRINCE2 のロール構造(顧客代表・チームマネージャー)に対応づける。サーバントリーダーシップが重視される</td></tr>
+            <tr><td>品質</td><td>Definition of Done(完了の定義)と受け入れ基準を用いて品質を継続的に検証する。品質基準そのものは「固定」され、妥協の対象にはしない(3.6節参照)</td></tr>
+            <tr><td>計画</td><td>プロダクトベースの計画づくりがプロダクトバックログと自然に整合する。ストーリーポイントや T シャツサイズ見積りなど、アジャイル特有の見積り技法を用いる</td></tr>
+            <tr><td>リスク</td><td>頻繁なフィードバックループ自体がリスク低減策となる(誤ったものを作り続けるリスクを早期に発見できる)。リスクはデイリースタンドアップやレビューの中でも継続的に見直される</td></tr>
+            <tr><td>変更</td><td>トレランスの範囲内であれば、自己組織化したチームが正式な変更管理プロセスを経ずに動的に対応する。トレランスを超える変更のみ、正式な例外処理としてプロジェクトボードに上げる</td></tr>
+            <tr><td>進捗</td><td>バーンチャート、カンバンボード、情報ラジエーターといったアジャイル指標を用いて、稼働しているプロダクトそのものを進捗の証拠とする</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>各テーマの調整は「PRINCE2 の目的を変えずに、実現手段をアジャイルの技法に置き換える」という発想で理解すると覚えやすくなります。目的(なぜそのテーマが必要か)は変わらず、手段(どう実現するか)がアジャイルの技法に置き換わる、という構造は7テーマすべてに共通しています。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.3</a></li>
+        </ul>
+      </div>
+
+      <h3>3.4 プロセスごとのアジャイルガイダンス</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>プロセス</th><th>アジャイル文脈での主な調整ポイント</th></tr></thead>
+          <tbody>
+            <tr><td>Starting up a Project</td><td>立ち上げの段階から将来のデリバリーチームを巻き込み、初期プロダクトバックログや Definition of Done の土台を作り始める</td></tr>
+            <tr><td>Initiating a Project</td><td>PID の中に、何を固定し何を柔軟にするか(3.6節のヘキサゴン)を明示的に合意として記載する。ワーキングアグリーメントもこの段階で整える</td></tr>
+            <tr><td>Directing a Project</td><td>プロジェクトボードとの関わりがより頻繁かつ協働的になる。詳細な文書よりも、情報ラジエーターや実際に動くプロダクトのデモを通じた合意形成が重視される</td></tr>
+            <tr><td>Controlling a Stage</td><td>ステージがリリース・スプリント単位に細分化される。プロジェクトマネージャーの役割は、詳細な指示出しからファシリテーション・障害の除去へとシフトする</td></tr>
+            <tr><td>Managing Product Delivery</td><td>ワークパッケージがスプリントバックログとして扱われる。チェックポイントレポートはデイリースタンドアップやバーンチャートで代替・補強される</td></tr>
+            <tr><td>Managing a Stage Boundary</td><td>スプリントレビュー・レトロスペクティブと、ステージ境界での正式な報告が組み合わされる。学びはステージ境界を待たず継続的に記録される</td></tr>
+            <tr><td>Closing a Project</td><td>漸進的リリースを通じてベネフィットの多くはすでに実現されていることが多く、終結時は正式な受け入れ確認と運用への移行、最終ふりかえりに重点が置かれる</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>7プロセスの中でも Directing a Project と Controlling a Stage は、アジャイル化によってプロジェクトマネージャーとプロジェクトボードの「関わり方」が最も大きく変わる部分です。「詳細な統制」から「頻度は高いが軽量な協働」への転換を意識しておきましょう。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.4</a></li>
+        </ul>
+      </div>
+
+      <h3>3.5 管理プロダクトのテーラリング</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>管理プロダクト</th><th>アジャイル文脈でのテーラリング例</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスケース</td><td>詳細な数値予測よりも、価値順に並んだプロダクトバックログとの整合性を重視し、軽量かつ頻繁に見直す</td></tr>
+            <tr><td>チェックポイントレポート</td><td>多くの場合、デイリースタンドアップと可視化されたタスクボードに置き換えられる(契約上必要な場合は簡潔な形式で残す)</td></tr>
+            <tr><td>ハイライトレポート</td><td>頻度を高め、分量を絞り、バーンチャートやカンバンボードのスクリーンショットなど視覚的な情報で代替・補強する</td></tr>
+            <tr><td>プロジェクト概要書</td><td>早い段階からデリバリーチームと協議し、実現可能性やアジャイル適性(Agilometer)を確認する</td></tr>
+            <tr><td>PID</td><td>何を固定・何を柔軟にするかという合意(ヘキサゴン)を明文化する</td></tr>
+            <tr><td>プロジェクトプロダクト記述書</td><td>品質基準を明確な「譲れない基準線」として定義し、Definition of Done の拠り所とする</td></tr>
+            <tr><td>ワークパッケージ</td><td>個別の技術仕様よりも、対象スプリントのユーザーストーリー群と Definition of Done への参照で構成する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>管理プロダクトのテーラリングにおいて重要なのは「文書を減らすこと」自体が目的ではなく、「同じガバナンス上の目的を、より軽量な手段で達成すること」が目的だという点です。文書を省略した結果、意思決定に必要な情報が失われてしまっては本末転倒です。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.5</a></li>
+        </ul>
+      </div>
+
+      <h3>3.6 何を固定し何を柔軟にするか: ヘキサゴンと5つのターゲット</h3>
+      <p>PRINCE2 Agile では、プロジェクトのパフォーマンスを構成する6つの側面(アスペクト)を「ヘキサゴン(六角形)モデル」として捉え、どれを「固定(Fix)」しどれを「柔軟(Flex)」にするかを事前に合意します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>アスペクト</th><th>典型的な扱い</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td>時間 (Time)</td><td>固定</td><td>期限を守ることが顧客にとっての価値の中心となることが多いため</td></tr>
+            <tr><td>コスト (Cost)</td><td>固定</td><td>予算超過は多くの組織で許容度が低いため</td></tr>
+            <tr><td>品質 (Quality)</td><td>基準線を固定(妥協しない)</td><td>品質基準を下げることは長期的な信頼や保守性を損なうため</td></tr>
+            <tr><td>スコープ (Scope)</td><td>柔軟</td><td>MoSCoW 等の優先順位付けにより、時間とコストを守りながら調整できる余地を持たせるため</td></tr>
+            <tr><td>ベネフィット (Benefits)</td><td>状況に応じて固定/柔軟</td><td>プロジェクトの目的によって、どの程度厳密に扱うかが異なるため</td></tr>
+            <tr><td>リスク (Risk)</td><td>状況に応じて固定/柔軟</td><td>アジャイル自体がリスク低減策となる面もあり、プロジェクトのリスク許容度に応じて調整するため</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+        <p>「時間とコストを固定し、スコープと品質を柔軟にする」という組み合わせが典型例としてよく紹介されますが、実際には品質基準そのものは妥協しないという考え方が PRINCE2 Agile の核心です。柔軟にするのは「品質基準を満たすために、どの機能をどこまで作り込むか」というスコープ側の話であり、品質の「基準」自体を下げることではありません。</p>
+      </div>
+
+      <p>このヘキサゴンの考え方を支えるのが、次の<strong>5つのターゲット</strong>です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>ターゲット</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>期限を守り、時間通りに完了する (Be on time and hit deadlines)</td><td>予測可能性を高め、ステークホルダーの信頼を維持する</td></tr>
+            <tr><td>2</td><td>品質の水準を保護する (Protect the level of quality)</td><td>期限に追われて品質検証(テスト・レビュー)を省略しない</td></tr>
+            <tr><td>3</td><td>変化を受け入れる (Embrace change)</td><td>詳細の変化は当然のものとして扱い、コントロールされた形で対応する</td></tr>
+            <tr><td>4</td><td>チームを安定させる (Keep teams stable)</td><td>メンバーの入れ替えを避け、チームの生産性・一体感を維持する</td></tr>
+            <tr><td>5</td><td>顧客はすべてを必要としているわけではないと理解する (Accept that the customer doesn't need everything)</td><td>優先順位の低い要求は削ってもよいという前提を関係者全員で共有する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>ヘキサゴンと5つのターゲットは Foundation 試験の頻出テーマです。「なぜスコープを柔軟にするのか」という問いに対して、常に「5つのターゲットを守るため」という因果関係で答えられるようにしておくと、シナリオ形式の設問にも対応しやすくなります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.6</a></li>
+        </ul>
+      </div>
         </section>
 
         <!-- ===================== 4. Agile Glossary & Techniques ===================== -->
