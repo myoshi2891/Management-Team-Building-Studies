@@ -87,6 +87,8 @@ const TRADEMARK_HOLDERS: Readonly<Partial<Record<GuideProgramId, string>>> = {
   peoplecert: "PeopleCert",
 };
 
+const TRADEMARK_NOTICE = /商標|trademark/;
+
 describe("公開ページの法的表示", () => {
   it("権利者・ライセンスを誤る表示を含まない", () => {
     const hits = PUBLISHED.flatMap(({ route, source }) =>
@@ -122,11 +124,22 @@ describe("公開ページの法的表示", () => {
       const holder = TRADEMARK_HOLDERS[guide.programId];
       if (holder === undefined) return [];
       const footer = footerOf(readPage(guide.to));
-      return [/商標|trademark/.test(footer) ? null : "商標", footer.includes(holder) ? null : holder]
+      return [TRADEMARK_NOTICE.test(footer) ? null : "商標", footer.includes(holder) ? null : holder]
         .filter((required) => required !== null)
         .map((required) => `${guide.to}: ${required}`);
     });
 
     expect(missing).toEqual([]);
   });
+});
+
+
+it.each(["PRINCE2® is a registered trademark of PeopleCert group.",
+  "PRINCE2® is a registered trade mark of PeopleCert group.",
+  "PRINCE2®はPeopleCert groupの登録商標です。"])("商標表示の正規の表記を検出する: %s", notice => {
+  expect(TRADEMARK_NOTICE.test(notice)).toBe(true);
+});
+
+it.each(["PeopleCert group", "registered trade", "mark only"])("商標表示でない文言を認めない: %s", notice => {
+  expect(TRADEMARK_NOTICE.test(notice)).toBe(false);
 });
