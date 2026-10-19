@@ -890,6 +890,17 @@ export const ALL_GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/prince2-agile-foundation-version2",
+    programId: "peoplecert",
+    seriesId: "pc-prince2",
+    navLabel: "PRINCE2 Agile Foundation",
+    title: "PRINCE2® Agile Foundation (Version 2) 学習ガイド",
+    description: "PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。",
+    meta: "9セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
