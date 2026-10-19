@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `63c9c10` — feat(prince2-practitioner): register guide in home hubs navigation and search（本ファイルより前のコード側コミット） |
-| 次の作業 | PRINCE2 Practitioner の原本末尾に残る旧商標表記の訂正方針をユーザーに確認し、承認後に本文・固定期待値・監査の扱いを更新する（§87）。その後は Netlify 公開 → 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。 |
-| ビルド状態 | 2026-10-19: `npm run audit:prince2-practitioner` ✔ exit 0 / `npm run typecheck` ✔ / 変更ファイルの ESLint ✔ / `npm run test` は旧商標表記により1件失敗（§87）/ 全体 lint は既存の未使用変数・import 5エラー / 開発サーバーで新ページE2E 6件と全88ルート×3幅の横スクロールE2E 3件 ✔ / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
-| テスト数 | **2209** ユニット（**2208 passed / 1 failed**。旧商標表記の禁止契約のみ失敗）。法的表示を除く2199件は全件成功。新ページの全文・構造・図解・共通契約55件、原本アーカイブのSHA-256検査2件を含む。今回の開発サーバーE2E実測は **9 passed**。全体Greenは未達であり、移行完了とは扱わない。 |
+| コードコミット HEAD | `3718b5e` — fix(prince2-practitioner): correct approved trademark notice and retain strict source audit（本ファイルより前のコード側コミット） |
+| 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PRINCE2 Practitioner の承認済み商標訂正と移行検証は完了（§87）。 |
+| ビルド状態 | 2026-10-19: `npm run test` ✔ 2209件全件成功 / `npm run test:audit:prince2-practitioner` ✔ 9件 / `npm run audit:prince2-practitioner` ✔ exit 0（承認済み商標差分1箇所のみ正規化）/ `npm run typecheck` ✔ / 変更ファイルのESLint ✔ / 新ページの開発サーバーE2E 6件 ✔ 再実行 / 全88ルート×3幅の横スクロールE2E 3件 ✔ 前回確認済み / 全体lintの既存未使用変数・import 5エラーは対象外 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
+| テスト数 | **2209 passed / 0 failed**（98ファイル）— 最新のユニットテスト基準値。別ランナーの原本監査契約は **9 passed**。新ページの全文・構造・図解・共通契約55件、原本SHA-256保存検査2件を含む。開発サーバーE2Eは新ページ6件を再実行して成功、全88ルート×3幅の3件は前回成功済み。 |
 | 原本照合監査 | ✔ **80 本中 75 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
@@ -99,7 +99,7 @@
 | `archive/Msp-foundation-5th-edition-guide/Msp-foundation-5th-edition-guide.html` | `app/pages/msp-foundation-5th-edition-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Msp-practitioner-5th-edition-guide/Msp-practitioner-5th-edition-guide.html` | `app/pages/msp-practitioner-5th-edition-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Prince2-7-foundation-guide/Prince2-7-foundation-guide.html` | `app/pages/prince2-7-foundation-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
-| `archive/Prince2-7-practitioner-guide/Prince2-7-practitioner-guide.html` | `app/pages/prince2-7-practitioner-guide.vue` | ✅ 全文移行・原本照合 exit 0・ページ55契約と表示E2E成功。⚠ 原本の旧商標表記の訂正確認待ち（§87） |
+| `archive/Prince2-7-practitioner-guide/Prince2-7-practitioner-guide.html` | `app/pages/prince2-7-practitioner-guide.vue` | ✅ 全文移行・承認済み商標訂正・原本照合 exit 0・ページ55契約と表示E2E成功（§87） |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -1134,10 +1134,10 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ## 次回セッションでの再開プロンプト
 
 ```text
-Management-Team-Building-Studies: PRINCE2 Practitioner の移行実装・原本アーカイブ済み。旧商標表記の訂正確認待ち（§87）。
+Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本アーカイブ・承認済み商標訂正・検証完了（§87）。
 
-コードコミット HEAD: 63c9c10
-次の作業: PRINCE2 Practitioner の原本末尾に残る旧商標表記の訂正方針をユーザーに確認し、承認後に本文・固定期待値・監査の扱いを更新する（§87）。その後は Netlify 公開 → 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。
+コードコミット HEAD: 3718b5e
+次の作業: Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PRINCE2 Practitioner の承認済み商標訂正と移行検証は完了（§87）。
   未移行HTMLはルートの実ファイル3本。PRINCE2 Practitioner の本文未移行セクションは0。
   新規ページの登録先は app/utils/guide-catalog.ts の ALL_GUIDES 1 か所（GUIDES はそこから導出）。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
@@ -1155,10 +1155,8 @@ Management-Team-Building-Studies: PRINCE2 Practitioner の移行実装・原本�
   （tests/utils/guide-catalog.test.ts の MAX_PROGRAMS_PER_KIND / MAX_SERIES_PER_PROGRAM）。
   超えたら閾値ではなくプログラム／シリーズの粒度を分割し直すこと。
 
-移行実装済み・確認待ち:
-  - app/pages/prince2-7-practitioner-guide.vue（旧商標表記1箇所の訂正方針待ち）
-
 完了済み:
+  - app/pages/prince2-7-practitioner-guide.vue（原本保存・承認済み商標訂正・検証完了）
   - app/pages/itil-product-version5-guide.vue（ITIL® Product (Version 5) 完全ガイド）
   - app/pages/capm.vue（CAPM ガイド）
   - app/pages/certified-associate-in-project-management-domain1.vue（CAPM ドメイン1 ガイド）
@@ -1549,7 +1547,7 @@ Management-Team-Building-Studies: PRINCE2 Practitioner の移行実装・原本�
   9. `feat(prince2): implement exam tips, references, and trademark footer` (`98ba2b0`)
   10. `fix(prince2): update trademark attribution to PeopleCert group and align hub guide count` (`171cdd0`)
 
-### §87. PRINCE2® 7 Practitioner のNuxt移行実装・原本照合と確認待ち事項（2026-10-19）
+### §87. PRINCE2® 7 Practitioner のNuxt移行・承認済み商標訂正と検証完了（2026-10-19）
 
 - **移行先**: `app/pages/prince2-7-practitioner-guide.vue`（`/prince2-7-practitioner-guide`）。Hero、目次、原本の11セクション、参考文献、免責フッターを転写。見出し100、段落78、リスト項目172、表32個・169行、外部リンク23、Mermaid 13、callout 24、静的SVG 1が原本監査で一致し、`npm run audit:prince2-practitioner` は **exit 0**。
 - **厳密な契約**: 原本から実装前に抽出した固定fixtureを使用し、全セクションの文言・順序・ul/olの区別・リスト階層・表セル・リンク属性・強調要素を検証。全文テキスト、全見出し、全図のソース・順序・ラッパー・themeVariables（円グラフの配色を含む）も照合する。ページ55件すべて成功。実行時に原本を読んで期待値を追随させない。
@@ -1557,11 +1555,14 @@ Management-Team-Building-Studies: PRINCE2 Practitioner の移行実装・原本�
 - **操作とスタイリング**: 目次は既存の `useActiveHeading` を利用。重複する小見出しにも出現順で一意なidを付けた。モバイルのアンカー既定動作によるフォーカス喪失を検出し、アンカー移動後にスクロールを戻さずトグルへフォーカスを復帰するよう修正した。箇条書きはdisc、番号付きはdecimal、目次・参考文献はnone。原本CSSに合わせ、callout内のulは20px、olは24pxの字下げを保つ。図のレイアウトは共有MermaidDiagramへ委譲し、ページCSSでSVGの幅・高さを上書きしない。未定義CSS変数は0。
 - **導線**: `ALL_GUIDES` の既存 `peoplecert` / `pc-prince2` にFoundationの次として追加。公開ガイド72→73、資格ガイド53→54、全ルート87→88。ホーム・種別ハブ・プログラムハブ・検索・ナビの現在地表示を契約で固定した。
 - **ビルドなしの実ブラウザー検証**: 自前の開発サーバー（4183番）と一時Playwright設定を使用し、generateを実行しない。新規 `e2e/prince2-practitioner.spec.ts` の6件が成功。1440 / 1024 / 981 / 980 / 390pxで13図のSVG生成、全ノード文字、リスト記号・字下げ、calloutと表見出しの色、見出しサイズ、図の中央寄せ・列幅内への収まり、横方向のはみ出し、モバイル目次操作を検証。既存 `e2e/no-horizontal-scroll.spec.ts` も全88ルート×1440 / 1024 / 390pxで3件成功。静的生成成果物のE2Eは今回未実施。目視確認はユーザー担当。
-- **検証結果**: 型検査と変更ファイルのlintは成功。全体lintの既存5エラーは `mop-foundation-guide.vue` の未使用定数1件と `itil-service-v5-guide.test.ts` の未使用import4件。対象外のファイルは改変していない。ユニット全体は2209件中2208成功・1失敗で、失敗は下記の原本の旧商標表記のみ。法的表示を除く2199件は全件成功。
+- **検証結果**: 型検査と変更ファイルのlintは成功。全体lintの既存5エラーは `mop-foundation-guide.vue` の未使用定数1件と `itil-service-v5-guide.test.ts` の未使用import4件。対象外のファイルは改変していない。ユーザー承認後の再検証でユニット全2209件（98ファイル）が成功。ページ・法的表示・原本保存の対象67件、別ランナーの監査9件も成功。型検査・変更ファイルのlintと新ページのブラウザー6件を再実行し、すべて成功した。
 - **原本保存**: HTML/Markdownを `archive/Prince2-7-practitioner-guide/` へ移動し、移動前後のSHA-256一致を2契約で固定した。`/archive/` はgitignore対象のため、この2ファイルを明示的にforce-addしてGit追跡を維持した。原本は書き換えていない。
   - `Prince2-7-practitioner-guide.html`: `d7234f1dd762cb8740ed8f19d9357493b475122b8d201279de3a13830bd1b081`
   - `Prince2-7-practitioner-guide.md`: `aa42a61c57b1455ccebe0a3105516ce20a3239a84a1be9f98dec1aaaf5d31a8e`
 - **正当な構造差分**: CDNのアイコンをNuxt Icon、Mermaidの手動描画をClientOnly＋既存共有部品、DOMスクリプトの目次をVueの状態管理に置換。固定ヘッダー退避に共有CSS変数を使用し、固定列グリッドをauto-fitにした。原本の参考文献にあるh2→h4のスキップは文言・レベルを維持して共通契約の限定的な許容差分として固定した。
 - **Markdown監査（情報提供）**: HTMLは見出し100・表169行、Markdownは見出し98・表170行で構造が異なる。Markdown監査はexit 1（見出し43、リスト12、表行7、段落19の照合差分、Mermaidは同数13だがソース差分あり）。HTML移行の正を変えず、両原本を不変保存した。
-- **確認待ち・完了ゲート未達**: 原本の参考文献末尾の免責段落だけが「PRINCE2®はAXELOS Limitedの登録商標です。」という旧表記のままで、HeroとフッターはPeopleCert表記になっている。原文を保持しているため、`tests/legal-notices.test.ts` の禁止表現チェック1件が失敗する。原本・固定期待値を独断で改変せず、ユーザーへ「原本は不変保存し、Nuxtの当該免責のみPeopleCert groupに訂正し、差分を記録する」方針を質問済み。回答待ちであり、全体Green・移行完了とは報告しない。訂正を承認された場合は期待値の変更を明示し、当該1箇所だけの監査正規化と追加の欠落検出テストを用意して、他の転写漏れを素通ししないこと。
+- **承認済み商標訂正・原本との差分**: 原本の参考文献末尾の免責段落に残っていた「AXELOS Limited」を、ユーザーの「対応進めて」（2026-10-19）に基づき、Nuxtと固定期待値の当該1箇所だけ「PeopleCert group」へ訂正した。アーカイブ原本2ファイルは変更せず、SHA-256の一致を再確認。`scripts/audit-prince2-practitioner.mjs` が原本の一時コピーの同じ段落1箇所だけを正規化して既存の全文監査を実行し、`npm run audit:prince2-practitioner` はexit 0。段落の全文・唯一性・参考文献の免責事項直下という位置を限定し、条件が変われば失敗する。一般監査スクリプトと法的表示検査を緩める変更は行っていない。
 - **検査自体の修正**: 原本フッターの正しい英語表記 `registered trade mark` を既存検査が見落とす別問題をRedで再現し、`trademark` / `trade mark` / 日本語の商標表記を検出するよう修正した。正例3・負例3の追加契約が成功。権利者の検査・旧権利者の禁止表現チェックは維持した。
+
+- **承認後のTDD**: 固定fixtureの商標権利者1箇所ずつを承認内容に合わせて更新し、ページ・法的表示の3件のRedと監査モジュール未実装のRedを実測して `692c6c3` で先にコミット。その後、ページの訂正・限定監査・npmコマンドを実装し、各ゲートの成功を確認して `3718b5e` で独立コミットした。進捗記録はさらに別コミットで同期する。
+- **監査の回帰防止**: `npm run test:audit:prince2-practitioner`（Node test runner）で9件成功。承認済み段落以外の全バイト維持、対象段落の欠落・重複・位置違いの拒否、訂正済み実ページの監査成功、他段落の脱落拒否、免責段落の権利者以外の改変拒否、Mermaidソースの改変拒否を検証した。承認済み差分を理由に別の移行漏れを許容しない。
