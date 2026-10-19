@@ -914,8 +914,98 @@ useSeoMeta({
 
         <!-- ===================== 5. Focus Areas ===================== -->
         <section id="focus-areas">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 06</div>
-          <h2>第5部: フォーカスエリア (Learning Outcome 5)</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 06</div>
+      <h2>第5部: フォーカスエリア (Learning Outcome 5)</h2>
+
+      <p>フォーカスエリアは、PRINCE2 Agile を実践する上で特に重点的に扱うべき4つの領域です。</p>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_FOCUS_AREAS_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">PRINCE2 Agile の4つのフォーカスエリア</div>
+</div>
+
+      <h3>5.1 Agilometer (アジロメーター)</h3>
+      <p>Agilometer は、プロジェクトがどの程度アジャイルに適しているかを可視化するための診断ツールです。次の6つのスライダー(評価軸)について、低い(アジャイルに不向き)から高い(アジャイルに好適)までを評価します。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>スライダー</th><th>評価する内容</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>何が提供されるかの柔軟性 (Flexibility on what is delivered)</td><td>スコープをどれだけ柔軟に扱えるか</td></tr>
+            <tr><td>2</td><td>協働のレベル (Level of collaboration)</td><td>顧客・サプライヤー間がどれだけ協力的な関係にあるか(契約が敵対的でないか)</td></tr>
+            <tr><td>3</td><td>コミュニケーションの容易さ (Ease of communication)</td><td>関係者間で直接的・高頻度なコミュニケーションがどれだけ取りやすいか</td></tr>
+            <tr><td>4</td><td>反復的・漸進的に作業する能力 (Ability to work iteratively and deliver incrementally)</td><td>分割してリリースすることが許容される環境か(規制要件などで一括納品が必須でないか)</td></tr>
+            <tr><td>5</td><td>有利な環境条件 (Advantageous environmental conditions)</td><td>組織文化・ツール・設備がアジャイルの実践を支援しているか</td></tr>
+            <tr><td>6</td><td>アジャイルの受容度 (Acceptance of Agile)</td><td>関係者がアジャイルな働き方をどれだけ理解し、受け入れているか</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>各スライダーを評価し、六角形のレーダーチャートのような形で可視化することで、プロジェクトチームは「どの領域に追加のガイダンスやリスク対応が必要か」を早期に把握できます。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>Agilometer は一度きりの評価ではなく、プロジェクトを通じて定期的に再評価すべきものです。スコアが低い項目があっても「アジャイルを使うべきではない」という結論に直結するわけではなく、「その領域に追加のガイダンス・緩和策が必要」というシグナルとして扱うのが正しい使い方です。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第6章 (Fix and flex: what can and cannot be varied?)</a></li>
+        </ul>
+      </div>
+
+      <h3>5.2 Requirements (要求事項の優先順位付け)</h3>
+      <p>PRINCE2 Agile では、要求事項の優先順位付け技法として <strong>MoSCoW</strong> が推奨されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>優先度</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td>Must have (必須)</td><td>これがなければリリースが成立しない要求</td></tr>
+            <tr><td>Should have (推奨)</td><td>重要だが、なくてもリリース自体は成立する要求</td></tr>
+            <tr><td>Could have (あれば良い)</td><td>望ましいが、優先度が低い要求</td></tr>
+            <tr><td>Won't have this time (今回は対象外)</td><td>今回のタイムボックスでは扱わないと合意された要求</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「Must have」の割合をタイムボックスの作業量の60%程度に抑え、残りを Should/Could に配分するという目安がよく使われます。Must have の比率が高すぎると、3.6節で見た「スコープを柔軟にする」余地がなくなり、期限や品質を守れなくなるリスクが高まります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 5.2</a></li>
+        </ul>
+      </div>
+
+      <h3>5.3 Rich Communication (リッチコミュニケーション)</h3>
+      <p>情報量の多いコミュニケーション手段(対面での会話、ホワイトボードでの図解、実際に動くプロダクトのデモなど)を、情報量の少ない手段(長文の文書、形式的なメールのみのやり取り)より優先する考え方です。3.2節の「振る舞い」の一つである Transparency を実現する土台になります。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>リモート・分散環境では対面コミュニケーションに制約があるため、ビデオ会議での画面共有、共同編集可能なオンラインホワイトボードなど、可能な限り情報量の多い代替手段を選ぶことが推奨されます。</p>
+      </div>
+
+      <h3>5.4 Frequent Releases (頻繁なリリース)</h3>
+      <p>小さく・頻繁にプロダクトをリリースすることで、早い段階からフィードバックを得て、リスクを低減し、ベネフィットを早期に実現するという考え方です。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>リリース頻度を上げることは、3.6節の5つのターゲットのうち「変化を受け入れる」「顧客はすべてを必要としているわけではないと理解する」を実現するための最も直接的な手段です。リリースの粒度を小さくするほど、方向修正のコストは小さくなります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 5.3–5.4</a></li>
+        </ul>
+      </div>
         </section>
 
         <!-- ===================== 6. Exam Preparation ===================== -->
