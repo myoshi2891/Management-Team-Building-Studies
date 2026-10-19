@@ -1,3 +1,4 @@
+// 2026-10-19 ユーザー承認: 参考文献末尾の商標権利者1箇所だけをPeopleCert groupへ訂正。
 // 原本 HTML から実装前に抽出・凍結した期待値。原本の実行時読み込みは禁止。
 import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
