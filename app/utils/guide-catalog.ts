@@ -879,6 +879,17 @@ export const ALL_GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/prince2-7-practitioner-guide",
+    programId: "peoplecert",
+    seriesId: "pc-prince2",
+    navLabel: "PRINCE2 7 Practitioner",
+    title: "PRINCE2® Project Management Practitioner (Version 7) 学習ガイド",
+    description: "PeopleCert PRINCE2 Project Management Practitioner (Version 7)の出題範囲を、7原則・People・7プラクティス・7プロセスの配点順に整理した学習ガイド。",
+    meta: "11セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",
