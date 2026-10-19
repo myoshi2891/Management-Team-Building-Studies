@@ -799,8 +799,117 @@ useSeoMeta({
 
         <!-- ===================== 4. Agile Glossary & Techniques ===================== -->
         <section id="agile-glossary-techniques">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 05</div>
-          <h2>第4部: アジャイルの実践用語と技法 (Learning Outcome 4)</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 05</div>
+      <h2>第4部: アジャイルの実践用語と技法 (Learning Outcome 4)</h2>
+
+      <h3>4.1 用語集 (Glossary)</h3>
+      <p>Foundation 試験では、以下の基本用語の定義を正確に再認できることが求められます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>用語</th><th>定義</th></tr></thead>
+          <tbody>
+            <tr><td>バックログ (Backlog: sprint / release / product)</td><td>未着手の作業項目を優先順位順に並べたリスト。スプリントバックログ・リリースバックログ・プロダクトバックログの3階層がある</td></tr>
+            <tr><td>ベネフィット (Benefit / Value)</td><td>プロジェクトの成果によってもたらされる、測定可能なプラスの効果</td></tr>
+            <tr><td>エピック (Epic)</td><td>複数のユーザーストーリーに分解される、大きな粒度の要求事項</td></tr>
+            <tr><td>情報ラジエーター (Information Radiator)</td><td>チームの状況(進捗・課題など)を、通りがかった誰もが一目で把握できるように可視化した掲示物・ボード</td></tr>
+            <tr><td>スパイク (Spike)</td><td>技術的な不確実性や未知の課題を調査するために行う、時間を区切った調査作業</td></tr>
+            <tr><td>スタンドアップミーティング (Stand-up Meeting)</td><td>チームが短時間・立ったまま行う、日々の進捗共有ミーティング(デイリースクラムとも呼ばれる)</td></tr>
+            <tr><td>タイムボックス (Timebox: sprint / release)</td><td>開始と終了が固定された、あらかじめ定められた時間の枠</td></tr>
+            <tr><td>ベロシティ (Velocity)</td><td>チームが1回のタイムボックス(スプリント等)で完了できる作業量の実績値。将来の計画の目安として使う</td></tr>
+            <tr><td>ウォーターフォール手法 (Waterfall Methodology)</td><td>要件定義・設計・実装・テストといった工程を順番に一度ずつ進める、伝統的な開発アプローチ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>用語の暗記は「単語カード」的な学習だけでなく、実際の一文の中で使ってみることをお勧めします。例えば「スプリントの終わりに、チームはベロシティを記録し、次のリリースバックログの計画に活かす」のように、複数の用語を組み合わせた文を自分で作ると、用語同士の関係性が定着しやすくなります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 4.1 (Glossary)</a></li>
+        </ul>
+      </div>
+
+      <h3>4.2 主要なアジャイルの概念と技法</h3>
+
+      <h4>4.2.1 Scrum (スクラム)</h4>
+      <p>Scrum は、プロダクトオーナー・Scrum Master・開発チームという3つの役割と、スプリントという固定長のタイムボックスを中心に構成される、最も広く使われる軽量フレームワークです。</p>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_SCRUM_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Scrum のスプリントサイクル</div>
+</div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>PRINCE2 Agile の文脈では、スプリントの単位をそのままワークパッケージの期間と一致させると、チームマネージャー(Scrum Master)によるプロダクトデリバリー管理がしやすくなります。</p>
+      </div>
+
+      <h4>4.2.2 Kanban (カンバン)</h4>
+      <p>Kanban は固定のタイムボックスを持たず、作業の流れ(フロー)を可視化し、WIP(仕掛かり作業)を制限することでスループットを最適化する手法です。</p>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_KANBAN_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Kanban の作業フロー(WIP制限あり)</div>
+</div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>保守運用フェーズや、優先順位が頻繁に変わる差し込み作業が多い環境では、固定タイムボックスを持つ Scrum よりも Kanban の方が PRINCE2 のステージ管理と相性が良いことがあります。</p>
+      </div>
+
+      <h4>4.2.3 Lean Startup と MVP</h4>
+      <p>Lean Startup は「構築(Build)・計測(Measure)・学習(Learn)」のループを繰り返し、仮説を素早く検証していく考え方です。<strong>MVP(Minimum Viable Product: 実用最小限のプロダクト)</strong> は、この検証を可能にする最小限の機能を備えたプロダクトを指します。</p>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_LEAN_STARTUP_LOOP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Lean Startup の構築・計測・学習ループ</div>
+</div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>MVP は「品質を落とした簡易版」ではなく、「学びを得るために必要十分な機能を備えた完成品」です。3.6節の「品質基準は固定する」という考え方と矛盾しないよう、MVP であっても品質基準そのものは維持する必要があります。</p>
+      </div>
+
+      <h4>4.2.4 レトロスペクティブ (Retrospectives)</h4>
+      <p>チームが定期的に自分たちの働き方を振り返り、改善点を特定するための場です。PRINCE2 の「経験からの学習」の原則を、高頻度かつ実践的に体現する仕組みです。</p>
+
+      <h4>4.2.5 ユーザーストーリーと Definition of Ready / Done</h4>
+      <p>ユーザーストーリーは、エンドユーザーの視点から「誰が」「何を」「なぜ」欲しいのかを簡潔に記述した要求事項の単位です。着手可能と判断する基準を <strong>Definition of Ready(準備完了の定義)</strong>、完了と判断する基準を <strong>Definition of Done(完了の定義)</strong> と呼び、あいまいさを排除するために使われます。</p>
+
+      <h4>4.2.6 ワークショップ (Workshops)</h4>
+      <p>要件の洗い出し、優先順位付け、問題解決などを目的に、関係者を集めて集中的に行う共同作業セッションです。リッチコミュニケーション(5.3節)を実現する代表的な手段の一つです。</p>
+
+      <h4>4.2.7 バーンチャート (Burn Charts)</h4>
+      <p>残作業量(バーンダウンチャート)や完了作業量(バーンアップチャート)を時間の推移とともに可視化したグラフです。進捗テーマにおける主要な情報ラジエーターとして機能します。</p>
+
+      <h4>4.2.8 アジャイル見積り (ポイントと T シャツサイジング)</h4>
+      <p>相対見積りの技法です。ストーリーポイントは作業の相対的な複雑さ・工数を数値(フィボナッチ数列が使われることが多い)で表し、T シャツサイジング(S/M/L/XL等)はより粗い粒度で相対規模を表します。いずれも絶対的な時間見積りよりも精度と速度のバランスに優れるとされます。</p>
+
+      <h4>4.2.9 ワーキングアグリーメント (Working Agreements)</h4>
+      <p>チームが自分たちの働き方について合意する取り決めです。稼働時間、コミュニケーションのルール、品質基準の運用方法などを含み、自己組織化(Self-organization)を支える基盤になります。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>4.2節の技法はいずれも独立した知識ではなく、3.3節・3.4節で見たテーマ・プロセスのアジャイルガイダンスを実現するための「道具箱」です。「このテーマ・プロセスを実現するために、どの技法が使えるか」という対応関係を意識して学習すると、知識が有機的につながります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 4.2</a></li>
+        </ul>
+      </div>
         </section>
 
         <!-- ===================== 5. Focus Areas ===================== -->
