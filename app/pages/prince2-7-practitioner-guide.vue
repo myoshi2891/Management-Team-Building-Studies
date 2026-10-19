@@ -181,6 +181,13 @@ PA -.独立して監督.- PM
 PM --> TM
 PM -.支援.- PS`;
 
+const DIAGRAM_examApproach = `flowchart TD
+A["Project Scenarioを しっかり読む"] --> B["設問を読み、 問われているのが どのPractice/Process/ Principleかを特定"]
+B --> C["必要ならAdditional Informationを参照 (登場人物の役割・立場)"]
+C --> D["公式教本の該当箇所を 確認(オープンブック)"]
+D --> E["4つの選択肢を、 ①PRINCE2の目的に合致するか ②テーラリングとして妥当か の2軸で評価"]
+E --> F["最も具体的かつ 目的に整合する選択肢を選ぶ"]`;
+
 const TOC_IDS = ["exam-overview","what-is-prince2-7","principles","people","practices","processes","roles-responsibilities","v7-new-elements","tailoring","exam-technique","references"] as const;
 const sidebarOpen = ref(false);
 const sidebarToggle = ref<HTMLButtonElement | null>(null);
@@ -315,6 +322,13 @@ useSeoMeta({
       
       <h2 id="heading-86">Part 7: テーラリング (Tailoring) — Practitioner試験の核心</h2>
       <p>テーラリングは原則の1つ(3.7参照)であると同時に、Practitioner試験全体を貫く「思考の型」でもあります。ほぼすべての設問が、最終的には「このプロジェクトの文脈において、この対応は適切にテーラリングされているか?」という問いに帰着します。</p><h3 id="heading-87">テーラリングの対象になるもの・ならないもの</h3><div class="table-wrap"><table><thead><tr><th>テーラリング可能</th><th>テーラリング不可</th></tr></thead><tbody><tr><td>プラクティスの適用の詳細度・形式</td><td>7つの原則そのもの</td></tr><tr><td>プロセスの活動の実施方法・組み合わせ方</td><td>プロセスの目的そのもの</td></tr><tr><td>管理プロダクトの文書形式・粒度(例: 複数の登録簿を1つに統合する)</td><td>管理プロダクトが持つべき目的・最低限の情報</td></tr><tr><td>役割の兼任・分担の仕方</td><td>役割の存在そのもの(すべての役割の責任は誰かが担う必要がある)</td></tr><tr><td>報告の頻度・詳細度</td><td>トレランス逸脱時のエスカレーションという仕組み自体</td></tr></tbody></table></div><h3 id="heading-88">テーラリングに影響する主な要因</h3><ul><li>プロジェクトの規模・複雑さ・重要性(戦略的重要度)</li><li>チームの経験・組織のPRINCE2成熟度</li><li>組織文化・既存のガバナンス構造</li><li>採用するデリバリー方法(ウォーターフォール型、反復・インクリメンタル型など)</li><li>外部サプライヤーの関与度・契約形態</li><li>規制要件・業界標準</li></ul><h3 id="heading-89">「テーラリングのしすぎ」も誤りになりうる</h3><p>Practitioner試験では、テーラリングを口実に<strong>PRINCE2の最低限の要件すら満たさなくなっている</strong>選択肢が誤答として用意されることがあります。たとえば以下は「テーラリングの逸脱」であり、正しいテーラリングではありません。</p><ul><li>ビジネスケースを完全に省略する(簡略化は可、省略は不可)</li><li>役割の責任を誰にも割り当てない(兼任・統合は可、責任の消失は不可)</li><li>例外時のエスカレーションの仕組み自体をなくす(頻度・粒度の調整は可)</li></ul><div class="callout note" data-testid="callout" data-variant="note"><div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div><p><strong>試験テクニック</strong>: 「テーラリングとして適切か」を問う設問では、まず「PRINCE2の最低限の要件(Minimum Requirements)を満たしているか」を確認し、満たしたうえで「プロジェクトの文脈に合っているか」を判断する、という2段階で考えると精度が上がります。</p></div>
+    </section>
+
+<section id="exam-technique">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 10</div>
+      
+      <h2 id="heading-90">Part 8: 試験対策 — 問題形式と解答テクニック</h2>
+      <h3 id="heading-91">出題形式の詳細</h3><div class="table-wrap"><table><thead><tr><th>形式</th><th>配点</th><th>特徴</th></tr></thead><tbody><tr><td>Classic(標準形式)</td><td>1問1点</td><td>状況説明 + 設問 + 4択(A〜D)。「Yes/No + 理由」の組み合わせ選択肢が多い</td></tr><tr><td>Matching(マッチング形式)</td><td>1問3点</td><td>3つの項目それぞれに対し、5〜6個の選択肢(役割や管理プロダクトなど)から1つずつ選ぶ。選択肢は複数回使用可、または未使用も可</td></tr></tbody></table></div><p>出題は「Project Scenario(プロジェクトシナリオ)」という共通の背景情報に基づいて進み、少なくとも1問では「Additional Information(追加情報、登場人物のプロフィール)」も参照する必要があります。</p><h3 id="heading-92">解答の進め方(推奨アプローチ)</h3><div class="diagram-card mermaid-wrap"><ClientOnly><MermaidDiagram :chart="DIAGRAM_examApproach" theme="base" :theme-variables="LIGHT_THEME_VARS" /><template #fallback><div class="diagram-loading">図を読み込み中...</div></template></ClientOnly><div class="diagram-caption">解答の進め方(推奨アプローチ)</div></div><ul><li><strong>「なぜ」の部分が重要</strong>: Classic形式は「Yes/No」だけでなく「なぜそう言えるか」の理由部分の妥当性まで問われます。理由が原則・プラクティス・プロセスの目的と整合しているかを必ず確認してください。</li><li><strong>登場人物の役割を混同しない</strong>: Matching形式では、シナリオ中の人物がどの役割(Executive、Senior User、Team Managerなど)かを正確に把握することが得点の鍵です。</li><li><strong>オープンブックを過信しない</strong>: 150分で56問を解く必要があり、逐一教本を調べる時間はありません。教本は「確認」のために使い、基本構造は事前に暗記しておくべきです。</li><li><strong>配点比率を意識した時間配分</strong>: Practices(51%)とProcesses(30%)に関する問題に、Principles(10%)やPeople(9%)よりも多くの時間を割けるよう、事前の習熟度を高めておく。</li></ul><h3 id="heading-93">よくある誤答パターン(アンチパターン)</h3><div class="table-wrap"><table><thead><tr><th>アンチパターン</th><th>該当する原則/プラクティス</th></tr></thead><tbody><tr><td>Project Managerが独断でトレランス逸脱に対応し、報告しない</td><td>Manage by exception、Progress</td></tr><tr><td>ExecutiveとProject Managerの兼任</td><td>Define roles, responsibilities and relationships、Organizing</td></tr><tr><td>ビジネスケースが更新されないままプロジェクトが継続される</td><td>Ensure continued business justification、Business Case</td></tr><tr><td>成果物ではなくタスクを起点に計画が作られる</td><td>Focus on products、Plans</td></tr><tr><td>リスクの「好機」側面が無視される</td><td>Risk</td></tr><tr><td>変更管理(組織的変革)と変更管理(課題対応)の混同</td><td>People、Issues</td></tr><tr><td>テーラリングの名目でPRINCE2の最低要件を欠く</td><td>Tailor to suit the project</td></tr><tr><td>Project Boardが日々の業務に介入しすぎる、または重大な例外に関与しない</td><td>Directing a Project</td></tr><tr><td>ステージ境界の承認前に次ステージの作業が始まる</td><td>Manage by stages、Managing a Stage Boundary</td></tr></tbody></table></div>
     </section>
 
       </main>
