@@ -491,8 +491,111 @@ useSeoMeta({
 
         <!-- ===================== 2. PRINCE2 Agile Basics ===================== -->
         <section id="prince2-agile-basics">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 03</div>
-          <h2>第2部: PRINCE2 Agile の基本概念 (Learning Outcome 2)</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 03</div>
+      <h2>第2部: PRINCE2 Agile の基本概念 (Learning Outcome 2)</h2>
+
+      <h3>2.1 PRINCE2 Agile とは何か / プロジェクトと BAU</h3>
+      <p>PRINCE2 Agile は、PRINCE2 の<strong>ガバナンスとコントロールの枠組み</strong>に、アジャイルの<strong>振る舞い・概念・フレームワーク・技法</strong>を組み合わせた手法です。PRINCE2 が「何を管理するか(統制の仕組み)」を提供し、アジャイルが「どう実行するか(デリバリーの方法)」を提供する、と整理すると理解しやすくなります。</p>
+      <p>PRINCE2 Agile では、BAU との違いを踏まえた上で、プロジェクトの中でもとりわけ<strong>プロダクトデリバリーの領域(何を、どの順番で作るか)</strong>にアジャイルの反復性・漸進性を適用します。一方でプロジェクト全体のガバナンス(投資判断、ステージゲート、例外管理)は PRINCE2 の枠組みが担います。</p>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「PRINCE2 が統治(Govern)し、アジャイルが実行(Deliver)する」という一文で全体像を要約できるようにしておくと、試験のシナリオ問題で迷ったときの判断軸になります。</p>
+      </div>
+
+      <h3>2.2 PRINCE2 Agile と親和性の高いアジャイル手法</h3>
+      <p>公式シラバスでは、PRINCE2 Agile と組み合わせて使うのに適したアジャイルの働き方として、次の3つが明示されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>手法</th><th>特徴</th><th>PRINCE2 Agile との関係</th></tr></thead>
+          <tbody>
+            <tr><td>Scrum (スクラム)</td><td>プロダクトオーナー・Scrum Master・開発チームという役割構成と、スプリントという固定長のタイムボックスで反復的にプロダクトを作る軽量フレームワーク</td><td>プロダクトデリバリーレベルで最も一般的に組み合わされる。ワークパッケージをスプリントバックログとして扱うなどの接続が可能</td></tr>
+            <tr><td>Kanban (カンバン)</td><td>作業の可視化、WIP(仕掛かり)制限、継続的なフローの最適化を重視する手法。固定のタイムボックスを持たない</td><td>運用・保守フェーズや、優先順位が頻繁に変わる作業の管理に向く。Controlling a Stage の日常運営と相性が良い</td></tr>
+            <tr><td>Lean Startup (リーンスタートアップ)</td><td>「構築・計測・学習」のループを回し、最小限の実用可能なプロダクト(MVP)で仮説検証を行う考え方</td><td>不確実性の高い新規プロダクト開発において、ビジネスケースの検証やプロジェクトプロダクト記述書の初期定義に活用される</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>試験では「どのアジャイル手法をどの場面で使うか」を問う設問が出ます。目安として、<strong>要件が比較的明確で反復的に作り込む場合は Scrum</strong>、<strong>継続的なフローで優先順位が流動的な場合は Kanban</strong>、<strong>そもそも何を作るべきかが不確実な場合は Lean Startup</strong> という使い分けを覚えておくと判断しやすくなります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 2.2</a></li>
+        </ul>
+      </div>
+
+      <h3>2.3 「ブレンドとウィーブ」と8つのガイダンスポイント</h3>
+      <p>PRINCE2 Agile は、PRINCE2 と アジャイルを「ブレンド(混ぜ合わせる)」し、さらにプロジェクトの3つのレベル全体に「ウィーブ(織り込む)」ことを目指します。</p>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_BLEND_WEAVE_LEVELS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">プロジェクトの3つのレベルにおける PRINCE2 と Agile の織り込み方</div>
+</div>
+
+      <p>一般に、PRINCE2 の統制色は「プロジェクト指揮」レベルで強く、アジャイルの実行色は「プロダクトデリバリー」レベルで強くなります。「プロジェクトマネジメント」レベルはその中間として、両者を橋渡しする役割を担います。</p>
+      <p>この「ブレンドとウィーブ」を正しく理解するための前提として、公式ガイダンスは次の8つのガイダンスポイントを示しています(誤解が起きやすい論点を明確化するためのものです)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>ガイダンスポイント(要旨)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>現行版の PRINCE2 は、もともとアジャイルと組み合わせて使えるように作られている。専用の「アジャイル版 PRINCE2」が必要なのではなく、力点の置き方と詳細なガイダンスの追加が必要なだけである</td></tr>
+            <tr><td>2</td><td>PRINCE2 はどのようなスタイルのプロジェクトにも適用できる汎用的な手法であり、アジャイルと対比される「伝統的(ウォーターフォール的)」な手法と決めつけるべきではない</td></tr>
+            <tr><td>3</td><td>PRINCE2 Agile は IT プロジェクト専用ではなく、あらゆる種類のプロジェクトに適用できる</td></tr>
+            <tr><td>4</td><td>XP(エクストリーム・プログラミング)や SAFe のような「IT専用」のフレームワーク・技法にも触れるが、詳細には踏み込まない</td></tr>
+            <tr><td>5</td><td>アジャイルは Scrum だけではない。アジャイルは Scrum よりもはるかに広い概念である</td></tr>
+            <tr><td>6</td><td>最もよく使われるアジャイルの手法は Scrum と Kanban だが、これらは単独でプロジェクト全体をマネジメントするには不十分である。ただし、プロジェクトという枠組みの中でなら効果的に活用できる</td></tr>
+            <tr><td>7</td><td>本ガイダンスにおける「アジャイル」という言葉は、単一の手法ではなく、振る舞い・概念・フレームワーク・技法からなる「一つのファミリー」を指す</td></tr>
+            <tr><td>8</td><td>プロジェクトでアジャイルを使うかどうかは「はい/いいえ」の二択ではなく、「どの程度(どれくらいの強さで)」使うかという程度問題である</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>8つのガイダンスポイントの中でも、特に5・7・8番目は試験で頻出です。「アジャイル=Scrumではない」「アジャイルは程度問題である」という2点を軸に理解しておくと、選択式問題の誤答選択肢(ディストラクター)を見抜きやすくなります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第3.6節 (Important points about PRINCE2 Agile and this manual)</a></li>
+        </ul>
+      </div>
+
+      <h3>2.4 PRINCE2 Agile デリバリーチームのロール</h3>
+      <p>Foundation シラバスでは、デリバリーチームに関わる次の4つのロール(責任・コンピテンシー)が明示されています。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ロール</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>Customer Subject Matter Expert (顧客側の専門家)</td><td>業務要件や顧客ニーズについて深い知識を持ち、デリバリーチームに助言する</td></tr>
+            <tr><td>Customer Representative (顧客代表)</td><td>顧客側の優先順位付けや意思決定を代表する(PRINCE2 Agile ではプロダクトオーナーがこの役割を担うことが多い)</td></tr>
+            <tr><td>Supplier Subject Matter Expert (サプライヤー側の専門家)</td><td>技術的な実装方法について深い知識を持ち、デリバリーチームに助言する</td></tr>
+            <tr><td>Supplier Representative (サプライヤー代表)</td><td>提供側の技術的な意思決定を代表する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>実務では、これらの役割に加えて <strong>Product Owner(プロダクトオーナー)</strong> と <strong>Scrum Master</strong> という呼称がよく使われます。Foundation レベルでは上記4ロールの「責任の性質」を理解することが優先されますが、Product Owner ≒ Customer Representative、Scrum Master ≒ Team Manager(のアジャイル版)という対応関係を押さえておくと、Practitioner レベルへの橋渡しがスムーズになります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 2.4</a></li>
+        </ul>
+      </div>
         </section>
 
         <!-- ===================== 3. Agile Tailoring ===================== -->
