@@ -27,7 +27,12 @@ const LIGHT_THEME_VARS = {
         pieTitleTextColor: "#161B26"
       };
 
-
+const DIAGRAM_examWeightingPie = `pie showData
+title Practitioner試験の出題配点
+"LO3: 7つのPractices" : 51
+"LO4: 7つのProcesses" : 30
+"LO1: 7つのPrinciples" : 10
+"LO2: 人(People)の管理" : 9`;
 
 const TOC_IDS = ["exam-overview","what-is-prince2-7","principles","people","practices","processes","roles-responsibilities","v7-new-elements","tailoring","exam-technique","references"] as const;
 const sidebarOpen = ref(false);
@@ -102,7 +107,12 @@ useSeoMeta({
         本ガイドはPeopleCert社の公式教材そのものではなく、公式シラバスおよび公開情報をもとに独自に作成した非公式の学習補助資料です。PRINCE2®はPeopleCertグループの登録商標です。実際の試験範囲・出題傾向は、必ず最新の公式シラバスおよび公式教本(PRINCE2 7 Managing Successful Projects)、および<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-practitioner-3581" target="_blank" rel="noopener">PeopleCert公式サイト</a>でご確認ください。
       </span></div>
     </div>
-
+<section id="exam-overview">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
+      
+      <h2 id="heading-0">このガイドについて / 試験の全体像</h2>
+      <h3 id="heading-1">誰のための資格か</h3><p>PRINCE2 7 Practitionerは、プロジェクトマネージャーおよびプロジェクトマネージャーを目指す人を主な対象とした資格です。それに加えて、プロジェクトの設計・開発・提供に関わる以下のような役割の人にも関連します。</p><ul><li>プロジェクトボードメンバー(例: Senior Responsible Owner)</li><li>チームマネージャー(例: Product Delivery Manager)</li><li>プロジェクトアシュアランス(例: Business Change Analyst)</li><li>プロジェクトサポート(例: PMO要員)</li><li>業務側のラインマネージャー・スタッフ</li></ul><p>Practitioner試験の目的は、<strong>PRINCE2の手法を実際のプロジェクトに適用し、テーラリング(状況に応じた調整)できるか</strong>を評価することです。合格者は、適切な指導のもとで実プロジェクトへの適用を開始できるレベルとされていますが、あらゆる状況に対応できる熟練度までは求められません。</p><h3 id="heading-2">試験の基本情報</h3><div class="table-wrap"><table><thead><tr><th>項目</th><th>内容</th></tr></thead><tbody><tr><td>試験時間</td><td>150分(英語を母語・業務言語としない受験者は+25%の187.5分)</td></tr><tr><td>出題形式</td><td>オープンブック(公式教本のみ持ち込み可、書き込み可)</td></tr><tr><td>問題数</td><td>56問(部分問題を含む)、配点70点</td></tr><tr><td>合格ライン</td><td>42点/70点(60%)</td></tr><tr><td>出題形式</td><td>客観式(Classic: 1問1点の4択、Matching: 1問3点のマッチング式)</td></tr><tr><td>思考レベル</td><td>Bloom's Taxonomy レベル3(適用: Apply)とレベル4(分析: Analyse)</td></tr><tr><td>出題構成</td><td>プロジェクトシナリオ + 追加情報(登場人物のプロフィール) + 設問</td></tr></tbody></table></div><p>出典: PeopleCert公式シラバス「Syllabus PRINCE2 7 Practitioner Official Training Materials」</p><h3 id="heading-3">出題範囲と配点(Learning Outcome Weighting)</h3><div class="domain-grid"><div class="domain-card d1"><div class="domain-pct">10%</div><div class="domain-name">LO1: 7つのPrinciples</div></div><div class="domain-card d2"><div class="domain-pct">9%</div><div class="domain-name">LO2: 人(People)の管理</div></div><div class="domain-card d3"><div class="domain-pct">51%</div><div class="domain-name">LO3: 7つのPractices</div></div><div class="domain-card d4"><div class="domain-pct">30%</div><div class="domain-name">LO4: 7つのProcesses</div></div></div><p>Practitioner試験は4つのLearning Outcome(学習成果)から構成されます。この配点比率が<strong>学習の優先順位</strong>を決める最重要情報です。</p><div class="diagram-card mermaid-wrap"><ClientOnly><MermaidDiagram :chart="DIAGRAM_examWeightingPie" theme="base" :theme-variables="LIGHT_THEME_VARS" /><template #fallback><div class="diagram-loading">図を読み込み中...</div></template></ClientOnly><div class="diagram-caption">Learning Outcome別の出題配点比率</div></div><div class="table-wrap"><table><thead><tr><th>Learning Outcome</th><th>内容</th><th>配点比率</th><th>Bloom's Level</th></tr></thead><tbody><tr><td>LO1</td><td>状況に応じてPRINCE2の7原則を適用する方法を理解する</td><td>10%</td><td>BL4(分析)</td></tr><tr><td>LO2</td><td>プロジェクトを成功させるための効果的な人の管理を適用する方法を理解する</td><td>9%</td><td>BL3/BL4</td></tr><tr><td>LO3</td><td>PRINCE2の7プラクティスの関連する側面を、状況に応じて適用・テーラリングする方法を理解する</td><td><strong>51%</strong></td><td>BL3/BL4</td></tr><tr><td>LO4</td><td>PRINCE2の7プロセスの関連する側面を、状況に応じて適用(・テーラリング)する方法を理解する</td><td><strong>30%</strong></td><td>BL3/BL4</td></tr></tbody></table></div><div class="callout note" data-testid="callout" data-variant="note"><div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div><p><strong>学習の最優先事項</strong>: LO3(プラクティス)とLO4(プロセス)だけで出題の81%を占めます。本ガイドもこの2つのセクション(Part 3、Part 4)にもっとも多くの紙幅を割いています。</p></div>
+    </section>
 
       </main>
     </div>
