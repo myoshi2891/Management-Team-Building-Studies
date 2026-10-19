@@ -122,3 +122,14 @@ describe("原本カテゴリー: processes", () => {
     expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[5]!.diagrams);
   });
 });
+
+describe("原本カテゴリー: roles-responsibilities", () => {
+  it("見出し・段落全文・リスト構造・表の全セル・強調・リンクが順序込みで一致する", () => {
+    expect(snapshot(mountPage().get("#roles-responsibilities").element)).toEqual(expected.sections[6]!.content);
+  });
+  it("図解のソースと出現順が原本と完全一致し、ラッパー内に配置される", () => {
+    const section = mountPage().get("#roles-responsibilities");
+    expect(section.findAll('[data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[6]!.diagrams);
+    expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[6]!.diagrams);
+  });
+});
