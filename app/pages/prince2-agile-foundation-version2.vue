@@ -232,46 +232,126 @@ useSeoMeta({
 
         <!-- ===================== 0. About the Exam ===================== -->
         <section id="about-the-exam">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
           <h2>この資格について</h2>
+
+          <h3>0.1 資格の位置づけ</h3>
+          <p>PRINCE2 Agile Foundation は、世界で最も広く使われているプロジェクトマネジメント手法 <strong>PRINCE2</strong> の統制・ガバナンスの枠組みと、<strong>アジャイル (Agile)</strong> の柔軟性・反復性を組み合わせた「PRINCE2 Agile」の基礎知識を認定する資格です。対象者は、アジャイル実務者、プロジェクトマネージャー、プロダクトオーナー、Scrum Master、開発者など、反復的・漸進的なプロダクトデリバリーに関わるすべての人です。前提資格は不要です。</p>
+
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <p>PRINCE2 Agile は「PRINCE2 か Agile か」の二択ではなく、両方の強みを状況に応じて「どの程度」組み合わせるかを判断する手法です。学習の最初の段階で、この「二項対立で考えない」という姿勢を意識しておくと、以降の全テーマの理解が格段にスムーズになります。</p>
+          </div>
+
+          <h3>0.2 試験概要</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>出題形式</td><td>四肢択一 (Objective Test Question)</td></tr>
+                <tr><td>問題数</td><td>40問</td></tr>
+                <tr><td>試験時間</td><td>60分 (英語を母語・業務言語としない受験者は+25%の延長が可能な場合あり)</td></tr>
+                <tr><td>合格基準</td><td>60%</td></tr>
+                <tr><td>教材持ち込み</td><td>クローズドブック (不可)</td></tr>
+                <tr><td>前提資格</td><td>なし</td></tr>
+                <tr><td>認定有効期間</td><td>3年 (更新には CPD ポイントの取得、または同スイート内の別資格取得が必要)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert 公式製品ページ「PRINCE2 Agile Foundation (Version 2)」</a></li>
+            </ul>
+          </div>
+
+          <h3>0.3 出題範囲 (Learning Outcome) の全体像</h3>
+          <p>公式のシラバス文書では、出題範囲は次の5つの Learning Outcome (学習成果) に分かれています。本ガイドの第1部から第5部は、この5つの Learning Outcome にそのまま対応しています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>LO</th><th>タイトル</th><th>本ガイドの対応章</th></tr></thead>
+              <tbody>
+                <tr><td>LO1</td><td>プロジェクトと PRINCE2 に関する主要概念の理解</td><td>第1部</td></tr>
+                <tr><td>LO2</td><td>プロジェクトと PRINCE2 Agile に関する主要概念の理解</td><td>第2部</td></tr>
+                <tr><td>LO3</td><td>PRINCE2 の原則・テーマ・プロセス・管理プロダクトがアジャイル文脈でどのようにテーラリング・適用されるかの理解</td><td>第3部</td></tr>
+                <tr><td>LO4</td><td>アジャイルな働き方・主要用語・技法の理解</td><td>第4部</td></tr>
+                <tr><td>LO5</td><td>アジャイル文脈におけるフォーカスエリアの理解</td><td>第5部</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」</a></li>
+              <li><a href="https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf</a></li>
+            </ul>
+          </div>
+
+          <div class="callout note" data-variant="note" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+            <p><strong>バージョンに関する留意点:</strong> 上記2件の Candidate Syllabus は PeopleCert の公式ドメインではなく第三者サイトによる非公式ミラー(参考文献・出典の8.2節参照)であり、試験時間・問題数・合格ラインについて「50問・55%合格」という、現行の PeopleCert 製品ページ(Version 2)の「40問・60分・60%合格」とは異なる旧版の情報を記載しています。このミラー文書だけでは、出題範囲(LO1〜LO5)やテーマ構成が Version 2 化後も変わっていないかどうかを確認できません。また PRINCE2 Agile は PRINCE2 の土台の上に成り立つ手法であり、PeopleCert は PRINCE2 側も「PRINCE2 Project Management Version 7」として改定を行っているため、本ガイドが扱う7つのテーマ等の用語・範囲が Version 7 の内容と整合しているかも合わせて確認が必要です。<strong>受験前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus・試験概要、および PRINCE2 Project Management Version 7 との用語・範囲の整合性を確認してください。</strong></p>
+          </div>
+
+          <h3>0.4 学習の全体マップ</h3>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STUDY_ROADMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">Foundation から Practitioner・Expert への学習ロードマップ</div>
+          </div>
+
+          <p>Foundation は「知識の再認・理解 (recall と comprehension)」を問う試験であるのに対し、Practitioner はケーススタディに基づく「適用力」を問う試験です。Foundation の内容を土台として、まず全体像を正確に押さえることが Practitioner 合格への近道です。</p>
         </section>
 
         <!-- ===================== 1. PRINCE2 Fundamentals ===================== -->
         <section id="prince2-fundamentals">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
           <h2>第1部: PRINCE2 の基礎知識 (Learning Outcome 1)</h2>
         </section>
 
         <!-- ===================== 2. PRINCE2 Agile Basics ===================== -->
         <section id="prince2-agile-basics">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 03</div>
           <h2>第2部: PRINCE2 Agile の基本概念 (Learning Outcome 2)</h2>
         </section>
 
         <!-- ===================== 3. Agile Tailoring ===================== -->
         <section id="agile-tailoring">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 04</div>
           <h2>第3部: 原則・テーマ・プロセス・管理プロダクトのアジャイルへの適用 (Learning Outcome 3)</h2>
         </section>
 
         <!-- ===================== 4. Agile Glossary & Techniques ===================== -->
         <section id="agile-glossary-techniques">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 05</div>
           <h2>第4部: アジャイルの実践用語と技法 (Learning Outcome 4)</h2>
         </section>
 
         <!-- ===================== 5. Focus Areas ===================== -->
         <section id="focus-areas">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 06</div>
           <h2>第5部: フォーカスエリア (Learning Outcome 5)</h2>
         </section>
 
         <!-- ===================== 6. Exam Preparation ===================== -->
         <section id="exam-preparation">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 07</div>
           <h2>第6部: 試験対策</h2>
         </section>
 
         <!-- ===================== 7. Glossary Summary ===================== -->
         <section id="glossary-summary">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 08</div>
           <h2>付録: 用語集まとめ表</h2>
         </section>
 
         <!-- ===================== 8. References ===================== -->
         <section id="references">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 09</div>
           <h2>参考文献・出典</h2>
         </section>
 
