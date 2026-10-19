@@ -155,3 +155,14 @@ describe("原本カテゴリー: tailoring", () => {
     expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[8]!.diagrams);
   });
 });
+
+describe("原本カテゴリー: exam-technique", () => {
+  it("見出し・段落全文・リスト構造・表の全セル・強調・リンクが順序込みで一致する", () => {
+    expect(snapshot(mountPage().get("#exam-technique").element)).toEqual(expected.sections[9]!.content);
+  });
+  it("図解のソースと出現順が原本と完全一致し、ラッパー内に配置される", () => {
+    const section = mountPage().get("#exam-technique");
+    expect(section.findAll('[data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[9]!.diagrams);
+    expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[9]!.diagrams);
+  });
+});
