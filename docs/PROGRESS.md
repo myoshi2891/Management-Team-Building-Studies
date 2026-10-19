@@ -1,6 +1,6 @@
 # Nuxt 移行 進捗
 
-(最終更新日: 2026-10-18)
+(最終更新日: 2026-10-19)
 
 静的 HTML の資格・マネジメント学習ガイドを Nuxt 4（Vue 3）の `app/pages/*.vue` へ移行する作業の進捗記録。
 更新のゲート条件は `.claude/rules/migration-progress-sync.md` を参照。
@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `0d7fd4c` — fix(catalog): cover ITIL, MoP, MSP and PRINCE2 in peoplecert summary（本ファイルのコミットより前のコード側コミット） |
-| 次の作業 | **Netlify 公開**（`netlify.toml` 追加済み。§83 参照）→ 公開見合わせ中 8 本（`UNPUBLISHED_GUIDE_ROUTES`）の改稿 → 保守・新規ガイドの追加（横スクロール禁止は e2e で全幅域を固定済み。§50 参照。登録先は **`app/utils/guide-catalog.ts` の `ALL_GUIDES` 1 か所**（`GUIDES` はそこから導出）。ホームのセクション・グローバルナビ・種別ハブ・プログラムハブ・サイト内検索がすべて自動で追随する。**`programId` / `seriesId` はいずれも省略不可**。§63 参照） |
-| ビルド状態 | `bun run test` ✔ / `bunx nuxi typecheck` ✔ / `bun run lint` ✔ / `npm run audit:capm` ✔ / `npm run audit:capm-d1` ✔ / `npm run audit:capm-d2` ✔ / `npm run audit:capm-d3` ✔ / `npm run audit:capm-d4` ✔ / `npm run audit:pmp` ✔ / `npm run audit:pmp-d1` ✔ / `npm run audit:pmp-d2` ✔ / `npm run audit:pmp-d3` ✔ / `npm run audit:lead` ✔ / `npm run audit:em` ✔ / `npm run audit:em-career` ✔ / `npm run audit:reteam` ✔ / `npm run audit:exec` ✔ / `npm run audit:practices` ✔ / `npm run audit:team-geek` ✔ / `npm run audit:team-topologies` ✔ / `npm run audit:dev-arch` ✔ / `npm run audit:elastic` ✔ / `npm run audit:csm` ✔ / `npm run audit:csm-team` ✔ / `npm run audit:csm-theory` ✔ / `npm run audit:csm-artifacts` ✔ / `npm run audit:scrum-events` ✔ / `npm run audit:csm-competencies` ✔ / `npm run audit:scrum-97` ✔ / `npm run audit:lead-challenge` ✔ / `npm run audit:lean-ux` ✔ / `npm run audit:first-60-days` ✔ / `npm run audit:debugging-teams` ✔ / `npm run audit:managing-humans` ✔ / `npm run audit:peopleware` ✔ / `npm run audit:mythical-man-month` ✔ / `npm run audit:radical-candor` ✔ / `npm run audit:cal1` ✔ / `npm run audit:cal1-action` ✔ / `npm run audit:cal1-guide` ✔ / `npm run audit:cal1-ch3` ✔ / `npm run audit:cal1-ch4` ✔ / `npm run audit:cal2-p1` ✔ / `npm run audit:cal2-p2` ✔ / `npm run audit:cal2` ✔ / `npm run audit:no-rules-rules` ✔ / `npm run audit:high-output-management` ✔ / `npm run audit:five-dysfunctions` ✔ / `npm run audit:ai-pm` ✔ / `npm run audit:an-elegant-puzzle` ✔ / `npm run audit:caf` ✔ / `npm run audit:csd` ✔ / `npm run audit:a-csd` ✔ / `npm run audit:csp-d` ✔ / `npm run audit:cspo` ✔ / `npm run audit:a-cspo` ✔ / `npm run audit:csp-po` ✔ / `npm run audit:casp` ✔ / `npm run audit:psm-ai` ✔ / `npm run audit:csp-sm` ⚠ exit 1（既存の転写差分。2026-10-17 再実測で判明。§83） / `npm run audit:a-csm` ✔ / `npm run audit:psd` ✔ / `npm run audit:pal-i` ✔ / `npm run audit:psfs` ✔ / `npm run audit:pspo` ✔ / `npm run audit:psk` ✔ / `npm run audit:sps` ✔ / `npm run audit:psu` ✔ / `npm run audit:pal-ebm` ⚠ exit 1（意図的例外。§74） / `npm run audit:psm` ⚠ exit 1（既存の転写差分。2026-10-17 再実測で判明。§83） / `npm run audit:pspbm` ⚠ exit 1（意図的例外。§74） / `npm run audit:pspo-ai` ⚠ exit 1（既存の転写差分。2026-10-17 再実測で判明。§83） / `npm run audit:itil-v5` ✔ / `npm run audit:itil-foundation-v5` ✔ / `npm run audit:itil-mpt-v5` ✔ / `npm run audit:itil-product-v5` ✔ / `npm run audit:itil-service-v5` ✔ / `npm run audit:itil-strategy-v5` ✔ / `npm run audit:itil-transformation-v5` ✔ / `npm run audit:mop-foundation` ✔ / `npm run audit:msp-foundation` ✔ / `npm run audit:msp-practitioner` ✔ / `npm run audit:prince2-7` ✔ / `npm run build` ✔ **ただし `NUXT_SITE_URL` の指定が必要**（未指定だと `@nuxt/sitemap` が `/sitemap.xml` の prerender に失敗して exit 1。`NUXT_SITE_URL=https://example.com npm run build` は exit 0）/ `bun run test:e2e` ✔（2026-10-18 実測・29 件全件 passed。`allSiteRoutes()` の 87 ルート（`/prince2-7-foundation-guide` を含む）× 1440 / 1024 / 390px で横スクロールなし。4173 番を別プロセスが占有していたため、ポートのみ 4183 に差し替えた同一設定で実行。ITIL 3 ページの 390px はみ出しは §83 で解消） |
-| テスト数 | **2134** ユニット（legal-notices 4 + MermaidDiagram 11 + SiteHeader 24 + SiteSearch 12 + GuideCard 3 + GuideKindHub 4 + GuideProgramHub 8 + SiteDisclaimer 18 + useActiveHeading 9 + guide-catalog 27 + guide-search 10 + mermaid プラグイン 3 + app 1 + アイコン契約 1 + home 10 + prince2-7-foundation-guide page 28 + msp-practitioner-5th-edition-guide page 27 + msp-foundation-5th-edition-guide page 27 + mop-foundation-guide page 27 + itil-transformation-v5-study-guide page 25 + itil-strategy-v5-guide page 25 + itil-service-v5-guide page 23 + itil-product-version5-guide page 24 + itil-managing-professional-transition-v5-guide page 24 + itil-experience-version-5-study-guide page 24 + itil-foundation-v5-study-guide page 24 + professional-scrum-product-owner-ai-essentials page 24 + professional-scrum-product-backlog-management-skills page 24 + professional-scrum-master page 25 + professional-agile-leadership-evidence-based-management page 25 + professional-scrum-with-user-experience page 31 + scaled-professional-scrum-guide page 29 + professional-scrum-with-kanban page 28 + professional-scrum-product-owner page 27 + pal-i-study-guide page 25 + professional-scrum-facilitation-skills page 28 + professional-scrum-developer page 25 + a-csm-advanced-certified-scrummaster-study-guide page 25 + csp-sm-certified-scrum-professional-scrummaster-study-guide page 24 + psm-ai-essentials-guide page 24 + a-cspo-advanced-certified-scrum-product-owner-study-guide page 25 + cspo-certified-scrum-product-owner-study-guide page 25 + csp-po-certified-scrum-professional-product-owner-study-guide page 25 + csp-d-certified-scrum-professional-developer-study-guide page 25 + csd-certified-scrum-developer-study-guide page 25 + casp-certified-agile-scaling-practitioner-study-guide page 25 + a-csd-advanced-certified-scrum-developer-study-guide page 25 + csm-scrum-master-core-competencies page 24 + cal1-chapter4-leading-agile-organizations page 24 + ai-driven-project-management-guide page 23 + five-dysfunctions-of-a-team page 25 + high-output-management page 25 + CAPM page 24 + EM career path page 23 + Team leadership page 23 + EM guide page 23 + CAPM domain 1 page 29 + Dynamic reteaming page 23 + Engineering executive playbook page 23 + PMP page 23 + PMP domain 1 page 24 + PMP domain 2 page 24 + PMP domain 3 page 23 + CAPM domain 2 page 28 + CAPM domain 3 page 28 + CAPM domain 4 page 25 + Leadership practices guide page 24 + Team Geek guide page 23 + Team Topologies guide page 23 + Developer-Architect Communication guide page 25 + Elastic Leadership guide page 23 + CSM guide page 23 + CSM Scrum Team 3 Accountabilities guide page 23 + CSM Scrum Theory guide page 24 + CSM Scrum Artifacts guide page 24 + Scrum Events guide page 24 + Scrum 97 things guide page 23 + Leadership challenge workbook guide page 25 + Lean UX beginner guide page 23 + Your First 60 Days as a Leader guide page 23 + Debugging Teams guide page 23 + Managing Humans guide page 25 + Peopleware guide page 25 + Mythical Man-Month guide page 26 + Radical Candor guide page 25 + The Case for Agile Leadership guide page 24 + Agile Leadership in Action guide page 23 + CAL 1 complete guide page 23 + CAL 1 Chapter 3 Leading Agile Teams page 24 + CAL 2 Part 1 guide page 24 + CAL 2 Part 2 guide page 24 + CAL 2 study guide page 24 + No Rules Rules guide page 25 + an-elegant-puzzle-guide page 25 + caf-certified-agile-facilitator-study-guide page 24）+ **29** E2E（capm 4 + site-header 15 + no-horizontal-scroll 3 + site-disclaimer 4 + favicon 3）— これがベースライン |
+| コードコミット HEAD | `63c9c10` — feat(prince2-practitioner): register guide in home hubs navigation and search（本ファイルより前のコード側コミット） |
+| 次の作業 | PRINCE2 Practitioner の原本末尾に残る旧商標表記の訂正方針をユーザーに確認し、承認後に本文・固定期待値・監査の扱いを更新する（§87）。その後は Netlify 公開 → 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。 |
+| ビルド状態 | 2026-10-19: `npm run audit:prince2-practitioner` ✔ exit 0 / `npm run typecheck` ✔ / 変更ファイルの ESLint ✔ / `npm run test` は旧商標表記により1件失敗（§87）/ 全体 lint は既存の未使用変数・import 5エラー / 開発サーバーで新ページE2E 6件と全88ルート×3幅の横スクロールE2E 3件 ✔ / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
+| テスト数 | **2209** ユニット（**2208 passed / 1 failed**。旧商標表記の禁止契約のみ失敗）。法的表示を除く2199件は全件成功。新ページの全文・構造・図解・共通契約55件、原本アーカイブのSHA-256検査2件を含む。今回の開発サーバーE2E実測は **9 passed**。全体Greenは未達であり、移行完了とは扱わない。 |
 | 原本照合監査 | ✔ **80 本中 75 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
@@ -99,6 +99,7 @@
 | `archive/Msp-foundation-5th-edition-guide/Msp-foundation-5th-edition-guide.html` | `app/pages/msp-foundation-5th-edition-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Msp-practitioner-5th-edition-guide/Msp-practitioner-5th-edition-guide.html` | `app/pages/msp-practitioner-5th-edition-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Prince2-7-foundation-guide/Prince2-7-foundation-guide.html` | `app/pages/prince2-7-foundation-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Prince2-7-practitioner-guide/Prince2-7-practitioner-guide.html` | `app/pages/prince2-7-practitioner-guide.vue` | ✅ 全文移行・原本照合 exit 0・ページ55契約と表示E2E成功。⚠ 原本の旧商標表記の訂正確認待ち（§87） |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -1133,12 +1134,11 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ## 次回セッションでの再開プロンプト
 
 ```text
-Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移行が完了。
+Management-Team-Building-Studies: PRINCE2 Practitioner の移行実装・原本アーカイブ済み。旧商標表記の訂正確認待ち（§87）。
 
-コードコミット HEAD: 0d7fd4c
-次の作業: Netlify 公開（netlify.toml 追加済み。docs/PROGRESS.md §83）→
-  公開見合わせ中 8 本（app/utils/guide-catalog.ts の UNPUBLISHED_GUIDE_ROUTES）の改稿 →
-  保守・新規ガイドの追加
+コードコミット HEAD: 63c9c10
+次の作業: PRINCE2 Practitioner の原本末尾に残る旧商標表記の訂正方針をユーザーに確認し、承認後に本文・固定期待値・監査の扱いを更新する（§87）。その後は Netlify 公開 → 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。
+  未移行HTMLはルートの実ファイル3本。PRINCE2 Practitioner の本文未移行セクションは0。
   新規ページの登録先は app/utils/guide-catalog.ts の ALL_GUIDES 1 か所（GUIDES はそこから導出）。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
   グローバルナビ・種別ハブ（/certifications 等）・プログラムハブ（/certifications/[program] 等）が
@@ -1154,6 +1154,9 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   1 種別は 8 プログラム・1 プログラムは 8 シリーズが上限
   （tests/utils/guide-catalog.test.ts の MAX_PROGRAMS_PER_KIND / MAX_SERIES_PER_PROGRAM）。
   超えたら閾値ではなくプログラム／シリーズの粒度を分割し直すこと。
+
+移行実装済み・確認待ち:
+  - app/pages/prince2-7-practitioner-guide.vue（旧商標表記1箇所の訂正方針待ち）
 
 完了済み:
   - app/pages/itil-product-version5-guide.vue（ITIL® Product (Version 5) 完全ガイド）
@@ -1545,3 +1548,20 @@ Management-Team-Building-Studies リポジトリのガイドページ Nuxt 移�
   8. `feat(prince2): implement tailoring, digital, sustainability, and cross-mapping sections` (`925fd18`)
   9. `feat(prince2): implement exam tips, references, and trademark footer` (`98ba2b0`)
   10. `fix(prince2): update trademark attribution to PeopleCert group and align hub guide count` (`171cdd0`)
+
+### §87. PRINCE2® 7 Practitioner のNuxt移行実装・原本照合と確認待ち事項（2026-10-19）
+
+- **移行先**: `app/pages/prince2-7-practitioner-guide.vue`（`/prince2-7-practitioner-guide`）。Hero、目次、原本の11セクション、参考文献、免責フッターを転写。見出し100、段落78、リスト項目172、表32個・169行、外部リンク23、Mermaid 13、callout 24、静的SVG 1が原本監査で一致し、`npm run audit:prince2-practitioner` は **exit 0**。
+- **厳密な契約**: 原本から実装前に抽出した固定fixtureを使用し、全セクションの文言・順序・ul/olの区別・リスト階層・表セル・リンク属性・強調要素を検証。全文テキスト、全見出し、全図のソース・順序・ラッパー・themeVariables（円グラフの配色を含む）も照合する。ページ55件すべて成功。実行時に原本を読んで期待値を追随させない。
+- **段階実装とコミット**: 骨格・Hero・目次から開始し、11セクションを原本順に各カテゴリーのRed実測・testコミット → 実装・累積原本照合exit 0・テスト成功・featコミットで移植。参考文献着手時に全文契約とブラウザー契約のRedを確認。サイト登録、原本アーカイブ、法的表示検査、ドキュメントも分離した。
+- **操作とスタイリング**: 目次は既存の `useActiveHeading` を利用。重複する小見出しにも出現順で一意なidを付けた。モバイルのアンカー既定動作によるフォーカス喪失を検出し、アンカー移動後にスクロールを戻さずトグルへフォーカスを復帰するよう修正した。箇条書きはdisc、番号付きはdecimal、目次・参考文献はnone。原本CSSに合わせ、callout内のulは20px、olは24pxの字下げを保つ。図のレイアウトは共有MermaidDiagramへ委譲し、ページCSSでSVGの幅・高さを上書きしない。未定義CSS変数は0。
+- **導線**: `ALL_GUIDES` の既存 `peoplecert` / `pc-prince2` にFoundationの次として追加。公開ガイド72→73、資格ガイド53→54、全ルート87→88。ホーム・種別ハブ・プログラムハブ・検索・ナビの現在地表示を契約で固定した。
+- **ビルドなしの実ブラウザー検証**: 自前の開発サーバー（4183番）と一時Playwright設定を使用し、generateを実行しない。新規 `e2e/prince2-practitioner.spec.ts` の6件が成功。1440 / 1024 / 981 / 980 / 390pxで13図のSVG生成、全ノード文字、リスト記号・字下げ、calloutと表見出しの色、見出しサイズ、図の中央寄せ・列幅内への収まり、横方向のはみ出し、モバイル目次操作を検証。既存 `e2e/no-horizontal-scroll.spec.ts` も全88ルート×1440 / 1024 / 390pxで3件成功。静的生成成果物のE2Eは今回未実施。目視確認はユーザー担当。
+- **検証結果**: 型検査と変更ファイルのlintは成功。全体lintの既存5エラーは `mop-foundation-guide.vue` の未使用定数1件と `itil-service-v5-guide.test.ts` の未使用import4件。対象外のファイルは改変していない。ユニット全体は2209件中2208成功・1失敗で、失敗は下記の原本の旧商標表記のみ。法的表示を除く2199件は全件成功。
+- **原本保存**: HTML/Markdownを `archive/Prince2-7-practitioner-guide/` へ移動し、移動前後のSHA-256一致を2契約で固定した。`/archive/` はgitignore対象のため、この2ファイルを明示的にforce-addしてGit追跡を維持した。原本は書き換えていない。
+  - `Prince2-7-practitioner-guide.html`: `d7234f1dd762cb8740ed8f19d9357493b475122b8d201279de3a13830bd1b081`
+  - `Prince2-7-practitioner-guide.md`: `aa42a61c57b1455ccebe0a3105516ce20a3239a84a1be9f98dec1aaaf5d31a8e`
+- **正当な構造差分**: CDNのアイコンをNuxt Icon、Mermaidの手動描画をClientOnly＋既存共有部品、DOMスクリプトの目次をVueの状態管理に置換。固定ヘッダー退避に共有CSS変数を使用し、固定列グリッドをauto-fitにした。原本の参考文献にあるh2→h4のスキップは文言・レベルを維持して共通契約の限定的な許容差分として固定した。
+- **Markdown監査（情報提供）**: HTMLは見出し100・表169行、Markdownは見出し98・表170行で構造が異なる。Markdown監査はexit 1（見出し43、リスト12、表行7、段落19の照合差分、Mermaidは同数13だがソース差分あり）。HTML移行の正を変えず、両原本を不変保存した。
+- **確認待ち・完了ゲート未達**: 原本の参考文献末尾の免責段落だけが「PRINCE2®はAXELOS Limitedの登録商標です。」という旧表記のままで、HeroとフッターはPeopleCert表記になっている。原文を保持しているため、`tests/legal-notices.test.ts` の禁止表現チェック1件が失敗する。原本・固定期待値を独断で改変せず、ユーザーへ「原本は不変保存し、Nuxtの当該免責のみPeopleCert groupに訂正し、差分を記録する」方針を質問済み。回答待ちであり、全体Green・移行完了とは報告しない。訂正を承認された場合は期待値の変更を明示し、当該1箇所だけの監査正規化と追加の欠落検出テストを用意して、他の転写漏れを素通ししないこと。
+- **検査自体の修正**: 原本フッターの正しい英語表記 `registered trade mark` を既存検査が見落とす別問題をRedで再現し、`trademark` / `trade mark` / 日本語の商標表記を検出するよう修正した。正例3・負例3の追加契約が成功。権利者の検査・旧権利者の禁止表現チェックは維持した。
