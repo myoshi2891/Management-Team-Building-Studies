@@ -2061,7 +2061,7 @@ useSeoMeta({
             </ul>
           </div>
           <h3 id="heading-98">免責事項</h3>
-          <p>本ガイドはPeopleCert社の公式教材そのものではなく、公式シラバスおよび公開情報をもとに独自に作成した非公式の学習補助資料です。PRINCE2&reg;はAXELOS Limitedの登録商標です。実際の試験範囲・出題傾向は、必ず最新の公式シラバスおよび公式教本(PRINCE2 7 Managing Successful Projects)で確認してください。</p>
+          <p>本ガイドはPeopleCert社の公式教材そのものではなく、公式シラバスおよび公開情報をもとに独自に作成した非公式の学習補助資料です。PRINCE2&reg;はPeopleCert groupの登録商標です。実際の試験範囲・出題傾向は、必ず最新の公式シラバスおよび公式教本(PRINCE2 7 Managing Successful Projects)で確認してください。</p>
         </section>
         <footer>
           PRINCE2® is a registered trade mark of PeopleCert group. 本ページはPeopleCert社の公式教材ではなく、独自に作成した非公式の学習補助資料です。記載内容の正確性には配慮していますが、最終的な試験範囲は必ず公式シラバスでご確認ください。
