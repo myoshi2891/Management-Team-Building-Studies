@@ -309,8 +309,184 @@ useSeoMeta({
 
         <!-- ===================== 1. PRINCE2 Fundamentals ===================== -->
         <section id="prince2-fundamentals">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
-          <h2>第1部: PRINCE2 の基礎知識 (Learning Outcome 1)</h2>
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
+      <h2>第1部: PRINCE2 の基礎知識 (Learning Outcome 1)</h2>
+
+      <p>PRINCE2 Agile はあくまで PRINCE2 という「土台」の上に成り立つ手法です。まず土台となる PRINCE2 そのものの構造を正確に理解しておきましょう。</p>
+
+      <h3>1.1 プロジェクトと PRINCE2 の基本概念</h3>
+      <p>PRINCE2 では、<strong>プロジェクト (Project)</strong> を「合意されたビジネスケースに基づき、1つ以上のビジネスプロダクトを提供するために作られる、一時的な組織」と定義します。これは日常的な業務である <strong>BAU (Business As Usual)</strong> と対比されます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>プロジェクト</th><th>BAU (定常業務)</th></tr></thead>
+          <tbody>
+            <tr><td>期間</td><td>一時的 (開始と終了がある)</td><td>継続的</td></tr>
+            <tr><td>目的</td><td>変化 (Change) を生み出す</td><td>現状の運用を維持する</td></tr>
+            <tr><td>性質</td><td>独自性が高い、リスクが相対的に大きい</td><td>繰り返し性が高い、リスクが相対的に安定</td></tr>
+            <tr><td>組織</td><td>プロジェクトのために臨時に編成される</td><td>恒常的な組織構造</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>「この作業はプロジェクトなのか BAU なのか」を最初に切り分けることは、ガバナンスの設計(誰が承認するか、どの程度の統制が必要か)を決める出発点になります。アジャイルなプロダクトチームであっても、予算・期限・ビジネスケースを伴う独立した取り組みであれば PRINCE2 のプロジェクト定義に当てはまります。</p>
+      </div>
+
+      <h3>1.2 PRINCE2 の7つのプリンシプル (原則)</h3>
+      <p>プリンシプルは、その取り組みが本当に PRINCE2 で管理されていると言えるかどうかを判断する「守るべき指針」です。7つすべてを適用してはじめて PRINCE2 と呼べます(テーラリング=調整は可能ですが、原則そのものを省略することはできません)。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>原則</th><th>概要</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>継続的なビジネス正当化 (Continued business justification)</td><td>プロジェクトを開始・継続する正当な理由が常に存在し、記録・承認され、有効であり続けることを確認する</td></tr>
+            <tr><td>2</td><td>経験からの学習 (Learn from experience)</td><td>過去の経験・教訓を探し、記録し、以降のプロジェクトに活かす</td></tr>
+            <tr><td>3</td><td>役割と責任の明確化 (Defined roles and responsibilities)</td><td>誰が何に責任を持つかを明確にし、ビジネス・ユーザー・サプライヤーの利害を代表する体制を作る</td></tr>
+            <tr><td>4</td><td>段階(ステージ)による管理 (Manage by stages)</td><td>プロジェクトを複数のマネジメントステージに分割し、計画・監視・コントロールを段階的に行う</td></tr>
+            <tr><td>5</td><td>例外による管理 (Manage by exception)</td><td>各管理レベルに許容範囲(トレランス)を設定し、逸脱時のみ上位レベルへエスカレーションする</td></tr>
+            <tr><td>6</td><td>プロダクトへの焦点 (Focus on products)</td><td>何をするか(活動)ではなく、何を生み出すか(プロダクトの品質要件)に焦点を当てる</td></tr>
+            <tr><td>7</td><td>プロジェクト環境に合わせたテーラリング (Tailor to suit the project environment)</td><td>プロジェクトの規模・複雑さ・重要性・能力・リスクに応じて手法を調整する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>7原則の中でも「例外による管理」と「プロジェクト環境に合わせたテーラリング」は、後述するアジャイルとの親和性が特に高い原則です。自己組織化チームへの権限委譲(=例外による管理)と、状況に応じた運用調整(=テーラリング)は、PRINCE2 Agile を理解する上での重要な橋渡しになります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.1 (7原則の一覧)</a></li>
+        </ul>
+      </div>
+
+      <h3>1.3 PRINCE2 の7つのテーマ</h3>
+      <p>テーマは、プロジェクトマネジメントの特定の側面について、常に対応し続ける必要がある領域です。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>テーマ</th><th>目的 (何を扱うか)</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>ビジネスケース (Business Case)</td><td>プロジェクトが望ましく、実行可能で、実現可能であり、投資に値することを立証・維持する仕組み</td></tr>
+            <tr><td>2</td><td>組織 (Organization)</td><td>プロジェクトに関わる人々の役割と責任、指揮命令系統を定義する仕組み</td></tr>
+            <tr><td>3</td><td>品質 (Quality)</td><td>プロダクトが目的に適合していることを確実にするための、品質要件の定義と検証の仕組み</td></tr>
+            <tr><td>4</td><td>計画 (Plans)</td><td>プロダクトを土台にした計画づくりのステップと、進捗のコミュニケーション手段</td></tr>
+            <tr><td>5</td><td>リスク (Risk)</td><td>不確実性を識別・評価し、プロジェクトの目的達成への影響をマネジメントする仕組み</td></tr>
+            <tr><td>6</td><td>変更 (Change)</td><td>変更要求や懸念事項(イシュー)を識別・評価・コントロールする仕組み</td></tr>
+            <tr><td>7</td><td>進捗 (Progress)</td><td>計画に対する実績を監視し、継続の可否を判断し、コントロールを行う仕組み</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>テーマは独立した「知識エリア」ではなく、相互に密接に連動しています。例えばリスクの深刻化はビジネスケースの見直しを引き起こし、それが進捗コントロールでの意思決定につながる、というように連鎖します。7テーマを暗記する際は「単独の定義」よりも「テーマ同士のつながり」を意識すると、第3部のアジャイル適用の理解が格段に深まります。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.2</a></li>
+        </ul>
+      </div>
+
+      <h3>1.4 PRINCE2 の7つのプロセス</h3>
+      <p>プロセスは、プロジェクトの開始から終結までの活動の流れを示します。<strong>Directing a Project (プロジェクト指揮)</strong> はプロジェクトボードによる意思決定プロセスであり、他の全プロセスを横断的に統制します。</p>
+
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_PROCESS_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">PRINCE2 の7プロセスの関係(Directing a Project が全体を統制する)</div>
+</div>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>プロセス</th><th>主な目的</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Starting up a Project (立ち上げ)</td><td>プロジェクトが実施する価値があるかを確認する準備段階。プロジェクト概要書(Project Brief)を作成する</td></tr>
+            <tr><td>2</td><td>Initiating a Project (開始)</td><td>プロジェクトの土台を固める。プロジェクト・イニシエーション・ドキュメンテーション(PID)を作成する</td></tr>
+            <tr><td>3</td><td>Directing a Project (指揮)</td><td>プロジェクトボードが主要な意思決定を行う(継続可否、例外対応の承認など)</td></tr>
+            <tr><td>4</td><td>Controlling a Stage (ステージ管理)</td><td>プロジェクトマネージャーが日々のステージ運営を行い、ワークパッケージを割り当てる</td></tr>
+            <tr><td>5</td><td>Managing Product Delivery (プロダクト提供管理)</td><td>チームマネージャーがワークパッケージを受け取り、プロダクトを作成・納品する</td></tr>
+            <tr><td>6</td><td>Managing a Stage Boundary (ステージ境界管理)</td><td>現ステージの完了報告と次ステージの計画をプロジェクトボードに提示する</td></tr>
+            <tr><td>7</td><td>Closing a Project (終結)</td><td>プロジェクトを正式に終結し、成果と教訓を確定する</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>アジャイルなプロダクトチームは Managing Product Delivery と Controlling a Stage の間を、スプリントや反復のサイクルとして日々経験することになります。この2プロセスの「反復のリズム」こそが、PRINCE2 の段階的な統制とアジャイルのタイムボックスが接続する最重要ポイントです。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.3</a></li>
+        </ul>
+      </div>
+
+      <h3>1.5 PRINCE2 の主要な管理プロダクト</h3>
+      <p>管理プロダクト(マネジメントプロダクト)は、プロジェクトのガバナンスに使われる文書類です。Foundation 試験では次の7種類が中心的に問われます。</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>管理プロダクト</th><th>目的</th></tr></thead>
+          <tbody>
+            <tr><td>ビジネスケース (Business Case)</td><td>投資判断の根拠となる、プロジェクトの妥当性・実行可能性を記録する文書</td></tr>
+            <tr><td>チェックポイントレポート (Checkpoint Report)</td><td>チームマネージャーからプロジェクトマネージャーへの定期的な進捗報告</td></tr>
+            <tr><td>ハイライトレポート (Highlight Report)</td><td>プロジェクトマネージャーからプロジェクトボードへの定期的な進捗報告</td></tr>
+            <tr><td>プロジェクト概要書 (Project Brief)</td><td>プロジェクトを開始する価値があるかを判断するための概要情報</td></tr>
+            <tr><td>プロジェクト・イニシエーション・ドキュメンテーション (PID)</td><td>プロジェクトの「何を・なぜ・誰が・どのように」を定義する基準文書一式</td></tr>
+            <tr><td>プロジェクトプロダクト記述書 (Project Product Description)</td><td>プロジェクト全体の最終成果物とその品質要件を定義する文書</td></tr>
+            <tr><td>ワークパッケージ (Work Package)</td><td>チームマネージャー(または個人)に委任される作業内容の合意文書</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>アジャイル文脈では、これらの文書を「一度作って終わり」の静的なものと捉えず、継続的に更新される「生きた(living)」情報源として運用します。特にハイライトレポートやチェックポイントレポートは、情報ラジエーター(Information Radiator)やバーンチャートで代替・補強されることが多く、第3部で詳しく解説します。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.4</a></li>
+        </ul>
+      </div>
+
+      <h3>1.6 PRINCE2 の主要ロール</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ロール</th><th>責任の概要</th></tr></thead>
+          <tbody>
+            <tr><td>プロジェクトボード (Project Board)</td><td>プロジェクト全体に説明責任を負う意思決定機関(Executive・Senior User・Senior Supplier で構成)</td></tr>
+            <tr><td>Executive (エグゼクティブ)</td><td>プロジェクトの投資対効果に最終責任を持つ、プロジェクトボードの議長役</td></tr>
+            <tr><td>Senior User (シニアユーザー)</td><td>プロダクトを利用する立場を代表し、ベネフィット実現に責任を持つ</td></tr>
+            <tr><td>Senior Supplier (シニアサプライヤー)</td><td>プロダクトを提供するリソース・専門知識を代表する</td></tr>
+            <tr><td>Project Manager (プロジェクトマネージャー)</td><td>プロジェクトの日々のマネジメントに責任を持つ</td></tr>
+            <tr><td>Team Manager (チームマネージャー)</td><td>ワークパッケージを受け取り、プロダクトの作成を管理する(アジャイルでは Scrum Master がこの役割を兼ねることが多い)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+        <p>アジャイルなデリバリーチームでは「チームマネージャー」という肩書きは使われず、Scrum Master やプロダクトオーナーといったアジャイル固有の呼称が使われます。試験対策としては、PRINCE2 の役割名とアジャイルでの一般的な呼称の「対応関係」を意識して覚えると混乱を避けられます(詳細は 2.4 節)。</p>
+      </div>
+
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+        <ul>
+          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.5</a></li>
+        </ul>
+      </div>
         </section>
 
         <!-- ===================== 2. PRINCE2 Agile Basics ===================== -->
@@ -468,7 +644,7 @@ useSeoMeta({
 .main-content {
   margin-left: var(--sidebar-width);
   padding: 48px 64px 96px;
-  max-width: 960px;
+  max-width: none;
 }
 
 .hero {
