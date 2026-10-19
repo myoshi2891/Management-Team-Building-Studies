@@ -34,6 +34,27 @@ title Practitioner試験の出題配点
 "LO1: 7つのPrinciples" : 10
 "LO2: 人(People)の管理" : 9`;
 
+const DIAGRAM_principlesRelation = `flowchart TD
+P1["1. 継続的な ビジネス正当性の維持"]
+P2["2. 経験からの学習"]
+P3["3. 役割・責任・関係性の定義"]
+P4["4. 段階(ステージ)による管理"]
+P5["5. 例外による管理"]
+P6["6. プロダクトへのフォーカス"]
+P7["7. プロジェクトに合わせた テーラリング"]
+P1 --> P4
+P3 --> P4
+P4 --> P5
+P6 --> P4
+P2 -.-> P1
+P2 -.-> P5
+P7 -.-> P1
+P7 -.-> P2
+P7 -.-> P3
+P7 -.-> P4
+P7 -.-> P5
+P7 -.-> P6`;
+
 const TOC_IDS = ["exam-overview","what-is-prince2-7","principles","people","practices","processes","roles-responsibilities","v7-new-elements","tailoring","exam-technique","references"] as const;
 const sidebarOpen = ref(false);
 const sidebarToggle = ref<HTMLButtonElement | null>(null);
@@ -119,6 +140,13 @@ useSeoMeta({
       
       <h2 id="heading-4">PRINCE2 7とは何か? Foundationとの違い、V6からの主な変更点</h2>
       <h3 id="heading-5">FoundationとPractitionerの違い</h3><div class="table-wrap"><table><thead><tr><th>観点</th><th>Foundation</th><th>Practitioner</th></tr></thead><tbody><tr><td>求められる能力</td><td>用語・構造の<strong>理解(Recall/Understand)</strong></td><td>実際のシナリオへの<strong>適用・分析(Apply/Analyse)</strong></td></tr><tr><td>Bloom's Level</td><td>BL1・BL2が中心</td><td>BL3・BL4のみ</td></tr><tr><td>出題形式</td><td>単純な知識確認問題</td><td>プロジェクトシナリオに基づく応用問題</td></tr><tr><td>前提資格</td><td>なし</td><td>Foundation合格(またはPRINCE2 5th/6th版、PMP、CAPMなど同等資格)</td></tr></tbody></table></div><p>Practitionerでは「〇〇という状況で、プロジェクトマネージャーが××をしたことは適切だったか、その理由は?」という形式で問われるため、<strong>各要素の定義を暗記するだけでは不十分</strong>で、「なぜその行動が原則・プラクティス・プロセスの目的に沿っている(または沿っていない)のか」を説明できる理解が必要です。</p><h3 id="heading-6">PRINCE2 7(Version 7)でのV6からの主な変更点</h3><p>PRINCE2は2023年9月にVersion 7として刷新されました。Practitioner試験でも、この変更点そのものが出題の前提知識になります。</p><div class="table-wrap"><table><thead><tr><th>変更点</th><th>V6(第6版)</th><th>V7(第7版)</th></tr></thead><tbody><tr><td>「テーマ」の名称</td><td>Themes(7つ)</td><td><strong>Practices</strong>(7つ、名称変更・内容拡充)</td></tr><tr><td>人に関する章</td><td>独立した章なし</td><td><strong>新設「People」章</strong>(リーダーシップ、変革管理、コミュニケーション)</td></tr><tr><td>サステナビリティ</td><td>明示的な言及は限定的</td><td><strong>7番目のパフォーマンスターゲット</strong>として正式に位置づけ、Sustainability Management Approachを新設</td></tr><tr><td>デジタル・データ</td><td>明示的な言及は限定的</td><td><strong>Digital and Data Management Approach</strong>を新設(Progressプラクティスの管理プロダクトの一部)</td></tr><tr><td>商用・調達</td><td>Organization(組織)テーマの一部</td><td><strong>Commercial Management Approach</strong>として明確化(Organizingプラクティスの管理プロダクト)</td></tr><tr><td>Issues(旧Change)</td><td>"Change"テーマ</td><td><strong>"Issues"プラクティス</strong>に改称</td></tr><tr><td>管理プロダクト</td><td>ログ・レジスタが多数分散</td><td>統合・簡素化(文書オーバーヘッドの削減)</td></tr><tr><td>テーラリングの扱い</td><td>原則の1つとして記載</td><td>原則に加え、<strong>適用の考え方全体を貫く指針</strong>としてより強調</td></tr></tbody></table></div><p>出典: PeopleCert PRINCE2 7 ローンチ情報、Knowledge Train「PRINCE2 7th Edition – What's different?」</p><h3 id="heading-7">PRINCE2プロジェクトの7つのパフォーマンスターゲット</h3><p>V7では、プロジェクトが管理すべき対象(旧「6つの側面」)に<strong>サステナビリティ</strong>が加わり、7つになりました。</p><div class="table-wrap"><table><thead><tr><th>No.</th><th>パフォーマンスターゲット</th><th>説明</th></tr></thead><tbody><tr><td>1</td><td>Time(時間)</td><td>計画されたスケジュール通りに完了するか</td></tr><tr><td>2</td><td>Cost(コスト)</td><td>承認された予算内に収まるか</td></tr><tr><td>3</td><td>Quality(品質)</td><td>要求された品質基準を満たすか</td></tr><tr><td>4</td><td>Scope(スコープ)</td><td>合意された範囲の成果物を提供するか</td></tr><tr><td>5</td><td>Risk(リスク)</td><td>リスクが許容範囲内に管理されているか</td></tr><tr><td>6</td><td>Benefits(ベネフィット)</td><td>期待された便益が実現されるか</td></tr><tr><td>7</td><td><strong>Sustainability(サステナビリティ)</strong></td><td>環境・社会・ガバナンス(ESG)目標に整合しているか(V7新規)</td></tr></tbody></table></div><p>これらのターゲットには「許容範囲(Tolerance)」が設定され、逸脱が予測される場合は上位レベルへエスカレーションされます。これは後述する「Manage by exception」原則と直結します。</p>
+    </section>
+
+<section id="principles">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:compass" aria-hidden="true" />SECTION 03</div>
+      <span class="domain-tag d1">LO1 · 10%</span>
+      <h2 id="heading-8">Part 1: 7つの原則 (Principles) の適用と分析</h2>
+      <p>原則はPRINCE2プロジェクトである以上、<strong>例外なくすべて適用しなければならない</strong>普遍的なガイドラインです(適用の「仕方」はテーラリング可能ですが、原則そのものを無視することはできません)。Practitioner試験(LO1, 10%)では、「あるプロジェクトマネージャーの行動が、どの原則に沿っている/反しているか」を分析させる問題が出ます。</p><div class="diagram-card mermaid-wrap"><ClientOnly><MermaidDiagram :chart="DIAGRAM_principlesRelation" theme="base" :theme-variables="LIGHT_THEME_VARS" /><template #fallback><div class="diagram-loading">図を読み込み中...</div></template></ClientOnly><div class="diagram-caption">7つの原則の相互関係</div></div><h3 id="heading-9">継続的なビジネス正当性の維持 (Ensure continued business justification)</h3><p><strong>要点</strong>: プロジェクトは開始時だけでなく、<strong>プロジェクト期間を通じて常に</strong>「やる価値がある」ことを証明し続けなければなりません。ビジネスケースが正当化されなくなった時点で、プロジェクトは中止(または方向転換)されるべきです。</p><ul><li><strong>適用の仕方</strong>: ビジネスケースをステージ境界ごとに見直す、リスクや外部環境の変化を継続的にビジネスケースへ反映する。</li><li><strong>Practitioner的な視点</strong>: シナリオ問題で「市場環境が変わったのにビジネスケースを更新しなかった」「便益が実現しなくなったのにプロジェクトを継続した」という記述があれば、この原則への違反を示唆しています。</li><li><strong>関連プラクティス</strong>: Business Case</li></ul><h3 id="heading-10">経験からの学習 (Learn from experience)</h3><p><strong>要点</strong>: プロジェクトチームは、過去のプロジェクトや自プロジェクトの経験から常に学び、その教訓を将来に活かさなければなりません。「初めてだから仕方ない」は理由になりません。</p><ul><li><strong>適用の仕方</strong>: プロジェクト開始時に類似プロジェクトの教訓を調査する、Lessons Log(教訓ログ)を継続的に記録する、各ステージ・プロジェクト終了時にLessons Report(教訓報告)を作成する。</li><li><strong>Practitioner的な視点</strong>: 「新しいプロジェクトマネージャーが過去の教訓ログを確認しなかった」というシナリオは、この原則への違反の典型例です。</li></ul><h3 id="heading-11">役割・責任・関係性の定義 (Define roles, responsibilities and relationships)</h3><p><strong>要点</strong>: プロジェクトに関わる全員が、自分の役割・責任・権限、そして他者との関係性を明確に理解していなければなりません。</p><ul><li><strong>適用の仕方</strong>: プロジェクトマネジメントチーム構造を明文化する(PID: Project Management Team Structure)、役割記述書(Role Description)を作成する。</li><li><strong>Practitioner的な視点</strong>: Executive(責任者)とProject Manager(プロジェクトマネージャー)を同一人物が兼任している、Senior UserとSenior Supplierが利害相反を起こしうる立場で兼任している、といったシナリオは、この原則違反として問われやすいポイントです。</li></ul><h3 id="heading-12">段階(ステージ)による管理 (Manage by stages)</h3><p><strong>要点</strong>: プロジェクトは、いくつかの管理ステージに分割して計画・監視・制御されます。プロジェクトボードは、次のステージが始まる前にそのステージの計画を承認します。</p><ul><li><strong>適用の仕方</strong>: 小規模・低リスクなプロジェクトはステージ数を少なく、大規模・高リスクなプロジェクトはステージを細かく区切る。</li><li><strong>Practitioner的な視点</strong>: 「プロジェクトマネージャーが次のステージの計画をプロジェクトボードの承認なしに開始した」は典型的な違反シナリオです。</li></ul><h3 id="heading-13">例外による管理 (Manage by exception)</h3><p><strong>要点</strong>: 各管理レベルに、時間・コスト・品質・スコープ・リスク・便益・サステナビリティの各パフォーマンスターゲットについて「許容範囲(Tolerance)」が設定されます。許容範囲内であれば下位レベルは上位レベルの承認を待たずに業務を進められ、逸脱が予測される場合のみエスカレーションします。</p><ul><li><strong>適用の仕方</strong>: プロジェクトボードはプロジェクトマネージャーへステージトレランスを設定、プロジェクトマネージャーはチームマネージャーへワークパッケージトレランスを設定。</li><li><strong>Practitioner的な視点</strong>: 「許容範囲を超えそうなのに、プロジェクトマネージャーが独断で対応し、プロジェクトボードに報告しなかった」は明確な違反です。逆に「許容範囲内の軽微な遅延についてまでプロジェクトボードへ逐一報告を求める」のは、この原則の過剰適用(マイクロマネジメント)として問題視されます。</li></ul><h3 id="heading-14">プロダクトへのフォーカス (Focus on products)</h3><p><strong>要点</strong>: プロジェクトは「何を作るか(プロダクト)」を明確に定義し、それを基準に計画・品質確認・進捗管理を行います。活動(タスク)ベースではなく、成果物(プロダクト)ベースで考えることが重要です。</p><ul><li><strong>適用の仕方</strong>: プロダクトベースプランニング技法を用いる(後述)、Project Product Description(プロジェクトプロダクト記述書)とProduct Description(プロダクト記述書)を作成する。</li><li><strong>Practitioner的な視点</strong>: 品質基準やスコープの合意がプロダクト記述書に明記されないまま作業が進められている、というシナリオはこの原則違反を示します。</li></ul><h3 id="heading-15">プロジェクトに合わせたテーラリング (Tailor to suit the project)</h3><p><strong>要点</strong>: PRINCE2は「そのまま」使うものではなく、プロジェクトの規模・複雑さ・重要性・組織文化・リスクレベルなどに応じて<strong>調整して</strong>使うべきものです。ただし、原則そのものは調整できず、プラクティス・プロセス・役割・管理プロダクトの「適用の度合い・形式」を調整します。</p><ul><li><strong>Practitioner的な視点</strong>: この原則は試験全体を貫く最重要概念であり、独立したPart 7でも詳述します。</li></ul>
     </section>
 
       </main>
