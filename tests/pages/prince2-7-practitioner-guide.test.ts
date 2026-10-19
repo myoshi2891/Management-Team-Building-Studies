@@ -133,3 +133,14 @@ describe("原本カテゴリー: roles-responsibilities", () => {
     expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[6]!.diagrams);
   });
 });
+
+describe("原本カテゴリー: v7-new-elements", () => {
+  it("見出し・段落全文・リスト構造・表の全セル・強調・リンクが順序込みで一致する", () => {
+    expect(snapshot(mountPage().get("#v7-new-elements").element)).toEqual(expected.sections[7]!.content);
+  });
+  it("図解のソースと出現順が原本と完全一致し、ラッパー内に配置される", () => {
+    const section = mountPage().get("#v7-new-elements");
+    expect(section.findAll('[data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[7]!.diagrams);
+    expect(section.findAll('.mermaid-wrap [data-testid="mermaid"]').map(n => n.text().trim())).toEqual(expected.sections[7]!.diagrams);
+  });
+});
