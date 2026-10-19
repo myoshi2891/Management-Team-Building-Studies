@@ -88,6 +88,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { id: "pc-itil", programId: "peoplecert", navLabel: "ITIL", cardLabel: "ITIL" },
       { id: "pc-mop", programId: "peoplecert", navLabel: "MoP", cardLabel: "MOP" },
       { id: "pc-msp", programId: "peoplecert", navLabel: "MSP", cardLabel: "MSP" },
+      { id: "pc-prince2", programId: "peoplecert", navLabel: "PRINCE2", cardLabel: "PRINCE2" },
       { id: "book-management", programId: "management", navLabel: "マネジメントの原典", cardLabel: "MANAGEMENT CLASSICS" },
       { id: "book-leadership", programId: "leadership", navLabel: "リーダーシップの実践", cardLabel: "LEADERSHIP PRACTICE" },
       { id: "book-team", programId: "team", navLabel: "チームづくり", cardLabel: "TEAM BUILDING" },
@@ -164,6 +165,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/mop-foundation-guide", programId: "peoplecert", seriesId: "pc-mop", navLabel: "MoP 完全ガイド" },
       { to: "/msp-foundation-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP 完全ガイド" },
       { to: "/msp-practitioner-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP Practitioner 完全ガイド" },
+      { to: "/prince2-7-foundation-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Foundation" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },
@@ -284,7 +286,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       ...GUIDE_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 71);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 72);
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -293,7 +295,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 52, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
+      { id: "certifications", count: 53, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
       { id: "books", count: 13, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
@@ -343,6 +345,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
           { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)", "ITIL Service (v5)", "ITIL Strategy (v5)", "ITIL Transformation (v5)"] },
           { seriesId: "pc-mop", guides: ["MoP 完全ガイド"] },
           { seriesId: "pc-msp", guides: ["MSP 完全ガイド", "MSP Practitioner 完全ガイド"] },
+          { seriesId: "pc-prince2", guides: ["PRINCE2 7 Foundation"] },
         ],
       },
       {

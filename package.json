@@ -91,7 +91,8 @@
     "audit:itil-transformation-v5": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Itil-transformation-v5-study-guide/Itil-transformation-v5-study-guide.html app/pages/itil-transformation-v5-study-guide.vue",
     "audit:mop-foundation": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Mop-foundation-guide/Mop-foundation-guide.html app/pages/mop-foundation-guide.vue",
     "audit:msp-foundation": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-foundation-5th-edition-guide/Msp-foundation-5th-edition-guide.html app/pages/msp-foundation-5th-edition-guide.vue",
-    "audit:msp-practitioner": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-practitioner-5th-edition-guide/Msp-practitioner-5th-edition-guide.html app/pages/msp-practitioner-5th-edition-guide.vue"
+    "audit:msp-practitioner": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-practitioner-5th-edition-guide/Msp-practitioner-5th-edition-guide.html app/pages/msp-practitioner-5th-edition-guide.vue",
+    "audit:prince2-7": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Prince2-7-foundation-guide/Prince2-7-foundation-guide.html app/pages/prince2-7-foundation-guide.vue"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.17.0",
