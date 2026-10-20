@@ -86,11 +86,18 @@ const SUMMARY_SERVICE_HOSTS = ["shortform.com", "readingraphics.com", "blinkist.
  * 認定団体の「公式」に準拠した教材であるかのような表示（提携・承認の誤認を招く）。
  * 「〜に基づく非公式ガイド」のように書く。出典の説明（「公式サイトの記載に基づく。」「〜に準拠しています」）は対象外。
  */
-const OFFICIAL_ENDORSEMENT_CLAIM = /(?<!非)公式[^<>"。、]{0,40}?(?:準拠(?!し)|に基づく(?:学習ガイド|解説|学習リソース)|に沿った学習ガイド)/g;
+const OFFICIAL_ENDORSEMENT_CLAIM =
+  /(?<!非)公式[^<>"。、]{0,40}?(?:準拠(?!しています)|に基づく(?:学習ガイド|解説|学習リソース|完全ガイド)|に沿った学習ガイド)/g;
 
 /** タグを除去する。`公式<strong>ECO</strong>準拠` のようにタグで分断された表示も同じ文として照合するため。 */
 function stripTags(source: string): string {
   return source.replace(/<[^>]*>/g, "");
+}
+
+/** 大文字小文字を無視して禁止語を探す（`Scribd.com` や `PASSITEXAMS` のような表記揺れで素通りさせない）。 */
+function findTerms(source: string, terms: readonly string[]): string[] {
+  const normalized = source.toLowerCase();
+  return terms.filter((term) => normalized.includes(term.toLowerCase()));
 }
 
 /**
@@ -132,7 +139,7 @@ describe("公開ページの法的表示", () => {
 
   it("試験問題の流出を扱うサイトへリンクしない（見合わせ中のページを含む）", () => {
     const hits = ALL.flatMap(({ route, source }) =>
-      EXAM_DUMP_DOMAINS.filter((domain) => source.includes(domain)).map((domain) => `${route}: ${domain}`),
+      findTerms(source, EXAM_DUMP_DOMAINS).map((domain) => `${route}: ${domain}`),
     );
 
     expect(hits).toEqual([]);
@@ -140,7 +147,7 @@ describe("公開ページの法的表示", () => {
 
   it("権利者の許諾が確認できない複製物へリンクしない（見合わせ中のページを含む）", () => {
     const hits = ALL.flatMap(({ route, source }) =>
-      UNAUTHORIZED_COPY_HOSTS.filter((host) => source.includes(host)).map((host) => `${route}: ${host}`),
+      findTerms(source, UNAUTHORIZED_COPY_HOSTS).map((host) => `${route}: ${host}`),
     );
 
     expect(hits).toEqual([]);
@@ -148,7 +155,7 @@ describe("公開ページの法的表示", () => {
 
   it("試験問題の流出を扱うサイトの名称を出典に残さない（見合わせ中のページを含む）", () => {
     const hits = ALL.flatMap(({ route, source }) =>
-      EXAM_DUMP_NAMES.filter((name) => source.includes(name)).map((name) => `${route}: ${name}`),
+      findTerms(source, EXAM_DUMP_NAMES).map((name) => `${route}: ${name}`),
     );
 
     expect(hits).toEqual([]);
@@ -156,7 +163,7 @@ describe("公開ページの法的表示", () => {
 
   it("公開ページは書籍の要約サービスを出典にしない", () => {
     const hits = PUBLISHED.flatMap(({ route, source }) =>
-      SUMMARY_SERVICE_HOSTS.filter((host) => source.includes(host)).map((host) => `${route}: ${host}`),
+      findTerms(source, SUMMARY_SERVICE_HOSTS).map((host) => `${route}: ${host}`),
     );
 
     expect(hits).toEqual([]);
@@ -216,6 +223,9 @@ it.each([
   "Scrum.org公式情報に基づく学習リソース",
   "PeopleCert 公式シラバス v2.0 に沿った学習ガイド",
   "PMI公式<strong>ECO</strong>準拠",
+  "PMI公式ECOに準拠した学習ガイド",
+  "PeopleCert公式シラバスv5.0に準拠したITIL Foundation (Version 5) の完全学習ガイド",
+  "PMI公式ECOに基づく完全ガイド",
 ])("公式準拠をうたう表示を検出する: %s", (claim) => {
   expect([...stripTags(claim).matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toHaveLength(1);
 });
