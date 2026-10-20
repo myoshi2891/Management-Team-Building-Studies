@@ -634,7 +634,7 @@ useSeoMeta({
           <div class="callout source" data-variant="source" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
-              <li>Open Exam Prep「Free MSP Foundation Practice Exam」解説、TrustedInstitute「MSP Processes and Programme Lifecycle Flashcards」</li>
+              <li>TrustedInstitute「MSP Processes and Programme Lifecycle Flashcards」</li>
             </ul>
           </div>
 
@@ -661,7 +661,7 @@ useSeoMeta({
           <div class="callout source" data-variant="source" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
-              <li>Good e-Learning「MSP 5th Edition Foundation & Practitioner」コース概要、Open Exam Prep解説記事</li>
+              <li>Good e-Learning「MSP 5th Edition Foundation & Practitioner」コース概要</li>
             </ul>
           </div>
 
@@ -725,12 +725,6 @@ useSeoMeta({
             <div class="diagram-caption">Decisions テーマ(意思決定)</div>
           </div>
 
-          <div class="callout source" data-variant="source" data-testid="callout">
-            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
-            <ul>
-              <li>Passitexams「MSP Practitioner 5th Ed Study Guide」、Open Exam Prep解説記事</li>
-            </ul>
-          </div>
         </section>
 
         <!-- Section 7 -->
@@ -952,12 +946,6 @@ useSeoMeta({
             </ul>
           </div>
 
-          <div class="callout source" data-variant="source" data-testid="callout">
-            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
-            <ul>
-              <li>Passitexams「MSP Practitioner 5th Ed Study Guide」、Open Exam Prep解説記事</li>
-            </ul>
-          </div>
         </section>
 
         <!-- Section 11 -->

@@ -276,7 +276,7 @@ describe("pages/cal2-part2-developing-as-a-leader.vue — 個別要素契約", (
 
   it("ヒーローセクションの要素を正しく描画する", () => {
     const wrapper = mountPage();
-    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance公式カリキュラムに基づく解説");
+    expect(wrapper.find(".hero-eyebrow").text()).toContain("Scrum Alliance カリキュラムに基づく非公式解説");
     expect(wrapper.find(".hero-lede").text()).toContain("Part 2「Developing as a Leader」");
     expect(wrapper.findAll(".stat-card")).toHaveLength(4);
     expect(wrapper.find(".disclaimer-box").text()).toContain("非公式の解説資料");

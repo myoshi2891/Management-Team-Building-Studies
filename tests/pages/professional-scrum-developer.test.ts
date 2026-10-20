@@ -279,7 +279,7 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: ["Professional Scrum Developer", "PSD I", "完全ガイド"],
-  seoTitle: "Professional Scrum Developer(PSD I)認定資格 完全ガイド | Scrum.org公式情報に基づく学習リソース",
+  seoTitle: "Professional Scrum Developer(PSD I)認定資格 完全ガイド | Scrum.org公開情報に基づく非公式学習リソース",
   seoDescription: "Scrum.orgのProfessional Scrum Developer(PSD I)認定資格について、4つのProfessional Scrum Competencies(出題範囲)を初学者向けにステップバイステップで解説する非公式の学習ガイドです。",
 });
 

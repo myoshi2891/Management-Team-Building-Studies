@@ -705,7 +705,6 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
         <div class="callout-title" data-testid="callout-label"><i class="ti ti-external-link"/>ソース</div>
         <ul>
           <li><a href="https://evansamek.substack.com/p/crucial-conversations-by-grenny-patterson" target="_blank" rel="noopener">Crucial Conversations, by Grenny, Patterson, et al.</a></li>
-          <li><a href="https://readingraphics.com/book-summary-crucial-conversations/" target="_blank" rel="noopener">Book Summary - Crucial Conversations (Kerry Patterson)</a></li>
           <li>Patterson, K., Grenny, J., McMillan, R., & Switzler, A. (2012). <em>Crucial Conversations: Tools for Talking When Stakes Are High</em> (2nd ed.). McGraw-Hill.</li>
         </ul>
       </div>
@@ -941,7 +940,6 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
         <h3>困難な会話</h3>
         <ul class="ref-list">
           <li><span class="ref-name">Crucial Conversations, by Grenny, Patterson, et al.</span><a class="ref-url" href="https://evansamek.substack.com/p/crucial-conversations-by-grenny-patterson" target="_blank" rel="noopener">https://evansamek.substack.com/p/crucial-conversations-by-grenny-patterson</a></li>
-          <li><span class="ref-name">Book Summary - Crucial Conversations (Kerry Patterson)</span><a class="ref-url" href="https://readingraphics.com/book-summary-crucial-conversations/" target="_blank" rel="noopener">https://readingraphics.com/book-summary-crucial-conversations/</a></li>
         </ul>
       </div>
 

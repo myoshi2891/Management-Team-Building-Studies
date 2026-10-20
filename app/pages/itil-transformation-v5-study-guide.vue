@@ -321,7 +321,7 @@ class S5,S6 done;`;
 
     <main id="main-content" class="main-content">
       <div class="hero">
-        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert公式シラバスに基づく学習ガイド</div>
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCertシラバスに基づく非公式学習ガイド</div>
         <h1>ITIL Transformation(Version 5) 学習ガイド</h1>
         <p class="hero-lede">
           初学者向け ステップバイステップ解説

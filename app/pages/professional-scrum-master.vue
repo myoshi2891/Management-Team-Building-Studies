@@ -226,7 +226,7 @@ class S9 done;`;
     <!-- ===================== Main content ===================== -->
     <main id="main-content" class="main-content">
       <div class="hero">
-        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公式アセスメント準拠</div>
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org アセスメント対策の非公式ガイド</div>
         <h1>Professional Scrum Master(PSM)認定ガイド</h1>
         <p class="hero-lede">
           初学者のためのステップバイステップ解説とベストプラクティス集

@@ -1,679 +1,438 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRINCE2® Agile Practitioner (Version 2) 認定資格 完全ガイド | 初学者向け学習ガイド</title>
-<meta name="description" content="PeopleCert PRINCE2 Agile Practitioner (Version 2) の出題範囲を、初学者向けにステップバイステップで解説し、ベストプラクティス・演習・根拠ソース URL をまとめた学習ガイド。">
-
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
-
-<style>
-  :root {
-    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
-    --color-paper:        #F6F7F9;
-    --color-paper-raised: #FFFFFF;
-    --color-paper-sunken: #EEF0F4;
-
-    --color-ink:          #161B26;
-    --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
-
-    --color-border:       #DFE3EA;
-    --color-border-strong:#C7CDD9;
-
-    --color-indigo:       #2E3F72;
-    --color-indigo-dark:  #1F2C57;
-    --color-indigo-tint:  #EEF1F8;
-
-    --color-gold:         #B8802A;
-    --color-gold-tint:    #FAF1DF;
-
-    --color-forest:       #1B6E6A;
-    --color-forest-tint:  #E7F3F2;
-
-    --color-plum:         #8C3A5C;
-    --color-plum-tint:    #F6EAEF;
-
-    --color-success-bg:    #EAF4EC;
-    --color-success-text:  #2F6B3D;
-    --color-success-border:#BFE0C6;
-
-    --color-info-bg:       #EEF1F8;
-    --color-info-text:     #2E3F72;
-    --color-info-border:   #C7D1EA;
-
-    /* ---- Typography ---- */
-    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-    --sidebar-width: 288px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--color-indigo); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
-
-  img, svg { max-width: 100%; }
-
-  .layout {
-    display: block;
-  }
-
-  /* ===================== Sidebar ===================== */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--color-paper-raised);
-    border-right: 1px solid var(--color-border);
-    padding: 32px 24px 40px;
-    z-index: 20;
-  }
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .seal {
-    flex: none;
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-text .brand-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--color-ink);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-text .brand-subtitle {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 2px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar-nav .nav-group-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.06em;
-    margin: 22px 0 8px;
-    padding-left: 12px;
-  }
-
-  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
-
-  .sidebar-nav li { margin: 2px 0; }
-
-  .sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--color-ink-soft);
-    font-size: 16px;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-  }
-
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
-
-  .sidebar-nav a:hover {
-    background: var(--color-indigo-tint);
-    text-decoration: none;
-    color: var(--color-indigo);
-  }
-
-  .sidebar-nav a.active {
-    background: var(--color-indigo-tint);
-    color: var(--color-indigo);
-    font-weight: 600;
-    border-left: 2px solid var(--color-indigo);
-  }
-
-  .sidebar-nav a.active i { color: var(--color-indigo); }
-
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 30;
-    background: var(--color-paper-raised);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  /* ===================== Main content ===================== */
-  .main-content {
-    margin-left: var(--sidebar-width);
-    padding: 56px 72px 120px;
-  }
-
-  .hero {
-    margin-bottom: 56px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  .hero-eyebrow i { font-size: 17px; }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.28;
-    margin: 0 0 16px;
-    color: var(--color-ink);
-  }
-
-  .hero .hero-lede {
-    font-size: 18px;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .stat-card .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--color-indigo);
-    line-height: 1.1;
-  }
-
-  .stat-card .stat-label {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .disclaimer-box {
-    border: 1px solid var(--color-info-border);
-    background: var(--color-info-bg);
-    color: var(--color-info-text);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-size: 16px;
-    margin-top: 28px;
-  }
-
-  section {
-    margin: 72px 0;
-    scroll-margin-top: 32px;
-  }
-
-  section:first-of-type { margin-top: 0; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 29px;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--color-ink);
-    margin: 40px 0 16px;
-  }
-
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-ink);
-    margin: 28px 0 12px;
-  }
-
-  p { margin: 0 0 18px; }
-
-  ul, ol { margin: 0 0 18px; padding-left: 24px; }
-  li { margin-bottom: 8px; }
-
-  strong { font-weight: 600; color: var(--color-ink); }
-
-  em { color: var(--color-ink-soft); }
-
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
-  /* ===================== Tables ===================== */
-  .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  thead th {
-    background: var(--color-paper-sunken);
-    text-align: left;
-    font-weight: 600;
-    color: var(--color-ink);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border-strong);
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-ink-soft);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--color-paper); }
-
-  td strong, th strong { color: var(--color-ink); }
-
-  /* ===================== Callouts ===================== */
-  .callout {
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-indigo);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 28px 0;
-  }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--color-indigo);
-    margin-bottom: 10px;
-  }
-
-  .callout ul { margin-bottom: 0; padding-left: 20px; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .callout.practice { border-left-color: var(--color-gold); }
-  .callout.practice .callout-title { color: var(--color-gold); }
-
-  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
-  .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source a { color: var(--color-forest); font-weight: 500; }
-  .callout.source ul { list-style: none; padding-left: 0; }
-  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
-
-  .callout.note { border-left-color: var(--color-plum); }
-  .callout.note .callout-title { color: var(--color-plum); }
-
-  /* ===================== Diagram containers ===================== */
-  .diagram-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 12px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-
-  .diagram-card .diagram-caption {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 14px;
-    text-align: center;
-  }
-
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
-
-  /* ===================== Glossary ===================== */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-
-  .glossary-item .g-term {
-    font-weight: 600;
-    color: var(--color-indigo);
-    margin-bottom: 4px;
-  }
-
-  .glossary-item .g-def {
-    color: var(--color-ink-soft);
-    font-size: 16px;
-  }
-
-  /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
-  .ref-list { list-style: none; margin: 0; padding: 0; }
-  .ref-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 16px;
-  }
-  .ref-list li:last-child { border-bottom: none; }
-  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
-  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
-
-  footer {
-    margin-top: 96px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-ink-faint);
-    font-size: 16px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
-  /* ===================== Checklist (interactive) ===================== */
-  .checklist { list-style: none; margin: 0 0 18px; padding-left: 0; }
-  .checklist li { margin-bottom: 10px; }
-  .check-item { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
-  .check-box {
-    flex: none;
-    width: 18px;
-    height: 18px;
-    margin: 5px 0 0;
-    accent-color: var(--color-indigo);
-    cursor: pointer;
-  }
-  .check-item .check-box:checked + .check-text { color: var(--color-ink-faint); text-decoration: line-through; }
-  .check-item .check-box:checked + .check-text strong { color: inherit; }
-  td.check-cell { text-align: center; }
-  td.check-cell .check-box { margin: 0; vertical-align: middle; }
-
-  /* ===================== Responsive ===================== */
-  @media (max-width: 980px) {
-    .sidebar-toggle { display: flex; }
-    .sidebar {
-      transform: translateX(-100%);
-      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
-      visibility: hidden;
-      transition: transform 0.2s ease, visibility 0.2s ease;
-      box-shadow: none;
-    }
-    .sidebar.open { transform: translateX(0); visibility: visible; }
-    .main-content { margin-left: 0; padding: 88px 24px 100px; }
-    .hero h1 { font-size: 32px; }
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
-    .glossary-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .sidebar { transition: none; }
-  }
-</style>
-</head>
-<body>
-
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
-
-<div class="layout">
-
-  <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
-    <div class="sidebar-brand">
-      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
-        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
-        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="brand-text">
-        <div class="brand-title">PRINCE2® Agile</div>
-        <div class="brand-subtitle">Practitioner (Version 2)</div>
-      </div>
-    </div>
-
-    <ul class="sidebar-nav">
-      <li class="nav-group-label">はじめに</li>
-      <li><a href="#how-to-use"><i class="ti ti-compass"></i>0. 使い方</a></li>
-      <li><a href="#exam-overview"><i class="ti ti-certificate"></i>1. 試験の全体像</a></li>
-      <li><a href="#study-roadmap"><i class="ti ti-route"></i>2. 学習ロードマップ</a></li>
-      <li class="nav-group-label">試験カテゴリ</li>
-      <li><a href="#key-concepts"><i class="ti ti-brain"></i>3. Key concepts</a></li>
-      <li><a href="#practices-roles"><i class="ti ti-users"></i>4. Practices と roles</a></li>
-      <li><a href="#processes"><i class="ti ti-git-branch"></i>5. Processes</a></li>
-      <li><a href="#wider-context"><i class="ti ti-rocket"></i>6. Wider context と AI</a></li>
-      <li class="nav-group-label">対策・資料</li>
-      <li><a href="#exam-strategy"><i class="ti ti-target"></i>7. 試験対策</a></li>
-      <li><a href="#practice-questions"><i class="ti ti-pencil"></i>8. 演習</a></li>
-      <li><a href="#glossary"><i class="ti ti-book-2"></i>9. 用語集</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>10. 参考資料</a></li>
-      <li class="nav-group-label">付録</li>
-      <li><a href="#appendix-a"><i class="ti ti-list-check"></i>付録 A 対応表</a></li>
-      <li><a href="#appendix-b"><i class="ti ti-clipboard-check"></i>付録 B 要照合</a></li>
-      <li><a href="#appendix-c"><i class="ti ti-flag-3"></i>付録 C 最終確認</a></li>
-    </ul>
-  </nav>
-
-  <!-- ===================== Main content ===================== -->
-  <main class="main-content">
-
-    <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert 公式シラバス v2.0 に沿った学習ガイド</div>
-      <h1>PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド</h1>
-      <p class="hero-lede">
-        <strong>対象試験</strong>: PeopleCert <strong>PRINCE2® Agile Practitioner (Version 2)</strong><br>
-        <strong>想定読者</strong>: プロジェクト管理・アジャイル開発の初学者〜中級者(PRINCE2 Agile Foundation (Version 2) 合格者、または合格を目指す方)<br>
-        <strong>作成日</strong>: 2026-09-20<br>
-        <strong>形式</strong>: 日本語解説(英語の公式用語は原語のまま保持) / 図解は Mermaid と Markdown 表のみ(ASCII 図解は不使用)
-      </p>
-
-      <div class="stat-row">
-        <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">各 1 点・誤答による減点なし</div></div>
-        <div class="stat-card"><div class="stat-number">30点</div><div class="stat-label">合格点(60%)</div></div>
-        <div class="stat-card"><div class="stat-number">150分</div><div class="stat-label">オープンブック(公式ブックのみ持ち込み可)</div></div>
-        <div class="stat-card"><div class="stat-number">44%</div><div class="stat-label">practices と roles の配点(最重要カテゴリ)</div></div>
-      </div>
-
-      <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
-        <strong>免責</strong>: 本ガイドは学習支援を目的とした独自の解説です。PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。試験の最終的な出題範囲・用語・定義は、<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-practitioner-4076" target="_blank" rel="noopener">PeopleCert の公式資料</a>(シラバス・公式ブック・サンプルペーパー)に従ってください。
-      </div>
-    </div>
-
-    <!-- ===================== 0. 使い方 ===================== -->
-    <section id="how-to-use">
-      <div class="section-eyebrow"><i class="ti ti-compass"></i>SECTION 01</div>
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+import { nextTick, ref } from "vue";
+import { useActiveHeading } from "~/composables/useActiveHeading";
+
+const LIGHT_THEME_VARS = {
+  fontSize: "16px",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+};
+
+const MINDMAP_THEME_VARS = {
+  fontSize: "15px",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  git0: "#2E3F72",
+  gitBranchLabel0: "#FFFFFF",
+  cScale0: "#2E3F72",
+  cScaleLabel0: "#FFFFFF",
+  cScaleInv0: "#1F2C57",
+  cScale1: "#EEF1F8",
+  cScaleLabel1: "#161B26",
+  cScaleInv1: "#2E3F72",
+  cScale2: "#E7F3F2",
+  cScaleLabel2: "#161B26",
+  cScaleInv2: "#1B6E6A",
+  cScale3: "#FAF1DF",
+  cScaleLabel3: "#161B26",
+  cScaleInv3: "#B8802A",
+  cScale4: "#F6EAEF",
+  cScaleLabel4: "#161B26",
+  cScaleInv4: "#8C3A5C",
+};
+
+const DIAGRAM_EXAM_MINDMAP = `mindmap
+  root((PRINCE2 Agile Practitioner v2))
+    カテゴリ1 Key concepts 20 percent
+      Agile と mindset
+      Agile Onion
+      7 aspects of project performance
+      Agile transformation
+      People と OCM
+      Team leadership と communication
+    カテゴリ2 Practices と Roles 44 percent
+      Business case
+      Organization
+      Plans
+      Quality
+      Risk
+      Issues
+      Progress
+      11 roles
+    カテゴリ3 Processes 30 percent
+      Starting up
+      Directing
+      Initiating
+      Controlling a stage
+      Managing product delivery
+      Managing a stage boundary
+      Closing
+    カテゴリ4 Wider context 6 percent
+      Agile product management
+      Transition to operations
+      Continuous development and operations
+      AI support`;
+
+const DIAGRAM_STUDY_ROADMAP = `flowchart LR
+A["Step 1 試験の型と 配点を知る"] --> B["Step 2 Key concepts Onion と 7 aspects"]
+B --> C["Step 3 7 Practices と 11 Roles"]
+C --> D["Step 4 7 Processes と Workshops"]
+D --> E["Step 5 Wider context と AI"]
+E --> F["Step 6 演習 と ブック索引作り"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E,F box;`;
+
+const DIAGRAM_AGILE_ONION_LAYERS = `flowchart LR
+M["Mindset 考え方"] --> V["Values 価値観"]
+V --> PR["Principles 原則"]
+PR --> PA["Practices 実践"]
+PA --> PO["Processes プロセス"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class M,V,PR,PA,PO box;`;
+
+const DIAGRAM_PRINCE2_ELEMENTS = `flowchart TB
+P["PRINCE2 Project Management"] --> A["Principles 原則"]
+P --> B["People 人"]
+P --> C["Practices 実践"]
+P --> D["Processes プロセス"]
+P --> E["Project context プロジェクトの文脈"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E box;
+class P hub;`;
+
+const DIAGRAM_TOLERANCE_LEVELS = `flowchart TB
+CORP["Corporate / Programme Project tolerance を設定"] --> BOARD["Project Board Stage tolerance を設定"]
+BOARD --> PM["Project Manager Work package tolerance を設定"]
+PM --> TEAM["Team Timebox 内で自己管理"]
+TEAM -.->|"tolerance 超過の恐れ"| PM
+PM -.->|"exception report"| BOARD
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class CORP,BOARD,PM,TEAM box;`;
+
+const DIAGRAM_TRANSFORMATION_CONCEPTS = `flowchart LR
+A["Agile transformation plan 2.7.1"] --> B["Agile maturity 2.7.3"]
+B --> C["Psychological safety 2.7.4"]
+C --> D["Agile sustainability 2.7.5"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;`;
+
+const DIAGRAM_TRANSFORMATION_LOOP = `flowchart LR
+V["ビジョンと目的 を明確化"] --> AS["現状と成熟度 を評価"]
+AS --> PL["変革計画を 作成"]
+PL --> PI["小さく試行 パイロット"]
+PI --> LE["学びを 振り返る"]
+LE --> SC["範囲を 拡大"]
+SC --> SU["定着 持続化"]
+SU -.->|"再評価"| AS
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class V,AS,PL,PI,LE,SC,SU box;`;
+
+const DIAGRAM_TEAM_COLLABORATION = `flowchart TB
+L["Leaders 環境づくりと障害除去"] --> T1["Team A"]
+L --> T2["Team B"]
+L --> T3["Team C"]
+T1 <-->|"依存関係の同期"| T2
+T2 <-->|"依存関係の同期"| T3
+T1 --> G["共通のゴールと product vision"]
+T2 --> G
+T3 --> G
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class L,T1,T2,T3,G box;`;
+
+const DIAGRAM_FIT_FOR_PURPOSE_FLOW = `flowchart TD
+S["シナリオの状況を把握 制約 成熟度 契約 規制"] --> Q1{"目的 purpose を果たしているか"}
+Q1 -- "No" --> X1["不適切 目的を損なう tailoring"]
+Q1 -- "Yes" --> Q2{"PRINCE2 Agile の guidance に沿うか"}
+Q2 -- "No" --> X2["不適切 guidance と矛盾"]
+Q2 -- "Yes" --> Q3{"必要な management products が機能するか"}
+Q3 -- "No" --> X3["不足 統制や記録が欠落"]
+Q3 -- "Yes" --> Q4{"文脈に合っているか 過剰 過少でない"}
+Q4 -- "No" --> X4["不適合 軽すぎる または 重すぎる"]
+Q4 -- "Yes" --> OK["有効 fit for purpose"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class S,Q1,X1,Q2,X2,Q3,X3,Q4,X4 box;
+class OK done;`;
+
+const DIAGRAM_ORGANIZATION_STRUCTURE = `flowchart TB
+PB["Project Board Executive CPO Senior supplier"] --> PMGR["Project Manager"]
+PB -.-> PA["Project Assurance"]
+PMGR --> PS["Project Support"]
+AC["Agile coach"] -.-> PMGR
+PMGR --> TEAMA["Team A PO Team coach Developers Testers"]
+PMGR --> TEAMB["Team B PO Team coach Developers Testers"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PB,PMGR,PA,PS,AC,TEAMA,TEAMB box;`;
+
+const DIAGRAM_PLAN_HIERARCHY = `flowchart TB
+A["Project plan / Release map 全体の見通し 粗い"] --> B["Stage plan stage 内の見通し"]
+B --> C["Team plan iteration ごとの計画 詳細"]
+C --> D["Work package description チームへの委任内容"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;`;
+
+const DIAGRAM_DOR_DOD_FLOW = `flowchart LR
+BL["Product backlog の項目"] --> DR{"Definition of Ready 着手できる状態か"}
+DR -- "Yes" --> WK["チームが作業"]
+DR -- "No" --> RF["Refinement で明確化"]
+RF --> DR
+WK --> DD{"Definition of Done 完成の条件を満たすか"}
+DD -- "Yes" --> INC["完成 リリース可能な増分"]
+DD -- "No" --> WK
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class BL,DR,WK,RF,DD box;
+class INC done;`;
+
+const DIAGRAM_AGILOMETER_CYCLE = `flowchart LR
+A["Agilometer で 現状を評価"] --> B["リスクが高い 領域を特定"]
+B --> C["対応策を検討 tailoring や risk register へ"]
+C --> D["定期的に再評価 stage 境界など"]
+D -.->|"状況の変化"| A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D box;`;
+
+const DIAGRAM_ISSUE_HANDLING_FLOW = `flowchart TD
+I["Issue が発生 変更要求 問題 懸念"] --> R["Issue register に記録"]
+R --> E{"Tolerance の 範囲内か"}
+E -- "範囲内" --> L["チーム 現場で解決 例 backlog の優先順位調整"]
+E -- "範囲を超える" --> P["Issue report を作成 PM に escalate"]
+P --> B["Project Board が判断"]
+L --> LL["Lessons log に学びを記録"]
+B --> LL
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class I,R,E,L,P,B,LL box;`;
+
+const DIAGRAM_ROLES_RELATIONSHIP = `flowchart TB
+subgraph DIR["Direction Project Board"]
+PE["Project executive"]
+CPO["Chief product owner"]
+SS["Senior supplier"]
+end
+subgraph MGT["Management"]
+PM["Project manager"]
+PSUP["Project support"]
+end
+subgraph DEL["Delivery Team"]
+PO["Product owner"]
+TC["Team coach"]
+DEV["Developer"]
+TST["Tester"]
+end
+PA["Project assurance"]
+AC["Agile coach"]
+DIR --> PM
+PM --> PSUP
+PM --> DEL
+PA -.-> DIR
+AC -.-> PM
+AC -.-> TC
+CPO --- PO
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PE,CPO,SS,PM,PSUP,PO,TC,DEV,TST,PA,AC box;`;
+
+const DIAGRAM_PROCESS_OVERVIEW = `flowchart TB
+SU["Starting up a project SU"] --> IP["Initiating a project IP"]
+IP --> CS["Controlling a stage CS"]
+CS <--> MP["Managing product delivery MP"]
+CS --> SB["Managing a stage boundary SB"]
+SB --> CS
+CS --> CP["Closing a project CP"]
+DP["Directing a project DP 全体を通じた Board の判断"] -.-> SU
+DP -.-> IP
+DP -.-> CS
+DP -.-> SB
+DP -.-> CP
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class SU,IP,CS,MP,SB,CP,DP box;`;
+
+const DIAGRAM_STAGE_TIMEBOX = `flowchart TB
+PRJ["Project"] --> ST1["Stage 1 管理上の判断単位"]
+PRJ --> ST2["Stage 2"]
+ST1 --> R1["Release 1"]
+ST1 --> R2["Release 2"]
+R1 --> IT1["Iteration 1 timebox"]
+R1 --> IT2["Iteration 2 timebox"]
+R2 --> IT3["Iteration 3 timebox"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class PRJ,ST1,ST2,R1,R2,IT1,IT2,IT3 box;`;
+
+const DIAGRAM_OPS_TRANSITION = `flowchart LR
+P["Project 増分を開発"] --> R["Release 段階的な引き渡し"]
+R --> O["Operations 運用 サポート 保守"]
+O -.->|"利用データ 障害 要望"| B["Product backlog へフィードバック"]
+B --> P
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class P,R,O,B box;`;
+
+const DIAGRAM_AI_REVIEW_FLOW = `flowchart LR
+A["AI が案を生成"] --> B["人がレビュー 正確性 偏り 機密"]
+B --> C{"DoD と 受入基準を満たすか"}
+C -- "Yes" --> D["採用 記録"]
+C -- "No" --> E["修正 または 却下"]
+E --> A
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,E box;
+class D done;`;
+
+const DIAGRAM_SCENARIO_READING_FLOW = `flowchart TD
+A["シナリオを通読 制約 契約 期限 体制 成熟度"] --> B["設問を読む 何を問われているか BL2 BL3 BL4"]
+B --> C["追加情報が必要か 人物の役割と発言"]
+C --> D["該当する practice または process を特定"]
+D --> E["公式ブックで guidance を確認"]
+E --> F["選択肢を消去 目的 guidance 文脈に反するものを除外"]
+F --> G["最適な 1 つを選ぶ"]
+classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+class A,B,C,D,E,F box;
+class G done;`;
+
+const TOC_IDS = [
+  "how-to-use",
+  "exam-overview",
+  "study-roadmap",
+  "key-concepts",
+  "practices-roles",
+  "processes",
+  "wider-context",
+  "exam-strategy",
+  "practice-questions",
+  "glossary",
+  "references",
+  "appendix-a",
+  "appendix-b",
+  "appendix-c",
+] as const;
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "PRINCE2® Agile Practitioner (Version 2) 認定資格 完全ガイド | 初学者向け学習ガイド",
+  description: "PeopleCert PRINCE2 Agile Practitioner (Version 2) の出題範囲を、初学者向けにステップバイステップで解説し、ベストプラクティス・演習・根拠ソース URL をまとめた学習ガイド。",
+});
+</script>
+
+<template>
+  <div>
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      :aria-expanded="sidebarOpen"
+      aria-controls="sidebar"
+      aria-label="目次を開閉する"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
+    <div class="layout">
+      <aside id="sidebar" class="sidebar" :class="{ 'is-open': sidebarOpen }" aria-label="目次">
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">PRINCE2® Agile</div>
+            <div class="brand-subtitle">Practitioner (Version 2)</div>
+          </div>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li class="nav-group-label">はじめに</li>
+          <li><a href="#how-to-use" :class="{ active: activeId === 'how-to-use' }" @click="closeSidebar"><Icon name="tabler:compass" aria-hidden="true" />0. 使い方</a></li>
+          <li><a href="#exam-overview" :class="{ active: activeId === 'exam-overview' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />1. 試験の全体像</a></li>
+          <li><a href="#study-roadmap" :class="{ active: activeId === 'study-roadmap' }" @click="closeSidebar"><Icon name="tabler:route" aria-hidden="true" />2. 学習ロードマップ</a></li>
+
+          <li class="nav-group-label">試験カテゴリ</li>
+          <li><a href="#key-concepts" :class="{ active: activeId === 'key-concepts' }" @click="closeSidebar"><Icon name="tabler:brain" aria-hidden="true" />3. Key concepts</a></li>
+          <li><a href="#practices-roles" :class="{ active: activeId === 'practices-roles' }" @click="closeSidebar"><Icon name="tabler:users" aria-hidden="true" />4. Practices と roles</a></li>
+          <li><a href="#processes" :class="{ active: activeId === 'processes' }" @click="closeSidebar"><Icon name="tabler:git-branch" aria-hidden="true" />5. Processes</a></li>
+          <li><a href="#wider-context" :class="{ active: activeId === 'wider-context' }" @click="closeSidebar"><Icon name="tabler:rocket" aria-hidden="true" />6. Wider context と AI</a></li>
+
+          <li class="nav-group-label">対策・資料</li>
+          <li><a href="#exam-strategy" :class="{ active: activeId === 'exam-strategy' }" @click="closeSidebar"><Icon name="tabler:target" aria-hidden="true" />7. 試験対策</a></li>
+          <li><a href="#practice-questions" :class="{ active: activeId === 'practice-questions' }" @click="closeSidebar"><Icon name="tabler:pencil" aria-hidden="true" />8. 演習</a></li>
+          <li><a href="#glossary" :class="{ active: activeId === 'glossary' }" @click="closeSidebar"><Icon name="tabler:book-2" aria-hidden="true" />9. 用語集</a></li>
+          <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />10. 参考資料</a></li>
+
+          <li class="nav-group-label">付録</li>
+          <li><a href="#appendix-a" :class="{ active: activeId === 'appendix-a' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />付録 A 対応表</a></li>
+          <li><a href="#appendix-b" :class="{ active: activeId === 'appendix-b' }" @click="closeSidebar"><Icon name="tabler:clipboard-check" aria-hidden="true" />付録 B 要照合</a></li>
+          <li><a href="#appendix-c" :class="{ active: activeId === 'appendix-c' }" @click="closeSidebar"><Icon name="tabler:flag-3" aria-hidden="true" />付録 C 最終確認</a></li>
+        </ul>
+      </aside>
+
+      <main class="main-content">
+        <div class="hero">
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert シラバス v2.0 に沿った非公式学習ガイド</div>
+          <h1>PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド</h1>
+          <p class="hero-lede">
+            <strong>対象試験</strong>: PeopleCert <strong>PRINCE2® Agile Practitioner (Version 2)</strong><br>
+            <strong>想定読者</strong>: プロジェクト管理・アジャイル開発の初学者〜中級者(PRINCE2 Agile Foundation (Version 2) 合格者、または合格を目指す方)<br>
+            <strong>作成日</strong>: 2026-09-20<br>
+            <strong>形式</strong>: 日本語解説(英語の公式用語は原語のまま保持) / 図解は Mermaid と Markdown 表のみ(ASCII 図解は不使用)
+          </p>
+
+          <div class="stat-row">
+            <div class="stat-card"><div class="stat-number">50問</div><div class="stat-label">各 1 点・誤答による減点なし</div></div>
+            <div class="stat-card"><div class="stat-number">30点</div><div class="stat-label">合格点(60%)</div></div>
+            <div class="stat-card"><div class="stat-number">150分</div><div class="stat-label">オープンブック(公式ブックのみ持ち込み可)</div></div>
+            <div class="stat-card"><div class="stat-number">44%</div><div class="stat-label">practices と roles の配点(最重要カテゴリ)</div></div>
+          </div>
+
+          <div class="disclaimer-box">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span><strong>免責</strong>: 本ガイドは学習支援を目的とした独自の解説です。PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。試験の最終的な出題範囲・用語・定義は、<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-practitioner-4076" target="_blank" rel="noopener">PeopleCert の公式資料</a>(シラバス・公式ブック・サンプルペーパー)に従ってください。</span>
+          </div>
+        </div>
+
+        <!-- 0. how-to-use -->
+        <section id="how-to-use">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:compass" aria-hidden="true" />SECTION 01</div>
       <h2>0. このガイドの使い方(最初に必ず読む)</h2>
 
       <h3>0.1 このガイドの位置づけ</h3>
@@ -694,8 +453,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>正直な注意</strong>: 公式ブック本文は本ガイド作成時に参照できていません。シラバス(一次資料)で確認できた範囲は【シラバス】、それ以外は【一般知識】または【要照合】と明示しています。試験ではブックの記述が正解の根拠になるため、【要照合】は特に優先して確認してください。</p>
       </div>
       <h3>0.3 各項目の解説フォーマット</h3>
@@ -709,9 +468,9 @@
       </ol>
     </section>
 
-    <!-- ===================== 1. 試験の全体像 ===================== -->
-    <section id="exam-overview">
-      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 02</div>
+        <!-- 1. exam-overview -->
+        <section id="exam-overview">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:certificate" aria-hidden="true" />SECTION 02</div>
       <h2>1. 試験の全体像</h2>
 
       <h3>1.1 試験概要 【シラバス】</h3>
@@ -744,8 +503,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>読み方</strong>: 合格には 30 問が必要です。<strong>カテゴリ 2 と 3 で全体の 74%</strong> を占めます。ここ(practices と processes)を最優先で固めるのが最短ルートです。</p>
       </div>
       <h3>1.3 Foundation との違い(何が「上がる」のか)</h3>
@@ -762,20 +521,36 @@
         </table>
       </div>
       <h3>1.4 試験構造のマインドマップ</h3>
-      <div class="diagram-card">
-        <div class="diagram-container" id="examMindmap"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">試験構造のマインドマップ</div>
+      <div class="mermaid-wrap mindmap-wrap">
+        <div class="mindmap-legend" aria-label="試験カテゴリの配点凡例">
+          <span class="mindmap-legend-item d1"><span class="legend-dot" />カテゴリ 1: Key concepts (20%)</span>
+          <span class="mindmap-legend-item d2"><span class="legend-dot" />カテゴリ 2: Practices &amp; Roles (44%)</span>
+          <span class="mindmap-legend-item d3"><span class="legend-dot" />カテゴリ 3: Processes (30%)</span>
+          <span class="mindmap-legend-item d4"><span class="legend-dot" />カテゴリ 4: Wider context (6%)</span>
+        </div>
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_EXAM_MINDMAP" theme="base" :theme-variables="MINDMAP_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">試験構造のマインドマップ(4 カテゴリの配点・主要テーマ一覧)</div>
       </div>
     </section>
 
-    <!-- ===================== 2. 学習ロードマップ ===================== -->
-    <section id="study-roadmap">
-      <div class="section-eyebrow"><i class="ti ti-route"></i>SECTION 03</div>
+        <!-- 2. study-roadmap -->
+        <section id="study-roadmap">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:route" aria-hidden="true" />SECTION 03</div>
       <h2>2. 学習ロードマップ</h2>
 
       <h3>2.1 推奨ステップ</h3>
-      <div class="diagram-card">
-        <div class="diagram-container" id="studyRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_STUDY_ROADMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">推奨ステップ</div>
       </div>
       <h3>2.2 4 週間学習プラン(例)</h3>
@@ -799,20 +574,20 @@
         <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>Scrum</strong> の主要な roles・events・artifacts を言える</span></label></li>
         <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>product backlog / user story / MoSCoW / burn chart</strong> が何かを説明できる</span></label></li>
       </ul>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p>1 つでも不安な場合は、まず第 3 章の 3.1〜3.4 から読み進めてください(必要な前提を初学者向けに補っています)。</p>
       </div>
     </section>
 
-    <!-- ===================== 3. Key concepts ===================== -->
-    <section id="key-concepts">
-      <div class="section-eyebrow"><i class="ti ti-brain"></i>SECTION 04</div>
-      <span class="domain-tag d1">カテゴリ 1 &middot; 配点 20%</span>
+        <!-- 3. key-concepts -->
+        <section id="key-concepts">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:brain" aria-hidden="true" />SECTION 04</div>
+      <span class="domain-tag d1">カテゴリ 1 · 配点 20%</span>
       <h2>3. Key concepts</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>カテゴリ 1 の学習ゴール</strong> 【シラバス】<br>
         アジャイルの必要性と「being / doing agile」の違いを説明し(BL2)、Agile Onion と mindset の特徴を適用し(BL3)、7 aspects of project performance と agile transformation の概念を適用し(BL3)、OCM・チームリーダーシップ・コミュニケーションを説明・適用できる。</p>
       </div>
@@ -853,16 +628,16 @@
             <tr><td>中身</td><td>practices(実践)と techniques(技法)を使う</td><td>mindset(考え方)と behaviours(振る舞い)を体現する</td></tr>
             <tr><td>例</td><td>daily stand-up、backlog、burn chart、retrospective を行う</td><td>透明性・信頼・協働・学習を日常の判断で実践する</td></tr>
             <tr><td>単独の限界</td><td>形だけ(「アジャイルごっこ」)になりやすい</td><td>実践がないと成果に結びつきにくい</td></tr>
-            <tr><td>目指す姿</td><td><strong>両方を組み合わせる</strong> ことで持続的な成果を得る</td><td></td></tr>
+            <tr><td>目指す姿</td><td><strong>両方を組み合わせる</strong> ことで持続的な成果を得る</td><td /></tr>
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>試験ポイント(BL2)</strong>: 「stand-up や backlog を導入したのに、チームが指示待ちで隠し事が多い」→ <strong>doing はできているが being が不足</strong> している、と説明できること。</p>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li>「導入する practice の数」ではなく、「<strong>どんな振る舞いを増やしたいか</strong>」から始める。</li>
         <li>リーダーが <strong>自ら振る舞いで示す</strong>(失敗の共有、意思決定の透明化)。</li>
@@ -878,8 +653,13 @@
       <h4>3.2.1 一言でいうと</h4>
       <p>Agile Onion は、アジャイルを <strong>玉ねぎのような層構造</strong> で捉えるモデルです。外から見える「手順」だけでなく、その根っこにある「考え方」まで含めて理解するための図です。</p>
       <h4>3.2.2 5 つの層 【シラバス(Foundation 1.1.7)】</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="agileOnionLayers"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_AGILE_ONION_LAYERS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">5 つの層 【シラバス(Foundation 1.1.7)】</div>
       </div>
       <div class="table-wrap">
@@ -894,8 +674,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【要照合】</strong> 上の図は「Mindset を最も内側の核、Processes を最も外側」と捉える一般的な玉ねぎの読み方で並べています。試験では <strong>5 つの層の名前</strong> が問われます(Foundation のシラバスで明記)。層の並び方向・図のキャプションは、公式ブック 2.6.1 の図で照合してください。</p>
       </div>
       <h4>3.2.3 Agile mindset の主要な特徴(1.1.3 b / 公式ブック 2.6.2)</h4>
@@ -939,14 +719,19 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>PRINCE2 Agile での対応関係(初学者向け)</strong>: PRINCE2 Agile の <strong>team roles(Product Owner / Team coach)や timebox(iteration)</strong> は Scrum 用語と対応づけて理解すると覚えやすくなります。ただし試験は <strong>PRINCE2 Agile の用語</strong> で答える必要があるため、Scrum 用語をそのまま使わず、公式ブックの用語で整理してください。</p>
       </div>
       <h3>3.4 PRINCE2 Project Management の基礎(シラバス 1.4.1 / 公式ブック 5.2〜5.4)</h3>
       <h4>3.4.1 5 つの統合要素 【シラバス(Foundation 1.2.3)】</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="prince2Elements"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_PRINCE2_ELEMENTS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">5 つの統合要素 【シラバス(Foundation 1.2.3)】</div>
       </div>
       <h4>3.4.2 7 principles と Agile 文脈での読み替え(1.2.1 / 公式ブック 5.6.1)</h4>
@@ -965,8 +750,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>試験ポイント(BL3)</strong>: シナリオの状況(例: 「ボードが毎週詳細な承認を求めている」)を見て、<strong>どの principle に反しているか</strong> を特定し、改善案を選ぶ。</p>
       </div>
       <h4>3.4.3 7 practices(一覧) 【シラバス】</h4>
@@ -984,8 +769,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p>目的の文言は【一般知識(PRINCE2 7 の考え方の要約)】です。シラバスのサンプル問題にも「逸脱を統制する目的の practice は？(答えは progress)」という形式が例示されています。<strong>各 practice の "purpose" は公式ブックの 6.1 / 7.1 / 8.1 / 9.1 / 10.1 / 11.1 / 12.1 で必ず照合</strong> してください。</p>
       </div>
       <h4>3.4.4 7 processes(一覧)</h4>
@@ -1006,8 +791,8 @@
       <h3>3.5 7 aspects of project performance と "fix and flex"(シラバス 1.2.2 / 公式ブック 3.3)</h3>
       <h4>3.5.1 一言でいうと</h4>
       <p>プロジェクトの成果は <strong>7 つの側面(aspects)</strong> で測ります。どれを「固定(fix)」し、どれを「柔軟(flex)」にするかを、ボードと合意しておくことが Agile 統制の核心です。</p>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>バージョンに関する注意</strong>: Version 1 の教材では「6 つの aspects(hexagon)」と説明されていました。Version 2 のシラバスは <strong>「seven aspects of project performance」</strong> と明記しています(【シラバス】)。旧版(6 つ)の資料と混同しないよう注意してください。</p>
       </div>
       <h4>3.5.2 7 aspects と Agile での典型的な扱い</h4>
@@ -1025,13 +810,18 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p>「どれを fix / flex にするか」は <strong>プロジェクトの文脈(規制、契約、納期の硬さ)で変わります</strong>。上表は典型例であり、試験ではシナリオの制約(例: 法規制対応の期限は動かせない)から判断してください。</p>
       </div>
       <h4>3.5.3 tolerance を階層で考える</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="toleranceLevels"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_TOLERANCE_LEVELS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">tolerance を階層で考える</div>
       </div>
       <p><strong>ステップバイステップ(fix &amp; flex の合意手順)</strong></p>
@@ -1050,15 +840,25 @@
       </ul>
       <h3>3.6 Agile transformation の主要概念(シラバス 1.2.3 / 公式ブック 2.7)</h3>
       <p>シラバスは次の 4 つの適用(BL3)を求めています。</p>
-      <div class="diagram-card">
-        <div class="diagram-container" id="transformationConcepts"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_TRANSFORMATION_CONCEPTS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">Agile transformation の主要概念(シラバス 1.2.3 / 公式ブック 2.7)</div>
       </div>
       <h4>3.6.1 Agile transformation plan(2.7.1)</h4>
       <p><strong>一言でいうと</strong>: 組織がアジャイルに変わっていくための「道筋の計画」です。</p>
       <p><strong>ステップバイステップ【一般知識】</strong></p>
-      <div class="diagram-card">
-        <div class="diagram-container" id="transformationLoop"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_TRANSFORMATION_LOOP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">Agile transformation plan(2.7.1)</div>
       </div>
       <ul>
@@ -1100,8 +900,8 @@
         <li><strong>仕組みの持続可能性</strong>: 継続的改善の習慣、リーダーの後押し、知見の共有。</li>
         <li><strong>成果の持続可能性</strong>: 運用に耐える品質、技術的負債の管理(7 aspects の Sustainability とも連動)。</li>
       </ul>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【要照合】</strong> 公式ブック 2.7.5 が Agile sustainability を上記のどの側面に重心を置いて定義しているかは、本文で確認してください。</p>
       </div>
       <h3>3.7 People と Organizational Change Management(OCM)(シラバス 1.3.1〜1.3.5 / 公式ブック 第 4 章)</h3>
@@ -1127,8 +927,8 @@
         <li><strong>小さな成功を作り、見える化</strong> する(アジャイルの増分提供は OCM を支援する: 4.2.4)。</li>
         <li><strong>継続的に対話・フィードバック</strong> し、抵抗を学びとして扱う。</li>
       </ol>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p>補足: OCM の代表的なモデルに <strong>Kotter の 8 ステップ</strong> や <strong>ADKAR</strong> があります(参照 URL は第 10 章)。<strong>シラバスは特定モデルの暗記を求めていません</strong>。あくまで理解の補助として使ってください。</p>
       </div>
       <h4>3.7.3 文化とアジャイル(4.2.3)</h4>
@@ -1152,8 +952,13 @@
         <li><strong>意思決定の所在</strong>: 誰がどの範囲で決められるか(decision rights)を明確化。</li>
         <li><strong>複数チーム</strong>: 共通のゴール、依存関係の可視化、<strong>チーム間の定期的な同期(sync)</strong>。</li>
       </ul>
-      <div class="diagram-card">
-        <div class="diagram-container" id="teamCollaboration"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_TEAM_COLLABORATION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">組織横断のチームを導く(4.3)とチーム構築(4.5)【一般知識 + 【要照合】】</div>
       </div>
       <h4>3.7.5 チーム内コミュニケーション(4.4)</h4>
@@ -1184,14 +989,14 @@
       </div>
     </section>
 
-    <!-- ===================== 4. Practices と roles ===================== -->
-    <section id="practices-roles">
-      <div class="section-eyebrow"><i class="ti ti-users"></i>SECTION 05</div>
-      <span class="domain-tag d2">カテゴリ 2 &middot; 配点 44%</span>
+        <!-- 4. practices-roles -->
+        <section id="practices-roles">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:users" aria-hidden="true" />SECTION 05</div>
+      <span class="domain-tag d2">カテゴリ 2 · 配点 44%</span>
       <h2>4. PRINCE2 Agile の practices と roles</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>最重要カテゴリです(約 22 問)。</strong> 7 つの practice それぞれについて、シラバスは次の 3 段階を求めます。</p>
       <ul>
         <li><strong>理解(BL2)</strong>: practice が agile 文脈でどう使われるか</li>
@@ -1214,12 +1019,17 @@
         </table>
       </div>
       <h4>BL4「fit for purpose か？」の判断フロー</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="fitForPurposeFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_FIT_FOR_PURPOSE_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">BL4「fit for purpose か？」の判断フロー</div>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>BL4 の鉄則</strong>: 選択肢が「もっともらしい」かどうかではなく、<strong>「目的を満たし、guidance と矛盾せず、シナリオの制約に合うか」</strong> で判定します。「重すぎる統制」も「軽すぎる統制」も、どちらも fit for purpose ではありません。</p>
       </div>
       <h3>4.2 Business case practice(シラバス 2.1.2 / 2.1.3 / 公式ブック 第 6 章)</h3>
@@ -1259,8 +1069,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li>business case を <strong>「承認文書」ではなく「生きたモデル」</strong> として扱う。</li>
         <li><strong>stage 境界ごと</strong> に、実績(リリース後の利用データ等)で便益仮説を検証する。</li>
@@ -1291,12 +1101,17 @@
         <li><strong>契約・調達を整える</strong>: <strong>commercial management approach</strong> で、供給者との契約(成果・変更の扱い・支払条件)が agile の働き方と整合するようにする。</li>
         <li><strong>ステークホルダーを関与させる</strong>: 定期的なレビュー・デモへの参加を設計する。</li>
       </ol>
-      <div class="diagram-card">
-        <div class="diagram-container" id="organizationStructure"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_ORGANIZATION_STRUCTURE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">ステップバイステップ解説</div>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【要照合】</strong> 上図は 11 roles の関係を一般的な構造で示したものです。各 role の <strong>位置づけ(誰が誰に報告するか・Board の構成員)</strong> は、公式ブック 7 章と Table 7.2 / Table B.1 で照合してください。</p>
       </div>
       <h4>4.3.3 推奨される management products / artifacts 【シラバス 2.1.4 a / 公式ブック 7.3.2】</h4>
@@ -1322,8 +1137,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li>責任の <strong>重複や空白</strong> を避ける(特に PM と Product Owner、PM と Team coach の境界)。</li>
         <li><strong>tolerance の範囲内は委譲</strong> し、Board は <strong>例外と主要な判断</strong> に集中する。</li>
@@ -1346,8 +1161,13 @@
       <h4>4.4.1 一言でいうと</h4>
       <p><strong>「何を・いつ・どんな順序で届けるか」の見通しを、粒度を変えながら共有する</strong> practice です。Agile では、<strong>遠い将来は粗く、近い将来は詳細に</strong> 計画します(計画は生きたもの)。</p>
       <h4>4.4.2 計画の階層(粗い → 詳細)</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="planHierarchy"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_PLAN_HIERARCHY" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">計画の階層(粗い → 詳細)</div>
       </div>
       <h4>4.4.3 ステップバイステップ解説</h4>
@@ -1398,8 +1218,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li><strong>近い将来は詳細、遠い将来は粗く</strong>(不確実性が高いほど詳細計画のムダが増える)。</li>
         <li><strong>チーム自身が見積り・計画</strong> を行う(当事者意識と精度が上がる)。</li>
@@ -1433,8 +1253,13 @@
         <li><strong>継続的に検証</strong>: テスト、レビュー、デモで、<strong>各 timebox 内で</strong> 品質を確認する。</li>
       </ol>
       <h4>4.5.3 DoR と DoD の違い(頻出)【シラバス(Foundation 1.1.11 / 9.3.2.1, 9.3.2.2)】</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="dorDodFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_DOR_DOD_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">DoR と DoD の違い(頻出)【シラバス(Foundation 1.1.11 / 9.3.2.1, 9.3.2.2)】</div>
       </div>
       <div class="table-wrap">
@@ -1447,8 +1272,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>暗記のコツ</strong>: Ready = <strong>入口</strong>、Done = <strong>出口</strong>。</p>
       </div>
       <h4>4.5.4 推奨される management products / artifacts / techniques 【シラバス 2.1.8 a / 公式ブック 9.3.2】</h4>
@@ -1478,8 +1303,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p>目安として、DSDM 由来の考え方では <strong>Must を全体の約 60% 程度以内に抑え</strong>、残りを調整余地(contingency)として残すことが推奨されています【一般知識】。<strong>具体的な割合は公式ブックの記述で確認</strong> してください【要照合】。</p>
       </div>
       <h4>4.5.5 関連する agile techniques 【シラバス 2.1.8 c / 公式ブック 9.4、一般知識】</h4>
@@ -1489,8 +1314,8 @@
         <li><strong>Review / demo</strong>: 利害関係者に動く成果物を見せ、<strong>受入れ</strong> を得る。</li>
         <li><strong>Tester の関与</strong>: 開発の早期から参加(後工程にしない)。</li>
       </ul>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li><strong>DoD は「全員が同じ完成の意味」を持つための合意</strong>。曖昧な DoD は隠れた未完成を生む。</li>
         <li>納期が厳しくても <strong>quality を下げて回避しない</strong>(scope を flex にする)。</li>
@@ -1524,12 +1349,17 @@
       </ol>
       <h4>4.6.3 Agilometer とは 【シラバス 2.1.10 a / 公式ブック 10.3.2】</h4>
       <p><strong>一言でいうと</strong>: <strong>「このプロジェクトは agile に向いているか、どこにリスクがあるか」</strong> を可視化する自己診断ツールです。</p>
-      <div class="diagram-card">
-        <div class="diagram-container" id="agilometerCycle"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_AGILOMETER_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">Agilometer とは 【シラバス 2.1.10 a / 公式ブック 10.3.2】</div>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【要照合】</strong> Agilometer の <strong>評価軸の名称・数・評価スケール</strong> は、版によって表現が異なり得るため、<strong>必ず公式ブック 10.3.2(サブセクション含む)で確認</strong> してください。試験では「Agilometer を <strong>どの目的で・いつ・どう使うか</strong>」が問われます。一般的な使い方は次のとおりです【一般知識】。</p>
       </div>
       <div class="table-wrap">
@@ -1583,8 +1413,13 @@
         <li><strong>範囲を超えるなら escalate</strong>: <strong>issue report</strong> を作成し、PM → Board へ。</li>
         <li><strong>結果を記録し、学びに反映</strong>: lessons log へ。</li>
       </ol>
-      <div class="diagram-card">
-        <div class="diagram-container" id="issueHandlingFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_ISSUE_HANDLING_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">ステップバイステップ解説</div>
       </div>
       <h4>4.7.3 推奨される management products / artifacts 【シラバス 2.1.12 a / 公式ブック 11.3.4】</h4>
@@ -1605,8 +1440,8 @@
         <li><strong>Kanban ボードの blocker 表示</strong>: 滞留を見える化する。</li>
         <li><strong>Team coach による障害除去</strong>: チーム単位の障害をリードして取り除く。</li>
       </ul>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li><strong>変更の受入れ窓口を軽量化</strong> し、全変更に承認会議を課さない。</li>
         <li><strong>tolerance の範囲内は委譲</strong>、範囲外だけ上位に escalate(management by exception)。</li>
@@ -1679,8 +1514,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>ポイント</strong>: burn-down は範囲が増えても「残りが減らない」ように見えるだけで <strong>原因(範囲増か遅延か)</strong> が分かりにくく、burn-up は <strong>範囲の変化を別線で示せる</strong> ため、原因の切り分けに優れます。</p>
       </div>
       <h4>4.8.5 関連する agile techniques 【一般知識・【要照合】12.4】</h4>
@@ -1702,8 +1537,8 @@
         <li>範囲内は <strong>現場の判断</strong> で調整し、<strong>超える恐れ</strong> が出たら <strong>exception report</strong> で上位に伝える。</li>
         <li>逸脱を統制するのが <strong>progress practice の目的の 1 つ</strong>(シラバスのサンプル問題で問われる形式)。</li>
       </ul>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li>進捗は <strong>「完了した(Done の)増分」</strong> で測る(「作業した量」ではなく)。</li>
         <li>報告書を作るのではなく、<strong>ダッシュボードで常時透明</strong> に。</li>
@@ -1745,13 +1580,18 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【要照合】</strong> ① CPO が Project Board 上で <strong>どの役割(従来の Senior user に相当する位置づけかなど)</strong> を担うか、② Agile coach と Team coach の <strong>担当範囲の境界</strong>、③ Project assurance の詳細な責任、は <strong>公式ブック Table 7.2 / Table B.1 で必ず確認</strong> してください。試験のシナリオ(追加情報)は、<strong>人物の肩書と発言</strong> から <strong>どの role の責任か</strong> を判断させる形で出題されます。</p>
       </div>
       <h4>4.9.3 役割の関係図</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="rolesRelationship"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_ROLES_RELATIONSHIP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">役割の関係図</div>
       </div>
       <h4>4.9.4 「誰が何を決めるか」早見表(シナリオ問題の判断に)</h4>
@@ -1770,8 +1610,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
       <ul>
         <li><strong>PM と PO の境界を明確に</strong>: PM は <strong>プロジェクトの統制(tolerance、報告、リスク)</strong>、PO は <strong>プロダクトの価値と優先順位</strong>。</li>
         <li><strong>Team coach は "管理者" ではない</strong>: チームの自己組織化を支援する立場。</li>
@@ -1792,21 +1632,26 @@
       </ul>
     </section>
 
-    <!-- ===================== 5. Processes ===================== -->
-    <section id="processes">
-      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 06</div>
-      <span class="domain-tag d3">カテゴリ 3 &middot; 配点 30%</span>
+        <!-- 5. processes -->
+        <section id="processes">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:git-branch" aria-hidden="true" />SECTION 06</div>
+      <span class="domain-tag d3">カテゴリ 3 · 配点 30%</span>
       <h2>5. PRINCE2 Agile の processes と workshops</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>カテゴリ 3 の学習ゴール</strong> 【シラバス 3.1.1 / 3.1.2】<br>
         7 つの process について、<strong>activities・関連する workshops・artifacts を agile 文脈で適用(BL3)</strong> し、<strong>tailoring が有効で fit for purpose か分析(BL4)</strong> できる。</p>
       </div>
       <h3>5.1 processes の全体像</h3>
       <h4>5.1.1 7 processes と流れ</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="processOverview"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_PROCESS_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">7 processes と流れ</div>
       </div>
       <div class="table-wrap">
@@ -1824,8 +1669,13 @@
         </table>
       </div>
       <h4>5.1.2 stage と timebox の関係(Agile の核心)</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="stageTimebox"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_STAGE_TIMEBOX" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">stage と timebox の関係(Agile の核心)</div>
       </div>
       <div class="table-wrap">
@@ -1838,8 +1688,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【一般知識】</strong> stage の長さは、<strong>計画の確からしさが保てる範囲</strong> で決めます(不確実性が高いほど短く)。具体的な目安は公式ブックの記述で確認してください【要照合】。</p>
       </div>
       <h4>5.1.3 tailoring を評価する共通チェックリスト(BL4 用)</h4>
@@ -1855,8 +1705,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>Workshops について【要照合】</strong>: シラバスは「process 別に agile workshops が支える」と述べ、各 process の 13.x.3 / 13.x.4 節(サブセクション含む)を参照しています。<strong>個々の workshop の名称・実施目的</strong> は公式ブック 13 章で必ず確認し、ブックにタブを付けてください。以下に示す workshop の例は、一般的なアジャイルの場(vision 共有・優先順位付け・計画・レビュー・振り返り等)に基づくもので、<strong>公式の名称と一致しない可能性</strong> があります。</p>
       </div>
       <h3>5.2 Starting up a project(SU)(公式ブック 13.2)</h3>
@@ -2096,14 +1946,14 @@
       </div>
     </section>
 
-    <!-- ===================== 6. Wider context と AI ===================== -->
-    <section id="wider-context">
-      <div class="section-eyebrow"><i class="ti ti-rocket"></i>SECTION 07</div>
-      <span class="domain-tag d4">カテゴリ 4 &middot; 配点 6%</span>
+        <!-- 6. wider-context -->
+        <section id="wider-context">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:rocket" aria-hidden="true" />SECTION 07</div>
+      <span class="domain-tag d4">カテゴリ 4 · 配点 6%</span>
       <h2>6. より広い文脈での適用</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>カテゴリ 4 の学習ゴール</strong> 【シラバス 4.1 / 4.2】<br>
         PRINCE2 Agile を <strong>プロジェクトの外側</strong> に適用し(BL3: agile product management、プロジェクトから運用への移行、継続的な開発と運用)、<strong>AI が PRINCE2 Agile をどう支援するか</strong> を理解する(BL2)。<br>
         <strong>配点は 6%(約 3 問)</strong> ですが、範囲が狭いので <strong>取りこぼさない</strong> のが得策です。</p>
@@ -2134,8 +1984,13 @@
       <p><strong>ベストプラクティス</strong>: <strong>プロダクトの長期的な責任者(PO)</strong> を明確にし、プロジェクトと継続開発の <strong>役割の連続性</strong> を保つ。<br>
         <strong>落とし穴</strong>: プロジェクトが終わった途端に <strong>責任者が不在</strong> になり、backlog が放置される。</p>
       <h3>6.3 プロジェクトから運用への移行(シラバス 4.1.2 / 公式ブック 14.2.1)</h3>
-      <div class="diagram-card">
-        <div class="diagram-container" id="opsTransition"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_OPS_TRANSITION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">プロジェクトから運用への移行(シラバス 4.1.2 / 公式ブック 14.2.1)</div>
       </div>
       <p><strong>ステップバイステップ【一般知識・【要照合】14.2.1】</strong></p>
@@ -2164,8 +2019,8 @@
       <p><strong>ベストプラクティス</strong>: <strong>自動化されたテストとデプロイ</strong>、監視、<strong>変更の可逆性(ロールバック)</strong> で、頻繁なリリースのリスクを下げる。<br>
         <strong>落とし穴</strong>: <strong>頻度だけを追い</strong>、品質・持続可能性の基準(DoD)を緩める。</p>
       <h3>6.5 AI による PRINCE2 Agile の支援(シラバス 4.2.1 / 公式ブック 15.4)</h3>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>BL2(理解)</strong> レベルです。<strong>「AI がどの要素をどう支援し得るか」と、その際の留意点</strong> を説明できれば十分です。<strong>具体的なサブセクションの内容は公式ブック 15.4 で確認</strong> してください【要照合】。以下は【一般知識】に基づく整理です。</p>
       </div>
       <h4>6.5.1 practice 別の支援例</h4>
@@ -2184,8 +2039,13 @@
         </table>
       </div>
       <h4>6.5.2 AI 活用のベストプラクティス</h4>
-      <div class="diagram-card">
-        <div class="diagram-container" id="aiReviewFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_AI_REVIEW_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">AI 活用のベストプラクティス</div>
       </div>
       <ul>
@@ -2202,9 +2062,9 @@
       </ul>
     </section>
 
-    <!-- ===================== 7. 試験対策 ===================== -->
-    <section id="exam-strategy">
-      <div class="section-eyebrow"><i class="ti ti-target"></i>SECTION 08</div>
+        <!-- 7. exam-strategy -->
+        <section id="exam-strategy">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:target" aria-hidden="true" />SECTION 08</div>
       <h2>7. 試験対策: オープンブックを最大限に活かす</h2>
 
       <h3>7.1 「暗記」より「索引」を作る</h3>
@@ -2233,8 +2093,8 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>ブック書き込みは許可されています</strong>(シラバスの記載)。ただし <strong>持ち込めるのは公式ブックのみ</strong> です。ノートや別紙は不可なので、<strong>ブック自体の余白</strong> に要点(例: 「Agilometer は再評価」「DoR=入口 / DoD=出口」)を書き込みましょう。</p>
       </div>
       <h3>7.2 時間配分</h3>
@@ -2250,13 +2110,18 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>誤答による減点はありません。</strong> 必ず全問に解答してください。</p>
       </div>
       <h3>7.3 シナリオ問題の読み方(ステップ)</h3>
-      <div class="diagram-card">
-        <div class="diagram-container" id="scenarioReadingFlow"><div class="diagram-loading">図を読み込み中...</div></div>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_SCENARIO_READING_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
         <div class="diagram-caption">シナリオ問題の読み方(ステップ)</div>
       </div>
       <h3>7.4 設問タイプ別の攻略</h3>
@@ -2314,28 +2179,31 @@
       </div>
     </section>
 
-    <!-- ===================== 8. 演習 ===================== -->
-    <section id="practice-questions">
-      <div class="section-eyebrow"><i class="ti ti-pencil"></i>SECTION 09</div>
+        <!-- 8. practice-questions -->
+        <section id="practice-questions">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:pencil" aria-hidden="true" />SECTION 09</div>
       <h2>8. 演習: シナリオ形式の練習問題(オリジナル)</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>注意</strong>: 以下は本ガイド用に作成した <strong>オリジナルの練習問題</strong> です(公式サンプルペーパーではありません)。形式(シナリオ + 追加情報 + 設問、Standard / Missing word / List)は公式シラバスの説明に合わせています。公式のサンプルペーパーは、PeopleCert の公式ページ・研修機関経由で入手して併用してください。</p>
       </div>
       <h3>8.1 プロジェクトシナリオ</h3>
-      <p><strong>「さくら銀行 モバイルアプリ刷新プロジェクト」</strong>(架空)</p>
-      <ul>
-        <li>地方銀行が、モバイルバンキングアプリを刷新する。<strong>新しい法規制への対応期限(9 か月後)は動かせない</strong>。</li>
-        <li>3 つのチーム(A: 口座、B: 決済、C: 基盤)、合計 24 名。<strong>大阪・東京の 2 拠点 + リモート</strong> の混在。</li>
-        <li>これまでは従来型(ウォーターフォール)で運営。最近、2 チームが Scrum を試行し始めた。</li>
-        <li>チーム C は外部供給者への委託で、<strong>契約は固定価格・固定範囲</strong>。</li>
-        <li>Project Board は <strong>毎週 40 ページの状況報告書</strong>(PM が手作業で作成)を求めている。</li>
-        <li>business case は <strong>2 年前に承認</strong> されたまま更新されていない。Agilometer は未実施。</li>
-        <li><strong>DoD は未定義</strong>。テストは各リリースの直前にまとめて実施している。</li>
-      </ul>
+      <div class="scenario-box">
+        <div class="scenario-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />CASE STUDY SCENARIO</div>
+        <p class="scenario-header"><strong>「さくら銀行 モバイルアプリ刷新プロジェクト」</strong>(架空)</p>
+        <ul class="scenario-list">
+          <li>地方銀行が、モバイルバンキングアプリを刷新する。<strong>新しい法規制への対応期限(9 か月後)は動かせない</strong>。</li>
+          <li>3 つのチーム(A: 口座、B: 決済、C: 基盤)、合計 24 名。<strong>大阪・東京の 2 拠点 + リモート</strong> の混在。</li>
+          <li>これまでは従来型(ウォーターフォール)で運営。最近、2 チームが Scrum を試行し始めた。</li>
+          <li>チーム C は外部供給者への委託で、<strong>契約は固定価格・固定範囲</strong>。</li>
+          <li>Project Board は <strong>毎週 40 ページの状況報告書</strong>(PM が手作業で作成)を求めている。</li>
+          <li>business case は <strong>2 年前に承認</strong> されたまま更新されていない。Agilometer は未実施。</li>
+          <li><strong>DoD は未定義</strong>。テストは各リリースの直前にまとめて実施している。</li>
+        </ul>
+      </div>
       <h3>8.2 追加情報(人物)</h3>
-      <div class="table-wrap">
+      <div class="table-wrap persona-table-wrap">
         <table>
           <thead><tr><th>氏名</th><th>役割</th><th>状況・発言</th></tr></thead>
           <tbody>
@@ -2350,109 +2218,307 @@
         </table>
       </div>
       <h3>8.3 設問</h3>
-      <p><strong>Q1(BL2・Standard)</strong><br>
-        次のうち、Agile Onion の層はどれか。</p>
-      <ul>
-        <li>A. Tolerance</li>
-        <li>B. Stage</li>
-        <li>C. Mindset</li>
-        <li>D. Benefit</li>
-      </ul>
-      <p><strong>Q2(BL2・Missing word)</strong><br>
-        次の文の空欄に入る語を選べ。<br>
-        「[ ? ] practice の目的の 1 つは、計画に対する実績を比較し、許容できない逸脱を統制することである。」</p>
-      <ul>
-        <li>A. business case</li>
-        <li>B. progress</li>
-        <li>C. organization</li>
-        <li>D. quality</li>
-      </ul>
-      <p><strong>Q3(BL3・Standard)</strong><br>
-        伊藤(チーム A の Product owner)は、backlog を変更するたびに森(Project executive)の承認を待っており、チームの作業が滞っている。<strong>issues practice</strong> の適用として <strong>もっとも適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. Board が管理を保つため、すべての変更に Project executive の承認を継続する</li>
-        <li>B. stage の終わりまで backlog を凍結する</li>
-        <li>C. Team coach がすべての変更を承認する</li>
-        <li>D. 合意した tolerance の範囲内であれば Product owner が backlog の優先順位を変更し、tolerance を超える恐れがある変更のみを escalate する</li>
-      </ul>
-      <p><strong>Q4(BL3・List)</strong><br>
-        Definition of Ready(DoR)と Definition of Done(DoD)について、<strong>正しい 2 つ</strong> の記述はどれか。</p>
-      <ol>
-        <li>DoR は、backlog の項目が着手できる状態にあるかを示す。</li>
-        <li>DoD は、項目が完成したとみなせる条件を示す。</li>
-        <li>納期が迫った場合、範囲を守るために DoD を緩めてよい。</li>
-        <li>DoR は、Project Board が stage を承認する条件である。</li>
-      </ol>
-      <ul>
-        <li>A. 1 と 2</li>
-        <li>B. 2 と 3</li>
-        <li>C. 3 と 4</li>
-        <li>D. 1 と 4</li>
-      </ul>
-      <p><strong>Q5(BL4・Standard)</strong><br>
-        Project Board は毎週 40 ページの状況報告書を求めており、PM が手作業で作成している。この運用の <strong>評価として最も適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. Board が統制を保つために詳細が必要なので、fit for purpose である</li>
-        <li>B. チームのボードや burn chart で既に見える情報の重複であり、fit for purpose ではない。project dashboard と例外報告への切り替えが望ましい</li>
-        <li>C. 月次にすれば fit for purpose になる</li>
-        <li>D. Board は進捗情報を一切受け取るべきではないため、fit for purpose ではない</li>
-      </ul>
-      <p><strong>Q6(BL3・Standard)</strong><br>
-        田中(PM)は、Agilometer を使い始めることにした。Agilometer の使い方として <strong>もっとも適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. プロジェクト開始時にのみ使う</li>
-        <li>B. プロジェクト終了時にのみ使う</li>
-        <li>C. 開始時に使い、その後も stage 境界や状況が変化したときに再評価する</li>
-        <li>D. exception report を出したときにのみ使う</li>
-      </ul>
-      <p><strong>Q7(BL4・Standard)</strong><br>
-        チーム C の契約は固定価格・固定範囲で、Board は法規制対応の期限を守りたい。<strong>commercial management approach の tailoring として最も効果的</strong> なものはどれか。</p>
-      <ul>
-        <li>A. 範囲を固定のままにし、すべての変更を exception として扱う</li>
-        <li>B. 契約を解除し、すべてを社内で実施する</li>
-        <li>C. 柔軟性を得るため、契約から Must の項目を除外する</li>
-        <li>D. 価格と期限は維持しつつ、MoSCoW で範囲に優先順位を付け、法規制対応の Must は固定したまま、tolerance の範囲で Should / Could を入れ替えられるように契約の運用を見直す</li>
-      </ul>
-      <p><strong>Q8(BL3・Standard)</strong><br>
-        チーム B は、会議室に 5 名、リモートに 3 名がいる hybrid 環境で、リモートメンバーが議論に参加しづらい。<strong>hybrid 環境でのコミュニケーション</strong> の適用として <strong>最も適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. 会議室にいる人も含め、全員が個別にオンライン会議へ参加し、決定事項を共有ボードに記録する</li>
-        <li>B. 会議は会議室で行い、リモートメンバーには議事録を送る</li>
-        <li>C. リモートメンバーは review にのみ招待する</li>
-        <li>D. チームの会議をすべてメールに置き換える</li>
-      </ul>
-      <p><strong>Q9(BL4・Standard)</strong><br>
-        田中(PM)は、stage 境界(SB)で「plan は更新するが、business case は 2 年前に承認済みなので更新しない」と考えている。この考えの <strong>評価として最も適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. Board が承認済みであり、変更には新たな承認が必要なので、fit for purpose である</li>
-        <li>B. agile プロジェクトでは plan だけを更新すればよいので、fit for purpose である</li>
-        <li>C. fit for purpose ではない。SB では、実際の提供実績と便益のデータを用いて business case を更新し、継続的な事業上の正当性を確認すべきである</li>
-        <li>D. fit for purpose ではない。business case はチームが毎日更新すべきである</li>
-      </ul>
-      <p><strong>Q10(BL2・Standard)</strong><br>
-        PRINCE2 Agile を AI で支援する際の記述として <strong>もっとも適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. 時間が足りない場合、AI の出力は確認せずに採用してよい</li>
-        <li>B. AI は user story の下書きやリスクの要約を支援できるが、人が説明責任を持ち、成果物は DoD を満たす必要がある</li>
-        <li>C. AI は Project Board の意思決定を代行できる</li>
-        <li>D. AI を使えば quality management approach は不要になる</li>
-      </ul>
-      <p><strong>Q11(BL3・List)</strong><br>
-        PRINCE2 Agile の roles について、<strong>正しい 2 つ</strong> の記述はどれか。</p>
-      <ol>
-        <li>Product owner は、チームの product backlog の優先順位付けに責任を持つ。</li>
-        <li>Team coach は、チームメンバーのタスクを日次で割り当てる。</li>
-        <li>Agile coach は、組織レベルでの agile の導入・実践を支援する。</li>
-        <li>Project assurance は、Project manager に報告して独立性を保つ。</li>
-      </ol>
-      <ul>
-        <li>A. 1 と 3</li>
-        <li>B. 2 と 3</li>
-        <li>C. 1 と 4</li>
-        <li>D. 2 と 4</li>
-      </ul>
+      <div class="quiz-list">
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q1</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-2">BL2</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">次のうち、Agile Onion の層はどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Tolerance</li>
+            <li>B. Stage</li>
+            <li>C. Mindset</li>
+            <li>D. Benefit</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: C</span>
+              <span class="quiz-answer-exp">Agile Onion の層は Mindset / Values / Principles / Practices / Processes。Tolerance・Stage・Benefit は PRINCE2 の用語で、Onion の層ではない</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q2</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-2">BL2</span>
+                <span class="quiz-badge type-badge">Missing word</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">次の文の空欄に入る語を選べ。<br>「[ ? ] practice の目的の 1 つは、計画に対する実績を比較し、許容できない逸脱を統制することである。」</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. business case</li>
+            <li>B. progress</li>
+            <li>C. organization</li>
+            <li>D. quality</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: B</span>
+              <span class="quiz-answer-exp">「実績と計画の比較」「逸脱の統制」は <strong>progress</strong> の目的。business case は望ましさ・実行可能性の判断、organization は責任体制、quality は目的適合性が主眼</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q3</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">伊藤(チーム A の Product owner)は、backlog を変更するたびに森(Project executive)の承認を待っており、チームの作業が滞っている。<strong>issues practice</strong> の適用として <strong>もっとも適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Board が管理を保つため、すべての変更に Project executive の承認を継続する</li>
+            <li>B. stage の終わりまで backlog を凍結する</li>
+            <li>C. Team coach がすべての変更を承認する</li>
+            <li>D. 合意した tolerance の範囲内であれば Product owner が backlog の優先順位を変更し、tolerance を超える恐れがある変更のみを escalate する</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: D</span>
+              <span class="quiz-answer-exp">変更は agile では日常的。<strong>tolerance の範囲内は現場(Product owner)で調整</strong> し、<strong>超える恐れのあるもののみ escalate</strong>(management by exception)。A は Board の過剰統制、B は変化対応を阻害、C は Team coach に権限を移しても本質的な解決にならず、役割の趣旨(支援)にも反する</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q4</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">List</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">Definition of Ready(DoR)と Definition of Done(DoD)について、<strong>正しい 2 つ</strong> の記述はどれか。</span>
+          </p>
+          <ol class="quiz-statements">
+            <li>DoR は、backlog の項目が着手できる状態にあるかを示す。</li>
+            <li>DoD は、項目が完成したとみなせる条件を示す。</li>
+            <li>納期が迫った場合、範囲を守るために DoD を緩めてよい。</li>
+            <li>DoR は、Project Board が stage を承認する条件である。</li>
+          </ol>
+          <ul class="quiz-options">
+            <li>A. 1 と 2</li>
+            <li>B. 2 と 3</li>
+            <li>C. 3 と 4</li>
+            <li>D. 1 と 4</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: A</span>
+              <span class="quiz-answer-exp">DoR は <strong>入口</strong>(着手できる状態)、DoD は <strong>出口</strong>(完成の条件)。3 は quality を下げて範囲を守る選択で誤り(範囲= Should / Could を調整する)。4 は DoR の役割ではない</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q5</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-4">BL4</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">Project Board は毎週 40 ページの状況報告書を求めており、PM が手作業で作成している。この運用の <strong>評価として最も適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Board が統制を保つために詳細が必要なので、fit for purpose である</li>
+            <li>B. チームのボードや burn chart で既に見える情報の重複であり、fit for purpose ではない。project dashboard と例外報告への切り替えが望ましい</li>
+            <li>C. 月次にすれば fit for purpose になる</li>
+            <li>D. Board は進捗情報を一切受け取るべきではないため、fit for purpose ではない</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: B</span>
+              <span class="quiz-answer-exp">既にチームのボード・burn chart で見える情報の <strong>二重管理</strong> であり、透明性・効率の点で fit for purpose ではない。<strong>dashboard の常時公開 + 例外報告</strong> が推奨。頻度を月次にしても手作業の重複は解消しない(C)。Board が情報を受け取らないのも誤り(D)</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q6</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">田中(PM)は、Agilometer を使い始めることにした。Agilometer の使い方として <strong>もっとも適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. プロジェクト開始時にのみ使う</li>
+            <li>B. プロジェクト終了時にのみ使う</li>
+            <li>C. 開始時に使い、その後も stage 境界や状況が変化したときに再評価する</li>
+            <li>D. exception report を出したときにのみ使う</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: C</span>
+              <span class="quiz-answer-exp">Agilometer は <strong>初期に把握し、定期的(stage 境界など)や状況変化時に再評価</strong> する。一度きりの実施は不十分(A, B, D)</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q7</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-4">BL4</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">チーム C の契約は固定価格・固定範囲で、Board は法規制対応の期限を守りたい。<strong>commercial management approach の tailoring として最も効果的</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. 範囲を固定のままにし、すべての変更を exception として扱う</li>
+            <li>B. 契約を解除し、すべてを社内で実施する</li>
+            <li>C. 柔軟性を得るため、契約から Must の項目を除外する</li>
+            <li>D. 価格と期限は維持しつつ、MoSCoW で範囲に優先順位を付け、法規制対応の Must は固定したまま、tolerance の範囲で Should / Could を入れ替えられるように契約の運用を見直す</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: D</span>
+              <span class="quiz-answer-exp">価格・期限(法規制対応)を守りつつ、<strong>MoSCoW で Must を固定し Should / Could を柔軟にする</strong>。A は変化に対応できず、B は極端で非現実的、C は Must を外すと法規制対応が危うい</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q8</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">チーム B は、会議室に 5 名、リモートに 3 名がいる hybrid 環境で、リモートメンバーが議論に参加しづらい。<strong>hybrid 環境でのコミュニケーション</strong> の適用として <strong>最も適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. 会議室にいる人も含め、全員が個別にオンライン会議へ参加し、決定事項を共有ボードに記録する</li>
+            <li>B. 会議は会議室で行い、リモートメンバーには議事録を送る</li>
+            <li>C. リモートメンバーは review にのみ招待する</li>
+            <li>D. チームの会議をすべてメールに置き換える</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: A</span>
+              <span class="quiz-answer-exp">hybrid の情報格差を避けるため、<strong>全員が個別に接続する前提</strong> で会議を設計し、決定事項を <strong>共有ボードに記録</strong>。B, C, D はリモートメンバーを実質的に排除・遅延させる</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q9</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-4">BL4</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">田中(PM)は、stage 境界(SB)で「plan は更新するが、business case は 2 年前に承認済みなので更新しない」と考えている。この考えの <strong>評価として最も適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Board が承認済みであり、変更には新たな承認が必要なので、fit for purpose である</li>
+            <li>B. agile プロジェクトでは plan だけを更新すればよいので、fit for purpose である</li>
+            <li>C. fit for purpose ではない。SB では、実際の提供実績と便益のデータを用いて business case を更新し、継続的な事業上の正当性を確認すべきである</li>
+            <li>D. fit for purpose ではない。business case はチームが毎日更新すべきである</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: C</span>
+              <span class="quiz-answer-exp"><strong>continued business justification</strong>。SB は実績データで business case を更新する機会。B は誤り。D は頻度が過剰で、business case の役割にそぐわない</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q10</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-2">BL2</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">PRINCE2 Agile を AI で支援する際の記述として <strong>もっとも適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. 時間が足りない場合、AI の出力は確認せずに採用してよい</li>
+            <li>B. AI は user story の下書きやリスクの要約を支援できるが、人が説明責任を持ち、成果物は DoD を満たす必要がある</li>
+            <li>C. AI は Project Board の意思決定を代行できる</li>
+            <li>D. AI を使えば quality management approach は不要になる</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: B</span>
+              <span class="quiz-answer-exp">AI は <strong>支援ツール</strong>。人が説明責任を持ち、成果物は DoD・受入基準を満たす。A・C・D は典型的な誤答</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q11</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">List</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">PRINCE2 Agile の roles について、<strong>正しい 2 つ</strong> の記述はどれか。</span>
+          </p>
+          <ol class="quiz-statements">
+            <li>Product owner は、チームの product backlog の優先順位付けに責任を持つ。</li>
+            <li>Team coach は、チームメンバーのタスクを日次で割り当てる。</li>
+            <li>Agile coach は、組織レベルでの agile の導入・実践を支援する。</li>
+            <li>Project assurance は、Project manager に報告して独立性を保つ。</li>
+          </ol>
+          <ul class="quiz-options">
+            <li>A. 1 と 3</li>
+            <li>B. 2 と 3</li>
+            <li>C. 1 と 4</li>
+            <li>D. 2 と 4</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: A</span>
+              <span class="quiz-answer-exp">1 と 3 が正しい。2 は Team coach は自己組織化を <strong>支援</strong> する立場で、日次のタスク割当は行わない(自己組織化に反する)。4 は Project assurance は <strong>独立</strong> した立場であり、PM に報告して独立性を保つという記述は矛盾する</span>
+            </div>
+          </details>
+        </article>
+      </div>
       <h3>8.4 解答と解説</h3>
-      <div class="table-wrap">
+      <div class="table-wrap answer-summary-table-wrap">
         <table>
           <thead><tr><th>問</th><th>正解</th><th>解説</th></tr></thead>
           <tbody>
@@ -2471,7 +2537,7 @@
         </table>
       </div>
       <h3>8.5 自己採点の目安</h3>
-      <div class="table-wrap">
+      <div class="table-wrap score-guide-table-wrap">
         <table>
           <thead><tr><th>正解数(11 問中)</th><th>目安</th></tr></thead>
           <tbody>
@@ -2483,13 +2549,13 @@
       </div>
     </section>
 
-    <!-- ===================== 9. 用語集 ===================== -->
-    <section id="glossary">
-      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 10</div>
+        <!-- 9. glossary -->
+        <section id="glossary">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:book-2" aria-hidden="true" />SECTION 10</div>
       <h2>9. 用語集(英日対訳)</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>【要照合】</strong> 用語の定義は <strong>公式ブックの Glossary</strong> が正です。以下は初学者向けの要約です。</p>
       </div>
       <div class="glossary-grid">
@@ -2540,13 +2606,13 @@
       </div>
     </section>
 
-    <!-- ===================== 10. 参考資料 ===================== -->
-    <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 11</div>
+        <!-- 10. references -->
+        <section id="references">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:link" aria-hidden="true" />SECTION 11</div>
       <h2>10. 参考資料・根拠ソース(URL)</h2>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>凡例</strong>: 「一次」= 認定機関(PeopleCert)の公式情報、「二次」= 公式トレーニング提供者等による解説、「一般」= アジャイル・変革管理などの一般的な参考資料(本ガイド作成時の調査セッションでは本文を直接確認していないもの)。<br>
         <strong>本ガイドの試験範囲・配点・形式・章番号は、一次資料(シラバス v2.0)に基づきます。</strong></p>
       </div>
@@ -2602,16 +2668,16 @@
           </tbody>
         </table>
       </div>
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
       <p><strong>注意</strong>: 10.3 は理解の補助であり、<strong>試験の正解根拠は公式ブック</strong> です。URL は将来変更される可能性があるため、リンク切れの場合は各組織の公式サイトで再検索してください。</p>
       </div>
       </div>
     </section>
 
-    <!-- ===================== 付録 A 対応表 ===================== -->
-    <section id="appendix-a">
-      <div class="section-eyebrow"><i class="ti ti-list-check"></i>SECTION 12</div>
+        <!-- 付録 A -->
+        <section id="appendix-a">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:list-check" aria-hidden="true" />SECTION 12</div>
       <h2>付録 A: シラバス対応表(学習成果 → 本ガイド → 公式ブック)</h2>
 
       <div class="table-wrap">
@@ -2646,9 +2712,9 @@
       </div>
     </section>
 
-    <!-- ===================== 付録 B 要照合 ===================== -->
-    <section id="appendix-b">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-check"></i>SECTION 13</div>
+        <!-- 付録 B -->
+        <section id="appendix-b">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:clipboard-check" aria-hidden="true" />SECTION 13</div>
       <h2>付録 B: 【要照合】項目チェックリスト(公式ブックで必ず確認)</h2>
 
       <p>本ガイド作成時に、公式ブック本文を直接確認できていない項目です。<strong>ブックの該当箇所にタブと要点メモを付けて</strong> ください。</p>
@@ -2676,9 +2742,9 @@
       </div>
     </section>
 
-    <!-- ===================== 付録 C 最終確認 ===================== -->
-    <section id="appendix-c">
-      <div class="section-eyebrow"><i class="ti ti-flag-3"></i>SECTION 14</div>
+        <!-- 付録 C -->
+        <section id="appendix-c">
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:flag-3" aria-hidden="true" />SECTION 14</div>
       <h2>付録 C: 最終チェックリスト(試験前日)</h2>
 
       <ul class="checklist">
@@ -2695,437 +2761,1161 @@
       </ul>
     </section>
 
+        <footer>
+          <p>PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+</template>
 
-    <footer>
-      PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。
-    </footer>
+<style scoped>
+.layout {
+  display: block;
+}
 
-  </main>
-</div>
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
-<script>
-(function () {
-  "use strict";
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
 
-  var DIAGRAMS = {
-    examMindmap: `mindmap
-  root((PRINCE2 Agile Practitioner v2))
-    カテゴリ1 Key concepts 20 percent
-      Agile と mindset
-      Agile Onion
-      7 aspects of project performance
-      Agile transformation
-      People と OCM
-      Team leadership と communication
-    カテゴリ2 Practices と Roles 44 percent
-      Business case
-      Organization
-      Plans
-      Quality
-      Risk
-      Issues
-      Progress
-      11 roles
-    カテゴリ3 Processes 30 percent
-      Starting up
-      Directing
-      Initiating
-      Controlling a stage
-      Managing product delivery
-      Managing a stage boundary
-      Closing
-    カテゴリ4 Wider context 6 percent
-      Agile product management
-      Transition to operations
-      Continuous development and operations
-      AI support`,
-    studyRoadmap: `flowchart LR
-A["Step 1 試験の型と 配点を知る"] --> B["Step 2 Key concepts Onion と 7 aspects"]
-B --> C["Step 3 7 Practices と 11 Roles"]
-C --> D["Step 4 7 Processes と Workshops"]
-D --> E["Step 5 Wider context と AI"]
-E --> F["Step 6 演習 と ブック索引作り"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,D,E,F box;`,
-    agileOnionLayers: `flowchart LR
-M["Mindset 考え方"] --> V["Values 価値観"]
-V --> PR["Principles 原則"]
-PR --> PA["Practices 実践"]
-PA --> PO["Processes プロセス"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class M,V,PR,PA,PO box;`,
-    prince2Elements: `flowchart TB
-P["PRINCE2 Project Management"] --> A["Principles 原則"]
-P --> B["People 人"]
-P --> C["Practices 実践"]
-P --> D["Processes プロセス"]
-P --> E["Project context プロジェクトの文脈"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,D,E box;
-class P hub;`,
-    toleranceLevels: `flowchart TB
-CORP["Corporate / Programme Project tolerance を設定"] --> BOARD["Project Board Stage tolerance を設定"]
-BOARD --> PM["Project Manager Work package tolerance を設定"]
-PM --> TEAM["Team Timebox 内で自己管理"]
-TEAM -.->|"tolerance 超過の恐れ"| PM
-PM -.->|"exception report"| BOARD
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class CORP,BOARD,PM,TEAM box;`,
-    transformationConcepts: `flowchart LR
-A["Agile transformation plan 2.7.1"] --> B["Agile maturity 2.7.3"]
-B --> C["Psychological safety 2.7.4"]
-C --> D["Agile sustainability 2.7.5"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,D box;`,
-    transformationLoop: `flowchart LR
-V["ビジョンと目的 を明確化"] --> AS["現状と成熟度 を評価"]
-AS --> PL["変革計画を 作成"]
-PL --> PI["小さく試行 パイロット"]
-PI --> LE["学びを 振り返る"]
-LE --> SC["範囲を 拡大"]
-SC --> SU["定着 持続化"]
-SU -.->|"再評価"| AS
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class V,AS,PL,PI,LE,SC,SU box;`,
-    teamCollaboration: `flowchart TB
-L["Leaders 環境づくりと障害除去"] --> T1["Team A"]
-L --> T2["Team B"]
-L --> T3["Team C"]
-T1 <-->|"依存関係の同期"| T2
-T2 <-->|"依存関係の同期"| T3
-T1 --> G["共通のゴールと product vision"]
-T2 --> G
-T3 --> G
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class L,T1,T2,T3,G box;`,
-    fitForPurposeFlow: `flowchart TD
-S["シナリオの状況を把握 制約 成熟度 契約 規制"] --> Q1{"目的 purpose を果たしているか"}
-Q1 -- "No" --> X1["不適切 目的を損なう tailoring"]
-Q1 -- "Yes" --> Q2{"PRINCE2 Agile の guidance に沿うか"}
-Q2 -- "No" --> X2["不適切 guidance と矛盾"]
-Q2 -- "Yes" --> Q3{"必要な management products が機能するか"}
-Q3 -- "No" --> X3["不足 統制や記録が欠落"]
-Q3 -- "Yes" --> Q4{"文脈に合っているか 過剰 過少でない"}
-Q4 -- "No" --> X4["不適合 軽すぎる または 重すぎる"]
-Q4 -- "Yes" --> OK["有効 fit for purpose"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class S,Q1,X1,Q2,X2,Q3,X3,Q4,X4 box;
-class OK done;`,
-    organizationStructure: `flowchart TB
-PB["Project Board Executive CPO Senior supplier"] --> PMGR["Project Manager"]
-PB -.-> PA["Project Assurance"]
-PMGR --> PS["Project Support"]
-AC["Agile coach"] -.-> PMGR
-PMGR --> TEAMA["Team A PO Team coach Developers Testers"]
-PMGR --> TEAMB["Team B PO Team coach Developers Testers"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class PB,PMGR,PA,PS,AC,TEAMA,TEAMB box;`,
-    planHierarchy: `flowchart TB
-A["Project plan / Release map 全体の見通し 粗い"] --> B["Stage plan stage 内の見通し"]
-B --> C["Team plan iteration ごとの計画 詳細"]
-C --> D["Work package description チームへの委任内容"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,D box;`,
-    dorDodFlow: `flowchart LR
-BL["Product backlog の項目"] --> DR{"Definition of Ready 着手できる状態か"}
-DR -- "Yes" --> WK["チームが作業"]
-DR -- "No" --> RF["Refinement で明確化"]
-RF --> DR
-WK --> DD{"Definition of Done 完成の条件を満たすか"}
-DD -- "Yes" --> INC["完成 リリース可能な増分"]
-DD -- "No" --> WK
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class BL,DR,WK,RF,DD box;
-class INC done;`,
-    agilometerCycle: `flowchart LR
-A["Agilometer で 現状を評価"] --> B["リスクが高い 領域を特定"]
-B --> C["対応策を検討 tailoring や risk register へ"]
-C --> D["定期的に再評価 stage 境界など"]
-D -.->|"状況の変化"| A
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,D box;`,
-    issueHandlingFlow: `flowchart TD
-I["Issue が発生 変更要求 問題 懸念"] --> R["Issue register に記録"]
-R --> E{"Tolerance の 範囲内か"}
-E -- "範囲内" --> L["チーム 現場で解決 例 backlog の優先順位調整"]
-E -- "範囲を超える" --> P["Issue report を作成 PM に escalate"]
-P --> B["Project Board が判断"]
-L --> LL["Lessons log に学びを記録"]
-B --> LL
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class I,R,E,L,P,B,LL box;`,
-    rolesRelationship: `flowchart TB
-subgraph DIR["Direction Project Board"]
-PE["Project executive"]
-CPO["Chief product owner"]
-SS["Senior supplier"]
-end
-subgraph MGT["Management"]
-PM["Project manager"]
-PSUP["Project support"]
-end
-subgraph DEL["Delivery Team"]
-PO["Product owner"]
-TC["Team coach"]
-DEV["Developer"]
-TST["Tester"]
-end
-PA["Project assurance"]
-AC["Agile coach"]
-DIR --> PM
-PM --> PSUP
-PM --> DEL
-PA -.-> DIR
-AC -.-> PM
-AC -.-> TC
-CPO --- PO
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class PE,CPO,SS,PM,PSUP,PO,TC,DEV,TST,PA,AC box;`,
-    processOverview: `flowchart TB
-SU["Starting up a project SU"] --> IP["Initiating a project IP"]
-IP --> CS["Controlling a stage CS"]
-CS <--> MP["Managing product delivery MP"]
-CS --> SB["Managing a stage boundary SB"]
-SB --> CS
-CS --> CP["Closing a project CP"]
-DP["Directing a project DP 全体を通じた Board の判断"] -.-> SU
-DP -.-> IP
-DP -.-> CS
-DP -.-> SB
-DP -.-> CP
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class SU,IP,CS,MP,SB,CP,DP box;`,
-    stageTimebox: `flowchart TB
-PRJ["Project"] --> ST1["Stage 1 管理上の判断単位"]
-PRJ --> ST2["Stage 2"]
-ST1 --> R1["Release 1"]
-ST1 --> R2["Release 2"]
-R1 --> IT1["Iteration 1 timebox"]
-R1 --> IT2["Iteration 2 timebox"]
-R2 --> IT3["Iteration 3 timebox"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class PRJ,ST1,ST2,R1,R2,IT1,IT2,IT3 box;`,
-    opsTransition: `flowchart LR
-P["Project 増分を開発"] --> R["Release 段階的な引き渡し"]
-R --> O["Operations 運用 サポート 保守"]
-O -.->|"利用データ 障害 要望"| B["Product backlog へフィードバック"]
-B --> P
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class P,R,O,B box;`,
-    aiReviewFlow: `flowchart LR
-A["AI が案を生成"] --> B["人がレビュー 正確性 偏り 機密"]
-B --> C{"DoD と 受入基準を満たすか"}
-C -- "Yes" --> D["採用 記録"]
-C -- "No" --> E["修正 または 却下"]
-E --> A
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,E box;
-class D done;`,
-    scenarioReadingFlow: `flowchart TD
-A["シナリオを通読 制約 契約 期限 体制 成熟度"] --> B["設問を読む 何を問われているか BL2 BL3 BL4"]
-B --> C["追加情報が必要か 人物の役割と発言"]
-C --> D["該当する practice または process を特定"]
-D --> E["公式ブックで guidance を確認"]
-E --> F["選択肢を消去 目的 guidance 文脈に反するものを除外"]
-F --> G["最適な 1 つを選ぶ"]
-classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-class A,B,C,D,E,F box;
-class G done;`,
-  };
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
 
-  function extendViewBoxHeight(svgEl, extra) {
-    var vb = svgEl.getAttribute("viewBox");
-    if (!vb) return;
-    var parts = vb.split(/\s+/).map(Number);
-    if (parts.length !== 4) return;
-    svgEl.style.width = parts[2] + "px";
-    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
+
+.sidebar-nav .nav-group-label:first-child {
+  margin-top: 0;
+}
+
+.sidebar-nav li {
+  margin: 2px 0;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+}
+
+.sidebar-nav a :deep(.iconify),
+.sidebar-nav a :deep(svg) {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
+
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
+
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left: 2px solid var(--color-indigo);
+}
+
+.sidebar-nav a.active :deep(.iconify),
+.sidebar-nav a.active :deep(svg) {
+  color: var(--color-indigo);
+}
+
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: calc(var(--global-nav-height) + 16px);
+  left: 16px;
+  z-index: 30;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+/* ===================== Main content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 56px 72px 120px;
+}
+
+.hero {
+  margin-bottom: 56px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-eyebrow :deep(.iconify),
+.hero-eyebrow :deep(svg) {
+  font-size: 17px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1.28;
+  margin: 0 0 16px;
+  color: var(--color-ink);
+}
+
+.hero .hero-lede {
+  font-size: 18px;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.stat-card .stat-number {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--color-indigo);
+  line-height: 1.1;
+}
+
+.stat-card .stat-label {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+
+section {
+  margin: 72px 0;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+section:first-of-type {
+  margin-top: 0;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.section-eyebrow :deep(.iconify),
+.section-eyebrow :deep(svg) {
+  font-size: 17px;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 29px;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--color-ink);
+  margin: 40px 0 16px;
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--color-ink);
+  margin: 28px 0 12px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+ul:not(.sidebar-nav):not(.checklist):not(.quiz-options):not(.scenario-list) {
+  list-style-type: disc;
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+ol {
+  list-style-type: decimal;
+  margin: 0 0 18px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+em {
+  color: var(--color-ink-soft);
+}
+
+/* ===================== Domain badge cards ===================== */
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin: 28px 0 8px;
+}
+
+.domain-card {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px;
+  border-top: 3px solid var(--d-color);
+}
+
+.domain-card .domain-pct {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 30px;
+  color: var(--d-color);
+}
+
+.domain-card .domain-name {
+  font-size: 16px;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+.domain-card.d1 { --d-color: var(--color-indigo); }
+.domain-card.d2 { --d-color: var(--color-forest); }
+.domain-card.d3 { --d-color: var(--color-gold); }
+.domain-card.d4 { --d-color: var(--color-plum); }
+
+.domain-tag {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
+.domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
+.domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
+.domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  margin: 0 0 24px;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 16px;
+}
+
+thead th {
+  background: var(--color-paper-sunken);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-ink);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border-strong);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-paper);
+}
+
+td strong,
+th strong {
+  color: var(--color-ink);
+}
+
+/* ===================== Callouts ===================== */
+.callout {
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-indigo);
+  margin-bottom: 10px;
+}
+
+.callout-title :deep(.iconify),
+.callout-title :deep(svg) {
+  font-size: 18px;
+  flex: none;
+}
+
+.callout ul {
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+}
+
+.callout.practice .callout-title {
+  color: var(--color-gold);
+}
+
+.callout.source {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+
+.callout.source .callout-title {
+  color: var(--color-forest);
+}
+
+.callout.source a {
+  color: var(--color-forest);
+  font-weight: 500;
+}
+
+.callout.source ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.callout.source li {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.callout.note {
+  border-left-color: var(--color-plum);
+}
+
+.callout.note .callout-title {
+  color: var(--color-plum);
+}
+
+/* ===================== Diagram containers ===================== */
+.mermaid-wrap {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 28px;
+  margin: 28px 0;
+}
+
+.diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.diagram-loading {
+  color: var(--color-ink-faint);
+  font-size: 16px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ===================== Mindmap styling (Section 1.4) ===================== */
+.mindmap-wrap {
+  border-top: 3px solid var(--color-indigo);
+  background: linear-gradient(180deg, var(--color-paper-raised) 0%, var(--color-paper) 100%);
+}
+
+.mindmap-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mindmap-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+}
+
+.mindmap-legend-item .legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.mindmap-legend-item.d1 {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  border-color: var(--color-indigo);
+}
+.mindmap-legend-item.d1 .legend-dot {
+  background: var(--color-indigo);
+}
+
+.mindmap-legend-item.d2 {
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+.mindmap-legend-item.d2 .legend-dot {
+  background: var(--color-forest);
+}
+
+.mindmap-legend-item.d3 {
+  background: var(--color-gold-tint);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+.mindmap-legend-item.d3 .legend-dot {
+  background: var(--color-gold);
+}
+
+.mindmap-legend-item.d4 {
+  background: var(--color-plum-tint);
+  color: var(--color-plum);
+  border-color: var(--color-plum);
+}
+.mindmap-legend-item.d4 .legend-dot {
+  background: var(--color-plum);
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-root path),
+.mindmap-wrap :deep(.mindmap-node.section--1 path),
+.mindmap-wrap :deep(.mindmap-node.section-root rect),
+.mindmap-wrap :deep(.mindmap-node.section--1 rect) {
+  fill: var(--color-indigo) !important;
+  stroke: var(--color-indigo) !important;
+  stroke-width: 2px !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-root text),
+.mindmap-wrap :deep(.mindmap-node.section--1 text),
+.mindmap-wrap :deep(.mindmap-node.section-root tspan),
+.mindmap-wrap :deep(.mindmap-node.section--1 tspan) {
+  fill: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-0 path),
+.mindmap-wrap :deep(.mindmap-node.section-0 rect) {
+  fill: var(--color-indigo-tint) !important;
+  stroke: var(--color-indigo) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-0 text),
+.mindmap-wrap :deep(.mindmap-node.section-0 tspan) {
+  fill: var(--color-indigo) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-0) {
+  stroke: var(--color-indigo) !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-1 path),
+.mindmap-wrap :deep(.mindmap-node.section-1 rect) {
+  fill: var(--color-forest-tint) !important;
+  stroke: var(--color-forest) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-1 text),
+.mindmap-wrap :deep(.mindmap-node.section-1 tspan) {
+  fill: var(--color-forest) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-1) {
+  stroke: var(--color-forest) !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-2 path),
+.mindmap-wrap :deep(.mindmap-node.section-2 rect) {
+  fill: var(--color-gold-tint) !important;
+  stroke: var(--color-gold) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-2 text),
+.mindmap-wrap :deep(.mindmap-node.section-2 tspan) {
+  fill: var(--color-gold) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-2) {
+  stroke: var(--color-gold) !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-3 path),
+.mindmap-wrap :deep(.mindmap-node.section-3 rect) {
+  fill: var(--color-plum-tint) !important;
+  stroke: var(--color-plum) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-3 text),
+.mindmap-wrap :deep(.mindmap-node.section-3 tspan) {
+  fill: var(--color-plum) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-3) {
+  stroke: var(--color-plum) !important;
+}
+
+/* ===================== Practice Questions (Section 8) ===================== */
+.scenario-box {
+  border: 1px solid var(--color-border-strong);
+  border-left: 5px solid var(--color-indigo);
+  background: linear-gradient(135deg, var(--color-indigo-tint) 0%, var(--color-paper-raised) 55%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 16px 0 28px;
+}
+
+.scenario-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-indigo);
+  margin-bottom: 8px;
+}
+
+.scenario-header {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-ink);
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--color-border-strong);
+}
+
+.scenario-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.scenario-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 0;
+  color: var(--color-ink-soft);
+}
+
+.scenario-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: var(--color-indigo);
+  font-weight: 700;
+}
+
+.persona-table-wrap tbody td:first-child {
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.persona-table-wrap tbody td:nth-child(2) {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-indigo);
+  white-space: nowrap;
+}
+
+.quiz-list {
+  display: grid;
+  gap: 24px;
+  margin: 20px 0 32px;
+}
+
+.quiz-card {
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: border-color 0.15s ease;
+}
+
+.quiz-card:hover {
+  border-color: var(--color-border-strong);
+  border-top-color: var(--color-indigo);
+}
+
+.quiz-question {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 18px;
+}
+
+.quiz-q-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quiz-q-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  background: var(--color-indigo);
+  padding: 3px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+
+.quiz-meta-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quiz-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.bl-badge.bl-2 {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+}
+
+.bl-badge.bl-3 {
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+}
+
+.bl-badge.bl-4 {
+  background: var(--color-gold-tint);
+  color: var(--color-gold);
+}
+
+.type-badge {
+  background: var(--color-paper-sunken);
+  color: var(--color-ink-soft);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+}
+
+.quiz-q-stem {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.quiz-statements {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-forest);
+  border-radius: 8px;
+  padding: 14px 20px 14px 36px;
+  margin: 0 0 18px;
+}
+
+.quiz-statements li {
+  margin-bottom: 6px;
+  color: var(--color-ink-soft);
+}
+
+.quiz-statements li:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-options {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-options li {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.quiz-options li:hover {
+  background: var(--color-indigo-tint);
+  border-color: var(--color-indigo);
+  color: var(--color-ink);
+}
+
+.quiz-answer {
+  border-top: 1px dashed var(--color-border);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.quiz-answer summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-indigo);
+  user-select: none;
+  list-style: none;
+}
+
+.quiz-answer summary::-webkit-details-marker {
+  display: none;
+}
+
+.quiz-answer summary:hover {
+  color: var(--color-forest);
+}
+
+.quiz-answer-body {
+  margin-top: 12px;
+  padding: 14px 18px;
+  background: var(--color-forest-tint);
+  border: 1px solid var(--color-forest);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-answer-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  background: var(--color-forest);
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.quiz-answer-exp {
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  line-height: 1.65;
+}
+
+.answer-summary-table-wrap tbody td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-indigo);
+  white-space: nowrap;
+}
+
+.answer-summary-table-wrap tbody td:nth-child(2) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.answer-summary-table-wrap tbody td:nth-child(2) strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+  font-family: var(--font-display);
+}
+
+.score-guide-table-wrap tbody td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+/* ===================== Glossary ===================== */
+
+/* ===================== Step list (roadmap) ===================== */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.step-list li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.step-num {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo);
+  color: var(--color-indigo);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-body .step-title {
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.step-body .step-desc {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.glossary-item {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.glossary-item .g-term {
+  font-weight: 600;
+  color: var(--color-indigo);
+  margin-bottom: 4px;
+}
+
+.glossary-item .g-def {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
+/* ===================== Reference list ===================== */
+.ref-group {
+  margin-bottom: 28px;
+}
+
+.ref-group h4 {
+  margin-top: 0;
+}
+
+.ref-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+
+.ref-list li:last-child {
+  border-bottom: none;
+}
+
+.ref-list .ref-name {
+  color: var(--color-ink);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.ref-list .ref-url {
+  color: var(--color-ink-faint);
+  word-break: break-all;
+}
+
+footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-ink-faint);
+  font-size: 16px;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--color-paper-sunken);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: var(--color-ink);
+}
+
+/* ===================== Checklist (interactive) ===================== */
+.checklist {
+  list-style: none;
+  margin: 0 0 18px;
+  padding-left: 0;
+}
+
+.checklist li {
+  margin-bottom: 10px;
+}
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.check-box {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 5px 0 0;
+  accent-color: var(--color-indigo);
+  cursor: pointer;
+}
+
+.check-item .check-box:checked + .check-text {
+  color: var(--color-ink-faint);
+  text-decoration: line-through;
+}
+
+.check-item .check-box:checked + .check-text strong {
+  color: inherit;
+}
+
+td.check-cell {
+  text-align: center;
+}
+
+td.check-cell .check-box {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* ===================== Responsive ===================== */
+@media (max-width: 980px) {
+  .sidebar-toggle {
+    display: flex;
   }
 
-  async function renderAllDiagrams() {
-    if (typeof mermaid === "undefined") {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
-      });
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      try { await document.fonts.ready; } catch (e) { /* ignore */ }
-    }
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "strict",
-      theme: "base",
-      themeVariables: {
-        background: "transparent",
-        primaryColor: "#EEF1F8",
-        primaryBorderColor: "#2E3F72",
-        primaryTextColor: "#161B26",
-        lineColor: "#2E3F72",
-        secondaryColor: "#FAF1DF",
-        secondaryBorderColor: "#B8802A",
-        tertiaryColor: "#FFFFFF",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-        fontSize: "16px",
-        pie1: "#C7D1EA",
-        pie2: "#AEDBD6",
-        pie3: "#F0D9A6",
-        pie4: "#E7C0D0",
-        pieOpacity: "1",
-        pieStrokeColor: "#FFFFFF",
-        pieStrokeWidth: "2px",
-        pieOuterStrokeWidth: "1px",
-        pieOuterStrokeColor: "#DFE3EA",
-        pieSectionTextColor: "#161B26",
-        pieLegendTextColor: "#161B26",
-        pieTitleTextColor: "#161B26"
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        nodeSpacing: 45,
-        rankSpacing: 48,
-        curve: "basis"
-      },
-      pie: {
-        useMaxWidth: false
-      }
-    });
-
-    var entries = Object.keys(DIAGRAMS);
-    for (var i = 0; i < entries.length; i++) {
-      var id = entries[i];
-      var container = document.getElementById(id);
-      if (!container) continue;
-      try {
-        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
-        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
-        container.innerHTML = typeof result === "string" ? result : result.svg;
-        var svgEl = container.querySelector("svg");
-        if (svgEl) {
-          svgEl.removeAttribute("width");
-          svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.overflow = "visible";
-          extendViewBoxHeight(svgEl, 15);
-        }
-      } catch (err) {
-        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
-      }
-    }
+  .sidebar {
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: none;
   }
 
-  function setupSidebarHighlight() {
-    var sections = document.querySelectorAll("main section[id]");
-    var navLinks = document.querySelectorAll(".sidebar-nav a");
-    var linkMap = {};
-    navLinks.forEach(function (link) {
-      var href = link.getAttribute("href").replace("#", "");
-      linkMap[href] = link;
-    });
-    if (!("IntersectionObserver" in window)) return;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var link = linkMap[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
-          link.classList.add("active");
-        }
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    sections.forEach(function (section) { observer.observe(section); });
+  .sidebar.is-open {
+    transform: translateX(0);
+    visibility: visible;
   }
 
-  function setupMobileToggle() {
-    var toggle = document.getElementById("sidebarToggle");
-    var sidebar = document.getElementById("sidebar");
-    if (!toggle || !sidebar) return;
-    toggle.addEventListener("click", function () {
-      var isOpen = sidebar.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        // 開いていたときだけフォーカスをトグルボタンへ退避する。
-        // モバイルの閉じたサイドバーは visibility: hidden になるため、
-        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
-        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
-        // 移動したい利用者からフォーカスを奪ってしまう。
-        var wasOpen = sidebar.classList.contains("open");
-        sidebar.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
-      });
-    });
+  .main-content {
+    margin-left: 0;
+    padding: 88px 24px 100px;
   }
 
-  function setupChecklists() {
-    var boxes = document.querySelectorAll("input.check-box");
-    if (!boxes.length) return;
-    var KEY = "prince2-agile-practitioner-v2-checks";
-    var saved = {};
-    try { saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { saved = {}; }
-    boxes.forEach(function (box, i) {
-      if (saved[i]) box.checked = true;
-      box.addEventListener("change", function () {
-        if (box.checked) { saved[i] = 1; } else { delete saved[i]; }
-        try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* ignore */ }
-      });
-    });
+  .hero h1 {
+    font-size: 32px;
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
-    setupSidebarHighlight();
-    setupMobileToggle();
-    setupChecklists();
-  });
-})();
-</script>
-</body>
-</html>
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .domain-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .glossary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .domain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar {
+    transition: none;
+  }
+}
+</style>

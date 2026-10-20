@@ -1,725 +1,318 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCert公式シラバス準拠</title>
-<meta name="description" content="PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。">
-
-<link rel="preconnect" href="https://cdn.jsdelivr.net">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.46.0/dist/tabler-icons.min.css" integrity="sha384-ND+q1IVc0KDElX60dZaqKc7Xl9cdxd2PpU2JfVUHcurCkFVtVLFdt9vJfxtHSL3p" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/index.css" integrity="sha384-cy72LeqRhBcptH+f75cB3vrpLw/jxRh/JFcONF8ojDGHnPbPW8ms9mFfeRcjatlf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/600.css" integrity="sha384-+yaCg0e7ycPGPQXb75FA+X65pLlc36UEZiIaA8ph5o9epSIlfAq9gNVjLkSyyLta" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-serif-4@5.3.0/700.css" integrity="sha384-qhpg1+yChOWG1duNtwQt4p+5G015BD1o+VF8/aRV+4P3Sx/PsIbVNxX+p/wvQf9W" crossorigin="anonymous">
-
-<style>
-  :root {
-    /* ---- Named palette (paper / ink / indigo / gold / forest / plum) ---- */
-    --color-paper:        #F6F7F9;
-    --color-paper-raised: #FFFFFF;
-    --color-paper-sunken: #EEF0F4;
-
-    --color-ink:          #161B26;
-    --color-ink-soft:     #4B5566;
-    --color-ink-faint:    #8A93A3;
-
-    --color-border:       #DFE3EA;
-    --color-border-strong:#C7CDD9;
-
-    --color-indigo:       #2E3F72;
-    --color-indigo-dark:  #1F2C57;
-    --color-indigo-tint:  #EEF1F8;
-
-    --color-gold:         #B8802A;
-    --color-gold-tint:    #FAF1DF;
-
-    --color-forest:       #1B6E6A;
-    --color-forest-tint:  #E7F3F2;
-
-    --color-plum:         #8C3A5C;
-    --color-plum-tint:    #F6EAEF;
-
-    --color-success-bg:    #EAF4EC;
-    --color-success-text:  #2F6B3D;
-    --color-success-border:#BFE0C6;
-
-    --color-info-bg:       #EEF1F8;
-    --color-info-text:     #2E3F72;
-    --color-info-border:   #C7D1EA;
-
-    /* ---- Typography ---- */
-    --font-display: "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
-    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
-    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-
-    --sidebar-width: 288px;
-  }
-
-  * { box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--color-indigo); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--color-indigo); outline-offset: 2px; }
-
-  img, svg { max-width: 100%; }
-
-  .layout {
-    display: block;
-  }
-
-  /* ===================== Sidebar ===================== */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: var(--sidebar-width);
-    height: 100vh;
-    overflow-y: auto;
-    background: var(--color-paper-raised);
-    border-right: 1px solid var(--color-border);
-    padding: 32px 24px 40px;
-    z-index: 20;
-  }
-
-  .sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 28px;
-  }
-
-  .seal {
-    flex: none;
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-text .brand-title {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--color-ink);
-    letter-spacing: 0.02em;
-  }
-
-  .brand-text .brand-subtitle {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 2px;
-  }
-
-  .sidebar-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .sidebar-nav .nav-group-label {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.06em;
-    margin: 22px 0 8px;
-    padding-left: 12px;
-  }
-
-  .sidebar-nav .nav-group-label:first-child { margin-top: 0; }
-
-  .sidebar-nav li { margin: 2px 0; }
-
-  .sidebar-nav a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    color: var(--color-ink-soft);
-    font-size: 16px;
-    line-height: 1.4;
-    border-left: 2px solid transparent;
-  }
-
-  .sidebar-nav a i { font-size: 17px; color: var(--color-ink-faint); flex: none; }
-
-  .sidebar-nav a:hover {
-    background: var(--color-indigo-tint);
-    text-decoration: none;
-    color: var(--color-indigo);
-  }
-
-  .sidebar-nav a.active {
-    background: var(--color-indigo-tint);
-    color: var(--color-indigo);
-    font-weight: 600;
-    border-left: 2px solid var(--color-indigo);
-  }
-
-  .sidebar-nav a.active i { color: var(--color-indigo); }
-
-  .sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 30;
-    background: var(--color-paper-raised);
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--color-ink);
-    cursor: pointer;
-  }
-
-  /* ===================== Main content ===================== */
-  .main-content {
-    margin-left: var(--sidebar-width);
-    padding: 56px 72px 120px;
-  }
-
-  .hero {
-    margin-bottom: 56px;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--color-gold);
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  .hero-eyebrow i { font-size: 17px; }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 42px;
-    line-height: 1.28;
-    margin: 0 0 16px;
-    color: var(--color-ink);
-  }
-
-  .hero .hero-lede {
-    font-size: 18px;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-
-  .stat-row {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(140px, 1fr));
-    gap: 16px;
-  }
-
-  .stat-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 18px 20px;
-  }
-
-  .stat-card .stat-number {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--color-indigo);
-    line-height: 1.1;
-  }
-
-  .stat-card .stat-label {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .disclaimer-box {
-    border: 1px solid var(--color-info-border);
-    background: var(--color-info-bg);
-    color: var(--color-info-text);
-    border-radius: 10px;
-    padding: 16px 20px;
-    font-size: 16px;
-    margin-top: 28px;
-  }
-
-  section {
-    margin: 72px 0;
-    scroll-margin-top: 32px;
-  }
-
-  section:first-of-type { margin-top: 0; }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-ink-faint);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-
-  h2 {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 29px;
-    color: var(--color-ink);
-    margin: 0 0 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  h3 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 21px;
-    color: var(--color-ink);
-    margin: 40px 0 16px;
-  }
-
-  h4 {
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 17px;
-    color: var(--color-ink);
-    margin: 28px 0 12px;
-  }
-
-  p { margin: 0 0 18px; }
-
-  ul, ol { margin: 0 0 18px; padding-left: 24px; }
-  li { margin-bottom: 8px; }
-
-  strong { font-weight: 600; color: var(--color-ink); }
-
-  em { color: var(--color-ink-soft); }
-
-  /* ===================== Domain badge cards ===================== */
-  .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(160px, 1fr));
-    gap: 16px;
-    margin: 28px 0 8px;
-  }
-
-  .domain-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px;
-    border-top: 3px solid var(--d-color);
-  }
-
-  .domain-card .domain-pct {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--d-color);
-  }
-
-  .domain-card .domain-name {
-    font-size: 16px;
-    color: var(--color-ink-soft);
-    margin-top: 6px;
-  }
-
-  .domain-card.d1 { --d-color: var(--color-indigo); }
-  .domain-card.d2 { --d-color: var(--color-forest); }
-  .domain-card.d3 { --d-color: var(--color-gold); }
-  .domain-card.d4 { --d-color: var(--color-plum); }
-
-  .domain-tag {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 14px;
-  }
-
-  .domain-tag.d1 { background: var(--color-indigo-tint); color: var(--color-indigo); }
-  .domain-tag.d2 { background: var(--color-forest-tint); color: var(--color-forest); }
-  .domain-tag.d3 { background: var(--color-gold-tint); color: var(--color-gold); }
-  .domain-tag.d4 { background: var(--color-plum-tint); color: var(--color-plum); }
-
-  /* ===================== Tables ===================== */
-  .table-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    margin: 0 0 24px;
-    max-width: 100%;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 16px;
-  }
-
-  thead th {
-    background: var(--color-paper-sunken);
-    text-align: left;
-    font-weight: 600;
-    color: var(--color-ink);
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border-strong);
-    white-space: nowrap;
-  }
-
-  tbody td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-ink-soft);
-    vertical-align: top;
-  }
-
-  tbody tr:last-child td { border-bottom: none; }
-  tbody tr:nth-child(even) { background: var(--color-paper); }
-
-  td strong, th strong { color: var(--color-ink); }
-
-  /* ===================== Callouts ===================== */
-  .callout {
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-indigo);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 20px 24px;
-    margin: 28px 0;
-  }
-
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--color-indigo);
-    margin-bottom: 10px;
-  }
-
-  .callout ul { margin-bottom: 0; padding-left: 20px; }
-  .callout p:last-child { margin-bottom: 0; }
-
-  .callout.practice { border-left-color: var(--color-gold); }
-  .callout.practice .callout-title { color: var(--color-gold); }
-
-  .callout.source { border-left-color: var(--color-forest); background: var(--color-forest-tint); }
-  .callout.source .callout-title { color: var(--color-forest); }
-  .callout.source a { color: var(--color-forest); font-weight: 500; }
-  .callout.source ul { list-style: none; padding-left: 0; }
-  .callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
-
-  .callout.note { border-left-color: var(--color-plum); }
-  .callout.note .callout-title { color: var(--color-plum); }
-
-  /* ===================== Diagram containers ===================== */
-  .diagram-card {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 12px;
-    padding: 28px;
-    margin: 28px 0;
-  }
-
-  .diagram-card .diagram-caption {
-    font-size: 16px;
-    color: var(--color-ink-faint);
-    margin-top: 14px;
-    text-align: center;
-  }
-
-  .diagram-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 60px;
-  }
-
-  .diagram-loading {
-    color: var(--color-ink-faint);
-    font-size: 16px;
-    padding: 20px 0;
-  }
-
-  .diagram-error {
-    color: var(--color-plum);
-    font-size: 16px;
-  }
-
-  /* ===================== Step list (roadmap) ===================== */
-  .step-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 16px;
-  }
-
-  .step-list li {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 0;
-  }
-
-  .step-num {
-    flex: none;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1.5px solid var(--color-indigo);
-    color: var(--color-indigo);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .step-body .step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
-  .step-body .step-desc { color: var(--color-ink-soft); font-size: 16px; }
-
-  /* ===================== Glossary ===================== */
-  .glossary-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 16px;
-  }
-
-  .glossary-item {
-    border: 1px solid var(--color-border);
-    background: var(--color-paper-raised);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-
-  .glossary-item .g-term {
-    font-weight: 600;
-    color: var(--color-indigo);
-    margin-bottom: 4px;
-  }
-
-  .glossary-item .g-def {
-    color: var(--color-ink-soft);
-    font-size: 16px;
-  }
-
-  /* ===================== Reference list ===================== */
-  .ref-group { margin-bottom: 28px; }
-  .ref-group h4 { margin-top: 0; }
-  .ref-list { list-style: none; margin: 0; padding: 0; }
-  .ref-list li {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 16px;
-  }
-  .ref-list li:last-child { border-bottom: none; }
-  .ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
-  .ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
-
-  footer {
-    margin-top: 96px;
-    padding-top: 32px;
-    border-top: 1px solid var(--color-border);
-    color: var(--color-ink-faint);
-    font-size: 16px;
-  }
-
-  code {
-    font-family: var(--font-mono);
-    background: var(--color-paper-sunken);
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: var(--color-ink);
-  }
-
-  /* ===================== Responsive ===================== */
-  @media (max-width: 980px) {
-    .sidebar-toggle { display: flex; }
-    .sidebar {
-      transform: translateX(-100%);
-      /* 画面外のリンクがキーボードフォーカスを受け取らないよう visibility も落とす */
-      visibility: hidden;
-      transition: transform 0.2s ease, visibility 0.2s ease;
-      box-shadow: none;
-    }
-    .sidebar.open { transform: translateX(0); visibility: visible; }
-    .main-content { margin-left: 0; padding: 88px 24px 100px; }
-    .hero h1 { font-size: 32px; }
-    .stat-row { grid-template-columns: repeat(2, 1fr); }
-    .domain-grid { grid-template-columns: repeat(2, 1fr); }
-    .glossary-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 560px) {
-    .stat-row { grid-template-columns: 1fr; }
-    .domain-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .sidebar { transition: none; }
-  }
-</style>
-</head>
-<body>
-
-<button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="目次を開閉する" aria-controls="sidebar" aria-expanded="false"><i class="ti ti-menu-2"></i></button>
-
-<div class="layout">
-
-  <!-- ===================== Sidebar ===================== -->
-  <nav class="sidebar" id="sidebar" aria-label="目次">
-    <div class="sidebar-brand">
-      <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
-        <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
-        <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="brand-text">
-        <div class="brand-title">PRINCE2 Agile 完全ガイド</div>
-        <div class="brand-subtitle">Foundation (Version 2)</div>
-      </div>
-    </div>
-
-    <ul class="sidebar-nav">
-      <li><a href="#about-the-exam"><i class="ti ti-certificate"></i>この資格について</a></li>
-      <li><a href="#prince2-fundamentals"><i class="ti ti-building-bank"></i>第1部: PRINCE2 の基礎知識</a></li>
-      <li><a href="#prince2-agile-basics"><i class="ti ti-git-branch"></i>第2部: PRINCE2 Agile の基本概念</a></li>
-      <li><a href="#agile-tailoring"><i class="ti ti-timeline"></i>第3部: 原則・テーマ・プロセスの適用</a></li>
-      <li><a href="#agile-glossary-techniques"><i class="ti ti-clipboard-text"></i>第4部: 実践用語と技法</a></li>
-      <li><a href="#focus-areas"><i class="ti ti-chart-pie"></i>第5部: フォーカスエリア</a></li>
-      <li><a href="#exam-preparation"><i class="ti ti-map-2"></i>第6部: 試験対策</a></li>
-      <li><a href="#glossary-summary"><i class="ti ti-book-2"></i>付録: 用語集まとめ</a></li>
-      <li><a href="#references"><i class="ti ti-link"></i>参考文献・出典</a></li>
-    </ul>
-  </nav>
-
-  <!-- ===================== Main content ===================== -->
-  <main class="main-content">
-
-    <div class="hero">
-      <div class="hero-eyebrow"><i class="ti ti-award"></i>PeopleCert公式シラバス準拠 学習ガイド</div>
-      <h1>PRINCE2 Agile Foundation (Version 2) 学習ガイド</h1>
-      <p class="hero-lede">
-        初学者向け・ステップバイステップ解説 / Markdown + Mermaid図解版。対象試験: PeopleCert PRINCE2 Agile Foundation (Version 2)。公式製品ページ: <a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">peoplecert.org</a>
-      </p>
-
-      <div class="stat-row">
-        <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">四肢択一 (Objective Test Question)</div></div>
-        <div class="stat-card"><div class="stat-number">60分</div><div class="stat-label">クローズドブック</div></div>
-        <div class="stat-card"><div class="stat-number">60%</div><div class="stat-label">合格基準</div></div>
-        <div class="stat-card"><div class="stat-number">3年</div><div class="stat-label">認定有効期間</div></div>
-      </div>
-
-      <div class="disclaimer-box">
-        <i class="ti ti-info-circle"></i>
-        本ガイドは学習支援を目的とした非公式の解説資料です。出題範囲・試験形式・合格基準は改定される可能性があるため、受験前には必ず<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert公式サイト</a>で最新情報をご確認ください。
-      </div>
-    </div>
-
-    <!-- ===================== 0. About the Exam ===================== -->
-    <section id="about-the-exam">
-      <div class="section-eyebrow"><i class="ti ti-certificate"></i>SECTION 01</div>
-      <h2>この資格について</h2>
-
-      <h3>0.1 資格の位置づけ</h3>
-      <p>PRINCE2 Agile Foundation は、世界で最も広く使われているプロジェクトマネジメント手法 <strong>PRINCE2</strong> の統制・ガバナンスの枠組みと、<strong>アジャイル (Agile)</strong> の柔軟性・反復性を組み合わせた「PRINCE2 Agile」の基礎知識を認定する資格です。対象者は、アジャイル実務者、プロジェクトマネージャー、プロダクトオーナー、Scrum Master、開発者など、反復的・漸進的なプロダクトデリバリーに関わるすべての人です。前提資格は不要です。</p>
-
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
-        <p>PRINCE2 Agile は「PRINCE2 か Agile か」の二択ではなく、両方の強みを状況に応じて「どの程度」組み合わせるかを判断する手法です。学習の最初の段階で、この「二項対立で考えない」という姿勢を意識しておくと、以降の全テーマの理解が格段にスムーズになります。</p>
-      </div>
-
-      <h3>0.2 試験概要</h3>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>項目</th><th>内容</th></tr></thead>
-          <tbody>
-            <tr><td>出題形式</td><td>四肢択一 (Objective Test Question)</td></tr>
-            <tr><td>問題数</td><td>40問</td></tr>
-            <tr><td>試験時間</td><td>60分 (英語を母語・業務言語としない受験者は+25%の延長が可能な場合あり)</td></tr>
-            <tr><td>合格基準</td><td>60%</td></tr>
-            <tr><td>教材持ち込み</td><td>クローズドブック (不可)</td></tr>
-            <tr><td>前提資格</td><td>なし</td></tr>
-            <tr><td>認定有効期間</td><td>3年 (更新には CPD ポイントの取得、または同スイート内の別資格取得が必要)</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
-        <ul>
-          <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert 公式製品ページ「PRINCE2 Agile Foundation (Version 2)」</a></li>
+<script setup lang="ts">
+import { useSeoMeta } from "#imports";
+import { nextTick, ref } from "vue";
+import { useActiveHeading } from "~/composables/useActiveHeading";
+
+const LIGHT_THEME_VARS = {
+  fontSize: "16px",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  secondaryColor: "#FAF1DF",
+  secondaryBorderColor: "#B8802A",
+  tertiaryColor: "#FFFFFF",
+};
+
+// 0.4 studyRoadmap
+const DIAGRAM_STUDY_ROADMAP = `flowchart LR
+    F["PRINCE2 Agile Foundation (Version 2)"] --> P["PRINCE2 Agile Practitioner (Version 2)"]
+    P --> E["PRINCE2 Agile Expert (Foundation + Practitioner 取得で到達)"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class F hub;
+    class P box;
+    class E done;`;
+
+// 1.4 processFlow
+const DIAGRAM_PROCESS_FLOW = `flowchart TB
+    DP["Directing a Project (プロジェクト指揮)"]
+    SU["Starting up a Project (立ち上げ)"] --> IP["Initiating a Project (開始)"]
+    IP --> CS["Controlling a Stage (ステージ管理)"]
+    CS --> MP["Managing Product Delivery (プロダクト提供管理)"]
+    MP --> CS
+    CS --> SB["Managing a Stage Boundary (ステージ境界管理)"]
+    SB --> CS
+    SB --> CP["Closing a Project (プロジェクト終結)"]
+    DP --- SU
+    DP --- IP
+    DP --- CS
+    DP --- SB
+    DP --- CP
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class DP hub;
+    class SU,IP,CS,MP,SB box;
+    class CP done;`;
+
+// 2.3 blendWeaveLevels
+const DIAGRAM_BLEND_WEAVE_LEVELS = `flowchart TB
+    subgraph L1["プロジェクト指揮 (Project Direction)"]
+        A1["PRINCE2: プロジェクトボードによるガバナンスと意思決定"]
+    end
+    subgraph L2["プロジェクトマネジメント (Project Management)"]
+        A2["PRINCE2: プロセスとテーマによる管理の枠組み"]
+        A3["Agile: タイムボックス化された計画とレビュー"]
+    end
+    subgraph L3["プロダクトデリバリー (Product Delivery)"]
+        A4["Agile: Scrum / Kanban によるチームの日々の実行"]
+    end
+    L1 --> L2
+    L2 --> L3
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class A1 hub;
+    class A2,A3 box;
+    class A4 done;`;
+
+// 4.2.1 scrumCycle
+const DIAGRAM_SCRUM_CYCLE = `flowchart LR
+    PB["プロダクトバックログ"] --> SP["スプリントプランニング"]
+    SP --> SB2["スプリントバックログ"]
+    SB2 --> DS["デイリースタンドアップ"]
+    DS --> INC["インクリメント (動くプロダクト)"]
+    INC --> SR["スプリントレビュー"]
+    SR --> RETRO["スプリントレトロスペクティブ"]
+    RETRO --> SP
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class PB hub;
+    class SP,SB2,DS,INC,SR,RETRO box;`;
+
+// 4.2.2 kanbanFlow
+const DIAGRAM_KANBAN_FLOW = `flowchart LR
+    TODO["To Do"] --> DOING["Doing (WIP制限あり)"]
+    DOING --> REVIEW["Review"]
+    REVIEW --> DONE["Done"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class TODO hub;
+    class DOING,REVIEW box;
+    class DONE done;`;
+
+// 4.2.3 leanStartupLoop
+const DIAGRAM_LEAN_STARTUP_LOOP = `flowchart LR
+    B["構築 (Build)"] --> M["計測 (Measure)"]
+    M --> L["学習 (Learn)"]
+    L --> B
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class B hub;
+    class M,L box;`;
+
+// 5.1 focusAreasOverview
+const DIAGRAM_FOCUS_AREAS_OVERVIEW = `flowchart TB
+    FA["4つのフォーカスエリア"] --> AG["Agilometer"]
+    FA --> RQ["Requirements (要求事項の優先順位付け)"]
+    FA --> RC["Rich Communication"]
+    FA --> FR["Frequent Releases"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    class FA hub;
+    class AG,RQ,RC,FR box;`;
+
+// 6.2 studySteps
+const DIAGRAM_STUDY_STEPS = `flowchart TB
+    S1["Step 1: 第1部で PRINCE2 の土台(原則・テーマ・プロセス・管理プロダクト・ロール)を固める"] --> S2["Step 2: 第2部で PRINCE2 Agile 固有の考え方(ブレンドとウィーブ、8つのガイダンスポイント)を理解する"]
+    S2 --> S3["Step 3: 第3部で原則・テーマ・プロセス・管理プロダクトのアジャイル適用を、対応表として覚える"]
+    S3 --> S4["Step 4: 第4部で用語と技法を、実際の文脈の中で使えるレベルまで定着させる"]
+    S4 --> S5["Step 5: 第5部のフォーカスエリアを押さえ、模擬問題でシナリオ形式に慣れる"]
+
+    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
+    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
+    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
+    class S1 hub;
+    class S2,S3,S4 box;
+    class S5 done;`;
+
+const TOC_IDS = [
+  "about-the-exam",
+  "prince2-fundamentals",
+  "prince2-agile-basics",
+  "agile-tailoring",
+  "agile-glossary-techniques",
+  "focus-areas",
+  "exam-preparation",
+  "glossary-summary",
+  "references",
+] as const;
+
+const sidebarOpen = ref(false);
+const sidebarToggle = ref<HTMLButtonElement | null>(null);
+const activeId = useActiveHeading(TOC_IDS);
+
+function closeSidebar(): void {
+  const wasOpen = sidebarOpen.value;
+  sidebarOpen.value = false;
+  if (wasOpen) nextTick(() => sidebarToggle.value?.focus());
+}
+
+useSeoMeta({
+  title: "PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCertシラバスに基づく非公式ガイド",
+  description: "PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。",
+});
+</script>
+
+<template>
+  <div>
+    <button
+      ref="sidebarToggle"
+      type="button"
+      class="sidebar-toggle"
+      :aria-expanded="sidebarOpen"
+      aria-controls="sidebar"
+      aria-label="目次を開閉する"
+      @click="sidebarOpen = !sidebarOpen"
+    >
+      <Icon name="tabler:menu-2" aria-hidden="true" />
+    </button>
+
+    <div class="layout">
+      <aside id="sidebar" class="sidebar" :class="{ 'is-open': sidebarOpen }" aria-label="目次">
+        <div class="sidebar-brand">
+          <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+            <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+            <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="brand-text">
+            <div class="brand-title">PRINCE2 Agile®</div>
+            <div class="brand-subtitle">Foundation Version 2</div>
+          </div>
+        </div>
+
+        <ul class="sidebar-nav">
+          <li class="nav-group-label">概要</li>
+          <li><a href="#about-the-exam" :class="{ active: activeId === 'about-the-exam' }" @click="closeSidebar"><Icon name="tabler:list-check" aria-hidden="true" />この資格について</a></li>
+
+          <li class="nav-group-label">コア知識</li>
+          <li><a href="#prince2-fundamentals" :class="{ active: activeId === 'prince2-fundamentals' }" @click="closeSidebar"><Icon name="tabler:certificate" aria-hidden="true" />第1部: PRINCE2 の基礎知識</a></li>
+          <li><a href="#prince2-agile-basics" :class="{ active: activeId === 'prince2-agile-basics' }" @click="closeSidebar"><Icon name="tabler:layers-intersect" aria-hidden="true" />第2部: PRINCE2 Agile の基本概念</a></li>
+          <li><a href="#agile-tailoring" :class="{ active: activeId === 'agile-tailoring' }" @click="closeSidebar"><Icon name="tabler:adjustments" aria-hidden="true" />第3部: 原則・テーマ・プロセスの適用</a></li>
+
+          <li class="nav-group-label">実践とフォーカスエリア</li>
+          <li><a href="#agile-glossary-techniques" :class="{ active: activeId === 'agile-glossary-techniques' }" @click="closeSidebar"><Icon name="tabler:tool" aria-hidden="true" />第4部: 実践用語と技法</a></li>
+          <li><a href="#focus-areas" :class="{ active: activeId === 'focus-areas' }" @click="closeSidebar"><Icon name="tabler:target-arrow" aria-hidden="true" />第5部: フォーカスエリア</a></li>
+
+          <li class="nav-group-label">試験対策と付録</li>
+          <li><a href="#exam-preparation" :class="{ active: activeId === 'exam-preparation' }" @click="closeSidebar"><Icon name="tabler:bulb" aria-hidden="true" />第6部: 試験対策</a></li>
+          <li><a href="#glossary-summary" :class="{ active: activeId === 'glossary-summary' }" @click="closeSidebar"><Icon name="tabler:vocabulary" aria-hidden="true" />付録: 用語集まとめ</a></li>
+          <li><a href="#references" :class="{ active: activeId === 'references' }" @click="closeSidebar"><Icon name="tabler:link" aria-hidden="true" />参考文献・出典</a></li>
         </ul>
-      </div>
+      </aside>
 
-      <h3>0.3 出題範囲 (Learning Outcome) の全体像</h3>
-      <p>公式のシラバス文書では、出題範囲は次の5つの Learning Outcome (学習成果) に分かれています。本ガイドの第1部から第5部は、この5つの Learning Outcome にそのまま対応しています。</p>
+      <main class="main-content">
+        <div class="hero">
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCertシラバスに基づく非公式学習ガイド</div>
+          <h1>PRINCE2 Agile Foundation (Version 2) 学習ガイド</h1>
+          <p class="hero-lede">
+            初学者向け・ステップバイステップ解説 / Markdown + Mermaid図解版。対象試験: PeopleCert PRINCE2 Agile Foundation (Version 2)。公式製品ページ: <a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">peoplecert.org</a>
+          </p>
 
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>LO</th><th>タイトル</th><th>本ガイドの対応章</th></tr></thead>
-          <tbody>
-            <tr><td>LO1</td><td>プロジェクトと PRINCE2 に関する主要概念の理解</td><td>第1部</td></tr>
-            <tr><td>LO2</td><td>プロジェクトと PRINCE2 Agile に関する主要概念の理解</td><td>第2部</td></tr>
-            <tr><td>LO3</td><td>PRINCE2 の原則・テーマ・プロセス・管理プロダクトがアジャイル文脈でどのようにテーラリング・適用されるかの理解</td><td>第3部</td></tr>
-            <tr><td>LO4</td><td>アジャイルな働き方・主要用語・技法の理解</td><td>第4部</td></tr>
-            <tr><td>LO5</td><td>アジャイル文脈におけるフォーカスエリアの理解</td><td>第5部</td></tr>
-          </tbody>
-        </table>
-      </div>
+          <div class="stat-row">
+            <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">四肢択一 (Objective Test Question)</div></div>
+            <div class="stat-card"><div class="stat-number">60分</div><div class="stat-label">クローズドブック</div></div>
+            <div class="stat-card"><div class="stat-number">60%</div><div class="stat-label">合格基準</div></div>
+            <div class="stat-card"><div class="stat-number">3年</div><div class="stat-label">認定有効期間</div></div>
+          </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
-        <ul>
-          <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」</a></li>
-          <li><a href="https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf</a></li>
-        </ul>
-      </div>
+          <div class="disclaimer-box">
+            <Icon name="tabler:info-circle" aria-hidden="true" />
+            <span>本ガイドは学習支援を目的とした非公式の解説資料です。出題範囲・試験形式・合格基準は改定される可能性があるため、受験前には必ず<a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert公式サイト</a>で最新情報をご確認ください。</span>
+          </div>
+        </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
-        <p><strong>バージョンに関する留意点:</strong> 上記2件の Candidate Syllabus は PeopleCert の公式ドメインではなく第三者サイトによる非公式ミラー(参考文献・出典の8.2節参照)であり、試験時間・問題数・合格ラインについて「50問・55%合格」という、現行の PeopleCert 製品ページ(Version 2)の「40問・60分・60%合格」とは異なる旧版の情報を記載しています。このミラー文書だけでは、出題範囲(LO1〜LO5)やテーマ構成が Version 2 化後も変わっていないかどうかを確認できません。また PRINCE2 Agile は PRINCE2 の土台の上に成り立つ手法であり、PeopleCert は PRINCE2 側も「PRINCE2 Project Management Version 7」として改定を行っているため、本ガイドが扱う7つのテーマ等の用語・範囲が Version 7 の内容と整合しているかも合わせて確認が必要です。<strong>受験前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus・試験概要、および PRINCE2 Project Management Version 7 との用語・範囲の整合性を確認してください。</strong></p>
-      </div>
+        <!-- ===================== 0. About the Exam ===================== -->
+        <section id="about-the-exam">
+          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 01</div>
+          <h2>この資格について</h2>
 
-      <h3>0.4 学習の全体マップ</h3>
+          <h3>0.1 資格の位置づけ</h3>
+          <p>PRINCE2 Agile Foundation は、世界で最も広く使われているプロジェクトマネジメント手法 <strong>PRINCE2</strong> の統制・ガバナンスの枠組みと、<strong>アジャイル (Agile)</strong> の柔軟性・反復性を組み合わせた「PRINCE2 Agile」の基礎知識を認定する資格です。対象者は、アジャイル実務者、プロジェクトマネージャー、プロダクトオーナー、Scrum Master、開発者など、反復的・漸進的なプロダクトデリバリーに関わるすべての人です。前提資格は不要です。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="studyRoadmap"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">Foundation から Practitioner・Expert への学習ロードマップ</div>
-      </div>
+          <div class="callout practice" data-variant="practice" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
+            <p>PRINCE2 Agile は「PRINCE2 か Agile か」の二択ではなく、両方の強みを状況に応じて「どの程度」組み合わせるかを判断する手法です。学習の最初の段階で、この「二項対立で考えない」という姿勢を意識しておくと、以降の全テーマの理解が格段にスムーズになります。</p>
+          </div>
 
-      <p>Foundation は「知識の再認・理解 (recall と comprehension)」を問う試験であるのに対し、Practitioner はケーススタディに基づく「適用力」を問う試験です。Foundation の内容を土台として、まず全体像を正確に押さえることが Practitioner 合格への近道です。</p>
-    </section>
+          <h3>0.2 試験概要</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>項目</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>出題形式</td><td>四肢択一 (Objective Test Question)</td></tr>
+                <tr><td>問題数</td><td>40問</td></tr>
+                <tr><td>試験時間</td><td>60分 (英語を母語・業務言語としない受験者は+25%の延長が可能な場合あり)</td></tr>
+                <tr><td>合格基準</td><td>60%</td></tr>
+                <tr><td>教材持ち込み</td><td>クローズドブック (不可)</td></tr>
+                <tr><td>前提資格</td><td>なし</td></tr>
+                <tr><td>認定有効期間</td><td>3年 (更新には CPD ポイントの取得、または同スイート内の別資格取得が必要)</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-    <!-- ===================== 1. PRINCE2 Fundamentals ===================== -->
-    <section id="prince2-fundamentals">
-      <div class="section-eyebrow"><i class="ti ti-building-bank"></i>SECTION 02</div>
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li><a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">PeopleCert 公式製品ページ「PRINCE2 Agile Foundation (Version 2)」</a></li>
+            </ul>
+          </div>
+
+          <h3>0.3 出題範囲 (Learning Outcome) の全体像</h3>
+          <p>公式のシラバス文書では、出題範囲は次の5つの Learning Outcome (学習成果) に分かれています。本ガイドの第1部から第5部は、この5つの Learning Outcome にそのまま対応しています。</p>
+
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>LO</th><th>タイトル</th><th>本ガイドの対応章</th></tr></thead>
+              <tbody>
+                <tr><td>LO1</td><td>プロジェクトと PRINCE2 に関する主要概念の理解</td><td>第1部</td></tr>
+                <tr><td>LO2</td><td>プロジェクトと PRINCE2 Agile に関する主要概念の理解</td><td>第2部</td></tr>
+                <tr><td>LO3</td><td>PRINCE2 の原則・テーマ・プロセス・管理プロダクトがアジャイル文脈でどのようにテーラリング・適用されるかの理解</td><td>第3部</td></tr>
+                <tr><td>LO4</td><td>アジャイルな働き方・主要用語・技法の理解</td><td>第4部</td></tr>
+                <tr><td>LO5</td><td>アジャイル文脈におけるフォーカスエリアの理解</td><td>第5部</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout source" data-variant="source" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
+            <ul>
+              <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / (旧)AXELOS「PRINCE2 Agile Foundation Candidate Syllabus」</a></li>
+              <li><a href="https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf" target="_blank" rel="noopener">https://www.oxfordcollegeofmanagement.com/wp-content/uploads/2025/06/PRINCE2-Agile-Foundation-Syllabus.pdf</a></li>
+            </ul>
+          </div>
+
+          <div class="callout note" data-variant="note" data-testid="callout">
+            <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
+            <p><strong>バージョンに関する留意点:</strong> 上記2件の Candidate Syllabus は PeopleCert の公式ドメインではなく第三者サイトによる非公式ミラー(参考文献・出典の8.2節参照)であり、試験時間・問題数・合格ラインについて「50問・55%合格」という、現行の PeopleCert 製品ページ(Version 2)の「40問・60分・60%合格」とは異なる旧版の情報を記載しています。このミラー文書だけでは、出題範囲(LO1〜LO5)やテーマ構成が Version 2 化後も変わっていないかどうかを確認できません。また PRINCE2 Agile は PRINCE2 の土台の上に成り立つ手法であり、PeopleCert は PRINCE2 側も「PRINCE2 Project Management Version 7」として改定を行っているため、本ガイドが扱う7つのテーマ等の用語・範囲が Version 7 の内容と整合しているかも合わせて確認が必要です。<strong>受験前には必ず PeopleCert 公式サイトで最新の Candidate Syllabus・試験概要、および PRINCE2 Project Management Version 7 との用語・範囲の整合性を確認してください。</strong></p>
+          </div>
+
+          <h3>0.4 学習の全体マップ</h3>
+
+          <div class="mermaid-wrap">
+            <ClientOnly>
+              <MermaidDiagram :chart="DIAGRAM_STUDY_ROADMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+            </ClientOnly>
+            <div class="diagram-caption">Foundation から Practitioner・Expert への学習ロードマップ</div>
+          </div>
+
+          <p>Foundation は「知識の再認・理解 (recall と comprehension)」を問う試験であるのに対し、Practitioner はケーススタディに基づく「適用力」を問う試験です。Foundation の内容を土台として、まず全体像を正確に押さえることが Practitioner 合格への近道です。</p>
+        </section>
+
+        <!-- ===================== 1. PRINCE2 Fundamentals ===================== -->
+        <section id="prince2-fundamentals">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />SECTION 02</div>
       <h2>第1部: PRINCE2 の基礎知識 (Learning Outcome 1)</h2>
 
       <p>PRINCE2 Agile はあくまで PRINCE2 という「土台」の上に成り立つ手法です。まず土台となる PRINCE2 そのものの構造を正確に理解しておきましょう。</p>
@@ -739,8 +332,8 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>「この作業はプロジェクトなのか BAU なのか」を最初に切り分けることは、ガバナンスの設計(誰が承認するか、どの程度の統制が必要か)を決める出発点になります。アジャイルなプロダクトチームであっても、予算・期限・ビジネスケースを伴う独立した取り組みであれば PRINCE2 のプロジェクト定義に当てはまります。</p>
       </div>
 
@@ -762,13 +355,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>7原則の中でも「例外による管理」と「プロジェクト環境に合わせたテーラリング」は、後述するアジャイルとの親和性が特に高い原則です。自己組織化チームへの権限委譲(=例外による管理)と、状況に応じた運用調整(=テーラリング)は、PRINCE2 Agile を理解する上での重要な橋渡しになります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.1 (7原則の一覧)</a></li>
         </ul>
@@ -792,13 +385,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>テーマは独立した「知識エリア」ではなく、相互に密接に連動しています。例えばリスクの深刻化はビジネスケースの見直しを引き起こし、それが進捗コントロールでの意思決定につながる、というように連鎖します。7テーマを暗記する際は「単独の定義」よりも「テーマ同士のつながり」を意識すると、第3部のアジャイル適用の理解が格段に深まります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.2</a></li>
         </ul>
@@ -807,10 +400,12 @@
       <h3>1.4 PRINCE2 の7つのプロセス</h3>
       <p>プロセスは、プロジェクトの開始から終結までの活動の流れを示します。<strong>Directing a Project (プロジェクト指揮)</strong> はプロジェクトボードによる意思決定プロセスであり、他の全プロセスを横断的に統制します。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="processFlow"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">PRINCE2 の7プロセスの関係(Directing a Project が全体を統制する)</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_PROCESS_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">PRINCE2 の7プロセスの関係(Directing a Project が全体を統制する)</div>
+</div>
 
       <div class="table-wrap">
         <table>
@@ -827,13 +422,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>アジャイルなプロダクトチームは Managing Product Delivery と Controlling a Stage の間を、スプリントや反復のサイクルとして日々経験することになります。この2プロセスの「反復のリズム」こそが、PRINCE2 の段階的な統制とアジャイルのタイムボックスが接続する最重要ポイントです。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.3</a></li>
         </ul>
@@ -857,13 +452,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>アジャイル文脈では、これらの文書を「一度作って終わり」の静的なものと捉えず、継続的に更新される「生きた(living)」情報源として運用します。特にハイライトレポートやチェックポイントレポートは、情報ラジエーター(Information Radiator)やバーンチャートで代替・補強されることが多く、第3部で詳しく解説します。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.4</a></li>
         </ul>
@@ -884,30 +479,30 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>アジャイルなデリバリーチームでは「チームマネージャー」という肩書きは使われず、Scrum Master やプロダクトオーナーといったアジャイル固有の呼称が使われます。試験対策としては、PRINCE2 の役割名とアジャイルでの一般的な呼称の「対応関係」を意識して覚えると混乱を避けられます(詳細は 2.4 節)。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 1.5</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 2. PRINCE2 Agile Basics ===================== -->
-    <section id="prince2-agile-basics">
-      <div class="section-eyebrow"><i class="ti ti-git-branch"></i>SECTION 03</div>
+        <!-- ===================== 2. PRINCE2 Agile Basics ===================== -->
+        <section id="prince2-agile-basics">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 03</div>
       <h2>第2部: PRINCE2 Agile の基本概念 (Learning Outcome 2)</h2>
 
       <h3>2.1 PRINCE2 Agile とは何か / プロジェクトと BAU</h3>
       <p>PRINCE2 Agile は、PRINCE2 の<strong>ガバナンスとコントロールの枠組み</strong>に、アジャイルの<strong>振る舞い・概念・フレームワーク・技法</strong>を組み合わせた手法です。PRINCE2 が「何を管理するか(統制の仕組み)」を提供し、アジャイルが「どう実行するか(デリバリーの方法)」を提供する、と整理すると理解しやすくなります。</p>
       <p>PRINCE2 Agile では、BAU との違いを踏まえた上で、プロジェクトの中でもとりわけ<strong>プロダクトデリバリーの領域(何を、どの順番で作るか)</strong>にアジャイルの反復性・漸進性を適用します。一方でプロジェクト全体のガバナンス(投資判断、ステージゲート、例外管理)は PRINCE2 の枠組みが担います。</p>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>「PRINCE2 が統治(Govern)し、アジャイルが実行(Deliver)する」という一文で全体像を要約できるようにしておくと、試験のシナリオ問題で迷ったときの判断軸になります。</p>
       </div>
 
@@ -925,13 +520,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>試験では「どのアジャイル手法をどの場面で使うか」を問う設問が出ます。目安として、<strong>要件が比較的明確で反復的に作り込む場合は Scrum</strong>、<strong>継続的なフローで優先順位が流動的な場合は Kanban</strong>、<strong>そもそも何を作るべきかが不確実な場合は Lean Startup</strong> という使い分けを覚えておくと判断しやすくなります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 2.2</a></li>
         </ul>
@@ -940,10 +535,12 @@
       <h3>2.3 「ブレンドとウィーブ」と8つのガイダンスポイント</h3>
       <p>PRINCE2 Agile は、PRINCE2 と アジャイルを「ブレンド(混ぜ合わせる)」し、さらにプロジェクトの3つのレベル全体に「ウィーブ(織り込む)」ことを目指します。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="blendWeaveLevels"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">プロジェクトの3つのレベルにおける PRINCE2 と Agile の織り込み方</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_BLEND_WEAVE_LEVELS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">プロジェクトの3つのレベルにおける PRINCE2 と Agile の織り込み方</div>
+</div>
 
       <p>一般に、PRINCE2 の統制色は「プロジェクト指揮」レベルで強く、アジャイルの実行色は「プロダクトデリバリー」レベルで強くなります。「プロジェクトマネジメント」レベルはその中間として、両者を橋渡しする役割を担います。</p>
       <p>この「ブレンドとウィーブ」を正しく理解するための前提として、公式ガイダンスは次の8つのガイダンスポイントを示しています(誤解が起きやすい論点を明確化するためのものです)。</p>
@@ -964,13 +561,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>8つのガイダンスポイントの中でも、特に5・7・8番目は試験で頻出です。「アジャイル=Scrumではない」「アジャイルは程度問題である」という2点を軸に理解しておくと、選択式問題の誤答選択肢(ディストラクター)を見抜きやすくなります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://publications.axelos.com/PRINCE2Agile2016/content.aspx?showNav=true&expandNav=true&page=PRA_25" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第3.6節 (Important points about PRINCE2 Agile and this manual)</a></li>
         </ul>
@@ -991,22 +588,22 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>実務では、これらの役割に加えて <strong>Product Owner(プロダクトオーナー)</strong> と <strong>Scrum Master</strong> という呼称がよく使われます。Foundation レベルでは上記4ロールの「責任の性質」を理解することが優先されますが、Product Owner ≒ Customer Representative、Scrum Master ≒ Team Manager(のアジャイル版)という対応関係を押さえておくと、Practitioner レベルへの橋渡しがスムーズになります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 2.4</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 3. Agile Tailoring ===================== -->
-    <section id="agile-tailoring">
-      <div class="section-eyebrow"><i class="ti ti-timeline"></i>SECTION 04</div>
+        <!-- ===================== 3. Agile Tailoring ===================== -->
+        <section id="agile-tailoring">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:timeline" aria-hidden="true" />SECTION 04</div>
       <h2>第3部: 原則・テーマ・プロセス・管理プロダクトのアジャイルへの適用 (Learning Outcome 3)</h2>
 
       <p>この第3部は Foundation 試験の中で最も配点比率が高い領域です。第1部・第2部で学んだ PRINCE2 の基礎知識を、実際にどうアジャイルに「テーラリング(調整)」するかを扱います。</p>
@@ -1029,13 +626,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>「アジャイルは PRINCE2 の原則を弱める」という誤解は試験でよく狙われるひっかけです。実際は逆で、アジャイルは原則(特に例外による管理と経験からの学習)を、より高頻度・高強度で実践する手段だと理解しておきましょう。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第7章 (Agile and the PRINCE2 principles)</a></li>
         </ul>
@@ -1057,13 +654,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>5つの振る舞いは互いに補強し合う関係にあります。例えば Transparency がなければ Collaboration は機能せず、Self-organization がなければ Exploration から得た学びをチームが素早く活かせません。試験では単独の定義よりも「なぜこの振る舞いが必要か」という文脈理解が問われます。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.2</a></li>
         </ul>
@@ -1085,13 +682,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>各テーマの調整は「PRINCE2 の目的を変えずに、実現手段をアジャイルの技法に置き換える」という発想で理解すると覚えやすくなります。目的(なぜそのテーマが必要か)は変わらず、手段(どう実現するか)がアジャイルの技法に置き換わる、という構造は7テーマすべてに共通しています。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.3</a></li>
         </ul>
@@ -1113,13 +710,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>7プロセスの中でも Directing a Project と Controlling a Stage は、アジャイル化によってプロジェクトマネージャーとプロジェクトボードの「関わり方」が最も大きく変わる部分です。「詳細な統制」から「頻度は高いが軽量な協働」への転換を意識しておきましょう。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.4</a></li>
         </ul>
@@ -1141,13 +738,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>管理プロダクトのテーラリングにおいて重要なのは「文書を減らすこと」自体が目的ではなく、「同じガバナンス上の目的を、より軽量な手段で達成すること」が目的だという点です。文書を省略した結果、意思決定に必要な情報が失われてしまっては本末転倒です。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.5</a></li>
         </ul>
@@ -1170,8 +767,8 @@
         </table>
       </div>
 
-      <div class="callout note">
-        <div class="callout-title"><i class="ti ti-info-circle"></i>補足</div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:info-circle" aria-hidden="true" />補足</div>
         <p>「時間とコストを固定し、スコープと品質を柔軟にする」という組み合わせが典型例としてよく紹介されますが、実際には品質基準そのものは妥協しないという考え方が PRINCE2 Agile の核心です。柔軟にするのは「品質基準を満たすために、どの機能をどこまで作り込むか」というスコープ側の話であり、品質の「基準」自体を下げることではありません。</p>
       </div>
 
@@ -1190,22 +787,22 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>ヘキサゴンと5つのターゲットは Foundation 試験の頻出テーマです。「なぜスコープを柔軟にするのか」という問いに対して、常に「5つのターゲットを守るため」という因果関係で答えられるようにしておくと、シナリオ形式の設問にも対応しやすくなります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 3.6</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 4. Agile Glossary & Techniques ===================== -->
-    <section id="agile-glossary-techniques">
-      <div class="section-eyebrow"><i class="ti ti-clipboard-text"></i>SECTION 05</div>
+        <!-- ===================== 4. Agile Glossary & Techniques ===================== -->
+        <section id="agile-glossary-techniques">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 05</div>
       <h2>第4部: アジャイルの実践用語と技法 (Learning Outcome 4)</h2>
 
       <h3>4.1 用語集 (Glossary)</h3>
@@ -1228,13 +825,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>用語の暗記は「単語カード」的な学習だけでなく、実際の一文の中で使ってみることをお勧めします。例えば「スプリントの終わりに、チームはベロシティを記録し、次のリリースバックログの計画に活かす」のように、複数の用語を組み合わせた文を自分で作ると、用語同士の関係性が定着しやすくなります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 4.1 (Glossary)</a></li>
         </ul>
@@ -1245,39 +842,45 @@
       <h4>4.2.1 Scrum (スクラム)</h4>
       <p>Scrum は、プロダクトオーナー・Scrum Master・開発チームという3つの役割と、スプリントという固定長のタイムボックスを中心に構成される、最も広く使われる軽量フレームワークです。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="scrumCycle"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">Scrum のスプリントサイクル</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_SCRUM_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Scrum のスプリントサイクル</div>
+</div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>PRINCE2 Agile の文脈では、スプリントの単位をそのままワークパッケージの期間と一致させると、チームマネージャー(Scrum Master)によるプロダクトデリバリー管理がしやすくなります。</p>
       </div>
 
       <h4>4.2.2 Kanban (カンバン)</h4>
       <p>Kanban は固定のタイムボックスを持たず、作業の流れ(フロー)を可視化し、WIP(仕掛かり作業)を制限することでスループットを最適化する手法です。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="kanbanFlow"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">Kanban の作業フロー(WIP制限あり)</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_KANBAN_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Kanban の作業フロー(WIP制限あり)</div>
+</div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>保守運用フェーズや、優先順位が頻繁に変わる差し込み作業が多い環境では、固定タイムボックスを持つ Scrum よりも Kanban の方が PRINCE2 のステージ管理と相性が良いことがあります。</p>
       </div>
 
       <h4>4.2.3 Lean Startup と MVP</h4>
       <p>Lean Startup は「構築(Build)・計測(Measure)・学習(Learn)」のループを繰り返し、仮説を素早く検証していく考え方です。<strong>MVP(Minimum Viable Product: 実用最小限のプロダクト)</strong> は、この検証を可能にする最小限の機能を備えたプロダクトを指します。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="leanStartupLoop"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">Lean Startup の構築・計測・学習ループ</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_LEAN_STARTUP_LOOP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Lean Startup の構築・計測・学習ループ</div>
+</div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>MVP は「品質を落とした簡易版」ではなく、「学びを得るために必要十分な機能を備えた完成品」です。3.6節の「品質基準は固定する」という考え方と矛盾しないよう、MVP であっても品質基準そのものは維持する必要があります。</p>
       </div>
 
@@ -1299,30 +902,32 @@
       <h4>4.2.9 ワーキングアグリーメント (Working Agreements)</h4>
       <p>チームが自分たちの働き方について合意する取り決めです。稼働時間、コミュニケーションのルール、品質基準の運用方法などを含み、自己組織化(Self-organization)を支える基盤になります。</p>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>4.2節の技法はいずれも独立した知識ではなく、3.3節・3.4節で見たテーマ・プロセスのアジャイルガイダンスを実現するための「道具箱」です。「このテーマ・プロセスを実現するために、どの技法が使えるか」という対応関係を意識して学習すると、知識が有機的につながります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 4.2</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 5. Focus Areas ===================== -->
-    <section id="focus-areas">
-      <div class="section-eyebrow"><i class="ti ti-chart-pie"></i>SECTION 06</div>
+        <!-- ===================== 5. Focus Areas ===================== -->
+        <section id="focus-areas">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:chart-pie" aria-hidden="true" />SECTION 06</div>
       <h2>第5部: フォーカスエリア (Learning Outcome 5)</h2>
 
       <p>フォーカスエリアは、PRINCE2 Agile を実践する上で特に重点的に扱うべき4つの領域です。</p>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="focusAreasOverview"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">PRINCE2 Agile の4つのフォーカスエリア</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_FOCUS_AREAS_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">PRINCE2 Agile の4つのフォーカスエリア</div>
+</div>
 
       <h3>5.1 Agilometer (アジロメーター)</h3>
       <p>Agilometer は、プロジェクトがどの程度アジャイルに適しているかを可視化するための診断ツールです。次の6つのスライダー(評価軸)について、低い(アジャイルに不向き)から高い(アジャイルに好適)までを評価します。</p>
@@ -1343,13 +948,13 @@
 
       <p>各スライダーを評価し、六角形のレーダーチャートのような形で可視化することで、プロジェクトチームは「どの領域に追加のガイダンスやリスク対応が必要か」を早期に把握できます。</p>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>Agilometer は一度きりの評価ではなく、プロジェクトを通じて定期的に再評価すべきものです。スコアが低い項目があっても「アジャイルを使うべきではない」という結論に直結するわけではなく、「その領域に追加のガイダンス・緩和策が必要」というシグナルとして扱うのが正しい使い方です。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://publications.axelos.com/PRINCE2Agile2016/" target="_blank" rel="noopener">AXELOS 公式オンライン出版「PRINCE2 Agile」第6章 (Fix and flex: what can and cannot be varied?)</a></li>
         </ul>
@@ -1370,13 +975,13 @@
         </table>
       </div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>「Must have」の割合をタイムボックスの作業量の60%程度に抑え、残りを Should/Could に配分するという目安がよく使われます。Must have の比率が高すぎると、3.6節で見た「スコープを柔軟にする」余地がなくなり、期限や品質を守れなくなるリスクが高まります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 5.2</a></li>
         </ul>
@@ -1385,30 +990,30 @@
       <h3>5.3 Rich Communication (リッチコミュニケーション)</h3>
       <p>情報量の多いコミュニケーション手段(対面での会話、ホワイトボードでの図解、実際に動くプロダクトのデモなど)を、情報量の少ない手段(長文の文書、形式的なメールのみのやり取り)より優先する考え方です。3.2節の「振る舞い」の一つである Transparency を実現する土台になります。</p>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>リモート・分散環境では対面コミュニケーションに制約があるため、ビデオ会議での画面共有、共同編集可能なオンラインホワイトボードなど、可能な限り情報量の多い代替手段を選ぶことが推奨されます。</p>
       </div>
 
       <h3>5.4 Frequent Releases (頻繁なリリース)</h3>
       <p>小さく・頻繁にプロダクトをリリースすることで、早い段階からフィードバックを得て、リスクを低減し、ベネフィットを早期に実現するという考え方です。</p>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>リリース頻度を上げることは、3.6節の5つのターゲットのうち「変化を受け入れる」「顧客はすべてを必要としているわけではないと理解する」を実現するための最も直接的な手段です。リリースの粒度を小さくするほど、方向修正のコストは小さくなります。</p>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">PeopleCert / AXELOS 公式シラバス Learning Outcome 5.3–5.4</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 6. Exam Preparation ===================== -->
-    <section id="exam-preparation">
-      <div class="section-eyebrow"><i class="ti ti-map-2"></i>SECTION 07</div>
+        <!-- ===================== 6. Exam Preparation ===================== -->
+        <section id="exam-preparation">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:map-2" aria-hidden="true" />SECTION 07</div>
       <h2>第6部: 試験対策</h2>
 
       <h3>6.1 出題形式のおさらい</h3>
@@ -1419,13 +1024,15 @@
 
       <h3>6.2 学習の進め方(ステップバイステップ)</h3>
 
-      <div class="diagram-card">
-        <div class="diagram-container" id="studySteps"><div class="diagram-loading">図を読み込み中...</div></div>
-        <div class="diagram-caption">Foundation 学習の5ステップ</div>
-      </div>
+      <div class="mermaid-wrap">
+  <ClientOnly>
+    <MermaidDiagram :chart="DIAGRAM_STUDY_STEPS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+  </ClientOnly>
+  <div class="diagram-caption">Foundation 学習の5ステップ</div>
+</div>
 
-      <div class="callout practice">
-        <div class="callout-title"><i class="ti ti-bulb"></i>ベストプラクティス</div>
+      <div class="callout practice" data-variant="practice" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス</div>
         <p>各部の「ベストプラクティス」コールアウトを自分の言葉で言い換えて書き出す(アクティブリコール)と、単純な読み返しよりも定着率が高まります。第3部の対応表(3.3節・3.4節・3.5節)は、白紙の状態から再現できるようになるまで繰り返すことをお勧めします。</p>
       </div>
 
@@ -1442,17 +1049,17 @@
         </table>
       </div>
 
-      <div class="callout source">
-        <div class="callout-title"><i class="ti ti-external-link"></i>ソース</div>
+      <div class="callout source" data-variant="source" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
           <li><a href="https://www.koenig-solutions.com/CourseContent/custom/2019617460-PRINCE2AgileFoundationCandidateSyllabus.pdf" target="_blank" rel="noopener">本節は公式シラバスの Learning Outcome 全体(1〜5)を横断する形で、頻出論点を整理したものです</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 7. Glossary Summary ===================== -->
-    <section id="glossary-summary">
-      <div class="section-eyebrow"><i class="ti ti-book-2"></i>SECTION 08</div>
+        <!-- ===================== 7. Glossary Summary ===================== -->
+        <section id="glossary-summary">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:book-2" aria-hidden="true" />SECTION 08</div>
       <h2>付録: 用語集まとめ表</h2>
 
       <div class="table-wrap">
@@ -1477,11 +1084,11 @@
           </tbody>
         </table>
       </div>
-    </section>
+        </section>
 
-    <!-- ===================== 8. References ===================== -->
-    <section id="references">
-      <div class="section-eyebrow"><i class="ti ti-link"></i>SECTION 09</div>
+        <!-- ===================== 8. References ===================== -->
+        <section id="references">
+<div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:link" aria-hidden="true" />SECTION 09</div>
       <h2>参考文献・出典</h2>
 
       <div class="ref-group">
@@ -1504,276 +1111,432 @@
           <li><span class="ref-name">What Is PRINCE2「PRINCE2 Agile Book Review」</span><a class="ref-url" href="https://www.whatisprince2.net/agile/prince2-agile" target="_blank" rel="noopener">https://www.whatisprince2.net/agile/prince2-agile</a></li>
         </ul>
       </div>
-    </section>
+        </section>
 
+        <footer>
+          本ガイドは、公式・非公式情報源をもとに独自にまとめた学習教材です。原著作物からの長文引用は行わず、内容は要約・翻訳・再構成した独自の解説となっています。試験の出題範囲・形式は改定される可能性があるため、受験前には必ず PeopleCert 公式サイトで最新情報をご確認ください。<br>
+          PRINCE2® および PRINCE2 Agile® は PeopleCert group の登録商標です。本ガイドは PeopleCert の公式資料ではありません。
+        </footer>
+      </main>
+    </div>
+  </div>
+</template>
 
-    <footer>
-      本ガイドは、公式・非公式情報源をもとに独自にまとめた学習教材です。原著作物からの長文引用は行わず、内容は要約・翻訳・再構成した独自の解説となっています。試験の出題範囲・形式は改定される可能性があるため、受験前には必ず PeopleCert 公式サイトで最新情報をご確認ください。<br>
-      PRINCE2® および PRINCE2 Agile® は AXELOS Limited の登録商標です。本ガイドは PeopleCert / AXELOS の公式資料ではありません。
-    </footer>
+<style scoped>
+.layout {
+  display: block;
+}
 
-  </main>
-</div>
+/* ===================== Sidebar ===================== */
+.sidebar {
+  position: fixed;
+  top: var(--global-nav-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--global-nav-height));
+  overflow-y: auto;
+  background: var(--color-paper-raised);
+  border-right: 1px solid var(--color-border);
+  padding: 32px 24px 40px;
+  z-index: 20;
+}
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11.16.1/dist/mermaid.min.js" integrity="sha384-aBQXj4hK6Jm05i7aQAsUV3bLdSUrHX1BGYfMB0166TtWt/RRaw+h0Eelme9OCOvy" crossorigin="anonymous"></script>
-<script>
-(function () {
-  "use strict";
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
 
-  var DIAGRAMS = {
-    studyRoadmap: `flowchart LR
-    F["PRINCE2 Agile Foundation (Version 2)"] --> P["PRINCE2 Agile Practitioner (Version 2)"]
-    P --> E["PRINCE2 Agile Expert (Foundation + Practitioner 取得で到達)"]
+.seal {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class F hub;
-    class P box;
-    class E done;`,
+.brand-text .brand-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
 
-    processFlow: `flowchart TB
-    DP["Directing a Project (プロジェクト指揮)"]
-    SU["Starting up a Project (立ち上げ)"] --> IP["Initiating a Project (開始)"]
-    IP --> CS["Controlling a Stage (ステージ管理)"]
-    CS --> MP["Managing Product Delivery (プロダクト提供管理)"]
-    MP --> CS
-    CS --> SB["Managing a Stage Boundary (ステージ境界管理)"]
-    SB --> CS
-    SB --> CP["Closing a Project (プロジェクト終結)"]
-    DP --- SU
-    DP --- IP
-    DP --- CS
-    DP --- SB
-    DP --- CP
+.brand-text .brand-subtitle {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 2px;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class DP hub;
-    class SU,IP,CS,MP,SB box;
-    class CP done;`,
+.sidebar-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    blendWeaveLevels: `flowchart TB
-    subgraph L1["プロジェクト指揮 (Project Direction)"]
-        A1["PRINCE2: プロジェクトボードによるガバナンスと意思決定"]
-    end
-    subgraph L2["プロジェクトマネジメント (Project Management)"]
-        A2["PRINCE2: プロセスとテーマによる管理の枠組み"]
-        A3["Agile: タイムボックス化された計画とレビュー"]
-    end
-    subgraph L3["プロダクトデリバリー (Product Delivery)"]
-        A4["Agile: Scrum / Kanban によるチームの日々の実行"]
-    end
-    L1 --> L2
-    L2 --> L3
+.sidebar-nav .nav-group-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.06em;
+  margin: 22px 0 8px;
+  padding-left: 12px;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class A1 hub;
-    class A2,A3 box;
-    class A4 done;`,
+.sidebar-nav .nav-group-label:first-child { margin-top: 0; }
 
-    scrumCycle: `flowchart LR
-    PB["プロダクトバックログ"] --> SP["スプリントプランニング"]
-    SP --> SB2["スプリントバックログ"]
-    SB2 --> DS["デイリースタンドアップ"]
-    DS --> INC["インクリメント (動くプロダクト)"]
-    INC --> SR["スプリントレビュー"]
-    SR --> RETRO["スプリントレトロスペクティブ"]
-    RETRO --> SP
+.sidebar-nav li { margin: 2px 0; }
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class PB hub;
-    class SP,SB2,DS,INC,SR,RETRO box;`,
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+}
 
-    kanbanFlow: `flowchart LR
-    TODO["To Do"] --> DOING["Doing (WIP制限あり)"]
-    DOING --> REVIEW["Review"]
-    REVIEW --> DONE["Done"]
+.sidebar-nav a :deep(.iconify) {
+  font-size: 17px;
+  color: var(--color-ink-faint);
+  flex: none;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class TODO hub;
-    class DOING,REVIEW box;
-    class DONE done;`,
+.sidebar-nav a:hover {
+  background: var(--color-indigo-tint);
+  text-decoration: none;
+  color: var(--color-indigo);
+}
 
-    leanStartupLoop: `flowchart LR
-    B["構築 (Build)"] --> M["計測 (Measure)"]
-    M --> L["学習 (Learn)"]
-    L --> B
+.sidebar-nav a.active {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  font-weight: 600;
+  border-left-color: var(--color-indigo);
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class B hub;
-    class M,L box;`,
+.sidebar-nav a.active :deep(.iconify) {
+  color: var(--color-indigo);
+}
 
-    focusAreasOverview: `flowchart TB
-    FA["4つのフォーカスエリア"] --> AG["Agilometer"]
-    FA --> RQ["Requirements (要求事項の優先順位付け)"]
-    FA --> RC["Rich Communication"]
-    FA --> FR["Frequent Releases"]
+/* ===================== Main Content ===================== */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 48px 64px 96px;
+  max-width: none;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    class FA hub;
-    class AG,RQ,RC,FR box;`,
+.hero {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--color-border);
+}
 
-    studySteps: `flowchart TB
-    S1["Step 1: 第1部で PRINCE2 の土台(原則・テーマ・プロセス・管理プロダクト・ロール)を固める"] --> S2["Step 2: 第2部で PRINCE2 Agile 固有の考え方(ブレンドとウィーブ、8つのガイダンスポイント)を理解する"]
-    S2 --> S3["Step 3: 第3部で原則・テーマ・プロセス・管理プロダクトのアジャイル適用を、対応表として覚える"]
-    S3 --> S4["Step 4: 第4部で用語と技法を、実際の文脈の中で使えるレベルまで定着させる"]
-    S4 --> S5["Step 5: 第5部のフォーカスエリアを押さえ、模擬問題でシナリオ形式に慣れる"]
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-indigo);
+  background: var(--color-indigo-tint);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
 
-    classDef hub fill:#FAF1DF,stroke:#B8802A,color:#161B26,stroke-width:1px;
-    classDef box fill:#EEF1F8,stroke:#2E3F72,color:#161B26,stroke-width:1px;
-    classDef done fill:#EAF4EC,stroke:#2F6B3D,color:#161B26,stroke-width:1px;
-    class S1 hub;
-    class S2,S3,S4 box;
-    class S5 done;`,
-  };
+h1 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  line-height: 1.25;
+  color: var(--color-ink);
+  margin: 0 0 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
 
-  function extendViewBoxHeight(svgEl, extra) {
-    var vb = svgEl.getAttribute("viewBox");
-    if (!vb) return;
-    var parts = vb.split(/\s+/).map(Number);
-    if (parts.length !== 4) return;
-    svgEl.style.width = parts[2] + "px";
-    svgEl.setAttribute("viewBox", parts[0] + " " + parts[1] + " " + parts[2] + " " + (parts[3] + extra));
+.hero-lede {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+  margin: 0 0 28px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-indigo);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.disclaimer-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1px solid var(--color-info-border);
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 16px;
+  margin-top: 28px;
+  line-height: 1.6;
+}
+
+.disclaimer-box :deep(.iconify),
+.disclaimer-box :deep(svg) {
+  flex: none;
+  font-size: 20px;
+  margin-top: 2px;
+}
+
+.disclaimer-box > span {
+  flex: 1;
+}
+
+/* ===================== Sections & Typography ===================== */
+section {
+  margin-bottom: 64px;
+}
+
+:is(h2, h3, h4) {
+  scroll-margin-top: calc(var(--global-nav-height) + 32px);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-indigo);
+  letter-spacing: -0.005em;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 36px 0 16px;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 24px 0 12px;
+}
+
+p { margin: 0 0 16px; }
+
+ul, ol { margin: 0 0 18px; padding-left: 24px; }
+li { margin-bottom: 8px; }
+
+/* ===================== Tables ===================== */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-paper-raised);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+th {
+  background: var(--color-paper-sunken);
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--color-paper-sunken); }
+
+/* ===================== Callouts ===================== */
+.callout {
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin: 20px 0 24px;
+  border-left: 4px solid var(--color-border-strong);
+  background: var(--color-paper-raised);
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.callout-title :deep(.iconify) { font-size: 18px; flex: none; }
+
+.callout p:last-child { margin-bottom: 0; }
+
+.callout.practice {
+  border-left-color: var(--color-gold);
+  background: #FAF8F2;
+}
+.callout.practice .callout-title { color: var(--color-gold); }
+
+.callout.source {
+  border-left-color: var(--color-indigo);
+  background: var(--color-indigo-tint);
+}
+.callout.source .callout-title { color: var(--color-indigo); }
+.callout.source ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+.callout.source li { margin-bottom: 6px; font-size: 16px; word-break: break-all; }
+
+.callout.note {
+  border-left-color: var(--color-forest);
+  background: var(--color-forest-tint);
+}
+.callout.note .callout-title { color: var(--color-forest); }
+
+/* ===================== Diagrams ===================== */
+.diagram-card {
+  margin: 24px 0 32px;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.diagram-caption {
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  text-align: center;
+  margin-top: 14px;
+  font-weight: 500;
+}
+
+/* ===================== Step List & Ref List ===================== */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.step-list li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.step-num {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-indigo);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.step-body { flex: 1; }
+.step-title { font-weight: 600; color: var(--color-ink); margin-bottom: 4px; }
+.step-desc { font-size: 16px; color: var(--color-ink-soft); margin: 0; }
+
+.ref-group { margin-bottom: 28px; }
+.ref-list { list-style: none; margin: 0; padding: 0; }
+.ref-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 16px;
+}
+.ref-list li:last-child { border-bottom: none; }
+.ref-list .ref-name { color: var(--color-ink); font-weight: 500; display: block; margin-bottom: 2px; }
+.ref-list .ref-url { color: var(--color-ink-faint); word-break: break-all; }
+
+/* ===================== Footer ===================== */
+footer {
+  margin-top: 80px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  font-size: 16px;
+  color: var(--color-ink-faint);
+  line-height: 1.6;
+}
+
+/* ===================== Mobile Sidebar Toggle ===================== */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-indigo);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 30;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+@media (max-width: 980px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
   }
-
-  async function renderAllDiagrams() {
-    if (typeof mermaid === "undefined") {
-      Object.keys(DIAGRAMS).forEach(function (id) {
-        var el = document.getElementById(id);
-        if (el) el.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました(ネットワークを確認してください)。</p>';
-      });
-      return;
-    }
-
-    if (document.fonts && document.fonts.ready) {
-      try { await document.fonts.ready; } catch (e) { /* ignore */ }
-    }
-
-    mermaid.initialize({
-      startOnLoad: false,
-      securityLevel: "strict",
-      theme: "base",
-      themeVariables: {
-        background: "transparent",
-        primaryColor: "#EEF1F8",
-        primaryBorderColor: "#2E3F72",
-        primaryTextColor: "#161B26",
-        lineColor: "#2E3F72",
-        secondaryColor: "#FAF1DF",
-        secondaryBorderColor: "#B8802A",
-        tertiaryColor: "#FFFFFF",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif",
-        fontSize: "16px",
-        pie1: "#C7D1EA",
-        pie2: "#AEDBD6",
-        pie3: "#F0D9A6",
-        pie4: "#E7C0D0",
-        pieOpacity: "1",
-        pieStrokeColor: "#FFFFFF",
-        pieStrokeWidth: "2px",
-        pieOuterStrokeWidth: "1px",
-        pieOuterStrokeColor: "#DFE3EA",
-        pieSectionTextColor: "#161B26",
-        pieLegendTextColor: "#161B26",
-        pieTitleTextColor: "#161B26"
-      },
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        nodeSpacing: 45,
-        rankSpacing: 48,
-        curve: "basis"
-      },
-      pie: {
-        useMaxWidth: false
-      }
-    });
-
-    var entries = Object.keys(DIAGRAMS);
-    for (var i = 0; i < entries.length; i++) {
-      var id = entries[i];
-      var container = document.getElementById(id);
-      if (!container) continue;
-      try {
-        var result = await mermaid.render(id + "-svg", DIAGRAMS[id]);
-        // mermaid v10 系は SVG 文字列を、v11 系は { svg } を返す。両形態を受け付ける。
-        container.innerHTML = typeof result === "string" ? result : result.svg;
-        var svgEl = container.querySelector("svg");
-        if (svgEl) {
-          svgEl.removeAttribute("width");
-          svgEl.removeAttribute("height");
-          svgEl.style.maxWidth = "100%";
-          svgEl.style.height = "auto";
-          svgEl.style.overflow = "visible";
-          extendViewBoxHeight(svgEl, 15);
-        }
-      } catch (err) {
-        container.innerHTML = '<p class="diagram-error">図の読み込みに失敗しました。</p>';
-        if (window.console) console.error("Mermaid render error [" + id + "]:", err);
-      }
-    }
+  .sidebar.is-open {
+    transform: translateX(0);
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.15);
   }
-
-  function setupSidebarHighlight() {
-    var sections = document.querySelectorAll("main section[id]");
-    var navLinks = document.querySelectorAll(".sidebar-nav a");
-    var linkMap = {};
-    navLinks.forEach(function (link) {
-      var href = link.getAttribute("href").replace("#", "");
-      linkMap[href] = link;
-    });
-    if (!("IntersectionObserver" in window)) return;
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var link = linkMap[entry.target.id];
-        if (!link) return;
-        if (entry.isIntersecting) {
-          navLinks.forEach(function (l) { l.classList.remove("active"); });
-          link.classList.add("active");
-        }
-      });
-    }, { rootMargin: "-20% 0px -70% 0px" });
-    sections.forEach(function (section) { observer.observe(section); });
+  .sidebar-toggle { display: flex; }
+  .main-content {
+    margin-left: 0;
+    padding: 32px 20px 80px;
   }
-
-  function setupMobileToggle() {
-    var toggle = document.getElementById("sidebarToggle");
-    var sidebar = document.getElementById("sidebar");
-    if (!toggle || !sidebar) return;
-    toggle.addEventListener("click", function () {
-      var isOpen = sidebar.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(isOpen));
-    });
-    document.querySelectorAll(".sidebar-nav a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        // 開いていたときだけフォーカスをトグルボタンへ退避する。
-        // モバイルの閉じたサイドバーは visibility: hidden になるため、
-        // クリックしたリンクにフォーカスを残すとフォーカスが body へ落ちる。
-        // 逆に閉じた状態（デスクトップ相当）で退避すると、リンク先へ
-        // 移動したい利用者からフォーカスを奪ってしまう。
-        var wasOpen = sidebar.classList.contains("open");
-        sidebar.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        if (wasOpen) toggle.focus();
-      });
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    renderAllDiagrams();
-    setupSidebarHighlight();
-    setupMobileToggle();
-  });
-})();
-</script>
-</body>
-</html>
+}
+</style>

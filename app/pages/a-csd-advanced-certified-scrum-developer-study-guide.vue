@@ -31,7 +31,7 @@ function closeSidebar(): void {
 }
 
 useSeoMeta({
-  title: "A-CSD® (Advanced Certified Scrum Developer) 認定資格 完全ガイド | Scrum Alliance 公式Learning Objectives準拠",
+  title: "A-CSD® (Advanced Certified Scrum Developer) 認定資格 完全ガイド | Scrum Alliance Learning Objectives に基づく非公式ガイド",
   description:
     "Scrum Alliance® の Advanced Certified Scrum Developer (A-CSD) Learning Objectives (2021年8月版) に基づき、7カテゴリ・全LOをステップバイステップで解説する学習ガイド。",
 });

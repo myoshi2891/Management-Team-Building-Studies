@@ -271,7 +271,7 @@ class TEAM,PO,ORG box;`;
       <!-- ===================== Main content ===================== -->
       <main class="main-content">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" />Scrum Alliance公式 Learning Objectivesに基づく解説</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" />Scrum Alliance Learning Objectivesに基づく非公式解説</div>
           <h1>Certified ScrumMaster®(CSM®)完全ガイド</h1>
           <p class="hero-lede">
             本ガイドは、Scrum Alliance®が提供するCertified ScrumMaster®(CSM®)資格について、公式情報源(Scrum Alliance公式サイト・公式Learning Objectives文書・Scrum Guide 2020年版)を根拠に、初学者でも理解できるようステップバイステップで解説したものです。各章末に該当するベストプラクティスと参考ソース(URL)を明記しています。

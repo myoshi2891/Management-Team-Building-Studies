@@ -328,7 +328,7 @@ const DIAGRAM_CATEGORY_SUMMARY = `flowchart TD
 
     <main id="main-content" class="main-content">
       <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance公式Learning Objectives準拠</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance Learning Objectivesに基づく非公式ガイド</div>
       <h1>Certified Scrum Product Owner®(CSPO®) 完全学習ガイド</h1>
       <p class="hero-lede">
         初学者から実務者まで対応。出題範囲となる公式Learning Objectivesを100%カバーし、各項目の詳細解説・ベストプラクティス・根拠ソースURLを付記した保存版ドキュメントです。対象読者：これからCSPOを受講する方、Product Owner役割に就いたばかりの方、Scrum Master/開発者としてPOと協働する方。

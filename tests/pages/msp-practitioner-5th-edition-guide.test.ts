@@ -86,7 +86,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-foundation-5th-edition-2930",
   "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/MSP-6/msp-practitioner-5th-edition-2932",
   "https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/",
-  "https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition",
 ] as const;
 
 const EXPECTED_MERMAID_SOURCES = [
@@ -171,14 +170,14 @@ class P7 done`,
 ] as const;
 
 const EXPECTED_CALLOUT_VARIANTS = {
-  source: 17,
+  source: 16,
   practice: 4,
   note: 2,
 } as const;
 
 const EXPECTED_CALLOUT_LABELS = {
   source: {
-    ソース: 17,
+    ソース: 16,
   },
   practice: {
     ベストプラクティス: 4,
@@ -305,8 +304,10 @@ describe("pages/msp-practitioner-5th-edition-guide.vue (固有契約)", () => {
     expect(items).toHaveLength(12);
     for (const item of items) {
       expect(item.find(".ref-name").exists()).toBe(true);
-      expect(item.find(".ref-url a").exists()).toBe(true);
     }
+    // 公式マニュアルは書誌だけを示す（権利者の許諾が確認できない電子書籍サイトへのリンクは置かない）。
+    expect(items.filter((item) => !item.find(".ref-url a").exists()).map((item) => item.get(".ref-name").text()))
+      .toEqual(["公式マニュアル『Managing Successful Programmes (5th edition)』章立て(原則・各テーマの節構成)"]);
   });
 
   it("プロセス詳細・試験対策ステップ・参考文献の必須 CSS セレクタが scoped style 内に定義されている", async () => {

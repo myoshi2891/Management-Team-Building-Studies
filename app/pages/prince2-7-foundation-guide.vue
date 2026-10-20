@@ -239,7 +239,7 @@ function closeSidebar(): void {
 }
 
 useSeoMeta({
-  title: "PRINCE2® Project Management Foundation (Version 7) 完全ガイド | PeopleCert公式資格対応",
+  title: "PRINCE2® Project Management Foundation (Version 7) 完全ガイド | 非公式学習ガイド",
   description: "PeopleCert PRINCE2 Project Management Foundation (Version 7) の出題範囲を、7つの原則・7つのプラクティス・7つのプロセス・役割と責任・People・デジタル&データマネジメント・サステナビリティまで初学者向けに解説する学習ガイド。",
 });
 </script>
@@ -297,7 +297,7 @@ useSeoMeta({
 
       <main class="main-content">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert公式資格 準拠ガイド</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert 認定資格の非公式学習ガイド</div>
           <h1>PRINCE2® Project Management Foundation (Version 7) 学習ガイド</h1>
           <p class="hero-lede">
             本ガイドは初学者が「なぜそうするのか」を理解しながら、出題範囲の各項目を体系的に押さえられるように構成しています。ASCII図は使用せず、フローチャートは Mermaid、比較・一覧情報は表を使用しています。
@@ -509,7 +509,7 @@ useSeoMeta({
           <div class="callout source" data-variant="source" data-testid="callout">
             <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
             <ul>
-              <li><a href="https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked" target="_blank" rel="noopener">Managing Successful Projects with PRINCE2 7th Edition 目次(scribd)</a></li>
+              <li>公式マニュアル『Managing Successful Projects with PRINCE2 (7th Edition)』目次</li>
               <li><a href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2" target="_blank" rel="noopener">knowledgetrain.co.uk PRINCE2マニュアル解説</a></li>
             </ul>
           </div>
@@ -1019,7 +1019,7 @@ useSeoMeta({
         <h4>出典一覧</h4>
         <ul class="ref-list">
           <li><span class="ref-name">PeopleCert公式「PRINCE2 Project Management Foundation (Version 7)」製品ページ(試験形式・出題範囲)</span><a class="ref-url" href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579" target="_blank" rel="noopener">https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579</a></li>
-          <li><span class="ref-name">公式マニュアル『Managing Successful Projects with PRINCE2 (7th Edition)』目次・章構成の確認</span><a class="ref-url" href="https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked" target="_blank" rel="noopener">https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked</a></li>
+          <li><span class="ref-name">公式マニュアル『Managing Successful Projects with PRINCE2 (7th Edition)』目次・章構成の確認</span></li>
           <li><span class="ref-name">PRINCE2マニュアル解説(章構成、People章の位置づけ)</span><a class="ref-url" href="https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2" target="_blank" rel="noopener">https://www.knowledgetrain.co.uk/project-management/prince2/prince2-manual-managing-successful-projects-with-prince2</a></li>
           <li><span class="ref-name">V6→V7の変更点整理</span><a class="ref-url" href="https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know/" target="_blank" rel="noopener">https://onlinepmcourses.com/prince2-7th-edition-the-top-10-changes-you-need-to-know/</a></li>
           <li><span class="ref-name">プロセスとプラクティスの関係整理</span><a class="ref-url" href="https://www.projex.com/processes-and-practices-in-prince2-7-project-management/" target="_blank" rel="noopener">https://www.projex.com/processes-and-practices-in-prince2-7-project-management/</a></li>

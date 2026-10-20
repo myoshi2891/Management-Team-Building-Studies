@@ -1,4 +1,4 @@
-import { GUIDE_KINDS, GUIDE_PROGRAMS, isUnpublishedRoute } from "./app/utils/guide-catalog";
+import { GUIDE_KINDS, LISTED_PROGRAMS, isUnpublishedRoute } from "./app/utils/guide-catalog";
 
 // Nuxt 4 の既定 srcDir は `app/`。ページ・コンポーネント等はすべて app/ 配下に置く。
 export default defineNuxtConfig({
@@ -18,7 +18,25 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/eslint", "@nuxt/icon", "@vueuse/nuxt", "@nuxtjs/seo"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/icon",
+    "@vueuse/nuxt",
+    "@nuxtjs/seo",
+    /*
+     * 公開見合わせ中のガイド（guide-catalog の UNPUBLISHED_GUIDE_ROUTES）を本番ではルートごと取り除く。
+     * カタログから外すだけではホーム・ナビから消えるのみで、ページ自体は
+     * 直接アクセス・sitemap の自動収集で到達できてしまうため、ここで断つ。
+     * dev サーバーでは全ページを確認できるよう取り除かない（カタログ側も dev では全件を出す）。
+     */
+    (_options, nuxt) => {
+      if (nuxt.options.dev) return;
+      nuxt.hook("pages:extend", (pages) => {
+        const kept = pages.filter((page) => !isUnpublishedRoute(page.path));
+        pages.splice(0, pages.length, ...kept);
+      });
+    },
+  ],
 
   // 原本 HTML の CDN 読み込みを npm パッケージへ置き換える。
   // これによりバージョン未固定・SRI なしという既知リスクが解消する。
@@ -73,20 +91,9 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         ...GUIDE_KINDS.map((kind) => kind.to),
-        ...GUIDE_PROGRAMS.map((program) => program.to),
+        // 全ガイドが見合わせ中のプログラム（ハブが空になる）は生成しない。
+        ...LISTED_PROGRAMS.map((program) => program.to),
       ],
-    },
-  },
-
-  hooks: {
-    /*
-     * 公開見合わせ中のガイド（guide-catalog の UNPUBLISHED_GUIDE_ROUTES）をルートごと取り除く。
-     * カタログから外すだけではホーム・ナビから消えるのみで、ページ自体は
-     * 直接アクセス・sitemap の自動収集で到達できてしまうため、ここで断つ。
-     */
-    "pages:extend"(pages) {
-      const kept = pages.filter((page) => !isUnpublishedRoute(page.path));
-      pages.splice(0, pages.length, ...kept);
     },
   },
 

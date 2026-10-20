@@ -647,7 +647,6 @@ class X,E,H done;`;
             <li><span class="ref-name">ソフトウェアエンジニアによる書評(hazardous.org)</span><a class="ref-url" href="https://hazardous.org/archive/blog/reading/2022/01/03/Debugging-Teams" target="_blank" rel="noopener">https://hazardous.org/archive/blog/reading/2022/01/03/Debugging-Teams</a></li>
             <li><span class="ref-name">ソフトウェアアーキテクトによる書評(modeling-languages.com)</span><a class="ref-url" href="https://modeling-languages.com/debugging-teams-geek-book/" target="_blank" rel="noopener">https://modeling-languages.com/debugging-teams-geek-book/</a></li>
             <li><span class="ref-name">DSPエンジニアMatthieu Brucher氏による前身書籍『Team Geek』の書評</span><a class="ref-url" href="https://blog.audio-tk.com/2016/07/12/book-review-team-geek/" target="_blank" rel="noopener">https://blog.audio-tk.com/2016/07/12/book-review-team-geek/</a></li>
-            <li><span class="ref-name">Internet Archive 書籍情報ページ</span><a class="ref-url" href="https://archive.org/details/debuggingteams0000fitz" target="_blank" rel="noopener">https://archive.org/details/debuggingteams0000fitz</a></li>
             <li><span class="ref-name">Goodreads 読者レビュー集</span><a class="ref-url" href="https://www.goodreads.com/book/show/26544401-debugging-teams" target="_blank" rel="noopener">https://www.goodreads.com/book/show/26544401-debugging-teams</a></li>
           </ul>
         </div>

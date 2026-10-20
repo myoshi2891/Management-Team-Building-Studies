@@ -306,7 +306,7 @@ const DIAGRAM_RAPID_FRAMEWORK = `graph TD
       <!-- ===================== Main content ===================== -->
       <main id="main-content" class="main-content" tabindex="-1">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance公式カリキュラムに基づく解説</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance カリキュラムに基づく非公式解説</div>
           <h1>CAL2 Part 2: リーダーとしての成長(Developing as a Leader)</h1>
           <p class="hero-lede">
             本ガイドは Scrum Alliance 公式ページ(CAL 2 - Certified Agile Leader 2)に掲載されている公式カリキュラムの Part 2「Developing as a Leader」を、初学者向けにステップバイステップで詳しく解説するものです。

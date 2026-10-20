@@ -681,6 +681,17 @@ export const ALL_GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/professional-product-discovery-and-validation",
+    programId: "scrum-org",
+    seriesId: "so-product-owner",
+    navLabel: "PPDV 完全ガイド",
+    title: "Professional Product Discovery and Validation™ 認定試験 学習ガイド",
+    description: "Scrum.org Professional Product Discovery and Validation(PPDV)認定試験の初学者向け学習ガイド。ダブルダイヤモンド、Discovery/Validation技法、EBM、ベストプラクティスと一次情報源のURLを解説。",
+    meta: "10セクション",
+    icon: "tabler:search",
+    accent: "indigo",
+  },
+  {
     to: "/professional-scrum-developer",
     programId: "scrum-org",
     seriesId: "so-developer",
@@ -874,6 +885,39 @@ export const ALL_GUIDES = [
     navLabel: "PRINCE2 7 Foundation",
     title: "PRINCE2® Project Management Foundation (Version 7) 学習ガイド",
     description: "PeopleCert PRINCE2 Project Management Foundation (Version 7) の出題範囲を、7つの原則・7つのプラクティス・7つのプロセス・役割と責任・People・デジタル&データマネジメント・サステナビリティまで初学者向けに解説する学習ガイド。",
+    meta: "14セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
+    to: "/prince2-7-practitioner-guide",
+    programId: "peoplecert",
+    seriesId: "pc-prince2",
+    navLabel: "PRINCE2 7 Practitioner",
+    title: "PRINCE2® Project Management Practitioner (Version 7) 学習ガイド",
+    description: "PeopleCert PRINCE2 Project Management Practitioner (Version 7)の出題範囲を、7原則・People・7プラクティス・7プロセスの配点順に整理した学習ガイド。",
+    meta: "11セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
+    to: "/prince2-agile-foundation-version2",
+    programId: "peoplecert",
+    seriesId: "pc-prince2",
+    navLabel: "PRINCE2 Agile Foundation",
+    title: "PRINCE2® Agile Foundation (Version 2) 学習ガイド",
+    description: "PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。",
+    meta: "9セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
+    to: "/prince2-agile-practitioner-v2-study-guide",
+    programId: "peoplecert",
+    seriesId: "pc-prince2",
+    navLabel: "PRINCE2 Agile Practitioner",
+    title: "PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド",
+    description: "PeopleCert PRINCE2 Agile Practitioner (Version 2) の出題範囲を、初学者向けにステップバイステップで解説し、ベストプラクティス・演習・根拠ソース URL をまとめた学習ガイド。",
     meta: "14セクション",
     icon: "tabler:certificate",
     accent: "indigo",
@@ -1149,12 +1193,17 @@ export const ALL_GUIDES = [
  *
  * 著作権上の懸念が解消するまで公開しない（2026-10 の公開前監査による）。
  * - CSPO / CSP-PO / CSP-D: Scrum Alliance の Learning Objectives 英文をほぼ全件転載している
- * - Managing Humans / Leadership Challenge / Team Geek / Peopleware / No Rules Rules:
+ * - A-CSM / CSP-SM / A-CSD: Learning Objectives を 1 項目ずつ和訳して見出しにしている（翻訳権）
+ * - PMP ドメイン2: PMI の Exam Content Outline の Task・Enabler を英文のまま全件転載している
+ * - PeopleCert 系（ITIL / MoP / MSP / PRINCE2）: 権利者のライセンス方針で、学習ガイドは
+ *   ライセンス不要の Fair Use に含まれない（書面承認が得られるまで見合わせ）
+ * - Managing Humans / Leadership Challenge / Team Geek / Peopleware / No Rules Rules /
+ *   High Output Management / 人月の神話 / Debugging Teams:
  *   原著の章立てに沿った網羅的要約、または要約サービス・第三者の読書ノートへの依存
  *
  * ページのファイルと ALL_GUIDES の定義は残す。再公開は改稿のうえこの一覧から外すだけでよい。
- * nuxt.config.ts の pages:extend がこの一覧でルートごと取り除くため、
- * 直接アクセス・静的生成・sitemap のいずれにも現れない。
+ * 本番（build / generate）では nuxt.config.ts の pages:extend がこの一覧でルートごと取り除くため、
+ * 直接アクセス・静的生成・sitemap のいずれにも現れない。dev サーバーでは確認のため全件を出す。
  */
 export const UNPUBLISHED_GUIDE_ROUTES: readonly string[] = [
   "/cspo-certified-scrum-product-owner-study-guide",
@@ -1165,6 +1214,27 @@ export const UNPUBLISHED_GUIDE_ROUTES: readonly string[] = [
   "/team-geek-guide",
   "/peopleware-guide",
   "/no-rules-rules-guide",
+  "/a-csm-advanced-certified-scrummaster-study-guide",
+  "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
+  "/a-csd-advanced-certified-scrum-developer-study-guide",
+  "/pmp-domain2-process-guide",
+  "/itil-foundation-v5-study-guide",
+  "/itil-experience-version-5-study-guide",
+  "/itil-managing-professional-transition-v5-guide",
+  "/itil-product-version5-guide",
+  "/itil-service-v5-guide",
+  "/itil-strategy-v5-guide",
+  "/itil-transformation-v5-study-guide",
+  "/mop-foundation-guide",
+  "/msp-foundation-5th-edition-guide",
+  "/msp-practitioner-5th-edition-guide",
+  "/prince2-7-foundation-guide",
+  "/prince2-7-practitioner-guide",
+  "/prince2-agile-foundation-version2",
+  "/prince2-agile-practitioner-v2-study-guide",
+  "/high-output-management-guide",
+  "/mythical-man-month-guide",
+  "/debugging-teams-guide",
 ];
 
 /**
@@ -1176,10 +1246,35 @@ export function isUnpublishedRoute(route: string): boolean {
 }
 
 /**
- * 公開中のガイド。ホーム・ナビ・ハブ・検索・e2e の巡回はすべてこれから導出する。
- * ALL_GUIDES の並び順の不変条件は、フィルタ後もそのまま保たれる。
+ * 表示対象のガイドを返す。ALL_GUIDES の並び順の不変条件は、フィルタ後もそのまま保たれる。
+ * @param includeUnpublished - true なら公開見合わせ中のガイドも含める（dev サーバー用）
  */
-export const GUIDES: readonly Guide[] = ALL_GUIDES.filter((guide) => !isUnpublishedRoute(guide.to));
+export function visibleGuides(includeUnpublished: boolean): readonly Guide[] {
+  if (includeUnpublished) return ALL_GUIDES;
+  return ALL_GUIDES.filter((guide) => !isUnpublishedRoute(guide.to));
+}
+
+/*
+ * dev サーバーでだけ true。import.meta.dev は Vite が静的に置換する
+ * （build / generate と Vitest では false、nuxt.config.ts の読み込み時は undefined）。
+ * 既定を「非公開を除く」側に倒しているため、判定できない環境では公開分だけになる。
+ */
+const SHOW_UNPUBLISHED = import.meta.dev === true;
+
+/**
+ * 表示中のガイド。ホーム・ナビ・ハブ・検索・e2e の巡回はすべてこれから導出する。
+ * 本番では公開分だけ、dev サーバーでは全件になる。
+ */
+export const GUIDES: readonly Guide[] = visibleGuides(SHOW_UNPUBLISHED);
+
+/**
+ * 表示中のガイドを 1 本以上持つプログラム（定義順）。
+ * 全ガイドが見合わせ中のプログラムは、ハブ・種別インデックス・巡回ルートから外す
+ * （空のハブを出さず、直接アクセスも 404 にするため）。
+ */
+export const LISTED_PROGRAMS: readonly GuideProgram[] = GUIDE_PROGRAMS.filter((program) =>
+  GUIDES.some((guide) => guide.programId === program.id),
+);
 
 /** シリーズ単位のガイド束（ハブページの 1 セクション）。 */
 export type GuideSeriesGroup = {
@@ -1272,11 +1367,11 @@ export function programGroup(id: string): GuideProgramGroup {
 }
 
 /**
- * ある種別に属するプログラムを定義順で返す（ナビのパネル・種別インデックス用）。
+ * ある種別に属する表示中のプログラムを定義順で返す（種別インデックス・ハブの validate 用）。
  * @param kindId - 種別 ID
  */
 export function programsOfKind(kindId: string): GuideProgram[] {
-  return GUIDE_PROGRAMS.filter((program) => program.kindId === kindId);
+  return LISTED_PROGRAMS.filter((program) => program.kindId === kindId);
 }
 
 /** ナビ・パンくずに表示する日本語プログラム表記を引く。 */
@@ -1335,7 +1430,7 @@ export function allSiteRoutes(): string[] {
   return [
     "/",
     ...GUIDE_KINDS.map((kind) => kind.to),
-    ...GUIDE_PROGRAMS.map((program) => program.to),
+    ...LISTED_PROGRAMS.map((program) => program.to),
     ...GUIDES.map((guide) => guide.to),
   ];
 }

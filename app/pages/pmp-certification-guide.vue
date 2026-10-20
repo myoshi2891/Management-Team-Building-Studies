@@ -174,7 +174,7 @@ useSeoMeta({
 
       <main class="main-content">
         <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" />PMI公式 Exam Content Outline - 2026(7月改定)準拠</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" />PMI Exam Content Outline - 2026(7月改定)に基づく非公式ガイド</div>
       <h1>PMP®(Project Management Professional)認定試験 完全攻略ガイド</h1>
       <p class="hero-lede">
         初学者向け ステップバイステップ解説 — 2026年7月改定 Exam Content Outline (ECO) 準拠

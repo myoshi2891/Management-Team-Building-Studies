@@ -226,7 +226,7 @@ class G done;`;
 
     <main class="main-content">
       <div class="hero">
-        <div class="hero-eyebrow"><Icon name="tabler:certificate" />PMI公式 ECO 2026年7月改定版 準拠</div>
+        <div class="hero-eyebrow"><Icon name="tabler:certificate" />PMI ECO 2026年7月改定版に基づく非公式ガイド</div>
         <h1>PMP® Domain I: People 完全攻略ガイド</h1>
         <p class="hero-lede">
           本ガイドは、PMI(Project Management Institute)が公開する<strong>PMP® Certification Exam Content Outline(ECO)2026年7月改定版</strong>を一次情報源として、Domain I: People(第I領域:人)を初学者向けに体系化した学習資料です。各Task(タスク)・Enabler(実務行動例)の内容を丁寧に解説し、実務およびPMP試験対策の両面で使えるベストプラクティスを、根拠となる出典URLとともに整理しています。

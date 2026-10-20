@@ -314,7 +314,7 @@ defineSourceParityContract({
   seoTitleFragments: ["ITIL Foundation (Version 5)", "完全学習ガイド"],
   seoTitle: "ITIL Foundation (Version 5) 完全学習ガイド | 初学者のためのステップ・バイ・ステップ解説",
   seoDescription:
-    "PeopleCert公式シラバスv5.0に準拠したITIL Foundation (Version 5) の完全学習ガイド。7カテゴリー40問の出題範囲を初学者向けに詳細解説し、各項目のベストプラクティスと出典URLを掲載。",
+    "PeopleCert シラバス v5.0 に基づく ITIL Foundation (Version 5) の非公式学習ガイド。7カテゴリー40問の出題範囲を初学者向けに詳細解説し、各項目のベストプラクティスと出典URLを掲載。",
 });
 
 describe("pages/itil-foundation-v5-study-guide.vue — 固有契約", () => {

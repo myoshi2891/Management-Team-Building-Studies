@@ -32,7 +32,7 @@ const EXPECTED_H2 = [
 
 const EXPECTED_H3 = [
   "1.1 資格の位置づけ",
-  "1.2 試験の構造(コミュニティ情報を含む)",
+  "1.2 試験の構造",
   "1.3 受験対象者",
   "1.4 学習ロードマップ(推奨順序)",
   "2.1 スケールの根本原則",
@@ -114,7 +114,7 @@ const EXPECTED_CALLOUT_VARIANTS = {
 const EXPECTED_CALLOUT_LABELS = {
   note: {
     "補足": 2,
-    "この割合は Scrum.org の公式発表ではありません(非公式の目安)": 1,
+    "出題比率は公表されていません": 1,
     "試験のポイント": 3,
   },
   practice: {

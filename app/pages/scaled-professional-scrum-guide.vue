@@ -252,7 +252,7 @@ useSeoMeta({
       
 
     <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公式アセスメント準拠</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org アセスメント対策の非公式ガイド</div>
       <h1>Scaled Professional Scrum(SPS)認定 完全学習ガイド</h1>
       <p class="hero-lede">
         初学者にも分かるようにゼロから解説します。本ガイドは Scrum.org 公式の Nexus Guide、公式アセスメントページ、および公式ブログ・ホワイトペーパーの内容を基に、独自の言葉で体系化したものです。引用は最小限にとどめ、一次情報源への参照 URL を各章末に明記しています。
@@ -306,22 +306,22 @@ useSeoMeta({
         <p>Scrum.org の資格は「講座に出席したこと」ではなく「試験に合格したこと」で認定される点が Scrum Alliance 系資格(CSM/CSPO など)と大きく異なります。SPS も同様で、Scaled Professional Scrum with Nexus コースへの参加は必須ではありませんが、強く推奨されています。</p>
       </div>
 
-      <h3>1.2 試験の構造(コミュニティ情報を含む)</h3>
-      <p>Scrum.org は個々の設問内容を公開していませんが、SPS を受験・分析したコミュニティの情報を総合すると、出題は大きく2つのカテゴリーに分類できます。</p>
+      <h3>1.2 試験の構造</h3>
+      <p>Scrum.org は個々の設問内容を公開していません。本ガイドでは学習の整理のため、設問を性質によって次の2つに分けて扱います。</p>
 
       <div class="table-wrap">
         <table>
-          <thead><tr><th>カテゴリー</th><th>内容</th><th>目安割合(非公式)</th></tr></thead>
+          <thead><tr><th>カテゴリー</th><th>内容</th></tr></thead>
           <tbody>
-            <tr><td>Nexus フレームワークの知識</td><td>Nexus Guide に定義された用語・役割・イベント・作成物に関する事実確認的な設問(PSM Ⅰ における Scrum の設問に相当)</td><td>約80%(残余からの算出値)</td></tr>
-            <tr><td>ケーススタディ型設問</td><td>スケールされた Scrum 環境(主に Nexus 環境)の状況が提示され、問題を特定する、または最良のアプローチを選択する設問</td><td>約20%</td></tr>
+            <tr><td>Nexus フレームワークの知識</td><td>Nexus Guide に定義された用語・役割・イベント・作成物に関する事実確認的な設問(PSM Ⅰ における Scrum の設問に相当)</td></tr>
+            <tr><td>ケーススタディ型設問</td><td>スケールされた Scrum 環境(主に Nexus 環境)の状況が提示され、問題を特定する、または最良のアプローチを選択する設問</td></tr>
           </tbody>
         </table>
       </div>
 
       <div class="callout note" data-testid="callout" data-variant="note">
-        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:alert-triangle" aria-hidden="true" />この割合は Scrum.org の公式発表ではありません(非公式の目安)</div>
-        <p>ケーススタディ型の「約20%」は受験者コミュニティサイト Scrum-Exams.info の SPS ページ の記載("Approximately 20% of the SPS exam consists of case studies")に基づくものです。「Nexus フレームワークの知識 約80%」はどこにも公表されておらず、上記20%の<strong>残余として本ガイドが算出した値</strong>です。Scrum.org は <a href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">公式アセスメントページ</a> でカテゴリー別の出題比率を公表していません。学習配分の参考にとどめ、受験判断の根拠にはしないでください。(確認日: 2026-09-08)</p>
+        <div class="callout-title" data-testid="callout-label"><Icon name="tabler:alert-triangle" aria-hidden="true" />出題比率は公表されていません</div>
+        <p>Scrum.org は <a href="https://www.scrum.org/assessments/scaled-professional-scrum-certification" target="_blank" rel="noopener">公式アセスメントページ</a> でカテゴリー別の出題比率を公表していません。上の 2 分類は学習上の整理であり、出題の配分を示すものではありません。(確認日: 2026-10-20)</p>
       </div>
 
       <div class="callout practice" data-testid="callout" data-variant="practice">
@@ -735,7 +735,7 @@ useSeoMeta({
     <section id="dependency-management-best-practices">
       <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 07</div>
       <h2>依存関係マネジメントとチーム編成のベストプラクティス</h2>
-      <p>SPS 試験のケーススタディ問題(§1.2 の非公式の目安で約20%。出典は Scrum-Exams.info であり Scrum.org の公式発表ではない。確認日: 2026-09-08)は、多くの場合「依存関係にどう対処するか」というテーマに集約されます。この章では Nexus Guide 本体を超えて、Scrum.org の公式トレーナー(PST)コミュニティが蓄積してきた実務知見(Nexus with Nexus コースで教えられる「50以上のプラクティス」の一部)を紹介します。</p>
+      <p>SPS 試験のケーススタディ型の設問は、多くの場合「依存関係にどう対処するか」というテーマに集約されます。この章では Nexus Guide 本体を超えて、Scrum.org の公式トレーナー(PST)コミュニティが蓄積してきた実務知見(Nexus with Nexus コースで教えられる「50以上のプラクティス」の一部)を紹介します。</p>
 
       <h3>7.1 依存関係のライフサイクル</h3>
       <div class="diagram-card">

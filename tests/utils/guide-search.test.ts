@@ -91,3 +91,8 @@ describe("utils/guide-search — カタログ全体を対象にした絞り込�
       .toEqual(hits.map((hit) => hit.guide.to));
   });
 });
+
+it("本番で公開を見合わせている PRINCE2 Practitioner は検索結果に出ない", () => {
+  // 検索の索引は GUIDES から作る。見合わせ中のページへ検索から到達できてはならない。
+  expect(searchGuides("PRINCE2 7 Practitioner").map(hit => hit.guide.to)).toEqual([]);
+});

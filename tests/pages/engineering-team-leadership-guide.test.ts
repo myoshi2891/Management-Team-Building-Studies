@@ -136,7 +136,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.oreilly.com/library/view/leading-effective-engineering/9781098148232/",
   "https://rework.withgoogle.com/intl/en/guides/following-the-data-the-research-behind-great-managers",
   "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
-  "https://www.shortform.com/blog/the-managers-path-camille-fournier/",
   "https://www.welcometothejungle.com/en/articles/btc-manager-path-camille-fournier",
   "https://blog.pragmaticengineer.com/checklist-for-first-time-managers/",
   "https://www.welcometothejungle.com/en/articles/btc-michael-lopp-interview-management",

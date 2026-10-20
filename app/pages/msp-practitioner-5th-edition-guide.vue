@@ -264,7 +264,7 @@ function closeSidebarAndFocusToggle() {
       <div class="hero">
         <div class="hero-eyebrow">
           <Icon name="tabler:award" aria-hidden="true" />
-          <span>PeopleCert 公式情報に基づく学習ガイド</span>
+          <span>PeopleCert 公開情報に基づく非公式学習ガイド</span>
         </div>
         <h1>
           MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説
@@ -636,12 +636,7 @@ function closeSidebarAndFocusToggle() {
               >https://www.theknowledgeacademy.com/za/courses/msp-training/msp-training/</a
             >
             、
-            <a
-              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
-              target="_blank"
-              rel="noopener"
-              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
-            >
+            公式マニュアル『Managing Successful Programmes (5th edition)』
             (公式マニュアルの章立て:第2章 Principles / 2.1〜2.7)
           </p>
         </div>
@@ -836,15 +831,6 @@ function closeSidebarAndFocusToggle() {
             pace and value原則とも直結する実務ポイントです)。
           </p>
         </div>
-        <div class="callout source" data-testid="callout" data-variant="source">
-          <div class="callout-title" data-testid="callout-label">
-            <Icon name="tabler:external-link" aria-hidden="true" />
-            <span>ソース</span>
-          </div>
-          <p>
-            出典: Open Exam Prep「Programme Governance Structure」(スポンサリンググループ・トレランスの解説)
-          </p>
-        </div>
       </section>
 
       <section id="themes">
@@ -904,12 +890,7 @@ function closeSidebarAndFocusToggle() {
           </div>
           <p>
             出典:
-            <a
-              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
-              target="_blank"
-              rel="noopener"
-              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
-            >
+            公式マニュアル『Managing Successful Programmes (5th edition)』
             (第4章 Organization) 、
             <a
               href="https://www.finance-ni.gov.uk/articles/programme-board"
@@ -1061,12 +1042,7 @@ function closeSidebarAndFocusToggle() {
           </div>
           <p>
             出典:
-            <a
-              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
-              target="_blank"
-              rel="noopener"
-              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
-            >
+            公式マニュアル『Managing Successful Programmes (5th edition)』
             (第7章 Structure) 、
             <a
               href="https://goodelearning.com/product/project-program-management/msp-5th-edition-foundation-self-paced-e-learning/"
@@ -1362,12 +1338,7 @@ function closeSidebarAndFocusToggle() {
           </div>
           <p>
             出典:
-            <a
-              href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
-              target="_blank"
-              rel="noopener"
-              >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
-            >
+            公式マニュアル『Managing Successful Programmes (5th edition)』
             (第11〜12章 Introduction to MSP processes / Identify the programme ほか)
           </p>
         </div>
@@ -1748,15 +1719,7 @@ function closeSidebarAndFocusToggle() {
           </li>
           <li>
             <span class="ref-name"
-              >Zoboko「Managing Successful Programmes (5th
-              Edition)」公式マニュアル章立て(原則・各テーマの節構成)</span
-            ><span class="ref-url"
-              ><a
-                href="https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition"
-                target="_blank"
-                rel="noopener"
-                >https://zoboko.com/book/8exoemo3/managing-successful-programmes-5th-edition</a
-              ></span
+              >公式マニュアル『Managing Successful Programmes (5th edition)』章立て(原則・各テーマの節構成)</span
             >
           </li>
           <li>
