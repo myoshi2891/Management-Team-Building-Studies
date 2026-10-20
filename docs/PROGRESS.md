@@ -11,7 +11,7 @@
 |---|---|
 | コードコミット HEAD | `5110102` — test(e2e): skip PRINCE2 Practitioner spec while the guide is unpublished（本ファイルより前のコード側コミット） |
 | 次の作業 | GitHub リポジトリの公開範囲の判断（公開見合わせ中 29 本の本文が公開リポジトリと履歴で閲覧可能。§91）→ Netlify 公開 → PeopleCert への書面承認申請または見合わせ継続 → 見合わせ中ページの改稿 |
-| ビルド状態 | 2026-10-20: `bun run test` ✔ 2314件 / `bun run typecheck` ✔ / `bun run lint` ✖ 既存のエラー 5 件のみ（`mop-foundation-guide.vue`・`tests/pages/itil-service-v5-guide.test.ts`。変更前の HEAD でも同一）/ `bun run test:e2e` ✔ 29 passed・6 skipped（PRINCE2 Practitioner は本番で見合わせ中）/ 目視確認はユーザー担当 |
+| ビルド状態 | 2026-10-20: `bun run test` ✔ 2314件（レビュー修正後は対象2ファイルのみ再実行し ✔、全件の再実行は未実施）/ `bun run build` **未実行** / `bunx nuxi typecheck` ✔（レビュー修正後に再実行）/ `bun run test:e2e` ✔ 29 passed・6 skipped（レビュー修正前の結果。修正後の再実行は**未実施**。PRINCE2 Practitioner は本番で見合わせ中）/ `bun run lint` ✖ 既存のエラー 5 件のみ（`mop-foundation-guide.vue`・`tests/pages/itil-service-v5-guide.test.ts`。変更前の HEAD でも同一）/ 目視確認はユーザー担当 |
 | テスト数 | **2314 passed / 0 failed**（101ファイル）— 最新のユニットテスト基準値。 |
 | 原本照合監査 | ✔ **83 本中 78 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
