@@ -376,4 +376,31 @@ describe("pages/professional-product-discovery-and-validation.vue — 個別検�
       expect(item.find(".ref-item-body > a.ref-url").exists()).toBe(true);
     }
   });
+
+  it("このガイドの読み方がリードボックス・9枚の章ナビカード・アウトロバナーで表示される", () => {
+    const wrapper = mountPage();
+    const introLead = wrapper.get("#how-to-use p.guide-intro-lead");
+    expect(introLead.text()).toContain("単なる用語暗記ではなく");
+
+    const chapterCards = wrapper.findAll("#how-to-use .guide-chapter-grid > li.guide-chapter-card");
+    expect(chapterCards).toHaveLength(9);
+    for (const card of chapterCards) {
+      expect(card.find(".chapter-card-icon").exists()).toBe(true);
+      expect(card.find("a.chapter-card-link").exists()).toBe(true);
+    }
+    expect(chapterCards.map((c) => c.get("a.chapter-card-link").attributes("href"))).toEqual([
+      "#ppdv-overview",
+      "#double-diamond",
+      "#problem-vs-solution",
+      "#discovery-techniques",
+      "#validation-techniques",
+      "#scrum-integration",
+      "#myths-antipatterns",
+      "#exam-prep",
+      "#references",
+    ]);
+
+    const outroBanner = wrapper.get("#how-to-use p.guide-outro-banner");
+    expect(outroBanner.text()).toContain("各章の末尾にベストプラクティスとソースを明記している");
+  });
 });
