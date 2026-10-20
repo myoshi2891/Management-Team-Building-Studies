@@ -259,6 +259,12 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
+        title: "Professional Product Discovery and Validation™ 認定試験 学習ガイド",
+        category: "SCRUM.ORG",
+        href: "/professional-product-discovery-and-validation",
+        accentClass: "guide-card-indigo",
+      },
+      {
         title: "Professional Scrum Developer(PSD I)認定資格 学習ガイド",
         category: "SCRUM.ORG",
         href: "/professional-scrum-developer",
@@ -518,7 +524,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "56 ガイド", hub: "/certifications", cards: 56 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "57 ガイド", hub: "/certifications", cards: 57 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "13 ガイド", hub: "/books", cards: 13 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);

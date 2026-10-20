@@ -53,6 +53,7 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
           "Professional Scrum Product Owner™(PSPO I / PSPO II)学習ガイド",
           "Professional Scrum Product Backlog Management Skills(PSPBM)認定 完全学習ガイド",
           "Professional Scrum Product Owner™ - AI Essentials 完全学習ガイド",
+          "Professional Product Discovery and Validation™ 認定試験 学習ガイド",
         ],
       },
       {

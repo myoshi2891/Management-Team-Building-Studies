@@ -681,6 +681,17 @@ export const ALL_GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/professional-product-discovery-and-validation",
+    programId: "scrum-org",
+    seriesId: "so-product-owner",
+    navLabel: "PPDV 完全ガイド",
+    title: "Professional Product Discovery and Validation™ 認定試験 学習ガイド",
+    description: "Scrum.org Professional Product Discovery and Validation(PPDV)認定試験の初学者向け学習ガイド。ダブルダイヤモンド、Discovery/Validation技法、EBM、ベストプラクティスと一次情報源のURLを解説。",
+    meta: "10セクション",
+    icon: "tabler:search",
+    accent: "indigo",
+  },
+  {
     to: "/professional-scrum-developer",
     programId: "scrum-org",
     seriesId: "so-developer",
