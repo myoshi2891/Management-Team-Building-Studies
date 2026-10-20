@@ -14,6 +14,31 @@ const LIGHT_THEME_VARS = {
   tertiaryColor: "#FFFFFF",
 };
 
+const MINDMAP_THEME_VARS = {
+  fontSize: "15px",
+  primaryColor: "#EEF1F8",
+  primaryBorderColor: "#2E3F72",
+  primaryTextColor: "#161B26",
+  lineColor: "#2E3F72",
+  git0: "#2E3F72",
+  gitBranchLabel0: "#FFFFFF",
+  cScale0: "#2E3F72",
+  cScaleLabel0: "#FFFFFF",
+  cScaleInv0: "#1F2C57",
+  cScale1: "#EEF1F8",
+  cScaleLabel1: "#161B26",
+  cScaleInv1: "#2E3F72",
+  cScale2: "#E7F3F2",
+  cScaleLabel2: "#161B26",
+  cScaleInv2: "#1B6E6A",
+  cScale3: "#FAF1DF",
+  cScaleLabel3: "#161B26",
+  cScaleInv3: "#B8802A",
+  cScale4: "#F6EAEF",
+  cScaleLabel4: "#161B26",
+  cScaleInv4: "#8C3A5C",
+};
+
 const DIAGRAM_EXAM_MINDMAP = `mindmap
   root((PRINCE2 Agile Practitioner v2))
     カテゴリ1 Key concepts 20 percent
@@ -496,14 +521,20 @@ useSeoMeta({
         </table>
       </div>
       <h3>1.4 試験構造のマインドマップ</h3>
-      <div class="mermaid-wrap">
+      <div class="mermaid-wrap mindmap-wrap">
+        <div class="mindmap-legend" aria-label="試験カテゴリの配点凡例">
+          <span class="mindmap-legend-item d1"><span class="legend-dot"></span>カテゴリ 1: Key concepts (20%)</span>
+          <span class="mindmap-legend-item d2"><span class="legend-dot"></span>カテゴリ 2: Practices &amp; Roles (44%)</span>
+          <span class="mindmap-legend-item d3"><span class="legend-dot"></span>カテゴリ 3: Processes (30%)</span>
+          <span class="mindmap-legend-item d4"><span class="legend-dot"></span>カテゴリ 4: Wider context (6%)</span>
+        </div>
         <ClientOnly>
-          <MermaidDiagram :chart="DIAGRAM_EXAM_MINDMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <MermaidDiagram :chart="DIAGRAM_EXAM_MINDMAP" theme="base" :theme-variables="MINDMAP_THEME_VARS" />
           <template #fallback>
             <p class="diagram-loading">図を読み込み中…</p>
           </template>
         </ClientOnly>
-        <div class="diagram-caption">試験構造のマインドマップ</div>
+        <div class="diagram-caption">試験構造のマインドマップ(4 カテゴリの配点・主要テーマ一覧)</div>
       </div>
     </section>
 
@@ -2158,18 +2189,21 @@ useSeoMeta({
       <p><strong>注意</strong>: 以下は本ガイド用に作成した <strong>オリジナルの練習問題</strong> です(公式サンプルペーパーではありません)。形式(シナリオ + 追加情報 + 設問、Standard / Missing word / List)は公式シラバスの説明に合わせています。公式のサンプルペーパーは、PeopleCert の公式ページ・研修機関経由で入手して併用してください。</p>
       </div>
       <h3>8.1 プロジェクトシナリオ</h3>
-      <p><strong>「さくら銀行 モバイルアプリ刷新プロジェクト」</strong>(架空)</p>
-      <ul>
-        <li>地方銀行が、モバイルバンキングアプリを刷新する。<strong>新しい法規制への対応期限(9 か月後)は動かせない</strong>。</li>
-        <li>3 つのチーム(A: 口座、B: 決済、C: 基盤)、合計 24 名。<strong>大阪・東京の 2 拠点 + リモート</strong> の混在。</li>
-        <li>これまでは従来型(ウォーターフォール)で運営。最近、2 チームが Scrum を試行し始めた。</li>
-        <li>チーム C は外部供給者への委託で、<strong>契約は固定価格・固定範囲</strong>。</li>
-        <li>Project Board は <strong>毎週 40 ページの状況報告書</strong>(PM が手作業で作成)を求めている。</li>
-        <li>business case は <strong>2 年前に承認</strong> されたまま更新されていない。Agilometer は未実施。</li>
-        <li><strong>DoD は未定義</strong>。テストは各リリースの直前にまとめて実施している。</li>
-      </ul>
+      <div class="scenario-box">
+        <div class="scenario-eyebrow"><Icon name="tabler:building-bank" aria-hidden="true" />CASE STUDY SCENARIO</div>
+        <p class="scenario-header"><strong>「さくら銀行 モバイルアプリ刷新プロジェクト」</strong>(架空)</p>
+        <ul class="scenario-list">
+          <li>地方銀行が、モバイルバンキングアプリを刷新する。<strong>新しい法規制への対応期限(9 か月後)は動かせない</strong>。</li>
+          <li>3 つのチーム(A: 口座、B: 決済、C: 基盤)、合計 24 名。<strong>大阪・東京の 2 拠点 + リモート</strong> の混在。</li>
+          <li>これまでは従来型(ウォーターフォール)で運営。最近、2 チームが Scrum を試行し始めた。</li>
+          <li>チーム C は外部供給者への委託で、<strong>契約は固定価格・固定範囲</strong>。</li>
+          <li>Project Board は <strong>毎週 40 ページの状況報告書</strong>(PM が手作業で作成)を求めている。</li>
+          <li>business case は <strong>2 年前に承認</strong> されたまま更新されていない。Agilometer は未実施。</li>
+          <li><strong>DoD は未定義</strong>。テストは各リリースの直前にまとめて実施している。</li>
+        </ul>
+      </div>
       <h3>8.2 追加情報(人物)</h3>
-      <div class="table-wrap">
+      <div class="table-wrap persona-table-wrap">
         <table>
           <thead><tr><th>氏名</th><th>役割</th><th>状況・発言</th></tr></thead>
           <tbody>
@@ -2184,109 +2218,307 @@ useSeoMeta({
         </table>
       </div>
       <h3>8.3 設問</h3>
-      <p><strong>Q1(BL2・Standard)</strong><br>
-        次のうち、Agile Onion の層はどれか。</p>
-      <ul>
-        <li>A. Tolerance</li>
-        <li>B. Stage</li>
-        <li>C. Mindset</li>
-        <li>D. Benefit</li>
-      </ul>
-      <p><strong>Q2(BL2・Missing word)</strong><br>
-        次の文の空欄に入る語を選べ。<br>
-        「[ ? ] practice の目的の 1 つは、計画に対する実績を比較し、許容できない逸脱を統制することである。」</p>
-      <ul>
-        <li>A. business case</li>
-        <li>B. progress</li>
-        <li>C. organization</li>
-        <li>D. quality</li>
-      </ul>
-      <p><strong>Q3(BL3・Standard)</strong><br>
-        伊藤(チーム A の Product owner)は、backlog を変更するたびに森(Project executive)の承認を待っており、チームの作業が滞っている。<strong>issues practice</strong> の適用として <strong>もっとも適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. Board が管理を保つため、すべての変更に Project executive の承認を継続する</li>
-        <li>B. stage の終わりまで backlog を凍結する</li>
-        <li>C. Team coach がすべての変更を承認する</li>
-        <li>D. 合意した tolerance の範囲内であれば Product owner が backlog の優先順位を変更し、tolerance を超える恐れがある変更のみを escalate する</li>
-      </ul>
-      <p><strong>Q4(BL3・List)</strong><br>
-        Definition of Ready(DoR)と Definition of Done(DoD)について、<strong>正しい 2 つ</strong> の記述はどれか。</p>
-      <ol>
-        <li>DoR は、backlog の項目が着手できる状態にあるかを示す。</li>
-        <li>DoD は、項目が完成したとみなせる条件を示す。</li>
-        <li>納期が迫った場合、範囲を守るために DoD を緩めてよい。</li>
-        <li>DoR は、Project Board が stage を承認する条件である。</li>
-      </ol>
-      <ul>
-        <li>A. 1 と 2</li>
-        <li>B. 2 と 3</li>
-        <li>C. 3 と 4</li>
-        <li>D. 1 と 4</li>
-      </ul>
-      <p><strong>Q5(BL4・Standard)</strong><br>
-        Project Board は毎週 40 ページの状況報告書を求めており、PM が手作業で作成している。この運用の <strong>評価として最も適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. Board が統制を保つために詳細が必要なので、fit for purpose である</li>
-        <li>B. チームのボードや burn chart で既に見える情報の重複であり、fit for purpose ではない。project dashboard と例外報告への切り替えが望ましい</li>
-        <li>C. 月次にすれば fit for purpose になる</li>
-        <li>D. Board は進捗情報を一切受け取るべきではないため、fit for purpose ではない</li>
-      </ul>
-      <p><strong>Q6(BL3・Standard)</strong><br>
-        田中(PM)は、Agilometer を使い始めることにした。Agilometer の使い方として <strong>もっとも適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. プロジェクト開始時にのみ使う</li>
-        <li>B. プロジェクト終了時にのみ使う</li>
-        <li>C. 開始時に使い、その後も stage 境界や状況が変化したときに再評価する</li>
-        <li>D. exception report を出したときにのみ使う</li>
-      </ul>
-      <p><strong>Q7(BL4・Standard)</strong><br>
-        チーム C の契約は固定価格・固定範囲で、Board は法規制対応の期限を守りたい。<strong>commercial management approach の tailoring として最も効果的</strong> なものはどれか。</p>
-      <ul>
-        <li>A. 範囲を固定のままにし、すべての変更を exception として扱う</li>
-        <li>B. 契約を解除し、すべてを社内で実施する</li>
-        <li>C. 柔軟性を得るため、契約から Must の項目を除外する</li>
-        <li>D. 価格と期限は維持しつつ、MoSCoW で範囲に優先順位を付け、法規制対応の Must は固定したまま、tolerance の範囲で Should / Could を入れ替えられるように契約の運用を見直す</li>
-      </ul>
-      <p><strong>Q8(BL3・Standard)</strong><br>
-        チーム B は、会議室に 5 名、リモートに 3 名がいる hybrid 環境で、リモートメンバーが議論に参加しづらい。<strong>hybrid 環境でのコミュニケーション</strong> の適用として <strong>最も適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. 会議室にいる人も含め、全員が個別にオンライン会議へ参加し、決定事項を共有ボードに記録する</li>
-        <li>B. 会議は会議室で行い、リモートメンバーには議事録を送る</li>
-        <li>C. リモートメンバーは review にのみ招待する</li>
-        <li>D. チームの会議をすべてメールに置き換える</li>
-      </ul>
-      <p><strong>Q9(BL4・Standard)</strong><br>
-        田中(PM)は、stage 境界(SB)で「plan は更新するが、business case は 2 年前に承認済みなので更新しない」と考えている。この考えの <strong>評価として最も適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. Board が承認済みであり、変更には新たな承認が必要なので、fit for purpose である</li>
-        <li>B. agile プロジェクトでは plan だけを更新すればよいので、fit for purpose である</li>
-        <li>C. fit for purpose ではない。SB では、実際の提供実績と便益のデータを用いて business case を更新し、継続的な事業上の正当性を確認すべきである</li>
-        <li>D. fit for purpose ではない。business case はチームが毎日更新すべきである</li>
-      </ul>
-      <p><strong>Q10(BL2・Standard)</strong><br>
-        PRINCE2 Agile を AI で支援する際の記述として <strong>もっとも適切</strong> なものはどれか。</p>
-      <ul>
-        <li>A. 時間が足りない場合、AI の出力は確認せずに採用してよい</li>
-        <li>B. AI は user story の下書きやリスクの要約を支援できるが、人が説明責任を持ち、成果物は DoD を満たす必要がある</li>
-        <li>C. AI は Project Board の意思決定を代行できる</li>
-        <li>D. AI を使えば quality management approach は不要になる</li>
-      </ul>
-      <p><strong>Q11(BL3・List)</strong><br>
-        PRINCE2 Agile の roles について、<strong>正しい 2 つ</strong> の記述はどれか。</p>
-      <ol>
-        <li>Product owner は、チームの product backlog の優先順位付けに責任を持つ。</li>
-        <li>Team coach は、チームメンバーのタスクを日次で割り当てる。</li>
-        <li>Agile coach は、組織レベルでの agile の導入・実践を支援する。</li>
-        <li>Project assurance は、Project manager に報告して独立性を保つ。</li>
-      </ol>
-      <ul>
-        <li>A. 1 と 3</li>
-        <li>B. 2 と 3</li>
-        <li>C. 1 と 4</li>
-        <li>D. 2 と 4</li>
-      </ul>
+      <div class="quiz-list">
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q1</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-2">BL2</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">次のうち、Agile Onion の層はどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Tolerance</li>
+            <li>B. Stage</li>
+            <li>C. Mindset</li>
+            <li>D. Benefit</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: C</span>
+              <span class="quiz-answer-exp">Agile Onion の層は Mindset / Values / Principles / Practices / Processes。Tolerance・Stage・Benefit は PRINCE2 の用語で、Onion の層ではない</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q2</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-2">BL2</span>
+                <span class="quiz-badge type-badge">Missing word</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">次の文の空欄に入る語を選べ。<br>「[ ? ] practice の目的の 1 つは、計画に対する実績を比較し、許容できない逸脱を統制することである。」</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. business case</li>
+            <li>B. progress</li>
+            <li>C. organization</li>
+            <li>D. quality</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: B</span>
+              <span class="quiz-answer-exp">「実績と計画の比較」「逸脱の統制」は <strong>progress</strong> の目的。business case は望ましさ・実行可能性の判断、organization は責任体制、quality は目的適合性が主眼</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q3</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">伊藤(チーム A の Product owner)は、backlog を変更するたびに森(Project executive)の承認を待っており、チームの作業が滞っている。<strong>issues practice</strong> の適用として <strong>もっとも適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Board が管理を保つため、すべての変更に Project executive の承認を継続する</li>
+            <li>B. stage の終わりまで backlog を凍結する</li>
+            <li>C. Team coach がすべての変更を承認する</li>
+            <li>D. 合意した tolerance の範囲内であれば Product owner が backlog の優先順位を変更し、tolerance を超える恐れがある変更のみを escalate する</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: D</span>
+              <span class="quiz-answer-exp">変更は agile では日常的。<strong>tolerance の範囲内は現場(Product owner)で調整</strong> し、<strong>超える恐れのあるもののみ escalate</strong>(management by exception)。A は Board の過剰統制、B は変化対応を阻害、C は Team coach に権限を移しても本質的な解決にならず、役割の趣旨(支援)にも反する</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q4</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">List</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">Definition of Ready(DoR)と Definition of Done(DoD)について、<strong>正しい 2 つ</strong> の記述はどれか。</span>
+          </p>
+          <ol class="quiz-statements">
+            <li>DoR は、backlog の項目が着手できる状態にあるかを示す。</li>
+            <li>DoD は、項目が完成したとみなせる条件を示す。</li>
+            <li>納期が迫った場合、範囲を守るために DoD を緩めてよい。</li>
+            <li>DoR は、Project Board が stage を承認する条件である。</li>
+          </ol>
+          <ul class="quiz-options">
+            <li>A. 1 と 2</li>
+            <li>B. 2 と 3</li>
+            <li>C. 3 と 4</li>
+            <li>D. 1 と 4</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: A</span>
+              <span class="quiz-answer-exp">DoR は <strong>入口</strong>(着手できる状態)、DoD は <strong>出口</strong>(完成の条件)。3 は quality を下げて範囲を守る選択で誤り(範囲= Should / Could を調整する)。4 は DoR の役割ではない</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q5</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-4">BL4</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">Project Board は毎週 40 ページの状況報告書を求めており、PM が手作業で作成している。この運用の <strong>評価として最も適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Board が統制を保つために詳細が必要なので、fit for purpose である</li>
+            <li>B. チームのボードや burn chart で既に見える情報の重複であり、fit for purpose ではない。project dashboard と例外報告への切り替えが望ましい</li>
+            <li>C. 月次にすれば fit for purpose になる</li>
+            <li>D. Board は進捗情報を一切受け取るべきではないため、fit for purpose ではない</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: B</span>
+              <span class="quiz-answer-exp">既にチームのボード・burn chart で見える情報の <strong>二重管理</strong> であり、透明性・効率の点で fit for purpose ではない。<strong>dashboard の常時公開 + 例外報告</strong> が推奨。頻度を月次にしても手作業の重複は解消しない(C)。Board が情報を受け取らないのも誤り(D)</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q6</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">田中(PM)は、Agilometer を使い始めることにした。Agilometer の使い方として <strong>もっとも適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. プロジェクト開始時にのみ使う</li>
+            <li>B. プロジェクト終了時にのみ使う</li>
+            <li>C. 開始時に使い、その後も stage 境界や状況が変化したときに再評価する</li>
+            <li>D. exception report を出したときにのみ使う</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: C</span>
+              <span class="quiz-answer-exp">Agilometer は <strong>初期に把握し、定期的(stage 境界など)や状況変化時に再評価</strong> する。一度きりの実施は不十分(A, B, D)</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q7</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-4">BL4</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">チーム C の契約は固定価格・固定範囲で、Board は法規制対応の期限を守りたい。<strong>commercial management approach の tailoring として最も効果的</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. 範囲を固定のままにし、すべての変更を exception として扱う</li>
+            <li>B. 契約を解除し、すべてを社内で実施する</li>
+            <li>C. 柔軟性を得るため、契約から Must の項目を除外する</li>
+            <li>D. 価格と期限は維持しつつ、MoSCoW で範囲に優先順位を付け、法規制対応の Must は固定したまま、tolerance の範囲で Should / Could を入れ替えられるように契約の運用を見直す</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: D</span>
+              <span class="quiz-answer-exp">価格・期限(法規制対応)を守りつつ、<strong>MoSCoW で Must を固定し Should / Could を柔軟にする</strong>。A は変化に対応できず、B は極端で非現実的、C は Must を外すと法規制対応が危うい</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q8</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">チーム B は、会議室に 5 名、リモートに 3 名がいる hybrid 環境で、リモートメンバーが議論に参加しづらい。<strong>hybrid 環境でのコミュニケーション</strong> の適用として <strong>最も適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. 会議室にいる人も含め、全員が個別にオンライン会議へ参加し、決定事項を共有ボードに記録する</li>
+            <li>B. 会議は会議室で行い、リモートメンバーには議事録を送る</li>
+            <li>C. リモートメンバーは review にのみ招待する</li>
+            <li>D. チームの会議をすべてメールに置き換える</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: A</span>
+              <span class="quiz-answer-exp">hybrid の情報格差を避けるため、<strong>全員が個別に接続する前提</strong> で会議を設計し、決定事項を <strong>共有ボードに記録</strong>。B, C, D はリモートメンバーを実質的に排除・遅延させる</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q9</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-4">BL4</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">田中(PM)は、stage 境界(SB)で「plan は更新するが、business case は 2 年前に承認済みなので更新しない」と考えている。この考えの <strong>評価として最も適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. Board が承認済みであり、変更には新たな承認が必要なので、fit for purpose である</li>
+            <li>B. agile プロジェクトでは plan だけを更新すればよいので、fit for purpose である</li>
+            <li>C. fit for purpose ではない。SB では、実際の提供実績と便益のデータを用いて business case を更新し、継続的な事業上の正当性を確認すべきである</li>
+            <li>D. fit for purpose ではない。business case はチームが毎日更新すべきである</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: C</span>
+              <span class="quiz-answer-exp"><strong>continued business justification</strong>。SB は実績データで business case を更新する機会。B は誤り。D は頻度が過剰で、business case の役割にそぐわない</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q10</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-2">BL2</span>
+                <span class="quiz-badge type-badge">Standard</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">PRINCE2 Agile を AI で支援する際の記述として <strong>もっとも適切</strong> なものはどれか。</span>
+          </p>
+          <ul class="quiz-options">
+            <li>A. 時間が足りない場合、AI の出力は確認せずに採用してよい</li>
+            <li>B. AI は user story の下書きやリスクの要約を支援できるが、人が説明責任を持ち、成果物は DoD を満たす必要がある</li>
+            <li>C. AI は Project Board の意思決定を代行できる</li>
+            <li>D. AI を使えば quality management approach は不要になる</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: B</span>
+              <span class="quiz-answer-exp">AI は <strong>支援ツール</strong>。人が説明責任を持ち、成果物は DoD・受入基準を満たす。A・C・D は典型的な誤答</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="quiz-card">
+          <p class="quiz-question">
+            <span class="quiz-q-header">
+              <span class="quiz-q-label">Q11</span>
+              <span class="quiz-meta-group">
+                <span class="quiz-badge bl-badge bl-3">BL3</span>
+                <span class="quiz-badge type-badge">List</span>
+              </span>
+            </span>
+            <span class="quiz-q-stem">PRINCE2 Agile の roles について、<strong>正しい 2 つ</strong> の記述はどれか。</span>
+          </p>
+          <ol class="quiz-statements">
+            <li>Product owner は、チームの product backlog の優先順位付けに責任を持つ。</li>
+            <li>Team coach は、チームメンバーのタスクを日次で割り当てる。</li>
+            <li>Agile coach は、組織レベルでの agile の導入・実践を支援する。</li>
+            <li>Project assurance は、Project manager に報告して独立性を保つ。</li>
+          </ol>
+          <ul class="quiz-options">
+            <li>A. 1 と 3</li>
+            <li>B. 2 と 3</li>
+            <li>C. 1 と 4</li>
+            <li>D. 2 と 4</li>
+          </ul>
+          <details class="quiz-answer">
+            <summary><Icon name="tabler:bulb" aria-hidden="true" />解答と解説を表示</summary>
+            <div class="quiz-answer-body">
+              <span class="quiz-answer-badge">正解: A</span>
+              <span class="quiz-answer-exp">1 と 3 が正しい。2 は Team coach は自己組織化を <strong>支援</strong> する立場で、日次のタスク割当は行わない(自己組織化に反する)。4 は Project assurance は <strong>独立</strong> した立場であり、PM に報告して独立性を保つという記述は矛盾する</span>
+            </div>
+          </details>
+        </article>
+      </div>
       <h3>8.4 解答と解説</h3>
-      <div class="table-wrap">
+      <div class="table-wrap answer-summary-table-wrap">
         <table>
           <thead><tr><th>問</th><th>正解</th><th>解説</th></tr></thead>
           <tbody>
@@ -2305,7 +2537,7 @@ useSeoMeta({
         </table>
       </div>
       <h3>8.5 自己採点の目安</h3>
-      <div class="table-wrap">
+      <div class="table-wrap score-guide-table-wrap">
         <table>
           <thead><tr><th>正解数(11 問中)</th><th>目安</th></tr></thead>
           <tbody>
@@ -2812,7 +3044,7 @@ p {
   margin: 0 0 18px;
 }
 
-ul:not(.sidebar-nav):not(.checklist) {
+ul:not(.sidebar-nav):not(.checklist):not(.quiz-options):not(.scenario-list) {
   list-style-type: disc;
   margin: 0 0 18px;
   padding-left: 24px;
@@ -3027,6 +3259,442 @@ th strong {
   font-size: 16px;
   padding: 20px 0;
   text-align: center;
+}
+
+/* ===================== Mindmap styling (Section 1.4) ===================== */
+.mindmap-wrap {
+  border-top: 3px solid var(--color-indigo);
+  background: linear-gradient(180deg, var(--color-paper-raised) 0%, var(--color-paper) 100%);
+}
+
+.mindmap-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mindmap-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+}
+
+.mindmap-legend-item .legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.mindmap-legend-item.d1 {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  border-color: var(--color-indigo);
+}
+.mindmap-legend-item.d1 .legend-dot {
+  background: var(--color-indigo);
+}
+
+.mindmap-legend-item.d2 {
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+  border-color: var(--color-forest);
+}
+.mindmap-legend-item.d2 .legend-dot {
+  background: var(--color-forest);
+}
+
+.mindmap-legend-item.d3 {
+  background: var(--color-gold-tint);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+.mindmap-legend-item.d3 .legend-dot {
+  background: var(--color-gold);
+}
+
+.mindmap-legend-item.d4 {
+  background: var(--color-plum-tint);
+  color: var(--color-plum);
+  border-color: var(--color-plum);
+}
+.mindmap-legend-item.d4 .legend-dot {
+  background: var(--color-plum);
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-root path),
+.mindmap-wrap :deep(.mindmap-node.section--1 path),
+.mindmap-wrap :deep(.mindmap-node.section-root rect),
+.mindmap-wrap :deep(.mindmap-node.section--1 rect) {
+  fill: var(--color-indigo) !important;
+  stroke: var(--color-indigo) !important;
+  stroke-width: 2px !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-root text),
+.mindmap-wrap :deep(.mindmap-node.section--1 text),
+.mindmap-wrap :deep(.mindmap-node.section-root tspan),
+.mindmap-wrap :deep(.mindmap-node.section--1 tspan) {
+  fill: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-0 path),
+.mindmap-wrap :deep(.mindmap-node.section-0 rect) {
+  fill: var(--color-indigo-tint) !important;
+  stroke: var(--color-indigo) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-0 text),
+.mindmap-wrap :deep(.mindmap-node.section-0 tspan) {
+  fill: var(--color-indigo) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-0) {
+  stroke: var(--color-indigo) !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-1 path),
+.mindmap-wrap :deep(.mindmap-node.section-1 rect) {
+  fill: var(--color-forest-tint) !important;
+  stroke: var(--color-forest) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-1 text),
+.mindmap-wrap :deep(.mindmap-node.section-1 tspan) {
+  fill: var(--color-forest) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-1) {
+  stroke: var(--color-forest) !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-2 path),
+.mindmap-wrap :deep(.mindmap-node.section-2 rect) {
+  fill: var(--color-gold-tint) !important;
+  stroke: var(--color-gold) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-2 text),
+.mindmap-wrap :deep(.mindmap-node.section-2 tspan) {
+  fill: var(--color-gold) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-2) {
+  stroke: var(--color-gold) !important;
+}
+
+.mindmap-wrap :deep(.mindmap-node.section-3 path),
+.mindmap-wrap :deep(.mindmap-node.section-3 rect) {
+  fill: var(--color-plum-tint) !important;
+  stroke: var(--color-plum) !important;
+  stroke-width: 1.75px !important;
+}
+.mindmap-wrap :deep(.mindmap-node.section-3 text),
+.mindmap-wrap :deep(.mindmap-node.section-3 tspan) {
+  fill: var(--color-plum) !important;
+  font-weight: 600 !important;
+}
+.mindmap-wrap :deep(.section-edge-3) {
+  stroke: var(--color-plum) !important;
+}
+
+/* ===================== Practice Questions (Section 8) ===================== */
+.scenario-box {
+  border: 1px solid var(--color-border-strong);
+  border-left: 5px solid var(--color-indigo);
+  background: linear-gradient(135deg, var(--color-indigo-tint) 0%, var(--color-paper-raised) 55%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin: 16px 0 28px;
+}
+
+.scenario-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-indigo);
+  margin-bottom: 8px;
+}
+
+.scenario-header {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-ink);
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--color-border-strong);
+}
+
+.scenario-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.scenario-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 0;
+  color: var(--color-ink-soft);
+}
+
+.scenario-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: var(--color-indigo);
+  font-weight: 700;
+}
+
+.persona-table-wrap tbody td:first-child {
+  font-weight: 600;
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+
+.persona-table-wrap tbody td:nth-child(2) {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-indigo);
+  white-space: nowrap;
+}
+
+.quiz-list {
+  display: grid;
+  gap: 24px;
+  margin: 20px 0 32px;
+}
+
+.quiz-card {
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-indigo);
+  background: var(--color-paper-raised);
+  border-radius: 12px;
+  padding: 24px 28px;
+  transition: border-color 0.15s ease;
+}
+
+.quiz-card:hover {
+  border-color: var(--color-border-strong);
+  border-top-color: var(--color-indigo);
+}
+
+.quiz-question {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0 0 18px;
+}
+
+.quiz-q-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quiz-q-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  background: var(--color-indigo);
+  padding: 3px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+
+.quiz-meta-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quiz-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.bl-badge.bl-2 {
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+}
+
+.bl-badge.bl-3 {
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+}
+
+.bl-badge.bl-4 {
+  background: var(--color-gold-tint);
+  color: var(--color-gold);
+}
+
+.type-badge {
+  background: var(--color-paper-sunken);
+  color: var(--color-ink-soft);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono);
+}
+
+.quiz-q-stem {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+
+.quiz-statements {
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-forest);
+  border-radius: 8px;
+  padding: 14px 20px 14px 36px;
+  margin: 0 0 18px;
+}
+
+.quiz-statements li {
+  margin-bottom: 6px;
+  color: var(--color-ink-soft);
+}
+
+.quiz-statements li:last-child {
+  margin-bottom: 0;
+}
+
+.quiz-options {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.quiz-options li {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  color: var(--color-ink-soft);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.quiz-options li:hover {
+  background: var(--color-indigo-tint);
+  border-color: var(--color-indigo);
+  color: var(--color-ink);
+}
+
+.quiz-answer {
+  border-top: 1px dashed var(--color-border);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.quiz-answer summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-indigo);
+  user-select: none;
+  list-style: none;
+}
+
+.quiz-answer summary::-webkit-details-marker {
+  display: none;
+}
+
+.quiz-answer summary:hover {
+  color: var(--color-forest);
+}
+
+.quiz-answer-body {
+  margin-top: 12px;
+  padding: 14px 18px;
+  background: var(--color-forest-tint);
+  border: 1px solid var(--color-forest);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quiz-answer-badge {
+  display: inline-flex;
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  background: var(--color-forest);
+  color: #ffffff;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.quiz-answer-exp {
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  line-height: 1.65;
+}
+
+.answer-summary-table-wrap tbody td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-indigo);
+  white-space: nowrap;
+}
+
+.answer-summary-table-wrap tbody td:nth-child(2) {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.answer-summary-table-wrap tbody td:nth-child(2) strong {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+  font-family: var(--font-display);
+}
+
+.score-guide-table-wrap tbody td:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-ink);
+  white-space: nowrap;
 }
 
 /* ===================== Glossary ===================== */
