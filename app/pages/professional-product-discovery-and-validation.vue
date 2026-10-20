@@ -1164,8 +1164,8 @@ class Del1,Del2,Del3 box;`;
 /* メインコンテンツ */
 .main-content {
   margin-left: var(--sidebar-width);
-  max-width: 860px;
-  padding: 48px 48px 96px;
+  max-width: none;
+  padding: 48px 64px 96px;
   outline: none;
 }
 
