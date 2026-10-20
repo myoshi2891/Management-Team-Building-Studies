@@ -353,4 +353,27 @@ describe("pages/professional-product-discovery-and-validation.vue — 個別検�
       "公式トレーニングを14日以内に受験して不合格だった場合、無料の再受験権が付与されるという運用を行っているトレーニングパートナーもある(パートナーごとの条件は個別に確認すること)",
     ]);
   });
+
+  it("参考文献・ソース一覧が3つのカテゴリグループとアイコン付きリファレンスカード20件として表示される", () => {
+    const wrapper = mountPage();
+    const groups = wrapper.findAll("#references .ref-group");
+    expect(groups).toHaveLength(3);
+    for (const group of groups) {
+      expect(group.find(".ref-group-header .ref-group-icon").exists()).toBe(true);
+      expect(group.find(".ref-group-header h4").exists()).toBe(true);
+    }
+    expect(groups.map((g) => g.get(".ref-group-header h4").text().trim())).toEqual([
+      "Scrum.org 公式ソース",
+      "認定研修パートナー(Scrum.org Professional Training Network)",
+      "各技法の原典・一次情報源",
+    ]);
+
+    const refItems = wrapper.findAll("#references .ref-list > li.ref-item");
+    expect(refItems).toHaveLength(20);
+    for (const item of refItems) {
+      expect(item.find(".ref-item-icon").exists()).toBe(true);
+      expect(item.find(".ref-item-body > .ref-name").exists()).toBe(true);
+      expect(item.find(".ref-item-body > a.ref-url").exists()).toBe(true);
+    }
+  });
 });
