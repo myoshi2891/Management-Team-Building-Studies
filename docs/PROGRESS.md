@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `79421f8` — feat(prince2-agile-practitioner): implement sections 8 to 10 and appendices complete migration（本ファイルより前のコード側コミット） |
-| 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PRINCE2 Agile Practitioner (Version 2) の移行完了（§89）。 |
-| ビルド状態 | 2026-10-20: `npm run test` ✔ 2265件全件成功（100ファイル）/ `npm run audit:prince2-agile-practitioner` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
-| テスト数 | **2265 passed / 0 failed**（100ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約28件を含む。 |
-| 原本照合監査 | ✔ **82 本中 77 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| コードコミット HEAD | `4d0f326` — fix(pages): add trademark attribution to footer and update kind hub guide count（本ファイルより前のコード側コミット） |
+| 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PPDV (Professional Product Discovery and Validation) の移行完了（§90）。 |
+| ビルド状態 | 2026-10-20: `npm run test` ✔ 2292件全件成功（101ファイル）/ `npm run audit:ppdv` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
+| テスト数 | **2292 passed / 0 failed**（101ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約24件を含む。 |
+| 原本照合監査 | ✔ **83 本中 78 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -88,6 +88,7 @@
 | `archive/Professional-Scrum-Master/Professional-Scrum-Master.html` | `app/pages/professional-scrum-master.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Product-Backlog-Management-Skills/Professional-Scrum-Product-Backlog-Management-Skills.html` | `app/pages/professional-scrum-product-backlog-management-skills.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Professional-Scrum-Product-Owner-AI-Essentials/Professional-Scrum-Product-Owner-AI-Essentials.html` | `app/pages/professional-scrum-product-owner-ai-essentials.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
+| `archive/Professional-Product-Discovery-and-Validation/Professional-Product-Discovery-and-Validation.html` | `app/pages/professional-product-discovery-and-validation.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Itil-experience-version-5-study-guide/Itil-experience-version-5-study-guide.html` | `app/pages/itil-experience-version-5-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Itil-foundation-v5-study-guide/Itil-foundation-v5-study-guide.html` | `app/pages/itil-foundation-v5-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Itil-managing-professional-transition-v5-guide/Itil-managing-professional-transition-v5-guide.html` | `app/pages/itil-managing-professional-transition-v5-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
@@ -1592,3 +1593,15 @@ Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本ア
   - `Prince2-agile-practitioner-v2-study-guide.html`: `59d6862eada27019191e1e7e38143d1ddd3b175e8daa40f0df8055bc8f70707d`
   - `Prince2-agile-practitioner-v2-study-guide.md`: `da8ff8bf2cd19bc8c7d3eafe6a6d4d0e9d9012b140c20bcb93eb3e448c7d589c`
 - **法的表示**: フッターの登録商標表記を最新の正当権利者「PeopleCert group」に統一（`tests/legal-notices.test.ts` パス）。
+
+### §90. Professional Product Discovery and Validation (PPDV) のNuxt移行完了（2026-10-20）
+
+- **移行先**: `app/pages/professional-product-discovery-and-validation.vue`（`/professional-product-discovery-and-validation`）。Hero、目次、原本の8章（第1章〜第8章）、参考文献、免責フッターを完全転写。見出し44（H1: 1, H2: 10, H3: 28, H4: 5）、段落66、リスト項目117、表8個・64行、外部リンク25、Mermaid 9、callout 12（practice: 4, source: 8）、静的SVG 1が原本監査で一致し、`npm run audit:ppdv` は **exit 0**。
+- **Mermaid 9図の完全移植**: 9個のダイアグラム（Double Diamond、新規オンボーディング体験ジャーニーマップ、Impact Mapping、Curve of Truth、Build-Measure-Learnループ、Test Card/Learning Cardサイクル、EBMの4つのKey Value Areas、Problem-Solution FitからProduct-Market Fitへの段階、複数スプリントでのDiscoveryとDelivery並行進行）を `MermaidDiagram` コンポーネントおよび `ClientOnly` ラッパーを用いて完全再現。
+- **厳格なTDDと契約テスト**: 原本HTMLから抽出した固定リテラルを用いて `tests/pages/professional-product-discovery-and-validation.test.ts`（24件）を作成。全見出し・外部リンク・TOC・アンカー一意性・Mermaidソース・callout variant/ラベル・stepタグ・キッカー・SEO・固有UI（4つのstat-card、disclaimer-box、フッター）を包括検証して Green を達成。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `scrum-org`（Scrum.org 認定）のシリーズ `so-product-owner`（Product Owner）にガイド `/professional-product-discovery-and-validation` を追加登録。資格ガイド総数は 56 → 57 件となった。
+- **原本照合監査スクリプト**: `package.json` に `"audit:ppdv"` を追加し、継続的インテグレーションにおいて機械照合（exit 0）を担保。
+- **原本保存**: HTML/Markdownを `archive/Professional-Product-Discovery-and-Validation/` へ移動し、Git追跡を維持。
+  - `Professional-Product-Discovery-and-Validation.html`: `47e4e113b6f9a8be3eaef3cdd92649da83f2ff832dcf5e1f70949811b37456a9`
+  - `Professional-Product-Discovery-and-Validation.md`: `bad4996bd2e11940352a6d5e235ebb0f2429ea3172838483e3dbb82af867490d`
+- **法的表示**: フッターに Scrum.org 商標帰属文言を追加（`tests/legal-notices.test.ts` パス）。
