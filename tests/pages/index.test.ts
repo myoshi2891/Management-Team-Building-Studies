@@ -518,7 +518,7 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "55 ガイド", hub: "/certifications", cards: 55 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "56 ガイド", hub: "/certifications", cards: 56 },
       { kicker: "BOOKS", title: "書籍で学ぶ", count: "13 ガイド", hub: "/books", cards: 13 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);

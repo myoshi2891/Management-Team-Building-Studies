@@ -901,6 +901,17 @@ export const ALL_GUIDES = [
     accent: "indigo",
   },
   {
+    to: "/prince2-agile-practitioner-v2-study-guide",
+    programId: "peoplecert",
+    seriesId: "pc-prince2",
+    navLabel: "PRINCE2 Agile Practitioner",
+    title: "PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド",
+    description: "PeopleCert PRINCE2 Agile Practitioner (Version 2) の出題範囲を、初学者向けにステップバイステップで解説し、ベストプラクティス・演習・根拠ソース URL をまとめた学習ガイド。",
+    meta: "14セクション",
+    icon: "tabler:certificate",
+    accent: "indigo",
+  },
+  {
     to: "/high-output-management-guide",
     programId: "management",
     seriesId: "book-management",

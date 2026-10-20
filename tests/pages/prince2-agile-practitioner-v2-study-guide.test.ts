@@ -311,24 +311,26 @@ const EXPECTED_MERMAID_SOURCES = [
 const mountPage = createMountPage(Page);
 
 defineSourceParityContract({
-  mountPage,
-  pagePath: "app/pages/prince2-agile-practitioner-v2-study-guide.vue",
   suiteName: "pages/prince2-agile-practitioner-v2-study-guide.vue",
+  page: Page,
+  seoMeta,
   h1: EXPECTED_H1,
   h2: EXPECTED_H2,
   h3: EXPECTED_H3,
   h4: EXPECTED_H4,
   h5: EXPECTED_H5,
   h6: EXPECTED_H6,
-  tocIds: EXPECTED_TOC_IDS,
   externalUrls: EXPECTED_EXTERNAL_URLS,
+  tocIds: EXPECTED_TOC_IDS,
+  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
+  mermaidSources: EXPECTED_MERMAID_SOURCES,
   calloutVariants: EXPECTED_CALLOUT_VARIANTS,
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
-  sectionEyebrows: EXPECTED_SECTION_EYEBROWS,
-  mermaidSources: EXPECTED_MERMAID_SOURCES,
-  seoMetaSpy: seoMeta,
-  navBrandSubtitle: "Practitioner (Version 2)",
+  seoTitleFragments: ["PRINCE2", "Agile", "Practitioner"],
+  seoTitle: "PRINCE2® Agile Practitioner (Version 2) 認定資格 完全ガイド | 初学者向け学習ガイド",
+  seoDescription: "PeopleCert PRINCE2 Agile Practitioner (Version 2) の出題範囲を、初学者向けにステップバイステップで解説し、ベストプラクティス・演習・根拠ソース URL をまとめた学習ガイド。",
+  allowedHeadingSkips: ["h2 -> h4"],
 });
 
 describe("pages/prince2-agile-practitioner-v2-study-guide.vue (固有契約)", () => {
