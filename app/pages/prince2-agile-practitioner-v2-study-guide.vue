@@ -407,21 +407,147 @@ useSeoMeta({
 
         <!-- 0. how-to-use -->
         <section id="how-to-use">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:compass" aria-hidden="true" />SECTION 01</div>
-          <h2>0. このガイドの使い方(最初に必ず読む)</h2>
-        </section>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:compass" aria-hidden="true" />SECTION 01</div>
+      <h2>0. このガイドの使い方(最初に必ず読む)</h2>
+
+      <h3>0.1 このガイドの位置づけ</h3>
+      <ul>
+        <li>本ガイドは、公式シラバス(Version 2.0, 2025 年 5 月)の <strong>学習カテゴリ・評価基準の順</strong> に沿って、初学者が「なぜそうなるのか」から理解できるよう <strong>独自の言葉で</strong> 解説した学習ノートです。</li>
+        <li>PRINCE2 Agile Practitioner は <strong>オープンブック試験</strong>(公式ブックの持ち込み可)です。したがって「全暗記」ではなく、<strong>概念の理解 + 公式ブックのどこに書いてあるかを即座に引ける索引力</strong> が合否を分けます。本ガイドでは、シラバスに記載された <strong>公式ブックの章番号</strong> を各所に併記しています。</li>
+        <li>公式ブック(PRINCE2® Agile Version 2 Official Book)の本文は著作物のため、本ガイドは <strong>転載・逐語引用をしていません</strong>。最終的な用語・定義・一覧の正確な文言は、必ず手元の公式ブックで照合してください。</li>
+      </ul>
+      <h3>0.2 情報の確度を示す凡例</h3>
+      <p>各節の情報には、出所の確度を次の記号で示します。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>記号</th><th>意味</th><th>使い方</th></tr></thead>
+          <tbody>
+            <tr><td>【シラバス】</td><td>PeopleCert 公式シラバス(v2.0)に明記されている項目</td><td>試験範囲そのもの。優先して学習する</td></tr>
+            <tr><td>【一般知識】</td><td>PRINCE2 7 やアジャイル一般(Scrum / Kanban / Lean 等)で広く知られている内容による補足</td><td>理解を助ける補足。<strong>試験での正確な表現は公式ブックで確認</strong></td></tr>
+            <tr><td>【要照合】</td><td>章立てや一覧の細部(例: 軸の名称・数、役割の位置づけ)で、本ガイド作成時に一次資料の本文で直接確認できていないもの</td><td><strong>必ず公式ブックの該当章で確認</strong> し、ブックの余白にメモする</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>正直な注意</strong>: 公式ブック本文は本ガイド作成時に参照できていません。シラバス(一次資料)で確認できた範囲は【シラバス】、それ以外は【一般知識】または【要照合】と明示しています。試験ではブックの記述が正解の根拠になるため、【要照合】は特に優先して確認してください。</p>
+      </div>
+      <h3>0.3 各項目の解説フォーマット</h3>
+      <p>各項目は次の順で書かれています。</p>
+      <ol>
+        <li><strong>一言でいうと</strong>(初学者向けの要約)</li>
+        <li><strong>ステップバイステップ解説</strong></li>
+        <li><strong>ベストプラクティス</strong></li>
+        <li><strong>よくある落とし穴(アンチパターン)</strong></li>
+        <li><strong>試験ポイント</strong>(Bloom's level: BL2 理解 / BL3 適用 / BL4 分析)</li>
+      </ol>
+    </section>
 
         <!-- 1. exam-overview -->
         <section id="exam-overview">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:certificate" aria-hidden="true" />SECTION 02</div>
-          <h2>1. 試験の全体像</h2>
-        </section>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:certificate" aria-hidden="true" />SECTION 02</div>
+      <h2>1. 試験の全体像</h2>
+
+      <h3>1.1 試験概要 【シラバス】</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>認定名</td><td>PRINCE2 Agile Practitioner (Version 2)</td></tr>
+            <tr><td>問題数 / 配点</td><td>50 問 / 各 1 点(<strong>誤答による減点なし</strong>)</td></tr>
+            <tr><td>合格点</td><td><strong>30 点(60%)</strong></td></tr>
+            <tr><td>試験時間</td><td><strong>150 分</strong>(母語・業務言語以外で受験する場合は 25% 延長で 188 分)</td></tr>
+            <tr><td>持ち込み</td><td><strong>オープンブック</strong>: 公式ブックのみ可(ブック内への書き込みメモも可)。他の資料は不可</td></tr>
+            <tr><td>思考レベル</td><td>Bloom's level <strong>2(理解)/ 3(適用)/ 4(分析)</strong></td></tr>
+            <tr><td>出題形式</td><td><strong>シナリオ + 追加情報 + 設問</strong>(少なくとも 1 問は「追加情報」=人物情報を使う)</td></tr>
+            <tr><td>設問タイプ</td><td>Standard / Missing word / List(正しいもの 2 つを選ぶ)/ Negative(例外的)</td></tr>
+            <tr><td>前提資格</td><td>PRINCE2 Agile Foundation (Version 2)、または PRINCE2 Agile (Version 1) の Foundation / Practitioner など(公式ページの記載)</td></tr>
+            <tr><td>資格更新</td><td>3 年ごと(CPD 20 ポイント等。詳細は公式ページ)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>1.2 出題配分 【シラバス】</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>学習カテゴリ</th><th>配点比率</th><th>目安問数(50 問換算)</th></tr></thead>
+          <tbody>
+            <tr><td>1. アジャイルマインドセット・People(OCM を含む)・プロジェクトマネジメントの主要概念</td><td>20%</td><td>約 10 問</td></tr>
+            <tr><td>2. PRINCE2 Agile の <strong>practices</strong> とその適用、および <strong>roles</strong></td><td><strong>44%</strong></td><td>約 22 問</td></tr>
+            <tr><td>3. PRINCE2 Agile の <strong>processes</strong> とその適用(workshops を含む)</td><td>30%</td><td>約 15 問</td></tr>
+            <tr><td>4. より広い文脈での適用(プロダクト管理・運用移行・AI)</td><td>6%</td><td>約 3 問</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>読み方</strong>: 合格には 30 問が必要です。<strong>カテゴリ 2 と 3 で全体の 74%</strong> を占めます。ここ(practices と processes)を最優先で固めるのが最短ルートです。</p>
+      </div>
+      <h3>1.3 Foundation との違い(何が「上がる」のか)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>Foundation (v2)</th><th>Practitioner (v2)</th></tr></thead>
+          <tbody>
+            <tr><td>目的</td><td>概念・用語を <strong>想起(BL1)・理解(BL2)</strong> できる</td><td>概念を <strong>現実の状況に適用(BL3)・評価(BL4)</strong> できる</td></tr>
+            <tr><td>試験時間 / 問題数</td><td>60 分 / 40 問(合格 24 点)</td><td>150 分 / 50 問(合格 30 点)</td></tr>
+            <tr><td>持ち込み</td><td>不可(クローズドブック)</td><td>公式ブック可(オープンブック)</td></tr>
+            <tr><td>問題の姿</td><td>単発の知識問題</td><td><strong>シナリオ</strong> に基づく問題</td></tr>
+            <tr><td>典型的な問い</td><td>「〜とは何か」</td><td>「このシナリオで、この tailoring は <strong>有効か(fit for purpose)</strong>」</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>1.4 試験構造のマインドマップ</h3>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_EXAM_MINDMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">試験構造のマインドマップ</div>
+      </div>
+    </section>
 
         <!-- 2. study-roadmap -->
         <section id="study-roadmap">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:route" aria-hidden="true" />SECTION 03</div>
-          <h2>2. 学習ロードマップ</h2>
-        </section>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:route" aria-hidden="true" />SECTION 03</div>
+      <h2>2. 学習ロードマップ</h2>
+
+      <h3>2.1 推奨ステップ</h3>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_STUDY_ROADMAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">推奨ステップ</div>
+      </div>
+      <h3>2.2 4 週間学習プラン(例)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>週</th><th>学習内容</th><th>ゴール</th><th>本ガイドの章</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>試験の型、Key concepts(Agile / mindset / Onion / 7 aspects / transformation / People)</td><td>カテゴリ 1(20%)を説明できる</td><td>第 3 章</td></tr>
+            <tr><td>2</td><td>7 practices の目的・管理プロダクト・agile guidance・techniques、11 roles</td><td>カテゴリ 2(44%)の前半</td><td>第 4 章</td></tr>
+            <tr><td>3</td><td>7 processes と workshops、tailoring 評価の型</td><td>カテゴリ 3(30%)を説明・評価できる</td><td>第 5 章</td></tr>
+            <tr><td>4</td><td>Wider context・AI、演習、ブックにタブと付箋を付ける、模擬試験</td><td>時間内に 30 点以上を安定して取れる</td><td>第 6〜8 章</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>2.3 前提知識チェック(自己診断)</h3>
+      <p>次に <strong>説明できる</strong> なら、本ガイドをスムーズに進められます。</p>
+      <ul class="checklist">
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text">PRINCE2 の <strong>7 principles / 7 practices / 7 processes</strong> を列挙できる</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>tolerance</strong> と <strong>management by exception</strong> の関係を説明できる</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>Agile Manifesto の 4 つの価値</strong> を言える</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>Scrum</strong> の主要な roles・events・artifacts を言える</span></label></li>
+        <li><label class="check-item"><input type="checkbox" class="check-box"><span class="check-text"><strong>product backlog / user story / MoSCoW / burn chart</strong> が何かを説明できる</span></label></li>
+      </ul>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p>1 つでも不安な場合は、まず第 3 章の 3.1〜3.4 から読み進めてください(必要な前提を初学者向けに補っています)。</p>
+      </div>
+    </section>
 
         <!-- 3. key-concepts -->
         <section id="key-concepts">
@@ -990,6 +1116,48 @@ th strong {
 }
 
 /* ===================== Glossary ===================== */
+
+/* ===================== Step list (roadmap) ===================== */
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.step-list li {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 0;
+}
+
+.step-num {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-indigo);
+  color: var(--color-indigo);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-body .step-title {
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.step-body .step-desc {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+}
+
 .glossary-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
