@@ -1003,41 +1003,116 @@ class Del1,Del2,Del3 box;`;
         </div>
         <h2>参考文献・ソース一覧</h2>
 
-        <div class="ref-group">
-          <h4>Scrum.org 公式ソース</h4>
+        <div class="ref-group ref-group--official">
+          <div class="ref-group-header">
+            <div class="ref-group-icon" aria-hidden="true">
+              <Icon name="tabler:certificate" aria-hidden="true" />
+            </div>
+            <h4>Scrum.org 公式ソース</h4>
+          </div>
           <ul class="ref-list">
-            <li><span class="ref-name">Professional Product Discovery and Validation™ Certification(試験公式ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification</a></li>
-            <li><span class="ref-name">Professional Product Discovery and Validation™ Training(コース公式ページ)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-product-discovery-and-validation-training</a></li>
-            <li><span class="ref-name">Product Discovery and Validation in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum</a></li>
-            <li><span class="ref-name">Dispelling Myths of Product Discovery in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum</a></li>
-            <li><span class="ref-name">Scrum.org Launches New Professional Product Ownership Initiative(PPDVコースの発表記事)</span><a class="ref-url" href="https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility" target="_blank" rel="noopener">https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility</a></li>
-            <li><span class="ref-name">Evidence-Based Management™(EBM)概要ページ</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
-            <li><span class="ref-name">The Evidence-Based Management Guide 2024</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
-            <li><span class="ref-name">The Creation of the Professional Product Discovery and Validation Course(開発秘話ポッドキャスト)</span><a class="ref-url" href="https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course" target="_blank" rel="noopener">https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course</a></li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Professional Product Discovery and Validation™ Certification(試験公式ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Professional Product Discovery and Validation™ Training(コース公式ページ)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-product-discovery-and-validation-training</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Product Discovery and Validation in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Dispelling Myths of Product Discovery in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Scrum.org Launches New Professional Product Ownership Initiative(PPDVコースの発表記事)</span><a class="ref-url" href="https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility" target="_blank" rel="noopener">https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Evidence-Based Management™(EBM)概要ページ</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">The Evidence-Based Management Guide 2024</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">The Creation of the Professional Product Discovery and Validation Course(開発秘話ポッドキャスト)</span><a class="ref-url" href="https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course" target="_blank" rel="noopener">https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course</a></div>
+            </li>
           </ul>
         </div>
 
-        <div class="ref-group">
-          <h4>認定研修パートナー(Scrum.org Professional Training Network)</h4>
+        <div class="ref-group ref-group--partner">
+          <div class="ref-group-header">
+            <div class="ref-group-icon" aria-hidden="true">
+              <Icon name="tabler:users-group" aria-hidden="true" />
+            </div>
+            <h4>認定研修パートナー(Scrum.org Professional Training Network)</h4>
+          </div>
           <ul class="ref-list">
-            <li><span class="ref-name">ScrumDojo.cz - Professional Product Discovery and Validation™(コース詳細・試験形式)</span><a class="ref-url" href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation</a></li>
-            <li><span class="ref-name">Xebia Academy - Professional Product Discovery and Validation (PPDV)</span><a class="ref-url" href="https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/</a></li>
-            <li><span class="ref-name">Responsive Advisors - PPDV Training</span><a class="ref-url" href="https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/" target="_blank" rel="noopener">https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/</a></li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">ScrumDojo.cz - Professional Product Discovery and Validation™(コース詳細・試験形式)</span><a class="ref-url" href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Xebia Academy - Professional Product Discovery and Validation (PPDV)</span><a class="ref-url" href="https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Responsive Advisors - PPDV Training</span><a class="ref-url" href="https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/" target="_blank" rel="noopener">https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/</a></div>
+            </li>
           </ul>
         </div>
 
-        <div class="ref-group">
-          <h4>各技法の原典・一次情報源</h4>
+        <div class="ref-group ref-group--primary">
+          <div class="ref-group-header">
+            <div class="ref-group-icon" aria-hidden="true">
+              <Icon name="tabler:book-2" aria-hidden="true" />
+            </div>
+            <h4>各技法の原典・一次情報源</h4>
+          </div>
           <ul class="ref-list">
-            <li><span class="ref-name">Framework for Innovation(Double Diamond, Design Council 公式)</span><a class="ref-url" href="https://www.designcouncil.org.uk/resources/framework-for-innovation/" target="_blank" rel="noopener">https://www.designcouncil.org.uk/resources/framework-for-innovation/</a></li>
-            <li><span class="ref-name">Impact Mapping(Gojko Adzic 公式サイト)</span><a class="ref-url" href="https://gojko.net/books/impact-mapping/" target="_blank" rel="noopener">https://gojko.net/books/impact-mapping/</a></li>
-            <li><span class="ref-name">The Empathy Map: A Human-Centered Tool(XPLANE 公式ブログ)</span><a class="ref-url" href="https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/" target="_blank" rel="noopener">https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/</a></li>
-            <li><span class="ref-name">Value Proposition Design Book Summary(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/value-proposition-design-book-summary" target="_blank" rel="noopener">https://www.strategyzer.com/library/value-proposition-design-book-summary</a></li>
-            <li><span class="ref-name">Validate your ideas with the Test Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card</a></li>
-            <li><span class="ref-name">Capture insights with the Learning Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card</a></li>
-            <li><span class="ref-name">The Truth Curve(Jeff Gothelf 公式ブログ、Giff Constable "Talking to Humans" の紹介)</span><a class="ref-url" href="https://jeffgothelf.com/blog/the-truth-curve/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/the-truth-curve/</a></li>
-            <li><span class="ref-name">Jobs To Be Done / ミルクシェイクの事例(Harvard Business School Working Knowledge)</span><a class="ref-url" href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener">https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing</a></li>
-            <li><span class="ref-name">User Story Mapping(Jeff Patton &amp; Associates 公式)</span><a class="ref-url" href="https://www.jpattonassociates.com/story-mapping/" target="_blank" rel="noopener">https://www.jpattonassociates.com/story-mapping/</a></li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Framework for Innovation(Double Diamond, Design Council 公式)</span><a class="ref-url" href="https://www.designcouncil.org.uk/resources/framework-for-innovation/" target="_blank" rel="noopener">https://www.designcouncil.org.uk/resources/framework-for-innovation/</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Impact Mapping(Gojko Adzic 公式サイト)</span><a class="ref-url" href="https://gojko.net/books/impact-mapping/" target="_blank" rel="noopener">https://gojko.net/books/impact-mapping/</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">The Empathy Map: A Human-Centered Tool(XPLANE 公式ブログ)</span><a class="ref-url" href="https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/" target="_blank" rel="noopener">https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Value Proposition Design Book Summary(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/value-proposition-design-book-summary" target="_blank" rel="noopener">https://www.strategyzer.com/library/value-proposition-design-book-summary</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Validate your ideas with the Test Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Capture insights with the Learning Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">The Truth Curve(Jeff Gothelf 公式ブログ、Giff Constable "Talking to Humans" の紹介)</span><a class="ref-url" href="https://jeffgothelf.com/blog/the-truth-curve/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/the-truth-curve/</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">Jobs To Be Done / ミルクシェイクの事例(Harvard Business School Working Knowledge)</span><a class="ref-url" href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener">https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing</a></div>
+            </li>
+            <li class="ref-item">
+              <div class="ref-item-icon" aria-hidden="true"><Icon name="tabler:external-link" aria-hidden="true" /></div>
+              <div class="ref-item-body"><span class="ref-name">User Story Mapping(Jeff Patton &amp; Associates 公式)</span><a class="ref-url" href="https://www.jpattonassociates.com/story-mapping/" target="_blank" rel="noopener">https://www.jpattonassociates.com/story-mapping/</a></div>
+            </li>
           </ul>
         </div>
       </section>
@@ -1664,31 +1739,141 @@ tr:last-child td {
   line-height: 1.7;
 }
 
-/* 参考文献 */
+/* 参考文献・ソース一覧 */
 .ref-group {
-  margin: 24px 0;
+  margin: 32px 0;
+}
+
+.ref-group-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ref-group-header h4 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.4;
+}
+
+.ref-group-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.ref-group--partner .ref-group-icon {
+  background: var(--color-gold-tint);
+  color: var(--color-gold);
+}
+
+.ref-group--primary .ref-group-icon {
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+}
+
+.ref-group-icon :deep(.iconify),
+.ref-group-icon :deep(svg) {
+  font-size: 19px;
 }
 
 .ref-list {
   list-style: none;
   padding: 0;
-  margin: 12px 0 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
 }
 
-.ref-list li {
-  margin: 10px 0;
-  font-size: 15px;
+.ref-item {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-indigo);
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ref-group--partner .ref-item {
+  border-left-color: var(--color-gold);
+}
+
+.ref-group--primary .ref-item {
+  border-left-color: var(--color-forest);
+}
+
+.ref-item:hover {
+  border-color: var(--color-border-strong);
+  border-left-color: var(--color-indigo);
+  box-shadow: 0 2px 10px rgba(22, 27, 38, 0.05);
+}
+
+.ref-group--partner .ref-item:hover {
+  border-left-color: var(--color-gold);
+}
+
+.ref-group--primary .ref-item:hover {
+  border-left-color: var(--color-forest);
+}
+
+.ref-item-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: var(--color-paper-sunken);
+  color: var(--color-ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  margin-top: 2px;
+}
+
+.ref-item-icon :deep(.iconify),
+.ref-item-icon :deep(svg) {
+  font-size: 16px;
+}
+
+.ref-item-body {
+  flex: 1;
+  min-width: 0;
 }
 
 .ref-name {
+  display: block;
   font-weight: 600;
+  font-size: 15.5px;
   color: var(--color-ink);
+  line-height: 1.5;
+  margin-bottom: 4px;
 }
 
 .ref-url {
-  font-size: 13.5px;
-  color: var(--color-ink-faint);
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-indigo);
   word-break: break-all;
+  line-height: 1.5;
+}
+
+.ref-url:hover {
+  text-decoration: underline;
 }
 
 /* レスポンシブ */
