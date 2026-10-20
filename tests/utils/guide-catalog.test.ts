@@ -168,6 +168,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/prince2-7-foundation-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Foundation" },
       { to: "/prince2-7-practitioner-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Practitioner" },
       { to: "/prince2-agile-foundation-version2", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 Agile Foundation" },
+      { to: "/prince2-agile-practitioner-v2-study-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 Agile Practitioner" },
       { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
       { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },

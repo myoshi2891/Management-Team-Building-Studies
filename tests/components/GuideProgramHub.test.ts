@@ -141,6 +141,6 @@ it("PeopleCert の PRINCE2 シリーズに Foundation、Practitioner の順で�
   const section = mountHub("peoplecert").findAll("[data-testid='hub-series']")
     .find(node => node.get("h2").text() === "PRINCE2");
   expect(section?.findAll("[data-testid='guide-card'] a").map(link => link.attributes("href"))).toEqual([
-    "/prince2-7-foundation-guide", "/prince2-7-practitioner-guide", "/prince2-agile-foundation-version2",
+    "/prince2-7-foundation-guide", "/prince2-7-practitioner-guide", "/prince2-agile-foundation-version2", "/prince2-agile-practitioner-v2-study-guide",
   ]);
 });
