@@ -651,6 +651,151 @@ class Del1,Del2,Del3 box;`;
           </ul>
         </div>
       </section>
+
+      <!-- SECTION 06: Chapter 5 Validation Techniques -->
+      <section id="validation-techniques">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:flask" aria-hidden="true" />SECTION 06
+        </div>
+        <h2>第5章: Validation(検証)技法</h2>
+
+        <p>ダブルダイヤモンドの「Develop→Deliver」に対応する技法群です。Discoveryで見えてきた仮説を、実験を通じて検証(または反証)し、投資判断につなげます。</p>
+
+        <h3>5.1 仮説と実験の定式化</h3>
+        <p>検証の出発点は、あいまいな期待を「反証可能な仮説」に変換することです。一般的な仮説ステートメントのフォーマットは次のような形を取ります。</p>
+        <p>私たちは、[特定の顧客セグメント]が[特定の行動]を取ると信じている。なぜなら[理由・提供価値]があるからだ。これが正しいことは、[測定可能な指標]が[しきい値]に達したときにわかる。</p>
+        <p>このフォーマットにより、「誰の」「どんな行動を」「なぜ」「どう測るか」の4点が明確になり、次に紹介するTest Cardにそのまま接続できます。</p>
+
+        <h3>5.2 実験技法(Experimentation Techniques)の全体像</h3>
+        <p>Build-Measure-Learnのループ(Eric Ries『The Lean Startup』)を小さく素早く回すことが検証の基本サイクルです。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_BUILD_MEASURE_LEARN" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">Build-Measure-Learnのループ</div>
+        </div>
+
+        <p>代表的な実験手法は4.6節のCurve of Truthで整理した通り、インタビューからWizard of Ozまで労力順に並べられます。状況(不確実性の大きさ、失敗した場合のコスト)に応じて適切なレベルの実験を選択します。</p>
+
+        <h3>5.3 Concierge MVP と Wizard of Oz</h3>
+        <p>いずれもEric Riesの『The Lean Startup』で紹介された、Minimum Viable Product(MVP)の一種です。どちらも「まだ自動化されていない仕組みを、人手で肩代わりする」という共通点がありますが、決定的な違いは「手作業であることを顧客に開示するかどうか」です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>Concierge MVP(コンシェルジュMVP)</th><th>Wizard of Oz MVP</th></tr></thead>
+            <tbody>
+              <tr><td>顧客への開示</td><td>手作業であることを顧客に明示する</td><td>自動化された製品であるかのように見せる(隠す)</td></tr>
+              <tr><td>目的</td><td>一対一の手厚いサービスを通じて、需要そのものを検証する</td><td>完成品としての体験・価値提案を検証する</td></tr>
+              <tr><td>代表例</td><td>Food on the Table(人手で顧客ごとに献立と買い物リストを作成)</td><td>Zappos(在庫を持たず、注文が入るたびに近隣店舗で靴を購入して発送)</td></tr>
+              <tr><td>リスク</td><td>顧客体験がスケール後と異なる可能性がある</td><td>隠していた事実が発覚した際に信頼を損なうリスクがある</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>ベストプラクティス</strong>: どちらの手法も「本格的なシステムを作る前に、価値仮説そのものを検証する」ために使う。エンジニアリング投資を先送りしながら「本当に欲しがられているか」を確かめられる場合に適している。ただし、いつまでも手作業に頼り続けると、成長モデルなきまま小さな黒字事業に満足してしまうリスクがある点にも注意する。</p>
+
+        <h3>5.4 Test Card + Learning Card(Strategyzer)</h3>
+        <p>Strategyzer社が提供する、実験を設計・記録するための対の様式です。</p>
+
+        <h4>Test Card(実験を設計する)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>要素</th><th>記述内容の型</th></tr></thead>
+            <tbody>
+              <tr><td>① 仮説(Hypothesis)</td><td>私たちは〜と信じている(We believe that ...)</td></tr>
+              <tr><td>② テスト方法(Test)</td><td>それを確かめるために、私たちは〜を行う(To verify that, we will ...)</td></tr>
+              <tr><td>③ 指標(Metric)</td><td>そして〜を計測する(And measure ...)</td></tr>
+              <tr><td>④ 成功基準(Criteria)</td><td>〜であれば、私たちは正しい(We are right if ...)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>このほか、テストコスト・データ信頼性・実施にかかる時間なども併記する形式が提供されています。</p>
+
+        <h4>Learning Card(実験結果を記録する)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>ステップ</th><th>記述内容の型</th></tr></thead>
+            <tbody>
+              <tr><td>1. 仮説</td><td>私たちは〜と信じていた(We believed that ...)</td></tr>
+              <tr><td>2. 観察</td><td>私たちは〜を観察した(We observed ...)</td></tr>
+              <tr><td>3. 学びと洞察</td><td>そこから〜を学んだ(From that we learned that ...)</td></tr>
+              <tr><td>4. 意思決定とアクション</td><td>したがって、私たちは〜を行う(Therefore we will ...)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TEST_LEARNING_CYCLE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">Test CardとLearning Cardによる実験サイクル</div>
+        </div>
+
+        <p><strong>ベストプラクティス</strong>: Test Cardは実験を「実施する前」に必ず埋める。特に④の成功基準(何が起きれば正しいと判断するか)を事前に定義しておくことで、結果が出た後に都合よく解釈してしまう(結論ありきの後付け解釈)ことを防げる。</p>
+
+        <h3>5.5 導入・行動の測定(Measuring Adoption and Behavior)</h3>
+        <p>実験や機能リリース後、実際にユーザーがそれを使い続けているか(導入・定着)を観察・測定するプロセスです。「作った機能が使われているか」「使われているならなぜか、使われていないならなぜか」を継続的に確認し、継続(Persevere)、方向転換(Pivot)、撤退(Kill)のいずれかを判断する材料にします。</p>
+        <p><strong>ベストプラクティス</strong>: 「リリースした」ことと「価値を生んでいる」ことを混同しない。アウトプット(機能を出荷した数)ではなく、アウトカム(実際の行動変化・顧客成果)を測定する。次節のEBMはこの考え方を組織レベルに拡張したフレームワークです。</p>
+
+        <h3>5.6 Evidence-Based Management™(EBM)</h3>
+        <p>EBMは、Scrum共同考案者のKen SchwaberとScrum.orgが開発したフレームワークで、組織がプロダクト提供から得ている価値を測定・向上させるための考え方です。2015年に初版が公開され、2018年、2020年、2024年に更新されています。</p>
+        <p>EBMの中核にあるのが<strong>4つのKey Value Areas(KVA、重要な価値領域)</strong>です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>KVA</th><th>焦点</th><th>代表的な指標の例</th></tr></thead>
+            <tbody>
+              <tr><td>Current Value(CV, 現在の価値)</td><td>現時点で顧客に届けている価値</td><td>顧客満足度、利用率、収益</td></tr>
+              <tr><td>Unrealized Value(UV, 未実現の価値)</td><td>まだ実現できていない潜在的な価値・市場機会</td><td>対応できていない顧客セグメント、市場シェアの伸びしろ</td></tr>
+              <tr><td>Time-to-Market(T2M, 市場投入までの時間)</td><td>価値を届けるまでの組織の応答速度</td><td>リリース頻度、サイクルタイム</td></tr>
+              <tr><td>Ability to Innovate(A2I, 革新する能力)</td><td>継続的に新しい価値を生み出す組織の実効力</td><td>技術的負債の量、実験の実施数</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_EBM_KVA" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">EBMの4つのKey Value Areas</div>
+        </div>
+
+        <p>EBMは特定のKey Value Measures(具体的指標)を規定しません。組織ごとの状況に合わせて、各KVAに紐づく指標を選び、仮説を立てて小さな実験を行い、結果を測定し、目標を検査・適応していくプロセスそのものがEBMの実践です。</p>
+        <p><strong>ベストプラクティス</strong>: 4つのKVAをバランスよく見る。Current Value(今の稼ぎ)だけを追うと将来の成長機会(Unrealized Value)を見落とし、逆にT2MやA2Iのような組織能力の指標だけを見ると、実際に顧客に価値が届いているかを見失う。</p>
+
+        <h3>5.7 Problem-Solution Fit から Product-Market Fit へ</h3>
+        <p>検証の進み方は、一般に次のような段階を踏みます。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_FIT_PROGRESSION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">Problem-Solution FitからProduct-Market Fitへの段階</div>
+        </div>
+
+        <ul>
+          <li><strong>Problem-Solution Fit</strong>: 特定した課題に対して、その解決策が本当に効くと言えるかどうかの適合。Value Proposition Canvas(4.5節)の「Customer Profile」と「Value Map」が噛み合っている状態に相当します。</li>
+          <li><strong>Product-Market Fit</strong>: 解決策が、対象市場全体で持続的に受け入れられるかどうかの適合。ここまで来て初めて、スケールに向けた投資判断が正当化されます。</li>
+        </ul>
+
+        <p><strong>ベストプラクティス</strong>: Problem-Solution Fitを確認する前に、スケールを前提とした大規模な開発投資を行わない。第4.6節のCurve of Truthに沿って、段階に応じた検証の深さで進める。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://www.shortform.com/blog/concierge-mvp/" target="_blank" rel="noopener">The Lean Startup - MVP, Concierge MVP, Wizard of Oz の解説(Eric Ries著、要約記事経由)</a></li>
+            <li><a href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">Validate your ideas with the Test Card(Strategyzer 公式ブログ)</a></li>
+            <li><a href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">Capture insights with the Learning Card(Strategyzer 公式ブログ)</a></li>
+            <li><a href="https://assets.strategyzer.com/assets/resources/the-test-card.pdf" target="_blank" rel="noopener">Test Card テンプレートPDF(Strategyzer 公式)</a></li>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">Evidence-Based Management™(EBM)(Scrum.org 公式リソースページ)</a></li>
+            <li><a href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">The Evidence-Based Management Guide 2024(Scrum.org 公式ガイド)</a></li>
+            <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDVコース公式トピック一覧(Validation章の構成、ScrumDojo.cz)</a></li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
 </template>
