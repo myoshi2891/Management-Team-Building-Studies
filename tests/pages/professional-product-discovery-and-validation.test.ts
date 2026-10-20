@@ -300,4 +300,57 @@ describe("pages/professional-product-discovery-and-validation.vue — 個別検�
       "資格の有効期限(失効なし)",
     ]);
   });
+
+  it("8.1 学習ステップが step-item カードとして5件順序通りに表示される", () => {
+    const wrapper = mountPage();
+    const stepItems = wrapper.findAll("#exam-prep .step-list > li.step-item");
+    expect(stepItems).toHaveLength(5);
+    expect(stepItems.map((item) => item.get(".step-num").text().trim())).toEqual([
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+    ]);
+    expect(stepItems.map((item) => item.get(".step-title").text().trim())).toEqual([
+      "土台を固める",
+      "ダブルダイヤモンドで全体地図を持つ",
+      "各技法を「定義→目的→ベストプラクティス」の3点セットで覚える",
+      "ケーススタディで手法を適用する練習をする",
+      "アンチパターンを逆引きで復習する",
+    ]);
+  });
+
+  it("8.2 出題傾向への向き合い方がリードボックスと3枚の対策カードグリッドで表示される", () => {
+    const wrapper = mountPage();
+    const lead = wrapper.get("#exam-prep p.exam-trend-lead");
+    expect(lead.text()).toContain("状況設定に対して最も適切な技法・進め方を選ぶ判断問題");
+
+    const strategyCards = wrapper.findAll("#exam-prep .exam-strategy-grid > li.exam-strategy-card");
+    expect(strategyCards).toHaveLength(3);
+    for (const card of strategyCards) {
+      expect(card.find(".strategy-icon").exists()).toBe(true);
+      expect(card.find(".strategy-text").exists()).toBe(true);
+    }
+    expect(strategyCards.map((c) => c.get(".strategy-text").text().trim())).toEqual([
+      "「この局面で使うべき技法はどれか」を問う問題に備え、各技法の適用タイミングを意識して整理する",
+      "「この技法とこの技法の違いは何か」を問う問題に備え、本ガイドの比較表(Proto Persona vs Persona、Journey Map vs Story Map、Concierge MVP vs Wizard of Oz など)を繰り返し復習する",
+      "「このシナリオでの適切な次の一手は何か」を問う問題に備え、Curve of Truthのように「段階に応じた選択」を要求する考え方に慣れておく",
+    ]);
+  });
+
+  it("8.3 受験の実務情報がアイコン付き実務カード3件として表示される", () => {
+    const wrapper = mountPage();
+    const practicalItems = wrapper.findAll("#exam-prep .exam-practical-list > li.exam-practical-item");
+    expect(practicalItems).toHaveLength(3);
+    for (const item of practicalItems) {
+      expect(item.find(".practical-icon").exists()).toBe(true);
+      expect(item.find(".practical-text").exists()).toBe(true);
+    }
+    expect(practicalItems.map((item) => item.get(".practical-text").text().trim())).toEqual([
+      "20問・30分・合格ライン85%という短時間集中型の試験のため、時間配分よりも一問一問への理解の正確さが重要になる",
+      "合格後の資格は生涯有効(失効なし)",
+      "公式トレーニングを14日以内に受験して不合格だった場合、無料の再受験権が付与されるという運用を行っているトレーニングパートナーもある(パートナーごとの条件は個別に確認すること)",
+    ]);
+  });
 });
