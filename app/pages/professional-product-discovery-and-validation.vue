@@ -903,35 +903,35 @@ class Del1,Del2,Del3 box;`;
 
         <h3>8.1 学習ステップ(推奨の順序)</h3>
         <ol class="step-list">
-          <li>
+          <li class="step-item">
             <div class="step-num" data-testid="step-tag">1</div>
             <div class="step-body">
               <div class="step-title">土台を固める</div>
               <div class="step-desc">Scrumの基本(イベント・作成物・価値基準)とProduct Ownershipの基礎を先に押さえる</div>
             </div>
           </li>
-          <li>
+          <li class="step-item">
             <div class="step-num" data-testid="step-tag">2</div>
             <div class="step-body">
               <div class="step-title">ダブルダイヤモンドで全体地図を持つ</div>
               <div class="step-desc">第2章の4フェーズ(Discover/Define/Develop/Deliver)を頭に入れ、以降の技法がどのフェーズに属するかを常にマッピングしながら学ぶ</div>
             </div>
           </li>
-          <li>
+          <li class="step-item">
             <div class="step-num" data-testid="step-tag">3</div>
             <div class="step-body">
               <div class="step-title">各技法を「定義→目的→ベストプラクティス」の3点セットで覚える</div>
               <div class="step-desc">用語の暗記ではなく、「なぜその技法が必要か」「他の似た技法とどう違うか」を比較しながら学ぶ(第4・5章の比較表を活用)</div>
             </div>
           </li>
-          <li>
+          <li class="step-item">
             <div class="step-num" data-testid="step-tag">4</div>
             <div class="step-body">
               <div class="step-title">ケーススタディで手法を適用する練習をする</div>
               <div class="step-desc">架空のプロダクト課題を1つ設定し、Business Problem Statement→Impact Map→Value Proposition Canvas→Test Card→Learning Cardという一連の流れを自分で書き出してみる(公式コースもケーススタディ形式で進行する)</div>
             </div>
           </li>
-          <li>
+          <li class="step-item">
             <div class="step-num" data-testid="step-tag">5</div>
             <div class="step-body">
               <div class="step-title">アンチパターンを逆引きで復習する</div>
@@ -941,18 +941,48 @@ class Del1,Del2,Del3 box;`;
         </ol>
 
         <h3>8.2 出題傾向への向き合い方</h3>
-        <p>Scrum.org公式ページの記載によれば、PPDVは「多くの設問が、潜在顧客・既存ユーザーをどう活用して市場に正しいプロダクト機能を届けるかを考えさせる」形式です。つまり、単一の正解を選ぶ知識問題よりも、<strong>状況設定に対して最も適切な技法・進め方を選ぶ判断問題</strong>が中心になると想定して学習するのが効果的です。</p>
-        <ul>
-          <li>「この局面で使うべき技法はどれか」を問う問題に備え、各技法の<strong>適用タイミング</strong>を意識して整理する</li>
-          <li>「この技法とこの技法の違いは何か」を問う問題に備え、本ガイドの比較表(Proto Persona vs Persona、Journey Map vs Story Map、Concierge MVP vs Wizard of Oz など)を繰り返し復習する</li>
-          <li>「このシナリオでの適切な次の一手は何か」を問う問題に備え、Curve of Truthのように「段階に応じた選択」を要求する考え方に慣れておく</li>
+        <p class="exam-trend-lead">Scrum.org公式ページの記載によれば、PPDVは「多くの設問が、潜在顧客・既存ユーザーをどう活用して市場に正しいプロダクト機能を届けるかを考えさせる」形式です。つまり、単一の正解を選ぶ知識問題よりも、<strong>状況設定に対して最も適切な技法・進め方を選ぶ判断問題</strong>が中心になると想定して学習するのが効果的です。</p>
+        <ul class="exam-strategy-grid">
+          <li class="exam-strategy-card">
+            <div class="strategy-icon" aria-hidden="true">
+              <Icon name="tabler:clock-check" aria-hidden="true" />
+            </div>
+            <div class="strategy-text">「この局面で使うべき技法はどれか」を問う問題に備え、各技法の<strong>適用タイミング</strong>を意識して整理する</div>
+          </li>
+          <li class="exam-strategy-card">
+            <div class="strategy-icon" aria-hidden="true">
+              <Icon name="tabler:arrows-diff" aria-hidden="true" />
+            </div>
+            <div class="strategy-text">「この技法とこの技法の違いは何か」を問う問題に備え、本ガイドの比較表(Proto Persona vs Persona、Journey Map vs Story Map、Concierge MVP vs Wizard of Oz など)を繰り返し復習する</div>
+          </li>
+          <li class="exam-strategy-card">
+            <div class="strategy-icon" aria-hidden="true">
+              <Icon name="tabler:compass" aria-hidden="true" />
+            </div>
+            <div class="strategy-text">「このシナリオでの適切な次の一手は何か」を問う問題に備え、Curve of Truthのように「段階に応じた選択」を要求する考え方に慣れておく</div>
+          </li>
         </ul>
 
         <h3>8.3 受験の実務情報</h3>
-        <ul>
-          <li>20問・30分・合格ライン85%という短時間集中型の試験のため、時間配分よりも一問一問への理解の正確さが重要になる</li>
-          <li>合格後の資格は生涯有効(失効なし)</li>
-          <li>公式トレーニングを14日以内に受験して不合格だった場合、無料の再受験権が付与されるという運用を行っているトレーニングパートナーもある(パートナーごとの条件は個別に確認すること)</li>
+        <ul class="exam-practical-list">
+          <li class="exam-practical-item">
+            <div class="practical-icon" aria-hidden="true">
+              <Icon name="tabler:target-arrow" aria-hidden="true" />
+            </div>
+            <div class="practical-text">20問・30分・合格ライン85%という短時間集中型の試験のため、時間配分よりも一問一問への理解の正確さが重要になる</div>
+          </li>
+          <li class="exam-practical-item">
+            <div class="practical-icon" aria-hidden="true">
+              <Icon name="tabler:infinity" aria-hidden="true" />
+            </div>
+            <div class="practical-text">合格後の資格は生涯有効(失効なし)</div>
+          </li>
+          <li class="exam-practical-item">
+            <div class="practical-icon" aria-hidden="true">
+              <Icon name="tabler:refresh" aria-hidden="true" />
+            </div>
+            <div class="practical-text">公式トレーニングを14日以内に受験して不合格だった場合、無料の再受験権が付与されるという運用を行っているトレーニングパートナーもある(パートナーごとの条件は個別に確認すること)</div>
+          </li>
         </ul>
 
         <div class="callout source" data-testid="callout" data-variant="source">
@@ -1442,52 +1472,196 @@ tr:last-child td {
   margin-top: 10px;
 }
 
-/* ステップリスト */
+/* ステップリスト（8.1 学習ステップ） */
 .step-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin: 24px 0;
 }
 
 .step-item {
+  position: relative;
   display: flex;
-  gap: 16px;
+  align-items: flex-start;
+  gap: 18px;
+  margin: 0;
   background: var(--color-paper-raised);
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 18px;
+  border-left: 4px solid var(--color-indigo);
+  border-radius: 10px;
+  padding: 20px 24px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.step-item:hover {
+  border-color: var(--color-border-strong);
+  border-left-color: var(--color-indigo);
+  box-shadow: 0 2px 10px rgba(22, 27, 38, 0.05);
+}
+
+.step-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 41px;
+  top: 56px;
+  bottom: -18px;
+  width: 2px;
+  background: var(--color-indigo-tint);
+  z-index: 0;
 }
 
 .step-num {
+  position: relative;
+  z-index: 1;
   flex: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: var(--color-indigo);
-  color: var(--color-paper-raised);
+  background: var(--color-indigo-tint);
+  border: 1.5px solid var(--color-indigo);
+  color: var(--color-indigo);
+  font-family: var(--font-display);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .step-body {
   flex: 1;
+  min-width: 0;
 }
 
 .step-title {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 16.5px;
   color: var(--color-ink);
   margin-bottom: 6px;
+  line-height: 1.45;
 }
 
 .step-desc {
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--color-ink-soft);
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+/* 8.2 出題傾向への向き合い方 */
+.exam-trend-lead {
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-gold);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 16px 0 20px;
+  color: var(--color-ink);
+  line-height: 1.8;
+}
+
+.exam-strategy-grid {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.exam-strategy-card {
+  margin: 0;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-indigo);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.exam-strategy-card:hover {
+  border-color: var(--color-border-strong);
+  border-top-color: var(--color-indigo);
+  box-shadow: 0 2px 10px rgba(22, 27, 38, 0.05);
+}
+
+.strategy-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.strategy-icon :deep(.iconify),
+.strategy-icon :deep(svg) {
+  font-size: 20px;
+}
+
+.strategy-text {
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  line-height: 1.7;
+}
+
+.strategy-text strong {
+  color: var(--color-indigo);
+}
+
+/* 8.3 受験の実務情報 */
+.exam-practical-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exam-practical-item {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+
+.practical-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--color-forest-tint);
+  color: var(--color-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  margin-top: 1px;
+}
+
+.practical-icon :deep(.iconify),
+.practical-icon :deep(svg) {
+  font-size: 18px;
+}
+
+.practical-text {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  color: var(--color-ink);
+  line-height: 1.7;
 }
 
 /* 参考文献 */
