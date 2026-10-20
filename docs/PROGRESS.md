@@ -1588,7 +1588,7 @@ dev サーバーでは見合わせ中を含む全ページを確認できる。
 - **メインコンテンツ全幅化**: 既存方針に合わせ、`.main-content` の `max-width` 制限を解除（`max-width: none;`）し、画面横幅いっぱいにコンテンツが広がるレイアウトを適用。
 - **Mermaid 20図の完全移植**: 20個のダイアグラム（Agile/PRINCE2関係、ロードマップ、Agilometer、Cynefinフレームワーク、5つのターゲット、5つのフォーカスエリア、6つのアスペクトトレランス、ガイダンスレベル、ロール構造、スクラムとPRINCE2の役割対応、チームマネジメント構造、デリバリーフロー、ワークショップ適用、コンテキストマップ、試験時間配分など）を `MermaidDiagram` コンポーネントおよび `ClientOnly` ラッパーを用いて完全再現。
 - **厳格なTDDと契約テスト**: 原本HTMLから抽出した固定リテラル（`EXPECTED_*`）を用いて `tests/pages/prince2-agile-practitioner-v2-study-guide.test.ts`（28件）を作成。全見出し・外部リンク・TOC・アンカー一意性・Mermaidソース・callout variant/ラベル・SEO・固有UI（4つのstat-card、68個のtable-wrap、disclaimer-box、フッター）を包括検証して Green を達成。
-- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）のシリーズ `pc-prince2-agile`（PRINCE2 Agile）にガイド `/prince2-agile-practitioner-v2-study-guide` を追加登録。資格ガイド総数は 55 → 56 件となった。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）のシリーズ `pc-prince2`（PRINCE2）にガイド `/prince2-agile-practitioner-v2-study-guide` を追加登録。資格ガイド総数は 55 → 56 件となった。
 - **原本照合監査スクリプト**: `package.json` に `"audit:prince2-agile-practitioner"` を追加し、継続的インテグレーションにおいて機械照合（exit 0）を担保。
 - **原本保存**: HTML/Markdownを `archive/Prince2-agile-practitioner-v2-study-guide/` へ移動し、Git追跡を維持。
   - `Prince2-agile-practitioner-v2-study-guide.html`: `59d6862eada27019191e1e7e38143d1ddd3b175e8daa40f0df8055bc8f70707d`
