@@ -1603,9 +1603,317 @@ useSeoMeta({
 
         <!-- 5. processes -->
         <section id="processes">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:git-branch" aria-hidden="true" />SECTION 06</div>
-          <h2>5. PRINCE2 Agile の processes と workshops</h2>
-        </section>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:git-branch" aria-hidden="true" />SECTION 06</div>
+      <span class="domain-tag d3">カテゴリ 3 · 配点 30%</span>
+      <h2>5. PRINCE2 Agile の processes と workshops</h2>
+
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>カテゴリ 3 の学習ゴール</strong> 【シラバス 3.1.1 / 3.1.2】<br>
+        7 つの process について、<strong>activities・関連する workshops・artifacts を agile 文脈で適用(BL3)</strong> し、<strong>tailoring が有効で fit for purpose か分析(BL4)</strong> できる。</p>
+      </div>
+      <h3>5.1 processes の全体像</h3>
+      <h4>5.1.1 7 processes と流れ</h4>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_PROCESS_OVERVIEW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">7 processes と流れ</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Process</th><th>目的(1 行)【一般知識】</th><th>Board の主な判断</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Starting up a project(SU)</strong></td><td>プロジェクトが <strong>価値ある・実行可能</strong> か見極め、初期体制を作る</td><td>初期化(initiation)を許可するか</td></tr>
+            <tr><td><strong>Directing a project(DP)</strong></td><td>Board が <strong>重要な判断点で意思決定</strong> し、例外に対応する</td><td>許可・stage 承認・例外対応・終了承認</td></tr>
+            <tr><td><strong>Initiating a project(IP)</strong></td><td><strong>統制と計画の土台</strong> を作り、全員が理解を揃える</td><td>プロジェクトを許可するか</td></tr>
+            <tr><td><strong>Controlling a stage(CS)</strong></td><td>stage 内の <strong>日常の統制</strong>(work package の委任・進捗確認・報告)</td><td>(tolerance 内なら委任)</td></tr>
+            <tr><td><strong>Managing product delivery(MP)</strong></td><td><strong>チームが成果物を作り・届ける</strong></td><td>(チームの自己管理)</td></tr>
+            <tr><td><strong>Managing a stage boundary(SB)</strong></td><td>実績を評価し、<strong>次の stage を計画</strong> する</td><td>次の stage を許可するか</td></tr>
+            <tr><td><strong>Closing a project(CP)</strong></td><td><strong>完了・引き継ぎ・学びの記録</strong></td><td>終了を承認するか</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.1.2 stage と timebox の関係(Agile の核心)</h4>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_STAGE_TIMEBOX" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">stage と timebox の関係(Agile の核心)</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Timebox の種類 【シラバス(Foundation 1.3.1)】</th><th>意味</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Iteration</strong></td><td>固定長の短いサイクル。チームが選んだ項目を完成させる</td></tr>
+            <tr><td><strong>Release</strong></td><td>利用者に価値を届ける単位。複数の iteration で構成されることが多い</td></tr>
+            <tr><td><strong>Stage</strong></td><td><strong>管理上の判断単位</strong>(Board の承認区切り)。複数の release / iteration を含み得る</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>【一般知識】</strong> stage の長さは、<strong>計画の確からしさが保てる範囲</strong> で決めます(不確実性が高いほど短く)。具体的な目安は公式ブックの記述で確認してください【要照合】。</p>
+      </div>
+      <h4>5.1.3 tailoring を評価する共通チェックリスト(BL4 用)</h4>
+      <p>process の tailoring を評価するとき、次の 4 点で確認します(シラバス 3.1.2 は <strong>activities / workshops / artifacts</strong> を分析対象と明記)。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>チェック</th><th>質問</th></tr></thead>
+          <tbody>
+            <tr><td>① 目的</td><td>その process の <strong>目的</strong> を、tailoring 後も果たせているか</td></tr>
+            <tr><td>② Activities</td><td>必要な <strong>activities</strong> が省略・重複していないか</td></tr>
+            <tr><td>③ Workshops</td><td><strong>workshop</strong> が目的に合い、適切な参加者で実施されているか</td></tr>
+            <tr><td>④ Artifacts</td><td>必要な <strong>artifacts / management products</strong> が <strong>軽すぎず重すぎず</strong> 用意されているか</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>Workshops について【要照合】</strong>: シラバスは「process 別に agile workshops が支える」と述べ、各 process の 13.x.3 / 13.x.4 節(サブセクション含む)を参照しています。<strong>個々の workshop の名称・実施目的</strong> は公式ブック 13 章で必ず確認し、ブックにタブを付けてください。以下に示す workshop の例は、一般的なアジャイルの場(vision 共有・優先順位付け・計画・レビュー・振り返り等)に基づくもので、<strong>公式の名称と一致しない可能性</strong> があります。</p>
+      </div>
+      <h3>5.2 Starting up a project(SU)(公式ブック 13.2)</h3>
+      <h4>5.2.1 一言でいうと</h4>
+      <p><strong>「このプロジェクトを、ちゃんと始める価値があるか」を、最小限の労力で見極める</strong> process です。</p>
+      <h4>5.2.2 ステップバイステップ【一般知識・【要照合】13.2.x】</h4>
+      <ol>
+        <li><strong>Project executive と PM を任命</strong> する。</li>
+        <li><strong>過去の教訓(lessons)を確認</strong> する。</li>
+        <li><strong>project management team を設計・任命</strong> する(agile roles を含める)。</li>
+        <li><strong>outline business case(初期の business case / project canvas)</strong> を作成する。</li>
+        <li><strong>プロジェクトの進め方(project approach)</strong> を選ぶ(agile 適用の程度、プロジェクトの文脈)。</li>
+        <li><strong>project brief</strong> を作成する。</li>
+        <li><strong>initiation stage の計画</strong> を立てる。</li>
+      </ol>
+      <h4>5.2.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Agilometer の初回評価</strong></td><td>agile 適用のリスクを <strong>最初に把握</strong> する(第 4.6 節)</td></tr>
+            <tr><td><strong>ビジョンの共有 workshop</strong></td><td>関係者が <strong>同じ方向</strong> を見るための場(【要照合】名称は 13.2)</td></tr>
+            <tr><td><strong>project canvas</strong></td><td>大部の文書ではなく <strong>1 枚で見渡す</strong></td></tr>
+            <tr><td><strong>軽量な project brief</strong></td><td>目的・範囲・体制・制約を <strong>簡潔</strong> に</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.2.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: 早期に <strong>agile coach</strong> に関与してもらい、体制と tailoring の初期案を作る。</li>
+        <li><strong>落とし穴</strong>: SU に <strong>時間をかけすぎる</strong>(詳細な要件を固めきろうとする)。</li>
+        <li><strong>BL3</strong>: シナリオの状況を <strong>project brief / project canvas / Agilometer</strong> で整理する。</li>
+        <li><strong>BL4</strong>: 「SU で全機能の詳細仕様を完成させてから IP に進む」は <strong>agile の趣旨に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.3 Directing a project(DP)(公式ブック 13.3)</h3>
+      <h4>5.3.1 一言でいうと</h4>
+      <p><strong>Board が「大事なところだけ」判断する</strong> process です。Agile では、<strong>日々の作業から離れ、要所で価値と統制を確認</strong> します。</p>
+      <h4>5.3.2 ステップバイステップ【一般知識・【要照合】13.3.x】</h4>
+      <ol>
+        <li><strong>initiation(初期化)を許可</strong> する。</li>
+        <li><strong>プロジェクトを許可</strong> する(IP の結果を受けて)。</li>
+        <li><strong>各 stage を許可</strong> する(SB の結果を受けて)。</li>
+        <li><strong>随時の指示(ad hoc direction)</strong> を出す(例: 例外への対応)。</li>
+        <li><strong>プロジェクトの終了を許可</strong> する。</li>
+      </ol>
+      <h4>5.3.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ダッシュボードで常時把握</strong></td><td>報告書の到着を待たず、<strong>project dashboard</strong> で状況を確認</td></tr>
+            <tr><td><strong>review への参加</strong></td><td><strong>動く成果物</strong> を見て、フィードバックし、承認する</td></tr>
+            <tr><td><strong>tolerance の委任</strong></td><td>範囲内は PM / チームに <strong>委任</strong> し、Board は例外に注力</td></tr>
+            <tr><td><strong>柔軟な判断</strong></td><td>scope の入替えを <strong>tolerance 内で許容</strong> し、価値の高いものに集中</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.3.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: Board メンバー(特に CPO / Executive)が <strong>定期的な review に参加</strong>。</li>
+        <li><strong>落とし穴</strong>: Board が <strong>週次の詳細な承認会議</strong> を要求し、チームの自己組織化を阻害。</li>
+        <li><strong>BL4</strong>: 「Board が全 iteration の開始・終了を承認する」は <strong>management by exception に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.4 Initiating a project(IP)(公式ブック 13.4)</h3>
+      <h4>5.4.1 一言でいうと</h4>
+      <p><strong>「どう進め、どう統制するか」の土台を作る</strong> process です。Agile では、<strong>必要十分(just enough)</strong> な計画で、<strong>早く動き出す</strong> ことが目標です。</p>
+      <h4>5.4.2 ステップバイステップ【一般知識・【要照合】13.4.x】</h4>
+      <ol>
+        <li><strong>tailoring の方針を合意</strong> する(PRINCE2 と agile の組み合わせ方)。</li>
+        <li><strong>各 management approach を用意</strong> する(risk / issue / quality / benefits / sustainability / commercial / digital and data など、practice に対応)。</li>
+        <li><strong>プロジェクト統制(tolerance、報告の頻度)</strong> を設定する。</li>
+        <li><strong>プロジェクト計画(release map)</strong> と、<strong>初期の project backlog / product backlog</strong> を用意する。</li>
+        <li><strong>DoR と DoD</strong> を合意する(品質の基準)。</li>
+        <li><strong>business case を精緻化</strong> する(project canvas の更新)。</li>
+        <li><strong>initiation の成果物をまとめ、Board の承認</strong> を得る。</li>
+      </ol>
+      <h4>5.4.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Initiation は短く</strong></td><td>詳細計画ではなく、<strong>必要十分</strong> な見通しと統制の枠組み</td></tr>
+            <tr><td><strong>release map</strong></td><td>粗い全体像を <strong>関係者と共有</strong></td></tr>
+            <tr><td><strong>チーム体制の確定</strong></td><td>各チームの <strong>PO・Team coach・Developer・Tester</strong> を確認</td></tr>
+            <tr><td><strong>Workshop の活用</strong></td><td>【要照合】計画・優先順位付け・品質基準合意のための <strong>共同作業の場</strong>(13.4.3 / 13.4.4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.4.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: IP の成果物を <strong>チームとボードの共通理解</strong> として使う(作って終わりにしない)。</li>
+        <li><strong>落とし穴</strong>: <strong>PID(大部の initiation 文書)</strong> の作成そのものが目的化する。</li>
+        <li><strong>BL3</strong>: DoR / DoD、tolerance、報告頻度など、<strong>IP で決める項目</strong> をシナリオから選ぶ。</li>
+        <li><strong>BL4</strong>: 「IP に数か月かけて、全 backlog の詳細を確定する」は <strong>fit for purpose ではない</strong>(遅すぎる・変化に弱い)。</li>
+      </ul>
+      <h3>5.5 Controlling a stage(CS)(公式ブック 13.5)</h3>
+      <h4>5.5.1 一言でいうと</h4>
+      <p><strong>stage の間、PM が日常の統制を担う</strong> process です。Agile では、<strong>チームの自己管理を尊重しつつ、tolerance を守る</strong> バランスがポイントです。</p>
+      <h4>5.5.2 ステップバイステップ【一般知識・【要照合】13.5.x】</h4>
+      <ol>
+        <li><strong>work package を委任</strong> する(<strong>work package description</strong> で内容と tolerance を伝える)。</li>
+        <li><strong>work package の状況を確認</strong> する(チームのボード、stand-up の情報、checkpoint report)。</li>
+        <li><strong>完了した work package を受け取る</strong>(<strong>DoD を満たしている</strong> ことを確認)。</li>
+        <li><strong>stage の状況を確認</strong> する(burn chart、velocity 等)。</li>
+        <li><strong>highlight report / dashboard を更新</strong> する。</li>
+        <li><strong>issue と risk を捕捉・評価・エスカレート</strong> する。</li>
+        <li><strong>是正措置</strong> を取る(tolerance 内)。</li>
+        <li><strong>tolerance 超過の恐れ</strong> があれば <strong>exception report</strong> を出す。</li>
+      </ol>
+      <h4>5.5.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>work package = timebox の仕事</strong></td><td>例: 1 つの iteration 分の作業として委任</td></tr>
+            <tr><td><strong>チームが work を pull</strong></td><td>PM が割り当てるのではなく、<strong>チームが backlog から取り込む</strong></td></tr>
+            <tr><td><strong>可視化された情報</strong></td><td><strong>ボード・dashboard</strong> で、PM が <strong>追加の報告を求めずに</strong> 状況を把握</td></tr>
+            <tr><td><strong>Workshop / 会議</strong></td><td>【要照合】review、retrospective、計画など(13.5.3 / 13.5.4)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.5.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: PM は <strong>障害除去と上位との調整</strong> に集中し、チームの作業配分に介入しない。</li>
+        <li><strong>落とし穴</strong>: PM が <strong>日次のタスク管理者</strong> になり、自己組織化を損なう。</li>
+        <li><strong>BL3</strong>: 「チームの velocity が低下している」→ <strong>原因の確認(障害・範囲の変化)</strong> と、tolerance 内の是正 / 必要なら exception。</li>
+        <li><strong>BL4</strong>: 「PM がチームの日次進捗を細かくレビューして個別に指示する」は <strong>委任の趣旨に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.6 Managing product delivery(MP)(公式ブック 13.6)</h3>
+      <h4>5.6.1 一言でいうと</h4>
+      <p><strong>チームが実際に成果物を作り、届ける</strong> process です。Agile では、<strong>チームの自己組織化と iteration の運営</strong> の中心になります。</p>
+      <h4>5.6.2 ステップバイステップ【一般知識・【要照合】13.6.x】</h4>
+      <ol>
+        <li><strong>work package を受け入れる</strong>(内容・tolerance・DoD を確認)。</li>
+        <li><strong>チームで作業を計画する</strong>(team plan、backlog からの取り込み)。</li>
+        <li><strong>iteration で作り込む</strong>(stand-up、TDD、CI など)。</li>
+        <li><strong>DoD を満たすものだけを完成とする</strong>。</li>
+        <li><strong>review / demo で確認</strong>(PO・ステークホルダーのフィードバック)。</li>
+        <li><strong>retrospective で学ぶ</strong>。</li>
+        <li><strong>完了を PM に報告する</strong>(team dashboard / checkpoint report)。</li>
+      </ol>
+      <h4>5.6.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>フレームワークの選択</strong></td><td>Scrum / Kanban 等を <strong>プロジェクトの文脈に合わせて使い分け</strong></td></tr>
+            <tr><td><strong>チームの自己管理</strong></td><td>作業の進め方・見積り・割り当てを <strong>チームが決める</strong></td></tr>
+            <tr><td><strong>短いサイクル</strong></td><td><strong>iteration / timebox</strong> ごとに <strong>動く成果物</strong> を届ける</td></tr>
+            <tr><td><strong>Workshop / events</strong></td><td>計画・review・retrospective 等の <strong>チームの場</strong>(13.6.3 / 13.6.4)【要照合】</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.6.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: <strong>DoD を守る</strong>(完成の定義を妥協しない)。</li>
+        <li><strong>落とし穴</strong>: チームが <strong>PM の指示待ち</strong> になる、あるいは PM が <strong>チームの内部に介入</strong> する。</li>
+        <li><strong>BL3</strong>: MP のどのタイミングで <strong>review / retrospective</strong> を行うかをシナリオから選ぶ。</li>
+        <li><strong>BL4</strong>: 「iteration の終わりに review / retrospective を省いて次の作業へ進む」は <strong>学習と透明性の観点で fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.7 Managing a stage boundary(SB)(公式ブック 13.7)</h3>
+      <h4>5.7.1 一言でいうと</h4>
+      <p><strong>stage の終わりに「実績」を評価し、「次の stage」をどうするか判断材料を整える</strong> process です。</p>
+      <h4>5.7.2 ステップバイステップ【一般知識・【要照合】13.7.x】</h4>
+      <ol>
+        <li><strong>stage の実績を評価</strong> する(完成した増分、tolerance、品質、便益)。</li>
+        <li><strong>project plan / release map を更新</strong> する。</li>
+        <li><strong>business case を更新</strong> する(実績データを踏まえて)。</li>
+        <li><strong>リスク・Agilometer を再評価</strong> する。</li>
+        <li><strong>次の stage を計画</strong> する(backlog の再優先順位付け、tolerance の設定)。</li>
+        <li><strong>end stage report(または project dashboard)を作成</strong> し、Board へ。</li>
+        <li><strong>tolerance 超過の場合</strong> は <strong>exception plan</strong> を作る。</li>
+      </ol>
+      <h4>5.7.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>実績ベースの評価</strong></td><td>完成した増分・利用データで <strong>価値を検証</strong></td></tr>
+            <tr><td><strong>Release review</strong></td><td>【要照合】stage の成果を関係者と確認する場(13.7.3 / 13.7.4)</td></tr>
+            <tr><td><strong>柔軟な次 stage 計画</strong></td><td><strong>学び</strong> を反映して、backlog と release map を <strong>調整</strong></td></tr>
+            <tr><td><strong>軽量な報告</strong></td><td><strong>dashboard 中心</strong> に、情報を <strong>最新</strong> に保つ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.7.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: SB を <strong>「実績データに基づく投資判断の場」</strong> にする(business case 更新)。</li>
+        <li><strong>落とし穴</strong>: SB が <strong>形式的な報告会</strong> になり、次 stage の判断に使われない。</li>
+        <li><strong>BL3</strong>: SB で更新する artifacts(release map / business case / Agilometer / backlog)を選ぶ。</li>
+        <li><strong>BL4</strong>: 「stage 境界で business case を更新せず、当初計画通りに進める」は <strong>continued business justification に反し fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.8 Closing a project(CP)(公式ブック 13.8)</h3>
+      <h4>5.8.1 一言でいうと</h4>
+      <p><strong>プロジェクトを「きちんと終わらせ」、引き継ぎと学びを残す</strong> process です。</p>
+      <h4>5.8.2 ステップバイステップ【一般知識・【要照合】13.8.x】</h4>
+      <ol>
+        <li><strong>計画的な終了の準備</strong>(または、<strong>早期終了</strong> の場合の準備)。</li>
+        <li><strong>成果物を引き渡す</strong>(運用側・利用者へ。<strong>運用移行</strong> を含む)。</li>
+        <li><strong>プロジェクトを評価</strong> する(目標・便益の見通し・学び)。</li>
+        <li><strong>lessons report</strong> と <strong>end project report</strong> を作成する。</li>
+        <li><strong>Board に終了を提言</strong> し、承認を得る。</li>
+      </ol>
+      <h4>5.8.3 Agile での tailoring</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td><strong>早期・段階的な引き渡し</strong></td><td>増分を <strong>運用に段階的に移行</strong>(最後にまとめてではなく)</td></tr>
+            <tr><td><strong>最終 retrospective</strong></td><td><strong>チーム・組織の学び</strong> を共有</td></tr>
+            <tr><td><strong>便益の追跡計画</strong></td><td>プロジェクト終了後の <strong>便益実現の測定</strong> を計画</td></tr>
+            <tr><td><strong>継続開発への接続</strong></td><td>【第 6 章参照】プロダクトの継続開発・運用体制へ移行</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>5.8.4 ベストプラクティス / 落とし穴 / 試験ポイント</h4>
+      <ul>
+        <li><strong>ベストプラクティス</strong>: <strong>運用側を早期に巻き込み</strong>、DoD に <strong>運用準備</strong> を含める。</li>
+        <li><strong>落とし穴</strong>: 最後に一括で引き渡し、<strong>運用側が準備できていない</strong>。</li>
+        <li><strong>BL3</strong>: CP で作る artifacts(lessons report、end project report)と、<strong>便益の追跡</strong> の扱いをシナリオから選ぶ。</li>
+        <li><strong>BL4</strong>: 「引き継ぎを最終日の 1 回だけ実施する」は <strong>運用側の準備不足リスクがあり fit for purpose ではない</strong>。</li>
+      </ul>
+      <h3>5.9 process 別 まとめ表(試験直前の確認用)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Process</th><th>Agile での要点</th><th>主な artifacts(例)</th><th>ありがちな誤り</th></tr></thead>
+          <tbody>
+            <tr><td>SU</td><td>軽く・早く。Agilometer 初回、canvas</td><td>project brief、business case / canvas、Agilometer</td><td>詳細仕様の完成を待つ</td></tr>
+            <tr><td>DP</td><td>例外管理。dashboard と review</td><td>dashboard、exception への対応</td><td>詳細な承認の要求</td></tr>
+            <tr><td>IP</td><td>just enough。DoR/DoD、tolerance、release map</td><td>各 management approach、release map</td><td>大部の文書化が目的化</td></tr>
+            <tr><td>CS</td><td>委任と可視化。work package</td><td>work package description、dashboard、burn chart</td><td>PM の細かな指示</td></tr>
+            <tr><td>MP</td><td>自己組織化、DoD、review/retro</td><td>team plan、team dashboard</td><td>指示待ち / 介入</td></tr>
+            <tr><td>SB</td><td>実績で business case を更新</td><td>end stage report、更新済み plan</td><td>形式的な報告会</td></tr>
+            <tr><td>CP</td><td>段階的な引き渡しと学び</td><td>lessons report、end project report</td><td>最後の一括引き渡し</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
         <!-- 6. wider-context -->
         <section id="wider-context">
