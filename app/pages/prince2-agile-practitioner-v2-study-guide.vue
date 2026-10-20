@@ -1917,15 +1917,236 @@ useSeoMeta({
 
         <!-- 6. wider-context -->
         <section id="wider-context">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:rocket" aria-hidden="true" />SECTION 07</div>
-          <h2>6. より広い文脈での適用</h2>
-        </section>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:rocket" aria-hidden="true" />SECTION 07</div>
+      <span class="domain-tag d4">カテゴリ 4 · 配点 6%</span>
+      <h2>6. より広い文脈での適用</h2>
+
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>カテゴリ 4 の学習ゴール</strong> 【シラバス 4.1 / 4.2】<br>
+        PRINCE2 Agile を <strong>プロジェクトの外側</strong> に適用し(BL3: agile product management、プロジェクトから運用への移行、継続的な開発と運用)、<strong>AI が PRINCE2 Agile をどう支援するか</strong> を理解する(BL2)。<br>
+        <strong>配点は 6%(約 3 問)</strong> ですが、範囲が狭いので <strong>取りこぼさない</strong> のが得策です。</p>
+      </div>
+      <h3>6.1 プロジェクトとプロダクトの違い</h3>
+      <p><strong>一言でいうと</strong>: <strong>プロジェクトには終わりがある</strong> が、<strong>プロダクト(製品・サービス)は使われ続ける</strong> ため、その後も価値を育てる活動が続きます。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>プロジェクト</th><th>プロダクト(継続)</th></tr></thead>
+          <tbody>
+            <tr><td>期間</td><td>有期</td><td>継続</td></tr>
+            <tr><td>目的</td><td>合意された成果物・便益の実現</td><td>継続的な価値提供・進化</td></tr>
+            <tr><td>統制</td><td>PRINCE2 の stage・Board・tolerance</td><td>プロダクト戦略・roadmap・優先順位</td></tr>
+            <tr><td>役割</td><td>Project executive / PM 等</td><td><strong>Product owner / CPO</strong> が長期で責任を持つ</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>6.2 Agile product management への適用(シラバス 4.1.1 / 公式ブック 14.2.2.1)</h3>
+      <p><strong>一言でいうと</strong>: プロジェクト後も続くプロダクトの管理に、PRINCE2 Agile の考え方(価値・優先順位・透明性・例外管理)を活かす、という視点です。</p>
+      <p><strong>ステップバイステップ【一般知識・【要照合】14.2.2.1】</strong></p>
+      <ol>
+        <li><strong>プロダクトの vision と roadmap</strong> を明確にする。</li>
+        <li><strong>PO / CPO が backlog を継続的に優先順位付け</strong> する。</li>
+        <li><strong>学び(利用データ・フィードバック)</strong> を次の優先順位に反映する。</li>
+        <li><strong>大きな変更・投資判断</strong> が必要なときに、<strong>PRINCE2 Agile の projects として切り出す</strong>(例: 大規模な機能刷新)。</li>
+        <li>プロダクト全体の <strong>品質・持続可能性</strong> を継続的に管理する。</li>
+      </ol>
+      <p><strong>ベストプラクティス</strong>: <strong>プロダクトの長期的な責任者(PO)</strong> を明確にし、プロジェクトと継続開発の <strong>役割の連続性</strong> を保つ。<br>
+        <strong>落とし穴</strong>: プロジェクトが終わった途端に <strong>責任者が不在</strong> になり、backlog が放置される。</p>
+      <h3>6.3 プロジェクトから運用への移行(シラバス 4.1.2 / 公式ブック 14.2.1)</h3>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_OPS_TRANSITION" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">プロジェクトから運用への移行(シラバス 4.1.2 / 公式ブック 14.2.1)</div>
+      </div>
+      <p><strong>ステップバイステップ【一般知識・【要照合】14.2.1】</strong></p>
+      <ol>
+        <li><strong>運用側を早期に巻き込む</strong>(運用要件を backlog に)。</li>
+        <li><strong>DoD に運用準備を含める</strong>(監視・サポート手順・ドキュメント・研修)。</li>
+        <li><strong>増分ごとに段階的に引き渡す</strong>(最終日の一括引き渡しを避ける)。</li>
+        <li><strong>知識移転</strong> を行い、運用側が独立して対応できるようにする。</li>
+        <li><strong>移行後の学び</strong> を backlog に戻し、改善サイクルを回す。</li>
+      </ol>
+      <p><strong>ベストプラクティス</strong>: <strong>運用の観点(保守性・監視・サポート)</strong> を「非機能要求」として backlog に入れ、<strong>DoD で担保</strong> する。<br>
+        <strong>落とし穴</strong>: 運用側が <strong>完成直前まで関与せず</strong>、リリース後に混乱する。</p>
+      <h3>6.4 継続的な agile development and operations(シラバス 4.1.3 / 公式ブック 14.2.2.2)</h3>
+      <p><strong>一言でいうと</strong>: 開発と運用を <strong>分断せず、継続的なフロー</strong> で回す考え方です(DevOps 的な発想)。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>観点</th><th>内容【一般知識・【要照合】14.2.2.2】</th></tr></thead>
+          <tbody>
+            <tr><td>継続的デリバリー</td><td>小さな変更を <strong>頻繁・安全に</strong> 本番へ届ける</td></tr>
+            <tr><td>統合されたチーム</td><td>開発と運用が <strong>同じ目的</strong> を共有し、責任を分かち合う</td></tr>
+            <tr><td>フィードバックの短縮</td><td>運用データを <strong>すぐ開発に戻す</strong></td></tr>
+            <tr><td>統制</td><td>例外管理・tolerance の考え方は残しつつ、<strong>stage の区切りより「継続的な流れ」</strong> が中心になる</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>ベストプラクティス</strong>: <strong>自動化されたテストとデプロイ</strong>、監視、<strong>変更の可逆性(ロールバック)</strong> で、頻繁なリリースのリスクを下げる。<br>
+        <strong>落とし穴</strong>: <strong>頻度だけを追い</strong>、品質・持続可能性の基準(DoD)を緩める。</p>
+      <h3>6.5 AI による PRINCE2 Agile の支援(シラバス 4.2.1 / 公式ブック 15.4)</h3>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>BL2(理解)</strong> レベルです。<strong>「AI がどの要素をどう支援し得るか」と、その際の留意点</strong> を説明できれば十分です。<strong>具体的なサブセクションの内容は公式ブック 15.4 で確認</strong> してください【要照合】。以下は【一般知識】に基づく整理です。</p>
+      </div>
+      <h4>6.5.1 practice 別の支援例</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Practice</th><th>AI の支援例</th><th>人が必ず確認すること</th></tr></thead>
+          <tbody>
+            <tr><td>Business case</td><td>市場・競合情報の整理、canvas のたたき台</td><td>前提・データの正しさ、投資判断</td></tr>
+            <tr><td>Organization</td><td>役割記述のたたき台、ステークホルダー分析の補助</td><td>責任の最終決定、文化への適合</td></tr>
+            <tr><td>Plans</td><td>user story のドラフト、見積りの参考、backlog の整理</td><td>優先順位(価値判断)、現実性</td></tr>
+            <tr><td>Quality</td><td>テストケース案、コードレビューの補助、要件の抜け検出</td><td><strong>DoD への適合</strong>、網羅性</td></tr>
+            <tr><td>Risk</td><td>過去事例からのリスク候補提示、傾向検知</td><td>リスクの評価・対応の決定</td></tr>
+            <tr><td>Issues</td><td>issue の分類・要約、類似事例の検索</td><td>対応の意思決定</td></tr>
+            <tr><td>Progress</td><td>議事録・報告の要約、予測(完了見込み)の補助</td><td>データの信頼性、<strong>予測の根拠</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>6.5.2 AI 活用のベストプラクティス</h4>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_AI_REVIEW_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">AI 活用のベストプラクティス</div>
+      </div>
+      <ul>
+        <li><strong>人が説明責任(accountability)を持つ</strong>。AI は意思決定を代行しない(Board の判断や優先順位付けは人が行う)。</li>
+        <li><strong>AI の成果物も DoD の対象</strong>(レビュー・テストを省略しない)。</li>
+        <li><strong>データの機密性・個人情報・知的財産</strong> に配慮し、利用ルールを <strong>digital and data management approach</strong>(第 4.8 節)などで明確化する。</li>
+        <li><strong>透明性</strong>: どこに AI を使ったかを <strong>記録・共有</strong> する。</li>
+        <li><strong>偏り・誤り(ハルシネーション)</strong> の可能性を前提に、<strong>検証の手順</strong> を組み込む。</li>
+      </ul>
+      <h4>6.5.3 試験ポイント(BL2)</h4>
+      <ul>
+        <li>「AI は <strong>支援する道具</strong> であり、<strong>責任は人に残る</strong>」という方向の選択肢が正解になりやすい。</li>
+        <li>「AI の出力を無検証で採用する」「AI が Board の意思決定を置き換える」「品質管理が不要になる」は <strong>典型的な誤答</strong>。</li>
+      </ul>
+    </section>
 
         <!-- 7. exam-strategy -->
         <section id="exam-strategy">
-          <div class="section-eyebrow" data-testid="section-eyebrow"><Icon name="tabler:target" aria-hidden="true" />SECTION 08</div>
-          <h2>7. 試験対策: オープンブックを最大限に活かす</h2>
-        </section>
+      <div class="section-eyebrow" data-testid="section-eyebrow"><Icon  name="tabler:target" aria-hidden="true" />SECTION 08</div>
+      <h2>7. 試験対策: オープンブックを最大限に活かす</h2>
+
+      <h3>7.1 「暗記」より「索引」を作る</h3>
+      <p>オープンブックだからこそ、<strong>時間内に探せること</strong> が重要です。本ガイドは、シラバスが示す章番号をもとに、<strong>タブ(付箋)を付ける箇所</strong> を整理しました。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>タブ</th><th>公式ブックの章</th><th>内容</th></tr></thead>
+          <tbody>
+            <tr><td>A</td><td>2.6, 2.6.1, 2.6.2</td><td>Agile mindset / Agile Onion / 特徴</td></tr>
+            <tr><td>B</td><td>2.7.1〜2.7.5</td><td>transformation plan / maturity / psychological safety / sustainability</td></tr>
+            <tr><td>C</td><td>3.3</td><td>7 aspects of project performance</td></tr>
+            <tr><td>D</td><td>第 4 章(4.2〜4.5)</td><td>OCM / stakeholders / culture / チーム / コミュニケーション</td></tr>
+            <tr><td>E</td><td>5.2〜5.4, 5.6, 5.6.1</td><td>PRINCE2 の principles / practices / processes と agile 文脈</td></tr>
+            <tr><td>F</td><td>第 6 章(6.3.1, 6.3.2, 6.4)</td><td>Business case practice</td></tr>
+            <tr><td>G</td><td>第 7 章(7.3, 7.3.1, 7.3.2, 7.4)</td><td>Organization practice</td></tr>
+            <tr><td>H</td><td>第 8 章(8.3, 8.3.1, 8.3.2, 8.4)</td><td>Plans practice</td></tr>
+            <tr><td>I</td><td>第 9 章(9.3, 9.3.1, 9.3.2, 9.4)</td><td>Quality practice</td></tr>
+            <tr><td>J</td><td>第 10 章(10.3.1, 10.3.2, 10.4)</td><td>Risk practice / Agilometer</td></tr>
+            <tr><td>K</td><td>第 11 章(11.3.1〜11.3.4, 11.4)</td><td>Issues practice</td></tr>
+            <tr><td>L</td><td>第 12 章(12.3.1, 12.3.2, 12.4)</td><td>Progress practice</td></tr>
+            <tr><td>M</td><td>Table 7.2, Table B.1</td><td>roles</td></tr>
+            <tr><td>N</td><td>第 13 章(13.2〜13.8)</td><td>processes と workshops</td></tr>
+            <tr><td>O</td><td>第 14 章(14.2.1, 14.2.2.1, 14.2.2.2)</td><td>プロダクト管理 / 運用移行 / 継続開発</td></tr>
+            <tr><td>P</td><td>15.4</td><td>AI による支援</td></tr>
+            <tr><td>Q</td><td>Glossary</td><td>用語集(用語の確認に)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>ブック書き込みは許可されています</strong>(シラバスの記載)。ただし <strong>持ち込めるのは公式ブックのみ</strong> です。ノートや別紙は不可なので、<strong>ブック自体の余白</strong> に要点(例: 「Agilometer は再評価」「DoR=入口 / DoD=出口」)を書き込みましょう。</p>
+      </div>
+      <h3>7.2 時間配分</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>目安</th></tr></thead>
+          <tbody>
+            <tr><td>総時間</td><td>150 分(延長対象なら 188 分)</td></tr>
+            <tr><td>1 問あたり</td><td><strong>平均 3 分</strong>(50 問)</td></tr>
+            <tr><td>一巡目</td><td>約 90〜100 分: 確信の持てる問題を素早く。<strong>迷ったら印を付けて先へ</strong></td></tr>
+            <tr><td>二巡目</td><td>約 40〜50 分: BL4(分析)問題や、ブック確認が必要な問題</td></tr>
+            <tr><td>見直し</td><td>残りで、未回答の確認(<strong>誤答減点なし</strong> のため、<strong>空欄は作らない</strong>)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note" data-variant="note" data-testid="callout">
+        <div class="callout-title" data-testid="callout-label"><Icon  name="tabler:info-circle" aria-hidden="true" />補足</div>
+      <p><strong>誤答による減点はありません。</strong> 必ず全問に解答してください。</p>
+      </div>
+      <h3>7.3 シナリオ問題の読み方(ステップ)</h3>
+      <div class="mermaid-wrap">
+        <ClientOnly>
+          <MermaidDiagram :chart="DIAGRAM_SCENARIO_READING_FLOW" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          <template #fallback>
+            <p class="diagram-loading">図を読み込み中…</p>
+          </template>
+        </ClientOnly>
+        <div class="diagram-caption">シナリオ問題の読み方(ステップ)</div>
+      </div>
+      <h3>7.4 設問タイプ別の攻略</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>設問タイプ</th><th>コツ</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Standard</strong>(選択肢 4 つ)</td><td>正解は 1 つ。<strong>もっとも適切</strong> を選ぶ。<strong>極端な断定(「常に」「決して」)</strong> を含む選択肢は疑う</td></tr>
+            <tr><td><strong>Missing word</strong></td><td>文の <strong>目的</strong> を考える(例: 逸脱を統制する目的 → progress)。practice の purpose を復習</td></tr>
+            <tr><td><strong>List</strong>(2 つ選ぶ)</td><td>4 つの記述を <strong>個別に真偽判定</strong> し、真の 2 つを含む組合せを選ぶ(<strong>否定形では出題されない</strong>)</td></tr>
+            <tr><td><strong>Negative</strong></td><td>例外的な出題。「<strong>やってはいけない</strong> こと」を選ぶ。<strong>設問文の NOT を見落とさない</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>7.5 BL4(分析)問題の判断基準</h3>
+      <p><strong>「fit for purpose(目的に適う)」の観点で、次の順に確認します。</strong></p>
+      <ol>
+        <li><strong>その practice / process の目的を果たしているか</strong></li>
+        <li><strong>PRINCE2 Agile の guidance と矛盾しないか</strong></li>
+        <li><strong>必要な management products / artifacts が機能するか</strong></li>
+        <li><strong>シナリオの文脈(制約・成熟度・契約)に合うか</strong></li>
+        <li><strong>統制が過剰(重すぎる)または不足(軽すぎる)でないか</strong></li>
+      </ol>
+      <h3>7.6 頻出する誤答パターン</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>誤答パターン</th><th>なぜ誤りか</th></tr></thead>
+          <tbody>
+            <tr><td>Board がすべての変更・iteration を承認する</td><td><strong>management by exception</strong> に反する</td></tr>
+            <tr><td>PM がチームの日次タスクを割り当てる</td><td><strong>自己組織化</strong> と委任の趣旨に反する</td></tr>
+            <tr><td>納期のために <strong>quality(DoD)を下げる</strong></td><td><strong>quality は妥協せず、scope を flex</strong> にする</td></tr>
+            <tr><td>business case を <strong>最初に固めて更新しない</strong></td><td><strong>continued business justification</strong> に反する</td></tr>
+            <tr><td>Agilometer を <strong>一度だけ</strong> 実施</td><td><strong>定期的な再評価</strong> が必要</td></tr>
+            <tr><td>詳細な全体計画を <strong>最初に完成</strong> させる</td><td><strong>rolling wave / 近い将来ほど詳細</strong> に反する</td></tr>
+            <tr><td>報告書を <strong>手作業で大量に作成</strong></td><td><strong>dashboard での透明性</strong> が推奨される</td></tr>
+            <tr><td>「Agile だから文書・統制は不要」</td><td>PRINCE2 Agile は <strong>統制を維持したまま</strong> 柔軟性を得る</td></tr>
+            <tr><td>AI の出力を <strong>検証せず採用</strong></td><td><strong>人が責任</strong>、DoD を満たすことが必要</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>7.7 よくある混同(用語の整理)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>混同しやすい用語</th><th>違い</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Agile coach vs Team coach</strong></td><td>Agile coach = <strong>組織・複数チーム / Board</strong> の支援、Team coach = <strong>チーム単位</strong> の支援【要照合】</td></tr>
+            <tr><td><strong>Product backlog vs Project backlog</strong></td><td>Product backlog = 各チームが扱う <strong>優先順位付き</strong> の作業項目、Project backlog = <strong>プロジェクト全体</strong> の成果物レベルの一覧(epic 等)【要照合】</td></tr>
+            <tr><td><strong>Checkpoint report vs Highlight report</strong></td><td>Checkpoint = <strong>チーム → PM</strong>、Highlight = <strong>PM → Board</strong>(dashboard 化も可)</td></tr>
+            <tr><td><strong>Exception report vs Issue report</strong></td><td>Exception = <strong>tolerance 超過の恐れ</strong> を Board に伝える、Issue = 個別の issue の詳細</td></tr>
+            <tr><td><strong>Stage vs Timebox(iteration/release)</strong></td><td>Stage = <strong>管理上の判断単位</strong>、iteration / release = <strong>チームの作業・提供の単位</strong></td></tr>
+            <tr><td><strong>DoR vs DoD</strong></td><td>DoR = 入口、DoD = 出口</td></tr>
+            <tr><td><strong>Burn-down vs Burn-up</strong></td><td>Burn-down = 残り作業、Burn-up = 完了 + 全体範囲</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
         <!-- 8. practice-questions -->
         <section id="practice-questions">
