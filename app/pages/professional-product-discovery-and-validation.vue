@@ -1177,7 +1177,7 @@ class Del1,Del2,Del3 box;`;
 /* スキップリンク */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: -100px;
   left: 20px;
   background: var(--color-indigo);
   color: var(--color-paper-raised);
@@ -1186,11 +1186,11 @@ class Del1,Del2,Del3 box;`;
   z-index: 1000;
   text-decoration: none;
   font-weight: 600;
-  transition: top 0.2s;
+  transition: top 0.2s ease;
 }
 
 .skip-link:focus {
-  top: 16px;
+  top: calc(var(--global-nav-height) + 8px);
 }
 
 /* サイドバー */
