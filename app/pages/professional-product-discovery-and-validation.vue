@@ -1013,7 +1013,7 @@ class Del1,Del2,Del3 box;`;
       </section>
 
       <footer>
-        本ガイドはPPDV認定試験の学習補助を目的として作成した二次資料です。最新の出題範囲・試験形式は必ず<a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>で確認してください。
+        Professional Product Discovery and Validation、PPDV、Scrum.org は Scrum.org の商標です。本ガイドはPPDV認定試験の学習補助を目的として作成した二次資料です。最新の出題範囲・試験形式は必ず<a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>で確認してください。
       </footer>
     </main>
   </div>
