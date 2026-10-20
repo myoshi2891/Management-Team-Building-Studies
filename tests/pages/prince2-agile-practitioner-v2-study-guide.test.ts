@@ -343,16 +343,16 @@ describe("pages/prince2-agile-practitioner-v2-study-guide.vue (固有契約)", (
 
   it("4つの stat-card が正しい数値とラベルで描画される", () => {
     const wrapper = mountPage();
-    const stats = wrapper.findAll(".stat-card");
-    expect(stats).toHaveLength(4);
-    expect(stats[0].get(".stat-number").text()).toBe("50問");
-    expect(stats[0].get(".stat-label").text()).toBe("各 1 点・誤答による減点なし");
-    expect(stats[1].get(".stat-number").text()).toBe("30点");
-    expect(stats[1].get(".stat-label").text()).toBe("合格点(60%)");
-    expect(stats[2].get(".stat-number").text()).toBe("150分");
-    expect(stats[2].get(".stat-label").text()).toBe("オープンブック(公式ブックのみ持ち込み可)");
-    expect(stats[3].get(".stat-number").text()).toBe("44%");
-    expect(stats[3].get(".stat-label").text()).toBe("practices と roles の配点(最重要カテゴリ)");
+    const stats = wrapper.findAll(".stat-card").map((s) => ({
+      number: s.get(".stat-number").text(),
+      label: s.get(".stat-label").text(),
+    }));
+    expect(stats).toEqual([
+      { number: "50問", label: "各 1 点・誤答による減点なし" },
+      { number: "30点", label: "合格点(60%)" },
+      { number: "150分", label: "オープンブック(公式ブックのみ持ち込み可)" },
+      { number: "44%", label: "practices と roles の配点(最重要カテゴリ)" },
+    ]);
   });
 
   it("68個のテーブルがすべて table-wrap で包まれ描画される", () => {

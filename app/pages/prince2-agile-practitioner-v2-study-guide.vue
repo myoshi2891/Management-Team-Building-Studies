@@ -523,10 +523,10 @@ useSeoMeta({
       <h3>1.4 試験構造のマインドマップ</h3>
       <div class="mermaid-wrap mindmap-wrap">
         <div class="mindmap-legend" aria-label="試験カテゴリの配点凡例">
-          <span class="mindmap-legend-item d1"><span class="legend-dot"></span>カテゴリ 1: Key concepts (20%)</span>
-          <span class="mindmap-legend-item d2"><span class="legend-dot"></span>カテゴリ 2: Practices &amp; Roles (44%)</span>
-          <span class="mindmap-legend-item d3"><span class="legend-dot"></span>カテゴリ 3: Processes (30%)</span>
-          <span class="mindmap-legend-item d4"><span class="legend-dot"></span>カテゴリ 4: Wider context (6%)</span>
+          <span class="mindmap-legend-item d1"><span class="legend-dot" />カテゴリ 1: Key concepts (20%)</span>
+          <span class="mindmap-legend-item d2"><span class="legend-dot" />カテゴリ 2: Practices &amp; Roles (44%)</span>
+          <span class="mindmap-legend-item d3"><span class="legend-dot" />カテゴリ 3: Processes (30%)</span>
+          <span class="mindmap-legend-item d4"><span class="legend-dot" />カテゴリ 4: Wider context (6%)</span>
         </div>
         <ClientOnly>
           <MermaidDiagram :chart="DIAGRAM_EXAM_MINDMAP" theme="base" :theme-variables="MINDMAP_THEME_VARS" />
@@ -628,7 +628,7 @@ useSeoMeta({
             <tr><td>中身</td><td>practices(実践)と techniques(技法)を使う</td><td>mindset(考え方)と behaviours(振る舞い)を体現する</td></tr>
             <tr><td>例</td><td>daily stand-up、backlog、burn chart、retrospective を行う</td><td>透明性・信頼・協働・学習を日常の判断で実践する</td></tr>
             <tr><td>単独の限界</td><td>形だけ(「アジャイルごっこ」)になりやすい</td><td>実践がないと成果に結びつきにくい</td></tr>
-            <tr><td>目指す姿</td><td><strong>両方を組み合わせる</strong> ことで持続的な成果を得る</td><td></td></tr>
+            <tr><td>目指す姿</td><td><strong>両方を組み合わせる</strong> ことで持続的な成果を得る</td><td /></tr>
           </tbody>
         </table>
       </div>
