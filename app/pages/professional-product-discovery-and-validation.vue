@@ -892,6 +892,128 @@ class Del1,Del2,Del3 box;`;
           </ul>
         </div>
       </section>
+
+      <!-- SECTION 09: Chapter 8 Exam Prep -->
+      <section id="exam-prep">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:clipboard-check" aria-hidden="true" />SECTION 09
+        </div>
+        <h2>第8章: 試験対策の進め方</h2>
+
+        <h3>8.1 学習ステップ(推奨の順序)</h3>
+        <ol class="step-list">
+          <li>
+            <div class="step-num" data-testid="step-tag">1</div>
+            <div class="step-body">
+              <div class="step-title">土台を固める</div>
+              <div class="step-desc">Scrumの基本(イベント・作成物・価値基準)とProduct Ownershipの基礎を先に押さえる</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">2</div>
+            <div class="step-body">
+              <div class="step-title">ダブルダイヤモンドで全体地図を持つ</div>
+              <div class="step-desc">第2章の4フェーズ(Discover/Define/Develop/Deliver)を頭に入れ、以降の技法がどのフェーズに属するかを常にマッピングしながら学ぶ</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">3</div>
+            <div class="step-body">
+              <div class="step-title">各技法を「定義→目的→ベストプラクティス」の3点セットで覚える</div>
+              <div class="step-desc">用語の暗記ではなく、「なぜその技法が必要か」「他の似た技法とどう違うか」を比較しながら学ぶ(第4・5章の比較表を活用)</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">4</div>
+            <div class="step-body">
+              <div class="step-title">ケーススタディで手法を適用する練習をする</div>
+              <div class="step-desc">架空のプロダクト課題を1つ設定し、Business Problem Statement→Impact Map→Value Proposition Canvas→Test Card→Learning Cardという一連の流れを自分で書き出してみる(公式コースもケーススタディ形式で進行する)</div>
+            </div>
+          </li>
+          <li>
+            <div class="step-num" data-testid="step-tag">5</div>
+            <div class="step-body">
+              <div class="step-title">アンチパターンを逆引きで復習する</div>
+              <div class="step-desc">第7章の「誤解 vs 実際」を見て、なぜそれが誤解なのかを自分の言葉で説明できるようにする</div>
+            </div>
+          </li>
+        </ol>
+
+        <h3>8.2 出題傾向への向き合い方</h3>
+        <p>Scrum.org公式ページの記載によれば、PPDVは「多くの設問が、潜在顧客・既存ユーザーをどう活用して市場に正しいプロダクト機能を届けるかを考えさせる」形式です。つまり、単一の正解を選ぶ知識問題よりも、<strong>状況設定に対して最も適切な技法・進め方を選ぶ判断問題</strong>が中心になると想定して学習するのが効果的です。</p>
+        <ul>
+          <li>「この局面で使うべき技法はどれか」を問う問題に備え、各技法の<strong>適用タイミング</strong>を意識して整理する</li>
+          <li>「この技法とこの技法の違いは何か」を問う問題に備え、本ガイドの比較表(Proto Persona vs Persona、Journey Map vs Story Map、Concierge MVP vs Wizard of Oz など)を繰り返し復習する</li>
+          <li>「このシナリオでの適切な次の一手は何か」を問う問題に備え、Curve of Truthのように「段階に応じた選択」を要求する考え方に慣れておく</li>
+        </ul>
+
+        <h3>8.3 受験の実務情報</h3>
+        <ul>
+          <li>20問・30分・合格ライン85%という短時間集中型の試験のため、時間配分よりも一問一問への理解の正確さが重要になる</li>
+          <li>合格後の資格は生涯有効(失効なし)</li>
+          <li>公式トレーニングを14日以内に受験して不合格だった場合、無料の再受験権が付与されるという運用を行っているトレーニングパートナーもある(パートナーごとの条件は個別に確認すること)</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Certification(出題傾向の説明、Scrum.org 公式)</a></li>
+            <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDV試験形式・再受験条件(ScrumDojo.cz、Scrum.org Professional Training Networkパートナー)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 10: References -->
+      <section id="references">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:link" aria-hidden="true" />SECTION 10
+        </div>
+        <h2>参考文献・ソース一覧</h2>
+
+        <div class="ref-group">
+          <h4>Scrum.org 公式ソース</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">Professional Product Discovery and Validation™ Certification(試験公式ページ)</span><a class="ref-url" href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification</a></li>
+            <li><span class="ref-name">Professional Product Discovery and Validation™ Training(コース公式ページ)</span><a class="ref-url" href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">https://www.scrum.org/courses/professional-product-discovery-and-validation-training</a></li>
+            <li><span class="ref-name">Product Discovery and Validation in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum</a></li>
+            <li><span class="ref-name">Dispelling Myths of Product Discovery in Scrum(Dave West 公式ブログ)</span><a class="ref-url" href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum</a></li>
+            <li><span class="ref-name">Scrum.org Launches New Professional Product Ownership Initiative(PPDVコースの発表記事)</span><a class="ref-url" href="https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility" target="_blank" rel="noopener">https://www.scrum.org/resources/scrumorg-launches-new-professional-product-ownership-initiative-aligning-evolution-agility</a></li>
+            <li><span class="ref-name">Evidence-Based Management™(EBM)概要ページ</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management</a></li>
+            <li><span class="ref-name">The Evidence-Based Management Guide 2024</span><a class="ref-url" href="https://www.scrum.org/resources/evidence-based-management-guide" target="_blank" rel="noopener">https://www.scrum.org/resources/evidence-based-management-guide</a></li>
+            <li><span class="ref-name">The Creation of the Professional Product Discovery and Validation Course(開発秘話ポッドキャスト)</span><a class="ref-url" href="https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course" target="_blank" rel="noopener">https://podcasts.scrum.org/872401/episodes/15736683-the-creation-of-the-professional-product-discovery-and-validation-course</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>認定研修パートナー(Scrum.org Professional Training Network)</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">ScrumDojo.cz - Professional Product Discovery and Validation™(コース詳細・試験形式)</span><a class="ref-url" href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation</a></li>
+            <li><span class="ref-name">Xebia Academy - Professional Product Discovery and Validation (PPDV)</span><a class="ref-url" href="https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/" target="_blank" rel="noopener">https://academy.xebia.com/training/professional-product-discovery-validation-ppdv/</a></li>
+            <li><span class="ref-name">Responsive Advisors - PPDV Training</span><a class="ref-url" href="https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/" target="_blank" rel="noopener">https://responsiveadvisors.com/professional-scrum-training/professional-product-discovery-and-validation-training/</a></li>
+          </ul>
+        </div>
+
+        <div class="ref-group">
+          <h4>各技法の原典・一次情報源</h4>
+          <ul class="ref-list">
+            <li><span class="ref-name">Framework for Innovation(Double Diamond, Design Council 公式)</span><a class="ref-url" href="https://www.designcouncil.org.uk/resources/framework-for-innovation/" target="_blank" rel="noopener">https://www.designcouncil.org.uk/resources/framework-for-innovation/</a></li>
+            <li><span class="ref-name">Impact Mapping(Gojko Adzic 公式サイト)</span><a class="ref-url" href="https://gojko.net/books/impact-mapping/" target="_blank" rel="noopener">https://gojko.net/books/impact-mapping/</a></li>
+            <li><span class="ref-name">The Empathy Map: A Human-Centered Tool(XPLANE 公式ブログ)</span><a class="ref-url" href="https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/" target="_blank" rel="noopener">https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/</a></li>
+            <li><span class="ref-name">Value Proposition Design Book Summary(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/value-proposition-design-book-summary" target="_blank" rel="noopener">https://www.strategyzer.com/library/value-proposition-design-book-summary</a></li>
+            <li><span class="ref-name">Validate your ideas with the Test Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card</a></li>
+            <li><span class="ref-name">Capture insights with the Learning Card(Strategyzer 公式)</span><a class="ref-url" href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card</a></li>
+            <li><span class="ref-name">The Truth Curve(Jeff Gothelf 公式ブログ、Giff Constable "Talking to Humans" の紹介)</span><a class="ref-url" href="https://jeffgothelf.com/blog/the-truth-curve/" target="_blank" rel="noopener">https://jeffgothelf.com/blog/the-truth-curve/</a></li>
+            <li><span class="ref-name">Jobs To Be Done / ミルクシェイクの事例(Harvard Business School Working Knowledge)</span><a class="ref-url" href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener">https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing</a></li>
+            <li><span class="ref-name">User Story Mapping(Jeff Patton &amp; Associates 公式)</span><a class="ref-url" href="https://www.jpattonassociates.com/story-mapping/" target="_blank" rel="noopener">https://www.jpattonassociates.com/story-mapping/</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        本ガイドはPPDV認定試験の学習補助を目的として作成した二次資料です。最新の出題範囲・試験形式は必ず<a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Scrum.org公式ページ</a>で確認してください。
+      </footer>
     </main>
   </div>
 </template>
