@@ -429,7 +429,6 @@ const DIAGRAM_ANTIPATTERN_LEVELS = `flowchart TB
       <div class="callout source" data-variant="source" data-testid="callout">
         <div class="callout-title" data-testid="callout-label"><Icon name="tabler:external-link" aria-hidden="true" />ソース</div>
         <ul>
-          <li><a href="https://www.shortform.com/blog/the-managers-path-camille-fournier/" target="_blank" rel="noopener">Camille Fournier, The Manager's Path 要約 (Shortform)</a></li>
           <li><a href="https://www.welcometothejungle.com/en/articles/btc-manager-path-camille-fournier" target="_blank" rel="noopener">The Manager's Path 解説記事 (Welcome to the Jungle)</a></li>
         </ul>
       </div>
@@ -738,7 +737,6 @@ const DIAGRAM_ANTIPATTERN_LEVELS = `flowchart TB
       <div class="ref-group">
         <h3>著名なエンジニアリングリーダーの記事・インタビュー</h3>
         <ul class="ref-list">
-          <li><span class="ref-name">Camille Fournier, The Manager's Path 要約 (Shortform)</span><a class="ref-url" href="https://www.shortform.com/blog/the-managers-path-camille-fournier/" target="_blank" rel="noopener">https://www.shortform.com/blog/the-managers-path-camille-fournier/</a></li>
           <li><span class="ref-name">The Manager's Path 解説記事 (Welcome to the Jungle)</span><a class="ref-url" href="https://www.welcometothejungle.com/en/articles/btc-manager-path-camille-fournier" target="_blank" rel="noopener">https://www.welcometothejungle.com/en/articles/btc-manager-path-camille-fournier</a></li>
           <li><span class="ref-name">Gergely Orosz, A Checklist For First-Time Engineering Managers (The Pragmatic Engineer)</span><a class="ref-url" href="https://blog.pragmaticengineer.com/checklist-for-first-time-managers/" target="_blank" rel="noopener">https://blog.pragmaticengineer.com/checklist-for-first-time-managers/</a></li>
           <li><span class="ref-name">Michael Lopp インタビュー (Welcome to the Jungle)</span><a class="ref-url" href="https://www.welcometothejungle.com/en/articles/btc-michael-lopp-interview-management" target="_blank" rel="noopener">https://www.welcometothejungle.com/en/articles/btc-michael-lopp-interview-management</a></li>

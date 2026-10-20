@@ -261,7 +261,7 @@ const DIAGRAM_COACHING_STANCES = `flowchart TB
 
       <main class="main-content">
         <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance 公式ページ準拠の非公式学習ガイド</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance 公開情報に基づく非公式学習ガイド</div>
       <h1>Certified Agile Facilitator(CAF)学習ガイド</h1>
       <p class="hero-lede">
         初学者向け ステップバイステップ解説 + ベストプラクティス集

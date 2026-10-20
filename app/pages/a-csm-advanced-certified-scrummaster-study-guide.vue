@@ -300,7 +300,7 @@ const DIAGRAM_CAREER_PATH_TO_CSP_SM = `flowchart LR
 
     <main class="main-content">
       <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance公式 Learning Objectives 準拠</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance Learning Objectives に基づく非公式ガイド</div>
       <h1>Advanced Certified ScrumMaster (A-CSM) 学習ガイド</h1>
       <p class="hero-lede">
         初学者のためのステップバイステップ解説 — 全ラーニングオブジェクティブ対応版

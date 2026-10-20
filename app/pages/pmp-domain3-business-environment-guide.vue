@@ -213,7 +213,7 @@ class T1,T6 done;`;
       <!-- ===================== Main content ===================== -->
       <main class="main-content">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PMI公式ECO 2026年7月改定版に基づく解説</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PMI ECO 2026年7月改定版に基づく非公式解説</div>
           <h1>PMP® Domain III: Business Environment 徹底解説ガイド</h1>
           <p class="hero-lede">
             本ガイドはPMI(Project Management Institute)が公開するPMP® Certification Exam Content Outline – July 2026 Updateおよび、PMI公式サイトのPMP認定ページを一次情報源として、PMP試験の3ドメインのうちDomain III: Business Environment(ビジネス環境)を初学者向けにステップバイステップで解説するものです。原文の丸写しではなく、内容を咀嚼し直したうえで実務的な解説とベストプラクティスを付加しています。

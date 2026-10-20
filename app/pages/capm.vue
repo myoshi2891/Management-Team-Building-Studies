@@ -170,7 +170,7 @@ useSeoMeta({
   <main class="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><Icon class="ti" name="tabler:award" />PMI公式ECOに基づく学習ガイド</div>
+      <div class="hero-eyebrow"><Icon class="ti" name="tabler:award" />PMI ECOに基づく非公式学習ガイド</div>
       <h1>CAPM® 認定資格 完全ガイド</h1>
       <p class="hero-lede">
         Certified Associate in Project Management(CAPM)® の出題範囲を、PMI公式サイトおよび公式 Exam Content Outline(ECO)に基づき、初学者向けにステップバイステップで解説します。各ドメインの詳細説明とベストプラクティス、根拠となる一次情報源のURLを合わせて掲載しています。

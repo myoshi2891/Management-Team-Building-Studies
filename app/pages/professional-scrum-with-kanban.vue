@@ -172,7 +172,7 @@ const DIAGRAM_EXPEDITE_LANE = `flowchart LR
 
     <main class="main-content">
       <div class="hero">
-        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org公式リソース準拠</div>
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum.org 公開リソースに基づく非公式ガイド</div>
         <h1>Professional Scrum with Kanban(PSK I)認定資格 完全ガイド</h1>
         <p class="hero-lede">
           スクラムとカンバンの初学者でも体系的に理解できるよう、Scrum.org公式リソースに基づいて構成した学習ガイドです。すべての図解はMermaid構文で表現し、比較・整理が必要な箇所はテーブルで構造化しています。

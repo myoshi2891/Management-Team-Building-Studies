@@ -262,7 +262,7 @@ class BuildOp,Discover done;`;
       <div class="hero">
         <div class="hero-eyebrow">
           <Icon name="tabler:award" aria-hidden="true" />
-          <span>PeopleCert公式シラバス v5.0 準拠</span>
+          <span>PeopleCert シラバス v5.0 に基づく非公式ガイド</span>
         </div>
         <h1>ITIL Foundation (Version 5) 完全学習ガイド</h1>
         <p class="hero-lede">
@@ -273,7 +273,7 @@ class BuildOp,Discover done;`;
           <div class="stat-card"><div class="stat-number">40問</div><div class="stat-label">4択客観式(Objective Test)</div></div>
           <div class="stat-card"><div class="stat-number">60分</div><div class="stat-label">非母国語受験者は75分</div></div>
           <div class="stat-card"><div class="stat-number">65%</div><div class="stat-label">合格ライン(26/40問・減点なし)</div></div>
-          <div class="stat-card"><div class="stat-number">7カテゴリー</div><div class="stat-label">PeopleCert公式シラバスv5.0準拠</div></div>
+          <div class="stat-card"><div class="stat-number">7カテゴリー</div><div class="stat-label">PeopleCertシラバスv5.0の構成</div></div>
         </div>
 
         <div class="disclaimer-box">

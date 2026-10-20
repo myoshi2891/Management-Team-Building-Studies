@@ -258,7 +258,7 @@ useSeoMeta({
       </aside>
       <main id="main-content" class="main-content">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert公式シラバス準拠</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCertシラバスに基づく非公式ガイド</div>
           <h1>PRINCE2® Project Management Practitioner (Version 7) 学習ガイド</h1>
           <p class="hero-lede">
             対象試験: PeopleCert PRINCE2® 7 Practitioner。本ガイドは、PeopleCertが公開している公式シラバス、公式製品ページ、および複数の信頼できる二次情報源をもとに作成した、初学者向けの詳細な学習ガイドです。実際の受験にあたっては、必ず公式教本「PRINCE2 7 Managing Successful Projects」を精読してください。

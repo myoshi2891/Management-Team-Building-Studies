@@ -832,7 +832,7 @@ class Del1,Del2,Del3 box;`;
             <Icon name="tabler:external-link" aria-hidden="true" />ソース
           </div>
           <ul>
-            <li><a href="https://www.shortform.com/blog/concierge-mvp/" target="_blank" rel="noopener">The Lean Startup - MVP, Concierge MVP, Wizard of Oz の解説(Eric Ries著、要約記事経由)</a></li>
+            <li>Eric Ries『The Lean Startup』(Crown Business, 2011) — MVP, Concierge MVP, Wizard of Oz</li>
             <li><a href="https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card" target="_blank" rel="noopener">Validate your ideas with the Test Card(Strategyzer 公式ブログ)</a></li>
             <li><a href="https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card" target="_blank" rel="noopener">Capture insights with the Learning Card(Strategyzer 公式ブログ)</a></li>
             <li><a href="https://assets.strategyzer.com/assets/resources/the-test-card.pdf" target="_blank" rel="noopener">Test Card テンプレートPDF(Strategyzer 公式)</a></li>

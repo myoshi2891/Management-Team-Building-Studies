@@ -468,7 +468,7 @@ onMounted(() => {
       <!-- ===================== Main content ===================== -->
       <main class="main-content">
         <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance® 公式ラーニングオブジェクティブ準拠</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance® ラーニングオブジェクティブに基づく非公式ガイド</div>
       <h1>Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド</h1>
       <p class="hero-lede">
         本ガイドは、Scrum Alliance® が公開している公式情報(A-CSPO® Learning Objectives、Scrum Foundations® Learning Objectives、Scrum Guide、Agile Manifesto など)と、プロダクトマネジメント/アジャイル分野で広く参照される一次情報を根拠として作成した、初学者から中級者向けの学習教材です。各章の末尾に「ソース」として根拠URLを明記しています。ASCII図は使用せず、フローチャートはすべて Mermaid、比較表・一覧はすべて Markdown テーブルで表現しています。

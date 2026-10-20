@@ -408,7 +408,7 @@ useSeoMeta({
 
       <main class="main-content">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert 公式シラバス v2.0 に沿った学習ガイド</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert シラバス v2.0 に沿った非公式学習ガイド</div>
           <h1>PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド</h1>
           <p class="hero-lede">
             <strong>対象試験</strong>: PeopleCert <strong>PRINCE2® Agile Practitioner (Version 2)</strong><br>

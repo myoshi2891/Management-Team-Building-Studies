@@ -242,7 +242,7 @@ class Ri done;`;
 
 
     <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance 公式 Learning Objectives 準拠</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />Scrum Alliance Learning Objectives に基づく非公式ガイド</div>
       <h1>Certified Scrum Professional® ScrumMaster (CSP®-SM) 完全学習ガイド</h1>
       <p class="hero-lede">
         Scrum Alliance® の Certified Scrum Professional® ScrumMaster(CSP®-SM)の出題範囲(Learning Objectives)を、初学者にもわかりやすくステップバイステップで解説する学習ガイドです。各項目には具体的なベストプラクティスと、その根拠となる参考情報源の URL を付記しています。

@@ -213,7 +213,7 @@ class ACCEPT done;`;
   <main class="main-content">
 
     <div class="hero">
-      <div class="hero-eyebrow"><Icon name="tabler:award" />PMI公式ソース準拠 学習ガイド</div>
+      <div class="hero-eyebrow"><Icon name="tabler:award" />PMI 公開資料に基づく非公式学習ガイド</div>
       <h1>CAPM® ドメイン3「アジャイルフレームワーク/方法論」完全ガイド</h1>
       <p class="hero-lede">
         対象認定はPMI Certified Associate in Project Management(CAPM)®。対象ドメインはDomain 3 Agile Frameworks/Methodologies(アジャイルフレームワーク/方法論、試験全体の20%)です。これからCAPMを受験する初学者、アジャイル/スクラム未経験の方を想定読者とし、CAPM Exam Content Outline 2023 Exam Updateに準拠してステップバイステップで解説します。

@@ -224,7 +224,7 @@ class D done;`;
       <main class="main-content">
         <div class="hero">
           <div class="hero-eyebrow">
-            <Icon name="tabler:award" aria-hidden="true" />PMI公式 CAPM Exam Content Outlineに基づく学習ガイド
+            <Icon name="tabler:award" aria-hidden="true" />PMI CAPM Exam Content Outlineに基づく非公式学習ガイド
           </div>
           <h1>CAPM® ドメイン1: プロジェクトマネジメント基礎と主要概念</h1>
           <p class="hero-lede">

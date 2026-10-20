@@ -159,7 +159,7 @@ function closeSidebar(): void {
 }
 
 useSeoMeta({
-  title: "PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCert公式シラバス準拠",
+  title: "PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCertシラバスに基づく非公式ガイド",
   description: "PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。",
 });
 </script>
@@ -214,7 +214,7 @@ useSeoMeta({
 
       <main class="main-content">
         <div class="hero">
-          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCert公式シラバス準拠 学習ガイド</div>
+          <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PeopleCertシラバスに基づく非公式学習ガイド</div>
           <h1>PRINCE2 Agile Foundation (Version 2) 学習ガイド</h1>
           <p class="hero-lede">
             初学者向け・ステップバイステップ解説 / Markdown + Mermaid図解版。対象試験: PeopleCert PRINCE2 Agile Foundation (Version 2)。公式製品ページ: <a href="https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-Agile-28/prince2-agile-foundation-4074" target="_blank" rel="noopener">peoplecert.org</a>

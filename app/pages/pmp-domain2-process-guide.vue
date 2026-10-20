@@ -228,7 +228,7 @@ flowchart TB
     <!-- ===================== Main content ===================== -->
     <main class="main-content">
       <div class="hero">
-        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PMI公式ECO 2026年7月改訂版 準拠</div>
+        <div class="hero-eyebrow"><Icon name="tabler:award" aria-hidden="true" />PMI ECO 2026年7月改訂版に基づく非公式ガイド</div>
         <h1>PMP® Domain II: Process 完全解説ガイド</h1>
         <p class="hero-lede">
           対象読者はPMP®(Project Management Professional)受験を検討している初学者です。範囲はPMP Examination Content Outline(ECO)2026年7月改訂版におけるDomain II: Process(プロセス)—試験全体の41%を占める最大領域を扱います。本ガイドはPMI公式のECO(出題範囲定義文書)を一次情報源とし、各タスク(Task)とイネーブラー(Enabler)を初学者向けに翻訳・解説し、実務でのベストプラクティスを補足したものです。

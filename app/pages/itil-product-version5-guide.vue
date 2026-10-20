@@ -247,7 +247,7 @@ class S1,S2,S3,S4,S5,S6 box`;
       <div class="hero">
         <div class="hero-eyebrow">
           <Icon name="tabler:award" aria-hidden="true" />
-          <span>PeopleCert公式シラバス準拠</span>
+          <span>PeopleCertシラバスに基づく非公式ガイド</span>
         </div>
         <h1>ITIL® Product (Version 5) 学習ガイド</h1>
         <p class="hero-lede">
