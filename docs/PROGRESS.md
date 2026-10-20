@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `5bb5463` — style(pages): expand main-content to full screen width for ppdv guide（本ファイルより前のコード側コミット） |
+| コードコミット HEAD | `83f0607` — fix(pages): eliminate unfocused skip-link overflow line in ppdv guide（本ファイルより前のコード側コミット） |
 | 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PPDV (Professional Product Discovery and Validation) の移行完了（§90）。 |
 | ビルド状態 | 2026-10-20: `npm run test` ✔ 2292件全件成功（101ファイル）/ `npm run audit:ppdv` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
 | テスト数 | **2292 passed / 0 failed**（101ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約24件を含む。 |
