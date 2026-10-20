@@ -1,8 +1,13 @@
 import { expect, test } from "@playwright/test";
 import source from "../tests/fixtures/prince2-7-practitioner-contract.json" with { type: "json" };
+import { isUnpublishedRoute } from "../app/utils/guide-catalog";
 
 const ROUTE = "/prince2-7-practitioner-guide";
 const WIDTHS = [1440, 1024, 981, 980, 390] as const;
+
+// e2e は本番と同じ generate の成果物を検証する。公開見合わせ中のページは生成されないため実測できない
+// （dev サーバーでは表示される）。再公開して一覧から外れれば自動で検証対象に戻る。
+test.skip(isUnpublishedRoute(ROUTE), "本番では公開見合わせ中のため generate に含まれない");
 
 for (const width of WIDTHS) {
   test(`PRINCE2 Practitioner ${width}px: 全図・文字・リスト記号・配色・収まり`, async ({ page }) => {
