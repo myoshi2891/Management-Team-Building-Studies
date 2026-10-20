@@ -1598,7 +1598,7 @@ Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本ア
 
 - **移行先**: `app/pages/professional-product-discovery-and-validation.vue`（`/professional-product-discovery-and-validation`）。Hero、目次、原本の8章（第1章〜第8章）、参考文献、免責フッターを完全転写。見出し44（H1: 1, H2: 10, H3: 28, H4: 5）、段落66、リスト項目117、表8個・64行、外部リンク25、Mermaid 9、callout 12（practice: 4, source: 8）、静的SVG 1が原本監査で一致し、`npm run audit:ppdv` は **exit 0**。
 - **Mermaid 9図の完全移植**: 9個のダイアグラム（Double Diamond、新規オンボーディング体験ジャーニーマップ、Impact Mapping、Curve of Truth、Build-Measure-Learnループ、Test Card/Learning Cardサイクル、EBMの4つのKey Value Areas、Problem-Solution FitからProduct-Market Fitへの段階、複数スプリントでのDiscoveryとDelivery並行進行）を `MermaidDiagram` コンポーネントおよび `ClientOnly` ラッパーを用いて完全再現。
-- **厳格なTDDと契約テスト**: 原本HTMLから抽出した固定リテラルを用いて `tests/pages/professional-product-discovery-and-validation.test.ts`（27件）を作成。全見出し・外部リンク・TOC・アンカー一意性・Mermaidソース・callout variant/ラベル・stepタグ・キッカー・SEO・固有UI（4つのstat-card、disclaimer-box、フッター、第8章のstep-item・exam-strategy-card・exam-practical-item）を包括検証して Green を達成。
+- **厳格なTDDと契約テスト**: 原本HTMLから抽出した固定リテラルを用いて `tests/pages/professional-product-discovery-and-validation.test.ts`（28件）を作成。全見出し・外部リンク・TOC・アンカー一意性・Mermaidソース・callout variant/ラベル・stepタグ・キッカー・SEO・固有UI（4つのstat-card、disclaimer-box、フッター、第8章のstep-item・exam-strategy-card・exam-practical-item、参考文献セクションのref-group・ref-itemカード）を包括検証して Green を達成。
 - **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `scrum-org`（Scrum.org 認定）のシリーズ `so-product-owner`（Product Owner）にガイド `/professional-product-discovery-and-validation` を追加登録。資格ガイド総数は 56 → 57 件となった。
 - **原本照合監査スクリプト**: `package.json` に `"audit:ppdv"` を追加し、継続的インテグレーションにおいて機械照合（exit 0）を担保。
 - **原本保存**: HTML/Markdownを `archive/Professional-Product-Discovery-and-Validation/` へ移動し、Git追跡を維持。
@@ -1607,3 +1607,4 @@ Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本ア
 - **法的表示**: フッターに Scrum.org 商標帰属文言を追加（`tests/legal-notices.test.ts` パス）。
 - **メインコンテンツ全幅化**: ユーザー指示に基づき、`.main-content` の `max-width` 制限を解除（`max-width: none;`、`padding: 48px 64px 96px;`）し、画面横幅いっぱいにコンテンツが広がるレイアウトを適用。
 - **第8章（試験対策の進め方）のデザインブラッシュアップ**: 8.1 学習ステップを縦型タイムラインコネクタ付きの `.step-item` カードに整形（`<ol>` 既定マーカーとの二重採番を解消）、8.2 出題傾向への向き合い方をリードボックス（`.exam-trend-lead`）とアイコン付き3列対策カードグリッド（`.exam-strategy-grid` / `.exam-strategy-card`）に刷新、8.3 受験の実務情報をアイコン付き実務カードリスト（`.exam-practical-list` / `.exam-practical-item`）に整備。
+- **参考文献・ソース一覧（`#references`）のデザインブラッシュアップ**: 3つのカテゴリグループ（公式ソース / 認定研修パートナー / 原典・一次情報源）ごとに色分けされたアイコン付きヘッダー（`.ref-group-header`）を設け、全20件のリンクを左アクセントボーダー・外部リンクアイコン付きのカード（`.ref-item`）に整形してタイトル（`.ref-name`）とURL（`.ref-url`）の改行・視認性を改善。
