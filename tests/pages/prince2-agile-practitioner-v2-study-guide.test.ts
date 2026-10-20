@@ -377,4 +377,67 @@ describe("pages/prince2-agile-practitioner-v2-study-guide.vue (固有契約)", (
     const footer = wrapper.get("footer");
     expect(footer.text()).toContain("PRINCE2® および PRINCE2 Agile® は PeopleCert の登録商標です。");
   });
+
+  it("1.4 試験構造のマインドマップが mindmap-wrap と4カテゴリの配点凡例付きで描画される", () => {
+    const wrapper = mountPage();
+    const mindmapWrap = wrapper.get("#exam-overview .mindmap-wrap");
+    expect(mindmapWrap.find('[data-testid="mermaid"]').exists()).toBe(true);
+    const legendItems = mindmapWrap.findAll(".mindmap-legend-item").map((el) => el.text().trim());
+    expect(legendItems).toEqual([
+      "カテゴリ 1: Key concepts (20%)",
+      "カテゴリ 2: Practices & Roles (44%)",
+      "カテゴリ 3: Processes (30%)",
+      "カテゴリ 4: Wider context (6%)",
+    ]);
+  });
+
+  it("8.1 プロジェクトシナリオが scenario-box ケーススタディ枠で描画される", () => {
+    const wrapper = mountPage();
+    const scenarioBox = wrapper.get("#practice-questions .scenario-box");
+    expect(scenarioBox.get(".scenario-header").text()).toContain("さくら銀行 モバイルアプリ刷新プロジェクト");
+    expect(scenarioBox.findAll(".scenario-list li")).toHaveLength(7);
+  });
+
+  it("8.3 設問 (Q1〜Q11) が quiz-card としてバッジ・選択肢・解答アコーディオン付きで描画される", () => {
+    const wrapper = mountPage();
+    const cards = wrapper.findAll("#practice-questions .quiz-card");
+    expect(cards).toHaveLength(11);
+
+    expect(cards.map((c) => c.get(".quiz-q-label").text().trim())).toEqual([
+      "Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q9", "Q10", "Q11",
+    ]);
+    expect(cards.map((c) => c.get(".bl-badge").text().trim())).toEqual([
+      "BL2", "BL2", "BL3", "BL3", "BL4", "BL3", "BL4", "BL3", "BL4", "BL2", "BL3",
+    ]);
+    expect(cards.map((c) => c.get(".type-badge").text().trim())).toEqual([
+      "Standard",
+      "Missing word",
+      "Standard",
+      "List",
+      "Standard",
+      "Standard",
+      "Standard",
+      "Standard",
+      "Standard",
+      "Standard",
+      "List",
+    ]);
+    expect(cards.map((c) => c.get("details.quiz-answer .quiz-answer-badge").text().trim())).toEqual([
+      "正解: C",
+      "正解: B",
+      "正解: D",
+      "正解: A",
+      "正解: B",
+      "正解: C",
+      "正解: D",
+      "正解: A",
+      "正解: C",
+      "正解: B",
+      "正解: A",
+    ]);
+    expect(wrapper.findAll("#practice-questions .quiz-card .quiz-statements")).toHaveLength(2);
+    for (const card of cards) {
+      expect(card.findAll(".quiz-options li")).toHaveLength(4);
+    }
+  });
 });
