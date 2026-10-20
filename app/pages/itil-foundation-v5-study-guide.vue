@@ -5,7 +5,7 @@ import { useActiveHeading } from "~/composables/useActiveHeading";
 
 useSeoMeta({
   title: "ITIL Foundation (Version 5) 完全学習ガイド | 初学者のためのステップ・バイ・ステップ解説",
-  description: "PeopleCert公式シラバスv5.0に準拠したITIL Foundation (Version 5) の完全学習ガイド。7カテゴリー40問の出題範囲を初学者向けに詳細解説し、各項目のベストプラクティスと出典URLを掲載。",
+  description: "PeopleCert シラバス v5.0 に基づく ITIL Foundation (Version 5) の非公式学習ガイド。7カテゴリー40問の出題範囲を初学者向けに詳細解説し、各項目のベストプラクティスと出典URLを掲載。",
 });
 
 const TOC_SECTIONS = [
@@ -266,7 +266,7 @@ class BuildOp,Discover done;`;
         </div>
         <h1>ITIL Foundation (Version 5) 完全学習ガイド</h1>
         <p class="hero-lede">
-          本ガイドは、PeopleCert 社が2026年2月に公開した<strong>ITIL&reg; Foundation (Version 5)</strong>公式シラバス(Syllabus v5.0)の7カテゴリー・40問構成に完全準拠し、各出題項目を初学者にもわかりやすい日本語で詳細に解説したものです。英語の専門用語(Product、Service、Value Chain など)はITIL用語として定着しているため、日本語訳と併記する形で原文のまま残しています。
+          本ガイドは、PeopleCert 社が2026年2月に公開した<strong>ITIL&reg; Foundation (Version 5)</strong>シラバス(Syllabus v5.0)の7カテゴリー・40問構成に基づき、各出題項目を初学者にもわかりやすい日本語で詳細に解説したものです。英語の専門用語(Product、Service、Value Chain など)はITIL用語として定着しているため、日本語訳と併記する形で原文のまま残しています。
         </p>
 
         <div class="stat-row">
