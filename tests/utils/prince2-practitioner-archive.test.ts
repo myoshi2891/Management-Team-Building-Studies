@@ -1,7 +1,11 @@
+// @vitest-environment node
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { expect, it } from "vitest";
+
+const REPO_ROOT = fileURLToPath(new URL("../../", import.meta.url));
 
 // 移動前に原本のバイト列から確定した SHA-256。原本は改変せずアーカイブする。
 const ORIGINAL_HASHES = {
@@ -11,8 +15,8 @@ const ORIGINAL_HASHES = {
 
 for (const [file, hash] of Object.entries(ORIGINAL_HASHES)) {
   it(`原本 ${file} はルートから移動され、アーカイブでバイト単位に保存される`, () => {
-    expect(existsSync(resolve(file))).toBe(false);
-    const archived = readFileSync(resolve("archive/Prince2-7-practitioner-guide", file));
+    expect(existsSync(resolve(REPO_ROOT, file))).toBe(false);
+    const archived = readFileSync(resolve(REPO_ROOT, "archive/Prince2-7-practitioner-guide", file));
     expect(createHash("sha256").update(archived).digest("hex")).toBe(hash);
   });
 }
