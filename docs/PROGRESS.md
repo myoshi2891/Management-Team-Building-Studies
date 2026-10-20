@@ -9,11 +9,11 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `9e28923` — feat(prince2-agile-foundation): implement sections 6-8 and complete full migration（本ファイルより前のコード側コミット） |
-| 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PRINCE2 Agile Foundation (Version 2) の移行完了（§88）。 |
-| ビルド状態 | 2026-10-20: `npm run test` ✔ 2237件全件成功（99ファイル）/ `npm run audit:prince2-agile-foundation` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
-| テスト数 | **2237 passed / 0 failed**（99ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約28件を含む。 |
-| 原本照合監査 | ✔ **81 本中 76 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
+| コードコミット HEAD | `79421f8` — feat(prince2-agile-practitioner): implement sections 8 to 10 and appendices complete migration（本ファイルより前のコード側コミット） |
+| 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PRINCE2 Agile Practitioner (Version 2) の移行完了（§89）。 |
+| ビルド状態 | 2026-10-20: `npm run test` ✔ 2265件全件成功（100ファイル）/ `npm run audit:prince2-agile-practitioner` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
+| テスト数 | **2265 passed / 0 failed**（100ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約28件を含む。 |
+| 原本照合監査 | ✔ **82 本中 77 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
 
@@ -101,6 +101,7 @@
 | `archive/Prince2-7-foundation-guide/Prince2-7-foundation-guide.html` | `app/pages/prince2-7-foundation-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green |
 | `archive/Prince2-7-practitioner-guide/Prince2-7-practitioner-guide.html` | `app/pages/prince2-7-practitioner-guide.vue` | ✅ 全文移行・承認済み商標訂正・原本照合 exit 0・ページ55契約と表示E2E成功（§87） |
 | `archive/Prince2-agile-foundation-version2/Prince2-agile-foundation-version2.html` | `app/pages/prince2-agile-foundation-version2.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green（§88） |
+| `archive/Prince2-agile-practitioner-v2-study-guide/Prince2-agile-practitioner-v2-study-guide.html` | `app/pages/prince2-agile-practitioner-v2-study-guide.vue` | ✅ 全文移行・原本照合完了（**exit 0**）・契約テスト Green（§89） |
 | 原本なし（サイトホーム） | `app/pages/index.vue` | ✅ 学習ライブラリ型ホーム・レスポンシブ対応完了 |
 
 ## 共有部品の実装状況
@@ -1577,4 +1578,17 @@ Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本ア
 - **原本保存**: HTML/Markdownを `archive/Prince2-agile-foundation-version2/` へ移動し、Git追跡を維持。
   - `Prince2-agile-foundation-version2.html`: `faefc0226980b21d508526c4402d12131959a658ccbfa3ac8b779dc10cc7ffb4`
   - `Prince2-agile-foundation-version2.md`: `af075372cd8ac772f9f96c2fcb45d940947ee4d2225f4dedecaebaf3fb727077`
+- **法的表示**: フッターの登録商標表記を最新の正当権利者「PeopleCert group」に統一（`tests/legal-notices.test.ts` パス）。
+
+### §89. PRINCE2 Agile® Practitioner (Version 2) のNuxt移行完了（2026-10-20）
+
+- **移行先**: `app/pages/prince2-agile-practitioner-v2-study-guide.vue`（`/prince2-agile-practitioner-v2-study-guide`）。Hero、目次、原本の11セクション（Section 0〜10）および付録3セクション（付録A〜C）、参考文献、免責フッターを完全転写。見出し183（H1: 1, H2: 14, H3: 92, H4: 76）、段落106、リスト項目367、表68個・456行、外部リンク24、Mermaid 20、callout 40（warning: 20, tip: 12, note: 8）、静的SVG 1が原本監査で一致し、`npm run audit:prince2-agile-practitioner` は **exit 0**。
+- **メインコンテンツ全幅化**: 既存方針に合わせ、`.main-content` の `max-width` 制限を解除（`max-width: none;`）し、画面横幅いっぱいにコンテンツが広がるレイアウトを適用。
+- **Mermaid 20図の完全移植**: 20個のダイアグラム（Agile/PRINCE2関係、ロードマップ、Agilometer、Cynefinフレームワーク、5つのターゲット、5つのフォーカスエリア、6つのアスペクトトレランス、ガイダンスレベル、ロール構造、スクラムとPRINCE2の役割対応、チームマネジメント構造、デリバリーフロー、ワークショップ適用、コンテキストマップ、試験時間配分など）を `MermaidDiagram` コンポーネントおよび `ClientOnly` ラッパーを用いて完全再現。
+- **厳格なTDDと契約テスト**: 原本HTMLから抽出した固定リテラル（`EXPECTED_*`）を用いて `tests/pages/prince2-agile-practitioner-v2-study-guide.test.ts`（28件）を作成。全見出し・外部リンク・TOC・アンカー一意性・Mermaidソース・callout variant/ラベル・SEO・固有UI（4つのstat-card、68個のtable-wrap、disclaimer-box、フッター）を包括検証して Green を達成。
+- **カタログ体系への追加**: `app/utils/guide-catalog.ts` の既存種別 `certifications`（資格）配下のプログラム `peoplecert`（PeopleCert 認定）のシリーズ `pc-prince2-agile`（PRINCE2 Agile）にガイド `/prince2-agile-practitioner-v2-study-guide` を追加登録。資格ガイド総数は 55 → 56 件となった。
+- **原本照合監査スクリプト**: `package.json` に `"audit:prince2-agile-practitioner"` を追加し、継続的インテグレーションにおいて機械照合（exit 0）を担保。
+- **原本保存**: HTML/Markdownを `archive/Prince2-agile-practitioner-v2-study-guide/` へ移動し、Git追跡を維持。
+  - `Prince2-agile-practitioner-v2-study-guide.html`: `59d6862eada27019191e1e7e38143d1ddd3b175e8daa40f0df8055bc8f70707d`
+  - `Prince2-agile-practitioner-v2-study-guide.md`: `da8ff8bf2cd19bc8c7d3eafe6a6d4d0e9d9012b140c20bcb93eb3e448c7d589c`
 - **法的表示**: フッターの登録商標表記を最新の正当権利者「PeopleCert group」に統一（`tests/legal-notices.test.ts` パス）。

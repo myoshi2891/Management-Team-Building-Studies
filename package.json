@@ -94,6 +94,7 @@
     "audit:msp-practitioner": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Msp-practitioner-5th-edition-guide/Msp-practitioner-5th-edition-guide.html app/pages/msp-practitioner-5th-edition-guide.vue",
     "audit:prince2-7": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Prince2-7-foundation-guide/Prince2-7-foundation-guide.html app/pages/prince2-7-foundation-guide.vue",
     "audit:prince2-agile-foundation": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Prince2-agile-foundation-version2/Prince2-agile-foundation-version2.html app/pages/prince2-agile-foundation-version2.vue",
+    "audit:prince2-agile-practitioner": "node .claude/skills/nuxt-page-migration/scripts/audit_source_parity.mjs archive/Prince2-agile-practitioner-v2-study-guide/Prince2-agile-practitioner-v2-study-guide.html app/pages/prince2-agile-practitioner-v2-study-guide.vue",
     "audit:prince2-practitioner": "node scripts/audit-prince2-practitioner.mjs",
     "test:audit:prince2-practitioner": "node --test scripts/audit-prince2-practitioner.test.mjs"
   },
