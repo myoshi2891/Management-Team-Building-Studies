@@ -88,6 +88,11 @@ const SUMMARY_SERVICE_HOSTS = ["shortform.com", "readingraphics.com", "blinkist.
  */
 const OFFICIAL_ENDORSEMENT_CLAIM = /(?<!非)公式[^<>"。、]{0,40}?(?:準拠(?!し)|に基づく(?:学習ガイド|解説|学習リソース)|に沿った学習ガイド)/g;
 
+/** タグを除去する。`公式<strong>ECO</strong>準拠` のようにタグで分断された表示も同じ文として照合するため。 */
+function stripTags(source: string): string {
+  return source.replace(/<[^>]*>/g, "");
+}
+
 /**
  * CC BY-SA 4.0 の文書（Scrum Guide / Kanban Guide for Scrum Teams / EBM Guide）を
  * 訳出・引用しているページ。フッターに原典と CC BY-SA 4.0 を明示しなければならない。
@@ -159,7 +164,7 @@ describe("公開ページの法的表示", () => {
 
   it("認定団体の公式に準拠した教材であるかのように表示しない（見合わせ中のページを含む）", () => {
     const hits = ALL.flatMap(({ route, source }) =>
-      [...source.matchAll(OFFICIAL_ENDORSEMENT_CLAIM)].map((match) => `${route}: ${match[0]}`),
+      [...stripTags(source).matchAll(OFFICIAL_ENDORSEMENT_CLAIM)].map((match) => `${route}: ${match[0]}`),
     );
 
     expect(hits).toEqual([]);
@@ -210,8 +215,9 @@ it.each([
   "PeopleCert公式シラバスに基づく学習ガイド",
   "Scrum.org公式情報に基づく学習リソース",
   "PeopleCert 公式シラバス v2.0 に沿った学習ガイド",
+  "PMI公式<strong>ECO</strong>準拠",
 ])("公式準拠をうたう表示を検出する: %s", (claim) => {
-  expect([...claim.matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toHaveLength(1);
+  expect([...stripTags(claim).matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toHaveLength(1);
 });
 
 it.each([
@@ -220,5 +226,5 @@ it.each([
   "特に配点・シラバス構造・用語定義は [1] [2] の公式情報に準拠しています。",
   "PeopleCert公式サイトの記載に基づく)。",
 ])("出典の説明や非公式の明記は検出しない: %s", (text) => {
-  expect([...text.matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toEqual([]);
+  expect([...stripTags(text).matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toEqual([]);
 });
