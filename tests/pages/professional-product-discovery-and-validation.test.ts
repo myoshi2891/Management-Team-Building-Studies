@@ -287,13 +287,17 @@ describe("pages/professional-product-discovery-and-validation.vue — 個別検�
     const wrapper = mountPage();
     const statCards = wrapper.findAll(".stat-card");
     expect(statCards).toHaveLength(4);
-    expect(statCards[0].find(".stat-number").text()).toBe("20問");
-    expect(statCards[0].find(".stat-label").text()).toBe("出題数");
-    expect(statCards[1].find(".stat-number").text()).toBe("30分");
-    expect(statCards[1].find(".stat-label").text()).toBe("制限時間");
-    expect(statCards[2].find(".stat-number").text()).toBe("85%以上");
-    expect(statCards[2].find(".stat-label").text()).toBe("合格ライン");
-    expect(statCards[3].find(".stat-number").text()).toBe("生涯有効");
-    expect(statCards[3].find(".stat-label").text()).toBe("資格の有効期限(失効なし)");
+    expect(statCards.map((c) => c.find(".stat-number").text())).toEqual([
+      "20問",
+      "30分",
+      "85%以上",
+      "生涯有効",
+    ]);
+    expect(statCards.map((c) => c.find(".stat-label").text())).toEqual([
+      "出題数",
+      "制限時間",
+      "合格ライン",
+      "資格の有効期限(失効なし)",
+    ]);
   });
 });

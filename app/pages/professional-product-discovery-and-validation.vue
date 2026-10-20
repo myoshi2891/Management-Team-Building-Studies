@@ -197,9 +197,10 @@ class Del1,Del2,Del3 box;`;
 
     <nav class="sidebar" :class="{ open: sidebarOpen }">
       <div class="sidebar-brand">
-        <svg class="seal" viewBox="0 0 40 40" aria-hidden="true">
-          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2" />
-          <path d="M20 6 L23 15 L32 15 L25 21 L27 30 L20 25 L13 30 L15 21 L8 15 L17 15 Z" fill="currentColor" opacity="0.8" />
+        <svg class="seal" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#B8802A" stroke-width="1.4"/>
+          <circle cx="20" cy="20" r="13" stroke="#B8802A" stroke-width="1"/>
+          <path d="M14 20.5L18 24.5L26 15.5" stroke="#2E3F72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div class="brand-text">
           <div class="brand-title">PPDV™ 学習ガイド</div>
