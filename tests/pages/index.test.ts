@@ -91,12 +91,6 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
-        title: "PMP® Domain II: Process 完全解説ガイド",
-        category: "PMI",
-        href: "/pmp-domain2-process-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
         title: "PMP® Domain III: Business Environment 徹底解説ガイド",
         category: "PMI",
         href: "/pmp-domain3-business-environment-guide",
@@ -139,18 +133,6 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-gold",
       },
       {
-        title: "Advanced Certified ScrumMaster (A-CSM) 学習ガイド",
-        category: "SCRUM ALLIANCE",
-        href: "/a-csm-advanced-certified-scrummaster-study-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
-        title: "CSP-SM® 認定資格 完全ガイド | Certified Scrum Professional ScrumMaster 学習ガイド",
-        category: "SCRUM ALLIANCE",
-        href: "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
         title: "Advanced Certified Scrum Product Owner (A-CSPO®) 学習ガイド",
         category: "SCRUM ALLIANCE",
         href: "/a-cspo-advanced-certified-scrum-product-owner-study-guide",
@@ -161,12 +143,6 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         category: "SCRUM ALLIANCE",
         href: "/csd-certified-scrum-developer-study-guide",
         accentClass: "guide-card-indigo",
-      },
-      {
-        title: "Advanced Certified Scrum Developer® (A-CSD®) 完全ガイド",
-        category: "SCRUM ALLIANCE",
-        href: "/a-csd-advanced-certified-scrum-developer-study-guide",
-        accentClass: "guide-card-gold",
       },
       {
         title: "Certified Agile Leader® 1 (CAL 1™) 完全ガイド",
@@ -307,105 +283,9 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         accentClass: "guide-card-indigo",
       },
       {
-        title: "ITIL® Foundation (Version 5) 完全学習ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-foundation-v5-study-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "ITIL® Experience (Version 5) 認定資格 完全ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-experience-version-5-study-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "ITIL® Managing Professional Transition (Version 5) 認定資格 完全ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-managing-professional-transition-v5-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "ITIL® Product (Version 5) 認定資格 完全ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-product-version5-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "ITIL® Service (Version 5) 認定資格 完全ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-service-v5-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "ITIL® Strategy (Version 5) 完全学習ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-strategy-v5-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "ITIL® Transformation (Version 5) 学習ガイド",
-        category: "PEOPLECERT",
-        href: "/itil-transformation-v5-study-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "MoP Foundation（Management of Portfolios）学習ガイド",
-        category: "PEOPLECERT",
-        href: "/mop-foundation-guide",
-        accentClass: "guide-card-gold",
-      },
-      {
-        title: "MSP Foundation, 5th edition 完全学習ガイド",
-        category: "PEOPLECERT",
-        href: "/msp-foundation-5th-edition-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "MSP® プラクティショナー(第5版)学習ガイド ― 初学者のための実践適用ステップバイステップ解説",
-        category: "PEOPLECERT",
-        href: "/msp-practitioner-5th-edition-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "PRINCE2® Project Management Foundation (Version 7) 学習ガイド",
-        category: "PEOPLECERT",
-        href: "/prince2-7-foundation-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "PRINCE2® Project Management Practitioner (Version 7) 学習ガイド",
-        category: "PEOPLECERT",
-        href: "/prince2-7-practitioner-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "PRINCE2® Agile Foundation (Version 2) 学習ガイド",
-        category: "PEOPLECERT",
-        href: "/prince2-agile-foundation-version2",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "PRINCE2 Agile Practitioner (Version 2) 初学者向け完全学習ガイド",
-        category: "PEOPLECERT",
-        href: "/prince2-agile-practitioner-v2-study-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "HIGH OUTPUT MANAGEMENT 完全ガイド",
-        category: "MANAGEMENT",
-        href: "/high-output-management-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
         title: "An Elegant Puzzle: Systems of Engineering Management 徹底解説ガイド",
         category: "MANAGEMENT",
         href: "/an-elegant-puzzle-guide",
-        accentClass: "guide-card-indigo",
-      },
-      {
-        title: "『人月の神話』完全ガイド ― 初学者のためのステップ・バイ・ステップ実践集",
-        category: "MANAGEMENT",
-        href: "/mythical-man-month-guide",
         accentClass: "guide-card-indigo",
       },
       {
@@ -431,12 +311,6 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
         category: "LEADERSHIP",
         href: "/radical-candor-guide",
         accentClass: "guide-card-gold",
-      },
-      {
-        title: "Debugging Teams 完全ガイド ― チームの人間関係を「デバッグ」するベストプラクティス",
-        category: "TEAM CULTURE",
-        href: "/debugging-teams-guide",
-        accentClass: "guide-card-plum",
       },
       {
         title: "『あなたのチームは、機能してますか？』完全ガイド",
@@ -524,8 +398,8 @@ describe("pages/index.vue — 学習ライブラリ契約", () => {
       hub: section.get("[data-testid='guide-section-hub']").attributes("href"),
       cards: section.findAll("[data-testid='guide-card']").length,
     }))).toEqual([
-      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "57 ガイド", hub: "/certifications", cards: 57 },
-      { kicker: "BOOKS", title: "書籍で学ぶ", count: "13 ガイド", hub: "/books", cards: 13 },
+      { kicker: "CERTIFICATIONS", title: "資格で学ぶ", count: "39 ガイド", hub: "/certifications", cards: 39 },
+      { kicker: "BOOKS", title: "書籍で学ぶ", count: "10 ガイド", hub: "/books", cards: 10 },
       { kicker: "PRACTICES", title: "テーマで学ぶ", count: "6 ガイド", hub: "/practices", cards: 6 },
     ]);
   });

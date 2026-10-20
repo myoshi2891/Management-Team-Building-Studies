@@ -2,7 +2,7 @@ import { mount } from "@vue/test-utils";
 import { mockNuxtImport } from "@nuxt/test-utils/runtime";
 import { describe, expect, it, vi } from "vitest";
 import SiteHeader from "~/components/SiteHeader.vue";
-import { GUIDES, GUIDE_PROGRAMS } from "~/utils/guide-catalog";
+import { GUIDES, LISTED_PROGRAMS } from "~/utils/guide-catalog";
 
 const { currentPath } = vi.hoisted(() => ({ currentPath: { value: "/capm" } }));
 mockNuxtImport("useRoute", () => () => ({
@@ -83,7 +83,6 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
       { label: "PMI 認定", summary: "CAPM・PMP の全出題ドメイン", href: "/certifications/pmi" },
       { label: "Scrum Alliance 認定", summary: "CSM・CSPO・CSD・CAL の各体系", href: "/certifications/scrum-alliance" },
       { label: "Scrum.org 認定", summary: "PSM・PSPO・PSD の各体系", href: "/certifications/scrum-org" },
-      { label: "PeopleCert 認定", summary: "ITIL・MoP・MSP・PRINCE2 の各体系", href: "/certifications/peoplecert" },
       { label: "資格で学ぶをすべて見る", summary: null, href: "/certifications" },
     ]);
 
@@ -113,7 +112,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
     const wrapper = mountHeader();
     const linkCount = wrapper.findAll("nav a").length;
 
-    expect(linkCount).toBe(1 + GUIDE_PROGRAMS.length + 3);
+    expect(linkCount).toBe(1 + LISTED_PROGRAMS.length + 3);
     expect(linkCount).toBeLessThan(GUIDES.length);
   });
 
@@ -150,7 +149,7 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
       program: node.attributes("data-program"),
       count: node.text(),
     }))).toEqual(
-      GUIDE_PROGRAMS.map((program) => ({
+      LISTED_PROGRAMS.map((program) => ({
         program: program.id,
         count: String(GUIDES.filter((guide) => guide.programId === program.id).length),
       })),
@@ -166,7 +165,6 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
       "/certifications/pmi",
       "/certifications/scrum-alliance",
       "/certifications/scrum-org",
-      "/certifications/peoplecert",
       "/certifications",
       "/books/management",
       "/books/leadership",
@@ -249,7 +247,6 @@ describe("SiteHeader — 種別別ドロップダウンナビゲーション", (
     expect(wrapper.findAll("nav a").map((link) => link.attributes("aria-current"))).toEqual([
       undefined,
       "true",
-      undefined,
       undefined,
       undefined,
       undefined,
@@ -485,13 +482,14 @@ describe("SiteHeader — 入力方式の変化に伴うフォーカス退避", (
   });
 });
 
-it("Practitioner 閲覧中は PeopleCert ハブだけを現在地として通知する", () => {
-  currentPath.value = "/prince2-7-practitioner-guide";
+it("PSM 閲覧中は Scrum.org ハブだけを現在地として通知する", () => {
+  // PeopleCert（旧例の PRINCE2 Practitioner）は本番で全ガイド見合わせのため、ナビにハブが無い。
+  currentPath.value = "/professional-scrum-master";
   try {
     const wrapper = mountHeader();
     expect(wrapper.findAll('nav a[aria-current]').map(link => ({
       href: link.attributes("href"), current: link.attributes("aria-current"),
-    }))).toEqual([{ href: "/certifications/peoplecert", current: "true" }]);
+    }))).toEqual([{ href: "/certifications/scrum-org", current: "true" }]);
     expect(triggers(wrapper).map(trigger => trigger.classes().includes("current"))).toEqual([true, false, false]);
   } finally {
     currentPath.value = "/capm";

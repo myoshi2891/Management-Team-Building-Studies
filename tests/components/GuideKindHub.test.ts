@@ -20,7 +20,7 @@ describe("GuideKindHub — 種別インデックス", () => {
 
     expect(wrapper.get("h1").text()).toBe("資格で学ぶ");
     expect(wrapper.get("[data-testid='hub-summary']").text()).toBe("公式の試験要項に基づく、認定資格の学習ガイド。");
-    expect(wrapper.get("[data-testid='hub-count']").text()).toBe("57 ガイド");
+    expect(wrapper.get("[data-testid='hub-count']").text()).toBe("39 ガイド");
   });
 
   it("所属プログラムをカードとして順序・遷移先・件数まで固定する", () => {
@@ -31,12 +31,18 @@ describe("GuideKindHub — 種別インデックス", () => {
       title: card.get("h2").text(),
       count: card.get("[data-testid='program-card-count']").text(),
     }))).toEqual([
-      { href: "/books/management", title: "マネジメント", count: "4 ガイド" },
+      { href: "/books/management", title: "マネジメント", count: "2 ガイド" },
       { href: "/books/leadership", title: "リーダーシップ", count: "3 ガイド" },
-      { href: "/books/team", title: "チーム・組織文化", count: "2 ガイド" },
+      { href: "/books/team", title: "チーム・組織文化", count: "1 ガイド" },
       { href: "/books/org-design", title: "チーム設計", count: "2 ガイド" },
       { href: "/books/product", title: "プロダクト・アジャイル", count: "2 ガイド" },
     ]);
+  });
+
+  it("表示中のガイドが無いプログラムはカードにしない", () => {
+    // PeopleCert は全ガイドが本番で見合わせ中。空のハブへのカードを出さない。
+    expect(mountHub("certifications").findAll("[data-testid='program-card']").map((card) => card.get("a").attributes("href")))
+      .toEqual(["/certifications/pmi", "/certifications/scrum-alliance", "/certifications/scrum-org"]);
   });
 
   it("件数の合計が所属ガイドの実数と一致する", () => {

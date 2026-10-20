@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it } from "vitest";
 import GuideProgramHub from "~/components/GuideProgramHub.vue";
-import { GUIDES, GUIDE_PROGRAMS, programGroup } from "~/utils/guide-catalog";
+import { GUIDES, LISTED_PROGRAMS, programGroup } from "~/utils/guide-catalog";
 
 const NuxtLinkStub = {
   props: { to: { type: String, required: true } },
@@ -87,15 +87,15 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
   });
 
   it("ガイド件数を表示する", () => {
-    expect(mountHub("pmi").get("[data-testid='hub-count']").text()).toBe("9 ガイド");
+    expect(mountHub("pmi").get("[data-testid='hub-count']").text()).toBe("8 ガイド");
   });
 
-  it("全プログラムを合わせると公開ガイド 71 本すべてへ到達できる（登録漏れの検知）", () => {
+  it("表示中の全プログラムを合わせると公開ガイド 55 本すべてへ到達できる（登録漏れの検知）", () => {
     /*
      * 弱い契約（件数一致のみ）にすると、同じガイドが 2 か所に出て 1 本消えた場合を素通しする。
      * 遷移先の集合と順序の双方をカタログと突き合わせる。
      */
-    const reached = GUIDE_PROGRAMS.flatMap((program) =>
+    const reached = LISTED_PROGRAMS.flatMap((program) =>
       mountHub(program.id)
         .findAll("[data-testid='guide-card'] a")
         .map((link) => link.attributes("href")),
@@ -109,7 +109,7 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
     const wrapper = mountHub("pmi");
 
     expect(wrapper.findAll("[data-testid='guide-card'] .guide-category").map((node) => node.text()))
-      .toEqual(["CAPM", "CAPM", "CAPM", "CAPM", "CAPM", "PMP", "PMP", "PMP", "PMP"]);
+      .toEqual(["CAPM", "CAPM", "CAPM", "CAPM", "CAPM", "PMP", "PMP", "PMP"]);
   });
 
   it("見出し階層をスキップしない", () => {
@@ -138,10 +138,8 @@ describe("GuideProgramHub — プログラム単位のハブページ", () => {
 });
 
 
-it("PeopleCert の PRINCE2 シリーズに Foundation、Practitioner の順で到達できる", () => {
-  const section = mountHub("peoplecert").findAll("[data-testid='hub-series']")
-    .find(node => node.get("h2").text() === "PRINCE2");
-  expect(section?.findAll("[data-testid='guide-card'] a").map(link => link.attributes("href"))).toEqual([
-    "/prince2-7-foundation-guide", "/prince2-7-practitioner-guide", "/prince2-agile-foundation-version2", "/prince2-agile-practitioner-v2-study-guide",
-  ]);
+it("本番では PeopleCert のガイドへハブから到達できない（全ガイドが公開見合わせ）", () => {
+  // PeopleCert のライセンス方針により、学習ガイドは書面承認が得られるまで本番で公開しない。
+  expect(mountHub("peoplecert").findAll("[data-testid='hub-series']").map((node) => node.get("h2").text())).toEqual([]);
+  expect(mountHub("peoplecert").findAll("[data-testid='guide-card'] a").map((link) => link.attributes("href"))).toEqual([]);
 });

@@ -6,6 +6,7 @@ import {
   GUIDE_KINDS,
   GUIDE_PROGRAMS,
   GUIDE_SERIES,
+  LISTED_PROGRAMS,
   allSiteRoutes,
   findProgram,
   groupGuidesByKind,
@@ -16,6 +17,7 @@ import {
   programsOfKind,
   seriesCardLabel,
   seriesNavLabel,
+  visibleGuides,
 } from "~/utils/guide-catalog";
 
 /*
@@ -120,7 +122,6 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/capm-domain4-business-analysis-frameworks", programId: "pmi", seriesId: "capm", navLabel: "CAPM ドメイン4" },
       { to: "/pmp-certification-guide", programId: "pmi", seriesId: "pmp", navLabel: "PMP 完全攻略" },
       { to: "/pmp-domain1-people-guide", programId: "pmi", seriesId: "pmp", navLabel: "PMP ドメイン1" },
-      { to: "/pmp-domain2-process-guide", programId: "pmi", seriesId: "pmp", navLabel: "PMP ドメイン2" },
       { to: "/pmp-domain3-business-environment-guide", programId: "pmi", seriesId: "pmp", navLabel: "PMP ドメイン3" },
       { to: "/csm-certified-scrummaster-guide", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSM 完全ガイド" },
       { to: "/csm-scrum-team-3-accountabilities", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSM 3つのアカウンタビリティ" },
@@ -128,11 +129,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/csm-scrum-artifacts-and-commitments", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSM アーティファクト" },
       { to: "/scrum-events-csm-guide", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSM スクラムイベント" },
       { to: "/csm-scrum-master-core-competencies", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSM コアコンピテンシー" },
-      { to: "/a-csm-advanced-certified-scrummaster-study-guide", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "A-CSM 完全ガイド" },
-      { to: "/csp-sm-certified-scrum-professional-scrummaster-study-guide", programId: "scrum-alliance", seriesId: "sa-scrum-master", navLabel: "CSP-SM 完全ガイド" },
       { to: "/a-cspo-advanced-certified-scrum-product-owner-study-guide", programId: "scrum-alliance", seriesId: "sa-product-owner", navLabel: "A-CSPO 完全ガイド" },
       { to: "/csd-certified-scrum-developer-study-guide", programId: "scrum-alliance", seriesId: "sa-developer", navLabel: "CSD 完全ガイド" },
-      { to: "/a-csd-advanced-certified-scrum-developer-study-guide", programId: "scrum-alliance", seriesId: "sa-developer", navLabel: "A-CSD 完全ガイド" },
       { to: "/cal1-certified-agile-leader-1-guide", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL1 完全ガイド" },
       { to: "/the-case-for-agile-leadership", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL1 第1章" },
       { to: "/agile-leadership-in-action", programId: "scrum-alliance", seriesId: "sa-agile-leader", navLabel: "CAL1 第2章" },
@@ -156,28 +154,11 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       { to: "/professional-scrum-with-kanban", programId: "scrum-org", seriesId: "so-kanban", navLabel: "PSK 完全ガイド" },
       { to: "/scaled-professional-scrum-guide", programId: "scrum-org", seriesId: "so-scaling", navLabel: "SPS 完全ガイド" },
       { to: "/professional-scrum-with-user-experience", programId: "scrum-org", seriesId: "so-user-experience", navLabel: "PSU 完全ガイド" },
-      { to: "/itil-foundation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Foundation (v5)" },
-      { to: "/itil-experience-version-5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Experience (v5)" },
-      { to: "/itil-managing-professional-transition-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL MPT (v5)" },
-      { to: "/itil-product-version5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Product (v5)" },
-      { to: "/itil-service-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Service (v5)" },
-      { to: "/itil-strategy-v5-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Strategy (v5)" },
-      { to: "/itil-transformation-v5-study-guide", programId: "peoplecert", seriesId: "pc-itil", navLabel: "ITIL Transformation (v5)" },
-      { to: "/mop-foundation-guide", programId: "peoplecert", seriesId: "pc-mop", navLabel: "MoP 完全ガイド" },
-      { to: "/msp-foundation-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP 完全ガイド" },
-      { to: "/msp-practitioner-5th-edition-guide", programId: "peoplecert", seriesId: "pc-msp", navLabel: "MSP Practitioner 完全ガイド" },
-      { to: "/prince2-7-foundation-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Foundation" },
-      { to: "/prince2-7-practitioner-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 7 Practitioner" },
-      { to: "/prince2-agile-foundation-version2", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 Agile Foundation" },
-      { to: "/prince2-agile-practitioner-v2-study-guide", programId: "peoplecert", seriesId: "pc-prince2", navLabel: "PRINCE2 Agile Practitioner" },
-      { to: "/high-output-management-guide", programId: "management", seriesId: "book-management", navLabel: "High Output Management" },
       { to: "/an-elegant-puzzle-guide", programId: "management", seriesId: "book-management", navLabel: "An Elegant Puzzle" },
-      { to: "/mythical-man-month-guide", programId: "management", seriesId: "book-management", navLabel: "人月の神話" },
       { to: "/engineering-manager-guide", programId: "management", seriesId: "book-management", navLabel: "EM 入門" },
       { to: "/engineering-executive-playbook", programId: "leadership", seriesId: "book-leadership", navLabel: "統括責任者の手引き" },
       { to: "/elastic-leadership-guide", programId: "leadership", seriesId: "book-leadership", navLabel: "Elastic Leadership" },
       { to: "/radical-candor-guide", programId: "leadership", seriesId: "book-leadership", navLabel: "Radical Candor" },
-      { to: "/debugging-teams-guide", programId: "team", seriesId: "book-team", navLabel: "Debugging Teams" },
       { to: "/five-dysfunctions-of-a-team-guide", programId: "team", seriesId: "book-team", navLabel: "5つの機能不全" },
       { to: "/team-topologies-guide", programId: "org-design", seriesId: "book-org-design", navLabel: "Team Topologies" },
       { to: "/dynamic-reteaming-guide", programId: "org-design", seriesId: "book-org-design", navLabel: "ダイナミック・リチーミング" },
@@ -195,7 +176,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
   it("公開を見合わせるガイドを完全一致で固定する", () => {
     /*
      * 著作権上の懸念（原著の章立てに沿った網羅的要約・要約サービス依存・
-     * Learning Objectives 英文の体系的転載）が解消するまで公開しないページ。
+     * Learning Objectives / Exam Content Outline の体系的転載・和訳、
+     * および PeopleCert のライセンス方針の対象外）が解消するまで本番で公開しないページ。
      * ページのファイルとカタログ定義は残し、再公開はこの一覧から外すだけで済むようにする。
      */
     expect([...UNPUBLISHED_GUIDE_ROUTES]).toEqual([
@@ -207,6 +189,47 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       "/team-geek-guide",
       "/peopleware-guide",
       "/no-rules-rules-guide",
+      "/a-csm-advanced-certified-scrummaster-study-guide",
+      "/csp-sm-certified-scrum-professional-scrummaster-study-guide",
+      "/a-csd-advanced-certified-scrum-developer-study-guide",
+      "/pmp-domain2-process-guide",
+      "/itil-foundation-v5-study-guide",
+      "/itil-experience-version-5-study-guide",
+      "/itil-managing-professional-transition-v5-guide",
+      "/itil-product-version5-guide",
+      "/itil-service-v5-guide",
+      "/itil-strategy-v5-guide",
+      "/itil-transformation-v5-study-guide",
+      "/mop-foundation-guide",
+      "/msp-foundation-5th-edition-guide",
+      "/msp-practitioner-5th-edition-guide",
+      "/prince2-7-foundation-guide",
+      "/prince2-7-practitioner-guide",
+      "/prince2-agile-foundation-version2",
+      "/prince2-agile-practitioner-v2-study-guide",
+      "/high-output-management-guide",
+      "/mythical-man-month-guide",
+      "/debugging-teams-guide",
+    ]);
+  });
+
+  it("dev サーバーでは全ガイドを、それ以外では公開分だけを表示対象にする", () => {
+    /*
+     * dev サーバーでは見合わせ中のページも確認できなければならない（ローカル確認用）。
+     * 判定は visibleGuides の引数だけで決まり、GUIDES は import.meta.dev から決まる。
+     * Vitest は import.meta.dev が false なので、GUIDES は本番と同じ公開分になる。
+     */
+    expect(visibleGuides(true).map((guide) => guide.to)).toEqual(ALL_GUIDES.map((guide) => guide.to));
+    expect(visibleGuides(false).map((guide) => guide.to)).toEqual(GUIDES.map((guide) => guide.to));
+    expect(GUIDES).toHaveLength(ALL_GUIDES.length - UNPUBLISHED_GUIDE_ROUTES.length);
+  });
+
+  it("表示中のガイドを持つプログラムだけを順序込みで列挙する", () => {
+    // PeopleCert は全ガイドが見合わせ中のため、本番ではハブごと出さない（空のハブを作らない）。
+    expect(LISTED_PROGRAMS.map((program) => program.id)).toEqual([
+      "pmi", "scrum-alliance", "scrum-org",
+      "management", "leadership", "team", "org-design", "product",
+      "career", "ai",
     ]);
   });
 
@@ -226,7 +249,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     expect(UNPUBLISHED_GUIDE_ROUTES.map((route) => isUnpublishedRoute(route))).toEqual(
       UNPUBLISHED_GUIDE_ROUTES.map(() => true),
     );
-    expect(isUnpublishedRoute("/debugging-teams-guide")).toBe(false);
+    expect(isUnpublishedRoute("/five-dysfunctions-of-a-team-guide")).toBe(false);
     expect(isUnpublishedRoute("/team-geek-guide/")).toBe(false);
     expect(isUnpublishedRoute("/")).toBe(false);
   });
@@ -287,10 +310,11 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     expect(allSiteRoutes()).toEqual([
       "/",
       ...GUIDE_KINDS.map((kind) => kind.to),
-      ...GUIDE_PROGRAMS.map((program) => program.to),
+      ...LISTED_PROGRAMS.map((program) => program.to),
       ...GUIDES.map((guide) => guide.to),
     ]);
-    expect(allSiteRoutes()).toHaveLength(1 + 3 + 11 + 76);
+    expect(allSiteRoutes()).toHaveLength(1 + 3 + 10 + 55);
+    expect(allSiteRoutes()).not.toContain("/certifications/peoplecert");
   });
 
   it("種別順・種別内定義順でグルーピングする", () => {
@@ -299,8 +323,8 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       count: group.guides.length,
       programs: group.programGroups.map((programGroupItem) => programGroupItem.program.id),
     }))).toEqual([
-      { id: "certifications", count: 57, programs: ["pmi", "scrum-alliance", "scrum-org", "peoplecert"] },
-      { id: "books", count: 13, programs: ["management", "leadership", "team", "org-design", "product"] },
+      { id: "certifications", count: 39, programs: ["pmi", "scrum-alliance", "scrum-org"] },
+      { id: "books", count: 10, programs: ["management", "leadership", "team", "org-design", "product"] },
       { id: "practices", count: 6, programs: ["career", "ai"] },
     ]);
   });
@@ -317,15 +341,15 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         programId: "pmi",
         seriesGroups: [
           { seriesId: "capm", guides: ["CAPM 完全ガイド", "CAPM ドメイン1", "CAPM ドメイン2", "CAPM ドメイン3", "CAPM ドメイン4"] },
-          { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン2", "PMP ドメイン3"] },
+          { seriesId: "pmp", guides: ["PMP 完全攻略", "PMP ドメイン1", "PMP ドメイン3"] },
         ],
       },
       {
         programId: "scrum-alliance",
         seriesGroups: [
-          { seriesId: "sa-scrum-master", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー", "A-CSM 完全ガイド", "CSP-SM 完全ガイド"] },
+          { seriesId: "sa-scrum-master", guides: ["CSM 完全ガイド", "CSM 3つのアカウンタビリティ", "CSM Scrum理論", "CSM アーティファクト", "CSM スクラムイベント", "CSM コアコンピテンシー"] },
           { seriesId: "sa-product-owner", guides: ["A-CSPO 完全ガイド"] },
-          { seriesId: "sa-developer", guides: ["CSD 完全ガイド", "A-CSD 完全ガイド"] },
+          { seriesId: "sa-developer", guides: ["CSD 完全ガイド"] },
           { seriesId: "sa-agile-leader", guides: ["CAL1 完全ガイド", "CAL1 第1章", "CAL1 第2章", "CAL1 第3章", "CAL1 第4章", "CAL2 Part 1", "CAL2 Part 2", "CAL2 完全ガイド"] },
           { seriesId: "sa-facilitation", guides: ["CAF 完全ガイド", "CASP 完全ガイド"] },
         ],
@@ -344,18 +368,9 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
         ],
       },
       {
-        programId: "peoplecert",
-        seriesGroups: [
-          { seriesId: "pc-itil", guides: ["ITIL Foundation (v5)", "ITIL Experience (v5)", "ITIL MPT (v5)", "ITIL Product (v5)", "ITIL Service (v5)", "ITIL Strategy (v5)", "ITIL Transformation (v5)"] },
-          { seriesId: "pc-mop", guides: ["MoP 完全ガイド"] },
-          { seriesId: "pc-msp", guides: ["MSP 完全ガイド", "MSP Practitioner 完全ガイド"] },
-          { seriesId: "pc-prince2", guides: ["PRINCE2 7 Foundation", "PRINCE2 7 Practitioner", "PRINCE2 Agile Foundation", "PRINCE2 Agile Practitioner"] },
-        ],
-      },
-      {
         programId: "management",
         seriesGroups: [
-          { seriesId: "book-management", guides: ["High Output Management", "An Elegant Puzzle", "人月の神話", "EM 入門"] },
+          { seriesId: "book-management", guides: ["An Elegant Puzzle", "EM 入門"] },
         ],
       },
       {
@@ -367,7 +382,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
       {
         programId: "team",
         seriesGroups: [
-          { seriesId: "book-team", guides: ["Debugging Teams", "5つの機能不全"] },
+          { seriesId: "book-team", guides: ["5つの機能不全"] },
         ],
       },
       {
@@ -436,8 +451,9 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
 
   it("定義済みのプログラム・シリーズがすべて 1 件以上のガイドを持つ", () => {
     // グルーピングは空を除外するため、定義側に残った死んだ ID は上の契約では見えない。
-    const usedPrograms = new Set(GUIDES.map((guide) => guide.programId));
-    const usedSeries = new Set(GUIDES.map((guide) => guide.seriesId));
+    // 見合わせ中のガイドしか持たないプログラムも定義としては生きているため、全定義で判定する。
+    const usedPrograms = new Set(ALL_GUIDES.map((guide) => guide.programId));
+    const usedSeries = new Set(ALL_GUIDES.map((guide) => guide.seriesId));
 
     expect(GUIDE_PROGRAMS.filter((program) => !usedPrograms.has(program.id)).map((program) => program.id)).toEqual([]);
     expect(GUIDE_SERIES.filter((series) => !usedSeries.has(series.id)).map((series) => series.id)).toEqual([]);
@@ -486,7 +502,7 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
     const navItemCount = groupGuidesByKind()
       .reduce((total, group) => total + group.programGroups.length, 0);
 
-    expect(navItemCount).toBe(GUIDE_PROGRAMS.length);
+    expect(navItemCount).toBe(LISTED_PROGRAMS.length);
     expect(navItemCount).toBeLessThan(GUIDES.length);
   });
 
@@ -501,6 +517,9 @@ describe("utils/guide-catalog — ガイド定義の単一の真実の源", () =
   it("種別に属するプログラムを順序込みで引ける", () => {
     expect(programsOfKind("books").map((program) => program.id))
       .toEqual(["management", "leadership", "team", "org-design", "product"]);
+    // 表示中のガイドが無いプログラムは種別インデックス・ハブの validate からも外れる（直接アクセスは 404）。
+    expect(programsOfKind("certifications").map((program) => program.id))
+      .toEqual(["pmi", "scrum-alliance", "scrum-org"]);
   });
 
   it("表示ラベルを ID から引ける", () => {
