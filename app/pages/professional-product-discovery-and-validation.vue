@@ -303,7 +303,7 @@ class Del1,Del2,Del3 box;`;
 
       <!-- SECTION 01: How to Use This Guide -->
       <section id="how-to-use">
-        <div class="section-eyebrow">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
           <Icon name="tabler:map-2" aria-hidden="true" />SECTION 01
         </div>
         <h2>このガイドの読み方</h2>
@@ -325,6 +325,138 @@ class Del1,Del2,Del3 box;`;
         </ol>
 
         <p>各章の末尾に<strong>ベストプラクティス</strong>と<strong>ソース</strong>を明記しているので、根拠を辿りながら学習してください。</p>
+      </section>
+
+      <!-- SECTION 02: Chapter 1 Overview -->
+      <section id="ppdv-overview">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:certificate" aria-hidden="true" />SECTION 02
+        </div>
+        <h2>第1章: PPDV認定試験の概要</h2>
+
+        <h3>1.1 PPDVとは何か</h3>
+        <p>PPDV(Professional Product Discovery and Validation)は、Scrum.orgが提供する認定資格です。プロダクトオーナーやプロダクトマネージャー、ビジネスアナリスト、プロダクトチームのメンバーが、ユーザーや顧客から学びながら「市場に届けるべき正しいプロダクト機能」を見極める力を証明するための試験です。</p>
+        <p>Scrum.orgの公式ページでは、この認定は「発見・検証技法をどう使うか、いつ使うかについての知識」を検証し、さらに「発見・検証スキルを適用して価値創出を高める能力」もテストすると説明されています。受講は必須ではありませんが、公式トレーニングクラスの受講が強く推奨されています。</p>
+
+        <h3>1.2 試験の基本情報</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>出題数</td><td>20問</td></tr>
+              <tr><td>制限時間</td><td>30分</td></tr>
+              <tr><td>合格ライン</td><td>85%以上</td></tr>
+              <tr><td>資格の有効期限</td><td>生涯有効(失効なし)</td></tr>
+              <tr><td>受験の前提条件</td><td>明確な必須要件はないが、Professional Scrum Product Owner I(PSPO I)や同等のトレーニング受講が推奨される</td></tr>
+              <tr><td>フィードバック形式</td><td>正誤の詳細は開示されないが、「Professional Scrum Competencies(プロフェッショナル・スクラム・コンピテンシー)」の観点別に成績のブレークダウンが提供される</td></tr>
+              <tr><td>受験資格の入手方法</td><td>公式PPDVトレーニング受講者には無料の受験権が付与される。受講なしでも購入して受験可能</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>1.3 対象者</h3>
+        <p>この試験・研修は主に以下の役割の人を対象に設計されています。</p>
+        <ul>
+          <li>プロダクトオーナー(Product Owner)</li>
+          <li>プロダクトマネージャー</li>
+          <li>ビジネスアナリスト</li>
+          <li>発見・検証プロセスに関わるプロダクトチーム全体</li>
+        </ul>
+        <p>新規プロダクト開発(グリーンフィールド)だけでなく、既存プロダクトの機能拡張・改善にも適用できる内容として設計されています。</p>
+
+        <h3>1.4 公式の学習目標(Course Learning Objectives)</h3>
+        <p>Scrum.org公式コースページに掲載されている学習目標は次の4点です。</p>
+        <ol>
+          <li>ユーザーのニーズ・欲求に関する仮説を検証する実験を意図的に設計することで、ユーザー価値の創出を高める</li>
+          <li>検証によって得られたエビデンスに基づいてのみ投資判断を行うことで、無駄を減らしROIを改善する</li>
+          <li>意見ではなくデータを用いて主要なステークホルダーと関わることで、組織のコラボレーションと連携を改善する</li>
+          <li>「実行すべきタスク」ではなく「解決すべき問題」として仕事を再定義することで、創造性を引き出す</li>
+        </ol>
+        <p>試験の出題は、この4つのコース学習目標そのものではなく、Professional Product Ownership™のCapabilities and Skillsに基づいています。公式アセスメントのブループリントは「Engage with Vision(ビジョンへの関与)」「Evolve with Validation(検証による進化)」「Lead to Value(価値へ導く)」の3カテゴリで構成されており、本ガイドの各章もこのブループリントに沿って対応づけています。</p>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス
+          </div>
+          <ul>
+            <li>「手法を知っている」ことと「状況に応じて適切な手法を選べる」ことは別スキルと捉え、各技法を学ぶ際は必ず<strong>「どんな状況でこれを使うか / 使わないか」</strong>をセットで整理する</li>
+            <li>前提知識としてProfessional Scrum(Scrumの基本イベント・作成物・価値基準)とProduct Ownership(PSPO Iレベル)を先に固めておくと、Discovery/Validationの技法がスムーズに理解できる</li>
+            <li>学習中は「タスクではなく問題を解く」という学習目標4を常に意識し、機能一覧ではなく「解くべき課題」を起点に技法を整理する</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://www.scrum.org/assessments/professional-product-discovery-and-validation-certification" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Certification(Scrum.org 公式試験ページ)</a></li>
+            <li><a href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Training(Scrum.org 公式コースページ・学習目標記載)</a></li>
+            <li><a href="https://www.credly.com/org/scrum-org/badge/professional-product-discovery-and-validation" target="_blank" rel="noopener">Professional Product Discovery and Validation™(Credly バッジ説明)</a></li>
+            <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDV認定・試験形式(20問/30分/85%/生涯有効)の記載(ScrumDojo.cz、Scrum.org Professional Training Networkパートナー)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 03: Chapter 2 Double Diamond -->
+      <section id="double-diamond">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:route" aria-hidden="true" />SECTION 03
+        </div>
+        <h2>第2章: PPDVの土台となる考え方 — ダブルダイヤモンド</h2>
+
+        <h3>2.1 ダブルダイヤモンドとは</h3>
+        <p>PPDVのコース構成は、イギリスのDesign Councilが2004〜2005年にかけて11のグローバル企業(LEGO、Sony、Microsoftなど)の実際のデザインプロセスを調査してまとめた<strong>ダブルダイヤモンドモデル</strong>に沿っています。このモデルは「発散(Divergent Thinking)」と「収束(Convergent Thinking)」を2回繰り返す構造を持ち、4つのフェーズで構成されます。</p>
+
+        <ul>
+          <li><strong>Discover(発見)</strong>: 課題領域を幅広く探索する(発散)</li>
+          <li><strong>Define(定義)</strong>: 探索した情報から解くべき問題を絞り込む(収束)</li>
+          <li><strong>Develop(開発)</strong>: 解決策の選択肢を幅広く発想・試作する(発散)</li>
+          <li><strong>Deliver(提供)</strong>: 有望な解決策に絞り込み、テスト・実装・提供する(収束)</li>
+        </ul>
+
+        <p>最初のダイヤモンドは「正しい問題」を見つけるための問題空間、2つ目のダイヤモンドは「正しい解決策」を見つけるための解決空間を表します。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_DOUBLE_DIAMOND" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">ダブルダイヤモンド: 問題空間(Discover→Define)と解決空間(Develop→Deliver)</div>
+        </div>
+
+        <p>PPDVコースの構成(ScrumDojo.czの公式パートナーによる解説)は、このダブルダイヤモンドの4フェーズすべてを、顧客ニーズの探索から優先順位付け、実験の定式化、検証までひと通り扱う設計になっています。</p>
+
+        <h3>2.2 Discovery(発見)とは何か</h3>
+        <p>Scrum.org CEOのDave Westは公式ブログで、Product Discoveryを次のように定義しています。</p>
+        <p>プロダクトディスカバリーとは、解く価値のある問題と、作る価値のある解決策を見つけるために不確実性を減らしていく、エビデンスに基づいた(evidence-informed)プロセスであり、非線形な一連の活動として、機能横断チームによって行われるものである。</p>
+        <p>この定義には3つの重要な要素があります。</p>
+        <ol>
+          <li><strong>エビデンス・インフォームド(evidence-informed)であり、エビデンス・ベースド(evidence-based)ではない</strong> — エビデンスは意思決定の材料にはなるが、最終的に決めるのは人であるという考え方</li>
+          <li><strong>活動は非線形</strong> — 1980年代のウォーターフォール的な「理解フェーズ→実現フェーズ」という一直線の流れではなく、様々な活動が並行・反復しながらチームの理解を深めていく</li>
+          <li><strong>機能横断チームが担う</strong> — 専門家が要件を調査して開発チームに引き渡す分業モデルではなく、デジタル時代には多様なスキルを持つチームが一体となって進める必要がある</li>
+        </ol>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス
+          </div>
+          <ul>
+            <li>Discoveryを「開発の前工程」として切り離さず、ダブルダイヤモンドの4フェーズを反復的に回す発想を持つ</li>
+            <li>「エビデンスに基づいて決める」のではなく「エビデンスを判断材料の一つとして人が決める」というスタンスを意識し、データ至上主義に陥らない</li>
+            <li>Discovery活動を特定の役割(POだけ等)に閉じ込めず、機能横断チーム全体の共同責任として設計する</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://www.designcouncil.org.uk/resources/framework-for-innovation/" target="_blank" rel="noopener">Framework for Innovation: Design Council's evolved Double Diamond(Design Council 公式)</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">Product Discovery and Validation in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+            <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">ダブルダイヤモンドを用いたPPDVコース構成の解説(ScrumDojo.cz)</a></li>
+          </ul>
+        </div>
       </section>
     </main>
   </div>
