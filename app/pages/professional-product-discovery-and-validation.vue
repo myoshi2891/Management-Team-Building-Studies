@@ -796,6 +796,102 @@ class Del1,Del2,Del3 box;`;
           </ul>
         </div>
       </section>
+
+      <!-- SECTION 07: Chapter 6 Scrum Integration -->
+      <section id="scrum-integration">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:git-branch" aria-hidden="true" />SECTION 07
+        </div>
+        <h2>第6章: Scrumチームでの実践への統合</h2>
+
+        <p>PPDVは単発の手法集ではなく、Scrumの日常的な営みにDiscoveryとValidationをどう組み込むかを重視しています。</p>
+
+        <h3>6.1 Discoveryは「フェーズ」ではなく「並行する活動」</h3>
+        <p>Dave Westのブログによれば、優れたScrumチームはDiscoveryを常に行っており、特定のスプリントだけが「発見フェーズ」というわけではありません。むしろ、あるスプリントは相対的にDiscoveryの比重が大きく、別のスプリントはDeliveryの比重が大きい、というグラデーションで進みます。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_DUAL_TRACK_SPRINTS" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">複数スプリントにまたがるDiscoveryとDeliveryの並行進行</div>
+        </div>
+
+        <h3>6.2 3つの地平線(Three Horizons)</h3>
+        <p>Dave Westのブログでは、成熟したScrumチームが同時に扱う3つの「地平線(Horizon)」という考え方が紹介されています。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>地平線</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>Horizon 1</td><td>今のプロダクトにある不具合・課題への対応</td></tr>
+              <tr><td>Horizon 2</td><td>十分に理解されており、今のリリース・プロダクトの地平線で中心となる機能</td></tr>
+              <tr><td>Horizon 3</td><td>将来に向けた大胆なアイデアや実験</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>プロダクトに大きな品質課題がなければ、スプリントゴールの中心はHorizon 2に置かれますが、Horizon 1とHorizon 3も無視できません。Horizon 3での探索的な気づきが、将来のHorizon 2の仕事の質を高めることにもつながります。</p>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス
+          </div>
+          <ul>
+            <li>「Discoveryスプリント」と「Deliveryスプリント」を分離した二段階Scrum(Design Sprint型の運用)は、公式ブログでも「懸念すべき考え方」として明示的に指摘されている。DiscoveryとDeliveryは同じスプリントの中で並行して進める</li>
+            <li>Product Goalを軸に、チームが自律的にDiscovery/Delivery活動の配分を調整できるようにする</li>
+            <li>3つの地平線を意識的にバックログや会話の中で区別し、目先の不具合対応だけに時間を奪われないようにする</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">Dispelling Myths of Product Discovery in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+            <li><a href="https://www.scrum.org/resources/blog/product-discovery-and-validation-scrum" target="_blank" rel="noopener">Product Discovery and Validation in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 08: Chapter 7 Myths & Anti-patterns -->
+      <section id="myths-antipatterns">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:alert-triangle" aria-hidden="true" />SECTION 08
+        </div>
+        <h2>第7章: よくある誤解・アンチパターン</h2>
+
+        <p>Scrum.org公式ブログ「Dispelling Myths of Product Discovery in Scrum」で取り上げられている、Discoveryにまつわる代表的な誤解を整理します。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>誤解(Myth)</th><th>実際のところ(Reality)</th></tr></thead>
+            <tbody>
+              <tr><td>Discoveryは独立した「フェーズ」であり、スプリントの中では行えない</td><td>優れたScrumチームは常にDiscoveryを行っている。スプリントごとにDiscoveryとDeliveryの比重が変わるだけで、両者は並行する</td></tr>
+              <tr><td>Discoveryはグリーンフィールド(新規プロダクト)にしか適用できない</td><td>既存プロダクトの改善・拡張にも同様にDiscoveryは有効であり、大小どちらの課題にも適用できる</td></tr>
+              <tr><td>Definition of Done(完成の定義)があるとDiscoveryができなくなる</td><td>DoDは成果物の品質基準であり、Discovery活動そのものを妨げる制約ではない</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>このほか、本ガイドの中で繰り返し触れてきた次のようなアンチパターンにも注意してください。</p>
+        <ul>
+          <li>ソリューション(機能)から会話を始め、問題を後付けで説明する(第3章)</li>
+          <li>プロトペルソナやEmpathy Mapを、リサーチなしの想像だけで「完成品」として扱う(第4章)</li>
+          <li>Test Cardの成功基準を決めずに実験を始め、結果を都合よく解釈する(第5.4節)</li>
+          <li>アウトプット(機能数・リリース数)だけを追い、アウトカム(顧客の行動変化・価値)を測定しない(第5.5〜5.6節)</li>
+          <li>Problem-Solution Fitの検証前に、Product-Market Fitを前提とした大規模投資を行う(第5.7節)</li>
+        </ul>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://www.scrum.org/resources/blog/dispelling-myths-product-discovery-scrum" target="_blank" rel="noopener">Dispelling Myths of Product Discovery in Scrum(Dave West, Scrum.org 公式ブログ)</a></li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
 </template>
