@@ -9,10 +9,10 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `83f0607` — fix(pages): eliminate unfocused skip-link overflow line in ppdv guide（本ファイルより前のコード側コミット） |
-| 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PPDV (Professional Product Discovery and Validation) の移行完了（§90）。 |
-| ビルド状態 | 2026-10-20: `npm run test` ✔ 2292件全件成功（101ファイル）/ `npm run audit:ppdv` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
-| テスト数 | **2292 passed / 0 failed**（101ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約24件を含む。 |
+| コードコミット HEAD | `5110102` — test(e2e): skip PRINCE2 Practitioner spec while the guide is unpublished（本ファイルより前のコード側コミット） |
+| 次の作業 | GitHub リポジトリの公開範囲の判断（公開見合わせ中 29 本の本文が公開リポジトリと履歴で閲覧可能。§91）→ Netlify 公開 → PeopleCert への書面承認申請または見合わせ継続 → 見合わせ中ページの改稿 |
+| ビルド状態 | 2026-10-20: `bun run test` ✔ 2314件 / `bun run typecheck` ✔ / `bun run lint` ✖ 既存のエラー 5 件のみ（`mop-foundation-guide.vue`・`tests/pages/itil-service-v5-guide.test.ts`。変更前の HEAD でも同一）/ `bun run test:e2e` ✔ 29 passed・6 skipped（PRINCE2 Practitioner は本番で見合わせ中）/ 目視確認はユーザー担当 |
+| テスト数 | **2314 passed / 0 failed**（101ファイル）— 最新のユニットテスト基準値。 |
 | 原本照合監査 | ✔ **83 本中 78 本 exit 0**（全要素一致）。`audit:pal-ebm` / `audit:pspbm` の 2 本は事実正確性の是正による意図的な原本差分のみで exit 1（移行漏れではない。「正当な差分の記録」§74）。`audit:csp-sm` / `audit:psm` / `audit:pspo-ai` の 3 本は既存の転写差分で exit 1（2026-10-17 再実測で判明。§83）。CAPM ドメイン1 の意図的逸脱は 2026-08-18 に原本側へ反映して解消済み（「正当な差分の記録」§8） |
 
 ## ページ移行状況
@@ -1137,10 +1137,11 @@ CSS のテキストからは決定できない。誤検知だらけのゲート�
 ## 次回セッションでの再開プロンプト
 
 ```text
-Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本アーカイブ・承認済み商標訂正・検証完了（§87）。
+Management-Team-Building-Studies: 公開前の法的精査に基づき本番の公開範囲を 55 本へ縮小し、表示を是正（§91）。
+dev サーバーでは見合わせ中を含む全ページを確認できる。
 
-コードコミット HEAD: 3718b5e
-次の作業: Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PRINCE2 Practitioner の承認済み商標訂正と移行検証は完了（§87）。
+コードコミット HEAD: 5110102
+次の作業: GitHub リポジトリの公開範囲の判断（§91 未対応）→ Netlify 公開 → PeopleCert への書面承認申請または見合わせ継続 → 公開見合わせ中29本の改稿 → 保守・新規ガイド追加。
   未移行HTMLはルートの実ファイル3本。PRINCE2 Practitioner の本文未移行セクションは0。
   新規ページの登録先は app/utils/guide-catalog.ts の ALL_GUIDES 1 か所（GUIDES はそこから導出）。
   ここに programId / seriesId を指定して 1 件追加すれば、ホームの種別セクション・
@@ -1609,3 +1610,39 @@ Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本ア
 - **第8章（試験対策の進め方）のデザインブラッシュアップ**: 8.1 学習ステップを縦型タイムラインコネクタ付きの `.step-item` カードに整形（`<ol>` 既定マーカーとの二重採番を解消）、8.2 出題傾向への向き合い方をリードボックス（`.exam-trend-lead`）とアイコン付き3列対策カードグリッド（`.exam-strategy-grid` / `.exam-strategy-card`）に刷新、8.3 受験の実務情報をアイコン付き実務カードリスト（`.exam-practical-list` / `.exam-practical-item`）に整備。
 - **参考文献・ソース一覧（`#references`）のデザインブラッシュアップ**: 3つのカテゴリグループ（公式ソース / 認定研修パートナー / 原典・一次情報源）ごとに色分けされたアイコン付きヘッダー（`.ref-group-header`）を設け、全20件のリンクを左アクセントボーダー・外部リンクアイコン付きのカード（`.ref-item`）に整形してタイトル（`.ref-name`）とURL（`.ref-url`）の改行・視認性を改善。
 - **このガイドの読み方（`#how-to-use`）のデザインブラッシュアップ**: 導入文を左インディゴボーダー付きのリードボックス（`.guide-intro-lead`）に整形し、9つの章構成リストをサイドバーTOCと同じアイコン付き・ページ内アンカー付きのレスポンシブカードグリッド（`.guide-chapter-grid` / `.guide-chapter-card`）に刷新（`<ol>` 既定マーカーと「第N章」の二重採番を解消）、末尾の学習ヒントをゴールド基調のバナー（`.guide-outro-banner`）に整備。
+
+### §91. 公開前の法的精査に基づく本番公開範囲の縮小と表示の是正（2026-10-20）
+
+- **dev / 本番の切り替え**: `visibleGuides(includeUnpublished)` と `import.meta.dev` で表示対象を決める。
+  dev サーバーでは見合わせ中を含む全 84 本を表示し、build / generate では公開分 55 本だけを出す
+  （Vitest も `import.meta.dev = false` で本番と同じ見え方）。ルート除去（`pages:extend`）は
+  `nuxt.config.ts` のインラインモジュールへ移し、`nuxt.options.dev` のときは行わない。
+  表示中ガイドを持たないプログラムは `LISTED_PROGRAMS` から外れ、ハブ・validate・prerender・巡回から消える。
+- **公開見合わせを 8 → 29 本へ拡大**（`UNPUBLISHED_GUIDE_ROUTES`）。
+  - PeopleCert 系 14 本（ITIL 7 / MoP / MSP 2 / PRINCE2 4）: PeopleCert の Third Party Product Licensing
+    Guide（ver5.0, 2026-06-26）で、ライセンス不要の Fair Use は記事・ブログ等に限られ、Study guides /
+    Mock exams は ATO 向けと明記されている。非営利でも書面承認（licensing@peoplecert.org）が前提。
+  - A-CSM / CSP-SM / A-CSD: Learning Objectives を 1 項目ずつ和訳して見出しにしている（翻訳権）。
+    A-CSPO・CSD はトピック型のため公開継続（ユーザー判断）。
+  - PMP ドメイン2: ECO の全 Task・全 Enabler を英文のまま転載（ECO は © PMI, All rights reserved）。
+    ドメイン1 / 3 は Enabler を日本語で要約した表のため公開継続（ユーザー判断）。
+  - High Output Management / 人月の神話 / Debugging Teams: 原著の章順を追う網羅的要約
+    （Debugging Teams は見合わせ中の Team Geek の改訂第 2 版）。
+- **法的表示の是正**（`tests/legal-notices.test.ts` に 4 契約を追加）:
+  - 許諾の確認できない複製物へのリンクを全ページで禁止（PRINCE2 7 公式マニュアルの透かし入りコピー
+    〔scribd〕、MSP 5th edition〔zoboko〕、Internet Archive の貸出ページ）。公式マニュアルは書誌のみ残す。
+  - 問題集系サイトの名称を出典に残さない。SPS の出題比率（約20% / 約80%）は唯一の出典が
+    Scrum-Exams.info だったため記述ごと削除し、「Scrum.org は出題比率を公表していない」事実のみ残した。
+    MSP のソース欄で出典が問題集系サイトだけのもの 3 箇所は欄ごと削除。
+  - 公開ページは書籍要約サービス（Shortform / readingraphics 等）を出典にしない。唯一の出典だった
+    The Lean Startup / The First 90 Days は原著の書誌（リンクなし）に置き換え。
+  - 「公式〜準拠」の表示 29 箇所を「〜に基づく非公式ガイド」等へ変更（タイトル・ヒーロー）。
+- **正当な差分の記録**: 上記の削除・置換はローカルの archive 原本 HTML（`.gitignore` 対象）にも同一修正を適用。
+  `audit:cal2` / `debugging-teams` / `lead` / `ppdv` / `sps` / `first-60-days` は exit 0。
+  `audit:prince2-7` の既存の不一致（リスト 2・表行 2・段落 3・callout 1）は変更前と同一。
+  `.md` 原本は未修正（情報提供扱い）。
+- **e2e**: 本番相当の `dist` に見合わせ中 29 本と `/certifications/peoplecert` が生成されず、sitemap にも出ないことを確認。
+  `e2e/prince2-practitioner.spec.ts` は見合わせ中のため skip（再公開で自動復帰）。dev サーバーでは
+  見合わせ中ページ・PeopleCert ハブが 200 で表示されることを確認。
+- **未対応（ユーザー判断待ち）**: GitHub リポジトリは公開設定のままで、見合わせ中ページの本文
+  （`app/pages/*.vue`）と過去の原本は履歴を含め GitHub 上で閲覧できる。問い合わせ窓口は設けない（ユーザー判断）。

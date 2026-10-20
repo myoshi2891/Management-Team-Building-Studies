@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-最終更新: 2026-10-17
+最終更新: 2026-10-20
 
 このリポジトリで作業する AI エージェント向けの規約。応答・コメント・ドキュメントは**日本語**。
 
@@ -98,9 +98,12 @@ app/utils/mermaid-loader.ts        import("mermaid") の singleton 化
 > 欠落する（dev サーバーでは再現しない）。
 >
 > **公開を見合わせるガイドは `UNPUBLISHED_GUIDE_ROUTES`（同ファイル）に登録する。**
-> `GUIDES` は `ALL_GUIDES` からこの一覧を除いて導出され、`nuxt.config.ts` の `pages:extend` が
-> ルートごと除去する（直接アクセス・静的生成・sitemap にも出ない）。再公開は一覧から外すだけでよい。
-> 現在の 8 本は著作権上の懸念による見合わせ（理由は `docs/PROGRESS.md` §83）。
+> 本番（build / generate）では `GUIDES` が `ALL_GUIDES` からこの一覧を除いて導出され、
+> `nuxt.config.ts` のインラインモジュール（`pages:extend`）がルートごと除去する
+> （直接アクセス・静的生成・sitemap にも出ない）。**dev サーバーでは確認用に全件を表示する**
+> （`import.meta.dev` で切り替え。Vitest は本番と同じ公開分で動く）。再公開は一覧から外すだけでよい。
+> 全ガイドが見合わせ中のプログラム（現在は PeopleCert）は `LISTED_PROGRAMS` から外れ、ハブも出ない。
+> 現在の 29 本は著作権・権利者のライセンス方針による見合わせ（理由は `docs/PROGRESS.md` §83 / §91）。
 >
 > 固定ヘッダーの高さは `--global-nav-height`（`app/assets/css/main.css`）が SSoT。
 > sticky なサイドバー・TOC・見出しアンカーは必ずこの変数で退避させる（数値の直書き禁止）。
