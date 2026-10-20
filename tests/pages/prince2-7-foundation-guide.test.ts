@@ -109,8 +109,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://www.peoplecert.org/browse-certifications/project-programme-and-portfolio-management/PRINCE2-2/PRINCE2-7-foundation-3579",
   "https://www.projex.com/processes-and-practices-in-prince2-7-project-management",
   "https://www.projex.com/processes-and-practices-in-prince2-7-project-management",
-  "https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked",
-  "https://www.scribd.com/document/799374849/Managing-Successful-Projects-With-PRINCE2-7-Watermarked",
   "https://www.spoclearn.com/blog/prince2-7-roles-responsibilities",
   "https://www.spoclearn.com/blog/prince2-7-roles-responsibilities",
   "https://www.whatisprince2.net/principles",
@@ -451,7 +449,8 @@ describe("pages/prince2-7-foundation-guide.vue (固有契約)", () => {
     const wrapper = mountPage();
     const ref = wrapper
       .findAll(".ref-list li")
-      .find((li) => li.find("a").attributes("href") === "https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/");
+      // 公式マニュアルの行はリンクを持たない（書誌のみ）ため、リンクの有無から確かめる。
+      .find((li) => li.find("a").exists() && li.get("a").attributes("href") === "https://prince2.wiki/principles/define-roles-responsibilities-and-relationships/");
     expect(ref?.find(".ref-name").text()).toBe("原則③ — Define roles, responsibilities and relationships(prince2.wiki)");
   });
 });

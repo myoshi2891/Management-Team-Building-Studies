@@ -123,7 +123,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://hazardous.org/archive/blog/reading/2022/01/03/Debugging-Teams",
   "https://modeling-languages.com/debugging-teams-geek-book/",
   "https://blog.audio-tk.com/2016/07/12/book-review-team-geek/",
-  "https://archive.org/details/debuggingteams0000fitz",
   "https://www.goodreads.com/book/show/26544401-debugging-teams",
 ] as const;
 

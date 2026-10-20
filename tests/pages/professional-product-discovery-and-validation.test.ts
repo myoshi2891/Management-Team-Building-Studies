@@ -109,7 +109,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://jeffgothelf.com/blog/the-truth-curve/",
   "https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing",
   "https://www.jpattonassociates.com/story-mapping/",
-  "https://www.shortform.com/blog/concierge-mvp/",
   "https://www.strategyzer.com/library/validate-your-ideas-with-the-test-card",
   "https://www.strategyzer.com/library/capture-customer-insights-and-actions-with-the-learning-card",
   "https://assets.strategyzer.com/assets/resources/the-test-card.pdf",

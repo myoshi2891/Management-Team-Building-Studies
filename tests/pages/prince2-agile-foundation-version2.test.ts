@@ -186,7 +186,7 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: ["PRINCE2", "Agile", "Foundation"],
-  seoTitle: "PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCert公式シラバス準拠",
+  seoTitle: "PRINCE2 Agile Foundation (Version 2) 学習ガイド | PeopleCertシラバスに基づく非公式ガイド",
   seoDescription: "PeopleCert PRINCE2 Agile Foundation (Version 2) 試験の出題範囲を、初学者向けにステップバイステップで解説する学習ガイド。7原則・7テーマ・7プロセスのアジャイル適用、Agilometer、MoSCoWなどをMermaid図解付きで網羅。",
   allowedHeadingSkips: ["h2 -> h4"],
 });

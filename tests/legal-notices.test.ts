@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { GUIDES, type GuideProgramId } from "~/utils/guide-catalog";
+import { ALL_GUIDES, GUIDES, type GuideProgramId } from "~/utils/guide-catalog";
 
 /*
  * 公開ページの法的表示の契約（2026-10 の公開前監査で是正した内容の回帰防止）。
@@ -9,6 +9,9 @@ import { GUIDES, type GuideProgramId } from "~/utils/guide-catalog";
  * 商標・著作権・ライセンス表示の誤りは、型検査・lint・原本照合監査のいずれでも検知できない
  * （原本照合監査は「原本にあってページに無いもの」しか見ず、原本自体の誤りは素通しする）。
  * したがって公開中ページ（GUIDES）のソースを走査して固定する。
+ *
+ * リポジトリ自体が公開されているため、本番で見合わせ中のページも GitHub 上では閲覧できる。
+ * 侵害への誘導や問題集系サイトへの依存のように「置いた時点で問題になる」ものは全ページ（ALL）を走査する。
  */
 
 const PAGES_DIR = join(import.meta.dirname, "..", "app", "pages");
@@ -25,6 +28,7 @@ function footerOf(source: string): string {
 }
 
 const PUBLISHED = GUIDES.map((guide) => ({ route: guide.to, source: readPage(guide.to) }));
+const ALL = ALL_GUIDES.map((guide) => ({ route: guide.to, source: readPage(guide.to) }));
 
 /**
  * 事実と異なる、または権利者を誤る表示。
@@ -60,6 +64,29 @@ const EXAM_DUMP_DOMAINS = [
   "prepforscrum.com",
   "certshero.com",
 ] as const;
+
+/**
+ * 権利者の許諾が確認できない複製物の置き場（侵害コンテンツへの誘導は著作権法 113 条 2 項のみなし侵害になりうる）。
+ * - scribd.com: 公式マニュアルの透かし入りコピーが掲載されていた
+ * - zoboko.com: 公式マニュアルの電子書籍を掲載していた
+ * - archive.org/details/: 電子貸出の書籍ページ（Hachette v. Internet Archive で貸出が違法と判断された）
+ */
+const UNAUTHORIZED_COPY_HOSTS = ["scribd.com", "zoboko.com", "archive.org/details/"] as const;
+
+/**
+ * 試験問題の流出を扱う、または扱うと見なされうるサイトの名称。リンクを外しても名称を出典に残すと、
+ * そのサイトへの依存と受験規約（NDA）違反の助長を示すことになる。
+ */
+const EXAM_DUMP_NAMES = ["Open Exam Prep", "Passitexams", "Scrum-Exams"] as const;
+
+/** 書籍の要約サービス。公開ページは原著・著者本人・独立した書評を出典にする。 */
+const SUMMARY_SERVICE_HOSTS = ["shortform.com", "readingraphics.com", "blinkist.com", "getabstract.com", "bookey.app"] as const;
+
+/**
+ * 認定団体の「公式」に準拠した教材であるかのような表示（提携・承認の誤認を招く）。
+ * 「〜に基づく非公式ガイド」のように書く。出典の説明（「公式サイトの記載に基づく。」「〜に準拠しています」）は対象外。
+ */
+const OFFICIAL_ENDORSEMENT_CLAIM = /(?<!非)公式[^<>"。、]{0,40}?(?:準拠(?!し)|に基づく(?:学習ガイド|解説|学習リソース)|に沿った学習ガイド)/g;
 
 /**
  * CC BY-SA 4.0 の文書（Scrum Guide / Kanban Guide for Scrum Teams / EBM Guide）を
@@ -98,9 +125,41 @@ describe("公開ページの法的表示", () => {
     expect(hits).toEqual([]);
   });
 
-  it("試験問題の流出を扱うサイトへリンクしない", () => {
-    const hits = PUBLISHED.flatMap(({ route, source }) =>
+  it("試験問題の流出を扱うサイトへリンクしない（見合わせ中のページを含む）", () => {
+    const hits = ALL.flatMap(({ route, source }) =>
       EXAM_DUMP_DOMAINS.filter((domain) => source.includes(domain)).map((domain) => `${route}: ${domain}`),
+    );
+
+    expect(hits).toEqual([]);
+  });
+
+  it("権利者の許諾が確認できない複製物へリンクしない（見合わせ中のページを含む）", () => {
+    const hits = ALL.flatMap(({ route, source }) =>
+      UNAUTHORIZED_COPY_HOSTS.filter((host) => source.includes(host)).map((host) => `${route}: ${host}`),
+    );
+
+    expect(hits).toEqual([]);
+  });
+
+  it("試験問題の流出を扱うサイトの名称を出典に残さない（見合わせ中のページを含む）", () => {
+    const hits = ALL.flatMap(({ route, source }) =>
+      EXAM_DUMP_NAMES.filter((name) => source.includes(name)).map((name) => `${route}: ${name}`),
+    );
+
+    expect(hits).toEqual([]);
+  });
+
+  it("公開ページは書籍の要約サービスを出典にしない", () => {
+    const hits = PUBLISHED.flatMap(({ route, source }) =>
+      SUMMARY_SERVICE_HOSTS.filter((host) => source.includes(host)).map((host) => `${route}: ${host}`),
+    );
+
+    expect(hits).toEqual([]);
+  });
+
+  it("認定団体の公式に準拠した教材であるかのように表示しない（見合わせ中のページを含む）", () => {
+    const hits = ALL.flatMap(({ route, source }) =>
+      [...source.matchAll(OFFICIAL_ENDORSEMENT_CLAIM)].map((match) => `${route}: ${match[0]}`),
     );
 
     expect(hits).toEqual([]);
@@ -142,4 +201,24 @@ it.each(["PRINCE2® is a registered trademark of PeopleCert group.",
 
 it.each(["PeopleCert group", "registered trade", "mark only"])("商標表示でない文言を認めない: %s", notice => {
   expect(TRADEMARK_NOTICE.test(notice)).toBe(false);
+});
+
+it.each([
+  "PMI公式ECO 2026年7月改訂版 準拠",
+  "Scrum Alliance公式Learning Objectives準拠",
+  "PeopleCert公式資格 準拠ガイド",
+  "PeopleCert公式シラバスに基づく学習ガイド",
+  "Scrum.org公式情報に基づく学習リソース",
+  "PeopleCert 公式シラバス v2.0 に沿った学習ガイド",
+])("公式準拠をうたう表示を検出する: %s", (claim) => {
+  expect([...claim.matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toHaveLength(1);
+});
+
+it.each([
+  "PMI ECO 2026年7月改訂版に基づく非公式ガイド",
+  "PeopleCert シラバス v2.0 に沿った非公式学習ガイド",
+  "特に配点・シラバス構造・用語定義は [1] [2] の公式情報に準拠しています。",
+  "PeopleCert公式サイトの記載に基づく)。",
+])("出典の説明や非公式の明記は検出しない: %s", (text) => {
+  expect([...text.matchAll(OFFICIAL_ENDORSEMENT_CLAIM)]).toEqual([]);
 });

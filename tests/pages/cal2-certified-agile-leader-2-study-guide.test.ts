@@ -198,7 +198,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://umbrex.com/resources/frameworks/organization-frameworks/hersey-blanchard-situational-leadership-model/",
   "https://resources.blanchard.com/blanchard-leaderchat/a-situational-approach-to-effective-leadership",
   "https://evansamek.substack.com/p/crucial-conversations-by-grenny-patterson",
-  "https://readingraphics.com/book-summary-crucial-conversations/",
   "https://www.radicalcandor.com/our-approach",
   "https://kimmalonescott.medium.com/what-is-radical-candor-learn-the-basic-principles-in-6-minutes-50391b3ad76a",
   "https://www.mindtools.com/av8ceid/bains-rapid-framework/",

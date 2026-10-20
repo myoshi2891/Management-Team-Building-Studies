@@ -135,7 +135,6 @@ const EXPECTED_EXTERNAL_URLS = [
   "https://skamille.medium.com/following-the-managers-path-50e184cde1ff",
   "https://www.juliezhuo.com/book/manager.html",
   "https://thefutureorganization.com/becoming-a-manager-what-to-do-when-everyone-looks-to-you/",
-  "https://readingraphics.com/book-summary-the-first-90-days/",
   "https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness",
   "https://www.patkua.com/blog/project-aristotle/",
   "https://www.crackingtheeminterview.com/p/your-first-90-days-as-an-engineering",

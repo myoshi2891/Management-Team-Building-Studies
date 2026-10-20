@@ -287,14 +287,14 @@ class GOV hub;`,
 ] as const;
 
 const EXPECTED_CALLOUT_VARIANTS: Readonly<Record<string, number>> = {
-  source: 16,
+  source: 14,
   practice: 15,
   note: 1,
 };
 
 const EXPECTED_CALLOUT_LABELS: Readonly<Record<string, Readonly<Record<string, number>>>> = {
   source: {
-    ソース: 16,
+    ソース: 14,
   },
   practice: {
     ベストプラクティス: 14,
