@@ -309,23 +309,68 @@ class Del1,Del2,Del3 box;`;
         </div>
         <h2>このガイドの読み方</h2>
 
-        <p>PPDV認定試験は、プロダクトの「発見(Discovery)」と「検証(Validation)」に関する知識と、それをいつ・どのように使うべきかの判断力を問う試験です。単なる用語暗記ではなく、「この状況ではどの手法を選ぶべきか」を問われる問題が中心になります。</p>
+        <p class="guide-intro-lead">PPDV認定試験は、プロダクトの「発見(Discovery)」と「検証(Validation)」に関する知識と、それをいつ・どのように使うべきかの判断力を問う試験です。単なる用語暗記ではなく、「この状況ではどの手法を選ぶべきか」を問われる問題が中心になります。</p>
 
-        <p>このガイドは以下の構成で進みます。</p>
+        <p class="guide-roadmap-caption">このガイドは以下の構成で進みます。</p>
 
-        <ol>
-          <li>第1章: 試験の全体像(形式・対象者・学習目標)</li>
-          <li>第2章: PPDVの土台となる考え方「ダブルダイヤモンド」</li>
-          <li>第3章: 問題 vs ソリューション(課題の定式化)</li>
-          <li>第4章: Discovery(発見)技法群</li>
-          <li>第5章: Validation(検証)技法群</li>
-          <li>第6章: Scrumチームでの実践への統合</li>
-          <li>第7章: よくある誤解・アンチパターン</li>
-          <li>第8章: 試験対策の進め方</li>
-          <li>参考文献・ソース一覧</li>
+        <ol class="guide-chapter-grid">
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:certificate" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#ppdv-overview">第1章: 試験の全体像(形式・対象者・学習目標)</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:route" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#double-diamond">第2章: PPDVの土台となる考え方「ダブルダイヤモンド」</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:clipboard-text" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#problem-vs-solution">第3章: 問題 vs ソリューション(課題の定式化)</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:search" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#discovery-techniques">第4章: Discovery(発見)技法群</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:flask" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#validation-techniques">第5章: Validation(検証)技法群</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:git-branch" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#scrum-integration">第6章: Scrumチームでの実践への統合</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:alert-triangle" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#myths-antipatterns">第7章: よくある誤解・アンチパターン</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:clipboard-check" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#exam-prep">第8章: 試験対策の進め方</a>
+          </li>
+          <li class="guide-chapter-card">
+            <div class="chapter-card-icon" aria-hidden="true">
+              <Icon name="tabler:link" aria-hidden="true" />
+            </div>
+            <a class="chapter-card-link" href="#references">参考文献・ソース一覧</a>
+          </li>
         </ol>
 
-        <p>各章の末尾に<strong>ベストプラクティス</strong>と<strong>ソース</strong>を明記しているので、根拠を辿りながら学習してください。</p>
+        <p class="guide-outro-banner">各章の末尾に<strong>ベストプラクティス</strong>と<strong>ソース</strong>を明記しているので、根拠を辿りながら学習してください。</p>
       </section>
 
       <!-- SECTION 02: Chapter 1 Overview -->
@@ -1445,6 +1490,100 @@ ul {
 li {
   margin: 8px 0;
   line-height: 1.7;
+}
+
+/* SECTION 01: このガイドの読み方 */
+.guide-intro-lead {
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-indigo);
+  border-radius: 10px;
+  padding: 18px 22px;
+  margin: 16px 0 22px;
+  color: var(--color-ink);
+  line-height: 1.8;
+}
+
+.guide-roadmap-caption {
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--color-ink-soft);
+  margin: 20px 0 12px;
+}
+
+.guide-chapter-grid {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.guide-chapter-card {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--color-paper-raised);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.guide-chapter-card:hover {
+  border-color: var(--color-indigo);
+  box-shadow: 0 3px 12px rgba(46, 63, 114, 0.08);
+  transform: translateY(-1px);
+}
+
+.chapter-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--color-indigo-tint);
+  color: var(--color-indigo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.chapter-card-icon :deep(.iconify),
+.chapter-card-icon :deep(svg) {
+  font-size: 19px;
+}
+
+.chapter-card-link {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-ink);
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.chapter-card-link:hover {
+  color: var(--color-indigo);
+  text-decoration: none;
+}
+
+.guide-outro-banner {
+  background: var(--color-gold-tint);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-gold);
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin: 20px 0 0;
+  color: var(--color-ink);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.guide-outro-banner strong {
+  color: var(--color-gold);
 }
 
 /* テーブル */
