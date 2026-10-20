@@ -9,7 +9,7 @@
 
 | フィールド | 値 |
 |---|---|
-| コードコミット HEAD | `4d0f326` — fix(pages): add trademark attribution to footer and update kind hub guide count（本ファイルより前のコード側コミット） |
+| コードコミット HEAD | `5bb5463` — style(pages): expand main-content to full screen width for ppdv guide（本ファイルより前のコード側コミット） |
 | 次の作業 | Netlify 公開（netlify.toml 追加済み。§83）→ 公開見合わせ中8本の改稿 → 保守・新規ガイド追加。PPDV (Professional Product Discovery and Validation) の移行完了（§90）。 |
 | ビルド状態 | 2026-10-20: `npm run test` ✔ 2292件全件成功（101ファイル）/ `npm run audit:ppdv` ✔ exit 0 / build・generate・静的生成E2Eはユーザー指定により未実施 / 目視確認はユーザー担当 |
 | テスト数 | **2292 passed / 0 failed**（101ファイル）— 最新のユニットテスト基準値。新ページの全文・構造・図解・共通契約24件を含む。 |
@@ -1605,3 +1605,4 @@ Management-Team-Building-Studies: PRINCE2 Practitioner のNuxt移行・原本ア
   - `Professional-Product-Discovery-and-Validation.html`: `47e4e113b6f9a8be3eaef3cdd92649da83f2ff832dcf5e1f70949811b37456a9`
   - `Professional-Product-Discovery-and-Validation.md`: `bad4996bd2e11940352a6d5e235ebb0f2429ea3172838483e3dbb82af867490d`
 - **法的表示**: フッターに Scrum.org 商標帰属文言を追加（`tests/legal-notices.test.ts` パス）。
+- **メインコンテンツ全幅化**: ユーザー指示に基づき、`.main-content` の `max-width` 制限を解除（`max-width: none;`、`padding: 48px 64px 96px;`）し、画面横幅いっぱいにコンテンツが広がるレイアウトを適用。
