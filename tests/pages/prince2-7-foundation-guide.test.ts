@@ -335,7 +335,7 @@ defineSourceParityContract({
   calloutLabels: EXPECTED_CALLOUT_LABELS,
   stepTags: EXPECTED_STEP_TAGS,
   seoTitleFragments: ["PRINCE2", "Foundation", "Version 7"],
-  seoTitle: "PRINCE2® Project Management Foundation (Version 7) 完全ガイド | PeopleCert公式資格対応",
+  seoTitle: "PRINCE2® Project Management Foundation (Version 7) 完全ガイド | 非公式学習ガイド",
   seoDescription:
     "PeopleCert PRINCE2 Project Management Foundation (Version 7) の出題範囲を、7つの原則・7つのプラクティス・7つのプロセス・役割と責任・People・デジタル&データマネジメント・サステナビリティまで初学者向けに解説する学習ガイド。",
   allowedHeadingSkips: ["h2 -> h4"],
