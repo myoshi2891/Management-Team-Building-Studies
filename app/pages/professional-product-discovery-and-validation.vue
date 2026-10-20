@@ -458,6 +458,199 @@ class Del1,Del2,Del3 box;`;
           </ul>
         </div>
       </section>
+
+      <!-- SECTION 04: Chapter 3 Problem vs Solution -->
+      <section id="problem-vs-solution">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:clipboard-text" aria-hidden="true" />SECTION 04
+        </div>
+        <h2>第3章: 問題 vs ソリューション(Problem vs Solution)</h2>
+
+        <p>ダブルダイヤモンドの最初の「問題空間」に対応する領域です。多くのプロダクトチームは、ユーザーの本当の課題を確認する前に解決策(機能)の話を始めてしまいます。PPDVはまずこの順序を正すところから始まります。</p>
+
+        <h3>3.1 問題・ニーズの定式化</h3>
+        <p>「なぜこの機能が必要か」を、特定のソリューションを前提とせずに言語化する練習です。ソリューションから入ると、チームは代替案を検討する視野を失い、その機能に固執してしまいます。「問題を解く」というフレームに立ち戻ることで、チームの創造性とオーナーシップを引き出せます(第1章で見た公式学習目標4に対応)。</p>
+
+        <h3>3.2 ビジネス問題ステートメント(Business Problem Statement)</h3>
+        <p>課題を関係者間で共有可能な形に整理するためのテンプレートです。一般的には以下の要素を含みます。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>記述内容の例</th></tr></thead>
+            <tbody>
+              <tr><td>現状(Current State)</td><td>今、何が起きているか。誰が、どのような状況に置かれているか</td></tr>
+              <tr><td>望ましい状態(Desired State)</td><td>本来どうあるべきか。理想の状態は何か</td></tr>
+              <tr><td>ギャップの影響(Impact / Gap)</td><td>現状と理想の差が放置された場合、誰に・どんな悪影響があるか</td></tr>
+              <tr><td>影響を受ける対象(Who is affected)</td><td>どのユーザー・顧客セグメントが対象か</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>このテンプレートを埋めることで、チームは「なぜ取り組む価値があるのか」を、特定の解決策を仮定せずに説明できるようになります。</p>
+
+        <h3>3.3 感情・印象から測定可能な事実へ</h3>
+        <p>ステークホルダーの意見や個人の印象(「〜だと思う」「〜な気がする」)だけで優先順位を決めるのではなく、それらを検証可能な仮説に変換し、データや観察に基づく事実へ置き換えていくプロセスです。第5章で扱う仮説・実験の技法は、まさにこの「印象→事実」への変換を支える道具になります。</p>
+
+        <div class="callout practice" data-testid="callout" data-variant="practice">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:bulb" aria-hidden="true" />ベストプラクティス
+          </div>
+          <ul>
+            <li>要求(Requirement)や機能アイデアが出てきたら、まず「これはどんな問題を解決しようとしているのか」を1文で書き出す習慣をつける</li>
+            <li>ビジネス問題ステートメントは「現状」「理想」「影響」「対象者」の4点を関係者全員で合意してから次のフェーズ(Discovery)に進む</li>
+            <li>ステークホルダーの意見は「仮説」として扱い、「事実」として扱わない。意見は検証対象のインプットであり、結論ではない</li>
+          </ul>
+        </div>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDVコース公式トピック一覧(Problem vs Solution章の構成、ScrumDojo.cz)</a></li>
+            <li><a href="https://www.scrum.org/courses/professional-product-discovery-and-validation-training" target="_blank" rel="noopener">Professional Product Discovery and Validation™ Training(学習目標「タスクではなく問題として仕事を再定義する」、Scrum.org公式)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 05: Chapter 4 Discovery Techniques -->
+      <section id="discovery-techniques">
+        <div class="section-eyebrow" data-testid="section-eyebrow">
+          <Icon name="tabler:search" aria-hidden="true" />SECTION 05
+        </div>
+        <h2>第4章: Discovery(発見)技法</h2>
+
+        <p>ダブルダイヤモンドの「Discover→Define」に対応する技法群です。ユーザー・顧客の実像を把握し、取り組むべき課題を絞り込むための道具を扱います。</p>
+
+        <h3>4.1 Proto Persona(プロトペルソナ)vs Persona(ペルソナ)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>プロトペルソナ</th><th>ペルソナ</th></tr></thead>
+            <tbody>
+              <tr><td>情報源</td><td>チーム内の仮説・経験・推測</td><td>実際のユーザーインタビューやリサーチデータ</td></tr>
+              <tr><td>作成タイミング</td><td>Discoveryの初期段階、リサーチ着手前</td><td>リサーチを行い、パターンを検証した後</td></tr>
+              <tr><td>目的</td><td>チームの前提を可視化し、リサーチで確認すべき仮説を洗い出す</td><td>検証済みのユーザー理解をチーム・組織で共有する</td></tr>
+              <tr><td>精度・信頼度</td><td>低い(あくまで仮説)</td><td>高い(エビデンスに基づく)</td></tr>
+              <tr><td>更新の仕方</td><td>リサーチ結果をもとに随時修正・破棄される前提</td><td>継続的なリサーチで裏付けを補強していく</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>ベストプラクティス</strong>: プロトペルソナは「完成品」ではなく「検証すべき仮説の一覧」として扱う。プロトペルソナのまま意思決定の根拠にしてしまうことが、Discoveryにおける典型的な落とし穴。</p>
+
+        <h3>4.2 Customer Journey Map vs User Story Map</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>観点</th><th>Customer Journey Map</th><th>User Story Map</th></tr></thead>
+            <tbody>
+              <tr><td>焦点</td><td>顧客の体験・感情・行動の時系列変化</td><td>プロダクトの機能・ユーザーストーリーの構造</td></tr>
+              <tr><td>視点</td><td>顧客視点(顧客が何を経験するか)</td><td>プロダクトチーム視点(何を作るか)</td></tr>
+              <tr><td>主な用途</td><td>ペインポイントや機会をDiscoveryで発見する</td><td>バックログを整理し、リリース計画を立てる(Delivery寄り)</td></tr>
+              <tr><td>提唱者・出典</td><td>サービスデザイン領域で発展した手法</td><td>Jeff Patton(『User Story Mapping』)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>顧客ジャーニーマップの例をMermaidの<code>journey</code>図で示します(値は説明用の相対スコアです)。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_JOURNEY_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">新規ユーザーのオンボーディング体験の例(Customer Journey Map)</div>
+        </div>
+
+        <p><strong>ベストプラクティス</strong>: Customer Journey MapはDiscovery(課題発見)、User Story MapはDelivery(実装計画)という役割分担を意識し、両者を混同しない。ジャーニーマップで見つけたペインポイントを、ストーリーマップ上のどこに位置づけるかを紐づけると、発見から実装への橋渡しがしやすくなる。</p>
+
+        <h3>4.3 Impact Map(インパクトマップ)</h3>
+        <p>Impact Mappingは、Gojko Adzicが2012年に著書『Impact Mapping: Making a Big Impact with Software Products and Projects』で提唱した戦略立案技法です。ビジネスゴールと、それを実現するための手段との関係を可視化するマインドマップ型のツールで、次の4つの問いに沿って構造化されます。</p>
+        <ul>
+          <li><strong>Why(なぜ)</strong>: 達成したいビジネスゴールは何か(マップの中心)</li>
+          <li><strong>Who(誰が)</strong>: そのゴールに影響を与えられるアクター(顧客、ユーザー、内部関係者など)は誰か</li>
+          <li><strong>How(どのように)</strong>: そのアクターにどのような行動変化(インパクト)を起こしてほしいか</li>
+          <li><strong>What(何を)</strong>: そのインパクトを引き起こすために、チームは何を提供・実装するか</li>
+        </ul>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_IMPACT_MAP" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">Impact Mapの構造: Why → Who → How → What</div>
+        </div>
+
+        <p><strong>ベストプラクティス</strong>: 「What(機能一覧)」から作り始めない。必ず「Why(ゴール)」を最初に固定し、Who→How→Whatの順に発想することで、機能が本当にゴールに貢献しているかを常に説明できる状態を保つ。</p>
+
+        <h3>4.4 Empathy Map(エンパシーマップ)</h3>
+        <p>Empathy Mapは、デザインコンサルティング会社XPLANEのDave Grayが考案し、2010年の書籍『Gamestorming』(Dave Gray, Sunni Brown, James Macanufo 著)で広く知られるようになったツールです。ユーザーへの理解を、次の4象限(拡張版では6区分)に整理します。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>象限</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>Says(言う)</td><td>ユーザーが実際にインタビュー等で発言したこと</td></tr>
+              <tr><td>Thinks(思う)</td><td>発言はしないが、心の中で考えていると推測されること</td></tr>
+              <tr><td>Does(行う)</td><td>ユーザーが実際に取る行動</td></tr>
+              <tr><td>Feels(感じる)</td><td>ユーザーの感情状態</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>拡張版(Pains / Gains を追加した6区分)は、次章のValue Proposition Canvasの「Customer Profile」と対応関係にあります。</p>
+        <p><strong>ベストプラクティス</strong>: Empathy Mapは実際のユーザーリサーチ(インタビュー・観察)の結果を整理するために使う。リサーチなしにチームの想像だけで埋めると、プロトペルソナと同様「未検証の仮説」に過ぎないことを忘れない。</p>
+
+        <h3>4.5 Value Proposition Canvas(バリュー・プロポジション・キャンバス)</h3>
+        <p>Alexander OsterwalderとYves Pigneurが2014年の著書『Value Proposition Design』で発表したツールで、Strategyzer社によって維持・提供されています。Business Model Canvasの「顧客セグメント」と「価値提案」の2ブロックを深掘りするための拡張ツールという位置づけです。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>サイド</th><th>構成要素</th><th>説明</th></tr></thead>
+            <tbody>
+              <tr><td>Customer Profile(顧客プロファイル)</td><td>Customer Jobs</td><td>顧客が片付けたい機能的・感情的・社会的な「ジョブ」</td></tr>
+              <tr><td></td><td>Pains(痛み)</td><td>ジョブを遂行する上での障害・リスク・不満</td></tr>
+              <tr><td></td><td>Gains(利得)</td><td>ジョブを遂行する上で顧客が期待する成果・メリット</td></tr>
+              <tr><td>Value Map(価値マップ)</td><td>Products &amp; Services</td><td>提供するプロダクト・サービス</td></tr>
+              <tr><td></td><td>Pain Relievers</td><td>Painsをどう和らげるか</td></tr>
+              <tr><td></td><td>Gain Creators</td><td>Gainsをどう生み出すか</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>両サイドが噛み合っている状態を「フィット(Fit)」と呼び、これはいわゆる「Problem-Solution Fit」の考え方に対応します(第5.7節で詳述)。</p>
+        <p><strong>ベストプラクティス</strong>: 1枚のキャンバスは必ず単一の顧客セグメントに絞って作成する。複数セグメントを1枚に混在させることと、記憶だけで(顧客インタビューなしで)埋めてしまうことが、最もよくある失敗パターンとされている。</p>
+
+        <h3>4.6 Curve of Truth(Truth Curve / 真実の曲線)</h3>
+        <p>Giff Constableが著書『Talking to Humans』で提唱した概念で、Jeff Gothelfらプロダクトコミュニティによって広く紹介されています。実験にかける労力(横軸: Effort / Fidelity)と、そこから得られる学びの信頼度(縦軸: Confidence / Truth)の関係を表す考え方です。</p>
+        <p>労力の低い実験から高い実験まで、代表的な手法を並べると次のような順序になります。</p>
+
+        <div class="mermaid-wrap">
+          <ClientOnly>
+            <MermaidDiagram :chart="DIAGRAM_TRUTH_CURVE" theme="base" :theme-variables="LIGHT_THEME_VARS" />
+          </ClientOnly>
+          <div class="diagram-caption">Curve of Truth: 労力の低い実験から高い実験への順序</div>
+        </div>
+
+        <p>Curve of Truthの重要な示唆は、「労力をかけすぎても、かけなさすぎても失敗する」という点です。エビデンスに対して投資が過少だと根拠のないまま構築するリスクを負い、逆にエビデンスに対して投資が過大だと、学習の機会を逃したり分析麻痺(Analysis Paralysis)に陥ったりします。</p>
+        <p><strong>ベストプラクティス</strong>: 検証したい仮説の「不確実性の高さ」と「間違っていた場合のコストの大きさ」に応じて、曲線上のどのレベルの実験を選ぶかを意図的に決める。確信度が低い段階でいきなり高コストな実験(実製品の構築など)に飛びつかない。</p>
+
+        <h3>4.7 Jobs-to-be-Done(JTBD)によるセグメンテーション</h3>
+        <p>Clayton Christensenが『イノベーションのジレンマ』などで発展させた理論で、「顧客は製品を買うのではなく、特定の"ジョブ(片付けたい用事)"を片付けるために製品を"雇用(hire)"する」という考え方です。有名な事例として、ファストフードチェーンのミルクシェイクの売上向上を検討した調査があります。従来の年齢・性別などのデモグラフィック属性ではなく、「朝の通勤中に手持ち無沙汰を紛らわせながら小腹を満たす」という"ジョブ"の観点で購買者を分析したところ、製品改善の方向性(より濃く、より長く楽しめるシェイクにする)が明確になったという事例です。</p>
+        <p>JTBDによるセグメンテーションは、年齢・性別・職業などの属性ではなく「片付けたいジョブが同じかどうか」で顧客をグルーピングする点が従来のセグメンテーションとの違いです。</p>
+        <p><strong>ベストプラクティス</strong>: セグメンテーションの軸を「誰であるか(デモグラフィック)」ではなく「何を成し遂げたいか(ジョブ)」に置き換える。ユーザーインタビューでは「その状況で他に何を検討したか/しなかったか」を尋ねることで、真のジョブ(代替候補との比較軸)を掘り下げる。</p>
+
+        <div class="callout source" data-testid="callout" data-variant="source">
+          <div class="callout-title" data-testid="callout-label">
+            <Icon name="tabler:external-link" aria-hidden="true" />ソース
+          </div>
+          <ul>
+            <li><a href="https://gojko.net/books/impact-mapping/" target="_blank" rel="noopener">Impact Mapping(Gojko Adzic 公式サイト)</a></li>
+            <li><a href="https://openpracticelibrary.com/practice/impact-mapping/" target="_blank" rel="noopener">Impact Mapping 概説(Open Practice Library)</a></li>
+            <li><a href="https://xplane.com/the-empathy-map-a-human-centered-tool-for-understanding-how-your-audience-thinks/" target="_blank" rel="noopener">The Empathy Map: A Human-Centered Tool(XPLANE 公式ブログ、考案の経緯)</a></li>
+            <li><a href="https://www.strategyzer.com/library/value-proposition-design-book-summary" target="_blank" rel="noopener">Value Proposition Canvas Book Summary(Strategyzer 公式)</a></li>
+            <li><a href="https://jeffgothelf.com/blog/the-truth-curve/" target="_blank" rel="noopener">The Truth Curve(Jeff Gothelf 公式ブログ、Giff Constable『Talking to Humans』の紹介)</a></li>
+            <li><a href="https://www.library.hbs.edu/working-knowledge/clay-christensens-milkshake-marketing" target="_blank" rel="noopener">Jobs To Be Done / ミルクシェイクの事例(HBS Working Knowledge)</a></li>
+            <li><a href="https://www.jpattonassociates.com/story-mapping/" target="_blank" rel="noopener">User Story Mapping(Jeff Patton &amp; Associates 公式)</a></li>
+            <li><a href="https://scrumdojo.cz/en/courses/professional-product-discovery-and-validation" target="_blank" rel="noopener">PPDVコース公式トピック一覧(Discovery章の構成、ScrumDojo.cz)</a></li>
+          </ul>
+        </div>
+      </section>
     </main>
   </div>
 </template>
