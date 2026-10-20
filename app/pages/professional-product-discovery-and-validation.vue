@@ -605,11 +605,11 @@ class Del1,Del2,Del3 box;`;
             <thead><tr><th>サイド</th><th>構成要素</th><th>説明</th></tr></thead>
             <tbody>
               <tr><td>Customer Profile(顧客プロファイル)</td><td>Customer Jobs</td><td>顧客が片付けたい機能的・感情的・社会的な「ジョブ」</td></tr>
-              <tr><td></td><td>Pains(痛み)</td><td>ジョブを遂行する上での障害・リスク・不満</td></tr>
-              <tr><td></td><td>Gains(利得)</td><td>ジョブを遂行する上で顧客が期待する成果・メリット</td></tr>
+              <tr><td /><td>Pains(痛み)</td><td>ジョブを遂行する上での障害・リスク・不満</td></tr>
+              <tr><td /><td>Gains(利得)</td><td>ジョブを遂行する上で顧客が期待する成果・メリット</td></tr>
               <tr><td>Value Map(価値マップ)</td><td>Products &amp; Services</td><td>提供するプロダクト・サービス</td></tr>
-              <tr><td></td><td>Pain Relievers</td><td>Painsをどう和らげるか</td></tr>
-              <tr><td></td><td>Gain Creators</td><td>Gainsをどう生み出すか</td></tr>
+              <tr><td /><td>Pain Relievers</td><td>Painsをどう和らげるか</td></tr>
+              <tr><td /><td>Gain Creators</td><td>Gainsをどう生み出すか</td></tr>
             </tbody>
           </table>
         </div>
